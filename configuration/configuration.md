@@ -1,6 +1,6 @@
 # Configuration
 
-> Refer to the provided [example of config](#), where you can find the description of the application-specific parameters.
+> Refer to the provided [example of config](https://github.com/epam/ai-dial/blob/documentation/configuration/dialConfig.yaml), where you can find the description of the application-specific parameters.
 
 The `dialConfig.yaml` configuration file of the AI DIAL application is comprised of several main sections:
 
@@ -81,7 +81,7 @@ This file includes standard [Vertex library configurations](https://cloud.google
 
 To work with Azure, AWS or GCP models we use applications called Adapters. You can configure Adapters in the configuration file.
 
-> Refer to the provided [example of config](#) to view examples. 
+> Refer to the provided [example of config](https://github.com/epam/ai-dial/blob/886945021db2bb29a9813328b82a95dcf2d7edac/configuration/dialConfig.yaml#L263) to view examples. 
 
 ```yaml
   # Configuration of custom Adapters examples
