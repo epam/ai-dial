@@ -13,7 +13,7 @@ The `dialConfig.yaml` configuration file of the AI DIAL application is comprised
 
 ## Front-End Parameters
 
-Configure front-end parameters in the `env` and `secrets` sections of the config file:
+Configure front-end parameters in the [`env`](https://github.com/epam/ai-dial/blob/565d8ea42db96b364fdc5cd7dc8dd83b4da07a41/configuration/dialConfig.yaml#L18) and [`secrets`](https://github.com/epam/ai-dial/blob/565d8ea42db96b364fdc5cd7dc8dd83b4da07a41/configuration/dialConfig.yaml#L30) sections of the config file:
 
 |Parameter|Description|
 |---------|-----------|
@@ -38,7 +38,7 @@ Configure front-end parameters in the `env` and `secrets` sections of the config
 
 ## Back-End Parameters
 
-Configure back-end parameters in the `proxy` section of the config file.
+Configure back-end parameters in the [`proxy`](https://github.com/epam/ai-dial/blob/565d8ea42db96b364fdc5cd7dc8dd83b4da07a41/configuration/dialConfig.yaml#L74) section of the config file.
 
 You can provide dynamic or static configurations for the back-end. Provide path to the corresponding configuration in the `proxy.env` section.
 
@@ -67,6 +67,8 @@ This file includes standard [Vertex library configurations](https://cloud.google
 **Dynamic** settings are defined in the `proxy.config.json` file by default. You can override settings in this file by configuring static settings.
 
 ### proxy.config.json parameters
+
+> Refer to the [confuration file](https://github.com/epam/ai-dial/blob/565d8ea42db96b364fdc5cd7dc8dd83b4da07a41/configuration/dialConfig.yaml#L112) to view an example.
 
 |Parameter|Description|
 |---------|-----------|
