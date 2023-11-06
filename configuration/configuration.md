@@ -88,10 +88,11 @@ This file includes standard [Vertex library configurations](https://cloud.google
 
 To work with Azure, AWS or GCP models we use applications called Adapters. You can configure Adapters in the configuration file.
 
-> Refert to these repositories to view a complete docuemntation for: 
+Refer to these repositories to view a complete documentation for: 
+
 * [Adapter for Bedrock](https://github.com/epam/ai-dial-adapter-bedrock)
 * [Adapter for Vertex](https://github.com/epam/ai-dial-adapter-vertexai)
 * [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai)
 
-> Refer to the provided [example of config](https://github.com/epam/ai-dial/blob/886945021db2bb29a9813328b82a95dcf2d7edac/configuration/dialConfig.yaml#L263) to view examples. 
+> Refer to the provided [example of config](https://github.com/epam/ai-dial/blob/886945021db2bb29a9813328b82a95dcf2d7edac/configuration/dialConfig.yaml#L263) to view configuration examples. 
 
