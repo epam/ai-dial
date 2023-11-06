@@ -13,7 +13,7 @@ The `dialConfig.yaml` configuration file of the AI DIAL application is comprised
 
 ## Front-End Parameters
 
-> Refer to the [AI DIAL Chat]](https://github.com/epam/ai-dial-chat#environment-variables) to view a complete documentation.
+> Refer to the [AI DIAL Chat](https://github.com/epam/ai-dial-chat#environment-variables) to view a complete documentation.
 
 Configure front-end parameters in the [`env`](https://github.com/epam/ai-dial/blob/565d8ea42db96b364fdc5cd7dc8dd83b4da07a41/configuration/dialConfig.yaml#L18) and [`secrets`](https://github.com/epam/ai-dial/blob/565d8ea42db96b364fdc5cd7dc8dd83b4da07a41/configuration/dialConfig.yaml#L30) sections of the config file:
 
