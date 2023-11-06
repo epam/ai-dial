@@ -41,6 +41,8 @@ Configure front-end parameters in the [`env`](https://github.com/epam/ai-dial/bl
 
 ## Back-End Parameters
 
+> Refer to the [AI DIAL Core](https://github.com/epam/ai-dial-core) to view a complete documentation.
+
 Configure back-end parameters in the [`proxy`](https://github.com/epam/ai-dial/blob/565d8ea42db96b364fdc5cd7dc8dd83b4da07a41/configuration/dialConfig.yaml#L74) section of the config file.
 
 You can provide dynamic or static configurations for the back-end. Provide path to the corresponding configuration in the `proxy.env` section.
