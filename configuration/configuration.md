@@ -88,54 +88,10 @@ This file includes standard [Vertex library configurations](https://cloud.google
 
 To work with Azure, AWS or GCP models we use applications called Adapters. You can configure Adapters in the configuration file.
 
+> Refert to these repositories to view a complete docuemntation for: 
+* [Adapter for Bedrock](https://github.com/epam/ai-dial-adapter-bedrock)
+* [Adapter for Vertex](https://github.com/epam/ai-dial-adapter-vertexai)
+* [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai)
+
 > Refer to the provided [example of config](https://github.com/epam/ai-dial/blob/886945021db2bb29a9813328b82a95dcf2d7edac/configuration/dialConfig.yaml#L263) to view examples. 
 
-```yaml
-  # Configuration of custom Adapters examples
-  
-  bedrock: # Configuration of the Adapter for the Bedrock model
-    enabled: true
-
-    image:
-      tag: 0.5.1 # Docker image of the adapter
-
-    secrets:
-      AWS_ACCESS_KEY_ID: "" # Your AWS account credentials
-      AWS_SECRET_ACCESS_KEY: "" # Your AWS account credentials
-
-  vertex: # Configuration of the Adapter for the Vertex model
-    enabled: true
-
-    image:
-      tag: 1.0.2 # Docker image of the adapter
-
-    env:
-      GOOGLE_APPLICATION_CREDENTIALS: "/mnt/secrets-store/gcp-ai-proxy-key"
-      WEB_CONCURRENCY: "17"
-      GCP_PROJECT_ID: ""
-      ADAPTER_PROJECT_ID: AI-PROXY
-      DEFAULT_REGION: "us-central1"
-
-    secrets:
-      gcp-ai-proxy-key: |
-        <GCPKey in json format>
-
-    extraVolumes:
-      - name: key-file
-        secret:
-          secretName: '{{ template "dialAdapter.names.fullname" . }}'
-          items:
-            - key: gcp-ai-proxy-key
-              path: gcp-ai-proxy-key
-
-    extraVolumeMounts:
-      - name: key-file
-        mountPath: "/mnt/secrets-store"
-        readOnly: true
-
-  openai: # Configuration of the Adapter for the OpenAI model
-    enabled: true
-
-    image:
-      tag: 0.1.4 # Docker image of the adapter
-```
