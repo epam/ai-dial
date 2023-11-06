@@ -13,22 +13,25 @@ The `dialConfig.yaml` configuration file of the AI DIAL application is comprised
 
 ## Front-End Parameters
 
+> Refer to the [AI DIAL Chat]](https://github.com/epam/ai-dial-chat#environment-variables) to view a complete documentation.
+
 Configure front-end parameters in the [`env`](https://github.com/epam/ai-dial/blob/565d8ea42db96b364fdc5cd7dc8dd83b4da07a41/configuration/dialConfig.yaml#L18) and [`secrets`](https://github.com/epam/ai-dial/blob/565d8ea42db96b364fdc5cd7dc8dd83b4da07a41/configuration/dialConfig.yaml#L30) sections of the config file:
 
 |Parameter|Description|
 |---------|-----------|
 |NEXTAUTH_URL|Public URL of the application. When deploying to production, set the `NEXTAUTH_URL` environment variable to the canonical URL of your site.|
-|OPENAI_API_HOST|AI DIAL back-end URL.|
-|DEFAULT_MODEL|Default LLM.|
-|OPENAI_API_VERSION|Version of the OpenAI API.|
+|NEXTAUTH_SECRET|A random string used as a ceed for authentication. Used to encrypt the NextAuth.js JWT, and to hash email verification tokens.|
+|NEXT_PUBLIC_DEFAULT_TEMPERATURE|Default temperature settings in the range: [0 1]|
 |NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT|The default system prompt.|
+|NEXT_PUBLIC_APP_NAME | Public Application Name |
+|OPENAI_API_HOST|AI DIAL back-end URL.|
+|OPENAI_API_KEY|Open AI API Key.|
+|OPENAI_API_VERSION|Version of the OpenAI API.|
+|DEFAULT_MODEL|Default LLM.|
 |ENABLED_FEATURES|A list of UI features.|
 |NEXT_PUBLIC_APP_NAME|Application name.|
 |AVAILABLE_MODELS_USERS_LIMITATIONS|Specify models and users that have access to them. Skip to allow all users to access all models.|
 |AVAILABLE_ADDONS_USERS_LIMITATIONS|Specify Addons and users that have access to them. Skip to allow all users to access all Addons.|
-|NEXT_PUBLIC_DEFAULT_TEMPERATURE|Default temperature settings in the range: [0 1]|
-|NEXTAUTH_SECRET|A random string used as a ceed for authentication. Used to encrypt the NextAuth.js JWT, and to hash email verification tokens.|
-|OPENAI_API_KEY|Open AI API Key.|
 |CLIENT_ID|You client id at auth provider.|
 |TENANT_ID|You tenant id at auth provider.|
 |SECRET|You secret at auth provider.|
