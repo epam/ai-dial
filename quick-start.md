@@ -2,7 +2,7 @@
 
 In this tutorial, you will learn how to quickly launch AI DIAL Chat.
 
-> Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat) documentation to learn more.
+> Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat) documentation to learn more about AI DIAL Chat and how to launch it with the default configuration.
 
 ## Prerequisites
 
