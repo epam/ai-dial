@@ -2,6 +2,8 @@
 
 In this tutorial, you will learn how to quickly launch AI DIAL Chat.
 
+> Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat) documentation to learn more.
+
 ## Prerequisites
 
 1. Docker engine installed on your machine.
