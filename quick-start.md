@@ -8,7 +8,7 @@ In this tutorial, you will learn how to quickly launch AI DIAL Chat.
     > Refer to [Docker](https://docs.docker.com/desktop/) documentation.
 
 2. Azure OpenAI deployment.
-    > Refer to [Create and Deploy OpenAI Model in Azure](#create-and-deploy-openai-model-in-azure) to learn how to create and deploy a model.
+    > Refer to [Create and Deploy OpenAI Model in Azure](https://github.com/epam/ai-dial/blob/documentation/deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy a model.
 
 ## Step 1: Get Docker Compose
 
@@ -37,35 +37,4 @@ In `config.json`:
 ## Step 3: Lauch AI DIAL Chat
 
 1. Run `docker compose up` from the folder with the `docker compose` file (**dial-docker-compose/dial**).
-1. Open http://localhost:3000/ in your browser to launch the AI DIAL Chat application.
-
-## Create and Deploy OpenAI Model in Azure
-
-In this section, you will learn how to create an Azure OpenAI model GPT-3.5-turbo/GPT-4.
-
-1. Login to the Azure portal (https://portal.azure.com/)
-2. Use the search bar to look up **Azure OpenAI** and click it to navigate to the **Azure AI Services|Azure OpenAI** page.
-   
-   ![](img/step2.jpg)
-   
-3. In **Azure AI Services|Azure OpenAI**, click **Create** and fill in all the required fields.
-   
-   ![](img/step3.jpg)
-   
-4. You may need to request access to Azure OpenAI Services. Follow the link in the notification to do that.
-   
-   ![](img/step5.jpg)
-   
-5. When done, you should have your OpenAI model in the **Azure AI services** section. Click it to open and then click **Go to Azure OpenAI Studio** in the top bar.
-   
-   ![](img/step8.jpg)
-   
-6. In Azure OpenAI Studio, click **Deployment** in the navigation menu and click **Create new deployment**. Fill in the required fields and click **Create** to create a model.
-   
-   ![](img/step9.jpg)
-
-    > It is important to note that certain models may not be accessible for deployment in a particular region. If you need a particular model, you will have to submit a separate request or relocate Azure OpenAI to a different region.
-
-7. Go back to your model page and click **Keys and Endpoint**. In this section, you can find your key and endpoint that you will need to provide in [AI DIAL configuration file](#step-2-configuration).
-   
-    ![](img/step13.jpg)
+2. Open http://localhost:3000/ in your browser to launch the AI DIAL Chat application.
