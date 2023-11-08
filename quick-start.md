@@ -18,7 +18,7 @@ In this tutorial, you will learn how to quickly launch AI DIAL Chat.
 
 ## Step 2: Configuration
 
-In the **dial-docker-compose/dial/core** folder, you can find a `config.json` configuration file. 
+In the **dial-docker-compose/dial/core** folder, you can find a [config.json](https://github.com/epam/ai-dial/blob/documentation/dial-docker-compose/dial/core/config.json) configuration file. 
 
 In `config.json`:
 
