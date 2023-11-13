@@ -3,8 +3,6 @@ The [EPAM RAIL team](https://epam-rail.com/about-us) manages [DIAL](https://epam
 
 This document provides general guidelines for contributing to the project. Please note that some repositories may contain additional, specific recommendations.
 
-[[_TOC_]]
-
 # Quick Start
 To deploy the entire platform, use the [DIAL Helm](https://github.com/epam/ai-dial-helm). We highly recommend familiarizing yourself with this repository.
 
