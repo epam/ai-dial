@@ -41,7 +41,7 @@ Following this pattern, you can develop your own addons or use a third-party one
 
 [Download](./dial-docker-compose/addon/docker-compose.yml) AI DIAL Docker Compose.
 
-In **docker-compose.yaml**, you can find sections for [OpenAI Adapter](https://github.com/epam/ai-dial/blob/25b4820caa838185361558ab3dd43cec69ed9011/dial-docker-compose/addon/docker-compose.yml#L18) to work with an Azure model, [AI DIAL Assistant](https://github.com/epam/ai-dial/blob/25b4820caa838185361558ab3dd43cec69ed9011/dial-docker-compose/addon/docker-compose.yml#L22), [Addon](https://github.com/epam/ai-dial/blob/25b4820caa838185361558ab3dd43cec69ed9011/dial-docker-compose/addon/docker-compose.yml#L27), and [Core (AI DIAL back-end)](https://github.com/epam/ai-dial/blob/25b4820caa838185361558ab3dd43cec69ed9011/dial-docker-compose/addon/docker-compose.yml#L29).
+In **docker-compose.yaml**, you can find sections for [OpenAI Adapter](./dial-docker-compose/addon/docker-compose.yml#L18) to work with an Azure model, [AI DIAL Assistant](./dial-docker-compose/addon/docker-compose.yml#L22), [Addon](./dial-docker-compose/addon/docker-compose.yml#L27), and [Core (AI DIAL back-end)](./dial-docker-compose/addon/docker-compose.yml#L29).
 
 > * Refer to [AI DIAL Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to learn more.
 > * Refer to the [AI DIAL Core](https://github.com/epam/ai-dial-core) to view a complete documentation.
