@@ -57,7 +57,8 @@ In the **/addon/core** folder, you can find a [config.json](./dial-docker-compos
 * Supply your **Azure API Keys** for your deployments for the `key` parameter.
 * Replace `https://AZURE_DEPLOYMENT_URL` with your GPT **endpoint** for the `endpoint` parameter. **Note**: in the endpoint, replace `gpt-4` with your Azure deployment name, in case it is different.
 
-  ```json
+  ```
+  json
         "upstreams": [
         {
           "endpoint": "https://AZURE_DEPLOYMENT_URL/openai/deployments/gpt-4/chat/completions",
@@ -99,10 +100,12 @@ Provide configuration for your addon in the [roles](./dial-docker-compose/addon/
 
 ```json
 "roles": {
-"default": {
-  "limits": {
-    "addon-todo": {}
+  "default": {
+    "limits": {
+      "addon-todo": {}
+    }
   }
+}
 ```
 
 > * In this example, we get information about the name, description etc. from the [addon repository](https://github.com/openai/plugins-quickstart/blob/main/.well-known/ai-plugin.json). 

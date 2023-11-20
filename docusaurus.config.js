@@ -12,14 +12,14 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://ai-dial.com',
+  url: 'https://docs.epam-rail.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/ai-dial/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'dspashynskyi', // Usually your GitHub org/user name.
+  organizationName: 'epam', // Usually your GitHub org/user name.
   projectName: 'ai-dial', // Usually your repo name.
   deploymentBranch: 'gh-pages',
 
@@ -44,8 +44,8 @@ const config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/dspashynskyi/ai-dial/tree/main/',
+          //editUrl:
+          //  'https://github.com/epam/ai-dial/tree/main/',
         },
         blog: false,
         theme: {
@@ -92,14 +92,6 @@ const config = {
         //       {
         //         label: 'Stack Overflow',
         //         href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-        //       },
-        //       {
-        //         label: 'Discord',
-        //         href: 'https://discord.gg/3TPc4zV4gS',
-        //       },
-        //       {
-        //         label: 'Twitter',
-        //         href: 'https://twitter.com/docusaurus',
         //       },
         //     ],
         //   },
