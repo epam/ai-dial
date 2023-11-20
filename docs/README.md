@@ -1,14 +1,8 @@
----
-sidebar_position: 1
-slug: /
-sidebar_label: Home
----
-
-# Documentation
+# Ai DIAL Documentation
 
 ## Project Overview and Contribution Guide
 
-* [Contribution Guide](./contributing-guide)
+* [Contribution Guide](./CONTRIBUTING.md)
 
 ## Quick Start Guides
 
