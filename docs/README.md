@@ -1,8 +1,8 @@
-# Ai DIAL Documentation
+# AI DIAL Documentation
 
 ## Project Overview and Contribution Guide
 
-* [Contribution Guide](./CONTRIBUTING.md)
+* [Contribution Guide](/CONTRIBUTING.md)
 
 ## Quick Start Guides
 
