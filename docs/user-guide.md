@@ -30,13 +30,13 @@ Take a closer look at each of these elements.
 
 #### Talk To
 
-![](/img/Talk_to_full_list.png)
+![](./img/Talk_to_full_list.png)
 
 In this section, you can choose the language model for communication, as well as an Assistant or Application to implement specific behavior for the LLM.
 
 #### Language Models
 
-![](/img/Talk_to_full_list_models.png)
+![](./img/Talk_to_full_list_models.png)
 
 **Available language models**:
 
@@ -55,7 +55,7 @@ In this section, you can choose the language model for communication, as well as
 
 #### Assistants
 
-![](/img/Talk_to_full_list_assistants.png)
+![](./img/Talk_to_full_list_assistants.png)
 
 In the AI DIAL framework, Assistants are a combination of preselected Addons and System Prompts that enable specific behavior in the LLM, allowing for more tailored and adaptive responses to user needs. Unlike the Model+Addon configuration, where users have the flexibility to choose different Addons, Assistants come with predetermined Addons that cannot be removed or unselected. However, the Model can still be reassigned within the Assistant.
 
@@ -65,13 +65,13 @@ In a chat application, you can include custom Assistant(s) that users can choose
 
 #### Applications   
 
-![](/img/Talk_to_full_list_apps.png)
+![](./img/Talk_to_full_list_apps.png)
 
 In the AI DIAL framework, Applications are ready-to-use solutions made up of predefined configurations of Addons and other services or any custom logic. They help you customize LLM behavior by integrating Addons with any desired logic. Applications can be any component that meets API requirements and implements non-LLM-related logic, such as repeating user messages, creating a fully deterministic chatbot, or managing complex multi-LLM interactions. This versatility in Applications allows for tailored handling of unique scenarios and requirements.
 
 #### System Prompt
 
-![](/img/Settings_System_prompt.png)
+![](./img/Settings_System_prompt.png)
 
 The system prompt in AI DIAL refers to the initial instructions given to the model. You can use any previously created prompt as a system prompt (for details, refer to the [Create](#create) in Prompts), and it will set the context and tone for the whole conversation.
 
@@ -87,9 +87,9 @@ The prompt used as a system prompt is as follows:
 
 > Let's play a game. Name a city that starts with the last letter of the one that I named in a previous message and then tell me that it is my turn to name a city.
 
-![](/img/System_prompt_example_compare_settings.png)
+![](./img/System_prompt_example_compare_settings.png)
 
-![](/img/System_prompt_example_conversation.png)
+![](./img/System_prompt_example_conversation.png)
 
 | **User message** | **Language model response without a system prompt** | **Language model response with a system prompt** |
 | ------------- | ------------------------------------------------ | --------------------------------------------------------- |
@@ -101,7 +101,7 @@ The prompt used as a system prompt is as follows:
 
 The temperature parameter controls the creativity and randomness of the model's output. A higher temperature (e.g., 1.0) makes the output more diverse and creative, while a lower temperature (e.g., 0.1) makes the output more focused and deterministic.
 
-![](/img/Settings_Temperature.png)
+![](./img/Settings_Temperature.png)
 
 Adjusting the temperature allows you to balance creativity and consistency in the generated response.
  
@@ -110,7 +110,7 @@ Adjusting the temperature allows you to balance creativity and consistency in th
 You may want LLM to access particular data or technology to generate responses. This could be your company's database, a collection of PDF documents, calculation engines, API or any other data source or technology.
 Within the AI DIAL framework, an Addon is a service or any component that follows the Open API specification. LLMs can access and use any desired data source or technology to create responses.
 
-![](/img/Settings_Addons_section.png)
+![](./img/Settings_Addons_section.png)
 
 Some examples of Addon implementation are semantic search, Q&A search, DB query generator, or any other custom logic that meets your business needs. AI DIAL can include custom Addons that you can choose to activate a specific system behavior.
 
@@ -122,7 +122,7 @@ On the top bar, in the user area, you can click a down arrow to access additiona
 
 In user settings, you can select the chat theme: dark or light.
 
-![](/img/User_settings.png)
+![](./img/User_settings.png)
 
 ## Prompts
 
@@ -138,7 +138,7 @@ The section with your prompts is located in the right-hand area of the screen. I
 
 ### Create
 
-![](/img/Prompt_create.png)
+![](./img/Prompt_create.png)
 
 To create a new prompt:
 
@@ -154,7 +154,7 @@ You can use prompts as templates for your messages to a language model. For exam
  
 In that case you can create the following prompt:
 
-![](/img/Prompt_example_math_edit_window.png)
+![](./img/Prompt_example_math_edit_window.png)
 
  
 Here, `a`, `c`, and `d` are variables. In the prompt body, they are denoted by double curly brackets: `{{ }}`.
@@ -163,15 +163,15 @@ Here, `a`, `c`, and `d` are variables. In the prompt body, they are denoted by d
 
 After you’ve created the prompt, you can use it by typing a slash `/` in the chat box and selecting the name of a prompt (it is **Math** in our example). You’ll see the following form where you can enter any numbers:
 
-![](/img/Prompt_example_math_enter_variables.png)
+![](./img/Prompt_example_math_enter_variables.png)
 
 When you submit the form, your message will look like on the illustration below:
   
-![](/img/Prompt_example_math_resulting_message.png)
+![](./img/Prompt_example_math_resulting_message.png)
 
 Send the message to the model, and it will generate an answer using both mathematical and natural language instructions:
  
-![](/img/Prompt_example_math_response.png)
+![](./img/Prompt_example_math_response.png)
 
 Generally, variables can be anything, not only numbers. For example, you can create a prompt with the following body: `Who played {{character}} in {{movie}}? or What is a Latin name of {{plant common name}}?`
 
@@ -187,20 +187,20 @@ You can perform various actions with your prompts:
 - **Export all prompts**: click the **Export prompts** icon at the bottom of the right panel. All your prompts will be exported as JSON.
 - **Import prompts**: click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
 
-![](/img/Prompts_panel_with_menu.png)
+![](./img/Prompts_panel_with_menu.png)
 
 ### Arrange
 
 You can gather your prompts in folders.
 
-![](/img/Prompt_move_to.png)
+![](./img/Prompt_move_to.png)
  
 You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. 
 The same way, you can either drag-n-drop a prompt into a folder or use **Move to** in the context menu of a prompt to place it in one of the folders.  
 
 ### Search
 
-![](/img/Prompt_search.png)
+![](./img/Prompt_search.png)
 
 The **Search** box can be utilized to find prompts, including their names, folders, and content.
 
@@ -212,7 +212,7 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 
 ### Create
 
-![](/img/Conversation_start_procedure.png)
+![](./img/Conversation_start_procedure.png)
 
 To create a conversation:
 
@@ -238,13 +238,13 @@ To create a conversation:
 - **Change conversation settings**: during the conversation, you can access and edit its setting by clicking the gear icon on the top bar. Refer to [Chat Settings](#chat-settings) to learn more.
 - **View current settings**: on the top bar, point to the language model logo icon near the conversation name to see current settings.
 
-    ![](/img/View_settings.png)
+    ![](./img/View_settings.png)
 
 ### Arrange
 
 You can gather your conversations in folders.
 
-![](/img/Move_to.png)
+![](./img/Move_to.png)
 
 You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a conversation into a folder or use **Move to** in the context menu of a conversation to move it to a folder.
 
@@ -252,7 +252,7 @@ You can create a hierarchy of folders with three nesting levels. Just create a f
 
 ### Search
 
-![](/img/Search_conversations.png)
+![](./img/Search_conversations.png)
 
 The **Search** box can be utilized to find conversations, including their names, folders, and content.
  
@@ -262,7 +262,7 @@ You can export selected conversations or all conversations in a JSON format.
 
 To export a single conversation, on the left panel, in the conversation contextual menu, select **Export**.
 
-![](/img/Export_conv.png)
+![](./img/Export_conv.png)
 
 To export all conversations, at the bottom of the left panel, click the **Export conversations** icon.
 
@@ -278,7 +278,7 @@ You can delete a single conversation or all conversations.
 
 To delete a single conversation, on the left panel, in the conversation contextual menu, select **Delete** and confirm your action.
 
-![](/img/Delete_conv.png)
+![](./img/Delete_conv.png)
 
 To delete all conversations, at the bottom of the left panel, click the **Delete conversations** icon.
  
@@ -286,11 +286,11 @@ To delete all conversations, at the bottom of the left panel, click the **Delete
 
 You can use **Replay** to reproduce conversations but with different settings (e.g. a different model). A replayed conversation can be used to compare responses to the same questions from different models and with different settings of the conversation. 
 
-![](/img/Replay.png)
+![](./img/Replay.png)
  
 Use **Replay as is** to reproduce the conversation with the original settings. 
 
-![](/img/Replay_as_is.png) 
+![](./img/Replay_as_is.png) 
 
 To replay a conversation: 
 
@@ -305,7 +305,7 @@ The replayed conversation is displayed as a new conversation with the `[Replay]`
 
 The Playback mode can be used to simulate the current conversation without any engagement with models. This mode accurately reproduces the conversation like a recording. It should be noted that this differs from the Replay mode, where the prompts are resubmitted to the chosen model and the outcomes may differ from the initial conversation.
 
-![](/img/Playback.png)
+![](./img/Playback.png)
 
 During the playback, you can manually stop and resume the playback process. 
 
@@ -313,7 +313,7 @@ During the playback, you can manually stop and resume the playback process.
 
 Use the Compare mode to create two new or existing conversations at the same time with different setting (e.g. different models or temperature).
 
-![](/img/Compare_new.png)
+![](./img/Compare_new.png)
 
 To compare two **new** conversations:
 
@@ -332,4 +332,4 @@ You can also compare two **existing** conversations:
 2.	In the main section, under **Select conversation to compare with**, select the second conversation.
 3.	Type your question (prompt) in the chat box.
 
-    ![](/img/Compare_menu.png)
+    ![](./img/Compare_menu.png)
