@@ -8,7 +8,7 @@ sidebar_label: Home
 
 ## Project Overview and Contribution Guide
 
-* [Contribution Guide](./contributing-guide)
+* [Contribution Guide](./contributing-guide.md)
 
 ## Quick Start Guides
 
