@@ -39,7 +39,7 @@ Create a python file in your project folder and name it `app.py`.
 
 > Refer to the [application file](./dial-docker-compose/application/echo/app.py). 
 
-We use a [dockerfile](./dial-docker-compose/application/echo/Dockerfile) to launch the Echo application.
+We use a [dockerfile](./dial-docker-compose/application/echo/) to launch the Echo application.
 
 ## Step 2: Configuration
 
