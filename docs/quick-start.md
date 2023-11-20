@@ -23,7 +23,7 @@ In this tutorial, you will learn how to quickly launch AI DIAL Chat.
 
 ## Step 1: Get Docker Compose
 
-[Download](/dial-docker-compose/model) AI DIAL Docker Compose.
+[Download](./dial-docker-compose/model) AI DIAL Docker Compose.
 
 ## Step 2: Configuration
 
