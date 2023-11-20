@@ -2,7 +2,7 @@
 
 ## Project Overview and Contribution Guide
 
-* [Contribution Guide](/CONTRIBUTING.md)
+* [Contribution Guide](/contributing.md)
 
 ## Quick Start Guides
 
