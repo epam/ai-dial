@@ -1,28 +1,22 @@
----
-sidebar_position: 1
-slug: /
-sidebar_label: Home
----
-
 # AI DIAL Documentation
 
 ## Project Overview and Contribution Guide
 
-* [Contribution Guide](/CONTRIBUTING.md)
+* [Contribution Guide](/contributing.md)
 
 ## Quick Start Guides
 
-* [Quick Start Guide](./quick-start.md)
-* [Use AI DIAL Chat with Applications](./quick-start-with-application.md)
-* [Use AI DIAL Chat with Addons](./quick-start-with-addon.md)
+* [Quick Start Guide](./docs/quick-start.md)
+* [Use AI DIAL Chat with Applications](./docs/quick-start-with-application.md)
+* [Use AI DIAL Chat with Addons](./docs/quick-start-with-addon.md)
 
 ## User Guide
 
-* [AI DIAL Chat User Guide](./user-guide.md)
+* [AI DIAL Chat User Guide](./docs/user-guide.md)
 
 ## Other Info
 
-* [Create Azure Model](./Deployment/Azure%20Model%20Deployment.md)
+* [Create Azure Model](./docs/Deployment/Azure%20Model%20Deployment.md)
 
 ## Other Project Repositories 
 

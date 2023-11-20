@@ -39,11 +39,11 @@ Create a python file in your project folder and name it `app.py`.
 
 > Refer to the [application file](./dial-docker-compose/application/echo/app.py). 
 
-We use a [dockerfile](./dial-docker-compose/application/echo/Dockerfile) to launch the Echo application.
+We use a [dockerfile](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/echo) to launch the Echo application.
 
 ## Step 2: Configuration
 
-1. Your AI DIAL installation has a `core/config.json` file. Open it and add the following lines in the [applications](./dial-docker-compose/application/core/config.json#L11) section:
+1. Your AI DIAL installation has a `core/config.json` file. Open it and add the following lines in the [applications](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/core/config.json#L11) section:
 
     ```json
     "echo": {
@@ -54,7 +54,7 @@ We use a [dockerfile](./dial-docker-compose/application/echo/Dockerfile) to laun
     }
     ```
 
-2. Add your Echo app to the roles you want it to be exposed to. For example, to add it to the `default` role, add the following lines in the [roles](./dial-docker-compose/application/core/config.json#L47) section:
+2. Add your Echo app to the roles you want it to be exposed to. For example, to add it to the `default` role, add the following lines in the [roles](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/core/config.json#L47) section:
 
     ```json
     "default": {

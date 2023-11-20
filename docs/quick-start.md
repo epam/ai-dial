@@ -23,11 +23,11 @@ In this tutorial, you will learn how to quickly launch AI DIAL Chat.
 
 ## Step 1: Get Docker Compose
 
-[Download](https://github.com/epam/ai-dial/tree/docs/dial-docker-compose) AI DIAL Docker Compose.
+[Download](./dial-docker-compose/model) AI DIAL Docker Compose.
 
 ## Step 2: Configuration
 
-In the **dial-docker-compose/dial/core** folder, you can find a [config.json](./dial-docker-compose/model/core/config.json) configuration file. 
+In the **dial-docker-compose/model/core** folder, you can find a [config.json](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/model/core/config.json) configuration file. 
 
 In `config.json`:
 

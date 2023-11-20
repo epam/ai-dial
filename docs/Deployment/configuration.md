@@ -1,6 +1,6 @@
 # Configuration
 
-> Refer to the provided [example of config](./dialConfig.yaml), where you can find the description of the application-specific parameters.
+> Refer to the provided [example of config](https://github.com/epam/ai-dial/tree/main/docs/Deployment/dialConfig.yaml), where you can find the description of the application-specific parameters.
 
 The `dialConfig.yaml` configuration file of the AI DIAL application is comprised of several main sections:
 
@@ -15,7 +15,7 @@ The `dialConfig.yaml` configuration file of the AI DIAL application is comprised
 
 > Refer to the [AI DIAL Chat](https://github.com/epam/ai-dial-chat#environment-variables) to view a complete documentation.
 
-Configure front-end parameters in the [`env`](./dialConfig.yaml#L18) and [`secrets`](./dialConfig.yaml#L30) sections of the config file:
+Configure front-end parameters in the [`env`](https://github.com/epam/ai-dial/tree/main/docs/Deployment/dialConfig.yaml#L18) and [`secrets`](https://github.com/epam/ai-dial/tree/main/docs/Deployment/dialConfig.yaml#L30) sections of the config file:
 
 |Parameter|Description|
 |---------|-----------|
@@ -43,7 +43,7 @@ Configure front-end parameters in the [`env`](./dialConfig.yaml#L18) and [`secre
 
 > Refer to the [AI DIAL Core](https://github.com/epam/ai-dial-core) to view a complete documentation.
 
-Configure back-end parameters in the [`proxy`](./dialConfig.yaml#L74) section of the config file.
+Configure back-end parameters in the [`proxy`](https://github.com/epam/ai-dial/tree/main/docs/Deployment/dialConfig.yaml#L74) section of the config file.
 
 You can provide dynamic or static configurations for the back-end. Provide path to the corresponding configuration in the `proxy.env` section.
 
@@ -73,7 +73,7 @@ This file includes standard [Vertex library configurations](https://cloud.google
 
 ### proxy.config.json parameters
 
-> Refer to the [confuration file](./dialConfig.yaml#L112) to view an example.
+> Refer to the [confuration file](https://github.com/epam/ai-dial/tree/main/docs/Deployment/dialConfig.yaml#L112) to view an example.
 
 |Parameter|Description|
 |---------|-----------|
@@ -94,5 +94,5 @@ Refer to these repositories to view a complete documentation for:
 * [Adapter for Vertex](https://github.com/epam/ai-dial-adapter-vertexai)
 * [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai)
 
-> Refer to the provided [example of config](./dialConfig.yaml#L263) to view configuration examples. 
+> Refer to the provided [example of config](https://github.com/epam/ai-dial/tree/main/docs/Deployment/dialConfig.yaml#L263) to view configuration examples. 
 
