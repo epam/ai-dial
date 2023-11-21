@@ -8,7 +8,7 @@ sidebar_label: Home
 
 ## Project Overview and Contribution Guide
 
-* [Contribution Guide](/CONTRIBUTING.md)
+* [Contribution Guide](https://github.com/epam/ai-dial/blob/main/contributing.md)
 
 ## Quick Start Guides
 
