@@ -1,8 +1,3 @@
----
-sidebar_position: 4
-toc_max_heading_level: 4
----
-
 # Chat User Guide
 
 ## Interface Components

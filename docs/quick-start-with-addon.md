@@ -1,7 +1,3 @@
----
-sidebar_position: 5
----
-
 # Quick Start Guide for Addons
 
 ## About AI DIAL Addons

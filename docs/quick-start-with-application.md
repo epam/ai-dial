@@ -1,8 +1,3 @@
----
-sidebar_position: 6
-sidebar_label: Quick Start Guide for Apps
----
-
 # Create your first application
 
 ## Extension Framework
