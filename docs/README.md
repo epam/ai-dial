@@ -26,7 +26,9 @@ sidebar_label: Home
 
 ## Other Project Repositories 
 
-Here is the current list of repositories where you can find more details. You can also refer to [repository map](https://epam-rail.com/open-source).
+Here is the current list of repositories where you can find more details. 
+
+> You can also refer to the [open source repository map](https://epam-rail.com/open-source) on the AI DIAL website.
 
 - [DIAL Helm](https://github.com/epam/ai-dial-helm) - helm chart, find stable assemblies here.
 - [DIAL Core](https://github.com/epam/ai-dial-core) - the main component that exposes API
