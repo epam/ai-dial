@@ -15,7 +15,7 @@ const config = {
   url: 'https://docs.epam-rail.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/ai-dial/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -23,7 +23,7 @@ const config = {
   projectName: 'ai-dial', // Usually your repo name.
   deploymentBranch: 'gh-pages',
 
-  onBrokenLinks: 'warn',//'throw', for exeptions
+  onBrokenLinks: 'throw',//'throw', for exeptions
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
