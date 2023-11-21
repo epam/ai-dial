@@ -1,9 +1,3 @@
----
-sidebar_position: 1
-slug: /
-sidebar_label: Home
----
-
 # AI DIAL Documentation
 
 ## Project Overview and Contribution Guide

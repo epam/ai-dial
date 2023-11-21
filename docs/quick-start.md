@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Quick Start Guide
 
 In this tutorial, you will learn how to quickly launch AI DIAL Chat.
