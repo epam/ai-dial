@@ -28,11 +28,11 @@ From this tutorial, you will learn how to create and deploy a simple Echo applic
 4. IDE for the Python development. [VS Code](https://code.visualstudio.com) or [PyCharm](https://www.jetbrains.com/pycharm/) are recommended.
 5. IDE is configured to use the PEP-8 compatible formatting (i.e. [Black](https://black.readthedocs.io/en/stable/index.html)).
 
-## Step 1: Get Docker Compose
+## Step 1: Get AI DIAL
 
-[Download](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/) AI DIAL Docker Compose.
+[Download](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/) AI DIAL.
 
-## Step 2: Create a Echo Application
+## Step 2: Create Echo Application
 
 Create a python file in your project folder and name it `app.py`.
 
