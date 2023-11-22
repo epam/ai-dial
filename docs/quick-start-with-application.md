@@ -22,8 +22,7 @@ From this tutorial, you will learn how to create and deploy a simple Echo applic
 
 ## Prerequisites
 
-1. Docker engine installed on your machine.
-   > Refer to [Docker](https://docs.docker.com/desktop/) documentation.
+1. Docker engine installed on your machine. Refer to [Docker](https://docs.docker.com/desktop/) documentation.
 3. [Python 3.8](https://www.python.org) or higher installed on your machine.
 4. [pip](https://pip.pypa.io/en/stable/) for Python installed.
 5. IDE for the Python development. [VS Code](https://code.visualstudio.com) or [PyCharm](https://www.jetbrains.com/pycharm/) are recommended.
