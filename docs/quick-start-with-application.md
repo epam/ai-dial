@@ -22,13 +22,17 @@ From this tutorial, you will learn how to create and deploy a simple Echo applic
 
 ## Prerequisites
 
-1. AI DIAL. Follow [Quick Start Guide](./quick-start.md) to launch the AI DIAL Chat application.
+1. Docker engine installed on your machine.
 2. [Python 3.8](https://www.python.org) or higher installed on your machine.
 3. [pip](https://pip.pypa.io/en/stable/) for Python installed.
 4. IDE for the Python development. [VS Code](https://code.visualstudio.com) or [PyCharm](https://www.jetbrains.com/pycharm/) are recommended.
 5. IDE is configured to use the PEP-8 compatible formatting (i.e. [Black](https://black.readthedocs.io/en/stable/index.html)).
 
-## Step 1: Create a New Application
+## Step 1: Get Docker Compose
+
+[Download](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/) AI DIAL Docker Compose.
+
+## Step 2: Create a Echo Application
 
 Create a python file in your project folder and name it `app.py`.
 
@@ -36,7 +40,7 @@ Create a python file in your project folder and name it `app.py`.
 
 We use a [dockerfile](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/echo) to launch the Echo application.
 
-## Step 2: Configuration
+## Step 3: Configuration
 
 1. Your AI DIAL installation has a `core/config.json` file. Open it and add the following lines in the [applications](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/core/config.json#L11) section:
 
@@ -59,11 +63,9 @@ We use a [dockerfile](https://github.com/epam/ai-dial/tree/main/docs/dial-docker
     }
     ```
 
-## Step 3: Start AI DIAL Chat with Echo Application
+## Step 4: Launch AI DIAL Chat with Echo Application
 
 Run `docker compose up` in the console from the folder with the `docker-compose.yml` file.
-
-> Follow [Quick Start Guide](./quick-start.md).
 
 Once AI DIAL Chat is up on http://localhost:3000/, select the Echo Application and start typing in prompts to see how the Echo application mirrors them.
 
