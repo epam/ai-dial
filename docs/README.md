@@ -10,13 +10,13 @@ Refer to [AI DIAL Chat Repository](https://github.com/epam/ai-dial-chat#overview
 
 ## Tutorials
 
-* [Launch AI DIAL Chat with an Azure model](/quick-start.md)
-* [Launch AI DIAL Chat with Echo Application](/quick-start-with-application.md)
-* [Launch AI DIAL Chat with To-Do List Addon](/quick-start-with-addon.md)
+* [Launch AI DIAL Chat with an Azure model](./quick-start.md)
+* [Launch AI DIAL Chat with Echo Application](./quick-start-with-application.md)
+* [Launch AI DIAL Chat with To-Do List Addon](./quick-start-with-addon.md)
 
 ## AI DIAL Chat Application User Manual
 
-* [AI DIAL Chat User Manual](/user-guide.md)
+* [AI DIAL Chat User Manual](./user-guide.md)
 
 ## Other AI DIAL Project Open Source Repositories
 
