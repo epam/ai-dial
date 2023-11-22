@@ -1,4 +1,4 @@
-# Quick Start Guide
+# Launch AI DIAL Chat with Azure Model
 
 In this tutorial, you will learn how to quickly launch AI DIAL Chat.
 
