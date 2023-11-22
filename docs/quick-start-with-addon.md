@@ -42,7 +42,7 @@ In **docker-compose.yaml**, you can find sections for [OpenAI Adapter](https://g
 > * Refer to [AI DIAL Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to learn more.
 > * Refer to the [AI DIAL Core](https://github.com/epam/ai-dial-core) to view a complete documentation.
 
-In the **/addon** folder, you can find a [Dockerfile](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/addon/Dockerfile) we need to get and launch the To Do List Addon. 
+In the **/addon** folder, you can find a [Dockerfile](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/addon/Dockerfile) we need to get and launch the To-Do List Addon. 
 
 ## Step 2: Configuration
 
