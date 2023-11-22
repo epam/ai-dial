@@ -2,7 +2,7 @@
 
 ## Project Overview and Contribution Guide
 
-* [Contribution Guide](https://github.com/epam/ai-dial/blob/main/contributing.md)
+* [Contribution Guide](https://github.com/epam/ai-dial/blob/main/CONTRIBUTING.md)
 
 ## Quick Start Guides
 
