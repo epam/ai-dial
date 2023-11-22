@@ -6,7 +6,7 @@
 
 ## Quick Start Guide
 
-Refer to [AI DIAL Chat Repository](https://github.com/epam/ai-dial-chat) to learn how to launch AI DIAL Chat with default configurations.
+Refer to [AI DIAL Chat Repository](https://github.com/epam/ai-dial-chat#overview) to learn how to launch AI DIAL Chat with default configurations.
 
 ## Tutorials
 
