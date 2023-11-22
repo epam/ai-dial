@@ -2,7 +2,7 @@
 
 In this section, you will learn how to create an Azure OpenAI model GPT-3.5-turbo/GPT-4.
 
-1. Login to the Azure portal (https://portal.azure.com/)
+1. Login to the MS Azure portal (https://portal.azure.com/) with your credentials. Create an account if you do not have one.
 2. Use the search bar to look up **Azure OpenAI** and click it to navigate to the **Azure AI Services|Azure OpenAI** page.
    
    ![](img/step2.jpg)
