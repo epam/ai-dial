@@ -1,6 +1,6 @@
-# Create your first application
+# Launch AI DIAL Chat with Echo Application
 
-## Extension Framework
+## About AI DIAL Extension Framework
 
 AI DIAL presents a robust Extension Framework and plug-in infrastructure, enabling seamless integration of your data and business workflows with Language Models (LLM) to enrich your enterprise applications. Harness the full potential of our solutions to drive innovation and efficiency within your organization.
 
@@ -16,7 +16,7 @@ Examples of Applications: guided conversations, hierarchical search.
 
 ## Introduction
 
-From this tutorial, you will learn how to create and deploy a simple Echo application for AI DIAL. This application mirrors all user prompts.
+From this tutorial, you will learn how to create and deploy a simple Echo application for AI DIAL Chat. Echo application mirrors all user prompts.
 
 > Take note that this document covers the most basic aspects of developing and testing AI DIAL applications. Deploying and distributing these applications for production purposes will require additional configurations that guarantee secure access to the application endpoints through the implementation of firewalls and other network security settings to prevent unauthorized intrusion to the deployed applications.
 
