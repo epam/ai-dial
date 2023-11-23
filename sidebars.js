@@ -13,25 +13,32 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  CustomSideBar: [
-    {
-      type: 'doc',
-      id: 'README', // document ID
-      label: 'Home', // sidebar label
-    },
-    'quick-start',
-    'user-guide',
-    'quick-start-with-addon',
-    'quick-start-with-application',
-    {
-      type: 'category',
-      label: 'Deployment',
-      items: [
-        'Deployment/Azure Model Deployment',
-        'Deployment/configuration',
-      ],
-    },
-  ],  
-};
-
-export default sidebars;
+    CustomSideBar: [
+      {
+        type: 'doc',
+        id: 'README', // document ID
+        label: 'Home', // sidebar label
+      },
+      'quick-start',
+      {
+        type: 'category',
+        label: 'Tutorials',
+        items: [
+            'tutorials/quick-start-model',
+            'tutorials/quick-start-with-addon',
+            'tutorials/quick-start-with-application'
+        ]
+      },
+      {
+        type: 'category',
+        label: 'Deployment',
+        items: [
+          'Deployment/Azure Model Deployment',
+          'Deployment/configuration',
+        ],
+      },
+    ],  
+  };
+  
+  export default sidebars;
+  
