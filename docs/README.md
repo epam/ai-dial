@@ -4,9 +4,11 @@
 
 * [Contribution Guide](https://github.com/epam/ai-dial/blob/main/CONTRIBUTING.md)
 
-## Quick Start Guide
+## Quick Start
 
-Refer to [AI DIAL Chat Repository](https://github.com/epam/ai-dial-chat#overview) to learn how to launch AI DIAL Chat with default configurations.
+* [Quick Start Guide](./quick-start.md)
+
+> Refer to [AI DIAL Chat Repository](https://github.com/epam/ai-dial-chat#overview) to learn how to launch AI DIAL Chat with default configurations.
 
 ## Tutorials
 
