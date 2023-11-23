@@ -112,6 +112,6 @@ Provide configuration for your addon in the [roles](https://github.com/epam/ai-d
 
 The AI DIAL Chat is launched with the Azure model we have configured, and the Addon is enabled with the display name you configured for the `addons.displayName` parameter in `config.json`. 
 
-![](/img/addon.png)
+![](img/addon.png)
 
 Select the Addon and start a new conversation. For example, send "Add homework to the to do list" and then "Get the to do list".
