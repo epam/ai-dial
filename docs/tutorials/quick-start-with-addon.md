@@ -33,7 +33,7 @@ Following this pattern, you can develop your own addons or use a third-party one
     > Refer to [Docker](https://docs.docker.com/desktop/) documentation.
 
 2. Account in MS Azure OpenAI Studio.
-    > Refer to [Create and Deploy OpenAI Model in Azure](./Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy an OpenAI model in MS Azure.
+    > Refer to [Create and Deploy OpenAI Model in Azure](/Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy an OpenAI model in MS Azure.
 
 3. Addon. In this example, it is [To-Do List](https://github.com/openai/plugins-quickstart/) by OpenAI. 
 
@@ -68,7 +68,7 @@ Add you model credentials in the [config.json](https://github.com/epam/ai-dial/t
   ]
   ```
 
-    > Refer to [Create and Deploy OpenAI Model in Azure](./Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy an OpenAI model in MS Azure.
+    > Refer to [Create and Deploy OpenAI Model in Azure](/Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy an OpenAI model in MS Azure.
 
 ### Configure Assistant
 
