@@ -4,13 +4,6 @@
 
 In this tutorial, you will learn how to quickly launch AI DIAL Chat with a custom model created in Azure OpenAI Studio.
 
-> Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat) documentation to learn more about AI DIAL Chat and how to launch it with the default configuration.
-
-**Other Tutorials**:
-
-> * To learn how to launch AI DIAL Chat with Addons, refer to [Launch AI DIAL Chat with To-Do List Addon](./quick-start-with-addon.md)
-> * To learn how to launch AI DIAL Chat with Echo application, refer to [Launch AI DIAL Chat with Echo Application](./quick-start-with-application.md)
-
 ## Prerequisites
 
 1. Docker engine installed on your machine.
