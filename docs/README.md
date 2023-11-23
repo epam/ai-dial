@@ -4,21 +4,21 @@
 
 * [Contribution Guide](https://github.com/epam/ai-dial/blob/main/CONTRIBUTING.md)
 
-## Quick Start Guides
+## Quick Start Guide
 
-* [Quick Start Guide](./quick-start.md)
-* [Use AI DIAL Chat with Applications](./quick-start-with-application.md)
-* [Use AI DIAL Chat with Addons](./quick-start-with-addon.md)
+Refer to [AI DIAL Chat Repository](https://github.com/epam/ai-dial-chat#overview) to learn how to launch AI DIAL Chat with default configurations.
 
-## User Guide
+## Tutorials
 
-* [AI DIAL Chat User Guide](./user-guide.md)
+* [Launch AI DIAL Chat with an Azure model](./quick-start.md)
+* [Launch AI DIAL Chat with Echo Application](./quick-start-with-application.md)
+* [Launch AI DIAL Chat with To-Do List Addon](./quick-start-with-addon.md)
 
-## Other Info
+## AI DIAL Chat Application User Manual
 
-* [Create Azure Model](./Deployment/Azure%20Model%20Deployment.md)
+* [AI DIAL Chat User Manual](./user-guide.md)
 
-## Other Project Repositories 
+## Other AI DIAL Project Open Source Repositories
 
 Here is the current list of repositories where you can find more details. 
 

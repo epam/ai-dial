@@ -1,31 +1,33 @@
-# Quick Start Guide
+# Launch AI DIAL Chat with Azure Model
 
-In this tutorial, you will learn how to quickly launch AI DIAL Chat.
+## Introduction
+
+In this tutorial, you will learn how to quickly launch AI DIAL Chat with a custom model created in Azure OpenAI Studio.
 
 > Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat) documentation to learn more about AI DIAL Chat and how to launch it with the default configuration.
 
-**Other quick start guides**: 
+**Other Tutorials**:
 
-> * To learn how to use AI DIAL Chat with Addons, refer to [AI DIAL Quick Start Guide for Addons](./quick-start-with-addon.md)
-> * To learn how to develop applications for AI DIAL and deploy them, refer to [Create your first application for AI DIAL](./quick-start-with-application.md)
+> * To learn how to launch AI DIAL Chat with Addons, refer to [Launch AI DIAL Chat with To-Do List Addon](./quick-start-with-addon.md)
+> * To learn how to launch AI DIAL Chat with Echo application, refer to [Launch AI DIAL Chat with Echo Application](./quick-start-with-application.md)
 
 ## Prerequisites
 
 1. Docker engine installed on your machine.
     > Refer to [Docker](https://docs.docker.com/desktop/) documentation.
 
-2. Azure OpenAI deployment.
-    > Refer to [Create and Deploy OpenAI Model in Azure](./Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy a model.
+2. Account in MS Azure OpenAI Studio.
+    > Refer to [Create and Deploy OpenAI Model in Azure](./Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy a model in your MS Azure.
 
-## Step 1: Get Docker Compose
+## Step 1: Get AI DIAL
 
-[Download](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/model/) AI DIAL Docker Compose.
+[Download](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/model/) AI DIAL.
 
 ## Step 2: Configuration
 
 In the **dial-docker-compose/model/core** folder, you can find a [config.json](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/model/core/config.json) configuration file. 
 
-In `config.json`:
+In `config.json`, you can add your Azure model credentials to the chat configuration:
 
 * Supply your **Azure API Keys** for your deployments for the `key` parameter.
 * Replace `https://AZURE_DEPLOYMENT_URL` with your GPT **endpoint** for the `endpoint` parameter. **Note**: in the endpoint, replace `gpt-4` with your Azure deployment name, in case it is different.
@@ -39,8 +41,7 @@ In `config.json`:
   ]
   ```
 
-    > Refer to [Create and Deploy OpenAI Model in Azure](./Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy a model.
-
+    > Refer to [Create and Deploy OpenAI Model in Azure](./Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy a model in MS Azure.
 
 ## Step 3: Lauch AI DIAL Chat
 
