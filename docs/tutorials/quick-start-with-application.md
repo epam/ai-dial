@@ -1,5 +1,11 @@
 # Launch AI DIAL Chat with Echo Application
 
+## Introduction
+
+From this tutorial, you will learn how to create and deploy a simple Echo application for AI DIAL Chat. Echo application mirrors all user prompts.
+
+> Take note that this document covers the most basic aspects of developing and testing AI DIAL applications. Deploying and distributing these applications for production purposes will require additional configurations that guarantee secure access to the application endpoints through the implementation of firewalls and other network security settings to prevent unauthorized intrusion to the deployed applications.
+
 ## About AI DIAL Extension Framework
 
 AI DIAL presents a robust Extension Framework and plug-in infrastructure, enabling seamless integration of your data and business workflows with Language Models (LLM) to enrich your enterprise applications. Harness the full potential of our solutions to drive innovation and efficiency within your organization.
@@ -13,12 +19,6 @@ In the AI DIAL framework, **Applications** refer to predefined configurations of
 Applications enable the customization of LLM behavior by integrating Addons with any desired logic. It can be any component that conforms to DIAL API requirements. Applications can be used for implementing non-LLM related logic, such as repeating user messages, a fully deterministic chatbot, or even a complex multi-LLM interaction. This versatility in Applications allows for tailored handling of unique scenarios and requirements.
 
 Examples of Applications: guided conversations, hierarchical search.
-
-## Introduction
-
-From this tutorial, you will learn how to create and deploy a simple Echo application for AI DIAL Chat. Echo application mirrors all user prompts.
-
-> Take note that this document covers the most basic aspects of developing and testing AI DIAL applications. Deploying and distributing these applications for production purposes will require additional configurations that guarantee secure access to the application endpoints through the implementation of firewalls and other network security settings to prevent unauthorized intrusion to the deployed applications.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ We use a [dockerfile](https://github.com/epam/ai-dial/tree/main/docs/dial-docker
     }
     ```
 
-## Step 4: Launch AI DIAL Chat with Echo Application
+## Step 4: Launch AI DIAL Chat
 
 Run `docker compose up` in the console from the folder with the `docker-compose.yml` file.
 
