@@ -1,49 +1,18 @@
-# Launch AI DIAL Chat with Azure Model
+# Quick Start
 
-## Introduction
-
-In this tutorial, you will learn how to quickly launch AI DIAL Chat with a custom model created in Azure OpenAI Studio.
-
-> Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat) documentation to learn more about AI DIAL Chat and how to launch it with the default configuration.
-
-**Other Tutorials**:
-
-> * To learn how to launch AI DIAL Chat with Addons, refer to [Launch AI DIAL Chat with To-Do List Addon](./quick-start-with-addon.md)
-> * To learn how to launch AI DIAL Chat with Echo application, refer to [Launch AI DIAL Chat with Echo Application](./quick-start-with-application.md)
+Follow this tutorial to launch AI DIAL Chat with Echo application. As a result, you will be able to access Chat on http://localhost:3000/ and use Echo application to mirror your prompts. 
 
 ## Prerequisites
 
-1. Docker engine installed on your machine.
-    > Refer to [Docker](https://docs.docker.com/desktop/) documentation.
-
-2. Account in MS Azure OpenAI Studio.
-    > Refer to [Create and Deploy OpenAI Model in Azure](./Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy a model in your MS Azure.
+1. Docker engine installed on your machine. Refer to [Docker](https://docs.docker.com/desktop/) documentation.
 
 ## Step 1: Get AI DIAL
 
-[Download](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/model/) AI DIAL.
+[Download](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/) AI DIAL.
 
-## Step 2: Configuration
+## Step 2: Launch Chat
 
-In the **dial-docker-compose/model/core** folder, you can find a [config.json](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/model/core/config.json) configuration file. 
+Run `docker compose up` in the console from the folder with the `docker-compose.yml` file.
 
-In `config.json`, you can add your Azure model credentials to the chat configuration:
+Once AI DIAL Chat is up on http://localhost:3000/, select the Echo Application and start typing in prompts to see how the Echo application mirrors them.
 
-* Supply your **Azure API Keys** for your deployments for the `key` parameter.
-* Replace `https://AZURE_DEPLOYMENT_URL` with your GPT **endpoint** for the `endpoint` parameter. **Note**: in the endpoint, replace `gpt-4` with your Azure deployment name, in case it is different.
-
-  ```json
-        "upstreams": [
-        {
-          "endpoint": "https://AZURE_DEPLOYMENT_URL/openai/deployments/gpt-4/chat/completions",
-          "key": "AZURE_MODEL_API_KEY"
-        }
-  ]
-  ```
-
-    > Refer to [Create and Deploy OpenAI Model in Azure](./Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy a model in MS Azure.
-
-## Step 3: Lauch AI DIAL Chat
-
-1. Run `docker compose up` from the folder with the `docker compose` file (**dial-docker-compose/dial**).
-2. Open http://localhost:3000/ in your browser to launch the AI DIAL Chat application.

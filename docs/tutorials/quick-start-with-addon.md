@@ -1,5 +1,9 @@
 # Launch AI DIAL Chat with To-Do List Addon
 
+## Introduction
+
+In this tutorial, you will learn how to launch AI DIAL Chat with a To-Do List Addon and an OpenAI model. As a result, you will be able to access Chat on http://localhost:3000/ and use a To-Do List Addon to create a to-do list.
+
 ## About AI DIAL Addons
 
 Within the AI DIAL framework, an **Addon** is a service - or any component adhering to its own or provided OpenAPI specification - that empowers LLMs to access and utilize any desired data source or technology to produce their responses.
@@ -29,13 +33,15 @@ Following this pattern, you can develop your own addons or use a third-party one
     > Refer to [Docker](https://docs.docker.com/desktop/) documentation.
 
 2. Account in MS Azure OpenAI Studio.
-    > Refer to [Create and Deploy OpenAI Model in Azure](./Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy an OpenAI model in MS Azure.
+    > Refer to [Create and Deploy OpenAI Model in Azure](/Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy an OpenAI model in MS Azure.
 
 3. Addon. In this example, it is [To-Do List](https://github.com/openai/plugins-quickstart/) by OpenAI. 
 
 ## Step 1: Get AI DIAL
 
 [Download](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/) AI DIAL.
+
+## Step 2: Configuration
 
 In **docker-compose.yaml**, you can find sections for [OpenAI Adapter](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/docker-compose.yml#L18) to work with an Azure model, [AI DIAL Assistant](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/docker-compose.yml#L22), [Addon](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/docker-compose.yml#L27), and [Core (AI DIAL back-end)](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/docker-compose.yml#L29).
 
@@ -44,11 +50,11 @@ In **docker-compose.yaml**, you can find sections for [OpenAI Adapter](https://g
 
 In the **/addon** folder, you can find a [Dockerfile](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/addon/Dockerfile) we need to get and launch the To-Do List Addon. 
 
-## Step 2: Configuration
-
-In the **/addon/core** folder, you can find a [config.json](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/core/config.json) configuration file. In this file, you can configure your model, assistant and addon.
+In the **/core** folder, you can find a [config.json](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/core/config.json) configuration file. In this file, you can configure your model, assistant and addon.
 
 ### Configure Model
+
+Add you model credentials in the [config.json](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/core/config.json#L24) file in `upstreams`.
 
 * Supply your **Azure API Keys** for your deployments for the `key` parameter.
 * Replace `https://AZURE_DEPLOYMENT_URL` with your GPT **endpoint** for the `endpoint` parameter. **Note**: in the endpoint, replace `gpt-4` with your Azure deployment name, in case it is different.
@@ -62,11 +68,11 @@ In the **/addon/core** folder, you can find a [config.json](https://github.com/e
   ]
   ```
 
-    > Refer to [Create and Deploy OpenAI Model in Azure](./Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy an OpenAI model in MS Azure.
+    > Refer to [Create and Deploy OpenAI Model in Azure](/Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy an OpenAI model in MS Azure.
 
 ### Configure Assistant
 
-Provide the endpoint for AI DIAL Assistant: 
+Provide the endpoint for AI DIAL Assistant in the [config file](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/core/config.json#L18) in the `assistant` section. 
 
 ```json
 "assistant": {
@@ -74,12 +80,13 @@ Provide the endpoint for AI DIAL Assistant:
   }
 ```
 
-> * Refer to the [config file](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/core/config.json#L18). 
-> * Refer to [AI DIAL Assistant](https://github.com/epam/ai-dial-assistant) repository for more information. 
+> * Refer to [AI DIAL Assistant](https://github.com/epam/ai-dial-assistant) repository for more information about AI DIAL Assistant. 
 
 ### Configure Addon
 
-Provide configuration for your addon in the [addons](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/core/config.json#L11) section: 
+> In this example, we get information about the name, description etc. from the [addon repository](https://github.com/openai/plugins-quickstart/blob/main/.well-known/ai-plugin.json).
+
+Provide configuration for your addon in the [config file](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/core/config.json#L11) in the `addons` section: 
 
 ```json
   "addons": {
@@ -91,7 +98,7 @@ Provide configuration for your addon in the [addons](https://github.com/epam/ai-
   }
 ```
 
-Provide configuration for your addon in the [roles](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/core/config.json#L49) section: 
+Configure roles for your addon in the [config file](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/addon/core/config.json#L49) in the `roles` section: 
 
 ```json
 "roles": {
@@ -103,8 +110,6 @@ Provide configuration for your addon in the [roles](https://github.com/epam/ai-d
 }
 ```
 
-> * In this example, we get information about the name, description etc. from the [addon repository](https://github.com/openai/plugins-quickstart/blob/main/.well-known/ai-plugin.json). 
-
 ## Step 3: Lauch AI DIAL Chat
 
 1. Run the `docker compose up` command from the folder with the `docker-compose` file (**dial-docker-compose/addon**).
@@ -112,6 +117,6 @@ Provide configuration for your addon in the [roles](https://github.com/epam/ai-d
 
 The AI DIAL Chat is launched with the Azure model we have configured, and the Addon is enabled with the display name you configured for the `addons.displayName` parameter in `config.json`. 
 
-![](./img/addon.png)
+
 
 Select the Addon and start a new conversation. For example, send "Add homework to the to do list" and then "Get the to do list".
