@@ -24,9 +24,24 @@ const sidebars = {
         type: 'category',
         label: 'Tutorials',
         items: [
-            'tutorials/quick-start-model',
-            'tutorials/quick-start-with-addon',
-            'tutorials/quick-start-with-application'
+         {
+          type: 'doc',
+          id: 'quick-start-model',
+          label: 'Chat with OpenAI Model',
+          docsUrl: 'tutorials/quick-start-model'
+         },
+         {
+          type: 'doc',
+          id: 'quick-start-with-addon',
+          label: 'Chat with Addon',
+          docsUrl: 'tutorials/quick-start-with-addon'
+         },
+         {
+          type: 'doc',
+          id: 'tutorials/quick-start-with-application',
+          label: 'Chat with Application',
+          docsUrl: 'tutorials/quick-start-with-application'
+         }
         ]
       },
       {
