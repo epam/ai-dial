@@ -8,8 +8,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Dial',
-  favicon: 'img/favicon.ico',
+  title: 'DIAL',
+  favicon: 'img/favicon.svg',
 
   // Set the production url of your site here
   url: 'https://docs.epam-rail.com',
@@ -55,6 +55,23 @@ const config = {
     ],
   ],
 
+    scripts: [
+    {
+      src: 'https://cookie-cdn.cookiepro.com/consent/3a34bbfa-93e4-4ba6-9383-7da88d67ed18/OtAutoBlock.js',
+      type: "text/javascript"
+    },
+    {
+      src: 'https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js',
+      type: "text/javascript",
+      charset: "UTF-8",
+      'data-domain-script': "3a34bbfa-93e4-4ba6-9383-7da88d67ed18"
+    },
+    {
+      src: 'src/scripts/optanonWrapper.js',
+      type: "text/javascript"
+    },
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -62,7 +79,8 @@ const config = {
         title: '', // 'EPAM DIAL',
         logo: {
           alt: 'EPAM DIAL',
-          src: 'img/logo.svg',
+          src: 'img/logo_light.svg',
+          srcDark: 'img/logo_dark.svg'
         },
         items: [
           // {
@@ -116,5 +134,6 @@ const config = {
       }
     }),
 };
+
 
 export default config;
