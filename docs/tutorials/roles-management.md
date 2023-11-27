@@ -168,7 +168,7 @@ AzureProvider({
 > **Note**: if the custom scope is provided, the rest of scopes in the authorization request will be ignored by Microsoft Azure AD.
 > As a result, clients who have requested the access token do not have access to MS Azure Graph API for reading user info such as user picture and job title.
 
-### Assign MS Azure AD groups to AI DIAL Core deployments
+### Step 3: Assign MS Azure AD groups to AI DIAL Core deployments
 
 The last step is to assign Microsoft Azure AD groups to AI DIAL Core deployments: applications, addons, assistants and models.
 
