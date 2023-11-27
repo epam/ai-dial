@@ -29,7 +29,7 @@ In **Groups**, you can create a hierarchy of groups through admin console simila
      -> Wolfram   
 ```
 
-### Step 1: Create roles
+### Step 2: Create roles
 
 > Refer to [KeyCloak Documentation](https://www.keycloak.org/docs/latest/server_admin/index.html#con-client-roles_server_administration_guide) to learn how to create roles.
 
