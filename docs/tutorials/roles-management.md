@@ -19,7 +19,7 @@ In KeyCloak **target realm**:
 
 In AI DIAL config:
 
-1. Assign roles to AI DIAL Models, Applications, Assistants, and Addons.
+5. Assign roles to AI DIAL Models, Applications, Assistants, and Addons.
 
 AI DIAL Core receives the roles assigned to it through user access tokens (JWTs). These roles can be accessed via the path: `resource_access.<client-id>.roles` where `client-id` is a client registered in KeyCloak `realm`, e.g. `chatbot-ui`. 
 
