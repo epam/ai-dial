@@ -67,7 +67,7 @@ In **Groups**, do the roles mapping for each group:
 
 The last step is to assign KeyCloak roles to AI DIAL core deployments: Applications, Addons, Assistants and Models.
 
-> Refer to [AI DIAL Configuration](/docs/Deployment/configuration.md) to learn more.
+> Refer to [AI DIAL Configuration](/docs/Deployment/configuration.md#proxyconfigjson-parameter) to learn more.
 
 ```yaml
 "addons": {
@@ -181,7 +181,7 @@ AzureProvider({
 
 The last step is to assign Microsoft Azure AD groups to AI DIAL Core deployments: Applications, Addons, Assistants and Models.
 
-> Refer to [AI DIAL Configuration](/docs/Deployment/configuration.md) to learn more.
+> Refer to [AI DIAL Configuration](/docs/Deployment/configuration.md#proxyconfigjson-parameter) to learn more.
 
 > **Note**: in the example below, MS Azure groups are mapped to AI DIAL Core user roles one to one.
 
