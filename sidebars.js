@@ -26,6 +26,11 @@ const sidebars = {
           id: 'tutorials/quick-start-with-addon',
           label: 'Chat with Addon',
         },
+        {
+          type: 'doc',
+          id: 'tutorials/roles-management',
+          label: 'Roles Management',
+        },
       ],
     },
     'user-guide',
