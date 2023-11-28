@@ -4,7 +4,7 @@ AI DIAL enables assignment of roles to Models, Applications, Addons, and Assista
 
 This tutorial provides a guide on how to create these roles in both KeyCloak and MS Azure, and how to integrate them into AI DIAL's configuration.
 
-> Refer to [AI DIAL Configuration](/Deployment/configuration.md#proxyconfigjson-parameters) to learn more abour `roles` and other parameters. 
+> Refer to [AI DIAL Configuration](/docs/Deployment/configuration.md#proxyconfigjson-parameters) to learn more abour `roles` and other parameters. 
 
 ## KeyCloak
 
