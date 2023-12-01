@@ -57,9 +57,9 @@ Mount your model key JSON file as a secret to VertexAI adapter pod.
 proxy:
   vertex:
     secrets:
-      gcp-ai-proxy-key: '["/mnt/secrets-store/your-key.json"]'
+      gcp-ai-proxy-key: |
 ```
-> We recommend handling your secrets as environment variables for security purposes.
+
 
 
 
