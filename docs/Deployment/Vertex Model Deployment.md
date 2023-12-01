@@ -42,12 +42,14 @@ To communicate with VertexAI models, it is necessary to have a service account.
 
     * **In DETAILS** you can view and edit your account details.
     ![](img/gcp7.png)
-    * **In PERMISSIONS**, set permissions for the service account. Grant this service account access to roles on the project level, following the concept of less privilege.
+    * **In PERMISSIONS**, set permissions for the service account. Grant this service account access to roles on the project level, following the concept of less privilege. Refer to [GCP Documentation](https://cloud.google.com/vertex-ai/docs/general/access-control#grant_service_agents_access_to_other_resources) to learn more.
     ![](img/gcp8.png)
     * **In KEYS**, create a key for this service account and download it in JSON format.
     ![](img/gcp6.png)
 
 ## Deploy the model in AI DIAL config
+
+> Refer to [AI DIAL Config](https://github.com/epam/ai-dial/blob/86773b4b7a716a60684d36d6d7739bc64aaba80d/docs/Deployment/dialConfig.yaml#L288) to view a config example.
 
 Mount your model key JSON file as a secret to VertexAI adapter pod.
 
@@ -57,4 +59,8 @@ proxy:
     secrets:
       gcp-ai-proxy-key: '["/mnt/secrets-store/your-key.json"]'
 ```
-> Refer to [AI DIAL Config](https://github.com/epam/ai-dial/tree/main/docs/Deployment/dialConfig.yaml) to view a config example.
+> We recommend handling your secrets as environment variables for security purposes.
+
+
+
+
