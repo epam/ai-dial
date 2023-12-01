@@ -35,11 +35,11 @@ To communicate with VertexAI models, it is necessary to have a service account.
 6.	Click to select your account:
    ![](img/gcp5.png)
 
-  * **In DETAILS** you can view and edit your account details.
+    * **In DETAILS** you can view and edit your account details.
     ![](img/gcp7.png)
-  * **In PERMISSIONS**, set permissions for the service account. Grant this service account access to roles on the project level, following the concept of less privilege.
+    * **In PERMISSIONS**, set permissions for the service account. Grant this service account access to roles on the project level, following the concept of less privilege.
     ![](img/gcp8.png)
-  * **In KEYS**, create a key for this service account and download it in JSON format.
+    * **In KEYS**, create a key for this service account and download it in JSON format.
     ![](img/gcp6.png)
 
 ## Deploy the model in AI DIAL config
