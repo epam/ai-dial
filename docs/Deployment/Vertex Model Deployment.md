@@ -1,6 +1,6 @@
 # GCP VertexAI Model Deployment
 
-In this instruction, you will learn how to create VertexAI model in Google Cloud Platform.
+In this instruction, you will learn how to create VertexAI model in Google Cloud Platform and deploy it in AI DIAL config.
 
 ## Prerequisites
 
