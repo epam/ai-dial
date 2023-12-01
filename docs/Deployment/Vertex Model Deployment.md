@@ -9,7 +9,7 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
 
 ## Steps
   
-1. Enabled Vertex AI API
+1. Enable Vertex AI API
 2. Create a Service Account
 3. Configure AI DIAL Adapter
 
