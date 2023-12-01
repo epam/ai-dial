@@ -37,7 +37,7 @@ To communicate with VertexAI models, it is necessary to have a service account.
 
 ![](img/gcp1.png)
 
-3.	To create a new service account, click **+ Create Service Account** and fill in the details for your new service account:
+2. To create a new service account, click **+ Create Service Account** and fill in the details for your new service account:
 	  
 ![](img/gcp2-1.png)
 
@@ -49,7 +49,7 @@ To communicate with VertexAI models, it is necessary to have a service account.
 
 * Click **Done** to complete.
 
-5.	The new service account appears on the Service Account page. Click it to view the details:
+3. The new service account appears on the Service Account page. Click it to view the details:
     * **In KEYS**, create a key for this service account and download it in JSON format.
     
     ![](img/gcp6.png)
