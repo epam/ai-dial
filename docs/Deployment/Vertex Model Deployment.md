@@ -18,7 +18,7 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
 > Refer to [Google Cloud Documentation](https://cloud.google.com/vertex-ai/docs/featurestore/setup) to learn how to create an account and enable billing.
 
 1.	Log into your Google Cloud account.
-2.	In the navigation panel on the left, select **APIs & Services** and there click **+ Enable APIs and Services** at the top of the screen.
+2.	In the navigation panel on the left, in **APIs & Services**, select **+ Enable APIs and Services**.
 
   	![](img/gcp9.png)
   	
