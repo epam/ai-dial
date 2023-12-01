@@ -37,8 +37,9 @@ To communicate with VertexAI models, it is necessary to have a service account.
    ![](img/gcp1.png)
 3.	To create a new service account, click **+ Create Service Account** and fill in the details for your new service account:
 	  ![](img/gcp2-1.png)
-    * Fill in the details of your service account.
-    * In the next step, add **Vertex AI Custom Code Service Agent** role. Refer to [GCP Documentation](https://cloud.google.com/vertex-ai/docs/general/access-control#grant_service_agents_access_to_other_resources) to learn more.
+    * Fill in the **Service account details**.
+    * In the next step **Grant this service account access to project**, add **Vertex AI Custom Code Service Agent** role. Refer to [GCP Documentation](https://cloud.google.com/vertex-ai/docs/general/access-control#grant_service_agents_access_to_other_resources) to learn more.
+      	![](img/gcp12.png)
     *  Click **Done** to complete.
 5.	The new service account appears on the Service Account page. Click it to view the details:
     * **In KEYS**, create a key for this service account and download it in JSON format.
