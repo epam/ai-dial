@@ -18,8 +18,10 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
 1.	Log into your Google Cloud account.
 3.	In the navigation panel on the left, click **APIs & Services**.
 4.	Click **+ Enable APIs and Services** at the top of the screen.
-5.	In the search bar, type **Vertex AI API** and select the **Vertex AI API** panel when it appears in search results.
-6.	Click **Enable** to turn on the Vertex AI API for your Google Cloud project.
+  ![](img/gcp9.png)
+6.	In the search bar, type **Vertex AI API** and select the **Vertex AI API** panel when it appears in search results.
+   ![](img/gcp10.png)
+8.	Click **Enable** or **Start Free** to turn on the Vertex AI API for your Google Cloud project.
    
 ## Create a service account
 
