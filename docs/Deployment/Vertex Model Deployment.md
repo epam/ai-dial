@@ -30,10 +30,9 @@ To communicate with VertexAI models, it is necessary to have a service account.
 1.	In your Google Cloud account, on the main dashboard, open the Navigation Menu at the top-left corner of the page.
 2.	On the Navigation menu, in **IAM & Admin**, navigate to **Service Accounts**.
    ![](img/gcp1.png)
-4.	To create a new service account, click **+ Create Service Account** and fill in the details for your new service account and click **Done**. The new service account appears on the Service Account page.
-  ![](img/gcp2.png)
-6.	Click to select your account:
-   ![](img/gcp5.png)
+3.	To create a new service account, click **+ Create Service Account** and fill in the details for your new service account and click **Done**. The new service account appears on the Service Account page. Click it to view the details
+  ![](img/gcp2-1.png)
+4.	In your Service Account, you can configure details, permissions, and keys:
 
     * **In DETAILS** you can view and edit your account details.
     ![](img/gcp7.png)
