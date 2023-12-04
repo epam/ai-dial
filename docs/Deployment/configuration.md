@@ -26,9 +26,9 @@ Configure front-end parameters in the [`env`](https://github.com/epam/ai-dial/tr
 | `OPENAI_API_VERSION`     | Yes       | OpenAI API Version  | Any string   |  |
 | `APP_BASE_PATH`          | No  | Application base path  | Any string   |  |
 | `APP_BASE_ORIGIN`        | Yes (if `APP_BASE_PATH` is set) | Application base origin | Any string   |  |
-| `ALLOWED_IFRAME_ORIGINS` | No  | Allowed iFrame Origins | Any origin valid format. See   | none  |
+| `ALLOWED_IFRAME_ORIGINS` | No  | Allowed iFrame Origins | Any origin valid format.| none  |
 | `IS_IFRAME`   | No  | Is iFrame   | `true`, `false`     | false |
-| `ENABLED_FEATURES`       | No  | Enabled Features       |  |  |
+| `ENABLED_FEATURES`       | No  | Enabled Features       |Refer to [Features](https://github.com/epam/ai-dial-chat/blob/release-0.2/src/types/features.ts)  |  |
 | `NEXT_PUBLIC_APP_NAME`   | No  | Public Application Name | Any string   | AI Dial          |
 | `NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT` | No  | Public Default System Prompt      | Any string   |  |
 | `NEXT_PUBLIC_DEFAULT_TEMPERATURE`   | No  | Public Default Temperature        | 0 to 1       |  |
@@ -36,12 +36,12 @@ Configure front-end parameters in the [`env`](https://github.com/epam/ai-dial/tr
 | `DEFAULT_ASSISTANT_SUB_MODEL`       | No  | Default Assistant Sub Model       | Any string   | gpt-4 |
 | `RECENT_MODELS_IDS`      | No  | A list of IDs for recently used AI models.   | Any string   |  |
 | `RECENT_ADDONS_IDS`      | No  | A list of IDs for recently used AI model addons.    | Any string   |  |
-| `E2E_HOST`    | No  | The host URL for end-to-end testing. | Any string   |  |
-| `PREVIEW_TEST_TOKEN`     | No  | A test token for e2e authentification.| Any string   |  |
+| `E2E_HOST`    | No  | The host URL for end-to-end testing. Refer to [E2E Tests](https://github.com/epam/ai-dial-chat/blob/release-0.2/e2e/README.md) to learn more. | Any string   |  |
+| `PREVIEW_TEST_TOKEN`     | No  | A test token for e2e authentification. Refer to [E2E Tests](https://github.com/epam/ai-dial-chat/blob/release-0.2/e2e/README.md) to learn more.| Any string   |  |
 | `TRACES_URL`  | No  | Traces URL  | Any string   |  |
 | `TMS_URL`     | No  | TMS URL     | Any string   |  |
 | `ISSUE_URL`   | No  | Issue URL   | Any string   |  |
-| `THEMES_CONFIG_HOST`     | No  | The host URL for custom themes configuration. | Any string   |  |
+| `THEMES_CONFIG_HOST`     | No  | The host URL for custom themes configuration. Refer to [Theme Configuration](https://github.com/epam/ai-dial-chat/blob/release-0.2/docs/THEME-CUSTOMIZATION.md) to learn more. | Any string   |  |
 | `FOOTER_HTML_MESSAGE`    | No  | Footer HTML Message    | Any string   |  |
 | `AZURE_FUNCTIONS_API_HOST`          | No  | Azure Functions API Host          | Any string   |  |
 | `REPORT_ISSUE_CODE`      | No  | Report Issue Code used when sending report issue info to Azure Functions API Host    | Any string   |  |
