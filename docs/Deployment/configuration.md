@@ -17,27 +17,73 @@ The `dialConfig.yaml` configuration file of the AI DIAL application is comprised
 
 Configure front-end parameters in the [`env`](https://github.com/epam/ai-dial/tree/main/docs/Deployment/dialConfig.yaml#L18) and [`secrets`](https://github.com/epam/ai-dial/tree/main/docs/Deployment/dialConfig.yaml#L30) sections of the config file:
 
-|Parameter|Description|
-|---------|-----------|
-|NEXTAUTH_URL|Public URL of the application. When deploying to production, set the `NEXTAUTH_URL` environment variable to the canonical URL of your site.|
-|NEXTAUTH_SECRET|A random string used as a ceed for authentication. Used to encrypt the NextAuth.js JWT, and to hash email verification tokens.|
-|NEXT_PUBLIC_DEFAULT_TEMPERATURE|Default temperature settings in the range: [0 1]|
-|NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT|The default system prompt.|
-|NEXT_PUBLIC_APP_NAME | Public Application Name |
-|OPENAI_API_HOST|AI DIAL back-end URL.|
-|OPENAI_API_KEY|Open AI API Key.|
-|OPENAI_API_VERSION|Version of the OpenAI API.|
-|DEFAULT_MODEL|Default LLM.|
-|ENABLED_FEATURES|A list of UI features.|
-|NEXT_PUBLIC_APP_NAME|Application name.|
-|AVAILABLE_MODELS_USERS_LIMITATIONS|Specify models and users that have access to them. Skip to allow all users to access all models.|
-|AVAILABLE_ADDONS_USERS_LIMITATIONS|Specify Addons and users that have access to them. Skip to allow all users to access all Addons.|
-|CLIENT_ID|You client id at auth provider.|
-|TENANT_ID|You tenant id at auth provider.|
-|SECRET|You secret at auth provider.|
-|NAME|Display name in AI DIAL app.|
-|HOST|Auth provider URL.|
-|AUDIENCE|Your audience at auth provider.|
+> Note: for development we have some predefined variables located in `.env.development`
+
+| Variable| Required| Description | Available Values| Default values   |
+| ----- | -----| --------- | --------------------- | ---------------- |
+| `OPENAI_API_HOST` | Yes   | OpenAI API Host   | Any string |  |
+| `OPENAI_API_KEY`| Yes| OpenAI API Key       | Any string  |    |
+| `OPENAI_API_VERSION`     | Yes       | OpenAI API Version  | Any string   |  |
+| `APP_BASE_PATH`          | No  | Application base path  | Any string   |  |
+| `APP_BASE_ORIGIN`        | Yes (if `APP_BASE_PATH` is set) | Application base origin | Any string   |  |
+| `ALLOWED_IFRAME_ORIGINS` | No  | Allowed iFrame Origins | Any origin valid format.| none  |
+| `IS_IFRAME`   | No  | Is iFrame   | `true`, `false`     | false |
+| `ENABLED_FEATURES`       | No  | Enabled Features       |Refer to [Features](https://github.com/epam/ai-dial-chat/blob/release-0.2/src/types/features.ts)  |  |
+| `NEXT_PUBLIC_APP_NAME`   | No  | Public Application Name | Any string   | AI Dial          |
+| `NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT` | No  | Public Default System Prompt      | Any string   |  |
+| `NEXT_PUBLIC_DEFAULT_TEMPERATURE`   | No  | Public Default Temperature        | 0 to 1       |  |
+| `DEFAULT_MODEL`          | No  | Default Model          | Any string   | gpt-35-turbo     |
+| `DEFAULT_ASSISTANT_SUB_MODEL`       | No  | Default Assistant Sub Model       | Any string   | gpt-4 |
+| `RECENT_MODELS_IDS`      | No  | A list of IDs for recently used AI models.   | Any string   |  |
+| `RECENT_ADDONS_IDS`      | No  | A list of IDs for recently used AI model addons.    | Any string   |  |
+| `E2E_HOST`    | No  | The host URL for end-to-end testing. Refer to [E2E Tests](https://github.com/epam/ai-dial-chat/blob/release-0.2/e2e/README.md) to learn more. | Any string   |  |
+| `PREVIEW_TEST_TOKEN`     | No  | A test token for e2e authentification. Refer to [E2E Tests](https://github.com/epam/ai-dial-chat/blob/release-0.2/e2e/README.md) to learn more.| Any string   |  |
+| `TRACES_URL`  | No  | Traces URL  | Any string   |  |
+| `TMS_URL`     | No  | TMS URL     | Any string   |  |
+| `ISSUE_URL`   | No  | Issue URL   | Any string   |  |
+| `THEMES_CONFIG_HOST`     | No  | The host URL for custom themes configuration. Refer to [Theme Configuration](https://github.com/epam/ai-dial-chat/blob/release-0.2/docs/THEME-CUSTOMIZATION.md) to learn more. | Any string   |  |
+| `FOOTER_HTML_MESSAGE`    | No  | Footer HTML Message    | Any string   |  |
+| `AZURE_FUNCTIONS_API_HOST`          | No  | Azure Functions API Host          | Any string   |  |
+| `REPORT_ISSUE_CODE`      | No  | Report Issue Code used when sending report issue info to Azure Functions API Host    | Any string   |  |
+| `REQUEST_API_KEY_CODE`   | No  | Request API Key Code used when sending request api key info to Azure Functions API Host     | Any string   |  |
+| `CODE_GENERATION_WARNING` | No  | Warning text regarding code generation       | Any string   |  |
+| `SHOW_TOKEN_SUB`         | No  | Show token sub in refresh login error logs   | `true`, `false`     | false |
+
+
+The .env file contains environment variables that can be used to configure your app's settings and behavior. These values can be changed as needed to suit your specific requirements.
+
+Also we have a lot of auth specific env variables:
+
+| Variable       | Required  | Description      | Available Values | Default values |
+| ------------------------- | -------------------- | ------------------------------------------------------------------- | ---------------- | -------------- |
+| `AUTH_DISABLED` | No        | A flag to enable or disable authentication.   | `true`, `false`  | false          |
+| `NEXTAUTH_URL` | Yes (for production) | NextAuth URL     | Any string       |     |
+| `NEXTAUTH_SECRET`         | Yes       | NextAuth Secret (generate by `openssl rand -base64 32` for example) | Any string       |     |
+| `AUTH_TEST_TOKEN`         | No        | Test Token       | Any string       |     |
+| `AUTH_AUTH0_AUDIENCE`     | No        | Auth0 Audience   | Any string       |     |
+| `AUTH_AUTH0_CLIENT_ID`    | No        | Auth0 Client ID  | Any string       |     |
+| `AUTH_AUTH0_HOST`         | No        | Auth0 Host       | Any string       |     |
+| `AUTH_AUTH0_NAME`         | No        | Auth0 Name       | Any string       |     |
+| `AUTH_AUTH0_SECRET`       | No        | Auth0 Secret     | Any string       |     |
+| `AUTH_AZURE_AD_CLIENT_ID` | No        | Azure AD Client ID          | Any string       |     |
+| `AUTH_AZURE_AD_NAME`      | No        | Azure AD Name    | Any string       |     |
+| `AUTH_AZURE_AD_SECRET`    | No        | Azure AD Secret  | Any string       |     |
+| `AUTH_AZURE_AD_TENANT_ID` | No        | Azure AD Tenant ID          | Any string       |     |
+| `AUTH_GITLAB_CLIENT_ID`   | No        | GitLab Client ID | Any string       |     |
+| `AUTH_GITLAB_HOST`        | No        | GitLab Host      | Any string       |     |
+| `AUTH_GITLAB_NAME`        | No        | GitLab Name      | Any string       |     |
+| `AUTH_GITLAB_SECRET`      | No        | GitLab Secret    | Any string       |     |
+| `AUTH_GOOGLE_CLIENT_ID`   | No        | Google Client ID | Any string       |     |
+| `AUTH_GOOGLE_NAME`        | No        | Google Name      | Any string       |     |
+| `AUTH_GOOGLE_SECRET`      | No        | Google Secret    | Any string       |     |
+| `AUTH_KEYCLOAK_CLIENT_ID` | No        | Keycloak Client ID          | Any string       |     |
+| `AUTH_KEYCLOAK_HOST`      | No        | Keycloak Host    | Any string       |     |
+| `AUTH_KEYCLOAK_NAME`      | No        | Keycloak Name    | Any string       |     |
+| `AUTH_KEYCLOAK_SECRET`    | No        | Keycloak Secret  | Any string       |     |
+| `AUTH_PING_ID_CLIENT_ID`  | No        | PingID Client ID | Any string       |     |
+| `AUTH_PING_ID_HOST`       | No        | PingID Host      | Any string       |     |
+| `AUTH_PING_ID_NAME`       | No        | PingID Name      | Any string       |     |
+| `AUTH_PING_ID_SECRET`     | No        | PingID Secret    | Any string       |     |
 
 ## Back-End Parameters
 
