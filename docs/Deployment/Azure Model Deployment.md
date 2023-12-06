@@ -1,6 +1,6 @@
 ## Create and Deploy OpenAI Model in Azure
 
-In this section, you will learn how to create an Azure OpenAI model GPT-3.5-turbo/GPT-4.
+From this instruction, you will learn how to create an Azure OpenAI model GPT-3.5-turbo/GPT-4.
 
 1. Login to the MS Azure portal (https://portal.azure.com/) with your credentials. Create an account if you do not have one.
 2. Use the search bar to look up **Azure OpenAI** and click it to navigate to the **Azure AI Services|Azure OpenAI** page.
@@ -11,7 +11,7 @@ In this section, you will learn how to create an Azure OpenAI model GPT-3.5-turb
    
    ![](img/step3.jpg)
    
-4. You may need to request access to Azure OpenAI Services. Follow the link in the notification to do that.
+4. You may need to request access to Azure OpenAI Services. Follow the link in the notification to do that. You can review this form by following [this link](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNTZBNzRKNlVQSFhZMU9aV09EVzYxWFdORCQlQCN0PWcu)
    
    ![](img/step5.jpg)
    
@@ -28,3 +28,10 @@ In this section, you will learn how to create an Azure OpenAI model GPT-3.5-turb
 7. Go back to your model page and click **Keys and Endpoint**. In this section, you can find your key and endpoint that you will need to provide in [AI DIAL configuration file](https://github.com/epam/ai-dial/tree/main/docs/Deployment/dialConfig.yaml#L143).
    
     ![](img/step13.jpg)
+
+8. You can restrict access to your accounts based on a specific subset of networks by configuring network rules, only applications that access data through the designated set of networks are permitted to access the account. You can manage default network access rules for Azure AI services resources in **Resource Management/Networking**.
+
+   > Refer to [Microsoft Documentation](https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-virtual-networks?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=portal#manage-default-network-access-rules) to learn more.
+   > Refer to [Microsoft Data Privacy Policy](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy) to learn how data provided by you to the Azure OpenAI service is processed, used, and stored.
+
+   ![](img/whitelisting.png)
