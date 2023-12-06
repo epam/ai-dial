@@ -39,6 +39,7 @@ const sidebars = {
       label: 'Deployment',
       items: [
         'Deployment/Azure Model Deployment',
+        'Deployment/Vertex Model Deployment',
         'Deployment/configuration',
       ],
     },
