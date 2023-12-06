@@ -58,13 +58,59 @@ To communicate with VertexAI models, it is necessary to have a service account.
 
 > Refer to [AI DIAL Config](https://github.com/epam/ai-dial/blob/86773b4b7a716a60684d36d6d7739bc64aaba80d/docs/Deployment/dialConfig.yaml#L288) to view a config example.
 
-Mount your model key JSON file as a secret to VertexAI adapter pod.
+The JSON file with your model key should be mounted to a pod as a file. Please, use the most suitable way to perform it.
+
+Example of mounting using CSI drivers:
 
 ```yaml
-proxy:
-  vertex:
-    secrets:
-      gcp-ai-proxy-key: |
+vertexai:
+  enabled: true
+
+  image:
+    tag: imagetag
+
+  env:
+    GOOGLE_APPLICATION_CREDENTIALS: "/mnt/secrets-store/gcp-ai-proxy-key"
+    GCP_PROJECT_ID: you-project-id
+    DEFAULT_REGION: "your-region"
+    
+  serviceAccount:
+    create: 
+    name: 
+
+  extraVolumes:
+    - name: secrets
+      csi:
+        driver: secrets-store.csi.k8s.io
+        readOnly: true
+        volumeAttributes:
+          secretProviderClass: gcp-ai-key
+
+  extraVolumeMounts:
+    - name: secrets
+      readOnly: true
+      mountPath: /mnt/secrets-store
+
+  extraDeploy:
+    - apiVersion: secrets-store.csi.x-k8s.io/v1
+      kind: SecretProviderClass
+      metadata:
+        name: gcp-ai-key
+        namespace: your-k8s-namespace
+      spec:
+        provider: 
+        parameters:
+          clientID: your-client-id
+          cloudName: your-cloud-name
+          keyvaultName: your-keyvault-name
+          objects: |
+            array:
+              - |
+                objectName: gcp-ai-proxy-key
+                objectType: secret
+                objectVersion: ""
+tenantID: your-tenant-id
+          usePodIdentity: "false"
 ```
 
 
