@@ -7,6 +7,7 @@ The configuration of AI DIAL includes several main sections:
 * [Core parameters](#core-parameters)
 * [Chat parameters](#chat-parameters)
 * [Chat Themes parameters](#themes-parameters)
+* [Configuration of Adapters](#adapters-parameters)
 
 > **Important**: it is assumed that you have a working knowledge of standard Helm chart parameters in order to define them within the configuration file.
 
@@ -44,4 +45,13 @@ Configure Chat parameters in the [`chat`](https://github.com/epam/ai-dial-helm/b
 
 Configure Themes parameters in the [`themes`](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L98) section of the config file.
 
+## Adapters Parameters
+
+To work with Azure, AWS or GCP models we use applications called Adapters. You can configure Adapters in the [AI DIAL Config]https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L114).
+
+Refer to these repositories to view a complete documentation for:
+
+* [Adapter for Bedrock](https://github.com/epam/ai-dial-adapter-bedrock)
+* [Adapter for Vertex](https://github.com/epam/ai-dial-adapter-vertexai)
+* [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai)
 
