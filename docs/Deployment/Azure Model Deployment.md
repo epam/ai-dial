@@ -49,16 +49,25 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
 ## Step 2: Add model to AI DIAL
 
-In AI DIAL configuration, add your model **endpoint** and **key** in model `upstreams`:
+To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it.
+
+Add you model with its parameters in the `models` section. Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L11) to view an example.
+
+To work with models, we use applications called Adapters. You can configure Adapters in the [AI DIAL Config](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L114).
+
+Refer to [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to view documentation for a OpenAI AI DIAL Adapter.
 
 ```yaml
-            "upstreams": [
-              {
-                "endpoint": "%%MODEL_ENDPOINT%%",
-                "key": "%%MODEL_KEY%%"
-              }
+### examples of basic configurations of adapters ###
+
+### ai-dial-adapter-openai configuration ###
+openai:
+  # -- Enable/disable ai-dial-adapter-openai
+  enabled: false
+  commonLabels:
+    app.kubernetes.io/component: "adapter"
+  image:
+    repository: epam/ai-dial-adapter-openai
+    tag: 0.2.0
 ```
-
-Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L17) to view the configuration template. 
-
 
