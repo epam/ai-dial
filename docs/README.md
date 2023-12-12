@@ -20,6 +20,10 @@
 
 * [AI DIAL Chat User Manual](./user-guide.md)
 
+## Configuration
+
+* Refer to [Configuration](/Deployment/configuration.md)
+
 ## Other AI DIAL Project Open Source Repositories
 
 Here is the current list of repositories where you can find more details. 
