@@ -25,7 +25,7 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
     > It is important to note that certain models may not be accessible for deployment in a particular region. If you need a particular model, you will have to submit a separate request or relocate Azure OpenAI to a different region.
 
-7. Go back to your model page and click **Keys and Endpoint**. In this section, you can find your key and endpoint that you will need to provide in [AI DIAL configuration file](https://github.com/epam/ai-dial/tree/main/docs/Deployment/dialConfig.yaml#L143).
+7. Go back to your model page and click **Keys and Endpoint**. In this section, you can find your key and endpoint that you will need to provide in [AI DIAL configuration file](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L17).
    
     ![](img/step13.jpg)
 
