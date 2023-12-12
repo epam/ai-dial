@@ -10,6 +10,10 @@
 
 > Refer to [AI DIAL Chat Repository](https://github.com/epam/ai-dial-chat#overview) to learn how to launch AI DIAL Chat with default configurations.
 
+## Helm Deployment
+
+* [AI DIAL Generic Installation Simple Guide](https://github.com/epam/ai-dial-helm/tree/main/charts/dial/examples/generic/simple)
+  
 ## Tutorials
 
 * [Launch AI DIAL Chat with an Azure model](./docs/tutorials/quick-start-model.md)
