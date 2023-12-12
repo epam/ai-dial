@@ -4,11 +4,12 @@
 
 The configuration of AI DIAL includes several main sections:
 
-* [Core parameters](#core-parameters)
-* [Chat parameters](#chat-parameters)
-* [Chat Themes parameters](#themes-parameters)
-* [Configuration of Adapters](#adapters-parameters)
-* [Configuration of Assistant](#assistant-parameters)
+* [Core](#core-parameters)
+* [Chat](#chat-parameters)
+* [Chat Themes](#themes-parameters)
+* [Adapters](#adapters-parameters)
+* [Assistant](#assistant-parameters)
+* [Auth Helper](#auth-helper-parameters)
 
 > **Important**: it is assumed that you have a working knowledge of standard Helm chart parameters in order to define them within the configuration file.
 
@@ -113,4 +114,30 @@ assistant:
     tag: 0.2.3
   # env:
   #   OPENAI_API_BASE: ""
+```
+
+## Auth Helper Parameters
+
+You can add Auth Helper settings in the `authhelper` section of the AI DIAL configuration file. 
+
+> Refer to the [Auth Helper](https://github.com/epam/ai-dial-auth-helper) to view a complete documentation.
+
+```yaml
+### example of a basic ai-dial-auth-helper configuration ###
+authhelper:
+  # -- Enable/disable ai-dial-auth-helper.
+  # Set `keycloak.enabled: true` before enabling this.
+  enabled: false
+  commonLabels:
+    app.kubernetes.io/component: "authentication"
+  image:
+    repository: epam/ai-dial-auth-helper
+    tag: 0.1.1
+  containerPorts:
+    http: 4088
+  # env:
+  #   SERVER_HOSTURL: ""
+  #   OAUTH2_PROVIDERURI: ""
+  # secrets:
+  #   OAUTH2_CLIENTSECRET: ""
 ```
