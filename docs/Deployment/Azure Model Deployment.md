@@ -7,6 +7,10 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 1. [Create a model deployment](#step-1-create-a-model-deployment)
 2. [Add model to AI DIAL](#step-2-add-model-to-ai-dial)
 
+## Prerequisites
+
+* Active Azure account
+  
 ## Step 1: Create a model deployment
 
 1. Login to the MS Azure portal (https://portal.azure.com/) with your credentials. Create an account if you do not have one.
@@ -43,7 +47,7 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
    ![](img/whitelisting.png)
 
-## Step2: Add model to AI DIAL
+## Step 2: Add model to AI DIAL
 
 In AI DIAL configuration, add your model **endpoint** and **key** in model `upstreams`:
 
