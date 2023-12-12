@@ -23,7 +23,7 @@ In this instruction, you will learn how to create Bedrock model in AWS and deplo
 
 ## Step 2: Create IAM User
 
-1. In your AWS account, navigate to IAM console.
+1. In your AWS account, navigate to IAM section.
 2. In the navigation tree, select **Users** and click **Create user** in the Users panel.
 
 Refer to [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) to learn more.
