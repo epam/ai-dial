@@ -9,9 +9,9 @@ In this instruction, you will learn how to create Bedrock model in AWS and deplo
   
 ## Steps
 
-1.	Request access to models
-2.	Create IAM User
-3.	Add a model to AI DIAL config
+1.	[Request access to models](#step-1-request-access-to-models)
+2.	[Create IAM User](#step-2-create-iam-user)
+3.	[Add Model to AI DIAL](#step-3-add-model-to-ai-dial)
 
 ## Step 1: Request Access to Models
 
@@ -31,7 +31,7 @@ In this instruction, you will learn how to create Bedrock model in AWS and deplo
 3. Click your new user and navigate to the **Security credentials** tab where you can click **Create access key** to create a key pair for your user.
 4. For a new key pair, click **Show** to view and download a CSV file. **Note**, that once shown, the key pair will no longer be available for preview. Make sure you save a CSV file for future use. 
 
-## Step 3: Add a Model to AI DIAL Config
+## Step 3: Add Model to AI DIAL
 
 To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it.
 
