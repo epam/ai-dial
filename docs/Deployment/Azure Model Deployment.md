@@ -1,6 +1,13 @@
-## Create and Deploy OpenAI Model in Azure
+# OpenAI Model Deployment
 
 From this instruction, you will learn how to create an Azure OpenAI model GPT-3.5-turbo/GPT-4.
+
+## Steps
+
+1. [Create a model deployment]()
+2. [Add model to AI DIAL]()
+
+## Step 1: Create a model deployment
 
 1. Login to the MS Azure portal (https://portal.azure.com/) with your credentials. Create an account if you do not have one.
 2. Use the search bar to look up **Azure OpenAI** and click it to navigate to the **Azure AI Services|Azure OpenAI** page.
@@ -25,7 +32,7 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
     > It is important to note that certain models may not be accessible for deployment in a particular region. If you need a particular model, you will have to submit a separate request or relocate Azure OpenAI to a different region.
 
-7. Go back to your model page and click **Keys and Endpoint**. In this section, you can find your key and endpoint that you will need to provide in [AI DIAL configuration file](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L17).
+7. Go back to your model page and click **Keys and Endpoint**. In this section, you can find your key and endpoint that you will need to provide in AI DIAL configuration file.
    
     ![](img/step13.jpg)
 
@@ -35,3 +42,19 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
    > Refer to [Microsoft Data Privacy Policy](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy) to learn how data provided by you to the Azure OpenAI service is processed, used, and stored.
 
    ![](img/whitelisting.png)
+
+## Step2: Add model to AI DIAL
+
+In AI DIAL configuration, add your model **endpoint** and **key** in model `upstreams`:
+
+```yaml
+            "upstreams": [
+              {
+                "endpoint": "%%MODEL_ENDPOINT%%",
+                "key": "%%MODEL_KEY%%"
+              }
+```
+
+Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L17) to view the configuration template. 
+
+
