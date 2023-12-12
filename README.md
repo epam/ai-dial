@@ -20,6 +20,10 @@
 
 * [AI DIAL Chat User Manual](./docs/user-guide.md)
 
+## Configuration
+
+* Refer to [Configuration](./docs/Deployment/configuration.md)
+  
 ## Other AI DIAL Project Open Source Repositories 
 
 Here is the current list of repositories where you can find more details. You can also refer to [repository map](https://epam-rail.com/open-source).
