@@ -13,7 +13,7 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
   
 1. [Enable Vertex AI API](#step-1-enable-vertex-ai-api)
 2. [Create a Service Account](#step-2-create-a-service-account)
-3. [Configure AI DIAL Adapter](#step-3-configure-ai-dial-adapter)
+3. [Add model to AI DIAL](#step-3-add-model-to-ai-dial)
 
 ## Step 1: Enable Vertex AI API
 
@@ -54,7 +54,7 @@ To communicate with VertexAI models, it is necessary to have a service account.
     
    	 ![](img/gcp6.png)
 
-## Step 3: Configure AI DIAL Adapter
+## Step 3: Add model to AI DIAL
 
 To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it.
 
