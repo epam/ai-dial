@@ -47,7 +47,7 @@ Configure Themes parameters in the [`themes`](https://github.com/epam/ai-dial-he
 
 ## Adapters Parameters
 
-To work with Azure, AWS or GCP models we use applications called Adapters. You can configure Adapters in the [AI DIAL Config]https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L114).
+To work with Azure, AWS or GCP models we use applications called Adapters. You can configure Adapters in the [AI DIAL Config](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L114).
 
 Refer to these repositories to view a complete documentation for:
 
