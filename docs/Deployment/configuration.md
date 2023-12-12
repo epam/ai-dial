@@ -8,6 +8,7 @@ The configuration of AI DIAL includes several main sections:
 * [Chat parameters](#chat-parameters)
 * [Chat Themes parameters](#themes-parameters)
 * [Configuration of Adapters](#adapters-parameters)
+* [Configuration of Assistant](#assistant-parameters)
 
 > **Important**: it is assumed that you have a working knowledge of standard Helm chart parameters in order to define them within the configuration file.
 
@@ -94,3 +95,22 @@ vertexai:
     tag: 0.2.0
 ```
 
+## Assistant Parameters
+
+You can add AI DIAL Assistant settings in the `assistant` section of the AI DIAL configuration file. 
+
+> Refer to the [AI DIAL Assistant](https://github.com/epam/ai-dial-assistant) to view a complete documentation.
+
+```yaml
+### example of a basic ai-dial-assistant configuration ###
+assistant:
+  # -- Enable/disable ai-dial-assistant
+  enabled: false
+  commonLabels:
+    app.kubernetes.io/component: "application"
+  image:
+    repository: epam/ai-dial-assistant
+    tag: 0.2.3
+  # env:
+  #   OPENAI_API_BASE: ""
+```
