@@ -22,7 +22,7 @@
 
 ## Configuration
 
-* Refer to [Configuration](/Deployment/configuration.md)
+* Refer to [Configuration](./Deployment/configuration.md)
 
 ## Other AI DIAL Project Open Source Repositories
 
