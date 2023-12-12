@@ -56,7 +56,9 @@ Refer to these repositories to view a complete documentation for:
 * [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai)
 
 ```yaml
-### example of basic ai-dial-adapter-openai configuration ###
+### examples of basic configurations of adapters ###
+
+### ai-dial-adapter-openai configuration ###
 openai:
   # -- Enable/disable ai-dial-adapter-openai
   enabled: false
@@ -64,6 +66,31 @@ openai:
     app.kubernetes.io/component: "adapter"
   image:
     repository: epam/ai-dial-adapter-openai
+    tag: 0.2.0
+
+### ai-dial-adapter-bedrock configuration ###
+bedrock:
+  # -- Enable/disable ai-dial-adapter-bedrock
+  enabled: false
+  commonLabels:
+    app.kubernetes.io/component: "adapter"
+  image:
+    repository: epam/ai-dial-adapter-bedrock
+    tag: 0.2.0
+  secrets:
+    {}
+    # DEFAULT_REGION: "us-east-1"
+    # AWS_ACCESS_KEY_ID: ""
+    # AWS_SECRET_ACCESS_KEY: ""
+
+### ai-dial-adapter-vertexai configuration ###
+vertexai:
+  # -- Enable/disable ai-dial-adapter-vertexai
+  enabled: false
+  commonLabels:
+    app.kubernetes.io/component: "adapter"
+  image:
+    repository: epam/ai-dial-adapter-vertexai
     tag: 0.2.0
 ```
 
