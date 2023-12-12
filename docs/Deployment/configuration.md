@@ -55,3 +55,15 @@ Refer to these repositories to view a complete documentation for:
 * [Adapter for Vertex](https://github.com/epam/ai-dial-adapter-vertexai). Refer to [Vertex Model Deployment](./Vertex%20Model%20Deployment.md#step-3-configure-ai-dial-adapter) to view the configuration example.
 * [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai)
 
+```yaml
+### example of basic ai-dial-adapter-openai configuration ###
+openai:
+  # -- Enable/disable ai-dial-adapter-openai
+  enabled: false
+  commonLabels:
+    app.kubernetes.io/component: "adapter"
+  image:
+    repository: epam/ai-dial-adapter-openai
+    tag: 0.2.0
+```
+
