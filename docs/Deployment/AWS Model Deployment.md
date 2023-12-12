@@ -33,18 +33,18 @@ In this instruction, you will learn how to create Bedrock model in AWS and deplo
 
 ## Step 3: Add a Model to AI DIAL Config
 
-You can add a **model**, **secrets** and **AWS region** to AI DIAL by adding them to the configuration file. 
+To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it.
 
-### Add Model
+Add you model with its parameters in the `models` section. Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L11) to view an example.
 
-You can add a model by adding its parameters to the `models` in config. 
+To work with models we use applications called Adapters. You can configure Adapters in the [AI DIAL Config](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L114).
 
-Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L11) to view an example.
-
-### Add Adapter
+Refer to [Adapter for Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) to view documentation for a Bedrock AI DIAL Adapter.
 
 ```yaml
-### example of ai-dial-adapter-bedrock configuration ###
+### examples of basic configurations of adapters ###
+
+### ai-dial-adapter-bedrock configuration ###
 bedrock:
   # -- Enable/disable ai-dial-adapter-bedrock
   enabled: false
@@ -58,5 +58,6 @@ bedrock:
     # DEFAULT_REGION: "us-east-1"
     # AWS_ACCESS_KEY_ID: ""
     # AWS_SECRET_ACCESS_KEY: ""
+
 ```
 
