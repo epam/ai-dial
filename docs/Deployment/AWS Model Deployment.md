@@ -29,4 +29,4 @@ In this instruction, you will learn how to create Bedrock model in AWS and deplo
 Refer to [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) to learn more.
 
 3. Click your new user and navigate to the **Security credentials** tab where you can click **Create access key** to create a key pair for your user.
-4. For a new key pair, click **Show** to view and download a CSV file. **Note**, that once shown, the key pair will no longe be available for preview. Make sure you save a SCV file for future use. 
+4. For a new key pair, click **Show** to view and download a CSV file. **Note**, that once shown, the key pair will no longer be available for preview. Make sure you save a CSV file for future use. 
