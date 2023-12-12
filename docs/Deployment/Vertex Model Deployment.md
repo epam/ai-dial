@@ -56,7 +56,7 @@ To communicate with VertexAI models, it is necessary to have a service account.
 
 ## Step 3: Configure AI DIAL Adapter
 
-> Refer to [AI DIAL Config](https://github.com/epam/ai-dial/blob/86773b4b7a716a60684d36d6d7739bc64aaba80d/docs/Deployment/dialConfig.yaml#L288) to view a config example.
+> Refer to [AI DIAL Config](https://github.com/epam/ai-dial-helm/blob/main/charts/dial/examples/generic/simple/values.yaml) to view a config example.
 
 The JSON file with your model key should be mounted to a pod as a file. Please, use the most suitable way to perform it.
 

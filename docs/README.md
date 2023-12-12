@@ -10,6 +10,10 @@
 
 > Refer to [AI DIAL Chat Repository](https://github.com/epam/ai-dial-chat#overview) to learn how to launch AI DIAL Chat with default configurations.
 
+## Helm Deployment
+
+* [AI DIAL Generic Installation Simple Guide](https://github.com/epam/ai-dial-helm/tree/main/charts/dial/examples/generic/simple)
+  
 ## Tutorials
 
 * [Launch AI DIAL Chat with an Azure model](./tutorials/quick-start-model.md)
@@ -19,6 +23,10 @@
 ## AI DIAL Chat Application User Manual
 
 * [AI DIAL Chat User Manual](./user-guide.md)
+
+## Configuration
+
+* Refer to [Configuration](./Deployment/configuration.md)
 
 ## Other AI DIAL Project Open Source Repositories
 
@@ -34,6 +42,7 @@ Here is the current list of repositories where you can find more details.
 - [DIAL CI](https://github.com/epam/ai-dial-ci) - github CI commons
 - [DIAL Assistant](https://github.com/epam/ai-dial-assistant) - model agnostic assistant/addon implementation for DIAL. It allows to use self-hosted OpenAI plugins as DIAL addons.
 - [DIAL Analytics Realtime](https://github.com/epam/ai-dial-analytics-realtime) - simple real-time usage analytics. That transforms logs into InfluxDB metrics
+- [DIAL Auth Helper](https://github.com/epam/ai-dial-auth-helper) - AuthProxy is a proxy service that implements OpenID-compatible Web API endpoints to avoid direct interaction with the AuthProviders' APIs, such as the KeyCloak API.
 - Model adapters:
     - [DIAL Azure OpenAI Adapter](https://github.com/epam/ai-dial-adapter-openai) - plugable Azure ChatGPT adapter
     - [DIAL GCP VertexAI Adapter](https://github.com/epam/ai-dial-adapter-vertexai) - plugable Google LLMs adapter
