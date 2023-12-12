@@ -26,7 +26,37 @@ In this instruction, you will learn how to create Bedrock model in AWS and deplo
 1. In your AWS account, navigate to IAM section.
 2. In the navigation tree, select **Users** and click **Create user** in the Users panel.
 
-Refer to [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) to learn more.
+  Refer to [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) to learn more.
 
 3. Click your new user and navigate to the **Security credentials** tab where you can click **Create access key** to create a key pair for your user.
 4. For a new key pair, click **Show** to view and download a CSV file. **Note**, that once shown, the key pair will no longer be available for preview. Make sure you save a CSV file for future use. 
+
+## Step 3: Add a Model to AI DIAL Config
+
+You can add a **model**, **secrets** and **AWS region** to AI DIAL by adding them to the configuration file. 
+
+### Add Model
+
+You can add a model by adding its parameters to the `models` in config. 
+
+Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L11) to view an example.
+
+### Add Adapter
+
+```yaml
+### example of ai-dial-adapter-bedrock configuration ###
+bedrock:
+  # -- Enable/disable ai-dial-adapter-bedrock
+  enabled: false
+  commonLabels:
+    app.kubernetes.io/component: "adapter"
+  image:
+    repository: epam/ai-dial-adapter-bedrock
+    tag: 0.2.0
+  secrets:
+    {}
+    # DEFAULT_REGION: "us-east-1"
+    # AWS_ACCESS_KEY_ID: ""
+    # AWS_SECRET_ACCESS_KEY: ""
+```
+
