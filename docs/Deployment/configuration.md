@@ -52,6 +52,6 @@ To work with Azure, AWS or GCP models we use applications called Adapters. You c
 Refer to these repositories to view a complete documentation for:
 
 * [Adapter for Bedrock](https://github.com/epam/ai-dial-adapter-bedrock)
-* [Adapter for Vertex](https://github.com/epam/ai-dial-adapter-vertexai). Refer to [Vertex Model Deployment](/Vertex%20Model%20Deployment.md#step-3-configure-ai-dial-adapter) to view the configuration example.
+* [Adapter for Vertex](https://github.com/epam/ai-dial-adapter-vertexai). Refer to [Vertex Model Deployment](./Vertex%20Model%20Deployment.md#step-3-configure-ai-dial-adapter) to view the configuration example.
 * [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai)
 
