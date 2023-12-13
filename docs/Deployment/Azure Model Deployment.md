@@ -22,7 +22,7 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
    
    ![](img/step3.jpg)
    
-4. You may need to request access to Azure OpenAI Services. Follow the link in the notification to do that. You can review this form by following [this link](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNTZBNzRKNlVQSFhZMU9aV09EVzYxWFdORCQlQCN0PWcu)
+4. You may need to request access to Azure OpenAI Services. Follow the link in the notification to do that. You can review this form by following [this link](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNTZBNzRKNlVQSFhZMU9aV09EVzYxWFdORCQlQCN0PWcu).
    
    ![](img/step5.jpg)
    
