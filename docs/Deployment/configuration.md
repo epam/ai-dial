@@ -1,6 +1,6 @@
 # Configuration
 
-> Refer to [AI DIAL Generic Installation Simple Guide](https://github.com/epam/ai-dial-helm/tree/main/charts/dial/examples/generic/simple), to view a basic AI DIAL installation guide.
+> Refer to [AI DIAL Generic Installation Simple Guide](https://github.com/epam/ai-dial-helm/tree/main/charts/dial/examples/generic/simple), to view a basic AI DIAL Helm installation guide.
 
 The configuration of AI DIAL includes several main sections:
 
