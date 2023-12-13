@@ -1,4 +1,4 @@
-/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
+I/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   CustomSideBar: [
     {
@@ -38,9 +38,15 @@ const sidebars = {
       type: 'category',
       label: 'Deployment',
       items: [
-        'Deployment/Azure Model Deployment',
-        'Deployment/Vertex Model Deployment',
+        {
+          type: 'link',
+          label: 'Helm Deployment',
+          href: 'https://github.com/epam/ai-dial-helm/tree/main/charts/dial/examples/generic/simple',
+        },
         'Deployment/configuration',
+        'Deployment/OpenAI Model Deployment',
+        'Deployment/Vertex Model Deployment',
+        'Deployment/Bedrock Model Deployment'
       ],
     },
   ],  
