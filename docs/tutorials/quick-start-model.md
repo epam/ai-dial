@@ -10,7 +10,7 @@ In this tutorial, you will learn how to quickly launch AI DIAL Chat with a custo
     > Refer to [Docker](https://docs.docker.com/desktop/) documentation.
 
 2. Account in MS Azure OpenAI Studio.
-    > Refer to [Create and Deploy OpenAI Model in Azure](/Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy a model in your MS Azure.
+    > Refer to [Create and Deploy OpenAI Model in Azure](/Deployment/OpenAI%20Model%20Deployment.md) to learn how to create and deploy a model in your MS Azure.
 
 ## Step 1: Get AI DIAL
 
