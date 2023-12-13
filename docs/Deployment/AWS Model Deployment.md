@@ -19,6 +19,8 @@ In this instruction, you will learn how to create Bedrock model in AWS and deplo
 2. In Amazon Bedrock, navigate to **Model access** and click the **Manage model access** button.
 3. In Base models, select models and click **Save changes** to request access to them. **Note**, it may take a few moment for an access to be granted. You may need to refresh the page to view the updated status.
 
+![](img/aws1.jpg)
+
 > To use Bedrock, it is necessary to seek permission to access Bedrock's foundation models. To accomplish this, ensuring the correct IAM Policies is crucial. You can find instructions on how to create IAM Policies in the [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html). Additionally, for specific models, you may be required to provide details about your use case before being able to request access. For more information, please refer to the [Providers](https://eu-central-1.console.aws.amazon.com/bedrock/home#/providers) section on the Bedrock homepage.
 
 ## Step 2: Create IAM User
@@ -27,6 +29,8 @@ In this instruction, you will learn how to create Bedrock model in AWS and deplo
 2. In the navigation tree, select **Users** and click **Create user** in the Users panel.
 
   Refer to [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) to learn more.
+
+![](img/aws5.jpg)
 
 3. Click your new user and navigate to the **Security credentials** tab where you can click **Create access key** to create a key pair for your user.
 4. For a new key pair, click **Show** to view and download a CSV file. **Note**, that once shown, the key pair will no longer be available for preview. Make sure you save a CSV file for future use. 
