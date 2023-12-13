@@ -1,6 +1,17 @@
-## Create and Deploy OpenAI Model in Azure
+# OpenAI Model Deployment
 
 From this instruction, you will learn how to create an Azure OpenAI model GPT-3.5-turbo/GPT-4.
+
+## Steps
+
+1. [Create a model deployment](#step-1-create-a-model-deployment)
+2. [Add model to AI DIAL](#step-2-add-model-to-ai-dial)
+
+## Prerequisites
+
+* Active Azure account
+  
+## Step 1: Create a model deployment
 
 1. Login to the MS Azure portal (https://portal.azure.com/) with your credentials. Create an account if you do not have one.
 2. Use the search bar to look up **Azure OpenAI** and click it to navigate to the **Azure AI Services|Azure OpenAI** page.
@@ -11,7 +22,7 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
    
    ![](img/step3.jpg)
    
-4. You may need to request access to Azure OpenAI Services. Follow the link in the notification to do that. You can review this form by following [this link](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNTZBNzRKNlVQSFhZMU9aV09EVzYxWFdORCQlQCN0PWcu)
+4. You may need to request access to Azure OpenAI Services. Follow the link in the notification to do that. You can review this form by following [this link](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNTZBNzRKNlVQSFhZMU9aV09EVzYxWFdORCQlQCN0PWcu).
    
    ![](img/step5.jpg)
    
@@ -25,7 +36,7 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
     > It is important to note that certain models may not be accessible for deployment in a particular region. If you need a particular model, you will have to submit a separate request or relocate Azure OpenAI to a different region.
 
-7. Go back to your model page and click **Keys and Endpoint**. In this section, you can find your key and endpoint that you will need to provide in [AI DIAL configuration file](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L17).
+7. Go back to your model page and click **Keys and Endpoint**. In this section, you can find your key and endpoint that you will need to provide in AI DIAL configuration file.
    
     ![](img/step13.jpg)
 
@@ -35,3 +46,30 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
    > Refer to [Microsoft Data Privacy Policy](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy) to learn how data provided by you to the Azure OpenAI service is processed, used, and stored.
 
    ![](img/whitelisting.png)
+
+## Step 2: Add model to AI DIAL
+
+To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it.
+
+Add you model with its parameters in the `models` section. Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L11) to view an example.
+
+Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
+
+To work with models, we use applications called Adapters. You can configure Adapters in the [AI DIAL Config](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L114).
+
+Refer to [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to view documentation for a OpenAI AI DIAL Adapter.
+
+```yaml
+### examples of basic configurations of adapters ###
+
+### ai-dial-adapter-openai configuration ###
+openai:
+  # -- Enable/disable ai-dial-adapter-openai
+  enabled: false
+  commonLabels:
+    app.kubernetes.io/component: "adapter"
+  image:
+    repository: epam/ai-dial-adapter-openai
+    tag: 0.2.0
+```
+
