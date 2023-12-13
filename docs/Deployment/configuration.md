@@ -17,7 +17,7 @@ The configuration of AI DIAL includes several main sections:
 
 > Refer to the [AI DIAL Core](https://github.com/epam/ai-dial-core) to view a complete documentation.
 
-Configure Core parameters in the [`core`](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L1) section of the config file.
+Configure AI DIAL Core parameters in the [`core`](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L1) section of the config file.
 
 You can provide **dynamic** and **static** settings for the AI DIAL Core:
 
