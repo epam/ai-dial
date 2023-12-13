@@ -34,7 +34,7 @@ In `config.json`, you can add your Azure model credentials to the chat configura
   ]
   ```
 
-    > Refer to [Create and Deploy OpenAI Model in Azure](/Deployment/Azure%20Model%20Deployment.md) to learn how to create and deploy a model in MS Azure.
+    > Refer to [Create and Deploy OpenAI Model in Azure](/Deployment/OpenAI%20Model%20Deployment.md) to learn how to create and deploy a model in MS Azure.
 
 ## Step 3: Lauch AI DIAL Chat
 
