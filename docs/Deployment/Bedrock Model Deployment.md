@@ -81,13 +81,21 @@ IAM (Identity and Access Management) roles in AWS (Amazon Web Services) are enti
 
 To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it. 
 
+### Add Model
+
 Add you model with its parameters in the `models` section. Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L11) to view an example.
 
 Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
 
+### Configure Bedrock Adapter
+
 To work with models, we use applications called Adapters. You can configure Adapters in the [AI DIAL Config](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml).
 
 Refer to [Adapter for Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) to view documentation for a Bedrock AI DIAL Adapter.
+
+#### For AIM User
+
+In this scenario, provide the sectes of your user that you have saved in a CSV file: 
 
 ```yaml
 ### examples of basic configurations of adapters ###
@@ -109,22 +117,26 @@ bedrock:
 
 ```
 
+#### For AWS Service Account
+
+In this scenario, provide the IAM Role that you have assigned to your AWS Service Account: 
+
  ```yaml
- # --example of AI DIAL configuration for service account
- bedrock:
-# -- Enable/disable ai-dial-adapter-bedrock
-enabled: true
-
-image:
-  repository: epam/ai-dial-adapter-bedrock
-  tag: 0.2.0
-
-serviceAccount:
-create: true
-annotations:
-  eks.amazonaws.com/role-arn: "arn:aws:iam::000001206603:role/role_name"
+   # --example of AI DIAL configuration for service account
+   bedrock:
+  # -- Enable/disable ai-dial-adapter-bedrock
+  enabled: true
   
-env:
-   DEFAULT_REGION: "us-east-1"
+  image:
+    repository: epam/ai-dial-adapter-bedrock
+    tag: 0.2.0
+  
+  serviceAccount:
+  create: true
+  annotations:
+    eks.amazonaws.com/role-arn: "arn:aws:iam::000001206603:role/role_name"
+    
+  env:
+     DEFAULT_REGION: "us-east-1"
 
  ```
