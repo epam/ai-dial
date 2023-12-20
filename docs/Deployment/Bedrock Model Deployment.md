@@ -93,7 +93,7 @@ To work with models, we use applications called Adapters. You can configure Adap
 
 Refer to [Adapter for Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) to view documentation for a Bedrock AI DIAL Adapter.
 
-#### For AIM User
+#### For IAM User
 
 In this scenario, provide the sectes of your user that you have saved in a CSV file: 
 
