@@ -75,25 +75,25 @@ IAM (Identity and Access Management) roles in AWS (Amazon Web Services) are enti
 1. Create an IAM OIDC provider for your cluster. You only complete this procedure once for each cluster. Refer to [AWS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html) to learn more.
 2. Configure a Kubernetes Service Account to assume an IAM Role. Complete this procedure for each unique set of permissions that you want an application to have. Refer to [AWS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) to learn more.
 
-   ```yaml
-   # example of AI DIAL configuration
-   bedrock:
-  # -- Enable/disable ai-dial-adapter-bedrock
-  enabled: true
+ ```yaml
+ # --example of AI DIAL configuration
+ bedrock:
+# -- Enable/disable ai-dial-adapter-bedrock
+enabled: true
 
-  image:
-    repository: epam/ai-dial-adapter-bedrock
-    tag: 0.2.0
+image:
+  repository: epam/ai-dial-adapter-bedrock
+  tag: 0.2.0
 
-  serviceAccount:
-  create: true
-  annotations:
-    eks.amazonaws.com/role-arn: "arn:aws:iam::000001206603:role/role_name"
-    
-  env:
-     DEFAULT_REGION: "us-east-1"
+serviceAccount:
+create: true
+annotations:
+  eks.amazonaws.com/role-arn: "arn:aws:iam::000001206603:role/role_name"
+  
+env:
+   DEFAULT_REGION: "us-east-1"
 
-   ```
+ ```
 
 3. Configure Pods to use a Kubernetes Service Account. Complete this procedure for each Pod that needs access to AWS services. Refer to [AWS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/pod-configuration.html) to learn more.
 4. Confirm that the workload uses an AWS SDK of a supported version and that the workload uses the default credential chain. Refer to [AWS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts-minimum-sdk.html) to learn more.
