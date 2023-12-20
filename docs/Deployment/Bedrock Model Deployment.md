@@ -122,9 +122,9 @@ bedrock:
 In this scenario, provide the IAM Role that you have assigned to your AWS Service Account: 
 
  ```yaml
-   # --example of AI DIAL configuration for service account
+ # --example of AI DIAL configuration for service account
    bedrock:
-  # -- Enable/disable ai-dial-adapter-bedrock
+ # -- Enable/disable ai-dial-adapter-bedrock
   enabled: true
   
   image:
