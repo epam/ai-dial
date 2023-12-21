@@ -32,7 +32,7 @@ This configuration enables the utilization of Chat functionality, allowing users
 
 The diagram below demonstrates the most complete landscape of AI DIAL ecosystem: 
 
-![](./img/full-landscape2.svg)
+![](./img/full-landscape3.svg)
 
 ## AI DIAL Components
 
