@@ -21,7 +21,7 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 
 AI DIAL has only one required component – [AI DIAL Core](#ai-dial-core).
 
-![](./img/minimal.svg)
+![](./img/minimal2.svg)
 
 AI DIAL Core is headless. It exposes a **Unified Protocol** that can be used by custom extensions, internal and external API clients to get full access to all AI DIAL Core features. 
 
@@ -54,7 +54,7 @@ The diagram below demonstrates the most complete landscape of AI DIAL ecosystem:
 
 **AI DIAL Core** serves as the primary system component, acting as a **main integration center**, that employs a **Unified Protocol** ([OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference) compatible) for communication between internal and external clients, including LLM models, Applications, and other to access all its features in a governed and unified manner. 
 
-![](./img/minimal.svg)
+![](./img/minimal2.svg)
 
 **The Unified Protocol supports**: 
 
@@ -187,7 +187,7 @@ You can use AI DIAL SDK to develop such extensions. Applications and model Adapt
 
 > Refer to [AI DIAL SDK](https://github.com/epam/ai-dial-sdk) and [Development Examples](https://github.com/epam/ai-dial-sdk/tree/development/examples) to learn more.
 
-![](./img/minimal.svg)
+![](./img/minimal2.svg)
 
 Extensions have freedom to employ a technology of their preference, be it any LLM framework, [LlamaIndex](https://github.com/run-llama/llama_index/tree/main), [LangChain](https://github.com/langchain-ai/langchain), [Semantic Kernel](https://github.com/microsoft/semantic-kernel?tab=readme-ov-file), vector DBs or any other.
 
