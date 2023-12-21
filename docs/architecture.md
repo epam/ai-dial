@@ -23,7 +23,8 @@ AI DIAL has only one required component – [AI DIAL Core](#ai-dial-core).
 
 ![](./img/minimal.svg)
 
-AI DIAL Core is headless. It exposes a Unified Protocol that can be used by custom extensions, internal and external API clients to get full access to all AI DIAL Core features. 
+AI DIAL Core is headless. It exposes a **Unified Protocol** that can be used by custom extensions, internal and external API clients to get full access to all AI DIAL Core features. 
+
 Unified Protocol streamlines communication and fosters interoperability by eliminating the need for multiple protocols for each integration. It is fully compatible with OpenAI API and supports streaming, tokens, seeds, tools, and multi-modality.
 
 ## Standard Installation
