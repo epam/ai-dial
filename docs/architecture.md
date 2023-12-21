@@ -8,18 +8,9 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 
 > To contribute to AI DIAL development, refer to [CONTRIBUTING](https://github.com/epam/ai-dial/blob/main/CONTRIBUTING.md) instruction on GitHub. 
 
-# AI DIAL Architecture
+## AI DIAL Architecture
 
-* [Minimal installation](#minimal-installation)
-* [Standard installation](#standard-installation)
-* [Full landscape](#full-platform-landscape)
-
-* [AI DIAL Components](#ai-dial-components)
-* [Extensions](#extensions)
-* [Telemetry](#telemetry)
-* [Key Vault](#key-vault)
-
-## Minimal Installation
+### Minimal Installation
 
 AI DIAL has only one required component – [AI DIAL Core](#ai-dial-core).
 
@@ -29,7 +20,7 @@ AI DIAL Core is headless. It exposes a **Unified Protocol** that can be used by 
 
 Unified Protocol streamlines communication and fosters interoperability by eliminating the need for multiple protocols for each integration. It is fully compatible with OpenAI API and supports streaming, tokens, seeds, tools, and multi-modality.
 
-## Standard Installation
+### Standard Installation
 
 A **Standard** installation of AI DIAL includes, Core (including API), Chat and Adapters to selected LLMs. It can also include custom extension such as Applications, Addons or Assistants.
 
@@ -37,7 +28,7 @@ A **Standard** installation of AI DIAL includes, Core (including API), Chat and 
 
 This configuration enables the utilization of Chat functionality, allowing users to engage with LLMs, as well as the integration of custom extensions with AI DIAL Core through the API.
 
-## Full Platform Landscape
+### Full Platform Landscape
 
 The diagram below demonstrates the most complete landscape of AI DIAL ecosystem: 
 
@@ -45,11 +36,6 @@ The diagram below demonstrates the most complete landscape of AI DIAL ecosystem:
 
 ## AI DIAL Components
 
-* [AI DIAL Core](#ai-dial-core)
-* [Auth Helper](#auth-helper)
-* [Chat](#chat)
-* [Analytics Realtime](#analytics-realtime)
-  
 ### AI DIAL Core
 
 > Refer to [DIAL Core](https://github.com/epam/ai-dial-core) GitHub repository.
