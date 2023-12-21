@@ -43,7 +43,7 @@ When using a custom policy, we recommend assigning permissions below to limit th
 
 ## Step 3: Assign IAM Policy
 
-You can assign an IAM Policy to a specific [user](#assign-to-user) or to the entire [Service Account](#assign-to-service-account). 
+You can assign an IAM Policy to a specific [user](#assign-to-user), role or to the entire [AWS Service Account](#assign-to-service-account). 
 
 ### Assign to User
 
