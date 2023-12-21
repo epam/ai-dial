@@ -8,6 +8,10 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 
 # AI DIAL Architecture
 
+* [Minimal installation](#minimal-installation)
+* [Standard installation](#standard-installation)
+* [Full landscape](#full-platform-landscape)
+
 ## Minimal Installation
 
 AI DIAL has only one required component – AI DIAL Core.
@@ -25,7 +29,7 @@ A **Standard** installation of AI DIAL includes, Core (including API), Chat and 
 
 This configuration enables the utilization of Chat functionality, allowing users to engage with LLMs, as well as the integration of custom extensions with AI DIAL Core through the API.
 
-## Full PLatform Landscape
+## Full Platform Landscape
 
 The diagram below demonstrates the most complete landscape of AI DIAL ecosystem: 
 
@@ -33,6 +37,11 @@ The diagram below demonstrates the most complete landscape of AI DIAL ecosystem:
 
 ## AI DIAL Components
 
+* [AI DIAL Core](#ai-dial-core)
+* [Auth Helper](#auth-helper)
+* [Chat](#chat)
+* [Analytics Realtime](#analytics-realtime)
+  
 ### AI DIAL Core
 
 > Refer to [DIAL Core](https://github.com/epam/ai-dial-core) GitHub repository.
