@@ -77,7 +77,7 @@ AI DIAL provides native support for [OpenID Connect](https://openid.net/develope
 
 There are two methods of CORE API calls authorization supported: JWT token and key. Both options provide granular permission management, allowing you to control access to specific functionalities or resources. Additionally, these authorization methods also enable rate and cost control, giving you the ability to manage the frequently of API calls.
 
-> Refer to [Roles Management](/tutorials/roles-management) to learn how to create roles and add them to AI DIAL.
+> Refer to [Roles Management](./tutorials/roles-management) to learn how to create roles and add them to AI DIAL.
 
 #### Load Balancer
 
