@@ -11,5 +11,8 @@ To contribute to AI DIAL development, refer to [CONTRIBUTING](https://github.com
 
 AI DIAL has only one required component – AI DIAL Core.
 
-![](/img/core.svg)
+![](./img/core.svg)
+
+
+
 
