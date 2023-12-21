@@ -24,7 +24,7 @@ Unified Protocol streamlines communication and fosters interoperability by elimi
 
 A **Standard** installation of AI DIAL includes, Core (including API), Chat and Adapters to selected LLMs. It can also include custom extension such as Applications, Addons or Assistants.
 
-![](./img/standard.svg)
+![](./img/standard2.svg)
 
 This configuration enables the utilization of Chat functionality, allowing users to engage with LLMs, as well as the integration of custom extensions with AI DIAL Core through the API.
 
