@@ -49,7 +49,7 @@ You can assign an IAM Policy to a specific [user](#assign-to-user), role or to t
 
 IAM (Identity and Access Management) users in AWS (Amazon Web Services) are entities that represent individual people or applications that interact with AWS services and resources. IAM users have their own unique set of security credentials, which include an access key and secret access key.
 
-> Refer to [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) to learn more.
+> Refer to [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) to learn how to create users.
 
 1. In your AWS account, navigate to IAM section.
 2. In the navigation tree, select **Users** and click **Create user** in the Users panel.
