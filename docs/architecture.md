@@ -19,7 +19,7 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 
 ## Minimal Installation
 
-AI DIAL has only one required component – AI DIAL Core.
+AI DIAL has only one required component – [AI DIAL Core](#ai-dial-core).
 
 ![](./img/minimal.svg)
 
