@@ -24,15 +24,15 @@ In this instruction, you will learn how to create Bedrock model in AWS and deplo
 
 ![](img/aws1.jpg)
 
-> To use Bedrock, it is necessary to seek permission to access Bedrock's foundation models. To accomplish this, ensuring the correct IAM Policies is crucial. You can find instructions on how to create IAM Policies in the [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html). Additionally, for specific models, you may be required to provide details about your use case before being able to request access. For more information, please refer to the [Providers](https://eu-central-1.console.aws.amazon.com/bedrock/home#/providers) section on the Bedrock homepage.
+> To use Bedrock, it is necessary to seek permission to access Bedrock's foundation models. To accomplish this, ensuring the correct IAM Policies is crucial. You can find instructions on how to create IAM Policies in the [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html). Additionally, for specific models, you may be required to provide details about your use case before being able to request access. For more information, please refer to the [Providers](https://eu-central-1.console.aws.amazon.com/bedrock/home#/providers) section on the Bedrock homepage.
 
 ## Step 2: Create IAM Policy
 
 IAM (Identity and Access Management) policies in AWS (Amazon Web Services) are a set of rules that define permissions for users, groups, and roles within an AWS account.
 
-> Refer to [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) to learn more.
+> Refer to [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) to learn how to create a policy.
 
-You can create your own IAM policy or use AWS-managed IAM policy **AmazonBedrockFullAccess**, which grants the full access to the Bedrock service.
+You can create your own IAM policy or use AWS-managed IAM policy **AmazonBedrockFullAccess**, which grants full access to the Bedrock service.
 
 When using a custom policy, we recommend assigning permissions below to limit the scope of allowed interactions with models: 
 
