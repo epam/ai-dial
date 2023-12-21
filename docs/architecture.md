@@ -1,4 +1,6 @@
-# Our Vision 
+# Architecture
+
+## Our Vision 
 
 AI DIAL is a secure, enterprise-grade and open-source platform. It has an API-first, cloud and model-agnostic design that makes it suitable for a wide variety of use cases. 
 Our primary focus is to avoid reliance on particular cloud or LLM vendors, support scalability and security, avoid increasing tech complexity or licensing risks. 
