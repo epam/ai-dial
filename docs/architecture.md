@@ -12,6 +12,11 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 * [Standard installation](#standard-installation)
 * [Full landscape](#full-platform-landscape)
 
+* [AI DIAL Components](#ai-dial-components)
+* [Extensions](#extensions)
+* [Telemetry](#telemetry)
+* [Key Vault](#key-vault)
+
 ## Minimal Installation
 
 AI DIAL has only one required component – AI DIAL Core.
