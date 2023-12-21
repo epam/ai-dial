@@ -131,7 +131,11 @@ const config = {
       },
       colorMode: {
         defaultMode: 'dark',
-      }
+      },
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 4,
+    },
     }),
 };
 
