@@ -129,7 +129,7 @@ It is a proxy service that implements OpenID-compatible Web API endpoints to avo
 
 Chat is a default AI DIAL UI which provides access to the full set of its features. 
 
-> Refer to [Chat](https://github.com/epam/ai-dial-chat-themes) repository in GitHub to learn more.
+> Refer to [Chat](https://github.com/epam/ai-dial-chat) repository in GitHub to learn more.
 
 ![](./img/chat.svg)
 
