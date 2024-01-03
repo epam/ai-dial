@@ -121,6 +121,8 @@ The last step is to assign KeyCloak roles to AI DIAL core deployments: Applicati
 
 ## Microsoft Azure Active Directory
 
+> Refer to [Azure AD Configuration](./azure-ad-configuration.md) to learn how to enable authentication with Azure AD for AI DIAL.
+
 In this instruction, you will learn how to create roles in MS Azure Active Directory and add them to AI DIAL Models, Applications, Assistants, and Addons.
 
 Group management process is consisted of three steps:
