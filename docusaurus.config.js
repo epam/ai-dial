@@ -4,44 +4,46 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'DIAL',
-  favicon: 'img/favicon.svg',
+  title: "DIAL",
+  favicon: "img/favicon.svg",
 
   // Set the production url of your site here
-  url: 'https://docs.epam-rail.com',
+  url: "https://docs.epam-rail.com",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'epam', // Usually your GitHub org/user name.
-  projectName: 'ai-dial', // Usually your repo name.
-  deploymentBranch: 'gh-pages',
+  organizationName: "epam", // Usually your GitHub org/user name.
+  projectName: "ai-dial", // Usually your repo name.
+  deploymentBranch: "gh-pages",
 
-  onBrokenLinks: 'throw',//'throw', for exeptions
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw", //'throw', for exeptions
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
-
+  plugins: [
+    "docusaurus-plugin-image-zoom", // can also just be 'image-zoom'
+  ],
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: '/',
-          sidebarPath: './sidebars.js',
+          routeBasePath: "/",
+          sidebarPath: "./sidebars.js",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           //editUrl:
@@ -49,26 +51,26 @@ const config = {
         },
         blog: false,
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       }),
     ],
   ],
 
-    scripts: [
+  scripts: [
     {
-      src: 'https://cookie-cdn.cookiepro.com/consent/3a34bbfa-93e4-4ba6-9383-7da88d67ed18/OtAutoBlock.js',
-      type: "text/javascript"
+      src: "https://cookie-cdn.cookiepro.com/consent/3a34bbfa-93e4-4ba6-9383-7da88d67ed18/OtAutoBlock.js",
+      type: "text/javascript",
     },
     {
-      src: 'https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js',
+      src: "https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js",
       type: "text/javascript",
       charset: "UTF-8",
-      'data-domain-script': "3a34bbfa-93e4-4ba6-9383-7da88d67ed18"
+      "data-domain-script": "3a34bbfa-93e4-4ba6-9383-7da88d67ed18",
     },
     {
-      src: 'src/scripts/optanonWrapper.js',
-      type: "text/javascript"
+      src: "src/scripts/optanonWrapper.js",
+      type: "text/javascript",
     },
   ],
 
@@ -76,11 +78,11 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: '', // 'EPAM DIAL',
+        title: "", // 'EPAM DIAL',
         logo: {
-          alt: 'EPAM DIAL',
-          src: 'img/logo_light.svg',
-          srcDark: 'img/logo_dark.svg'
+          alt: "EPAM DIAL",
+          src: "img/logo_light.svg",
+          srcDark: "img/logo_dark.svg",
         },
         items: [
           // {
@@ -90,14 +92,14 @@ const config = {
           //   label: 'Tutorial',
           // },
           {
-            href: 'https://github.com/search?q=org%3Aepam++DIAL&type=repositories',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/search?q=org%3Aepam++DIAL&type=repositories",
+            label: "GitHub",
+            position: "right",
           },
           {
-            href: 'https://discord.gg/3TPc4zV4gS',
-            label: 'Discord',
-            position: 'right',
+            href: "https://discord.gg/3TPc4zV4gS",
+            label: "Discord",
+            position: "right",
           },
         ],
       },
@@ -130,14 +132,25 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
       colorMode: {
-        defaultMode: 'dark',
+        defaultMode: "dark",
       },
       tableOfContents: {
         minHeadingLevel: 2,
         maxHeadingLevel: 4,
-    },
+      },
+      zoom: {
+        selector: ".markdown img",
+        background: {
+          light: "rgb(255, 255, 255)",
+          dark: "rgb(50, 50, 50)",
+        },
+        config: {
+          scrollOffset: 900,
+          margin: 0,
+          // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+        },
+      },
     }),
 };
-
 
 export default config;
