@@ -30,3 +30,11 @@
   --ifm-link-color: #5A8CE9;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+@media screen and (min-width: 1367px) {
+  .medium-zoom-image--opened[alt="max-zoom"] {
+    width: 100% !important;
+    height: auto !important;
+    left: 0 !important;
+  }
+}

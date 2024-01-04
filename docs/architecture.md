@@ -1,12 +1,12 @@
 # Architecture
 
-## Our Vision 
+## Our Vision
 
-AI DIAL is a secure, enterprise-grade and open-source platform. It has an API-first, cloud and model-agnostic design that makes it suitable for a wide variety of use cases. 
-Our primary focus is to avoid reliance on particular cloud or LLM vendors, support scalability and security, avoid increasing tech complexity or licensing risks. 
-We prioritize developing use case-agnostic generic features that facilitate developing of GenAI applications. 
+AI DIAL is a secure, enterprise-grade and open-source platform. It has an API-first, cloud and model-agnostic design that makes it suitable for a wide variety of use cases.
+Our primary focus is to avoid reliance on particular cloud or LLM vendors, support scalability and security, avoid increasing tech complexity or licensing risks.
+We prioritize developing use case-agnostic generic features that facilitate developing of GenAI applications.
 
-> To contribute to AI DIAL development, refer to [CONTRIBUTING](https://github.com/epam/ai-dial/blob/main/CONTRIBUTING.md) instruction on GitHub. 
+> To contribute to AI DIAL development, refer to [CONTRIBUTING](https://github.com/epam/ai-dial/blob/main/CONTRIBUTING.md) instruction on GitHub.
 
 ## AI DIAL Architecture
 
@@ -16,7 +16,7 @@ AI DIAL has only one required component – [AI DIAL Core](#ai-dial-core).
 
 ![](./img/minimal2.svg)
 
-AI DIAL Core is headless. It exposes a **Unified Protocol** that can be used by custom extensions, internal and external API clients to get full access to all AI DIAL Core features. 
+AI DIAL Core is headless. It exposes a **Unified Protocol** that can be used by custom extensions, internal and external API clients to get full access to all AI DIAL Core features.
 
 Unified Protocol streamlines communication and fosters interoperability by eliminating the need for multiple protocols for each integration. It is fully compatible with OpenAI API and supports streaming, tokens, seeds, tools, and multi-modality.
 
@@ -30,9 +30,9 @@ This configuration enables the utilization of Chat functionality, allowing users
 
 ### Full Platform Landscape
 
-The diagram below demonstrates the most complete landscape of AI DIAL ecosystem: 
+The diagram below demonstrates the most complete landscape of AI DIAL ecosystem:
 
-![](./img/full-landscape3.svg)
+![max-zoom](./img/full-landscape3.svg)
 
 ## AI DIAL Components
 
@@ -40,20 +40,20 @@ The diagram below demonstrates the most complete landscape of AI DIAL ecosystem:
 
 > Refer to [DIAL Core](https://github.com/epam/ai-dial-core) GitHub repository.
 
-**AI DIAL Core** serves as the primary system component, acting as a **main integration center**, that employs a **Unified Protocol** ([OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference) compatible) for communication between internal and external clients, including LLM models, Applications, and other to access all its features in a governed and unified manner. 
+**AI DIAL Core** serves as the primary system component, acting as a **main integration center**, that employs a **Unified Protocol** ([OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference) compatible) for communication between internal and external clients, including LLM models, Applications, and other to access all its features in a governed and unified manner.
 
 ![](./img/minimal2.svg)
 
-**The Unified Protocol supports**: 
+**The Unified Protocol supports**:
 
-* Streaming 
-* Token usage (even in the streaming mode)
-* Seeds: helps to achieve deterministic results for LLM responses.
-* Tools: (formerly known as functions ) are specialized utilities that streamline development by implementing standardized methods for LLMs to access external APIs.
-* Multi-modality: allows supporting non-textual communications such as image-to-text, text-to-image, file transfers and more.
-* Compatibility with OpenAI
+- Streaming
+- Token usage (even in the streaming mode)
+- Seeds: helps to achieve deterministic results for LLM responses.
+- Tools: (formerly known as functions ) are specialized utilities that streamline development by implementing standardized methods for LLMs to access external APIs.
+- Multi-modality: allows supporting non-textual communications such as image-to-text, text-to-image, file transfers and more.
+- Compatibility with OpenAI
 
-This approach streamlines communication and fosters interoperability by eliminating the need for multiple protocols for each integration. In case of Addons, they are expected to provide own [OpenAPI specification](https://www.openapis.org/what-is-openapi). 
+This approach streamlines communication and fosters interoperability by eliminating the need for multiple protocols for each integration. In case of Addons, they are expected to provide own [OpenAPI specification](https://www.openapis.org/what-is-openapi).
 
 AI DIAL Core is headless and is the **only mandatory component**. It includes all the key platform features:
 
@@ -75,7 +75,7 @@ In this approach, a configuration file includes multiple upstream endpoints for 
 
 #### Rate Limits & Cost Control
 
-A well-distributed rate-limiting mechanism ensures the control over the total number of tokens that can be sent to a model (typically a one-minute or 24-hour window) by any Application, Addon, or Assistant. 
+A well-distributed rate-limiting mechanism ensures the control over the total number of tokens that can be sent to a model (typically a one-minute or 24-hour window) by any Application, Addon, or Assistant.
 
 > Refer to [AI DIAL Configuration](./Deployment/configuration.md#some-of-the-dynamic-parameters) to learn more about roles and rate limits.
 
@@ -89,7 +89,7 @@ You can use AI DIAL SDK to develop such extensions. Applications and model Adapt
 
 **Addon**: Addon is similar to a concept of tool or function in some other frameworks. Within the AI DIAL framework, an Addon is a service — or any component adhering to its own or provided [OpenAPI specification](https://www.openapis.org/what-is-openapi) — that empowers LLMs to access and utilize any desired data source or technology to produce their responses.
 
-**Application**: any custom logic with a conversation interface packaged as a ready-to-use solution. It  can be any component conforming with Unified Protocol requirements.
+**Application**: any custom logic with a conversation interface packaged as a ready-to-use solution. It can be any component conforming with Unified Protocol requirements.
 
 **The Assistant Service** is used to enable communication between Addons and the AI DIAL Core. Assistants can range from simple implementations, like instructing the LLM to provide answers using a specific language tone or style, to more complex use cases, such as limiting the LLM's data scope to a particular geographical location.
 
@@ -97,7 +97,7 @@ You can use AI DIAL SDK to develop such extensions. Applications and model Adapt
 
 #### Logging
 
-AI DIAL Core uses [Vector](https://vector.dev/docs/reference/configuration/sinks/) (a lightweight, ultra-fast tool for building observability pipelines) to redirect users’ messages to S3, Azure Blob Store, GCP Cloud Storage or any other "sink". 
+AI DIAL Core uses [Vector](https://vector.dev/docs/reference/configuration/sinks/) (a lightweight, ultra-fast tool for building observability pipelines) to redirect users’ messages to S3, Azure Blob Store, GCP Cloud Storage or any other "sink".
 
 You can gather standard logs (which do not contain user messages) from components using the ELK stack (Elasticsearch, Logstash, Kibana) or other log collection system.
 
@@ -111,11 +111,11 @@ Auth Helper is used to resolve challenges (such as access control issues with th
 
 It is a proxy service that implements OpenID-compatible Web API endpoints to avoid direct interaction with such IDPs.
 
-> Refer to [AI DIAL Auth Helper](https://github.com/epam/ai-dial-auth-helper) repository in GitHub to learn more. 
+> Refer to [AI DIAL Auth Helper](https://github.com/epam/ai-dial-auth-helper) repository in GitHub to learn more.
 
 ### Chat
 
-Chat is a default AI DIAL UI which provides access to the full set of its features. 
+Chat is a default AI DIAL UI which provides access to the full set of its features.
 
 > Refer to [Chat](https://github.com/epam/ai-dial-chat) repository in GitHub to learn more.
 
@@ -132,9 +132,9 @@ UI Overlay allows adding Chat to a web application with zero effort by simply in
   </head>
   <body>
     <script type="module">
-      import CHATAIOverlay from './script.js';
+      import CHATAIOverlay from "./script.js";
 
-      const chatAiOverlay = new CHATAIOverlay('http://localhost:3000');
+      const chatAiOverlay = new CHATAIOverlay("http://localhost:3000");
       chatAiOverlay.load();
     </script>
   </body>
@@ -143,29 +143,29 @@ UI Overlay allows adding Chat to a web application with zero effort by simply in
 
 #### Themes
 
-Chat Themes are used to customize the styles of Chat UI. 
+Chat Themes are used to customize the styles of Chat UI.
 
 > Refer to [AI DIAL Chat Themes](https://github.com/epam/ai-dial-chat-themes) GitHub repository to learn more.
 
-### Analytics Realtime 
+### Analytics Realtime
 
 The AI DIAL Analytics Realtime tool uses diverse techniques such as embedding algorithms, clustering algorithms, frameworks, light-weight self-hosted language models, to analyze the conversation data and extract the needed results, which can be presented in tools such as Grafana for visualization.
 
 > Refer to [Analytics Realtime](https://github.com/epam/ai-dial-analytics-realtime) GitHub repository.
 
-Analytics Realtime tool is a sink of `vector.dev`. It does not retain any private information, such as user prompts or conversations, beyond the system. Instead, only the computed artifacts are collected and stored in time-series databases like InfluxDB or any scalable database capable of handling voluminous, constantly changing information. 
+Analytics Realtime tool is a sink of `vector.dev`. It does not retain any private information, such as user prompts or conversations, beyond the system. Instead, only the computed artifacts are collected and stored in time-series databases like InfluxDB or any scalable database capable of handling voluminous, constantly changing information.
 
 Examples of the computed artifacts:
 
-* Who has used the AI? – user hash, title, and never personal data such as names.
-* What areas have people asked questions about?
-* Are there any recurring patterns?
-* Topics of conversations.
-* Unique users. 
-* Sentiments.
-* Cost analysis of the communication. 
-* Language of conversations. 
-* Any other calculated statistics based on conversations. 
+- Who has used the AI? – user hash, title, and never personal data such as names.
+- What areas have people asked questions about?
+- Are there any recurring patterns?
+- Topics of conversations.
+- Unique users.
+- Sentiments.
+- Cost analysis of the communication.
+- Language of conversations.
+- Any other calculated statistics based on conversations.
 
 ## Extensions
 
@@ -189,7 +189,7 @@ LLM Adapters unify the APIs of respective LLMs to align with the Unified Protoco
 
 ## Telemetry
 
-AI DIAL uses [OpenTelemetry](https://opentelemetry.io/), an open-source observability framework that provides a vendor-agnostic, unified approach to collecting, processing, and exporting telemetry data in cloud-native environments. 
+AI DIAL uses [OpenTelemetry](https://opentelemetry.io/), an open-source observability framework that provides a vendor-agnostic, unified approach to collecting, processing, and exporting telemetry data in cloud-native environments.
 
 Metrics are gathered for the entire system and/or for individual system components, and subsequently stored in a time-series databases like Prometheus or any other database capable of handling substantial volumes of time-series data and integrating with visualization tools like Grafana.
 
@@ -198,7 +198,3 @@ You can use any OTLE Collector such as Prometheus, Jaeger, Fluentd, Zipkin and o
 ## Key Vault
 
 All sensitive information is stored according to the best practices of the selected cloud platform, utilizing systems like GCP Cloud Key Management Service, AWS Secrets Manager, Azure Key Vault, and Vault by Hashicorp.
-
-
-
-
