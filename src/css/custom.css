@@ -35,6 +35,7 @@
   .medium-zoom-image--opened[alt="max-zoom"] {
     width: 95% !important;
     height: auto !important;
-    left: 32px !important;
+    left: 45px !important;
+    max-width: 1808px !important;
   }
 }
