@@ -32,6 +32,11 @@ const sidebars = {
           id: 'tutorials/roles-management',
           label: 'Roles Management',
         },
+        {
+          type: 'doc',
+          id: 'tutorials/azure-ad-configuration',
+          label: 'Azure AD Configuration',
+        },
       ],
     },
     'user-guide',
