@@ -155,7 +155,7 @@ const config = {
         appId: '8ZBWD7ULLD',
 
         // Public API key: it is safe to commit it
-        apiKey: '420506ffe65f3e551c18fafbdfc4d470',
+        apiKey: 'cc71247ece2c9316697accc0af5f2461',
 
         indexName: 'epam-rail',
 
