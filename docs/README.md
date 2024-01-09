@@ -17,9 +17,13 @@
 ## Tutorials
 
 * [Launch AI DIAL Chat with an Azure model](./tutorials/quick-start-model.md)
-* [Launch AI DIAL Chat with Echo Application](./tutorials/quick-start-with-application.md)
+* [Launch AI DIAL Chat with a Sample Application](./tutorials/quick-start-with-application.md)
 * [Launch AI DIAL Chat with To-Do List Addon](./tutorials/quick-start-with-addon.md)
 
+## Development Guides
+
+* [A basic guide for development of applications for AI DIAL](./tutorials/quick-start-with-application.md)
+  
 ## AI DIAL Chat Application User Manual
 
 * [AI DIAL Chat User Manual](./user-guide.md)
