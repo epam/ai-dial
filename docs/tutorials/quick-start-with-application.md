@@ -1,4 +1,4 @@
-# Launch AI DIAL Chat with Echo Application
+# Launch AI DIAL Chat with a Sample Application
 
 ## Introduction
 
@@ -36,7 +36,7 @@ Examples of Applications: guided conversations, hierarchical search.
 
 Create a python file in your project folder and name it `app.py`.
 
-> Refer to the [application file](https://github.com/epam/ai-dial/blob/restructure/docs/dial-docker-compose/application/echo/app.py).  
+> Refer to the [application file](https://github.com/epam/ai-dial/blob/main/docs/dial-docker-compose/application/echo/app.py).
 
 We use a [dockerfile](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/echo) to launch the Echo application.
 

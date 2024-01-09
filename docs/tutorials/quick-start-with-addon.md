@@ -1,4 +1,4 @@
-# Launch AI DIAL Chat with To-Do List Addon
+# Launch AI DIAL Chat with a Sample Addon
 
 ## Introduction
 
