@@ -1,4 +1,4 @@
-# Launch AI DIAL Chat with Echo Application
+# Launch AI DIAL Chat with a Sample Application
 
 ## Introduction
 
