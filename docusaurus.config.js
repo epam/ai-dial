@@ -150,28 +150,28 @@ const config = {
           // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
         },
       },
-      algolia: {
-        // If Algolia did not provide you any appId, use 'BH4D9OD16A'
-        appId: '8ZBWD7ULLD',
+      // algolia: {
+      //   // If Algolia did not provide you any appId, use 'BH4D9OD16A'
+      //   appId: '8ZBWD7ULLD',
 
-        // Public API key: it is safe to commit it
-        apiKey: 'cc71247ece2c9316697accc0af5f2461',
+      //   // Public API key: it is safe to commit it
+      //   apiKey: 'cc71247ece2c9316697accc0af5f2461',
 
-        indexName: 'epam-rail',
+      //   indexName: 'epam-rail',
 
-        // Optional: see doc section below
-        contextualSearch: true,
+      //   // Optional: see doc section below
+      //   contextualSearch: true,
 
-        // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-        // externalUrlRegex: 'external\\.com|domain\\.com',
+      //   // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+      //   // externalUrlRegex: 'external\\.com|domain\\.com',
 
-        // Optional: Algolia search parameters
-        algoliaOptions: {
-          // facets: [ "edition" ]
-        },
+      //   // Optional: Algolia search parameters
+      //   algoliaOptions: {
+      //     // facets: [ "edition" ]
+      //   },
 
-        //... other Algolia params
-      },
+      //   //... other Algolia params
+      // },
     }),
 };
 
