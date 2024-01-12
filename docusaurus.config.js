@@ -104,27 +104,6 @@ const config = {
         ],
       },
       footer: {
-        // style: 'dark',
-        // links: [
-        //   {
-        //     title: 'Community',
-        //     items: [
-        //       {
-        //         label: 'Stack Overflow',
-        //         href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     title: 'More',
-        //     items: [
-        //       {
-        //         label: 'GitHub',
-        //         href: 'https://github.com/search?q=ai-dial+in:name+org:epam&type=repositories',
-        //       },
-        //     ],
-        //   },
-        // ],
         copyright: `Copyright © ${new Date().getFullYear()} EPAM Systems, Inc. All Rights Reserved`,
       },
       prism: {
@@ -147,31 +126,17 @@ const config = {
         config: {
           scrollOffset: 1100,
           margin: 10,
-          // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
         },
       },
-      // algolia: {
-      //   // If Algolia did not provide you any appId, use 'BH4D9OD16A'
-      //   appId: '8ZBWD7ULLD',
-
-      //   // Public API key: it is safe to commit it
-      //   apiKey: 'cc71247ece2c9316697accc0af5f2461',
-
-      //   indexName: 'epam-rail',
-
-      //   // Optional: see doc section below
-      //   contextualSearch: true,
-
-      //   // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-      //   // externalUrlRegex: 'external\\.com|domain\\.com',
-
-      //   // Optional: Algolia search parameters
-      //   algoliaOptions: {
-      //     // facets: [ "edition" ]
-      //   },
-
-      //   //... other Algolia params
-      // },
+      algolia: {
+        appId: '8ZBWD7ULLD',
+        apiKey: 'ac2f650541ceb44057cb625556f5e70a',
+        indexName: 'epam-rail',
+        contextualSearch: true,
+        algoliaOptions: {
+          // facets: [ "language" ]
+        },
+      },
     }),
 };
 
