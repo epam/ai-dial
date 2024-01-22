@@ -8,7 +8,7 @@
 <script src="https://cookie-cdn.cookiepro.com/consent/3a34bbfa-93e4-4ba6-9383-7da88d67ed18/OtAutoBlock.js"></script>
 <script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="3a34bbfa-93e4-4ba6-9383-7da88d67ed18"></script>
 <script src="src/scripts/optanonWrapper.js"></script><link rel="stylesheet" href="/assets/css/styles.470f8cfb.css">
-<script src="/assets/js/runtime~main.82f1ff7c.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.e619a118.js" defer="defer"></script>
 <script src="/assets/js/main.79c625a8.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -104,9 +104,11 @@
 <p>Refer to <a href="https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#important-caveats-for-this-functionality" target="_blank" rel="noopener noreferrer">MS Documentation</a> to view the detailed info about configuration of group claims for applications.</p>
 </blockquote>
 <blockquote>
-<p><strong>Note</strong>: by default, the claim <strong>groups</strong> is not included into the access token. You should add a <strong>scope</strong> to the authorization request to obtain an access token.
+<p><strong>Note</strong>: by default, the claim <strong>groups</strong> is not included into the access token. You should add an application <strong>scope</strong> to the authorization request to obtain the claim from an access token.
 The <strong>claim</strong> is available in the ID token only.
-Refer to <a href="https://stackoverflow.com/questions/70542675/azure-ad-access-token-does-not-contain-groups-claim" target="_blank" rel="noopener noreferrer">stackoverflow</a> to read more about this case.</p>
+Refer to <a href="https://stackoverflow.com/questions/70542675/azure-ad-access-token-does-not-contain-groups-claim" target="_blank" rel="noopener noreferrer">stackoverflow</a> to read more about this case.
+<strong>Note</strong>*. The application <strong>scope</strong> is required to validate signature of the access token.
+Refer to <a href="https://learn.microsoft.com/en-us/answers/questions/318741/graphapi-cannot-validate-access-token-signature" target="_blank" rel="noopener noreferrer">Microsoft Portal</a> to read more about this case.</p>
 </blockquote>
 <p>How to create a custom <strong>scope</strong>:</p>
 <ol>
