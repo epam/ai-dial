@@ -150,9 +150,11 @@ The roles are provided to AI DIAL Core via user access token(JWT) by MS Azure AD
 
 > Refer to [MS Documentation](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#important-caveats-for-this-functionality) to view the detailed info about configuration of group claims for applications.
 
-> **Note**: by default, the claim **groups** is not included into the access token. You should add a **scope** to the authorization request to obtain an access token.
+> **Note**: by default, the claim **groups** is not included into the access token. You should add an application **scope** to the authorization request to obtain the claim from an access token.
 > The **claim** is available in the ID token only.
 > Refer to [stackoverflow](https://stackoverflow.com/questions/70542675/azure-ad-access-token-does-not-contain-groups-claim) to read more about this case.
+> **Note***. The application **scope** is required to validate signature of the access token.
+> Refer to [Microsoft Portal](https://learn.microsoft.com/en-us/answers/questions/318741/graphapi-cannot-validate-access-token-signature) to read more about this case.
 
 How to create a custom **scope**:
 
