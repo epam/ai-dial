@@ -14,7 +14,7 @@ while [ $CURRENT_STEP -lt $NUMBER_OF_CHECKS ]; do
     compose_ps_output=$(${DOCKER} compose ps)
     echo PS output: $compose_ps_output
 
-    exit_matches=$(echo $compose_ps_output | grep -Eo '[E|e]xited \([0-9]+\)')
+    exit_matches=$(echo $compose_ps_output | grep -Eio 'exited \([0-9]+\)')
     echo Exit matches: $exit_matches
 
     if [ -z "$exit_matches" ]; then
