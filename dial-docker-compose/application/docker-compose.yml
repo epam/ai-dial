@@ -17,7 +17,7 @@ services:
     environment:
       WEB_CONCURRENCY: "3"
   echo:
-    build: echo
+    build: ../../dial-sdk/examples/echo
   core:
     ports:
       - "8080:8080"
@@ -26,6 +26,6 @@ services:
       'JAVA_OPTS': '-Dgflog.config=/opt/core/gflog.xml'
       'proxy.config.files': '["/opt/core/config.json"]'
     volumes:
-      - ${DIAL_DIR:-.}/core:/opt/core
-      - ${DIAL_DIR:-.}/core-logs/:/opt/epam/aidial/log/
+      - ${DIAL_DIR:-.}/core:/opt/core:Z
+      - ${DIAL_DIR:-.}/core-logs/:/opt/epam/aidial/log:Z
 
