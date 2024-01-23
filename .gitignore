@@ -20,6 +20,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Python
+.venv
 __pycache__
 
 # DIAL Core logs
