@@ -144,7 +144,7 @@ const config = {
           // facets: [ "language" ]
         },
       },
-      metadata: [{name: 'description', content: 'AI DIAL knowledge base portal.'}],
+      metadata: [{name: 'description', content: 'AI DIAL knowledge base portal.'}, {name: 'keywords', content: 'AI DIAL, AIGen, AI platform, EPAM DIAL'}, {name: 'summary', content: 'AI DIAL is a secure, enterprise-grade and open-source platform. It has an API-first, cloud and model-agnostic design that makes it suitable for a wide variety of use cases. '},],
     }),
 };
 
