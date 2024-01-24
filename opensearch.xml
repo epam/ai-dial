@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
                        xmlns:moz="http://www.mozilla.org/2006/browser/search/">
-  <ShortName>DIAL</ShortName>
-  <Description>Search DIAL</Description>
+  <ShortName>DIAL Knowledge Base</ShortName>
+  <Description>Search DIAL Knowledge Base</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/x-icon">https://docs.epam-rail.com/img/favicon.svg</Image>
   <Url type="text/html" method="get" template="https://docs.epam-rail.com/search?q={searchTerms}"/>
