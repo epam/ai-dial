@@ -21,14 +21,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install quarto
-        run: pip install quarto-cli
-
-      - name: Install dependencies
+      - name: Install npm dependencies
         run: npm ci
 
       - name: Install docusaurus
         run: npm install --global docusaurus-init
+
+      - name: Install quarto
+        run: pip install quarto-cli
 
       - name: Build website
         run: npm run build
