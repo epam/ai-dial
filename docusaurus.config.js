@@ -8,7 +8,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "DIAL",
+  title: "DIAL Knowledge Base",
   favicon: "img/favicon.svg",
 
   // Set the production url of your site here
