@@ -7,10 +7,14 @@ services:
   core:
     ports:
       - "8080:8080"
-    image: epam/ai-dial-core:0.2.1
+    image: epam/ai-dial-core:development
     environment:
       'JAVA_OPTS': '-Dgflog.config=/opt/core/gflog.xml'
       'proxy.config.files': '["/opt/core/config.json"]'
+      'aidial.identityProviders.test.rolePath': 'roles'
+      'aidial.identityProviders.test.disableJwtVerification': 'true'
+      'aidial.encryption.salt': 'salt'
+      'aidial.encryption.password': 'password'
     volumes:
       - ${DIAL_DIR:-.}/core:/opt/core:Z
       - ${DIAL_DIR:-.}/core-logs/:/opt/epam/aidial/log:Z
