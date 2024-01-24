@@ -1,0 +1,5 @@
+project:
+  type: docusaurus
+  render:
+    - dial-cookbook/examples/**/*.ipynb
+  output-dir: ./docs/Cookbook
