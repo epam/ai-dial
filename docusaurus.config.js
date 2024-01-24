@@ -144,6 +144,7 @@ const config = {
           // facets: [ "language" ]
         },
       },
+      metadata: [{name: 'description', content: 'AI DIAL knowledge base portal.'}],
     }),
 };
 
