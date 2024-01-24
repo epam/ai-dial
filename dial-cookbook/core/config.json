@@ -1,40 +1,30 @@
 {
-  "routes": {
-    "route-rate" : {
-      "paths": ["/+v1/rate"],
-      "methods": ["POST"],
-      "response" : {
-        "status": 200
-      }
-    }
-  },
+  "routes": {},
   "applications": {
     "echo": {
-      "displayName": "My Echo App",
-      "description": "Simple application that repeats user's message",
+      "displayName": "Echo Application",
+      "description": "Simple application that repeats user's message and attachments.",
       "endpoint": "http://echo:5000/openai/deployments/echo/chat/completions",
-      "iconUrl": "https://www.svgrepo.com/download/478723/repeat-button-2.svg"
+      "iconUrl": "https://www.svgrepo.com/download/478723/repeat-button-2.svg",
+      "inputAttachmentTypes": [
+        "*/*"
+      ]
     }
   },
   "models": {
-    "gpt-35-turbo": {
+    "render-text": {
       "type": "chat",
-      "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-35-turbo/chat/completions",
-      "upstreams": [
-        {
-          "endpoint": "https://AZURE_DEPLOYMENT_URL/openai/deployments/gpt-35-turbo/chat/completions",
-          "key": "AZURE_MODEL_API_KEY"
-        }
-      ]
+      "endpoint": "http://render-text:5000/openai/deployments/render-text/chat/completions",
+      "description": "Proxy for a text-to-image model. Renders the given text as an image.",
+      "iconUrl": "https://www.svgrepo.com/download/532229/text.svg"
     },
-    "gpt-4": {
+    "image-size": {
       "type": "chat",
-      "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-4/chat/completions",
-      "upstreams": [
-        {
-          "endpoint": "https://AZURE_DEPLOYMENT_URL/openai/deployments/gpt-4/chat/completions",
-          "key": "AZURE_MODEL_API_KEY"
-        }
+      "endpoint": "http://image-size:5000/openai/deployments/image-size/chat/completions",
+      "description": "Proxy for an image-to-text model. Returns dimensions of an attached image.",
+      "iconUrl": "https://www.svgrepo.com/download/361599/size.svg",
+      "inputAttachmentTypes": [
+        "image/jpeg", "image/png"
       ]
     }
   },
@@ -47,9 +37,9 @@
   "roles": {
     "default": {
       "limits": {
-        "gpt-35-turbo": {},
-        "gpt-4": {},
-        "echo": {}
+        "echo": {},
+        "render-text": {},
+        "image-size": {}
       }
     }
   }
