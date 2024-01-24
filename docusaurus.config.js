@@ -8,7 +8,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "DIAL",
+  title: "DIAL Knowledge Base",
   favicon: "img/favicon.svg",
 
   // Set the production url of your site here
@@ -52,6 +52,13 @@ const config = {
         blog: false,
         theme: {
           customCss: "./src/css/custom.css",
+        },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+        },
+        gtag: {
+          trackingID: 'G-GVY5VWYV1E',
         },
       }),
     ],
@@ -137,6 +144,7 @@ const config = {
           // facets: [ "language" ]
         },
       },
+      metadata: [{name: 'description', content: 'AI DIAL knowledge base portal.'}, {name: 'keywords', content: 'AI DIAL, RAG, GenAI, AI platform, EPAM DIAL'}, {name: 'summary', content: 'AI DIAL is a secure, enterprise-grade and open-source platform. It has an API-first, cloud and model-agnostic design that makes it suitable for a wide variety of use cases. '},],
     }),
 };
 
