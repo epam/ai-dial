@@ -4,6 +4,10 @@ version: '1'
 services:
   echo:
     build: ../dial-sdk/examples/echo
+  image-size:
+    build: ../dial-sdk/examples/image_size
+  render-text:
+    build: ../dial-sdk/examples/render_text
   core:
     ports:
       - "8080:8080"

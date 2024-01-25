@@ -23,7 +23,7 @@ const config = {
   projectName: "ai-dial", // Usually your repo name.
   deploymentBranch: "gh-pages",
 
-  onBrokenLinks: "throw", //'throw', for exeptions
+  onBrokenLinks: "throw", //'throw', for exceptions
   onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
