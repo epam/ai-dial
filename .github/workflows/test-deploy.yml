@@ -28,7 +28,7 @@ jobs:
         run: npm install --global docusaurus-init
 
       - name: Install quarto
-        run: pip install quarto-cli
+        run: pip install "quarto-cli>=1.4,<2.0"
 
       - name: Build website
         run: npm run build
