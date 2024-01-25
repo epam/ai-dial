@@ -21,13 +21,19 @@ jobs:
         with:
           node-version: 18
           cache: npm
-        
-      - name: Install dependencies
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install npm dependencies
         run: npm ci
-        
+
       - name: Install docusaurus
         run: npm install --global docusaurus-init
-        
+
+      - name: Install quarto
+        run: pip install "quarto-cli>=1.4,<2.0"
+
       - name: Build website
         run: npm run build
 

@@ -13,7 +13,7 @@
 ## Helm Deployment
 
 * [AI DIAL Generic Installation Simple Guide](https://github.com/epam/ai-dial-helm/tree/main/charts/dial/examples/generic/simple)
-  
+
 ## Tutorials
 
 * [Launch AI DIAL Chat with an Azure model](./tutorials/quick-start-model.md)
@@ -23,7 +23,7 @@
 ## Development Guides
 
 * [A basic guide for development of applications for AI DIAL](./tutorials/quick-start-with-application.md)
-  
+
 ## AI DIAL Chat Application User Manual
 
 * [AI DIAL Chat User Manual](./user-guide.md)
@@ -34,13 +34,13 @@
 
 ## Other AI DIAL Project Open Source Repositories
 
-Here is the current list of repositories where you can find more details. 
+Here is the current list of repositories where you can find more details.
 
 > You can also refer to the [open source repository map](https://epam-rail.com/open-source) on the AI DIAL website.
 
 - [DIAL Helm](https://github.com/epam/ai-dial-helm) - helm chart, find stable assemblies here.
 - [DIAL Core](https://github.com/epam/ai-dial-core) - the main component that exposes API
-- [DIAL SDK](https://github.com/epam/ai-dial-sdk) - development kit for applications and model adapters 
+- [DIAL SDK](https://github.com/epam/ai-dial-sdk) - development kit for applications and model adapters
 - [DIAL Chat](https://github.com/epam/ai-dial-chat) - default UI
 - [DIAL Chat Themes](https://github.com/epam/ai-dial-chat-themes) - static content and UI customizations for default UI
 - [DIAL CI](https://github.com/epam/ai-dial-ci) - github CI commons
