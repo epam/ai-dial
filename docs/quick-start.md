@@ -1,6 +1,6 @@
 # Quick Start
 
-Follow this tutorial to launch AI DIAL Chat with Echo application. As a result, you will be able to access Chat on http://localhost:3000/ and use Echo application to mirror your prompts. 
+Follow this tutorial to launch AI DIAL Chat with Echo application. As a result, you will be able to access Chat on http://localhost:3000/ and use Echo application to mirror your prompts.
 
 ## Prerequisites
 
@@ -8,7 +8,7 @@ Follow this tutorial to launch AI DIAL Chat with Echo application. As a result, 
 
 ## Step 1: Get AI DIAL
 
-[Download](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/) AI DIAL.
+[Download](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/application/) AI DIAL.
 
 ## Step 2: Launch Chat
 
