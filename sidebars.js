@@ -57,7 +57,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Cookbook',
+      label: 'Cookbooks',
       items: [
         "Cookbook/dial-cookbook/examples/how_to_call_text_to_text_applications",
         "Cookbook/dial-cookbook/examples/how_to_call_text_to_image_applications",
