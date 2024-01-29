@@ -25,7 +25,11 @@ services:
   notebooks:
     depends_on:
       echo:
-        condition: service_healthy
+        condition: service_started
+      image-size:
+        condition: service_started
+      render-text:
+        condition: service_started
       core:
         condition: service_healthy
     build: python-notebooks-runner
