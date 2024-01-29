@@ -8,6 +8,16 @@ on:
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
+  run-notebooks:
+    name: Run example Python notebooks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: isbang/compose-action@v1.5.1
+        with:
+          compose-file: "./dial-cookbook/docker-compose.yml"
+          up-flags: "--abort-on-container-exit --exit-code-from notebooks --timeout 300"
+
   test-deploy:
     name: Test deployment
     runs-on: ubuntu-latest

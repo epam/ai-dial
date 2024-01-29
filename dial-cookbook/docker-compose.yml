@@ -26,6 +26,10 @@ services:
     depends_on:
       echo:
         condition: service_healthy
+      image-size:
+        condition: service_healthy
+      render-text:
+        condition: service_healthy
       core:
         condition: service_healthy
     build: python-notebooks-runner
