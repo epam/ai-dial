@@ -17,8 +17,8 @@ services:
       - "8080:8080"
     image: epam/ai-dial-core:development
     environment:
+      'AIDIAL_SETTINGS': '/opt/core/settings.json'
       'JAVA_OPTS': '-Dgflog.config=/opt/core/gflog.xml'
-      'proxy.config.files': '["/opt/core/config.json"]'
       'aidial.identityProviders.test.rolePath': 'roles'
       'aidial.identityProviders.test.disableJwtVerification': 'true'
       'aidial.encryption.salt': 'salt'
