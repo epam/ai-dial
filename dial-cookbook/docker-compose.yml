@@ -19,10 +19,6 @@ services:
     environment:
       'AIDIAL_SETTINGS': '/opt/core/settings.json'
       'JAVA_OPTS': '-Dgflog.config=/opt/core/gflog.xml'
-      'aidial.identityProviders.test.rolePath': 'roles'
-      'aidial.identityProviders.test.disableJwtVerification': 'true'
-      'aidial.encryption.salt': 'salt'
-      'aidial.encryption.password': 'password'
     volumes:
       - ${DIAL_DIR:-.}/core:/opt/core:Z
       - ${DIAL_DIR:-.}/core-logs/:/opt/epam/aidial/log:Z
