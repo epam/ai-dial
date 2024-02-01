@@ -12,7 +12,7 @@ AI DIAL presents a robust Extension Framework and plug-in infrastructure, enabli
 
 > Refer to the [AI DIAL website](https://epam-rail.com/extension-framework) to learn more.
 
-## About AI DIAL Applications 
+## About AI DIAL Applications
 
 In the AI DIAL framework, **Applications** refer to predefined configurations of Addons and other services, or any other custom logic packaged as a ready-to-use solution.
 
@@ -30,19 +30,19 @@ Examples of Applications: guided conversations, hierarchical search.
 
 ## Step 1: Get AI DIAL
 
-[Download](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/) AI DIAL.
+[Download](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/application/) AI DIAL.
 
 ## Step 2: Create Echo Application
 
 Create a python file in your project folder and name it `app.py`.
 
-> Refer to the [application file](https://github.com/epam/ai-dial/blob/main/docs/dial-docker-compose/application/echo/app.py).
+> Refer to the [application file](https://github.com/epam/ai-dial/blob/main/dial-docker-compose/application/echo/app.py).
 
-We use a [dockerfile](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/echo) to launch the Echo application.
+We use a [dockerfile](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/application/echo) to launch the Echo application.
 
 ## Step 3: Configuration
 
-1. Your AI DIAL installation has a `core/config.json` file. Open it and add the following lines in the [applications](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/core/config.json#L11) section:
+1. Your AI DIAL installation has a `core/config.json` file. Open it and add the following lines in the [applications](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/application/core/config.json#L11) section:
 
     ```json
     "echo": {
@@ -53,7 +53,7 @@ We use a [dockerfile](https://github.com/epam/ai-dial/tree/main/docs/dial-docker
     }
     ```
 
-2. Add your Echo app to the roles you want it to be exposed to. For example, to add it to the `default` role, add the following lines in the [roles](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/application/core/config.json#L47) section:
+2. Add your Echo app to the roles you want it to be exposed to. For example, to add it to the `default` role, add the following lines in the [roles](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/application/core/config.json#L47) section:
 
     ```json
     "default": {

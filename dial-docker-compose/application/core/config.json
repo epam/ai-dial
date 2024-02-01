@@ -13,7 +13,7 @@
       "displayName": "My Echo App",
       "description": "Simple application that repeats user's message",
       "endpoint": "http://echo:5000/openai/deployments/echo/chat/completions",
-      "iconUrl": "Url to your app icon (SVG) like this one https://www.svgrepo.com/show/532030/circle-heat.svg"
+      "iconUrl": "https://www.svgrepo.com/download/478723/repeat-button-2.svg"
     }
   },
   "models": {

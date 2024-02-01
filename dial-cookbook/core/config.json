@@ -1,0 +1,43 @@
+{
+  "routes": {},
+  "applications": {
+    "echo": {
+      "displayName": "Echo Application",
+      "description": "Simple application that repeats user's message and attachments.",
+      "endpoint": "http://echo:5000/openai/deployments/echo/chat/completions",
+      "inputAttachmentTypes": [
+        "*/*"
+      ]
+    }
+  },
+  "models": {
+    "render-text": {
+      "type": "chat",
+      "endpoint": "http://render-text:5000/openai/deployments/render-text/chat/completions",
+      "description": "Proxy for a text-to-image model. Renders the given text as an image."
+    },
+    "image-size": {
+      "type": "chat",
+      "endpoint": "http://image-size:5000/openai/deployments/image-size/chat/completions",
+      "description": "Proxy for an image-to-text model. Returns dimensions of an attached image.",
+      "inputAttachmentTypes": [
+        "image/jpeg", "image/png"
+      ]
+    }
+  },
+  "keys": {
+    "dial_api_key": {
+      "project": "TEST-PROJECT",
+      "role": "default"
+    }
+  },
+  "roles": {
+    "default": {
+      "limits": {
+        "echo": {},
+        "render-text": {},
+        "image-size": {}
+      }
+    }
+  }
+}

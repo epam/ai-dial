@@ -55,7 +55,16 @@ const sidebars = {
         'Deployment/Bedrock Model Deployment'
       ],
     },
-  ],  
+    {
+      type: 'category',
+      label: 'Cookbook',
+      items: [
+        "Cookbook/dial-cookbook/examples/how_to_call_text_to_text_applications",
+        "Cookbook/dial-cookbook/examples/how_to_call_text_to_image_applications",
+        "Cookbook/dial-cookbook/examples/how_to_call_image_to_text_applications",
+      ],
+    }
+  ],
 };
 
 export default sidebars;

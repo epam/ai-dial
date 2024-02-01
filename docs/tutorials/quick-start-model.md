@@ -14,11 +14,11 @@ In this tutorial, you will learn how to quickly launch AI DIAL Chat with a custo
 
 ## Step 1: Get AI DIAL
 
-[Download](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/model/) AI DIAL.
+[Download](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/model/) AI DIAL.
 
 ## Step 2: Configuration
 
-In the **dial-docker-compose/model/core** folder, you can find a [config.json](https://github.com/epam/ai-dial/tree/main/docs/dial-docker-compose/model/core/config.json) configuration file. 
+In the **dial-docker-compose/model/core** folder, you can find a [config.json](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/model/core/config.json) configuration file.
 
 In `config.json`, you can add your Azure model credentials to the chat configuration:
 
