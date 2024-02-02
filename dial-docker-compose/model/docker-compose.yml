@@ -8,7 +8,7 @@ services:
   chat:
     ports:
       - "3000:3000"
-    image: epam/ai-dial-chat:development
+    image: epam/ai-dial-chat:0.4.3
     environment:
       NEXTAUTH_SECRET: "secret"
       THEMES_CONFIG_HOST: "http://themes:8080"
@@ -24,7 +24,7 @@ services:
   core:
     ports:
       - "8080:8080"
-    image: epam/ai-dial-core:development
+    image: epam/ai-dial-core:0.6.1
     environment:
       'AIDIAL_SETTINGS': '/opt/core/settings.json'
       'JAVA_OPTS': '-Dgflog.config=/opt/core/gflog.xml'

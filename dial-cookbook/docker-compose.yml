@@ -15,6 +15,7 @@ services:
   core:
     ports:
       - "8080:8080"
+    # NOTE: >=0.7.0 or development (required support of local storage)
     image: epam/ai-dial-core:development
     environment:
       'AIDIAL_SETTINGS': '/opt/core/settings.json'
