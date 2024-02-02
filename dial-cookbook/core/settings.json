@@ -2,9 +2,6 @@
   "server": {
     "port": 8080
   },
-  "config": {
-    "files": ["/opt/core/config.json"]
-  },
   "identityProviders": {
     "test": {
       "rolePath": "roles",

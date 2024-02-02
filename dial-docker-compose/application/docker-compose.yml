@@ -21,13 +21,18 @@ services:
     environment:
       WEB_CONCURRENCY: "3"
 
+  azure-openai-mock:
+    build: ../azure-openai-mock
+    ports:
+      - "80:5000"
+
   echo:
     build: echo
 
   core:
     ports:
       - "8080:8080"
-    image: epam/ai-dial-core:0.6.1
+    image: epam/ai-dial-core:development
     environment:
       'AIDIAL_SETTINGS': '/opt/core/settings.json'
       'JAVA_OPTS': '-Dgflog.config=/opt/core/gflog.xml'
@@ -35,4 +40,3 @@ services:
     volumes:
       - ${DIAL_DIR:-.}/core:/opt/core:Z
       - ${DIAL_DIR:-.}/core-logs/:/opt/epam/aidial/log:Z
-

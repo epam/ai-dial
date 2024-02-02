@@ -6,8 +6,8 @@
       "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-35-turbo/chat/completions",
       "upstreams": [
         {
-          "endpoint": "https://AZURE_DEPLOYMENT_URL/openai/deployments/gpt-35-turbo/chat/completions",
-          "key": "AZURE_MODEL_API_KEY"
+          "endpoint": "https://azure-openai-mock/openai/deployments/gpt-35-turbo/chat/completions",
+          "key": "azure-openai-mock-api-key"
         }
       ]
     },
@@ -16,8 +16,8 @@
       "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-4/chat/completions",
       "upstreams": [
         {
-          "endpoint": "https://AZURE_DEPLOYMENT_URL/openai/deployments/gpt-4/chat/completions",
-          "key": "AZURE_MODEL_API_KEY"
+          "endpoint": "https://azure-openai-mock/openai/deployments/gpt-4/chat/completions",
+          "key": "azure-openai-mock-api-key"
         }
       ]
     }
