@@ -1,16 +1,8 @@
 {
-  "routes" : {
-    "route-rate" : {
-      "paths": ["/+v1/rate"],
-      "methods": ["POST"],
-      "response" : {
-        "status": 200
-      }
-    }
-  },
+  "routes": {},
   "addons": {
     "addon-todo": {
-      "endpoint": "http://addon:5003/.well-known/ai-plugin.json",
+      "endpoint": "http://addon:5000/.well-known/ai-plugin.json",
       "displayName": "TODO List",
       "description": "Manage your TODO list. You can add, remove and view your TODOs."
     }

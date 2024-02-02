@@ -2,27 +2,33 @@
 version: '1'
 
 services:
+  themes:
+    image: epam/ai-dial-chat-themes:0.3.0
+
   chat:
     ports:
       - "3000:3000"
-    image: epam/ai-dial-chat:0.1.7
+    image: epam/ai-dial-chat:development
     environment:
-      AUTH_DISABLED: "true"
       NEXTAUTH_SECRET: "secret"
-      OPENAI_API_HOST: "http://core:8080"
-      OPENAI_API_KEY: "dial_api_key"
+      THEMES_CONFIG_HOST: "http://themes:8080"
+      DIAL_API_HOST: "http://core:8080"
+      DIAL_API_KEY: "dial_api_key"
       ENABLED_FEATURES: "conversations-section,prompts-section,top-settings,top-clear-conversation,top-chat-info,top-chat-model-settings,empty-chat-settings,header,footer,request-api-key,report-an-issue,likes"
+
   adapter-openai:
-    image: epam/ai-dial-adapter-openai:0.1.1
+    image: epam/ai-dial-adapter-openai:0.6.0
     environment:
       WEB_CONCURRENCY: "3"
+
   core:
     ports:
       - "8080:8080"
-    image: epam/ai-dial-core:0.2.1
+    image: epam/ai-dial-core:development
     environment:
+      'AIDIAL_SETTINGS': '/opt/core/settings.json'
       'JAVA_OPTS': '-Dgflog.config=/opt/core/gflog.xml'
-      'proxy.config.files': '["/opt/core/config.json"]'
+      'aidial.config.files': '["/opt/core/config.json"]'
     volumes:
-      - ${DIAL_DIR:-.}/core:/opt/core
-      - ${DIAL_DIR:-.}/core-logs/:/opt/epam/aidial/log/
+      - ${DIAL_DIR:-.}/core:/opt/core:Z
+      - ${DIAL_DIR:-.}/core-logs/:/opt/epam/aidial/log:Z

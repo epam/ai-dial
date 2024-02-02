@@ -13,5 +13,5 @@ RUN pip install -r requirements.txt
 RUN sed -i 's/localhost/addon/g' .well-known/ai-plugin.json
 RUN sed -i 's/localhost/addon/g' openapi.yaml
 
-EXPOSE 5003
+EXPOSE 5000
 CMD ["python", "main.py"]

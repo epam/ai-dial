@@ -1,13 +1,5 @@
 {
-  "routes" : {
-    "route-rate" : {
-      "paths": ["/+v1/rate"],
-      "methods": ["POST"],
-      "response" : {
-        "status": 200
-      }
-    }
-  },
+  "routes": {},
   "models": {
     "gpt-35-turbo": {
       "type": "chat",
