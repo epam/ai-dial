@@ -21,10 +21,12 @@ services:
     environment:
       WEB_CONCURRENCY: "3"
 
-  azure-openai-mock:
+  AZURE_DEPLOYMENT_URL:
     build: ../azure-openai-mock
     ports:
       - "80:5000"
+    environment:
+      API_KEY: AZURE_MODEL_API_KEY
 
   core:
     ports:

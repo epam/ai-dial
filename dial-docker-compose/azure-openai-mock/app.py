@@ -1,4 +1,5 @@
 import json
+import os
 import uuid
 from fastapi import FastAPI, Request, Header, HTTPException
 from fastapi.responses import JSONResponse, StreamingResponse
@@ -6,12 +7,16 @@ import time
 
 app = FastAPI()
 
+API_KEY = os.environ.get("API_KEY")
+
+if API_KEY is None:
+    raise ValueError("API_KEY environment variable not set")
 
 @app.post("/openai/deployments/{model}/chat/completions")
 async def process_completion(
     model: str, request: Request, x_api_key: str = Header(None)
 ):
-    if x_api_key != "azure-openai-mock-api-key":
+    if x_api_key != API_KEY:
         raise HTTPException(status_code=403, detail="Invalid API key")
 
     if model not in ["gpt-35-turbo", "gpt-4"]:
