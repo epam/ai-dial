@@ -32,7 +32,7 @@ jobs:
           compose-file: "./dial-docker-compose/ci/docker-compose-model.yml"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
         env:
-          DIAL_DIR: "./dial-docker-compose/model"
+          DIAL_DIR: "../model"
 
   test-deploy:
     name: Test deployment
