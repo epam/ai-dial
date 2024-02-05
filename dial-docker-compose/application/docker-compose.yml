@@ -1,42 +1,9 @@
 ---
-version: '1'
+version: '3'
+
+include:
+  - ${COMMON_DIR:-..}/common.yml
 
 services:
-  themes:
-    image: epam/ai-dial-chat-themes:0.3.0
-
-  chat:
-    ports:
-      - "3000:3000"
-    image: epam/ai-dial-chat:0.4.3
-    environment:
-      NEXTAUTH_SECRET: "secret"
-      THEMES_CONFIG_HOST: "http://themes:8080"
-      DIAL_API_HOST: "http://core:8080"
-      DIAL_API_KEY: "dial_api_key"
-      ENABLED_FEATURES: "conversations-section,prompts-section,top-settings,top-clear-conversation,top-chat-info,top-chat-model-settings,empty-chat-settings,header,footer,request-api-key,report-an-issue,likes"
-
-  adapter-openai:
-    image: epam/ai-dial-adapter-openai:0.6.0
-    environment:
-      WEB_CONCURRENCY: "3"
-
-  azure-openai-mock:
-    build: ../azure-openai-mock
-    ports:
-      - "80:5000"
-
   echo:
     build: echo
-
-  core:
-    ports:
-      - "8080:8080"
-    image: epam/ai-dial-core:development
-    environment:
-      'AIDIAL_SETTINGS': '/opt/core/settings.json'
-      'JAVA_OPTS': '-Dgflog.config=/opt/core/gflog.xml'
-      'aidial.config.files': '["/opt/core/config.json"]'
-    volumes:
-      - ${DIAL_DIR:-.}/core:/opt/core:Z
-      - ${DIAL_DIR:-.}/core-logs/:/opt/epam/aidial/log:Z
