@@ -21,11 +21,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 @backoff.on_exception(
     backoff.expo,
-    (
-        aiohttp.ClientResponseError,
-        aiohttp.ClientError,
-        aiohttp.ServerTimeoutError,
-    ),
+    (aiohttp.ClientError, aiohttp.ServerTimeoutError),
     max_time=60,
 )
 async def post_with_retry(url: str, payload: dict, headers: dict):
