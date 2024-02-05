@@ -8,6 +8,11 @@
       "disableJwtVerification": true
     }
   },
+  "config": {
+    "files": [
+      "/opt/config/config.json"
+    ]
+  },
   "encryption": {
     "salt": "salt",
     "password": "password"

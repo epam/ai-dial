@@ -1,7 +1,7 @@
 import json
 import os
 import uuid
-from fastapi import FastAPI, Request, Header, HTTPException
+from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import JSONResponse, StreamingResponse
 import time
 
@@ -12,11 +12,15 @@ API_KEY = os.environ.get("API_KEY")
 if API_KEY is None:
     raise ValueError("API_KEY environment variable not set")
 
+
 @app.post("/openai/deployments/{model}/chat/completions")
-async def process_completion(
-    model: str, request: Request, x_api_key: str = Header(None)
-):
-    if x_api_key != API_KEY:
+async def process_completion(model: str, request: Request):
+    api_key = request.headers.get("api-key")
+
+    if api_key is None:
+        raise HTTPException(status_code=403, detail="API key not provided")
+
+    if api_key != API_KEY:
         raise HTTPException(status_code=403, detail="Invalid API key")
 
     if model not in ["gpt-35-turbo", "gpt-4"]:
@@ -25,17 +29,19 @@ async def process_completion(
     body = await request.json()
     stream = body.get("stream", False)
 
-    content = body["choice"][0]["messages"][0]["content"]
+    content = body["messages"][-1]["content"]
+
+    message_key = "message" if not stream else "delta"
 
     response_payload = {
-        "id": uuid.uuid4(),
+        "id": str(uuid.uuid4()),
         "object": "chat.completion" if not stream else "chat.completion.chunk",
         "created": int(time.time()),
         "model": model,
         "choices": [
             {
                 "index": 0,
-                "message": {
+                message_key: {
                     "role": "assistant",
                     "content": content,
                 },
@@ -50,6 +56,7 @@ async def process_completion(
     }
 
     if stream:
+
         def generate_stream():
             yield f"data: {json.dumps(response_payload)}\n\n"
             yield "data: [DONE]\n\n"
