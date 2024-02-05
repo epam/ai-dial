@@ -29,7 +29,7 @@ jobs:
       - name: Merged Model config
         run: docker compose -f "./dial-docker-compose/ci/model/docker-compose.yml" config
         env:
-          DIAL_DIR: "."
+          DIAL_DIR: "./model"
           COMMON_DIR: ".."
 
       - uses: isbang/compose-action@v1.5.1
@@ -37,7 +37,7 @@ jobs:
           compose-file: "./dial-docker-compose/ci/model/docker-compose.yml"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
         env:
-          DIAL_DIR: "."
+          DIAL_DIR: "./model"
           COMMON_DIR: ".."
 
   test-deploy:
