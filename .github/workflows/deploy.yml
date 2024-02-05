@@ -33,7 +33,7 @@ jobs:
           submodules: true
       - uses: isbang/compose-action@v1.5.1
         with:
-          compose-file: "./dial-docker-compose/ci/docker-compose-model.yml"
+          compose-file: "./dial-docker-compose/ci/model/docker-compose.yml"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
   deploy:
