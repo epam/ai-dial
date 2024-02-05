@@ -25,15 +25,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: true
       - uses: isbang/compose-action@v1.5.1
         with:
           compose-file: "./dial-docker-compose/ci/model/docker-compose.yml"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
         env:
-          DIAL_DIR: "../../model"
-          COMMON_DIR: "../.."
+          DIAL_DIR: "./model"
+          COMMON_DIR: "."
 
   test-deploy:
     name: Test deployment
