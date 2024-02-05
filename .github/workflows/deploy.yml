@@ -24,8 +24,23 @@ jobs:
           compose-file: "./dial-cookbook/docker-compose.yml"
           up-flags: "--abort-on-container-exit --exit-code-from notebooks --timeout 300"
 
+  run-quickstart:
+    name: Run quickstart examples
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: isbang/compose-action@v1.5.1
+        with:
+          compose-file: "./dial-docker-compose/ci/docker-compose-model.yml"
+          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
+        env:
+          DIAL_DIR: "../model"
+
   deploy:
     name: Deploy to GitHub Pages
+    needs: [run-notebooks, run-quickstart]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

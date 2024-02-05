@@ -20,8 +20,8 @@ jobs:
           compose-file: "./dial-cookbook/docker-compose.yml"
           up-flags: "--abort-on-container-exit --exit-code-from notebooks --timeout 300"
 
-  run-quickstart-model:
-    name: Run Model quickstart example
+  run-quickstart:
+    name: Run quickstart examples
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -36,6 +36,7 @@ jobs:
 
   test-deploy:
     name: Test deployment
+    needs: [run-notebooks, run-quickstart]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
