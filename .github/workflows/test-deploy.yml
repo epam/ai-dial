@@ -26,8 +26,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: isbang/compose-action@v1.5.1
+        name: Run quickstart model example
         with:
           compose-file: "./dial-docker-compose/ci/model/docker-compose.yml"
+          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
+
+      - uses: isbang/compose-action@v1.5.1
+        name: Run quickstart application example
+        with:
+          compose-file: "./dial-docker-compose/ci/application/docker-compose.yml"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
   test-deploy:

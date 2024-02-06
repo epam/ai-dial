@@ -4,6 +4,7 @@
     "gpt-35-turbo": {
       "type": "chat",
       "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-35-turbo/chat/completions",
+      "iconUrl": "http://themes:8080/gpt3.svg",
       "upstreams": [
         {
           "endpoint": "http://azure_deployment_url/openai/deployments/gpt-35-turbo/chat/completions",
@@ -14,6 +15,7 @@
     "gpt-4": {
       "type": "chat",
       "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-4/chat/completions",
+      "iconUrl": "http://themes:8080/gpt4.svg",
       "upstreams": [
         {
           "endpoint": "http://azure_deployment_url/openai/deployments/gpt-4/chat/completions",

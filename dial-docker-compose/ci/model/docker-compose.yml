@@ -16,8 +16,6 @@ services:
       DIAL_URL: "http://core:8080"
       DIAL_API_KEY: "dial_api_key"
     depends_on:
-      chat:
-        condition: service_started
       adapter-openai:
         condition: service_started
       azure_deployment_url:
