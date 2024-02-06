@@ -1,0 +1,22 @@
+---
+version: '3'
+
+include:
+  - ../docker-compose.yml
+
+services:
+  test:
+    depends_on:
+      echo:
+        condition: service_started
+      image-size:
+        condition: service_started
+      render-text:
+        condition: service_started
+      core:
+        condition: service_healthy
+    build: python-notebooks-runner
+    environment:
+      'DIAL_URL': 'http://core:8080'
+    volumes:
+      - ../examples:/opt/examples

@@ -17,8 +17,8 @@ jobs:
           submodules: true
       - uses: isbang/compose-action@v1.5.1
         with:
-          compose-file: "./dial-cookbook/docker-compose.yml"
-          up-flags: "--abort-on-container-exit --exit-code-from notebooks --timeout 300"
+          compose-file: "./dial-cookbook/ci/docker-compose.yml"
+          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
   run-quickstart:
     name: Run quickstart examples
