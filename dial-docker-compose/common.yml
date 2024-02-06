@@ -14,21 +14,17 @@ services:
       THEMES_CONFIG_HOST: "http://themes:8080"
       DIAL_API_HOST: "http://core:8080"
       DIAL_API_KEY: "dial_api_key"
-      ENABLED_FEATURES: "conversations-section,prompts-section,top-settings,top-clear-conversation,top-chat-info,top-chat-model-settings,empty-chat-settings,header,footer,request-api-key,report-an-issue,likes"
-
-  adapter-openai:
-    image: epam/ai-dial-adapter-openai:0.6.0
-    environment:
-      WEB_CONCURRENCY: "3"
+      ENABLED_FEATURES: "conversations-section,prompts-section,top-settings,top-clear-conversation,top-chat-info,top-chat-model-settings,empty-chat-settings,header,footer,request-api-key,report-an-issue,likes,input-files,attachments-manager"
 
   core:
     ports:
       - "8080:8080"
     image: epam/ai-dial-core:development
     environment:
-      'AIDIAL_SETTINGS': '/opt/config/settings.json'
-      'JAVA_OPTS': '-Dgflog.config=/opt/config/gflog.xml'
+      'AIDIAL_SETTINGS': '/opt/settings/settings.json'
+      'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
       'aidial.config.files': '["/opt/config/config.json"]'
     volumes:
-      - ${DIAL_DIR:-.}/core:/opt/config:ro
-      - ${DIAL_DIR:-.}/core-logs/:/app/log:rw
+      - ./settings:/opt/settings
+      - ${DIAL_DIR:-.}/core:/opt/config
+      - ${DIAL_DIR:-.}/core-logs/:/opt/logs

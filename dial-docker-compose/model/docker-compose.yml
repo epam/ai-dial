@@ -3,3 +3,9 @@ version: '3'
 
 include:
   - ../common.yml
+
+services:
+  adapter-openai:
+    image: epam/ai-dial-adapter-openai:0.6.0
+    environment:
+      WEB_CONCURRENCY: "3"
