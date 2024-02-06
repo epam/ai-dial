@@ -28,6 +28,7 @@ services:
     environment:
       'AIDIAL_SETTINGS': '/opt/config/settings.json'
       'JAVA_OPTS': '-Dgflog.config=/opt/config/gflog.xml'
+      'aidial.config.files': '["/opt/config/config.json"]'
     volumes:
       - ${DIAL_DIR:-.}/core:/opt/config:ro
       - ${DIAL_DIR:-.}/core-logs/:/app/log:rw
