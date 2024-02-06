@@ -2,7 +2,7 @@
 version: '3'
 
 include:
-  - ${COMMON_DIR:-..}/common.yml
+  - ../common.yml
 
 services:
   echo:
