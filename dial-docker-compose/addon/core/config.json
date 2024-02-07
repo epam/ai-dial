@@ -2,31 +2,45 @@
   "routes": {},
   "addons": {
     "addon-todo": {
-      "endpoint": "http://addon:5000/.well-known/ai-plugin.json",
+      "endpoint": "http://addon:5003/.well-known/ai-plugin.json",
       "displayName": "TODO List",
-      "description": "Manage your TODO list. You can add, remove and view your TODOs."
+      "description": "Addon that allows to manage user's TODO list."
     }
   },
   "assistant": {
-    "endpoint": "http://assistant:5000/openai/deployments/assistant/chat/completions"
+    "endpoint": "http://assistant:5000/openai/deployments/assistant/chat/completions",
+    "assistants": {
+      "todo-assistant": {
+        "prompt": "You are assistant that helps to manage TODO list for the user. You can add, remove and view your TODOs.",
+        "addons": [
+          "addon-todo"
+        ],
+        "displayName": "TODO Assistant",
+        "description": "The assistant that manages your TODO list. It can add, remove and view your TODOs."
+      }
+    }
   },
   "models": {
     "gpt-35-turbo": {
       "type": "chat",
+      "displayName": "GPT-3.5",
+      "iconUrl": "http://themes:8080/gpt3.svg",
       "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-35-turbo/chat/completions",
       "upstreams": [
         {
-          "endpoint": "https://azure_deployment_url/openai/deployments/gpt-35-turbo/chat/completions",
+          "endpoint": "http://azure_deployment_url/openai/deployments/gpt-35-turbo/chat/completions",
           "key": "AZURE_MODEL_API_KEY"
         }
       ]
     },
     "gpt-4": {
       "type": "chat",
+      "displayName": "GPT-4",
+      "iconUrl": "http://themes:8080/gpt4.svg",
       "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-4/chat/completions",
       "upstreams": [
         {
-          "endpoint": "https://azure_deployment_url/openai/deployments/gpt-4/chat/completions",
+          "endpoint": "http://azure_deployment_url/openai/deployments/gpt-4/chat/completions",
           "key": "AZURE_MODEL_API_KEY"
         }
       ]
@@ -43,7 +57,8 @@
       "limits": {
         "gpt-35-turbo": {},
         "gpt-4": {},
-        "addon-todo": {}
+        "addon-todo": {},
+        "todo-assistant": {}
       }
     }
   }
