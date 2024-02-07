@@ -38,22 +38,21 @@ Create a python file in your project folder and name it `app.py`.
 
 > Refer to the [application file](https://github.com/epam/ai-dial/blob/main/dial-docker-compose/application/echo/app.py).
 
-We use a [dockerfile](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/application/echo) to launch the Echo application.
+We use a [dockerfile](https://github.com/epam/ai-dial/blob/main/dial-docker-compose/application/echo/Dockerfile) to launch the Echo application.
 
 ## Step 3: Configuration
 
-1. Your AI DIAL installation has a `core/config.json` file. Open it and add the following lines in the [applications](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/application/core/config.json#L11) section:
+1. Your AI DIAL installation has a `core/config.json` file. Open it and add the following lines in the [applications](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/application/core/config.json#L4) section:
 
     ```json
     "echo": {
         "displayName": "My Echo App",
         "description": "Simple application that repeats user's message",
-        "endpoint": "http://echo:5000/openai/deployments/echo/chat/completions",
-        "iconUrl": "Url to your app icon (SVG) like this one https://www.svgrepo.com/show/532030/circle-heat.svg"
+        "endpoint": "http://echo:5000/openai/deployments/echo/chat/completions"
     }
     ```
 
-2. Add your Echo app to the roles you want it to be exposed to. For example, to add it to the `default` role, add the following lines in the [roles](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/application/core/config.json#L47) section:
+2. Add your Echo app to the roles you want it to be exposed to. For example, to add it to the `default` role, add the following lines in the [roles](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/application/core/config.json#L17) section:
 
     ```json
     "default": {
@@ -65,7 +64,7 @@ We use a [dockerfile](https://github.com/epam/ai-dial/tree/main/dial-docker-comp
 
 ## Step 4: Launch AI DIAL Chat
 
-Run `docker compose up` in the console from the folder with the `docker-compose.yml` file.
+Run `docker compose up` in the console from the folder with the [docker-compose file](https://github.com/epam/ai-dial/blob/main/dial-docker-compose/application/docker-compose.yml).
 
 Once AI DIAL Chat is up on http://localhost:3000/, select the Echo Application and start typing in prompts to see how the Echo application mirrors them.
 
