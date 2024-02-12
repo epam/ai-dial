@@ -1,12 +1,15 @@
+<!-- omit from toc -->
 # OpenAI Model Deployment
 
 From this instruction, you will learn how to create an Azure OpenAI model GPT-3.5-turbo/GPT-4.
 
-## Steps
-
-1. [Request access to model](#step-1-request-access-to-model)
-2. [Create a model deployment](#step-2-create-a-model-deployment)
-3. [Add model to AI DIAL](#step-3-add-model-to-ai-dial)
+<!-- omit from toc -->
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Step 1: Request access to model](#step-1-request-access-to-model)
+- [Step 2: Create a model deployment](#step-2-create-a-model-deployment)
+- [Step 3: Add model to AI DIAL](#step-3-add-model-to-ai-dial)
+  - [Configure Bedrock Adapter](#configure-bedrock-adapter)
 
 ## Prerequisites
 
@@ -54,13 +57,15 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
 To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it.
 
-Add you model with its parameters in the `models` section. Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L11) to view an example.
+Add you model with its parameters in the `models` section. Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
 
 Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
 
-To work with models, we use applications called Adapters. You can configure Adapters in the [AI DIAL Config](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L114).
+### Configure Bedrock Adapter
 
-Refer to [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to view documentation for a OpenAI AI DIAL Adapter.
+> Refer to [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to view documentation for a OpenAI AI DIAL Adapter.
+
+To work with models, we use applications called Adapters. You can configure OpenAI Adapter via [environment variables](https://github.com/epam/ai-dial-adapter-openai#environment-variables).
 
 ```yaml
 ### examples of basic configurations of adapters ###
@@ -68,11 +73,7 @@ Refer to [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to
 ### ai-dial-adapter-openai configuration ###
 openai:
   # -- Enable/disable ai-dial-adapter-openai
-  enabled: false
-  commonLabels:
-    app.kubernetes.io/component: "adapter"
-  image:
-    repository: epam/ai-dial-adapter-openai
-    tag: 0.2.0
+  enabled: true
+
 ```
 
