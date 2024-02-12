@@ -78,11 +78,11 @@ Refer to [Configuration](./configuration.md#core-parameters) to view the descrip
 
 ### Configure Bedrock Adapter
 
-To work with models, we use applications called Adapters. You can configure Bedrock Adapter with via [environment variables](https://github.com/epam/ai-dial-adapter-bedrock#environment-variables).
+> Refer to [Adapter for Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) to view documentation for a Bedrock AI DIAL Adapter.
 
-Refer to [Adapter for Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) to view documentation for a Bedrock AI DIAL Adapter.
+To work with models, we use applications called Adapters. You can configure Bedrock Adapter via [environment variables](https://github.com/epam/ai-dial-adapter-bedrock#environment-variables).
 
-#### For IAM User
+#### Use IAM User
 
 In this scenario, provide the access key of your user via environment variables: 
 
@@ -102,7 +102,7 @@ bedrock:
     AWS_SECRET_ACCESS_KEY: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
 ```
 
-#### For AWS Service Account
+#### Use AWS Service Account
 
 In this scenario, provide the IAM Role that you have assigned to your AWS Service Account: 
 
