@@ -51,7 +51,7 @@ Static settings are used on startup and **cannot** be changed while application 
 
 ### Dynamic settings
 
-Dynamic settings are stored in JSON files, specified via [config.files](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L6C3-L6C6) static setting, and reloaded at interval, specified via `config.reload` static setting.
+Dynamic settings are stored in JSON files, specified via `config.files` static setting, and reloaded at interval, specified via `config.reload` static setting.
 
 > Refer to [dynamic settings](https://github.com/epam/ai-dial-core#dynamic-settings) in the AI DIAL Core repository to learn more.
 
