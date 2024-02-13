@@ -5,21 +5,25 @@ In this instruction, you will learn how to create Bedrock model in AWS and use i
 
 > Refer to [AWS Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) to learn about this model.
 
+<div class="docusaurus-ignore">
+
 <!-- omit from toc -->
-## Table of Contents
+# Table of Contents
 - [Prerequisites](#prerequisites)
 - [Step 1: Configuring the AI Model](#step-1-configuring-the-ai-model)
   - [Request Access to Models](#request-access-to-models)
-- [Step 2: Get access to AI Model](#step-2-get-access-to-ai-model)
+- [Step 2: Get Access to AI Model](#step-2-get-access-to-ai-model)
   - [Create IAM Policy](#create-iam-policy)
   - [Assign IAM Policy](#assign-iam-policy)
     - [Assign to User](#assign-to-user)
     - [Assign to Service Account](#assign-to-service-account)
 - [Step 3: Add Model to AI DIAL](#step-3-add-model-to-ai-dial)
-  - [Add model to AI DIAL core config](#add-model-to-ai-dial-core-config)
+  - [Add Model to AI DIAL Core Config](#add-model-to-ai-dial-core-config)
   - [Configure Adapter](#configure-adapter)
     - [Use IAM User](#use-iam-user)
     - [Use AWS Service Account](#use-aws-service-account)
+
+</div>
 
 ## Prerequisites
 

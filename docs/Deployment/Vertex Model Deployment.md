@@ -3,17 +3,21 @@
 
 In this instruction, you will learn how to create VertexAI model in Google Cloud Platform and use it in AI DIAL config.
 
+<div class="docusaurus-ignore">
+
 <!-- omit from toc -->
-## Table of Contents
+# Table of Contents
 - [Prerequisites](#prerequisites)
 - [Step 1: Configuring the AI Model](#step-1-configuring-the-ai-model)
   - [Request Access to Models](#request-access-to-models)
-- [Step 2: Get access to AI Model](#step-2-get-access-to-ai-model)
+- [Step 2: Get Access to AI Model](#step-2-get-access-to-ai-model)
   - [Create a Service Account](#create-a-service-account)
 - [Step 3: Add Model to AI DIAL](#step-3-add-model-to-ai-dial)
-  - [Add model to AI DIAL core config](#add-model-to-ai-dial-core-config)
+  - [Add Model to AI DIAL Core Config](#add-model-to-ai-dial-core-config)
   - [Configure Adapter](#configure-adapter)
-    - [Use GCP Service Account with JSON key](#use-gcp-service-account-with-json-key)
+    - [Use GCP Service Account with JSON Key](#use-gcp-service-account-with-json-key)
+
+</div>
 
 ## Prerequisites
 

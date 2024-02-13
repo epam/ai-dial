@@ -3,16 +3,20 @@
 
 From this instruction, you will learn how to create an Azure OpenAI model GPT-3.5-turbo/GPT-4 and use it in AI DIAL config.
 
+<div class="docusaurus-ignore">
+
 <!-- omit from toc -->
-## Table of Contents
+# Table of Contents
 - [Prerequisites](#prerequisites)
 - [Step 1: Configuring the AI Model](#step-1-configuring-the-ai-model)
   - [Request Access to Models](#request-access-to-models)
-  - [Create a model deployment](#create-a-model-deployment)
+  - [Create a Model Deployment](#create-a-model-deployment)
 - [Step 2: Get access to AI Model](#step-2-get-access-to-ai-model)
 - [Step 3: Add Model to AI DIAL](#step-3-add-model-to-ai-dial)
-  - [Add model to AI DIAL core config](#add-model-to-ai-dial-core-config)
+  - [Add Model to AI DIAL Core Config](#add-model-to-ai-dial-core-config)
   - [Configure Adapter](#configure-adapter)
+
+</div>
 
 ## Prerequisites
 

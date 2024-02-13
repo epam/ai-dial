@@ -5,8 +5,10 @@
 
 This instruction assumes that you are installing and configuring applications using the latest official [dial](https://charts.epam-rail.com/) helm chart.
 
+<div class="docusaurus-ignore">
+
 <!-- omit from toc -->
-## Table of Contents
+# Table of Contents
 - [General method of configuration](#general-method-of-configuration)
 - [Core Parameters](#core-parameters)
   - [Static settings](#static-settings)
@@ -16,6 +18,8 @@ This instruction assumes that you are installing and configuring applications us
 - [Adapters Parameters](#adapters-parameters)
 - [Assistant Parameters](#assistant-parameters)
 - [Auth Helper Parameters](#auth-helper-parameters)
+
+</div>
 
 ## General method of configuration
 
