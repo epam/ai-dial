@@ -14,12 +14,14 @@
     "render-text": {
       "type": "chat",
       "endpoint": "http://render-text:5000/openai/deployments/render-text/chat/completions",
+      "displayName": "Render Text Application",
       "description": "Proxy for a text-to-image model. Renders the given text as an image."
     },
     "image-size": {
       "type": "chat",
       "endpoint": "http://image-size:5000/openai/deployments/image-size/chat/completions",
       "description": "Proxy for an image-to-text model. Returns dimensions of an attached image.",
+      "displayName": "Image Size Application",
       "inputAttachmentTypes": [
         "image/jpeg", "image/png"
       ]

@@ -8,7 +8,9 @@ services:
   chat:
     ports:
       - "3000:3000"
-    image: epam/ai-dial-chat:0.4.3
+    image: epam/ai-dial-chat:development
+    depends_on:
+      - themes
     environment:
       NEXTAUTH_SECRET: "secret"
       THEMES_CONFIG_HOST: "http://themes:8080"
@@ -16,15 +18,31 @@ services:
       DIAL_API_KEY: "dial_api_key"
       ENABLED_FEATURES: "conversations-section,prompts-section,top-settings,top-clear-conversation,top-chat-info,top-chat-model-settings,empty-chat-settings,header,footer,request-api-key,report-an-issue,likes,input-files,attachments-manager"
 
+  redis:
+    image: redis:7.2.4-alpine3.19
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server --save 20 1 --loglevel warning
+    volumes:
+      - redis-data:/data
+
   core:
     ports:
       - "8080:8080"
-    image: epam/ai-dial-core:development
+    image: epam/ai-dial-core:0.7.0
     environment:
       'AIDIAL_SETTINGS': '/opt/settings/settings.json'
       'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
       'aidial.config.files': '["/opt/config/config.json"]'
+      'aidial.redis.singleServerConfig.address': 'redis://redis:6379'
+    depends_on:
+      - redis
     volumes:
       - ./settings:/opt/settings
       - ${DIAL_DIR:-.}/core:/opt/config
       - ${DIAL_DIR:-.}/core-logs/:/opt/logs
+
+volumes:
+  redis-data:
+    driver: local
