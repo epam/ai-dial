@@ -89,6 +89,7 @@ To deploy a model to AI DIAL, it is necessary to add it to config and configure 
 Add you model with its parameters in the `models` section. 
 
 > Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
+
 > Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
 
 ### Configure Adapter
