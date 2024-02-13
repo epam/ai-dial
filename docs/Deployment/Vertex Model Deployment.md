@@ -36,7 +36,7 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
 5. Click **Enable** to turn on the Vertex AI API for your Google Cloud project.
       ![](img/gcp11.png)
    
-## Step 2: Get access to AI Model
+## Step 2: Get Access to AI Model
 
 ### Create a Service Account
 
@@ -67,21 +67,23 @@ To communicate with VertexAI models, it is necessary to have a service account.
 
 ## Step 3: Add Model to AI DIAL
 
-### Add model to AI DIAL core config
+### Add Model to AI DIAL Core Config
 
 To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it.
 
-Add you model with its parameters in the `models` section. Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
+Add you model with its parameters in the `models` section. 
 
-Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
+> Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
+
+> Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
 
 ### Configure Adapter
 
-> Refer to [Adapter for Vertex](https://github.com/epam/ai-dial-adapter-vertexai) to view documentation for a Vertex AI DIAL Adapter.
-
 To work with models, we use applications called Adapters. You can configure VertexAI Adapter via [environment variables](https://github.com/epam/ai-dial-adapter-vertexai#environment-variables).
 
-#### Use GCP Service Account with JSON key
+> Refer to [Adapter for Vertex](https://github.com/epam/ai-dial-adapter-vertexai) to view documentation for a Vertex AI DIAL Adapter.
+
+#### Use GCP Service Account with JSON Key
 
 The JSON file with your GCP key should be mounted to a pod as a file. Please, use the most suitable way to perform it.
 
