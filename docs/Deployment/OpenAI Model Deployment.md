@@ -1,7 +1,7 @@
 <!-- omit from toc -->
 # OpenAI Model Deployment
 
-From this instruction, you will learn how to create an Azure OpenAI model GPT-3.5-turbo/GPT-4.
+From this instruction, you will learn how to create an Azure OpenAI model GPT-3.5-turbo/GPT-4 and use it in AI DIAL config.
 
 <!-- omit from toc -->
 ## Table of Contents
@@ -30,7 +30,7 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
 > **Important**: you can proceed with model creation only upon receiving the confirmation email.
 
-### Create a model deployment
+### Create a Model Deployment
 
 1. Use the search bar to look up **Azure OpenAI** and click it to navigate to the **Azure AI Services|Azure OpenAI** page.
    
@@ -63,17 +63,19 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
 To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it.
 
-### Add model to AI DIAL core config
+### Add Model to AI DIAL Core Config
 
-Add you model with its parameters in the `models` section. Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
+Add you model with its parameters in the `models` section. 
 
-Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
+> Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
+
+> Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
 
 ### Configure Adapter
 
-> Refer to [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to view documentation for a OpenAI AI DIAL Adapter.
-
 To work with models, we use applications called Adapters. You can configure OpenAI Adapter via [environment variables](https://github.com/epam/ai-dial-adapter-openai#environment-variables).
+
+> Refer to [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to view documentation for a OpenAI AI DIAL Adapter.
 
 ```yaml
 ### examples of basic configurations of adapters ###
