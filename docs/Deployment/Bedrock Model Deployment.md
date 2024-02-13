@@ -38,7 +38,7 @@ In this instruction, you will learn how to create Bedrock model in AWS and use i
 
 > To use Bedrock, it is necessary to seek permission to access Bedrock's foundation models. To accomplish this, ensuring the correct IAM Policies is crucial. You can find instructions on how to create IAM Policies in the [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html). Additionally, for specific models, you may be required to provide details about your use case before being able to request access. For more information, please refer to the [Providers](https://eu-central-1.console.aws.amazon.com/bedrock/home#/providers) section on the Bedrock homepage.
 
-## Step 2: Get access to AI Model
+## Step 2: Get Access to AI Model
 
 ### Create IAM Policy
 
@@ -84,17 +84,18 @@ In case your cluster is located at AWS, the best practise for using Bedrock is t
 
 To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it.
 
-### Add model to AI DIAL core config
+### Add Model to AI DIAL Core Config
 
-Add you model with its parameters in the `models` section. Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
+Add you model with its parameters in the `models` section. 
 
-Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
+> Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
+> Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
 
 ### Configure Adapter
 
-> Refer to [Adapter for Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) to view documentation for a Bedrock AI DIAL Adapter.
-
 To work with models, we use applications called Adapters. You can configure Bedrock Adapter via [environment variables](https://github.com/epam/ai-dial-adapter-bedrock#environment-variables).
+
+> Refer to [Adapter for Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) to view documentation for a Bedrock AI DIAL Adapter.
 
 #### Use IAM User
 
