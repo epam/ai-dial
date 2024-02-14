@@ -11,6 +11,7 @@ services:
     image: epam/ai-dial-chat:0.5.0
     depends_on:
       - themes
+      - core
     environment:
       NEXTAUTH_SECRET: "secret"
       THEMES_CONFIG_HOST: "http://themes:8080"
@@ -23,9 +24,8 @@ services:
     restart: always
     ports:
       - "6379:6379"
-    command: redis-server --save 20 1 --loglevel warning
-    volumes:
-      - redis-data:/data
+    command: redis-server --maxmemory 2000mb --maxmemory-policy volatile-lfu --save "" --appendonly no --loglevel warning
+    mem_limit: 2200M
 
   core:
     ports:
@@ -42,7 +42,3 @@ services:
       - ./settings:/opt/settings
       - ${DIAL_DIR:-.}/core:/opt/config
       - ${DIAL_DIR:-.}/core-logs/:/opt/logs
-
-volumes:
-  redis-data:
-    driver: local
