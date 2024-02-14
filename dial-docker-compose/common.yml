@@ -8,7 +8,7 @@ services:
   chat:
     ports:
       - "3000:3000"
-    image: epam/ai-dial-chat:development
+    image: epam/ai-dial-chat:0.5.0
     depends_on:
       - themes
     environment:
@@ -30,7 +30,7 @@ services:
   core:
     ports:
       - "8080:8080"
-    image: epam/ai-dial-core:0.7.0
+    image: epam/ai-dial-core:0.7.1
     environment:
       'AIDIAL_SETTINGS': '/opt/settings/settings.json'
       'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
