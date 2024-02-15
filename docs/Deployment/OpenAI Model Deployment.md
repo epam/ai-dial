@@ -14,7 +14,7 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 - [Step 2: Get access to AI Model](#step-2-get-access-to-ai-model)
 - [Step 3: Add Model to AI DIAL](#step-3-add-model-to-ai-dial)
   - [Add Model to AI DIAL Core Config](#add-model-to-ai-dial-core-config)
-  - [Configure Adapter](#configure-adapter)
+  - [Configure AI DIAL Adapter](#configure-ai-dial-adapter)
 
 </div>
 
@@ -69,13 +69,13 @@ To deploy a model to AI DIAL, it is necessary to add it to config and configure 
 
 ### Add Model to AI DIAL Core Config
 
-Add you model with its parameters in the `models` section. 
+Add your model with its parameters in the `models` section. 
 
-> Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
+> Refer to [AI DIAL Core Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
 
-> Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
+> Refer to [Configure core config](./configuration.md#core-parameters) to view the configuration of AI DIAL core parameters in the helm-based installation.
 
-### Configure Adapter
+### Configure AI DIAL Adapter
 
 To work with models, we use applications called Adapters. You can configure OpenAI Adapter via [environment variables](https://github.com/epam/ai-dial-adapter-openai#environment-variables).
 
