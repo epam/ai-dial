@@ -1,18 +1,30 @@
+<!-- omit from toc -->
 # OpenAI Model Deployment
 
-From this instruction, you will learn how to create an Azure OpenAI model GPT-3.5-turbo/GPT-4.
+From this instruction, you will learn how to create an Azure OpenAI model GPT-3.5-turbo/GPT-4 and use it in AI DIAL config.
 
-## Steps
+<div class="docusaurus-ignore">
 
-1. [Request access to model](#step-1-request-access-to-model)
-2. [Create a model deployment](#step-2-create-a-model-deployment)
-3. [Add model to AI DIAL](#step-3-add-model-to-ai-dial)
+<!-- omit from toc -->
+# Table of Contents
+- [Prerequisites](#prerequisites)
+- [Step 1: Configuring the AI Model](#step-1-configuring-the-ai-model)
+  - [Request Access to Models](#request-access-to-models)
+  - [Create a Model Deployment](#create-a-model-deployment)
+- [Step 2: Get access to AI Model](#step-2-get-access-to-ai-model)
+- [Step 3: Add Model to AI DIAL](#step-3-add-model-to-ai-dial)
+  - [Add Model to AI DIAL Core Config](#add-model-to-ai-dial-core-config)
+  - [Configure AI DIAL Adapter](#configure-ai-dial-adapter)
+
+</div>
 
 ## Prerequisites
 
 * Active Azure account
 
-## Step 1: Request access to model
+## Step 1: Configuring the AI Model
+
+### Request Access to Models
 
 1. Login to the MS Azure portal (https://portal.azure.com/) with your credentials. Create an account if you do not have one.
 2. Navigate to Azure OpenAI and click **Create**.
@@ -22,8 +34,7 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
 > **Important**: you can proceed with model creation only upon receiving the confirmation email.
 
-
-## Step 2: Create a model deployment
+### Create a Model Deployment
 
 1. Use the search bar to look up **Azure OpenAI** and click it to navigate to the **Azure AI Services|Azure OpenAI** page.
    
@@ -39,28 +50,36 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
     > It is important to note that certain models may not be accessible for deployment in a particular region. If you need a particular model, you will have to submit a separate request or relocate Azure OpenAI to a different region.
 
-4. Go back to your model page and click **Keys and Endpoint**. In this section, you can find your key and endpoint that you will need to provide in AI DIAL configuration file.
+## Step 2: Get access to AI Model
+
+1. Go back to your model page and click **Keys and Endpoint**. In this section, you can find your key and endpoint that you will need to provide in AI DIAL configuration file.
    
     ![](img/step13.jpg)
 
-5. You can restrict access to your accounts based on a specific subset of networks by configuring network rules, only applications that access data through the designated set of networks are permitted to access the account. You can manage default network access rules for Azure AI services resources in **Resource Management/Networking**.
+2. You can restrict access to your accounts based on a specific subset of networks by configuring network rules, only applications that access data through the designated set of networks are permitted to access the account. You can manage default network access rules for Azure AI services resources in **Resource Management/Networking**.
 
    > Refer to [Microsoft Documentation](https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-virtual-networks?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=portal#manage-default-network-access-rules) to learn more.
    > Refer to [Microsoft Data Privacy Policy](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy) to learn how data provided by you to the Azure OpenAI service is processed, used, and stored.
 
    ![](img/whitelisting.png)
 
-## Step 3: Add model to AI DIAL
+## Step 3: Add Model to AI DIAL
 
 To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it.
 
-Add you model with its parameters in the `models` section. Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L11) to view an example.
+### Add Model to AI DIAL Core Config
 
-Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
+Add your model with its parameters in the `models` section. 
 
-To work with models, we use applications called Adapters. You can configure Adapters in the [AI DIAL Config](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L114).
+> Refer to [AI DIAL Core Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
 
-Refer to [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to view documentation for a OpenAI AI DIAL Adapter.
+> Refer to [Configure core config](./configuration.md#core-parameters) to view the configuration of AI DIAL core parameters in the helm-based installation.
+
+### Configure AI DIAL Adapter
+
+To work with models, we use applications called Adapters. You can configure OpenAI Adapter via [environment variables](https://github.com/epam/ai-dial-adapter-openai#environment-variables).
+
+> Refer to [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to view documentation for a OpenAI AI DIAL Adapter.
 
 ```yaml
 ### examples of basic configurations of adapters ###
@@ -68,11 +87,6 @@ Refer to [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to
 ### ai-dial-adapter-openai configuration ###
 openai:
   # -- Enable/disable ai-dial-adapter-openai
-  enabled: false
-  commonLabels:
-    app.kubernetes.io/component: "adapter"
-  image:
-    repository: epam/ai-dial-adapter-openai
-    tag: 0.2.0
-```
+  enabled: true
 
+```

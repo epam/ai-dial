@@ -1,6 +1,23 @@
+<!-- omit from toc -->
 # Vertex Model Deployment
 
-In this instruction, you will learn how to create VertexAI model in Google Cloud Platform and deploy it in AI DIAL config.
+In this instruction, you will learn how to create VertexAI model in Google Cloud Platform and use it in AI DIAL config.
+
+<div class="docusaurus-ignore">
+
+<!-- omit from toc -->
+# Table of Contents
+- [Prerequisites](#prerequisites)
+- [Step 1: Configuring the AI Model](#step-1-configuring-the-ai-model)
+  - [Request Access to Models](#request-access-to-models)
+- [Step 2: Get Access to AI Model](#step-2-get-access-to-ai-model)
+  - [Create a Service Account](#create-a-service-account)
+- [Step 3: Add Model to AI DIAL](#step-3-add-model-to-ai-dial)
+  - [Add Model to AI DIAL Core Config](#add-model-to-ai-dial-core-config)
+  - [Configure AI DIAL Adapter](#configure-ai-dial-adapter)
+    - [Use GCP Service Account with JSON Key](#use-gcp-service-account-with-json-key)
+
+</div>
 
 ## Prerequisites
 
@@ -9,13 +26,9 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
 
 > Refer to [Google Cloud Documentation](https://cloud.google.com/vertex-ai/docs/featurestore/setup) to learn how to create an account and enable billing.
 
-## Steps
-  
-1. [Enable Vertex AI API](#step-1-enable-vertex-ai-api)
-2. [Create a Service Account](#step-2-create-a-service-account)
-3. [Add model to AI DIAL](#step-3-add-model-to-ai-dial)
+## Step 1: Configuring the AI Model
 
-## Step 1: Enable Vertex AI API
+### Request Access to Models
 
 1.	Log into your Google Cloud account.
 2.	In the navigation panel on the left, in **APIs & Services**, select **Enable APIs and Services**.
@@ -27,7 +40,9 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
 5. Click **Enable** to turn on the Vertex AI API for your Google Cloud project.
       ![](img/gcp11.png)
    
-## Step 2: Create a Service Account
+## Step 2: Get Access to AI Model
+
+### Create a Service Account
 
 To communicate with VertexAI models, it is necessary to have a service account.
 
@@ -54,86 +69,58 @@ To communicate with VertexAI models, it is necessary to have a service account.
     
    	 ![](img/gcp6.png)
 
-## Step 3: Add model to AI DIAL
+## Step 3: Add Model to AI DIAL
+
+### Add Model to AI DIAL Core Config
 
 To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it.
 
-Add you model with its parameters in the `models` section. Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L11) to view an example.
+Add your model with its parameters in the `models` section. 
 
-Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
+> Refer to [AI DIAL Core Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
 
-To work with models, we use applications called Adapters. You can configure Adapters in the [AI DIAL Config](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L114).
+> Refer to [Configure core config](./configuration.md#core-parameters) to view the configuration of AI DIAL core parameters in the helm-based installation.
 
-Refer to [Adapter for Vertex](https://github.com/epam/ai-dial-adapter-vertexai) to view documentation for a Vertex AI DIAL Adapter.
+### Configure AI DIAL Adapter
 
-```yaml
-### ai-dial-adapter-vertexai configuration ###
-vertexai:
-  # -- Enable/disable ai-dial-adapter-vertexai
-  enabled: false
-  commonLabels:
-    app.kubernetes.io/component: "adapter"
-  image:
-    repository: epam/ai-dial-adapter-vertexai
-    tag: 0.2.0
-```
+To work with models, we use applications called Adapters. You can configure VertexAI Adapter via [environment variables](https://github.com/epam/ai-dial-adapter-vertexai#environment-variables).
 
-The JSON file with your model key should be mounted to a pod as a file. Please, use the most suitable way to perform it.
+> Refer to [Adapter for Vertex](https://github.com/epam/ai-dial-adapter-vertexai) to view documentation for a Vertex AI DIAL Adapter.
 
-Example of mounting using CSI drivers:
+#### Use GCP Service Account with JSON Key
+
+The JSON file with your GCP key should be mounted to a pod as a file. Please, use the most suitable way to perform it.
+
+Example of mounting JSON key using secrets:
 
 ```yaml
 vertexai:
   enabled: true
 
-  image:
-    tag: imagetag
-
   env:
-    GOOGLE_APPLICATION_CREDENTIALS: "/mnt/secrets-store/gcp-ai-proxy-key"
-    GCP_PROJECT_ID: you-project-id
     DEFAULT_REGION: "your-region"
-    
-  serviceAccount:
-    create: 
-    name: 
+    GOOGLE_APPLICATION_CREDENTIALS: "/mnt/secrets-store/gcp-ai-key"
+    GCP_PROJECT_ID: you-project-id
+
+  secrets:
+    gcp-ai-key: |
+      {
+      "type": "service_account",
+      ...
+      "universe_domain": "googleapis.com"
+      }
 
   extraVolumes:
-    - name: secrets
-      csi:
-        driver: secrets-store.csi.k8s.io
-        readOnly: true
-        volumeAttributes:
-          secretProviderClass: gcp-ai-key
+    - name: key-file
+      secret:
+        secretName: '{{ template "dialExtension.names.fullname" . }}'
+        items:
+          - key: gcp-ai-key
+            path: gcp-ai-key
 
   extraVolumeMounts:
-    - name: secrets
+    - name: key-file
+      mountPath: "/mnt/secrets-store"
       readOnly: true
-      mountPath: /mnt/secrets-store
 
-  extraDeploy:
-    - apiVersion: secrets-store.csi.x-k8s.io/v1
-      kind: SecretProviderClass
-      metadata:
-        name: gcp-ai-key
-        namespace: your-k8s-namespace
-      spec:
-        provider: 
-        parameters:
-          clientID: your-client-id
-          cloudName: your-cloud-name
-          keyvaultName: your-keyvault-name
-          objects: |
-            array:
-              - |
-                objectName: gcp-ai-proxy-key
-                objectType: secret
-                objectVersion: ""
-tenantID: your-tenant-id
-          usePodIdentity: "false"
 ```
-
-
-
-
-
