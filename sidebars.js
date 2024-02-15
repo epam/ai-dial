@@ -49,13 +49,11 @@ const sidebars = {
           label: 'Helm Deployment',
           href: 'https://github.com/epam/ai-dial-helm/tree/main/charts/dial/examples/generic/simple',
         },
-        items [
         {
           type:'doc',
           id: 'Deployment/configuration',
           label: 'Configuration'
-        }
-        ],
+        },
         'Deployment/OpenAI Model Deployment',
         'Deployment/Vertex Model Deployment',
         'Deployment/Bedrock Model Deployment'
