@@ -19,7 +19,7 @@ async def process_completion(model: str, request: Request):
     api_key = request.headers.get("api-key")
 
     if api_key is None:
-        raise HTTPException(status_code=403, detail="API key not provided")
+        raise HTTPException(status_code=401, detail="API key not provided")
 
     if api_key != API_KEY:
         raise HTTPException(status_code=403, detail="Invalid API key")
@@ -29,7 +29,7 @@ async def process_completion(model: str, request: Request):
 
     if not stream:
         raise HTTPException(
-            status_code=400, detail="Streamed responses are not supported"
+            status_code=400, detail="Non-streaming mode isn't supported"
         )
 
     global response_idx

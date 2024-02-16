@@ -8,7 +8,7 @@
       "iconUrl": "http://themes:8080/gpt3.svg",
       "upstreams": [
         {
-          "endpoint": "http://azure_deployment_url/openai/deployments/gpt-35-turbo/chat/completions",
+          "endpoint": "http://azure_deployment_host/openai/deployments/gpt-35-turbo/chat/completions",
           "key": "AZURE_MODEL_API_KEY"
         }
       ]
@@ -20,7 +20,7 @@
       "iconUrl": "http://themes:8080/gpt4.svg",
       "upstreams": [
         {
-          "endpoint": "http://azure_deployment_url/openai/deployments/gpt-4/chat/completions",
+          "endpoint": "http://azure_deployment_host/openai/deployments/gpt-4/chat/completions",
           "key": "AZURE_MODEL_API_KEY"
         }
       ]

@@ -57,12 +57,12 @@ In the **/core** folder, you can find a [config.json](https://github.com/epam/ai
 Add you model credentials in the [config.json](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/core/config.json#L36) file in `upstreams`.
 
 * Supply your **Azure API Keys** for your deployments for the `key` parameter.
-* Replace `http://azure_deployment_url` with your GPT **endpoint** for the `endpoint` parameter. **Note**: in the endpoint, replace `gpt-4` with your Azure deployment name, in case it is different.
+* Replace `http://azure_deployment_host` with your GPT **endpoint** for the `endpoint` parameter. **Note**: in the endpoint, replace `gpt-4` with your Azure deployment name, in case it is different.
 
   ```json
         "upstreams": [
         {
-          "endpoint": "http://azure_deployment_url/openai/deployments/gpt-4/chat/completions",
+          "endpoint": "http://azure_deployment_host/openai/deployments/gpt-4/chat/completions",
           "key": "AZURE_MODEL_API_KEY"
         }
   ]

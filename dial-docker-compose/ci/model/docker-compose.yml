@@ -5,7 +5,7 @@ include:
   - ../../model/docker-compose.yml
 
 services:
-  azure_deployment_url:
+  azure_deployment_host:
     build: azure_deployment_mock
     environment:
       API_KEY: AZURE_MODEL_API_KEY
@@ -18,7 +18,7 @@ services:
     depends_on:
       adapter-openai:
         condition: service_started
-      azure_deployment_url:
+      azure_deployment_host:
         condition: service_started
       core:
         condition: service_healthy
