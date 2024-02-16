@@ -14,8 +14,11 @@ RUN apk add --no-cache \
 
 RUN pip install jupyter
 
-COPY requirements.txt .
-RUN python -m pip install -r requirements.txt
+# NOTE: for some reason jupyter doesn't run pip-installs inside the notebooks,
+# so we have to repeat them here.
+RUN pip install requests==2.31.0
+RUN pip install openai==1.9.0
+RUN pip install langchain-openai==0.0.3
 
 WORKDIR /app
 COPY . /app

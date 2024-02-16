@@ -1,0 +1,24 @@
+---
+version: '3'
+
+include:
+  - ../../model/docker-compose.yml
+
+services:
+  azure_deployment_host:
+    build: azure_deployment_mock
+    environment:
+      API_KEY: AZURE_MODEL_API_KEY
+
+  test:
+    build: test
+    environment:
+      DIAL_URL: "http://core:8080"
+      DIAL_API_KEY: "dial_api_key"
+    depends_on:
+      adapter-openai:
+        condition: service_started
+      azure_deployment_host:
+        condition: service_started
+      core:
+        condition: service_healthy

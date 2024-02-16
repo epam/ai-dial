@@ -43,7 +43,7 @@ Following this pattern, you can develop your own addons or use a third-party one
 
 ## Step 2: Configuration
 
-In **docker-compose.yaml**, you can find sections for [OpenAI Adapter](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/docker-compose.yml#L18) to work with an Azure model, [AI DIAL Assistant](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/docker-compose.yml#L22), [Addon](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/docker-compose.yml#L27), and [AI DIAL Core](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/docker-compose.yml#L29).
+In **docker-compose.yaml**, you can find sections for [OpenAI Adapter](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/docker-compose.yml#L8) to work with an Azure model, [AI DIAL Assistant](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/docker-compose.yml#L13), [Addon](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/docker-compose.yml#L19), and [AI DIAL Core](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/common.yml#L19).
 
 > * Refer to [AI DIAL Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to learn more.
 > * Refer to the [AI DIAL Core](https://github.com/epam/ai-dial-core) to view a complete documentation.
@@ -54,15 +54,15 @@ In the **/core** folder, you can find a [config.json](https://github.com/epam/ai
 
 ### Configure Model
 
-Add you model credentials in the [config.json](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/core/config.json#L24) file in `upstreams`.
+Add you model credentials in the [config.json](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/core/config.json#L36) file in `upstreams`.
 
 * Supply your **Azure API Keys** for your deployments for the `key` parameter.
-* Replace `https://AZURE_DEPLOYMENT_URL` with your GPT **endpoint** for the `endpoint` parameter. **Note**: in the endpoint, replace `gpt-4` with your Azure deployment name, in case it is different.
+* Replace `http://azure_deployment_host` with your GPT **endpoint** for the `endpoint` parameter. **Note**: in the endpoint, replace `gpt-4` with your Azure deployment name, in case it is different.
 
   ```json
         "upstreams": [
         {
-          "endpoint": "https://AZURE_DEPLOYMENT_URL/openai/deployments/gpt-4/chat/completions",
+          "endpoint": "http://azure_deployment_host/openai/deployments/gpt-4/chat/completions",
           "key": "AZURE_MODEL_API_KEY"
         }
   ]
@@ -70,49 +70,60 @@ Add you model credentials in the [config.json](https://github.com/epam/ai-dial/t
 
     > Refer to [Create and Deploy OpenAI Model in Azure](/Deployment/OpenAI%20Model%20Deployment.md) to learn how to create and deploy an OpenAI model in MS Azure.
 
-### Configure Assistant
-
-Provide the endpoint for AI DIAL Assistant in the [config file](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/core/config.json#L18) in the `assistant` section.
-
-```json
-"assistant": {
-    "endpoint": "http://assistant:5000/openai/deployments/assistant/chat/completions"
-  }
-```
-
-> * Refer to [AI DIAL Assistant](https://github.com/epam/ai-dial-assistant) repository for more information about AI DIAL Assistant.
-
 ### Configure Addon
 
 > In this example, we get information about the name, description etc. from the [addon repository](https://github.com/openai/plugins-quickstart/blob/main/.well-known/ai-plugin.json).
 
-Provide configuration for your addon in the [config file](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/core/config.json#L11) in the `addons` section:
+Provide configuration for your addon in the [config file](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/core/config.json#L4) in the `addons` section:
 
 ```json
   "addons": {
     "addon-todo": {
       "endpoint": "http://addon:5003/.well-known/ai-plugin.json",
       "displayName": "TODO List",
-      "description": "Manage your TODO list. You can add, remove and view your TODOs."
+      "description": "Addon that allows to manage user's TODO list."
     }
   }
 ```
 
-Configure roles for your addon in the [config file](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/core/config.json#L49) in the `roles` section:
+### Configure Assistant
+
+Provide the endpoint for AI DIAL Assistant in the [config file](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/core/config.json#L10) in the `assistant` section and configure the `todo-assistant` with the `addon-todo`:
+
+```json
+  "assistant": {
+    "endpoint": "http://assistant:5000/openai/deployments/assistant/chat/completions",
+    "assistants": {
+      "todo-assistant": {
+        "prompt": "You are assistant that helps to manage TODO list for the user. You can add, remove and view your TODOs.",
+        "addons": [
+          "addon-todo"
+        ],
+        "displayName": "TODO Assistant",
+        "description": "The assistant that manages your TODO list. It can add, remove and view your TODOs."
+      }
+    }
+  }
+```
+
+> * Refer to [AI DIAL Assistant](https://github.com/epam/ai-dial-assistant) repository for more information about AI DIAL Assistant.
+
+Finally, configure roles for the addon and the TODO assistant in the [config file](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/addon/core/config.json#L55) in the `roles` section:
 
 ```json
 "roles": {
   "default": {
     "limits": {
-      "addon-todo": {}
+      "addon-todo": {},
+      "todo-assistant": {}
     }
   }
 }
 ```
 
-## Step 3: Lauch AI DIAL Chat
+## Step 3: Launch AI DIAL Chat
 
-1. Run the `docker compose up` command from the folder with the `docker-compose` file (**dial-docker-compose/addon**).
+1. Run the `docker compose up` command from the folder with the [docker-compose file](https://github.com/epam/ai-dial/blob/main/dial-docker-compose/addon/docker-compose.yml).
 2. Open http://localhost:3000/ in your browser to launch the AI DIAL Chat application.
 
 The AI DIAL Chat is launched with the Azure model we have configured, and the Addon is enabled with the display name you configured for the `addons.displayName` parameter in `config.json`.

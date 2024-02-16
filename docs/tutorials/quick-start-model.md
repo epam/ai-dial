@@ -23,12 +23,12 @@ In the **dial-docker-compose/model/core** folder, you can find a [config.json](h
 In `config.json`, you can add your Azure model credentials to the chat configuration:
 
 * Supply your **Azure API Keys** for your deployments for the `key` parameter.
-* Replace `https://AZURE_DEPLOYMENT_URL` with your GPT **endpoint** for the `endpoint` parameter. **Note**: in the endpoint, replace `gpt-4` with your Azure deployment name, in case it is different.
+* Replace `http://azure_deployment_host` with your GPT **endpoint** for the `endpoint` parameter. **Note**: in the endpoint, replace `gpt-4` with your Azure deployment name, in case it is different.
 
   ```json
         "upstreams": [
         {
-          "endpoint": "https://AZURE_DEPLOYMENT_URL/openai/deployments/gpt-4/chat/completions",
+          "endpoint": "http://azure_deployment_host/openai/deployments/gpt-4/chat/completions",
           "key": "AZURE_MODEL_API_KEY"
         }
   ]
@@ -36,7 +36,7 @@ In `config.json`, you can add your Azure model credentials to the chat configura
 
     > Refer to [Create and Deploy OpenAI Model in Azure](/Deployment/OpenAI%20Model%20Deployment.md) to learn how to create and deploy a model in MS Azure.
 
-## Step 3: Lauch AI DIAL Chat
+## Step 3: Launch AI DIAL Chat
 
-1. Run `docker compose up` from the folder with the `docker compose` file (**dial-docker-compose/dial**).
+1. Run `docker compose up` from the folder with the [docker-compose file](https://github.com/epam/ai-dial/blob/main/dial-docker-compose/model/docker-compose.yml).
 2. Open http://localhost:3000/ in your browser to launch the AI DIAL Chat application.

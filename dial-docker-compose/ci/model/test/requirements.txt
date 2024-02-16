@@ -1,0 +1,2 @@
+aiohttp==3.9.3
+backoff==2.2.1

@@ -1,39 +1,19 @@
 ---
-version: '1'
+version: '3'
+
+include:
+  - ../dial-docker-compose/common.yml
 
 services:
   echo:
     build: ../dial-sdk/examples/echo
+
   image-size:
     build: ../dial-sdk/examples/image_size
     environment:
       'DIAL_URL': 'http://core:8080'
+
   render-text:
     build: ../dial-sdk/examples/render_text
     environment:
       'DIAL_URL': 'http://core:8080'
-  core:
-    ports:
-      - "8080:8080"
-    image: epam/ai-dial-core:development
-    environment:
-      'AIDIAL_SETTINGS': '/opt/core/settings.json'
-      'JAVA_OPTS': '-Dgflog.config=/opt/core/gflog.xml'
-    volumes:
-      - ${DIAL_DIR:-.}/core:/opt/core:Z
-      - ${DIAL_DIR:-.}/core-logs/:/opt/epam/aidial/log:Z
-  notebooks:
-    depends_on:
-      echo:
-        condition: service_started
-      image-size:
-        condition: service_started
-      render-text:
-        condition: service_started
-      core:
-        condition: service_healthy
-    build: python-notebooks-runner
-    environment:
-      'DIAL_URL': 'http://core:8080'
-    volumes:
-      - ./examples:/opt/examples:Z

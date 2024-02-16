@@ -4,7 +4,7 @@ AI DIAL enables assignment of roles to Models, Applications, Addons, and Assista
 
 This tutorial provides a guide on how to create these roles in both KeyCloak and MS Azure, and how to integrate them into AI DIAL's configuration.
 
-> Refer to [AI DIAL Configuration](/docs/Deployment/configuration.md#some-of-the-dynamic-parameters) to learn more abour `roles` and other parameters. 
+> Refer to [AI DIAL Configuration](/docs/Deployment/configuration.md#some-of-the-dynamic-parameters) to learn more abour `roles` and other parameters.
 
 ## KeyCloak
 
@@ -21,9 +21,9 @@ In AI DIAL config:
 
 5. Assign roles to AI DIAL Models, Applications, Assistants, and Addons.
 
-AI DIAL Core receives the roles assigned to it through user access tokens (JWTs). These roles can be accessed via the path: `resource_access.<client-id>.roles` where `client-id` is a client registered in KeyCloak `realm`, e.g. `chatbot-ui`. 
+AI DIAL Core receives the roles assigned to it through user access tokens (JWTs). These roles can be accessed via the path: `resource_access.<client-id>.roles` where `client-id` is a client registered in KeyCloak `realm`, e.g. `chatbot-ui`.
 
-### Step 1: Create groups 
+### Step 1: Create groups
 
 > Refer to [KeyCloak Documentation](https://www.keycloak.org/docs/latest/server_admin/index.html#proc-managing-groups_server_administration_guide) to learn how to create groups.
 
@@ -34,7 +34,7 @@ In **Groups**, you can create a hierarchy of groups through admin console, simil
      -> AWS.Bedrock
      -> Stable.Diffusion
   Addons
-     -> Wolfram   
+     -> Wolfram
 ```
 
 ### Step 2: Create roles
@@ -107,14 +107,14 @@ The last step is to assign KeyCloak roles to AI DIAL core deployments: Applicati
 
 "models": {
     "chat-gpt-35-turbo": {
-      "type": "chat",      
+      "type": "chat",
       "endpoint" : "http://localhost:7001/v1/openai/deployments/gpt-35-turbo/chat/completions",
       "upstreams": [
         {"endpoint": "http://localhost:7001", "key": "modelKey1"},
         {"endpoint": "http://localhost:7002", "key": "modelKey2"},
         {"endpoint": "http://localhost:7003", "key": "modelKey3"}
       ],
-      "userRoles": ["keycloak-role2"]      
+      "userRoles": ["keycloak-role2"]
     }
 }
 ```
@@ -227,14 +227,14 @@ The last step is to assign Microsoft Azure AD groups to AI DIAL Core deployments
 
 "models": {
     "chat-gpt-35-turbo": {
-      "type": "chat",      
+      "type": "chat",
       "endpoint" : "http://localhost:7001/v1/openai/deployments/gpt-35-turbo/chat/completions",
       "upstreams": [
         {"endpoint": "http://localhost:7001", "key": "modelKey1"},
         {"endpoint": "http://localhost:7002", "key": "modelKey2"},
         {"endpoint": "http://localhost:7003", "key": "modelKey3"}
       ],
-      "userRoles": ["azure-group2"]      
+      "userRoles": ["azure-group2"]
     }
 }
 ```
