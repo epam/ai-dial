@@ -8,7 +8,7 @@ services:
   chat:
     ports:
       - "3000:3000"
-    image: epam/ai-dial-chat:0.5.0
+    image: epam/ai-dial-chat:0.5.1
     depends_on:
       - themes
       - core
@@ -24,13 +24,19 @@ services:
     restart: always
     ports:
       - "6379:6379"
-    command: redis-server --maxmemory 2000mb --maxmemory-policy volatile-lfu --save "" --appendonly no --loglevel warning
+    command: >
+      redis-server
+      --maxmemory 2000mb
+      --maxmemory-policy volatile-lfu
+      --save ""
+      --appendonly no
+      --loglevel warning
     mem_limit: 2200M
 
   core:
     ports:
       - "8080:8080"
-    image: epam/ai-dial-core:0.7.1
+    image: epam/ai-dial-core:0.7.2
     environment:
       'AIDIAL_SETTINGS': '/opt/settings/settings.json'
       'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
@@ -41,4 +47,4 @@ services:
     volumes:
       - ./settings:/opt/settings
       - ${DIAL_DIR:-.}/core:/opt/config
-      - ${DIAL_DIR:-.}/core-logs/:/opt/logs
+      - ${DIAL_DIR:-.}/core-logs/:/app/log
