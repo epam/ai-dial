@@ -1,22 +1,38 @@
+<!-- omit from toc -->
 # Bedrock Model Deployment
 
-In this instruction, you will learn how to create Bedrock model in AWS and deploy it in AI DIAL config.
+In this instruction, you will learn how to create Bedrock model in AWS and use it in AI DIAL config.
 
 > Refer to [AWS Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) to learn about this model.
+
+<div class="docusaurus-ignore">
+
+<!-- omit from toc -->
+# Table of Contents
+- [Prerequisites](#prerequisites)
+- [Step 1: Configuring the AI Model](#step-1-configuring-the-ai-model)
+  - [Request Access to Models](#request-access-to-models)
+- [Step 2: Get Access to AI Model](#step-2-get-access-to-ai-model)
+  - [Create IAM Policy](#create-iam-policy)
+  - [Assign IAM Policy](#assign-iam-policy)
+    - [Assign to User](#assign-to-user)
+    - [Assign to Service Account](#assign-to-service-account)
+- [Step 3: Add Model to AI DIAL](#step-3-add-model-to-ai-dial)
+  - [Add Model to AI DIAL Core Config](#add-model-to-ai-dial-core-config)
+  - [Configure AI DIAL Adapter](#configure-ai-dial-adapter)
+    - [Use IAM User](#use-iam-user)
+    - [Use AWS Service Account](#use-aws-service-account)
+
+</div>
 
 ## Prerequisites
 
 * Active AWS account
 * Admin role at the account
-  
-## Steps
 
-1.	[Request access to models](#step-1-request-access-to-models)
-2.	[Create IAM Policy](#step-2-create-iam-policy)
-3.	[Assign IAM Policy](#step-3-assign-iam-policy)
-4.	[Add Model to AI DIAL](#step-4-add-model-to-ai-dial)
+## Step 1: Configuring the AI Model
 
-## Step 1: Request Access to Models
+### Request Access to Models
 
 1. In your AWS account, navigate to **Services/Amazon Bedrock**.
 2. In Amazon Bedrock, navigate to **Model access** and click the **Manage model access** button.
@@ -26,7 +42,9 @@ In this instruction, you will learn how to create Bedrock model in AWS and deplo
 
 > To use Bedrock, it is necessary to seek permission to access Bedrock's foundation models. To accomplish this, ensuring the correct IAM Policies is crucial. You can find instructions on how to create IAM Policies in the [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html). Additionally, for specific models, you may be required to provide details about your use case before being able to request access. For more information, please refer to the [Providers](https://eu-central-1.console.aws.amazon.com/bedrock/home#/providers) section on the Bedrock homepage.
 
-## Step 2: Create IAM Policy
+## Step 2: Get Access to AI Model
+
+### Create IAM Policy
 
 IAM (Identity and Access Management) policies in AWS (Amazon Web Services) are a set of rules that define permissions for users, groups, and roles within an AWS account.
 
@@ -41,11 +59,11 @@ When using a custom policy, we recommend assigning permissions below to limit th
 * bedrock:InvokeModel
 * bedrock:InvokeModelWithResponseStream
 
-## Step 3: Assign IAM Policy
+### Assign IAM Policy
 
 You can assign an IAM Policy to a specific [user](#assign-to-user), role or to the entire [AWS Service Account](#assign-to-service-account). 
 
-### Assign to User
+#### Assign to User
 
 IAM (Identity and Access Management) users in AWS (Amazon Web Services) are entities that represent individual people or applications that interact with AWS services and resources. IAM users have their own unique set of security credentials, which include an access key and secret access key.
 
@@ -60,42 +78,33 @@ IAM (Identity and Access Management) users in AWS (Amazon Web Services) are enti
 4. When the user is created, click your new user and navigate to the **Security credentials** tab where you can click **Create access key** to create a key pair for your user.
 5. For a new key pair, click **Show** to view and download a CSV file. **Note**, that once shown, the key pair will no longer be available for preview. Make sure you save a CSV file for future use. 
 
-### Assign to Service Account
+#### Assign to Service Account
 
 In case your cluster is located at AWS, the best practise for using Bedrock is to assign an IAM Policy to your Service Account. You can do this via IAM Roles.
 
-#### Create IAM Roles
+> Refer to [AWS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) to learn how to configure an IAM roles for service accounts.
 
-IAM (Identity and Access Management) roles in AWS (Amazon Web Services) are entities that define a set of permissions for AWS resources. IAM roles are not tied to a specific user or group but can be assumed by IAM users, AWS services, or even external accounts for temporary access to AWS resources.
+## Step 3: Add Model to AI DIAL
 
-> Refer to [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) to learn how to create IAM role and assign AWS/custom IAM policy.
+To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it.
 
-**To Enable IAM Roles for AWS Service Accounts**:
+### Add Model to AI DIAL Core Config
 
-1. Create an IAM OIDC provider for your cluster. You only complete this procedure once for each cluster. Refer to [AWS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html) to learn more.
-2. Configure a Kubernetes Service Account to assume an IAM Role. Complete this procedure for each unique set of permissions that you want an application to have. Refer to [AWS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) to learn more.
-3. Configure Pods to use a Kubernetes Service Account. Complete this procedure for each Pod that needs access to AWS services. Refer to [AWS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/pod-configuration.html) to learn more.
-4. Confirm that the workload uses an AWS SDK of a supported version and that the workload uses the default credential chain. Refer to [AWS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts-minimum-sdk.html) to learn more.
+Add your model with its parameters in the `models` section. 
 
-## Step 4: Add Model to AI DIAL
+> Refer to [AI DIAL Core Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
 
-To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it. 
+> Refer to [Configure core config](./configuration.md#core-parameters) to view the configuration of AI DIAL core parameters in the helm-based installation.
 
-### Add Model
+### Configure AI DIAL Adapter
 
-Add you model with its parameters in the `models` section. Refer to [AI DIAL Configuration](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml#L11) to view an example.
+To work with models, we use applications called Adapters. You can configure Bedrock Adapter via [environment variables](https://github.com/epam/ai-dial-adapter-bedrock#environment-variables).
 
-Refer to [Configuration](./configuration.md#core-parameters) to view the description of parameters.
+> Refer to [Adapter for Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) to view documentation for a Bedrock AI DIAL Adapter.
 
-### Configure Bedrock Adapter
+#### Use IAM User
 
-To work with models, we use applications called Adapters. You can configure Adapters in the [AI DIAL Config](https://github.com/epam/ai-dial-helm/blob/8a2d6ebe301965ef0e4f06bc5f6e47aadc7b597f/charts/dial/examples/generic/simple/values.yaml).
-
-Refer to [Adapter for Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) to view documentation for a Bedrock AI DIAL Adapter.
-
-#### For IAM User
-
-In this scenario, provide the sectes of your user that you have saved in a CSV file: 
+In this scenario, provide the access key of your user via environment variables: 
 
 ```yaml
 ### examples of basic configurations of adapters ###
@@ -103,40 +112,31 @@ In this scenario, provide the sectes of your user that you have saved in a CSV f
 ### ai-dial-adapter-bedrock configuration for IAM user###
 bedrock:
   # -- Enable/disable ai-dial-adapter-bedrock
-  enabled: false
-  commonLabels:
-    app.kubernetes.io/component: "adapter"
-  image:
-    repository: epam/ai-dial-adapter-bedrock
-    tag: 0.2.0
-  secrets:
-    {}
-    # DEFAULT_REGION: "us-east-1"
-    # AWS_ACCESS_KEY_ID: ""
-    # AWS_SECRET_ACCESS_KEY: ""
+  enabled: true
 
+  env:
+    DEFAULT_REGION: "us-east-1"
+
+  secrets:
+    AWS_ACCESS_KEY_ID: "AKIAIOSFODNN7EXAMPLE"
+    AWS_SECRET_ACCESS_KEY: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
 ```
 
-#### For AWS Service Account
+#### Use AWS Service Account
 
 In this scenario, provide the IAM Role that you have assigned to your AWS Service Account: 
 
  ```yaml
- # --example of AI DIAL configuration for service account
-   bedrock:
- # -- Enable/disable ai-dial-adapter-bedrock
+# --example of AI DIAL configuration for service account
+bedrock:
+  # -- Enable/disable ai-dial-adapter-bedrock
   enabled: true
-  
-  image:
-    repository: epam/ai-dial-adapter-bedrock
-    tag: 0.2.0
+
+  env:
+    DEFAULT_REGION: "us-east-1"
   
   serviceAccount:
-  create: true
-  annotations:
-    eks.amazonaws.com/role-arn: "arn:aws:iam::000001206603:role/role_name"
-    
-  env:
-     DEFAULT_REGION: "us-east-1"
-
+    create: true
+    annotations:
+      eks.amazonaws.com/role-arn: "arn:aws:iam::000001206603:role/role_name"
  ```
