@@ -2,7 +2,7 @@
 
 ## Interface Components
 
-The AI DIAL Char application interface has several sections, such as the chat box, settings, and panels for managing conversations and saved prompts.
+The AI DIAL Chat application interface has several sections, such as the chat box, settings, and panels for managing conversations and saved prompts.
 
 ![](./img/Interface_components.png)
 
