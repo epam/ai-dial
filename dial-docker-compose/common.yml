@@ -4,6 +4,8 @@ version: '3'
 services:
   themes:
     image: epam/ai-dial-chat-themes:0.3.0
+    ports:
+      - "3001:8080"
 
   chat:
     ports:
