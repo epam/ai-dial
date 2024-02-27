@@ -24,7 +24,7 @@
     "gpt-35-turbo": {
       "type": "chat",
       "displayName": "GPT-3.5",
-      "iconUrl": "http://themes:8080/gpt3.svg",
+      "iconUrl": "http://localhost:3001/gpt3.svg",
       "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-35-turbo/chat/completions",
       "upstreams": [
         {
@@ -36,7 +36,7 @@
     "gpt-4": {
       "type": "chat",
       "displayName": "GPT-4",
-      "iconUrl": "http://themes:8080/gpt4.svg",
+      "iconUrl": "http://localhost:3001/gpt4.svg",
       "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-4/chat/completions",
       "upstreams": [
         {
