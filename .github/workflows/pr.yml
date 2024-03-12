@@ -1,21 +1,19 @@
-name: Test deployment
+name: PR workflow
 
 on:
   pull_request:
     branches:
       - main
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
   run-notebooks:
     name: Run example Python notebooks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           submodules: true
-      - uses: isbang/compose-action@v1.5.1
+      - uses: isbang/compose-action@178aeba5c9dbeed89ffffbb3e6548ec08e9839cf # v1.5.1
         with:
           compose-file: "./dial-cookbook/ci/docker-compose.yml"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
@@ -24,47 +22,40 @@ jobs:
     name: Run quickstart examples
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: isbang/compose-action@v1.5.1
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: isbang/compose-action@178aeba5c9dbeed89ffffbb3e6548ec08e9839cf # v1.5.1
         name: Run quickstart model example
         with:
           compose-file: "./dial-docker-compose/ci/model/docker-compose.yml"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
-
-      - uses: isbang/compose-action@v1.5.1
+      - uses: isbang/compose-action@178aeba5c9dbeed89ffffbb3e6548ec08e9839cf # v1.5.1
         name: Run quickstart application example
         with:
           compose-file: "./dial-docker-compose/ci/application/docker-compose.yml"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
-
-      - uses: isbang/compose-action@v1.5.1
+      - uses: isbang/compose-action@178aeba5c9dbeed89ffffbb3e6548ec08e9839cf # v1.5.1
         name: Run quickstart addon example
         with:
           compose-file: "./dial-docker-compose/ci/addon/docker-compose.yml"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
-  test-deploy:
-    name: Test deployment
+  build:
     needs: [run-notebooks, run-quickstart]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version: 18
           cache: npm
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5.0.0
         with:
-          python-version: '3.11'
-
+          python-version: "3.11"
       - name: Install npm dependencies
         run: npm ci
-
       - name: Install docusaurus
         run: npm install --global docusaurus-init
-
       - name: Install quarto
         run: pip install "quarto-cli>=1.4,<2.0"
-
       - name: Build website
         run: npm run build
