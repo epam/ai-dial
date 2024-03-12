@@ -113,11 +113,9 @@ Some examples of Addon implementation are semantic search, Q&A search, DB query 
 
 On the top bar, in the user area, you can click a down arrow to access additional settings or logout.
 
-#### Theme
+You can select the chat theme, dark or light, add a custom logo, and switch on a full width chat mode.
 
-In user settings, you can select the chat theme: dark or light.
-
-![](./img/User_settings.png)
+![](./img/settings.png)
 
 ## Prompts
 
@@ -129,7 +127,7 @@ Prompts can be applied to one message or a whole conversation. Refer to the [Sys
 
 The section with your prompts is located in the right-hand area of the screen. In this section, you can work with saved prompts: create new templates, update them, and organize them with folders. 
 
-> **Important**: Prompts are saved in your browser session and might be lost if you clear the cache.
+> All your prompts are stored on the server, and you can access them from any device you use.
 
 ### Create
 
@@ -138,7 +136,7 @@ The section with your prompts is located in the right-hand area of the screen. I
 To create a new prompt:
 
 1.	On the right panel, select **New prompt**.
-2.	Fill in the **Name**, **Description**, and **Prompt** boxes.
+2.	Fill in the **Name**, **Description**, and **Prompt** boxes. The following symbols in the prompt names are prohibited: ":", ";", "/", ",", "=", "{", "}". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
 3.	Click **Save**.
 
 >  **Name** and **Description** aren’t used as instructions for a language model. They only help you to distinguish the prompt from others. The language model will only use instructions from the **Prompt** box.
@@ -192,18 +190,42 @@ You can gather your prompts in folders.
  
 You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. 
 The same way, you can either drag-n-drop a prompt into a folder or use **Move to** in the context menu of a prompt to place it in one of the folders.  
+Empty folders are deleted after refreshing a page or relogining.
+The following symbols in the folders names are prohibited: ":", ";", "/", ",", "=", "{", "}". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
-### Search
+### Search and Filter
 
-![](./img/Prompt_search.png)
+![](./img/Search_filter.png)
 
-The **Search** box can be utilized to find prompts, including their names, folders, and content.
+The **Search** box can be utilized to find prompts and folders by their names.
+
+You can filter prompts by the "Shared by me" criterion. To do so, click the **Filter** icon and select **Shared by me**.
+ 
+### Share
+
+You can share a prompt or a folder with several prompts with other users.
+
+> When someone shared a prompt with you, you can find it in the **Shared with me** section on the right panel. **Important**: you cannot change a prompt that has been shared with you. To be able to work with it, [duplicate it](#duplicate).
+
+To share a prompt or a folder, click **Share** in the contextual menu and copy the link. After someone has opened your link, an arrow icon appears near its name.
+
+> When you share a folder, all folders and prompts in this folders will be shared.
+
+![](./img/share.png)
+
+### Unshare
+
+To revoke access from all users, click **Unshare** in the contextual menu and then click **Revoke access** in the dialog.
+
+### Duplicate
+
+You can duplicate a prompt, for example, to be able to change a prompt that was shared with you. To duplicate a prompt, click **Duplicate** in the contextual menu.
 
 ## Conversations
 
 In the AI DIAL framework, a conversation is a dialogue between an agent, such as a language model, assistant, or application, and a human user. The agent uses natural language to interact with a human and receive/give a feedback. Within one conversation, you can refer to previous questions and answers. But different conversations don’t share context.
 
-> Conversations are saved in your browser session and might be lost if you clear the cache.
+> All your conversations are stored on the server, and you can access them from any device you use.
 
 ### Create
 
@@ -216,7 +238,7 @@ To create a conversation:
 3.	Optionally, under **System prompts**, select a prompt by typing "/" in the text box. For details, refer to the [Prompts](#prompts) section of this guide.
 4.	Under **Temperature**, set a value of the temperature parameter. For details, refer to the [Temperature](#temperature) section of this guide.
 5.	Optionally, under **Addons**, select an Addon. For details, refer to the [Addons](#addons) section of this guide.
-6.	Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first question will be used as its name. 
+6.	Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first question will be used as its name. The following symbols in the conversation names are prohibited: ":", ";", "/", ",", "=", "{", "}" and will be excluded. Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
  
 ### Actions
 
@@ -227,6 +249,9 @@ To create a conversation:
 - **Stop generating**: in the process of generating the response, you can stop it.
 - **Regenerate response**: when stopped, you can regenerate the response. **Important**: If you encounter a server error or click the **Stop Generating** button and receive an empty response, the **Send** button will be disabled. To continue the conversation, you'll need to generate the answer again. If you receive a partial response (a combination of text and an error), the model can still proceed, while for Assistants/Applications, you'll need to generate the response again.
 - **Delete/Edit**: during the conversation, you can edit or delete your prompts. After a prompt has been edited, the response is regenerated, and all your prompts after the edited one will be deleted. When you delete your prompt, the response will be deleted, too.
+- **Attach files**: some models and applications, like _DIAL RAG_ and _Echo_, allow adding attachments to the conversation. In this case, you'll see the **Attachments** icon available in the chat panel. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#manage-attachments) section for details.
+- **Download attached files**: click the **Download** icon near the file name.
+- **Preview attached images**: click the **Expand** icon near the image name. 
 - **Copy**: you can copy answers.
 - **Like/dislike**: you can like and dislike responses in a conversation. Use likes to highlight important responses and dislikes to mark the responses you don't need. 
 - **Clear conversation messages**: you can clear all messages in your conversation. Click the eraser icon on the top bar to do that. 
@@ -242,30 +267,81 @@ You can gather your conversations in folders.
 ![](./img/Move_to.png)
 
 You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a conversation into a folder or use **Move to** in the context menu of a conversation to move it to a folder.
+Empty folders are deleted after refreshing a page.
+
+The following symbols in the folders names are prohibited: ":", ";", "/", ",", "=", "{", "}" and will be excluded. Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
 > When you use the contextual menu to move a conversation, you can create a new folder, in which the conversation should be moved.
 
-### Search
+### Search and Filter
 
-![](./img/Search_conversations.png)
+![](./img/Search_filter.png)
 
-The **Search** box can be utilized to find conversations, including their names, folders, and content.
+The **Search** box can be utilized to find conversations and folders by their names.
+
+You can filter conversations by the "Shared by me" criterion. To do so, click the **Filter** icon and select **Shared by me**.
  
+### Share
+
+You can share a conversation or a folder with several conversations with other users.
+
+> When someone shared a conversation with you, you can find it in the **Shared with me** section on the left panel. **Important**: you cannot change a conversation that has been shared with you. To be able to work with it, [duplicate it](#duplicate).
+
+To share a conversation or a folder, click **Share** in the contextual menu and copy the link. After someone has opened your link, an arrow icon appears near its name.
+
+> When you share a folder, all folders and conversations in this folders will be shared.
+
+![](./img/share.png)
+
+### Unshare
+
+To revoke access from all users, click **Unshare** in the contextual menu and then click **Revoke access** in the dialog.
+
+![](./img/Unshare.png)
+
+### Duplicate
+
+You can duplicate a conversation, for example, to be able to change a conversation that was shared with you. To duplicate a conversation, click **Duplicate** in the contextual menu.
+
+![](./img/duplicate.png)
+
 ### Export
 
-You can export selected conversations or all conversations in a JSON format.
+You can export selected conversations with or without attachments or all conversations without attachments in a JSON format.
 
-To export a single conversation, on the left panel, in the conversation contextual menu, select **Export**.
+> Exported conversations are named by the following pattern: prefix "epam_ai_dial_chat", then "with_attachments" if the conversation was exported with attachments, then "month_day".
 
-![](./img/Export_conv.png)
+##### Export a single conversation with attachments
+
+To export a single conversation:
+1. On the left panel, in the conversation contextual menu, point to **Export**.
+2. Click **With attachments**. 
+
+The conversation will be exported as a zip archive.
+
+##### Export a single conversation without attachments
+
+To export a single conversation:
+1. On the left panel, in the conversation contextual menu, point to **Export**.
+2. Click **Without attachments**. 
+
+The conversation will be exported as a JSON.
+
+![](./img/export_single_conv.png)
+
+##### Export all conversations
 
 To export all conversations, at the bottom of the left panel, click the **Export conversations** icon.
+
+> Conversations will be exported without attachments.
 
 ### Import
 
 Exported conversations can be imported. 
 
-To import JSON with conversations, click the **Import conversations** icon at the bottom of the left panel and then select a JSON file with conversations.
+To import JSON or a zip file with conversations, click the **Import conversations** icon at the bottom of the left panel and then select a file with conversations.
+
+> When you import a conversation with attachments, the attachments will be available in the Imports folder.
  
 ### Delete
 
@@ -300,13 +376,13 @@ The replayed conversation is displayed as a new conversation with the `[Replay]`
 
 The Playback mode can be used to simulate the current conversation without any engagement with models. This mode accurately reproduces the conversation like a recording. It should be noted that this differs from the Replay mode, where the prompts are resubmitted to the chosen model and the outcomes may differ from the initial conversation.
 
-![](./img/Playback.png)
+![](./img/play.png)
 
 During the playback, you can manually stop and resume the playback process. 
 
 ### Compare
 
-Use the Compare mode to create two new or existing conversations at the same time with different setting (e.g. different models or temperature).
+Use the Compare mode to compare two new or existing conversations at the same time with different setting (e.g. different models or temperature).
 
 ![](./img/Compare_new.png)
 
@@ -321,10 +397,43 @@ As you can see on the picture above, the system creates two conversations with t
  
 You can also compare two **existing** conversations:
 
-> The Compare mode works only with conversations with identical prompts from a user. The application will not allow comparing two conversations with different prompts.
+![](./img/Compare_menu.png)
+
+> The Compare mode works only with conversations with the same amount of prompts from a user. The application will not allow comparing two conversations with different amounts of prompts.
 
 1.	On the left panel, in the conversation menu of a conversation, select **Compare**.
-2.	In the main section, under **Select conversation to compare with**, select the second conversation.
-3.	Type your question (prompt) in the chat box.
+2.	In the main section, under **Select conversation to compare with**, select the second conversation from the drop box. 
+3. By default, only conversations with the same name are available in the drop box. Select **Show all conversations** to see the full list of conversations.
+4.	Type your question (prompt) in the chat box.
 
-    ![](./img/Compare_menu.png)
+    ![](./img/compare_existing.png)
+
+### Manage Attachments
+
+To manage all attachments, click the **Attachments** icon at the bottom of the left panel.
+
+![](./img/attachments.png)
+
+##### Upload a file
+
+1. In the Manage attachments dialog, select **Upload from device**.
+2. Select one or several files you want to upload and click **Open**.
+3. Under **Upload to**, select **Change** to pick a folder, in which the files will be uploaded.
+4. Under **Files**, change file names or delete files, if necessary. The following symbols in the file names are prohibited: ":", ";", "/", ",", "=", "{", "}". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
+5. Click **Upload and attach files**.
+
+![](./img/manage_attachments.png)
+
+##### Download attachments
+
+> Click a folder to expand it.
+
+1. In the Manage attachments dialog, point to a file and select it. You can select several files.
+2. Click the **Download** icon below the files tree.
+
+##### Delete attachments
+
+> You won't be able to preview or download a deleted file in a conversation, but you still will see its name.
+
+1. In the Manage attachments dialog, point to a file and select it. You can select several files.
+2. Click the **Delete** icon below the files tree.
