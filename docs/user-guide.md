@@ -113,11 +113,9 @@ Some examples of Addon implementation are semantic search, Q&A search, DB query 
 
 On the top bar, in the user area, you can click a down arrow to access additional settings or logout.
 
-#### Theme
+You can select the chat theme, dark or light, add a custom logo, and switch on a full width chat mode.
 
-In user settings, you can select the chat theme: dark or light.
-
-![](./img/User_settings.png)
+![](./img/settings.png)
 
 ## Prompts
 
@@ -192,7 +190,7 @@ You can gather your prompts in folders.
  
 You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. 
 The same way, you can either drag-n-drop a prompt into a folder or use **Move to** in the context menu of a prompt to place it in one of the folders.  
-Empty folders are deleted after refreshing a page or re-login.
+Empty folders are deleted after refreshing a page or relogining.
 The following symbols in the folders names are prohibited: ":", ";", "/", ",", "=".
 
 ### Search and Filter
@@ -251,7 +249,7 @@ To create a conversation:
 - **Stop generating**: in the process of generating the response, you can stop it.
 - **Regenerate response**: when stopped, you can regenerate the response. **Important**: If you encounter a server error or click the **Stop Generating** button and receive an empty response, the **Send** button will be disabled. To continue the conversation, you'll need to generate the answer again. If you receive a partial response (a combination of text and an error), the model can still proceed, while for Assistants/Applications, you'll need to generate the response again.
 - **Delete/Edit**: during the conversation, you can edit or delete your prompts. After a prompt has been edited, the response is regenerated, and all your prompts after the edited one will be deleted. When you delete your prompt, the response will be deleted, too.
-- **Attach files**: some models and applications (like _DIAL RAG_) allow adding attachments to the conversation. In this case, you'll see the **Attachments** icon available in the chat panel. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#manage-attachments) section for details.
+- **Attach files**: some models and applications, like _DIAL RAG_ and _Echo_, allow adding attachments to the conversation. In this case, you'll see the **Attachments** icon available in the chat panel. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#manage-attachments) section for details.
 - **Download attached files**: click the **Download** icon near the file name.
 - **Preview attached images**: click the **Expand** icon near the image name. 
 - **Copy**: you can copy answers.
@@ -289,7 +287,7 @@ You can share a conversation or a folder with several conversations with other u
 
 > When someone shared a conversation with you, you can find it in the **Shared with me** section on the left panel. **Important**: you cannot change a conversation that has been shared with you. To be able to work with it, [duplicate it](#duplicate).
 
-To share a conversation or a folder, click **Share** in the contextual menu and copy the link. After someone has opened your link, a blue arrow icon appears near its name.
+To share a conversation or a folder, click **Share** in the contextual menu and copy the link. After someone has opened your link, an arrow icon appears near its name.
 
 > When you share a folder, all folders and conversations in this folders will be shared.
 
@@ -421,7 +419,7 @@ To manage all attachments, click the **Attachments** icon at the bottom of the l
 1. In the Manage attachments dialog, select **Upload from device**.
 2. Select one or several files you want to upload and click **Open**.
 3. Under **Upload to**, select **Change** to pick a folder, in which the files will be uploaded.
-4. Under **Files**, change file names or delete files, if necessary. The following symbols in the file names are prohibited: ":", ";", "/", ",", "=".
+4. Under **Files**, change file names or delete files, if necessary. The following symbols in the file names are prohibited: ":", ";", "/", ",", "=", "{", "}".
 5. Click **Upload and attach files**.
 
 ![](./img/manage_attachments.png)
