@@ -12,10 +12,13 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
   - [Request Access to Models](#request-access-to-models)
 - [Step 2: Get Access to AI Model](#step-2-get-access-to-ai-model)
   - [Create a Service Account](#create-a-service-account)
+    - [Configure GCP Service Account and get JSON Key](#configure-gcp-service-account-and-get-json-key)
+    - [Configure Kubernetes Service Account](#configure-kubernetes-service-account)
 - [Step 3: Add Model to AI DIAL](#step-3-add-model-to-ai-dial)
   - [Add Model to AI DIAL Core Config](#add-model-to-ai-dial-core-config)
   - [Configure AI DIAL Adapter](#configure-ai-dial-adapter)
     - [Use GCP Service Account with JSON Key](#use-gcp-service-account-with-json-key)
+    - [Use GCP Service Account with Workload Identity Federation for GKE](#use-gcp-service-account-with-workload-identity-federation-for-gke)
 
 </div>
 
@@ -44,6 +47,8 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
 
 ### Create a Service Account
 
+#### Configure GCP Service Account and get JSON Key
+
 To communicate with VertexAI models, it is necessary to have a service account.
 
 **To create a Service Account**:
@@ -68,6 +73,12 @@ To communicate with VertexAI models, it is necessary to have a service account.
     * **In KEYS**, create a key for this service account and download it in JSON format.
     
    	 ![](img/gcp6.png)
+  
+#### Configure Kubernetes Service Account
+
+In case your cluster is located at GCP, the best practise for using VertexAI is to assign a GCP IAM service account to Kubernetes Service Account. You can do this via Workload Identity Federation for GKE.
+
+> Refer to [GCP Documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity) to learn how to configure an Workload Identity Federation for GKE.
 
 ## Step 3: Add Model to AI DIAL
 
@@ -100,7 +111,7 @@ vertexai:
   env:
     DEFAULT_REGION: "your-region"
     GOOGLE_APPLICATION_CREDENTIALS: "/mnt/secrets-store/gcp-ai-key"
-    GCP_PROJECT_ID: you-project-id
+    GCP_PROJECT_ID: "your-project-id"
 
   secrets:
     gcp-ai-key: |
@@ -122,5 +133,26 @@ vertexai:
     - name: key-file
       mountPath: "/mnt/secrets-store"
       readOnly: true
+
+```
+
+#### Use GCP Service Account with Workload Identity Federation for GKE
+
+In this scenario, kubernetes Service Account linked to GCP IAM service account (your-sa-id).
+
+```yaml
+vertexai:
+  enabled: true
+
+  serviceAccount:
+    create: true
+    name: dial-vertexai
+    annotations:
+      iam.gke.io/gcp-service-account: your-sa-id@your-project-id.iam.gserviceaccount.com
+
+  env:
+    DIAL_URL: "http://dial-core"
+    GCP_PROJECT_ID: "your-project-id"
+    DEFAULT_REGION: "your-region"
 
 ```
