@@ -138,6 +138,8 @@ vertexai:
 
 #### Use GCP Service Account with Workload Identity Federation for GKE
 
+> You need configure [Authenticate to Google Cloud APIs from GKE workloads](#configure-kubernetes-service-account) before
+
 In this scenario, kubernetes Service Account linked to GCP IAM service account (your-sa-id).
 
 ```yaml
@@ -146,7 +148,6 @@ vertexai:
 
   serviceAccount:
     create: true
-    name: dial-vertexai
     annotations:
       iam.gke.io/gcp-service-account: your-sa-id@your-project-id.iam.gserviceaccount.com
 
