@@ -54,9 +54,9 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
     > It is important to note that certain models may not be accessible for deployment in a particular region. If you need a particular model, you will have to submit a separate request or relocate Azure OpenAI to a different region.
 
-## Step 2: Get access to AI Model
+## Step 2: Get Access to AI Model
 
-#### Configure Azure OpenAI model and get API Key
+#### Configure Azure OpenAI Model and Get API Key
 
 1. Go back to your model page and click **Keys and Endpoint**. In this section, you can find your key and endpoint that you will need to provide in AI DIAL configuration file.
    
@@ -73,8 +73,8 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
 In case your cluster is located at Azure, the best practise for using Azure OpenAI is to assign an Azure user-assigned managed identity to Kubernetes Service Account. You can do this using Microsoft Entra Workload ID with Azure Kubernetes Service.
 
-> Refer to [Azure Documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview) to learn how to configure an Microsoft Entra Workload ID with Azure Kubernetes Service.
-> 
+> Refer to [Azure Documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview) to learn how to configure Microsoft Entra Workload ID with Azure Kubernetes Service.
+
 > Refer to [Azure Documentation](https://learn.microsoft.com/en-us/azure/aks/open-ai-secure-access-quickstart) to learn how to configure a secure access to Azure OpenAI from Azure Kubernetes Service.
 
 ## Step 3: Add Model to AI DIAL
@@ -95,9 +95,9 @@ To work with models, we use applications called Adapters. You can configure Open
 
 > Refer to [Adapter for OpenAI](https://github.com/epam/ai-dial-adapter-openai) to view documentation for a OpenAI AI DIAL Adapter.
 
-#### Use adapter with Azure OpenAI API key
+#### Use Adapter with Azure OpenAI API Key
 
-In this scenario, it's enough to enable the adapter. The Azure Open AI keys are located in the core configuration file. Additional adapter configuration is not required.
+In this scenario, it's enough to enable the adapter. Azure Open AI keys are located in the configuration file of AI DIAL Core. Any other configuration of the adapter is not required.
 
 ```yaml
 openai:
@@ -105,11 +105,11 @@ openai:
 
 ```
 
-#### Use Kubernetes Service Account assigned to Azure user-assigned managed identity
+#### Use Kubernetes Service Account Assigned to Azure user-assigned Managed Identity
 
-> You need configure [Use Microsoft Entra Workload ID with Azure Kubernetes Service](#configure-kubernetes-service-account) before
+> Before taking this step, configure [Microsoft Entra Workload ID with Azure Kubernetes Service](#configure-kubernetes-service-account).
 
-In this scenario, the adapter uses Azure user-assigned managed identity. In such a configuration, there's no need to set the Azure OpenAI API key into the DIAL core configuration file. Authentication takes place at the adapter level.
+In this scenario, the adapter uses Azure user-assigned managed identity. In such a configuration, there's no need to setting the Azure OpenAI API key in the AI DIAL Core configuration file. Authentication takes place on the adapter level.
 
 ```yaml
 openai:
