@@ -47,7 +47,7 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
 
 ### Create a Service Account
 
-#### Configure GCP Service Account and get JSON Key
+#### Configure GCP Service Account and Get JSON Key
 
 To communicate with VertexAI models, it is necessary to have a service account.
 
@@ -78,7 +78,7 @@ To communicate with VertexAI models, it is necessary to have a service account.
 
 In case your cluster is located at GCP, the best practise for using VertexAI is to assign a GCP IAM service account to Kubernetes Service Account. You can do this via Workload Identity Federation for GKE.
 
-> Refer to [GCP Documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity) to learn how to configure an Workload Identity Federation for GKE.
+> Refer to [GCP Documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity) to learn how to configure a Workload Identity Federation for GKE.
 
 ## Step 3: Add Model to AI DIAL
 
@@ -138,9 +138,9 @@ vertexai:
 
 #### Use GCP Service Account with Workload Identity Federation for GKE
 
-> You need configure [Authenticate to Google Cloud APIs from GKE workloads](#configure-kubernetes-service-account) before
+> Before taking this step, configure [Authenticate to Google Cloud APIs from GKE workloads](#configure-kubernetes-service-account).
 
-In this scenario, kubernetes Service Account linked to GCP IAM service account (your-sa-id).
+In this scenario, Kubernetes Service Account is linked to GCP IAM service account (your-sa-id).
 
 ```yaml
 vertexai:
