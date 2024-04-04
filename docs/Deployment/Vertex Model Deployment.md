@@ -12,7 +12,7 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
   - [Request Access to Models](#request-access-to-models)
 - [Step 2: Get Access to AI Model](#step-2-get-access-to-ai-model)
   - [Create a Service Account](#create-a-service-account)
-    - [Configure GCP Service Account and get JSON Key](#configure-gcp-service-account-and-get-json-key)
+    - [Configure GCP Service Account and Get JSON Key](#configure-gcp-service-account-and-get-json-key)
     - [Configure Kubernetes Service Account](#configure-kubernetes-service-account)
 - [Step 3: Add Model to AI DIAL](#step-3-add-model-to-ai-dial)
   - [Add Model to AI DIAL Core Config](#add-model-to-ai-dial-core-config)

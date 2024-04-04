@@ -11,14 +11,14 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 - [Step 1: Configuring the AI Model](#step-1-configuring-the-ai-model)
   - [Request Access to Models](#request-access-to-models)
   - [Create a Model Deployment](#create-a-model-deployment)
-- [Step 2: Get access to AI Model](#step-2-get-access-to-ai-model)
-    - [Configure Azure OpenAI model and get API Key](#configure-azure-openai-model-and-get-api-key)
+- [Step 2: Get Access to AI Model](#step-2-get-access-to-ai-model)
+    - [Configure Azure OpenAI Model and Get API Key](#configure-azure-openai-model-and-get-api-key)
     - [Configure Kubernetes Service Account](#configure-kubernetes-service-account)
 - [Step 3: Add Model to AI DIAL](#step-3-add-model-to-ai-dial)
   - [Add Model to AI DIAL Core Config](#add-model-to-ai-dial-core-config)
   - [Configure AI DIAL Adapter](#configure-ai-dial-adapter)
-    - [Use adapter with Azure OpenAI API key](#use-adapter-with-azure-openai-api-key)
-    - [Use Kubernetes Service Account assigned to Azure user-assigned managed identity](#use-kubernetes-service-account-assigned-to-azure-user-assigned-managed-identity)
+    - [Use Adapter with Azure OpenAI API Key](#use-adapter-with-azure-openai-api-key)
+    - [Use Kubernetes Service Account Assigned to Azure user-assigned Managed Identity](#use-kubernetes-service-account-assigned-to-azure-user-assigned-managed-identity)
 
 </div>
 
