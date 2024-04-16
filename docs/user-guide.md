@@ -193,6 +193,7 @@ The same way, you can either drag-n-drop a prompt into a folder or use **Move to
 Empty folders are deleted after refreshing a page or relogining.
 The following symbols in the folders names are prohibited: ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
+
 ### Search and Filter
 
 ![](./img/Search_filter.png)
@@ -239,6 +240,7 @@ To create a conversation:
 4.	Under **Temperature**, set a value of the temperature parameter. For details, refer to the [Temperature](#temperature) section of this guide.
 5.	Optionally, under **Addons**, select an Addon. For details, refer to the [Addons](#addons) section of this guide.
 6.	Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first question will be used as its name. The following symbols in the conversation names are prohibited: ":", ";", "/", "\", ",", "=", "{", "}", "%", "&" and will be excluded. Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
+
  
 ### Actions
 

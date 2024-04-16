@@ -124,6 +124,8 @@ bedrock:
 
 #### Use AWS Service Account
 
+> Before taking this step, configure [IAM roles for service accounts](#assign-to-service-account).
+
 In this scenario, provide the IAM Role that you have assigned to your AWS Service Account: 
 
  ```yaml
