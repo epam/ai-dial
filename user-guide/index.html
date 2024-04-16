@@ -14,7 +14,7 @@
 <script src="https://cookie-cdn.cookiepro.com/consent/3a34bbfa-93e4-4ba6-9383-7da88d67ed18/OtAutoBlock.js"></script>
 <script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="3a34bbfa-93e4-4ba6-9383-7da88d67ed18"></script>
 <script src="src/scripts/optanonWrapper.js"></script><link rel="stylesheet" href="/assets/css/styles.57abfac1.css">
-<script src="/assets/js/runtime~main.d00a429b.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.500c34a6.js" defer="defer"></script>
 <script src="/assets/js/main.b37be5de.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -107,7 +107,7 @@ In AI DIAL, you can create prompts beforehand and reuse them in one or several c
 <p>To create a new prompt:</p>
 <ol>
 <li>On the right panel, select <strong>New prompt</strong>.</li>
-<li>Fill in the <strong>Name</strong>, <strong>Description</strong>, and <strong>Prompt</strong> boxes. The following symbols in the prompt names are prohibited: &quot;:&quot;, &quot;;&quot;, &quot;/&quot;, &quot;&quot;, &quot;,&quot;, &quot;=&quot;, &quot;<!-- -->, <!-- -->&quot;. Note that you can use the &quot;.&quot; symbol at the start or inside a name, but the dot at the end will be automatically removed.</li>
+<li>Fill in the <strong>Name</strong>, <strong>Description</strong>, and <strong>Prompt</strong> boxes. The following symbols in the prompt names are prohibited: &quot;:&quot;, &quot;;&quot;, &quot;/&quot;, &quot;&quot;, &quot;,&quot;, &quot;=&quot;, &quot;<!-- -->, <!-- -->&quot;, &quot;%&quot;, &quot;&amp;&quot;. Note that you can use the &quot;.&quot; symbol at the start or inside a name, but the dot at the end will be automatically removed.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
 <blockquote>
@@ -146,7 +146,7 @@ In AI DIAL, you can create prompts beforehand and reuse them in one or several c
 <p>You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level.
 The same way, you can either drag-n-drop a prompt into a folder or use <strong>Move to</strong> in the context menu of a prompt to place it in one of the folders.<br>
 <!-- -->Empty folders are deleted after refreshing a page or relogining.
-The following symbols in the folders names are prohibited: &quot;:&quot;, &quot;;&quot;, &quot;/&quot;, &quot;&quot;, &quot;,&quot;, &quot;=&quot;, &quot;<!-- -->, <!-- -->&quot;. Note that you can use the &quot;.&quot; symbol at the start or inside a name, but the dot at the end will be automatically removed.</p>
+The following symbols in the folders names are prohibited: &quot;:&quot;, &quot;;&quot;, &quot;/&quot;, &quot;&quot;, &quot;,&quot;, &quot;=&quot;, &quot;<!-- -->, <!-- -->&quot;, &quot;%&quot;, &quot;&amp;&quot;. Note that you can use the &quot;.&quot; symbol at the start or inside a name, but the dot at the end will be automatically removed.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="search-and-filter">Search and Filter<a href="#search-and-filter" class="hash-link" aria-label="Direct link to Search and Filter" title="Direct link to Search and Filter">​</a></h3>
 <p><img loading="lazy" src="data:image/png;base64," class="img_ev3q"></p>
 <p>The <strong>Search</strong> box can be utilized to find prompts and folders by their names.</p>
@@ -174,12 +174,24 @@ The following symbols in the folders names are prohibited: &quot;:&quot;, &quot;
 <p><img loading="lazy" src="/assets/images/Conversation_start_procedure-96428e0c010c3f6cd581df4f1f475d25.png" width="1920" height="891" class="img_ev3q"></p>
 <p>To create a conversation:</p>
 <ol>
-<li>On the left panel, click <strong>New conversation</strong>.</li>
-<li>In the main section, under <strong>Talk To</strong>, select a language model, an assistant, or an application. Five most recently used items are shown in the section. To see all available items, click <strong>See full list</strong>.</li>
-<li>Optionally, under <strong>System prompts</strong>, select a prompt by typing &quot;/&quot; in the text box. For details, refer to the <a href="#prompts">Prompts</a> section of this guide.</li>
-<li>Under <strong>Temperature</strong>, set a value of the temperature parameter. For details, refer to the <a href="#temperature">Temperature</a> section of this guide.</li>
-<li>Optionally, under <strong>Addons</strong>, select an Addon. For details, refer to the <a href="#addons">Addons</a> section of this guide.</li>
-<li>Under conversation settings, type your text (prompt) in the chat box and click the <strong>Send</strong> icon. The conversation will be created, and your first question will be used as its name. The following symbols in the conversation names are prohibited: &quot;:&quot;, &quot;;&quot;, &quot;/&quot;, &quot;&quot;, &quot;,&quot;, &quot;=&quot;, &quot;<!-- -->, <!-- -->&quot; and will be excluded. Note that you can use the &quot;.&quot; symbol at the start or inside a name, but the dot at the end will be automatically removed.</li>
+<li>
+<p>On the left panel, click <strong>New conversation</strong>.</p>
+</li>
+<li>
+<p>In the main section, under <strong>Talk To</strong>, select a language model, an assistant, or an application. Five most recently used items are shown in the section. To see all available items, click <strong>See full list</strong>.</p>
+</li>
+<li>
+<p>Optionally, under <strong>System prompts</strong>, select a prompt by typing &quot;/&quot; in the text box. For details, refer to the <a href="#prompts">Prompts</a> section of this guide.</p>
+</li>
+<li>
+<p>Under <strong>Temperature</strong>, set a value of the temperature parameter. For details, refer to the <a href="#temperature">Temperature</a> section of this guide.</p>
+</li>
+<li>
+<p>Optionally, under <strong>Addons</strong>, select an Addon. For details, refer to the <a href="#addons">Addons</a> section of this guide.</p>
+</li>
+<li>
+<p>Under conversation settings, type your text (prompt) in the chat box and click the <strong>Send</strong> icon. The conversation will be created, and your first question will be used as its name. The following symbols in the conversation names are prohibited: &quot;:&quot;, &quot;;&quot;, &quot;/&quot;, &quot;&quot;, &quot;,&quot;, &quot;=&quot;, &quot;<!-- -->, <!-- -->&quot;, &quot;%&quot;, &quot;&amp;&quot; and will be excluded. Note that you can use the &quot;.&quot; symbol at the start or inside a name, but the dot at the end will be automatically removed.</p>
+</li>
 </ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="actions-1">Actions<a href="#actions-1" class="hash-link" aria-label="Direct link to Actions" title="Direct link to Actions">​</a></h3>
 <p><strong>During a conversation</strong>, you can perform various actions:</p>
@@ -230,7 +242,7 @@ The following symbols in the folders names are prohibited: &quot;:&quot;, &quot;
 <p><img loading="lazy" src="/assets/images/Move_to-ef61a6b607e41f9e2196e832d0cdcb9b.png" width="519" height="630" class="img_ev3q"></p>
 <p>You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a conversation into a folder or use <strong>Move to</strong> in the context menu of a conversation to move it to a folder.
 Empty folders are deleted after refreshing a page.</p>
-<p>The following symbols in the folders names are prohibited: &quot;:&quot;, &quot;;&quot;, &quot;/&quot;, &quot;&quot;, &quot;,&quot;, &quot;=&quot;, &quot;<!-- -->, <!-- -->&quot; and will be excluded. Note that you can use the &quot;.&quot; symbol at the start or inside a name, but the dot at the end will be automatically removed.</p>
+<p>The following symbols in the folders names are prohibited: &quot;:&quot;, &quot;;&quot;, &quot;/&quot;, &quot;&quot;, &quot;,&quot;, &quot;=&quot;, &quot;<!-- -->, <!-- -->&quot;, &quot;%&quot;, &quot;&amp;&quot; and will be excluded. Note that you can use the &quot;.&quot; symbol at the start or inside a name, but the dot at the end will be automatically removed.</p>
 <blockquote>
 <p>When you use the contextual menu to move a conversation, you can create a new folder, in which the conversation should be moved.</p>
 </blockquote>
@@ -346,7 +358,7 @@ Empty folders are deleted after refreshing a page.</p>
 <li>In the Manage attachments dialog, select <strong>Upload from device</strong>.</li>
 <li>Select one or several files you want to upload and click <strong>Open</strong>.</li>
 <li>Under <strong>Upload to</strong>, select <strong>Change</strong> to pick a folder, in which the files will be uploaded.</li>
-<li>Under <strong>Files</strong>, change file names or delete files, if necessary. The following symbols in the file names are prohibited: &quot;:&quot;, &quot;;&quot;, &quot;/&quot;, &quot;&quot;, &quot;,&quot;, &quot;=&quot;, &quot;<!-- -->, <!-- -->&quot;. Note that you can use the &quot;.&quot; symbol at the start or inside a name, but the dot at the end will be automatically removed.</li>
+<li>Under <strong>Files</strong>, change file names or delete files, if necessary. The following symbols in the file names are prohibited: &quot;:&quot;, &quot;;&quot;, &quot;/&quot;, &quot;&quot;, &quot;,&quot;, &quot;=&quot;, &quot;<!-- -->, <!-- -->&quot;, &quot;%&quot;, &quot;&amp;&quot;. Note that you can use the &quot;.&quot; symbol at the start or inside a name, but the dot at the end will be automatically removed.</li>
 <li>Click <strong>Upload and attach files</strong>.</li>
 </ol>
 <p><img loading="lazy" src="data:image/png;base64," class="img_ev3q"></p>
