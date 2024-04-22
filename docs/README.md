@@ -19,6 +19,7 @@
 * [Launch AI DIAL Chat with an Azure model](./tutorials/quick-start-model.md)
 * [Launch AI DIAL Chat with a Sample Application](./tutorials/quick-start-with-application.md)
 * [Launch AI DIAL Chat with a Sample Addon](./tutorials/quick-start-with-addon.md)
+* [Launch AI DIAL Chat with a Cognito user pool](./tutorials/cognito-quick-start.md)
 
 ## Development Guides
 
