@@ -70,4 +70,4 @@ For application side:
     ```
     - token_url - url to jwks token that looks like
 
-      ```https://cognito-idp.{region}.amazonaws.com/{my-pool-id}/.well-known/jwks.json```
+      ```https://cognito-idp.<region>.amazonaws.com/<my-pool-id>/.well-known/jwks.json```
