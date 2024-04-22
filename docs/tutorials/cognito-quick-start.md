@@ -29,7 +29,7 @@ Set following parameters for cognito app client congiguration:
   ```
   https://<chat_url>/api/auth/callback/cognito
   ```
-  where <chat_url> - address of chat application
+  where ```<chat_url>``` - address of chat application
 - OAuth 2.0 grand types:
     - Authorization code grant
   
