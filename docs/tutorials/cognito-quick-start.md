@@ -1,18 +1,18 @@
 # AWS Cognito as identity provider
 
+## Introduction
+
+This basic tutorial shows how to intergrate [Cognito user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) with ai-dial.
+
 <div class="docusaurus-ignore">
 
 - [AWS Cognito as identity provider](#aws-cognito-as-identity-provider)
-  - [Description](#description)
+  - [Introduction](#introduction)
   - [Usage](#usage)
     - [Configuration Cognito user pool](#configuration-cognito-user-pool)
-    - [Application configuration](#application-configuration)
+    - [DIAL configuration](#dial-configuration)
 
 </div>
-
-## Description
-
-This basic example shows how to intergrate [Cognito user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) with ai-dial.
 
 ## Usage
 
@@ -20,9 +20,9 @@ This case covers the situation when you want to create Cognito user pool and use
 
 ### Configuration Cognito user pool
 To make integration with AWS Cognito we need to follow next steps:
-- create user pool (https://docs.aws.amazon.com/cognito/latest/developerguide/tutorial-create-user-pool.html)
-- Create user (https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html)
-- Create app client for this user pool (https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-configuring-app-integration.html)
+- create user pool [[link]](https://docs.aws.amazon.com/cognito/latest/developerguide/tutorial-create-user-pool.html)
+- Create user [[link]](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html)
+- Create app client for this user pool [[link]](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-configuring-app-integration.html)
 
 Set following parameters for cognito app client congiguration:
 - callback function
@@ -42,9 +42,9 @@ Set following parameters for cognito app client congiguration:
     - Cognito user pool
 
 
-### Application configuration
+### DIAL configuration
 For application side:
-1. Add following params into chat
+1. Add following params into chat (documentation [here](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables))
     ```
     AUTH_COGNITO_CLIENT_ID: "<client_id>"
     AUTH_COGNITO_HOST: "<cognito_host>"
@@ -55,11 +55,11 @@ For application side:
     - client_id - client id of Cognito app client integration
     - cognito_host - url consist of [Cognito Identity endpoint](https://docs.aws.amazon.com/general/latest/gr/cognito_identity.html) + User Pool ID like
 
-      ```https://cognito-idp.{region}.amazonaws.com/{my-pool-id}```
+      ```https://cognito-idp.<region>.amazonaws.com/<>my-pool-id>```
 
     - cognito_client_name - name of Cognito app client integration
     - client_secret - client secret of Cognito app client integration
-3. Add following params to Core
+3. Add following params to Core (documentation [here](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration)):
     ```
     aidial.identityProviders.cognito.jwksUrl: "<token_url>"
     aidial.identityProviders.cognito.rolePath: "roles"
