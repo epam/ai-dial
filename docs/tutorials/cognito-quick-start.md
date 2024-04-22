@@ -1,10 +1,14 @@
 # AWS Cognito as identity provider
 
+<div class="docusaurus-ignore">
+
 - [AWS Cognito as identity provider](#aws-cognito-as-identity-provider)
   - [Description](#description)
   - [Usage](#usage)
     - [Configuration Cognito user pool](#configuration-cognito-user-pool)
     - [Application configuration](#application-configuration)
+
+</div>
 
 ## Description
 
