@@ -1,4 +1,4 @@
-# AWS Cognito as identity provider
+# How to Set AWS Cognito as Identity Provider
 
 ## Introduction
 
@@ -14,35 +14,36 @@ This basic tutorial shows how to intergrate [Cognito user pool](https://docs.aws
 
 </div>
 
-## Usage
+## Configuration Guidelines
 
-This case covers the situation when you want to create Cognito user pool and use it as identity provider with custom user.
+This guide demonstrates the steps to create a user pool in AWS Cognito and use it as an identity and access management solution for AI DIAL users.
 
-### Configuration Cognito user pool
-To make integration with AWS Cognito we need to follow next steps:
-- create user pool [[link]](https://docs.aws.amazon.com/cognito/latest/developerguide/tutorial-create-user-pool.html)
-- Create user [[link]](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html)
-- Create app client for this user pool [[link]](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-configuring-app-integration.html)
+### Configure AWS Cognito
 
-Set following parameters for cognito app client congiguration:
-- callback function
+To configure AWS Cognito, you can follow these steps:
+
+1. Begin by creating a user pool. You can refer to the official AWS documentation for detailed instructions on how to create a user pool. Here is the link: [Create User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/tutorial-create-user-pool.html).
+2. Once the user pool is set up, you can proceed to create users within the pool. The AWS documentation provides guidance on how to sign up users in your application. You can find the instructions here: [Create User](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html).
+3. Next, you will need to create an app client specifically for this user pool. This app client will be responsible for integrating your application with the user pool. The AWS documentation offers detailed instructions on configuring app integration with user pools. You can access the instructions here: [Create App Client for User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-configuring-app-integration.html). Set following parameters for AWS Cognito app client congiguration:
+  - callback function
+  
   ```
   https://<chat_url>/api/auth/callback/cognito
   ```
+
   where ```<chat_url>``` - address of chat application
-- OAuth 2.0 grand types:
-    - Authorization code grant
   
-- open id connector with the following scopes:
+  - OAuth 2.0 grand types:
+    - Authorization code grant
+  - open id connector with the following scopes:
     - email
     - openid
     - profile
-  
-- identity providers:
+  - identity providers:
     - Cognito user pool
 
-
 ### DIAL configuration
+
 For application side:
 1. Add following params into chat (documentation [here](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables))
     ```
