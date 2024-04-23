@@ -96,7 +96,7 @@ The prompt used as a system prompt is as follows:
 
 The temperature parameter controls the creativity and randomness of the model's output. A higher temperature (e.g., 1.0) makes the output more diverse and creative, while a lower temperature (e.g., 0.1) makes the output more focused and deterministic.
 
-![](./img/Settings_Temperature.png)
+![](./img/temperature.png)
 
 Adjusting the temperature allows you to balance creativity and consistency in the generated response.
  
