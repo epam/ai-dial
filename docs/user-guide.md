@@ -193,7 +193,6 @@ The same way, you can either drag-n-drop a prompt into a folder or use **Move to
 Empty folders are deleted after refreshing a page or relogining.
 The following symbols in the folders names are prohibited: ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
-
 ### Search and Filter
 
 ![](./img/pt_search.png)
@@ -212,11 +211,13 @@ To share a prompt or a folder, click **Share** in the contextual menu and copy t
 
 > When you share a folder, all folders and prompts in this folders will be shared.
 
-![](./img/share.png)
+![](./img/pt_share.png)
 
 ### Unshare
 
 To revoke access from all users, click **Unshare** in the contextual menu and then click **Revoke access** in the dialog.
+
+![](./img/pt_unshare.png)
 
 ### Duplicate
 
