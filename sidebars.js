@@ -57,6 +57,7 @@ const sidebars = {
         'Deployment/OpenAI Model Deployment',
         'Deployment/Vertex Model Deployment',
         'Deployment/Bedrock Model Deployment'
+        'Deployment/idp-configs/cognito'
       ],
     },
     {
