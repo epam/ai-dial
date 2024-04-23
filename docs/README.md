@@ -31,6 +31,7 @@
 ## Configuration
 
 * Refer to [Configuration](./Deployment/configuration.md)
+* [Configure AI DIAL to work with AWS Cognito user pool](./Deployment/idp-configuration/cognito.md)
 
 ## Other AI DIAL Project Open Source Repositories 1
 
