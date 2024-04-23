@@ -56,8 +56,12 @@ const sidebars = {
         },
         'Deployment/OpenAI Model Deployment',
         'Deployment/Vertex Model Deployment',
-        'Deployment/Bedrock Model Deployment'
-        'Deployment/idp-configs/cognito'
+        'Deployment/Bedrock Model Deployment',
+        {
+          type:'doc',
+          id: 'Deployment/idp-configs/cognito',
+          label: 'How to Configure AWS Cognito'
+        },
       ],
     },
     {
