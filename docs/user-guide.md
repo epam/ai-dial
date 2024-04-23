@@ -115,7 +115,7 @@ On the top bar, in the user area, you can click a down arrow to access additiona
 
 You can select the chat theme, dark or light, add a custom logo, and switch on a full width chat mode.
 
-![](./img/settings.png)
+![](./img/user_settings.png)
 
 ## Prompts
 
