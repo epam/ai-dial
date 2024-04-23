@@ -180,7 +180,7 @@ You can perform various actions with your prompts:
 - **Export all prompts**: click the **Export prompts** icon at the bottom of the right panel. All your prompts will be exported as JSON.
 - **Import prompts**: click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
 
-![](./img/Prompts_panel_with_menu.png)
+![](./img/prompt_actions.png)
 
 ### Arrange
 
