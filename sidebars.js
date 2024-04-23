@@ -59,7 +59,7 @@ const sidebars = {
         'Deployment/Bedrock Model Deployment',
         {
           type:'doc',
-          id: 'Deployment/idp-configs/cognito',
+          id: 'Deployment/idp-configuration/cognito',
           label: 'How to Configure AWS Cognito'
         },
       ],
