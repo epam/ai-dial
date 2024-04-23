@@ -4,7 +4,7 @@
 
 The AI DIAL Chat application interface has several sections, such as the chat box, settings, and panels for managing conversations and saved prompts.
 
-![](./img/Interface_components.png)
+![](./img/home.png)
 
 1. **Conversations**: Here, you can manage your conversations: create new ones, organize them in folders, and delete. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
 2. **Chat Panel**: Use this section to enter a prompt, view results, and interact with language models.
