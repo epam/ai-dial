@@ -10,10 +10,14 @@ This basic tutorial demonstrates the steps to create a user pool in [AWS Cognito
 <div class="docusaurus-ignore">
 
 <!-- omit from toc -->
-- [AWS Cognito as identity provider](#how-to-set-aws-cognito-as-identity-provider)
-  - [Configuration Guidelines](#configuration-guidelines)
-    - [Configure AWS Cognito](#configure-aws-cognito)
-    - [Configure DIAL](#configure-dial)
+# Table of Contents
+
+- [Introduction](#introduction)
+- [Configuration Guidelines](#configuration-guidelines)
+  - [Configure AWS Cognito](#configure-aws-cognito)
+  - [Configure AI DIAL](#configure-ai-dial)
+    - [AI DIAL Chat Settings](#ai-dial-chat-settings)
+    - [AI DIAL Core Settings](#ai-dial-core-settings)
   
 </div>
 
