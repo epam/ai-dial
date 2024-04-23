@@ -66,7 +66,7 @@ In the AI DIAL framework, Applications are ready-to-use solutions made up of pre
 
 #### System Prompt
 
-![](./img/Settings_System_prompt.png)
+![](./img/system_prompt.png)
 
 The system prompt in AI DIAL refers to the initial instructions given to the model. You can use any previously created prompt as a system prompt (for details, refer to the [Create](#create) in Prompts), and it will set the context and tone for the whole conversation.
 
