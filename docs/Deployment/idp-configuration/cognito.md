@@ -41,7 +41,7 @@ To configure AWS Cognito, you can follow these steps:
 
 ### Configure DIAL
 
-1. **AI DIAL Chat**: Add the following environment variable to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to learn more.
+1. **AI DIAL Chat**: Add the following environment variables to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to learn more.
    
       ```
       AUTH_COGNITO_CLIENT_ID: "<client_id>"
@@ -51,10 +51,10 @@ To configure AWS Cognito, you can follow these steps:
       ```
 
 
-    - client_id - client id of AWS Cognito app client integration
-    - cognito_host - the URL consisting of [Cognito Identity endpoint](https://docs.aws.amazon.com/general/latest/gr/cognito_identity.html) and User Pool ID. For example: `https://cognito-idp.<region>.amazonaws.com/<>my-pool-id>`
-    - cognito_client_name - the name of AWS Cognito app client integration
-    - client_secret - the client secret of AWS Cognito app client integration
+    - AUTH_COGNITO_CLIENT_ID: "<client_id>" - Replace <client_id> with the client ID of your AWS Cognito app client integration.
+    - AUTH_COGNITO_HOST: "<cognito_host>" - Replace <cognito_host> with the URL consisting of the Cognito Identity endpoint and User Pool ID. For example: `https://cognito-idp.<region>.amazonaws.com/<>my-pool-id>`
+    - AUTH_COGNITO_NAME: "<cognito_client_name>" - Replace <cognito_client_name> with the name of your AWS Cognito app client integration.
+    - AUTH_COGNITO_SECRET: "<client_secret>" - Replace <client_secret> with the client secret of your AWS Cognito app client integration.
       
 2. **AI DIAL Core**: Add the following parameters to AI DIAL Core. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) configuration to learn more.
    
@@ -66,6 +66,4 @@ To configure AWS Cognito, you can follow these steps:
       aidial.identityProviders.cognito.loggingSalt: "loggingSalt"
       ```
       
-      - `token_url` - the URL to jwks token. For example:
-  
-        ```https://cognito-idp.<region>.amazonaws.com/<my-pool-id>/.well-known/jwks.json```
+      - `token_url` - the URL to jwks token. For example: `https://cognito-idp.<region>.amazonaws.com/<my-pool-id>/.well-known/jwks.json`
