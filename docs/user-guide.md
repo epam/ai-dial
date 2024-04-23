@@ -196,7 +196,7 @@ The following symbols in the folders names are prohibited: ":", ";", "/", "\", "
 
 ### Search and Filter
 
-![](./img/prompt_search.png)
+![](./img/pt_search.png)
 
 The **Search** box can be utilized to find prompts and folders by their names.
 
