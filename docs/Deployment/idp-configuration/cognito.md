@@ -9,7 +9,7 @@ This basic tutorial demonstrates the steps to create a user pool in [AWS Cognito
 - [AWS Cognito as identity provider](#how-to-set-aws-cognito-as-identity-provider)
   - [Configuration Guidelines](#configuration-guidelines)
     - [Configure AWS Cognito](#configure-aws-cognito)
-    - [DIAL configuration](#dial-configuration)
+    - [DIAL configuration](#configure-dial)
 
 </div>
 
@@ -43,30 +43,34 @@ To configure AWS Cognito, you can follow these steps:
 
 For application side:
 
-1. Add following params into chat (documentation [here](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables))
-    ```
-    AUTH_COGNITO_CLIENT_ID: "<client_id>"
-    AUTH_COGNITO_HOST: "<cognito_host>"
-    AUTH_COGNITO_NAME: "<cognito_client_name>"
-    AUTH_COGNITO_SECRET: "<client_secret>"
-    ```
-
-    - client_id - client id of Cognito app client integration
-    - cognito_host - url consist of [Cognito Identity endpoint](https://docs.aws.amazon.com/general/latest/gr/cognito_identity.html) + User Pool ID like
-
-      ```https://cognito-idp.<region>.amazonaws.com/<>my-pool-id>```
-
-    - cognito_client_name - name of Cognito app client integration
-    - client_secret - client secret of Cognito app client integration
-3. Add following params to Core (documentation [here](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration)):
-    ```
-    aidial.identityProviders.cognito.jwksUrl: "<token_url>"
-    aidial.identityProviders.cognito.rolePath: "roles"
-    aidial.identityProviders.cognito.issuerPattern: '^https:\/\/cognito-idp\.<region>\.amazonaws\.com.+$'
-    aidial.identityProviders.cognito.loggingKey: "email"
-    aidial.identityProviders.cognito.loggingSalt: "loggingSalt"
-
-    ```
-    - token_url - url to jwks token that looks like
-
-      ```https://cognito-idp.<region>.amazonaws.com/<my-pool-id>/.well-known/jwks.json```
+1. Add the following environment variable to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to learn more.
+   
+      ```
+      AUTH_COGNITO_CLIENT_ID: "<client_id>"
+      AUTH_COGNITO_HOST: "<cognito_host>"
+      AUTH_COGNITO_NAME: "<cognito_client_name>"
+      AUTH_COGNITO_SECRET: "<client_secret>"
+      ```
+  
+        - `client_id` - client id of AWS Cognito app client integration
+        - `cognito_host` - the URL consisting of [Cognito Identity endpoint](https://docs.aws.amazon.com/general/latest/gr/cognito_identity.html) and User Pool ID. For example:
+    
+          ```https://cognito-idp.<region>.amazonaws.com/<>my-pool-id>```
+    
+        - `cognito_client_name` - the name of AWS Cognito app client integration
+        - `client_secret` - the client secret of AWS Cognito app client integration
+      
+3. Add the following parameters to AI DIAL Core. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) configuration to learn more.
+   
+      ```
+      aidial.identityProviders.cognito.jwksUrl: "<token_url>"
+      aidial.identityProviders.cognito.rolePath: "roles"
+      aidial.identityProviders.cognito.issuerPattern: '^https:\/\/cognito-idp\.<region>\.amazonaws\.com.+$'
+      aidial.identityProviders.cognito.loggingKey: "email"
+      aidial.identityProviders.cognito.loggingSalt: "loggingSalt"
+  
+      ```
+      
+      - `token_url` - the URL to jwks token. For example:
+  
+        ```https://cognito-idp.<region>.amazonaws.com/<my-pool-id>/.well-known/jwks.json```
