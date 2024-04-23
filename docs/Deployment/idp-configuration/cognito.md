@@ -51,14 +51,10 @@ For application side:
       AUTH_COGNITO_NAME: "<cognito_client_name>"
       AUTH_COGNITO_SECRET: "<client_secret>"
       ```
-  
+
+
         - `client_id` - client id of AWS Cognito app client integration
-        - `cognito_host` - the URL consisting of [Cognito Identity endpoint](https://docs.aws.amazon.com/general/latest/gr/cognito_identity.html) and User Pool ID. For example:
-    
-           ```
-           https://cognito-idp.<region>.amazonaws.com/<>my-pool-id>
-           ```
-    
+        - `cognito_host` - the URL consisting of [Cognito Identity endpoint](https://docs.aws.amazon.com/general/latest/gr/cognito_identity.html) and User Pool ID. For example: https://cognito-idp.<region>.amazonaws.com/<>my-pool-id>
         - `cognito_client_name` - the name of AWS Cognito app client integration
         - `client_secret` - the client secret of AWS Cognito app client integration
       
@@ -70,7 +66,6 @@ For application side:
       aidial.identityProviders.cognito.issuerPattern: '^https:\/\/cognito-idp\.<region>\.amazonaws\.com.+$'
       aidial.identityProviders.cognito.loggingKey: "email"
       aidial.identityProviders.cognito.loggingSalt: "loggingSalt"
-  
       ```
       
       - `token_url` - the URL to jwks token. For example:
