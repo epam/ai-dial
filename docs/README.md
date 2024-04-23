@@ -19,7 +19,6 @@
 * [Launch AI DIAL Chat with an Azure model](./tutorials/quick-start-model.md)
 * [Launch AI DIAL Chat with a Sample Application](./tutorials/quick-start-with-application.md)
 * [Launch AI DIAL Chat with a Sample Addon](./tutorials/quick-start-with-addon.md)
-* [Launch AI DIAL Chat with a Cognito user pool](./tutorials/cognito-quick-start.md)
 
 ## Development Guides
 
@@ -32,6 +31,7 @@
 ## Configuration
 
 * Refer to [Configuration](./Deployment/configuration.md)
+* [Configure AI DIAL to work with AWS Cognito user pool](./Deployment/idp-configuration/cognito.md)
 
 ## Other AI DIAL Project Open Source Repositories 1
 
