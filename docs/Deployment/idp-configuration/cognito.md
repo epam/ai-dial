@@ -41,9 +41,7 @@ To configure AWS Cognito, you can follow these steps:
 
 ### Configure DIAL
 
-For application side:
-
-1. Add the following environment variable to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to learn more.
+1. **AI DIAL Chat**: Add the following environment variable to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to learn more.
    
       ```
       AUTH_COGNITO_CLIENT_ID: "<client_id>"
@@ -58,7 +56,7 @@ For application side:
     - cognito_client_name - the name of AWS Cognito app client integration
     - client_secret - the client secret of AWS Cognito app client integration
       
-3. Add the following parameters to AI DIAL Core. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) configuration to learn more.
+2. **AI DIAL Core**: Add the following parameters to AI DIAL Core. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) configuration to learn more.
    
       ```
       aidial.identityProviders.cognito.jwksUrl: "<token_url>"
