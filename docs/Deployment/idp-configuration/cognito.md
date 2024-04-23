@@ -41,6 +41,9 @@ To configure AWS Cognito, you can follow these steps:
 
 ### Configure DIAL
 
+By configuring both AI DIAL Chart and AI DIAL Core with the necessary AWS Cognito environment variables, you will enable them to work together seamlessly with AWS Cognito for authentication and authorization purposes.
+To configure AI DIAL Chart and AI DIAL Core to work with AWS Cognito, follow these steps:
+
 1. **AI DIAL Chat**: Add the following environment variables to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to learn more.
    
       ```
