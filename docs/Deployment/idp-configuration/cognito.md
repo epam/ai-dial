@@ -9,7 +9,7 @@ This basic tutorial demonstrates the steps to create a user pool in [AWS Cognito
 - [AWS Cognito as identity provider](#how-to-set-aws-cognito-as-identity-provider)
   - [Configuration Guidelines](#configuration-guidelines)
     - [Configure AWS Cognito](#configure-aws-cognito)
-    - [DIAL configuration](#configure-dial)
+    - [Configure DIAL](#configure-dial)
 
 </div>
 
@@ -55,7 +55,9 @@ For application side:
         - `client_id` - client id of AWS Cognito app client integration
         - `cognito_host` - the URL consisting of [Cognito Identity endpoint](https://docs.aws.amazon.com/general/latest/gr/cognito_identity.html) and User Pool ID. For example:
     
-          ```https://cognito-idp.<region>.amazonaws.com/<>my-pool-id>```
+           ```
+           https://cognito-idp.<region>.amazonaws.com/<>my-pool-id>
+           ```
     
         - `cognito_client_name` - the name of AWS Cognito app client integration
         - `client_secret` - the client secret of AWS Cognito app client integration
