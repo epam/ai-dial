@@ -1,4 +1,6 @@
+
 <!-- omit from toc -->
+
 # How to Set AWS Cognito as Identity Provider
 
 ## Introduction
@@ -9,13 +11,14 @@ This basic tutorial demonstrates the steps to create a user pool in [AWS Cognito
 
 <!-- omit from toc -->
 # Table of Contents
+
 - [Introduction](#introduction)
 - [Configuration Guidelines](#configuration-guidelines)
   - [Configure AWS Cognito](#configure-aws-cognito)
   - [Configure AI DIAL](#configure-ai-dial)
     - [AI DIAL Chat Settings](#ai-dial-chat-settings)
     - [AI DIAL Core Settings](#ai-dial-core-settings)
-
+  
 </div>
 
 ## Configuration Guidelines
@@ -44,6 +47,7 @@ To configure AWS Cognito, you can follow these steps:
       - profile
     - Enabled Identity Providers: Select "Cognito user pool".
 
+
 ### Configure AI DIAL
 
 By configuring both AI DIAL Chat and AI DIAL Core with the necessary AWS Cognito environment variables, you will enable them to work together seamlessly with AWS Cognito for authentication and authorization purposes.
@@ -62,6 +66,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
 > `cognito_host` example: `https://cognito-idp.<region>.amazonaws.com/<my-pool-id>`
 
 #### AI DIAL Core Settings
+
 Add the following parameters to AI DIAL Core. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) configuration to learn more.
    
       ```
@@ -73,3 +78,4 @@ Add the following parameters to AI DIAL Core. Refer to [AI DIAL Core](https://gi
       ```
       
 > `token_url` example: `https://cognito-idp.<region>.amazonaws.com/<my-pool-id>/.well-known/jwks.json`
+
