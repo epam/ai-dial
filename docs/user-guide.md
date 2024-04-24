@@ -4,7 +4,7 @@
 
 The AI DIAL Chat application interface has several sections, such as the chat box, settings, and panels for managing conversations and saved prompts.
 
-![](./img/Interface_components.png)
+![](./img/home.png)
 
 1. **Conversations**: Here, you can manage your conversations: create new ones, organize them in folders, and delete. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
 2. **Chat Panel**: Use this section to enter a prompt, view results, and interact with language models.
@@ -66,7 +66,7 @@ In the AI DIAL framework, Applications are ready-to-use solutions made up of pre
 
 #### System Prompt
 
-![](./img/Settings_System_prompt.png)
+![](./img/system_prompt.png)
 
 The system prompt in AI DIAL refers to the initial instructions given to the model. You can use any previously created prompt as a system prompt (for details, refer to the [Create](#create) in Prompts), and it will set the context and tone for the whole conversation.
 
@@ -96,7 +96,7 @@ The prompt used as a system prompt is as follows:
 
 The temperature parameter controls the creativity and randomness of the model's output. A higher temperature (e.g., 1.0) makes the output more diverse and creative, while a lower temperature (e.g., 0.1) makes the output more focused and deterministic.
 
-![](./img/Settings_Temperature.png)
+![](./img/temperature.png)
 
 Adjusting the temperature allows you to balance creativity and consistency in the generated response.
  
@@ -115,7 +115,7 @@ On the top bar, in the user area, you can click a down arrow to access additiona
 
 You can select the chat theme, dark or light, add a custom logo, and switch on a full width chat mode.
 
-![](./img/settings.png)
+![](./img/user_settings.png)
 
 ## Prompts
 
@@ -179,8 +179,10 @@ You can perform various actions with your prompts:
 - **Delete all prompts**: click the **Delete all** icon at the bottom of the right panel and confirm your action.
 - **Export all prompts**: click the **Export prompts** icon at the bottom of the right panel. All your prompts will be exported as JSON.
 - **Import prompts**: click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
+- **Share**: use to share a prompt or a folder with several prompts with other users.
+- **Unshare**: use to revoke access to shared prompts.
 
-![](./img/Prompts_panel_with_menu.png)
+![](./img/prompt_actions.png)
 
 ### Arrange
 
@@ -190,13 +192,14 @@ You can gather your prompts in folders.
  
 You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. 
 The same way, you can either drag-n-drop a prompt into a folder or use **Move to** in the context menu of a prompt to place it in one of the folders.  
-Empty folders are deleted after refreshing a page or relogining.
-The following symbols in the folders names are prohibited: ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
+> After refreshing the page or logging in again, any empty folders will be deleted.
+
+The following symbols in the folders names are prohibited: ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
 ### Search and Filter
 
-![](./img/Search_filter.png)
+![](./img/pt_search.png)
 
 The **Search** box can be utilized to find prompts and folders by their names.
 
@@ -212,11 +215,13 @@ To share a prompt or a folder, click **Share** in the contextual menu and copy t
 
 > When you share a folder, all folders and prompts in this folders will be shared.
 
-![](./img/share.png)
+![](./img/pt_share.png)
 
 ### Unshare
 
 To revoke access from all users, click **Unshare** in the contextual menu and then click **Revoke access** in the dialog.
+
+![](./img/pt_unshare.png)
 
 ### Duplicate
 
@@ -230,16 +235,18 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 
 ### Create
 
-![](./img/Conversation_start_procedure.png)
+![](./img/conversations.png)
 
 To create a conversation:
 
-1.	On the left panel, click **New conversation**.
-2.	In the main section, under **Talk To**, select a language model, an assistant, or an application. Five most recently used items are shown in the section. To see all available items, click **See full list**.
-3.	Optionally, under **System prompts**, select a prompt by typing "/" in the text box. For details, refer to the [Prompts](#prompts) section of this guide.
-4.	Under **Temperature**, set a value of the temperature parameter. For details, refer to the [Temperature](#temperature) section of this guide.
-5.	Optionally, under **Addons**, select an Addon. For details, refer to the [Addons](#addons) section of this guide.
-6.	Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first question will be used as its name. The following symbols in the conversation names are prohibited: ":", ";", "/", "\", ",", "=", "{", "}", "%", "&" and will be excluded. Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
+1. On the left panel, click **New conversation**.
+2. In the main section, under **Talk To**, select a language model, an assistant, or an application. Five most recently used items are shown in the section. To see all available items, click **See full list**.
+3. Optionally, under **System prompts**, select a prompt by typing "/" in the text box. For details, refer to the [Prompts](#prompts) section of this guide.
+4. Under **Temperature**, set a value of the temperature parameter. For details, refer to the [Temperature](#temperature) section of this guide.
+5. Optionally, under **Addons**, select an Addon. For details, refer to the [Addons](#addons) section of this guide.
+6. Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first question will be used as its name. 
+
+> The following symbols in the conversation names are prohibited: ":", ";", "/", "\", ",", "=", "{", "}", "%", "&" and will be excluded. Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
  
 ### Actions
@@ -260,7 +267,7 @@ To create a conversation:
 - **Change conversation settings**: during the conversation, you can access and edit its setting by clicking the gear icon on the top bar. Refer to [Chat Settings](#chat-settings) to learn more.
 - **View current settings**: on the top bar, point to the language model logo icon near the conversation name to see current settings.
 
-    ![](./img/View_settings.png)
+![](./img/View_settings.png)
 
 ### Arrange
 
@@ -277,9 +284,9 @@ The following symbols in the folders names are prohibited: ":", ";", "/", "\", "
 
 ### Search and Filter
 
-![](./img/Search_filter.png)
-
 The **Search** box can be utilized to find conversations and folders by their names.
+
+![](./img/search-conv.png)
 
 You can filter conversations by the "Shared by me" criterion. To do so, click the **Filter** icon and select **Shared by me**.
  
@@ -293,25 +300,23 @@ To share a conversation or a folder, click **Share** in the contextual menu and 
 
 > When you share a folder, all folders and conversations in this folders will be shared.
 
-![](./img/share.png)
+![](./img/share_conv.png)
 
 ### Unshare
 
 To revoke access from all users, click **Unshare** in the contextual menu and then click **Revoke access** in the dialog.
 
-![](./img/Unshare.png)
-
 ### Duplicate
 
 You can duplicate a conversation, for example, to be able to change a conversation that was shared with you. To duplicate a conversation, click **Duplicate** in the contextual menu.
-
-![](./img/duplicate.png)
 
 ### Export
 
 You can export selected conversations with or without attachments or all conversations without attachments in a JSON format.
 
 > Exported conversations are named by the following pattern: prefix "epam_ai_dial_chat", then "with_attachments" if the conversation was exported with attachments, then "month_day".
+
+![](./img/export-conv.png)
 
 ##### Export a single conversation with attachments
 
@@ -328,8 +333,6 @@ To export a single conversation:
 2. Click **Without attachments**. 
 
 The conversation will be exported as a JSON.
-
-![](./img/export_single_conv.png)
 
 ##### Export all conversations
 
@@ -407,8 +410,6 @@ You can also compare two **existing** conversations:
 2.	In the main section, under **Select conversation to compare with**, select the second conversation from the drop box. 
 3. By default, only conversations with the same name are available in the drop box. Select **Show all conversations** to see the full list of conversations.
 4.	Type your question (prompt) in the chat box.
-
-    ![](./img/compare_existing.png)
 
 ### Manage Attachments
 
