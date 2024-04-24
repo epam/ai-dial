@@ -12,7 +12,7 @@ The AI DIAL Chat application interface has several sections, such as the chat bo
 4. **Prompt Templates**: In this section, you can work with saved prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
 5. **Account User Settings**: In your account settings, you can customize the color theme (dark or light) as well as log in or log out.
 
-### Chat Settings
+## Chat Settings
 
 In the Chat Settings section, there are the following components:
 
@@ -23,13 +23,13 @@ In the Chat Settings section, there are the following components:
 
 Take a closer look at each of these elements.
 
-#### Talk To
+### Talk To
 
 ![](./img/Talk_to_full_list.png)
 
 In this section, you can choose the language model for communication, as well as an Assistant or Application to implement specific behavior for the LLM.
 
-#### Language Models
+### Language Models
 
 ![](./img/Talk_to_full_list_models.png)
 
@@ -48,7 +48,7 @@ In this section, you can choose the language model for communication, as well as
 - *Anthropic (Claude V2)* is an upgraded version of the Anthropic (Claude) model, with 400 billion parameters, making it one of the largest language models to date. This model is designed for sophisticated NLP applications involving complex reasoning, inference, and understanding of long-form text data.
 - *AWS (Titan)*: AWS (Amazon Web Services) developed an LLM called Titan in 2021, which has 850 billion parameters, making it the largest publicly available language model at the time of its introduction. The model was trained on a diverse set of text sources, including web pages, books, and news articles. Titan is designed to handle complex natural language processing tasks, such as summarization, dialogue generation, and translation.
 
-#### Assistants
+### Assistants
 
 ![](./img/Talk_to_full_list_assistants.png)
 
@@ -58,13 +58,13 @@ Assistants give you more control over LLM behavior, resulting in tailored and ac
 
 In a chat application, you can include custom Assistant(s) that users can choose when using AI DIAL.
 
-#### Applications   
+### Applications   
 
 ![](./img/Talk_to_full_list_apps.png)
 
 In the AI DIAL framework, Applications are ready-to-use solutions made up of predefined configurations of Addons and other services or any custom logic. They help you customize LLM behavior by integrating Addons with any desired logic. Applications can be any component that meets API requirements and implements non-LLM-related logic, such as repeating user messages, creating a fully deterministic chatbot, or managing complex multi-LLM interactions. This versatility in Applications allows for tailored handling of unique scenarios and requirements.
 
-#### System Prompt
+### System Prompt
 
 ![](./img/system_prompt.png)
 
@@ -92,7 +92,7 @@ The prompt used as a system prompt is as follows:
 | Osaka | Osaka is a large port city and commercial center on the Japanese island of Honshu. It's known for its modern architecture, nightlife, and hearty street food. One of Osaka's most popular tourist destinations is the bustling urban area of Dotonbori, where the city's entertainment and dining scenes come to life with numerous restaurants, bars, and shops. | Ankara. Now it's your turn to name a city! |
 | Antwerp | Antwerp is a city in Belgium, and it's the country’s biggest port. It is located on the River Scheldt, linked to the North Sea by the Westerschelde estuary. Known for its many historical buildings, squares, museums, and cultural attractions, it's a popular tourist destination. | Prague. Your turn to name a city! |
 
-#### Temperature
+### Temperature
 
 The temperature parameter controls the creativity and randomness of the model's output. A higher temperature (e.g., 1.0) makes the output more diverse and creative, while a lower temperature (e.g., 0.1) makes the output more focused and deterministic.
 
@@ -100,7 +100,7 @@ The temperature parameter controls the creativity and randomness of the model's 
 
 Adjusting the temperature allows you to balance creativity and consistency in the generated response.
  
-#### Addons
+### Addons
 
 You may want LLM to access particular data or technology to generate responses. This could be your company's database, a collection of PDF documents, calculation engines, API or any other data source or technology.
 Within the AI DIAL framework, an Addon is a service or any component that follows the Open API specification. LLMs can access and use any desired data source or technology to create responses.
@@ -109,7 +109,7 @@ Within the AI DIAL framework, an Addon is a service or any component that follow
 
 Some examples of Addon implementation are semantic search, Q&A search, DB query generator, or any other custom logic that meets your business needs. AI DIAL can include custom Addons that you can choose to activate a specific system behavior.
 
-### User Settings
+## User Settings
 
 On the top bar, in the user area, you can click a down arrow to access additional settings or logout.
 
