@@ -2,6 +2,8 @@
 
 ## Interface Components
 
+1
+
 The AI DIAL Chat application interface has several sections, such as the chat box, settings, and panels for managing conversations and saved prompts.
 
 ![](./img/home.png)
