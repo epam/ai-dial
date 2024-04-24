@@ -35,7 +35,12 @@ const sidebars = {
         {
           type: 'doc',
           id: 'tutorials/azure-ad-configuration',
-          label: 'Azure AD Configuration',
+          label: 'How to Configure Azure AD',
+        },
+        {
+          type:'doc',
+          id: 'Deployment/idp-configuration/cognito',
+          label: 'How to Configure AWS Cognito'
         },
       ],
     },
@@ -56,12 +61,7 @@ const sidebars = {
         },
         'Deployment/OpenAI Model Deployment',
         'Deployment/Vertex Model Deployment',
-        'Deployment/Bedrock Model Deployment',
-        {
-          type:'doc',
-          id: 'Deployment/idp-configuration/cognito',
-          label: 'How to Configure AWS Cognito'
-        },
+        'Deployment/Bedrock Model Deployment'
       ],
     },
     {
