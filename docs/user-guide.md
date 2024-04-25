@@ -474,3 +474,24 @@ On the top bar, in the user area, you can click a down arrow to access additiona
 You can select the chat theme, dark or light, add a custom logo, and switch on a full width chat mode.
 
 ![](./img/user_settings.png)
+
+## Integrations 
+
+### Plotly
+
+Plotly is an open-source JavaScript library that enables the creation of diverse data visualizations, including charts, 3D graphs, and more.
+
+![](./img/plotly.png)
+
+> Refer to [Plotly](https://plotly.com/) to learn more. 
+
+AI DIAL Chat integrates with Plotly, offering robust data visualization capabilities. To utilize Plotly, choose an AI DIAL application that supports this feature. These applications must be capable of querying data (either from a URL or manually imported into the Chat application) based on user input and returning it in a format compatible with Plotly. Chat automatically detects attachments in this format and uses Plotly to visualize the data.
+
+![](./img/plotly2.png)
+
+The visualizations come with standard Plotly controls for easy manipulation.
+
+> Refer to [Plotly GitHub](https://github.com/plotly/react-plotly.js) to learn more. 
+
+
+
