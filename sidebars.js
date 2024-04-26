@@ -62,11 +62,6 @@ const sidebars = {
         'Deployment/OpenAI Model Deployment',
         'Deployment/Vertex Model Deployment',
         'Deployment/Bedrock Model Deployment',
-        {
-          type:'doc',
-          id: 'Deployment/idp-configuration/cognito',
-          label: 'How to Configure AWS Cognito'
-        },
       ],
     },
     {
@@ -77,6 +72,11 @@ const sidebars = {
         "Cookbook/dial-cookbook/examples/how_to_call_text_to_image_applications",
         "Cookbook/dial-cookbook/examples/how_to_call_image_to_text_applications",
       ],
+    },
+    {
+      type: 'link',
+      label: 'API Reference',
+      href: 'https://epam-rail.com/dial_api'
     }
   ],
 };
