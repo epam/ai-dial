@@ -3,14 +3,14 @@ version: '3'
 
 services:
   themes:
-    image: epam/ai-dial-chat-themes:0.3.0
+    image: epam/ai-dial-chat-themes:0.4.0
     ports:
       - "3001:8080"
 
   chat:
     ports:
       - "3000:3000"
-    image: epam/ai-dial-chat:0.5.1
+    image: epam/ai-dial-chat:0.10.0
     depends_on:
       - themes
       - core
@@ -42,7 +42,10 @@ services:
     environment:
       'AIDIAL_SETTINGS': '/opt/settings/settings.json'
       'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
+      'LOG_DIR': '/app/log'
+      'STORAGE_DIR': '/app/data'
       'aidial.config.files': '["/opt/config/config.json"]'
+      'aidial.storage.overrides': '{ "jclouds.filesystem.basedir": "data" }'
       'aidial.redis.singleServerConfig.address': 'redis://redis:6379'
     depends_on:
       - redis
@@ -50,3 +53,4 @@ services:
       - ./settings:/opt/settings
       - ${DIAL_DIR:-.}/core:/opt/config
       - ${DIAL_DIR:-.}/core-logs/:/app/log
+      - ${DIAL_DIR:-.}/core-data/:/app/data

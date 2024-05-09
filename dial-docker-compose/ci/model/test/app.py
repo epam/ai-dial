@@ -15,6 +15,7 @@ def get_env(name: str) -> str:
 
 DIAL_URL = get_env("DIAL_URL")
 DIAL_API_KEY = get_env("DIAL_API_KEY")
+DIAL_API_VERSION = get_env("DIAL_API_VERSION")
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -24,9 +25,9 @@ logging.basicConfig(level=logging.DEBUG)
     (aiohttp.ClientError, aiohttp.ServerTimeoutError),
     max_time=60,
 )
-async def post_with_retry(url: str, payload: dict, headers: dict):
+async def post_with_retry(url: str, payload: dict, headers: dict, params: dict):
     async with aiohttp.ClientSession() as session:
-        async with session.post(url, json=payload, headers=headers) as response:
+        async with session.post(url, json=payload, headers=headers, params=params) as response:
             response.raise_for_status()
             return await response.json()
 
@@ -37,8 +38,9 @@ async def test_model(deployment_id: str):
     message = "Hello"
     payload = {"messages": [{"role": "user", "content": message}], "stream": False}
     headers = {"api-key": DIAL_API_KEY}
+    params = {"api-version": DIAL_API_VERSION}
 
-    body = await post_with_retry(api_url, payload, headers)
+    body = await post_with_retry(api_url, payload, headers, params)
 
     content = body.get("choices", [])[0].get("message", {}).get("content", "")
     if content != message:
