@@ -1,6 +1,3 @@
----
-version: '3'
-
 include:
   - path: ../common.yml
     env_file: ./.env

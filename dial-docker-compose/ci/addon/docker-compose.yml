@@ -1,6 +1,3 @@
----
-version: '3'
-
 include:
   - path: ../../addon/docker-compose.yml
     env_file: ./.env

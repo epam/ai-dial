@@ -1,6 +1,3 @@
----
-version: '3'
-
 include:
   - path: ../dial-docker-compose/common.yml
     env_file: ./.env
