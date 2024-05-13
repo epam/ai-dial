@@ -2,7 +2,8 @@
 version: '3'
 
 include:
-  - ../docker-compose.yml
+  - path: ../docker-compose.yml
+    env_file: ./.env
 
 services:
   test:
