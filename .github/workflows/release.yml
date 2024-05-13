@@ -15,7 +15,7 @@ jobs:
           submodules: true
       - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
         with:
-          compose-file: "./dial-cookbook/ci/docker-compose.yml"
+          cwd: "./dial-cookbook/ci"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
   run-quickstart:
@@ -26,17 +26,17 @@ jobs:
       - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
         name: Run quickstart model example
         with:
-          compose-file: "./dial-docker-compose/ci/model/docker-compose.yml"
+          cwd: "./dial-docker-compose/ci/model"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
       - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
         name: Run quickstart application example
         with:
-          compose-file: "./dial-docker-compose/ci/application/docker-compose.yml"
+          cwd: "./dial-docker-compose/ci/application"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
       - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
         name: Run quickstart addon example
         with:
-          compose-file: "./dial-docker-compose/ci/addon/docker-compose.yml"
+          cwd: "./dial-docker-compose/ci/addon"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
   build-and-deploy:
