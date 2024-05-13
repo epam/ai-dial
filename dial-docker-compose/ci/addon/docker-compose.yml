@@ -1,8 +1,6 @@
----
-version: '3'
-
 include:
-  - ../../addon/docker-compose.yml
+  - path: ../../addon/docker-compose.yml
+    env_file: ./.env
 
 services:
   azure_deployment_host:

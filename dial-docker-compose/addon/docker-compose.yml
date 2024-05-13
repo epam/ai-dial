@@ -1,8 +1,6 @@
----
-version: '3'
-
 include:
-  - ../common.yml
+  - path: ../common.yml
+    env_file: ./.env
 
 services:
   adapter-openai:
