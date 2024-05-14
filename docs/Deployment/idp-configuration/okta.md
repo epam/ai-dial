@@ -19,6 +19,7 @@ This basic tutorial demonstrates how to configure an application in [Okta](https
     - [Configure AI DIAL](#configure-ai-dial)
       - [AI DIAL Chat Settings](#ai-dial-chat-settings)
       - [AI DIAL Core Settings](#ai-dial-core-settings)
+      - [Roles Management Guide](#roles-management-guide)
   
 </div>
 
@@ -72,18 +73,45 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
 
 #### AI DIAL Core Settings
 
-1. Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) for more details.
+Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) for more details.
    
-    ```
-    aidial.identityProviders.okta.jwksUrl: "<okta_jwks_uri>" # URL to jwks token like https://${yourOktaDomain}/oauth2/default/v1/keys
-    aidial.identityProviders.okta.rolePath: "Groups"
-    aidial.identityProviders.okta.issuerPattern: '^https:\/\/${yourOktaAccount}\.okta\.com.*$'
-    aidial.identityProviders.okta.loggingKey: "sub"
-    aidial.identityProviders.okta.loggingSalt: "loggingSalt"
+  ```
+  aidial.identityProviders.okta.jwksUrl: "<okta_jwks_uri>" # URL to jwks token like https://${yourOktaDomain}/oauth2/default/v1/keys
+  aidial.identityProviders.okta.rolePath: "Groups"
+  aidial.identityProviders.okta.issuerPattern: '^https:\/\/${yourOktaAccount}\.okta\.com.*$'
+  aidial.identityProviders.okta.loggingKey: "sub"
+  aidial.identityProviders.okta.loggingSalt: "loggingSalt"
 
-    ```
-    > [!TIP]
-    > `okta_jwks_uri` example: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/keys`
+  ```
+  > [!TIP]
+  > `okta_jwks_uri` example: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/keys`
 
-1. [Roles Management Guide](../../tutorials/roles-management.md)
+#### Roles Management Guide
 
+AI DIAL enables assignment of roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
+Group management process is consisted of three steps:
+
+1. Create groups in Okta
+1. Include into JWT token custom claim.
+1. Configure AI DIAL Chat and Core
+1. Assign roles to AI DIAL Models/Applications/Assistants/Addons
+
+> [!NOTE]
+> By default, the claim **Groups** is not included into the access token. You should add an application **scope** to the authorization request to obtain the claim from an access token.
+
+The initial three steps have been completed as reflected in the preceding sections. The final step involves allocating Okta Groups towards AI DIAL Core configuration. The `aidial.identityProviders.okta.rolePath` setting is leveraged for this purpose, alongside the `userRoles` section found within the description of the DIAL resource.
+
+In this example, the roles are provided to AI DIAL Core via user access token(JWT) by Okta and are available via the path: `Groups` with values `okta-group-name`
+
+  ```yaml
+  "models": {
+      "chat-gpt-35-turbo": {
+        "type": "chat",
+        "endpoint" : "http://localhost:7001/v1/openai/deployments/gpt-35-turbo/chat/completions",
+        "upstreams": [
+          {"endpoint": "http://localhost:7001", "key": "modelKey1"}
+        ],
+        "userRoles": ["okta-group-name"]
+      }
+  }
+  ```
