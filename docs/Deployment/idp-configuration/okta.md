@@ -96,9 +96,6 @@ Group management process is consisted of three steps:
 1. Configure AI DIAL Chat and Core
 1. Assign roles to AI DIAL Models/Applications/Assistants/Addons
 
-> [!NOTE]
-> By default, the claim **Groups** is not included into the access token. You should add an application **scope** to the authorization request to obtain the claim from an access token.
-
 The initial three steps have been completed as reflected in the preceding sections. The final step involves allocating Okta Groups towards AI DIAL Core configuration. The `aidial.identityProviders.okta.rolePath` setting is leveraged for this purpose, alongside the `userRoles` section found within the description of the DIAL resource.
 
 In this example, the roles are provided to AI DIAL Core via user access token(JWT) by Okta and are available via the path: `Groups` with values `okta-group-name`
