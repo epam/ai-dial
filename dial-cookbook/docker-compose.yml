@@ -1,8 +1,6 @@
----
-version: '3'
-
 include:
-  - ../dial-docker-compose/common.yml
+  - path: ../dial-docker-compose/common.yml
+    env_file: ./.env
 
 services:
   echo:

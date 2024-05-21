@@ -13,9 +13,9 @@ jobs:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           submodules: true
-      - uses: isbang/compose-action@178aeba5c9dbeed89ffffbb3e6548ec08e9839cf # v1.5.1
+      - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
         with:
-          compose-file: "./dial-cookbook/ci/docker-compose.yml"
+          cwd: "./dial-cookbook/ci"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
   run-quickstart:
@@ -23,20 +23,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-      - uses: isbang/compose-action@178aeba5c9dbeed89ffffbb3e6548ec08e9839cf # v1.5.1
+      - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
         name: Run quickstart model example
         with:
-          compose-file: "./dial-docker-compose/ci/model/docker-compose.yml"
+          cwd: "./dial-docker-compose/ci/model"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
-      - uses: isbang/compose-action@178aeba5c9dbeed89ffffbb3e6548ec08e9839cf # v1.5.1
+      - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
         name: Run quickstart application example
         with:
-          compose-file: "./dial-docker-compose/ci/application/docker-compose.yml"
+          cwd: "./dial-docker-compose/ci/application"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
-      - uses: isbang/compose-action@178aeba5c9dbeed89ffffbb3e6548ec08e9839cf # v1.5.1
+      - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
         name: Run quickstart addon example
         with:
-          compose-file: "./dial-docker-compose/ci/addon/docker-compose.yml"
+          cwd: "./dial-docker-compose/ci/addon"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
   build-and-deploy:
