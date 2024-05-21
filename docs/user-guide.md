@@ -467,6 +467,15 @@ Within the AI DIAL framework, an Addon is a service or any component that follow
 
 Some examples of Addon implementation are semantic search, Q&A search, DB query generator, or any other custom logic that meets your business needs. AI DIAL can include custom Addons that you can choose to activate a specific system behavior.
 
+### Isolated View Mode
+
+In the Isolated View Mode, a user can follow a specific URL `https://server/models/model` or `https://server/models/applicationID` to use the AI DIAL Chat in a simplified view with minimal configuration settings for a selected model or application. Conversation settings, conversation and prompt panels are not shown in this case. All created conversations are saved and displayed in the regular chat view mode as well.
+
+For instance, if a user wants to open GPT-4 without any extra features or configurations, they can simply go to `https://AI DIAL Chat URL/models/gpt-4` and access a streamlined user interface that only contains a chat input with GPT-4:
+
+![](./img/isolated_view_mode.png)
+
+
 ## User Settings
 
 On the top bar, in the user area, you can click a down arrow to access additional settings or logout.
