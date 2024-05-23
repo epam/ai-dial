@@ -41,7 +41,7 @@ Follow these steps to configure Microsoft Entra ID:
 1. Obtain and save **Application (client) ID** and **Directory (tenant) ID**
 1. **Add and save client secret:** Under the **Certificates & secrets/Client secret** section, create **New client secret** and save its value.
 1. (Optional) **Create a Group and add members:** Once the application integration is set up, [create the necessary Group and add members in Microsoft Entra](https://learn.microsoft.com/en-us/entra/fundamentals/groups-view-azure-portal).
-1. (Optional) **Configure ID Token:** Under the **Token Configuration** section, **Add Groups claim** and customize which groups you want to include and where (access, ID token). When customizing the claim **groups**, you can choose the option **sAMAccountName** instead of **Group ID** to include group names instead of group UUIDs in the token. You can refer to the official Microsoft documentation for detailed instructions on [configuration of group claims for applications](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#important-caveats-for-this-functionality).
+2. (Optional) **Configure ID Token:** Under the **Token Configuration** section, **Add Groups claim** and customize which groups you want to include and where (access, ID token). You can refer to the official Microsoft documentation for detailed instructions on [configuration of group claims for applications](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#important-caveats-for-this-functionality).
 
 ### Configure AI DIAL
 
