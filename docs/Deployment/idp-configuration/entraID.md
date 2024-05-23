@@ -1,7 +1,7 @@
 
 <!-- omit from toc -->
 
-# How to Set Up Microsoft Entra ID as Identity Provider
+# How to Set Up Google OAuth2 as Identity Provider
 
 ## Introduction
 
@@ -12,7 +12,7 @@ This basic tutorial demonstrates how to configure [Microsoft Entra ID](https://l
 <!-- omit from toc -->
 # Table of Contents
 
-- [How to Set Up Microsoft Entra ID as Identity Provider](#how-to-set-up-microsoft-entra-id-as-identity-provider)
+- [How to Set Up Google OAuth2 as Identity Provider](#how-to-set-up-google-oauth2-as-identity-provider)
   - [Introduction](#introduction)
   - [Configuration Guidelines](#configuration-guidelines)
     - [Configure Microsoft Entra ID](#configure-microsoft-entra-id)
@@ -45,7 +45,7 @@ Follow these steps to configure Microsoft Entra ID:
 
 ### Configure AI DIAL
 
-To enable AI DIAL Chat and AI DIAL Core to work with Okta, configure them with the necessary Okta-specific parameters.
+To enable AI DIAL Chat and AI DIAL Core to work with Microsoft Entra ID, configure them with the necessary specific parameters.
 
 #### AI DIAL Chat Settings
 
@@ -86,7 +86,7 @@ Group management process is consisted of three steps:
 
 All the steps mentioned above have been completed, including the ones marked as **Optional**. The final step involves allocating Microsoft Entra Groups towards AI DIAL Core configuration. The `aidial.identityProviders.azure.rolePath` setting is leveraged for this purpose, alongside the `userRoles` section found within the description of the DIAL resource.
 
-In this example, the roles are provided to AI DIAL Core via user access token(JWT) by Okta and are available via the path: `Groups` with values `azure-group-name`
+In this example, the roles are provided to AI DIAL Core via user access token(JWT) by Microsoft Entra ID and are available via the path: `Groups` with values `azure-group-name`
 
   ```yaml
   "models": {
