@@ -475,7 +475,9 @@ You can select the chat theme, dark or light, add a custom logo, and switch on a
 
 ![](./img/user_settings.png)
 
-## Integrations 
+## Data Visualization
+
+AI DIAL Chat enables data visualization for specific data types using data visualizers. It comes with built-in support for the [Plotly data visualizer](#plotly). To link any other custom visualizers, you can use the [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) library.
 
 ### Plotly
 
