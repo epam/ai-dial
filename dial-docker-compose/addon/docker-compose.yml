@@ -1,17 +1,15 @@
----
-version: '3'
-
 include:
-  - ../common.yml
+  - path: ../common.yml
+    env_file: ./.env
 
 services:
   adapter-openai:
-    image: epam/ai-dial-adapter-openai:0.7.0
+    image: epam/ai-dial-adapter-openai:0.11.0
     environment:
       WEB_CONCURRENCY: "3"
 
   assistant:
-    image: epam/ai-dial-assistant:0.6.0
+    image: epam/ai-dial-assistant:0.7.0
     environment:
       OPENAI_API_BASE: "http://core:8080"
       WEB_CONCURRENCY: "3"
