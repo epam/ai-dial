@@ -6,7 +6,7 @@ In this tutorial, you will learn how to quickly launch AI DIAL Chat with a custo
 
 ## Prerequisites
 
-1. Docker engine installed on your machine.
+1. Docker engine installed on your machine (Docker Compose Version 2.20.0 +).
     > Refer to [Docker](https://docs.docker.com/desktop/) documentation.
 
 2. Account in MS Azure OpenAI Studio.

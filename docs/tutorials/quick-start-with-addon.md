@@ -29,7 +29,7 @@ Following this pattern, you can develop your own addons or use a third-party one
 
 ## Prerequisites
 
-1. Docker engine installed on your machine.
+1. Docker engine installed on your machine (Docker Compose Version 2.20.0 +).
     > Refer to [Docker](https://docs.docker.com/desktop/) documentation.
 
 2. Account in MS Azure OpenAI Studio.
