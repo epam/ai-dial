@@ -1,7 +1,7 @@
 
 <!-- omit from toc -->
 
-# How to Set Up Auth0 as Identity Provider
+# How to Configure Auth0 as Identity Provider
 
 ## Introduction
 
@@ -29,18 +29,18 @@ This basic tutorial demonstrates how to configure an application in [Auth0](http
 
 Follow these steps to configure Auth0:
 
-1. **Create Tenant:** Save tenant name.
-1. **Create an Application:** Begin by creating an [Application](https://auth0.com/docs/get-started/auth0-overview/create-applications). Set name and choose `Regular Web Applications`.
-1. **Configure Application Settings:** Under the [**Applications/Settings**](https://auth0.com/docs/get-started/applications/application-settings) section, set the following parameters:
-    - Obtain and save **Domain**,**Client ID** and **Client secrets** generated for your application.
+1. **Create Tenant** and save its name. Refer to [Auth0](https://auth0.com/docs/get-started/auth0-overview/create-tenants) documentation to learn how to create tenants.
+1. **Create Application**. Refer to [Auth0](https://auth0.com/docs/get-started/auth0-overview/create-applications) documentation to learn how to create applications. 
+    * Set the name and choose `Regular Web Applications`.
+1. To **Configure Application Settings:** in the [**Applications/Settings**](https://auth0.com/docs/get-started/applications/application-settings) section, define the following parameters:
+    - Obtain and save **Domain**, **Client ID** and **Client secrets** generated for your application.
     - Allowed Callback URLs: `https://<chat_url>/api/auth/callback/auth0`
-      > [!TIP]
-      > Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
+      > TIP: Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
 
 1. **Create API:** Under the **Applications/APIs** section, configure new [**API**](https://auth0.com/docs/get-started/apis/api-settings):
 1. **Create Users:** Under the **User Management/Users** create necessary [Users](https://auth0.com/docs/manage-users/user-accounts/create-users).
 1. (Optional) **Create Roles and assign to User:** Under the **User Management/Roles** create necessary [Roles](https://auth0.com/docs/manage-users/access-control/configure-core-rbac/roles/create-roles).
-1. (Optional) **Create Action:** Under the **Actions/Library** create necessary [Action]() and **Deploy** it.
+1. (Optional) **Create Action:** Under the **Actions/Library** create necessary Action and **Deploy** it.
    - Name: `DIAL role`
    - Trigger: `Login / Post Login`
    - Runtime: `Node 18`
