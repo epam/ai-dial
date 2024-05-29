@@ -33,6 +33,7 @@ services:
     mem_limit: 2200M
 
   core:
+    user: ${UID:-root}
     ports:
       - "8080:8080"
     image: epam/ai-dial-core:0.9.0
