@@ -1,6 +1,5 @@
 
 <!-- omit from toc -->
-
 # How to Set Up Google OAuth2 as Identity Provider
 
 ## Introduction
@@ -12,14 +11,13 @@ This basic tutorial demonstrates how to configure [Microsoft Entra ID](https://l
 <!-- omit from toc -->
 # Table of Contents
 
-- [How to Set Up Google OAuth2 as Identity Provider](#how-to-set-up-google-oauth2-as-identity-provider)
-  - [Introduction](#introduction)
-  - [Configuration Guidelines](#configuration-guidelines)
-    - [Configure Microsoft Entra ID](#configure-microsoft-entra-id)
-    - [Configure AI DIAL](#configure-ai-dial)
-      - [AI DIAL Chat Settings](#ai-dial-chat-settings)
-      - [AI DIAL Core Settings](#ai-dial-core-settings)
-      - [Roles Management Guide](#roles-management-guide)
+- [Introduction](#introduction)
+- [Configuration Guidelines](#configuration-guidelines)
+  - [Configure Microsoft Entra ID](#configure-microsoft-entra-id)
+  - [Configure AI DIAL](#configure-ai-dial)
+    - [AI DIAL Chat Settings](#ai-dial-chat-settings)
+    - [AI DIAL Core Settings](#ai-dial-core-settings)
+    - [Roles Management Guide](#roles-management-guide)
   
 </div>
 
@@ -49,18 +47,18 @@ To enable AI DIAL Chat and AI DIAL Core to work with Microsoft Entra ID, configu
 
 #### AI DIAL Chat Settings
 
-Add the following environment variables to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) for more details.
-
 > [!NOTE]
 >  The application **scope** is required to validate signature of the access token.
 > Refer to [Microsoft Portal](https://learn.microsoft.com/en-us/answers/questions/318741/graphapi-cannot-validate-access-token-signature) to read more about this case.
+
+Add the following environment variables to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) for more details.
    
-      ```
-      AUTH_AZURE_AD_CLIENT_ID: "<azure_client_id>"
-      AUTH_AZURE_AD_TENANT_ID: "<azure_tenant_id>"
-      AUTH_AZURE_AD_SECRET: "<azure_client_secret>"
-      AUTH_AZURE_AD_SCOPE: "openid profile <azure_client_id>/.default email offline_access"
-      ```
+  ```
+  AUTH_AZURE_AD_CLIENT_ID: "<azure_client_id>"
+  AUTH_AZURE_AD_TENANT_ID: "<azure_tenant_id>"
+  AUTH_AZURE_AD_SECRET: "<azure_client_secret>"
+  AUTH_AZURE_AD_SCOPE: "openid profile <azure_client_id>/.default email offline_access"
+  ```
 
 #### AI DIAL Core Settings
 

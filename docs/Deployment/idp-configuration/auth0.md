@@ -1,6 +1,5 @@
 
 <!-- omit from toc -->
-
 # How to Set Up Auth0 as Identity Provider
 
 ## Introduction
@@ -12,20 +11,22 @@ This basic tutorial demonstrates how to configure an application in [Auth0](http
 <!-- omit from toc -->
 # Table of Contents
 
-- [How to Set Up Auth0 as Identity Provider](#how-to-set-up-auth0-as-identity-provider)
-  - [Introduction](#introduction)
-  - [Configuration Guidelines](#configuration-guidelines)
-    - [Configure Auth0](#configure-auth0)
-    - [Configure AI DIAL](#configure-ai-dial)
-      - [AI DIAL Chat Settings](#ai-dial-chat-settings)
-      - [AI DIAL Core Settings](#ai-dial-core-settings)
-      - [Roles Management Guide](#roles-management-guide)
+- [Introduction](#introduction)
+- [Configuration Guidelines](#configuration-guidelines)
+  - [Configure Auth0](#configure-auth0)
+  - [Configure AI DIAL](#configure-ai-dial)
+    - [AI DIAL Chat Settings](#ai-dial-chat-settings)
+    - [AI DIAL Core Settings](#ai-dial-core-settings)
+    - [Roles Management Guide](#roles-management-guide)
   
 </div>
 
 ## Configuration Guidelines
 
 ### Configure Auth0
+
+> [!TIP]
+> Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
 
 Follow these steps to configure Auth0:
 
@@ -34,9 +35,6 @@ Follow these steps to configure Auth0:
 1. **Configure Application Settings:** Under the [**Applications/Settings**](https://auth0.com/docs/get-started/applications/application-settings) section, set the following parameters:
     - Obtain and save **Domain**,**Client ID** and **Client secrets** generated for your application.
     - Allowed Callback URLs: `https://<chat_url>/api/auth/callback/auth0`
-      > [!TIP]
-      > Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
-
 1. **Create API:** Under the **Applications/APIs** section, configure new [**API**](https://auth0.com/docs/get-started/apis/api-settings):
 1. **Create Users:** Under the **User Management/Users** create necessary [Users](https://auth0.com/docs/manage-users/user-accounts/create-users).
 1. (Optional) **Create Roles and assign to User:** Under the **User Management/Roles** create necessary [Roles](https://auth0.com/docs/manage-users/access-control/configure-core-rbac/roles/create-roles).

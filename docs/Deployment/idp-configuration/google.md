@@ -1,6 +1,5 @@
 
 <!-- omit from toc -->
-
 # How to Set Up Google OAuth2 as Identity Provider
 
 ## Introduction
@@ -12,14 +11,13 @@ This basic tutorial demonstrates how to configure [Google OAuth2](https://develo
 <!-- omit from toc -->
 # Table of Contents
 
-- [How to Set Up Google OAuth2 as Identity Provider](#how-to-set-up-google-oauth2-as-identity-provider)
-  - [Introduction](#introduction)
-  - [Configuration Guidelines](#configuration-guidelines)
-    - [Configure Google OAuth2](#configure-google-oauth2)
-    - [Configure AI DIAL](#configure-ai-dial)
-      - [AI DIAL Chat Settings](#ai-dial-chat-settings)
-      - [AI DIAL Core Settings](#ai-dial-core-settings)
-      - [Roles Management Guide](#roles-management-guide)
+- [Introduction](#introduction)
+- [Configuration Guidelines](#configuration-guidelines)
+  - [Configure Google OAuth2](#configure-google-oauth2)
+  - [Configure AI DIAL](#configure-ai-dial)
+    - [AI DIAL Chat Settings](#ai-dial-chat-settings)
+    - [AI DIAL Core Settings](#ai-dial-core-settings)
+    - [Roles Management Guide](#roles-management-guide)
   
 </div>
 

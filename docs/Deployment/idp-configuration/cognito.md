@@ -25,6 +25,9 @@ This basic tutorial demonstrates the steps to create a user pool in [AWS Cognito
 
 ### Configure AWS Cognito
 
+> [!TIP]
+> Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
+
 To configure AWS Cognito, you can follow these steps:
 
 1. **Create User Pool:** You can refer to the official AWS documentation for detailed instructions on how to [Create User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/tutorial-create-user-pool.html)
@@ -34,11 +37,9 @@ To configure AWS Cognito, you can follow these steps:
     - Allowed callback URLs: Enter `https://<chat_url>/api/auth/callback/cognito`
     - Authentication flows: Enable `ALLOW_CUSTOM_AUTH` `ALLOW_REFRESH_TOKEN_AUTH` and `ALLOW_USER_SRP_AUTH`
     - OpenID Connect scopes: Select `OpenID` `Email` `Profile`
-    > [!TIP]
-    > Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
-2. **Create Cognito domain:** When setting up a user pool, navigate to the **Hosted authentication pages**. If the **Use the Cognito Hosted UI** option is enabled, you'll configure your domain here. Alternatively, you can access this configuration later by going to **App Integration/Domain/Actions**
-3. **Create Users:** Under the **User polls/Users** create necessary [Users](https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-create-user-accounts.html#creating-a-new-user-using-the-console).
-4.  **Collect configuration parameters:** Navigate to **Amazon Cognito/User pools/Pool name** and note **User pool ID**, **Token signing key URL**. Next, go to **App Integration/App client list** click on the specific app client name to obtain the **Client ID**, **Client secret**   
+1. **Create Cognito domain:** When setting up a user pool, navigate to the **Hosted authentication pages**. If the **Use the Cognito Hosted UI** option is enabled, you'll configure your domain here. Alternatively, you can access this configuration later by going to **App Integration/Domain/Actions**
+1. **Create Users:** Under the **User polls/Users** create necessary [Users](https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-create-user-accounts.html#creating-a-new-user-using-the-console).
+1.  **Collect configuration parameters:** Navigate to **Amazon Cognito/User pools/Pool name** and note **User pool ID**, **Token signing key URL**. Next, go to **App Integration/App client list** click on the specific app client name to obtain the **Client ID**, **Client secret**   
 1. (Optional) **Create Group and assign to User:** Under the **User polls/Groups** create necessary [Groups](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html#creating-a-new-group-using-the-console) and assign to `User` created before.
 
 
@@ -50,28 +51,30 @@ To configure AI DIAL Chat and AI DIAL Core to work with AWS Cognito, follow thes
 #### AI DIAL Chat Settings
 
 Add the following environment variables to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to learn more.
-   
-      ```
-      AUTH_COGNITO_CLIENT_ID: "<cognito_client_id>"
-      AUTH_COGNITO_HOST: "<cognito_host>"
-      AUTH_COGNITO_SECRET: "<cognito_client_secret>"
-      ```
-  > [!TIP]    
-  > `cognito_host` example: `https://cognito-idp.<cognito_region>.amazonaws.com/<cognito_pool-id>`
+ 
+  ```
+  AUTH_COGNITO_CLIENT_ID: "<cognito_client_id>"
+  AUTH_COGNITO_HOST: "<cognito_host>"
+  AUTH_COGNITO_SECRET: "<cognito_client_secret>"
+  ```
+
+> [!TIP]    
+> `cognito_host` example: `https://cognito-idp.<cognito_region>.amazonaws.com/<cognito_pool-id>`
 
 #### AI DIAL Core Settings
 
 Add the following parameters to AI DIAL Core. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) configuration to learn more.
    
-      ```
-      aidial.identityProviders.cognito.jwksUrl: "<cognito_jwks_uri>"
-      aidial.identityProviders.cognito.rolePath: "cognito:groups"
-      aidial.identityProviders.cognito.issuerPattern: '^https:\/\/cognito-idp\.<cognito_region>\.amazonaws\.com.+$'
-      aidial.identityProviders.cognito.loggingKey: "sub"
-      aidial.identityProviders.cognito.loggingSalt: "loggingSalt"
-      ```      
-  > [!TIP]
-  > `cognito_jwks_uri` example: `https://cognito-idp.<cognito_region>.amazonaws.com/<cognito_pool-id>/.well-known/jwks.json`
+  ```
+  aidial.identityProviders.cognito.jwksUrl: "<cognito_jwks_uri>"
+  aidial.identityProviders.cognito.rolePath: "cognito:groups"
+  aidial.identityProviders.cognito.issuerPattern: '^https:\/\/cognito-idp\.<cognito_region>\.amazonaws\.com.+$'
+  aidial.identityProviders.cognito.loggingKey: "sub"
+  aidial.identityProviders.cognito.loggingSalt: "loggingSalt"
+  ```
+   
+> [!TIP]
+> `cognito_jwks_uri` example: `https://cognito-idp.<cognito_region>.amazonaws.com/<cognito_pool-id>/.well-known/jwks.json`
 
 #### Roles Management Guide
 
