@@ -40,7 +40,7 @@ Follow these steps to configure Auth0:
 1. (Optional) **Create Roles and assign to User:** Under the **User Management/Roles** create necessary [Roles](https://auth0.com/docs/manage-users/access-control/configure-core-rbac/roles/create-roles).
 1. (Optional) **Create Action:** Under the **Actions/Library** create necessary [Action]() and **Deploy** it.
    - Name: `DIAL role`
-   - Trigger: `Login / Post Login`
+   - Trigger: `Login/Post Login`
    - Runtime: `Node 18`
    - Add next code:
      ```js
@@ -61,23 +61,23 @@ To enable AI DIAL Chat and AI DIAL Core to work with Auth0, configure them with 
 
 Add the following environment variables to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) for more details.
    
-      ```
-      AUTH_AUTH0_HOST: "<auth0_domain>"
-      AUTH_AUTH0_CLIENT_ID: "<auth0_client_id>"
-      AUTH_AUTH0_CLIENT_SECRET: "<auth0_client_secret>"
-      AUTH_AUTH0_AUDIENCE" "<auth0_api_audience>" 
-      ```
+  ```yaml
+  AUTH_AUTH0_HOST: "<auth0_domain>"
+  AUTH_AUTH0_CLIENT_ID: "<auth0_client_id>"
+  AUTH_AUTH0_CLIENT_SECRET: "<auth0_client_secret>"
+  AUTH_AUTH0_AUDIENCE: "<auth0_api_audience>" 
+  ```
 
 #### AI DIAL Core Settings
 
 Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) for more details.
    
-  ```
+  ```yaml
   aidial.identityProviders.auth0.jwksUrl: "https:///<auth0_domain>/.well-known/jwks.json"
   aidial.identityProviders.auth0.issuerPattern: '^https:\/\/${auth0_domain_name}\.eu\.auth0\.com.*$'
   aidial.identityProviders.auth0.loggingKey: "sub"
   aidial.identityProviders.auth0.loggingSalt: "loggingSalt"
-  aidial.identityProviders.auth0.rolePath: "dial_roles"  # Optional
+  aidial.identityProviders.auth0.rolePath: "dial_roles"
   ```
 
 #### Roles Management Guide

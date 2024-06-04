@@ -147,7 +147,7 @@ To configure AI DIAL Chat and AI DIAL Core to work with Keycloak, follow these s
 
 Add the following environment variables to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to learn more.
    
-  ```
+  ```yaml
   AUTH_KEYCLOAK_HOST: "https://<keycloak_host>/realms/<keycloak_realm_id>"
   AUTH_KEYCLOAK_CLIENT_ID: "<keycloak_client_id>"
   AUTH_KEYCLOAK_SECRET: "<keycloak_client_secret>"
@@ -159,7 +159,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
 
 Add the following parameters to AI DIAL Core. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) configuration to learn more.
    
-  ```
+  ```yaml
   aidial.identityProviders.keycloak.jwksUrl: "<keycloak_jwks_uri>"
   aidial.identityProviders.keycloak.rolePath: "<keycloak_role_path>"
   aidial.identityProviders.keycloak.issuerPattern: <issuerPattern>

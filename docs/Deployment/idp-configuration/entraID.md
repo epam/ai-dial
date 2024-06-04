@@ -53,7 +53,7 @@ To enable AI DIAL Chat and AI DIAL Core to work with Microsoft Entra ID, configu
 
 Add the following environment variables to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) for more details.
    
-  ```
+  ```yaml
   AUTH_AZURE_AD_CLIENT_ID: "<azure_client_id>"
   AUTH_AZURE_AD_TENANT_ID: "<azure_tenant_id>"
   AUTH_AZURE_AD_SECRET: "<azure_client_secret>"
@@ -64,7 +64,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
 
 Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) for more details.
    
-  ```
+  ```yaml
   aidial.identityProviders.azure.jwksUrl: "https://login.microsoftonline.com/<azure_tenant_id>/discovery/v2.0/keys"
   aidial.identityProviders.azure.rolePath: "groups"
   aidial.identityProviders.azure.issuerPattern: '^https:\/\/sts\.windows\.net.+$'

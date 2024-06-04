@@ -52,7 +52,7 @@ To configure AI DIAL Chat and AI DIAL Core to work with AWS Cognito, follow thes
 
 Add the following environment variables to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to learn more.
  
-  ```
+  ```yaml
   AUTH_COGNITO_CLIENT_ID: "<cognito_client_id>"
   AUTH_COGNITO_HOST: "<cognito_host>"
   AUTH_COGNITO_SECRET: "<cognito_client_secret>"
@@ -65,7 +65,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
 
 Add the following parameters to AI DIAL Core. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) configuration to learn more.
    
-  ```
+  ```yaml
   aidial.identityProviders.cognito.jwksUrl: "<cognito_jwks_uri>"
   aidial.identityProviders.cognito.rolePath: "cognito:groups"
   aidial.identityProviders.cognito.issuerPattern: '^https:\/\/cognito-idp\.<cognito_region>\.amazonaws\.com.+$'

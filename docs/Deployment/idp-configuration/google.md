@@ -48,17 +48,17 @@ To enable AI DIAL Chat and AI DIAL Core to work with Google OAuth2, configure th
 
 Add the following environment variables to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) for more details.
   
-      ```
-      AUTH_GOOGLE_CLIENT_ID: "<google_client_id>"
-      AUTH_GOOGLE_SECRET: "<google_tenant_id>"
-      AUTH_GOOGLE_SCOPE: "openid email profile https://www.googleapis.com/auth/cloud-identity.groups.readonly" # Optional
-      ```
+  ```yaml
+  AUTH_GOOGLE_CLIENT_ID: "<google_client_id>"
+  AUTH_GOOGLE_SECRET: "<google_tenant_id>"
+  AUTH_GOOGLE_SCOPE: "openid email profile https://www.googleapis.com/auth/cloud-identity.groups.readonly" # Optional
+  ```
 
 #### AI DIAL Core Settings
 
 Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) for more details.
    
-  ```
+  ```yaml
   aidial.identityProviders.google.userInfoEndpoint: "https://openidconnect.googleapis.com/v1/userinfo"
   aidial.identityProviders.google.rolePath: "fn:getGoogleWorkspaceGroups"
   aidial.identityProviders.google.loggingKey: "sub"
