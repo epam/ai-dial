@@ -38,7 +38,7 @@ Follow these steps to configure Auth0:
 1. **Create API:** Under the **Applications/APIs** section, configure new [**API**](https://auth0.com/docs/get-started/apis/api-settings):
 1. **Create Users:** Under the **User Management/Users** create necessary [Users](https://auth0.com/docs/manage-users/user-accounts/create-users).
 1. (Optional) **Create Roles and assign to User:** Under the **User Management/Roles** create necessary [Roles](https://auth0.com/docs/manage-users/access-control/configure-core-rbac/roles/create-roles).
-1. (Optional) **Create Action:** Under the **Actions/Library** create necessary [Action]() and **Deploy** it.
+1. (Optional) **Create Action:** Under the **Actions/Library** create necessary [Action](https://auth0.com/docs/customize/actions) and **Deploy** it.
    - Name: `DIAL role`
    - Trigger: `Login/Post Login`
    - Runtime: `Node 18`

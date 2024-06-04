@@ -32,19 +32,15 @@ Follow these steps to configure Okta:
 
 1. **Create an Application:** Begin by creating an [Application](https://help.okta.com/okta_help.htm?type=oie&locale=en&id=csh-apps-main). You can refer to the official Okta documentation for detailed instructions on [how to create an OIDC app integration](https://help.okta.com/oie/en-us/content/topics/apps/apps_app_integration_wizard_oidc.htm).
 1. **Configure Application Settings:** Under the **Applications/Applications** section, set the following parameters:
+   
     - Sign-in redirect URIs: `https://<chat_url>/api/auth/callback/okta`
     - Sign-out redirect URIs: `https://<chat_url>`
     - Obtain and save **Client ID** and **Client secrets** generated for your application.
 
-2. **Enable API Scopes:** Under the **Applications/Okta API Scopes** section, enable the following scopes:
-    - okta.users.read
-    - okta.users.read.self
-3. **Obtain Issuer URI and JWKS URI:** Under **Security/API** section, locate the **Issuer URI**. You can find the **jwks_uri** within the Issuer URI. This URI will be used in AI DIAL Core configuration.
-4. **Create Users:** Once the application integration is set up, create the necessary [People](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-people.htm)
-5. (Optional) **Create Users and Groups:** Once the application integration is set up, create the necessary [People](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-people.htm) and [Groups](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-groups-main.htm) in Okta.
-6. (Optional) **Create Groups and Assign People:** Create [Groups](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-groups-main.htm). After that assign users to the relevant groups.
-7. (Optional) **Assign Application to Group:** [Assign the Application to group](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-assign-app-group.htm)
-8. (Optional) **Configure ID Token:** Under the **Applications/Sign On/OpenID Connect ID Token** section, set **Groups** claim type to `Filter` and **Groups claim filter** to `groups; Matches regex: .*`. For more information, refer to the [Okta documentation](https://developer.okta.com/docs/guides/customize-tokens-groups-claim/main/).
+1. **Obtain Issuer URI and JWKS URI:** Under **Security/API** section, locate the **Issuer URI**. You can find the **jwks_uri** within the Issuer URI. This URI will be used in AI DIAL Core configuration.
+1. **Create Users:** Once the application integration is set up, create the necessary [People](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-people.htm)
+1. (Optional) **Create Groups and Assign People:** Create [Groups](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-groups-main.htm). After that assign users to the relevant groups.
+1. (Optional) **Assign Application to Group:** [Assign the Application to group](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-assign-app-group.htm)
 
 
 ### Configure AI DIAL
