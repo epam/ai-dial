@@ -467,6 +467,15 @@ Within the AI DIAL framework, an Addon is a service or any component that follow
 
 Some examples of Addon implementation are semantic search, Q&A search, DB query generator, or any other custom logic that meets your business needs. AI DIAL can include custom Addons that you can choose to activate a specific system behavior.
 
+### Isolated View Mode
+
+In the Isolated View Mode, a user can follow a specific URL `https://server/models/modelID` or `https://server/models/applicationID` to use the AI DIAL Chat in a simplified view with minimal configuration settings for a selected model or application. Conversation settings, conversation and prompt panels are not shown in this case. All created conversations are saved and displayed in the regular chat view mode as well (when just created, names of such conversations are appended in the regular view mode with an `isolated` prefix in the beginning. e.g. `isolated_dial-rag`).
+
+For instance, if a user wants to open GPT-4 without any extra features or configurations, they can simply go to `https://AI DIAL Chat URL/models/gpt-4` and access a streamlined user interface that only contains a chat input with GPT-4:
+
+![](./img/isolated_view_mode.png)
+
+
 ## User Settings
 
 On the top bar, in the user area, you can click a down arrow to access additional settings or logout.
@@ -474,3 +483,26 @@ On the top bar, in the user area, you can click a down arrow to access additiona
 You can select the chat theme, dark or light, add a custom logo, and switch on a full width chat mode.
 
 ![](./img/user_settings.png)
+
+## Data Visualization
+
+AI DIAL Chat enables data visualization for specific data types using data visualizers. It comes with built-in support for the [Plotly data visualizer](#plotly). To link any other custom visualizers, you can use the [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) library.
+
+### Plotly
+
+Plotly is an open-source JavaScript library that enables the creation of diverse data visualizations, including charts, 3D graphs, and more.
+
+![](./img/plotly.png)
+
+> Refer to [Plotly](https://plotly.com/) to learn more. 
+
+AI DIAL Chat integrates with Plotly, offering robust data visualization capabilities. To utilize Plotly, choose an AI DIAL application that supports this feature. These applications must be capable of querying data (either from a URL or directly from the Chat application) based on user input and returning it in a format compatible with Plotly. Chat automatically detects attachments in this format and uses Plotly to visualize the data.
+
+![](./img/plotly2.png)
+
+The visualizations come with standard Plotly controls for easy manipulation.
+
+> Refer to [Plotly GitHub](https://github.com/plotly/react-plotly.js) to learn more. 
+
+
+

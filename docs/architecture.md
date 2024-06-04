@@ -61,7 +61,7 @@ AI DIAL Core is headless and is the **only mandatory component**. It includes al
 
 #### Authentication and Authorization
 
-AI DIAL provides native support for [OpenID Connect](https://openid.net/developers/how-connect-works/) and [OAuth2](https://oauth.net/2/) and offers integration with various Identity Providers (IDP) such as Azure AD, Auth0, and Cognito where you can define user roles and attributes to support your custom permissions model. Additionally, you can leverage Keycloak to work with even wider range of IDPs.
+AI DIAL provides native support for [OpenID Connect](https://openid.net/developers/how-connect-works/) and [OAuth2](https://oauth.net/2/) and offers integration with various Identity Providers (IDP) such as Azure AD, Auth0, Okta and Cognito where you can define user roles and attributes to support your custom permissions model. Additionally, you can leverage Keycloak to work with even wider range of IDPs.
 
 There are two methods of CORE API calls authorization supported: JWT token and key. Both options provide granular permission management, allowing you to control access to specific functionalities or resources. Additionally, these authorization methods also enable rate and cost control, giving you the ability to manage the frequently of API calls.
 

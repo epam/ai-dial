@@ -1,8 +1,6 @@
----
-version: '3'
-
 include:
-  - ../../addon/docker-compose.yml
+  - path: ../../addon/docker-compose.yml
+    env_file: ./.env
 
 services:
   azure_deployment_host:
@@ -15,6 +13,7 @@ services:
     environment:
       DIAL_URL: "http://core:8080"
       DIAL_API_KEY: "dial_api_key"
+      DIAL_API_VERSION: "2024-02-01"
     depends_on:
       azure_deployment_host:
         condition: service_started
