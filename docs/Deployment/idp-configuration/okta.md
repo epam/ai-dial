@@ -69,7 +69,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
 Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) for more details.
    
   ```yaml
-  aidial.identityProviders.okta.jwksUrl: "<okta_jwks_uri>" # URL to jwks token like https://${yourOktaDomain}/oauth2/default/v1/keys
+  aidial.identityProviders.okta.jwksUrl: "<okta_jwks_uri>"
   aidial.identityProviders.okta.rolePath: "Groups"
   aidial.identityProviders.okta.issuerPattern: '^https:\/\/${yourOktaAccount}\.okta\.com.*$'
   aidial.identityProviders.okta.loggingKey: "sub"
