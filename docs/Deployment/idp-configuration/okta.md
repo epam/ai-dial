@@ -74,7 +74,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
 
 #### AI DIAL Core Settings
 
-Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) for more details.
+Add the following parameters to AI DIAL Core static configuration. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings) for more details.
    
   ```yaml
   aidial.identityProviders.okta.jwksUrl: "<okta_jwks_uri>"
@@ -91,23 +91,9 @@ Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Co
 
 Once all the above steps are completed, including the ones marked as **Optional**, you can assign roles to Models, Applications, Addons, and Assistants.
 
-In AI DIAL Core:
-
-* [Static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings): as value for `aidial.identityProviders.okta.rolePath` provide a claim from Okta.
-* [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): for `userRoles` - specific claim values. 
-
+In AI DIAL Core, in [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings), provide specific claim values for `userRoles` parameter. 
 
 In this example, `okta-group-name` claim value from the `Groups` Okta claim is configured for `chat-gpt-35-turbo` model:
-
-```yaml
-# Static settings of AI DIAL Core
-aidial.identityProviders.okta.jwksUrl: "<okta_jwks_uri>"
-aidial.identityProviders.okta.rolePath: "Groups"
-aidial.identityProviders.okta.issuerPattern: '^https:\/\/${yourOktaAccount}\.okta\.com.*$'
-aidial.identityProviders.okta.loggingKey: "sub"
-aidial.identityProviders.okta.loggingSalt: "loggingSalt"
-
-```
 
 ```yaml
 # Dynamic settings of AI DIAL Core
