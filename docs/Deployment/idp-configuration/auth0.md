@@ -27,8 +27,7 @@ In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants
 
 ### Configure Auth0
 
-> **Note:**
-> Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
+> **Note:** Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
 
 Follow these steps to configure Auth0:
 
