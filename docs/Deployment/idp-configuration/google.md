@@ -13,7 +13,7 @@
   - [Configure AI DIAL](#configure-ai-dial)
     - [AI DIAL Chat Settings](#ai-dial-chat-settings)
     - [AI DIAL Core Settings](#ai-dial-core-settings)
-    - [Assignment of Roles](#assignment-of-roles) 
+    - [Assignment of Roles](#assignment-of-roles)
   
 </div>
 
@@ -22,13 +22,6 @@
 This basic tutorial demonstrates how to configure [Google OAuth2](https://developers.google.com/identity/protocols/oauth2) and integrate it with AI DIAL for identity and access management.
 
 In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
-
-The complete process includes three steps: 
-
-1. [Configure Google OAuth2](#configure-google-oauth2) 
-2. [Configuration of AI DIAL Chat and Core](#configure-ai-dial)
-3. [Assignment of Roles](#assignment-of-roles) to AI DIAL Models/Applications/Assistants/Addons
-
 
 ## Configuration Guidelines
 

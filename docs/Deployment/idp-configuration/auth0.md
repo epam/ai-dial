@@ -23,12 +23,6 @@ This basic tutorial demonstrates how to configure an application in [Auth0](http
 
 In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
 
-The complete process includes three steps:
-
-1. [Configuration of Auth0](#configure-auth0)
-2. [Configuration of AI DIAL Chat and Core](#configure-ai-dial)
-3. [Assignment of Roles](#assignment-of-roles) to AI DIAL Models/Applications/Assistants/Addons
-
 ## Configuration Guidelines
 
 ### Configure Auth0

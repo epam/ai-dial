@@ -23,12 +23,6 @@ This basic tutorial demonstrates how to configure [Microsoft Entra ID](https://l
 
 In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
 
-The complete process includes three steps: 
-
-1. [Configure Microsoft Entra ID](#configure-microsoft-entra-id) 
-2. [Configuration of AI DIAL Chat and Core](#configure-ai-dial)
-3. [Assignment of Roles](#assignment-of-roles) to AI DIAL Models/Applications/Assistants/Addons
-
 ## Configuration Guidelines
 
 ### Configure Microsoft Entra ID

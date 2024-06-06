@@ -23,12 +23,6 @@ This basic tutorial demonstrates the steps to create a user pool in [AWS Cognito
 
 In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
 
-The complete process includes three steps:
-
-1. [Configuration of Cognito](#configure-aws-cognito)
-2. [Configuration of AI DIAL Chat and Core](#configure-ai-dial)
-3. [Assignment of Roles](#assignment-of-roles) to AI DIAL Models/Applications/Assistants/Addons
-
 ## Configuration Guidelines
 
 ### Configure AWS Cognito
