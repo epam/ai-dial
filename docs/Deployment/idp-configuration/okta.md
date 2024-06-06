@@ -2,21 +2,6 @@
 <!-- omit from toc -->
 # How to Set Okta as Identity Provider
 
-<div class="docusaurus-ignore">
-
-<!-- omit from toc -->
-# Table of Contents
-
-- [Introduction](#introduction)
-- [Configuration Guidelines](#configuration-guidelines)
-  - [Configure Okta](#configure-okta)
-  - [Configure AI DIAL](#configure-ai-dial)
-    - [AI DIAL Chat Settings](#ai-dial-chat-settings)
-    - [AI DIAL Core Settings](#ai-dial-core-settings)
-    - [Assignment of roles](#assignment-of-roles)
-  
-</div>
-
 ## Introduction
 
 This basic tutorial demonstrates how to configure an application in [Okta](https://www.okta.com/customer-identity/single-sign-on) and integrate it with AI DIAL for identity and access management.
