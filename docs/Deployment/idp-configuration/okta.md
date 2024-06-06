@@ -27,8 +27,7 @@ In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants
 
 ### Configure Okta
 
-> [!TIP]
-> Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
+> **Note:** Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
 
 Follow these steps to configure Okta:
 
@@ -47,7 +46,6 @@ Follow these steps to configure Okta:
 8. (Optional) **Assign Application to Group:** refer to [Assign the Application to group](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-assign-app-group.htm) to learn how to do this.
 9. (Optional) **Configure ID Token:** under the **Applications/Sign On/OpenID Connect ID Token** section, set **Groups** claim type to `Filter` and **Groups claim filter** to `groups; Matches regex: .*`. For more information, refer to the [Okta documentation](https://developer.okta.com/docs/guides/customize-tokens-groups-claim/main/).
 
-
 ### Configure AI DIAL
 
 To enable AI DIAL Chat and AI DIAL Core to work with Okta, configure them with the necessary Okta-specific parameters.
@@ -62,7 +60,6 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
   AUTH_OKTA_ISSUER: "<okta_issuer>" 
   ```
 
-> [!TIP]
 > `okta_issuer` example: `https://${yourOktaDomain}/oauth2/${authorizationServerId}`
 
 #### AI DIAL Core Settings
@@ -76,8 +73,8 @@ Add the following parameters to AI DIAL Core **static** settings. Refer to [AI D
   aidial.identityProviders.okta.loggingKey: "sub"
   aidial.identityProviders.okta.loggingSalt: "loggingSalt"
   ```
-  > [!TIP]
-  > `okta_jwks_uri` example: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/keys`
+
+> `okta_jwks_uri` example: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/keys`
 
 #### Assignment of Roles
 
