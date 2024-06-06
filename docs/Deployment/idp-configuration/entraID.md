@@ -1,10 +1,6 @@
 
 <!-- omit from toc -->
-# How to Set Up Google OAuth2 as Identity Provider
-
-## Introduction
-
-This basic tutorial demonstrates how to configure [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/whatis) and integrate it with AI DIAL for identity and access management.
+# How to Set Microsoft Entra as Identity Provider
 
 <div class="docusaurus-ignore">
 
@@ -17,9 +13,21 @@ This basic tutorial demonstrates how to configure [Microsoft Entra ID](https://l
   - [Configure AI DIAL](#configure-ai-dial)
     - [AI DIAL Chat Settings](#ai-dial-chat-settings)
     - [AI DIAL Core Settings](#ai-dial-core-settings)
-    - [Roles Management Guide](#roles-management-guide)
+    - [Assignment of Roles](#assignment-of-roles)
   
 </div>
+
+## Introduction
+
+This basic tutorial demonstrates how to configure [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/whatis) and integrate it with AI DIAL for identity and access management.
+
+In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
+
+The complete process includes three steps: 
+
+1. [Configure Microsoft Entra ID](#configure-microsoft-entra-id) 
+2. [Configuration of AI DIAL Chat and Core](#configure-ai-dial)
+3. [Assignment of Roles](#assignment-of-roles) to AI DIAL Models/Applications/Assistants/Addons
 
 ## Configuration Guidelines
 
@@ -30,20 +38,21 @@ This basic tutorial demonstrates how to configure [Microsoft Entra ID](https://l
 
 Follow these steps to configure Microsoft Entra ID:
 
-1. **Create an Application:** Begin by register an Application. You can refer to the official Microsoft documentation for detailed instructions on [how to register application](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application).
-1. **Configure Application Settings:** Set the following parameters:
+1. **Create an Application:** refer to [Microsoft documentation](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application) to learn how to register an application. Set the following parameters:
     - Name
     - Supported account types
     - Platform: `Web`
     - Redirect URI: `https://<chat_url>/api/auth/callback/azure-ad`
-1. Obtain and save **Application (client) ID** and **Directory (tenant) ID**
-1. **Add and save client secret:** Under the **Certificates & secrets/Client secret** section, create **New client secret** and save its value.
-1. (Optional) **Create a Group and add members:** Once the application integration is set up, [create the necessary Group and add members in Microsoft Entra](https://learn.microsoft.com/en-us/entra/fundamentals/groups-view-azure-portal).
-2. (Optional) **Configure ID Token:** Under the **Token Configuration** section, **Add Groups claim** and customize which groups you want to include and where (access, ID token). You can refer to the official Microsoft documentation for detailed instructions on [configuration of group claims for applications](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#important-caveats-for-this-functionality).
+1. After registering an application, obtain and save **Application (client) ID** and **Directory (tenant) ID** - you will need them to configure AI DIAL. Refer to [Microsoft documentation](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application#application-id-client-id).
+1. **Create and save a Client secret:** in the **Certificates & secrets/Client secret** section, create **New client secret** and save its value. Refer to [Microsoft documentation](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application#certificates--secrets).
+1. (Optional) **Create a Group and add members:** once the application integration is set up, create the necessary Group and add members. Refer to [Microsoft documentation](https://learn.microsoft.com/en-us/entra/fundamentals/groups-view-azure-portal).
+2. (Optional) **Configure ID Token:** in the **Token Configuration** section, **Add Groups claim** and customize which groups you want to include and where (access, ID token). Refer to [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#important-caveats-for-this-functionality).
 
 ### Configure AI DIAL
 
-To enable AI DIAL Chat and AI DIAL Core to work with Microsoft Entra ID, configure them with the necessary specific parameters.
+By configuring both AI DIAL Chat and AI DIAL Core with the necessary Microsoft Entra ID environment variables, you will enable them to work together seamlessly with Microsoft Entra ID for authentication and authorization purposes.
+
+To configure AI DIAL Chat and AI DIAL Core to work with Microsoft Entra ID, follow these steps:
 
 #### AI DIAL Chat Settings
 
@@ -62,7 +71,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
 
 #### AI DIAL Core Settings
 
-Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) for more details.
+Add the following parameters to AI DIAL Core **static** settings. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings) for more details.
    
   ```yaml
   aidial.identityProviders.azure.jwksUrl: "https://login.microsoftonline.com/<azure_tenant_id>/discovery/v2.0/keys"
@@ -72,21 +81,19 @@ Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Co
   aidial.identityProviders.azure.loggingSalt: "loggingSalt"
   ```
 
-#### Roles Management Guide
+#### Assignment of Roles
 
-AI DIAL enables assignment of roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
-Group management process is consisted of three steps:
+Once all the above steps are completed, including the ones marked as **Optional**, you can assign roles to Models, Applications, Addons, and Assistants.
 
-1. Create a Group and add members in Microsoft Entra
-1. Include into JWT token custom claim.
-1. Configure AI DIAL Chat and Core
-1. Assign roles to AI DIAL Models/Applications/Assistants/Addons
+In AI DIAL Core:
 
-All the steps mentioned above have been completed, including the ones marked as **Optional**. The final step involves allocating Microsoft Entra Groups towards AI DIAL Core configuration. The `aidial.identityProviders.azure.rolePath` setting is leveraged for this purpose, alongside the `userRoles` section found within the description of the DIAL resource.
+* [Static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings): as value for `aidial.identityProviders.azure.rolePath` provide a claim from Microsoft Entra.
+* [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): for `userRoles` provide a specific group name as a claim value. 
 
-In this example, the roles are provided to AI DIAL Core via user access token(JWT) by Microsoft Entra ID and are available via the path: `Groups` with values `azure-group-name`
+In this example, `"azure-group-name"` role from the `"groups"` claim is configured for `chat-gpt-35-turbo` model:
 
   ```yaml
+  # Dynamic settings of AI DIAL Core
   "models": {
       "chat-gpt-35-turbo": {
         "type": "chat",
