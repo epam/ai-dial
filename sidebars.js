@@ -26,22 +26,7 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/quick-start-with-addon',
           label: 'Chat with Addon',
-        },
-        {
-          type: 'doc',
-          id: 'tutorials/roles-management',
-          label: 'Roles Management',
-        },
-        {
-          type: 'doc',
-          id: 'tutorials/azure-ad-configuration',
-          label: 'How to Configure Azure AD',
-        },
-        {
-          type:'doc',
-          id: 'Deployment/idp-configuration/cognito',
-          label: 'How to Configure AWS Cognito'
-        },
+        }
       ],
     },
     'user-guide',
@@ -58,6 +43,40 @@ const sidebars = {
           type:'doc',
           id: 'Deployment/configuration',
           label: 'Configuration'
+        },
+        {
+          'IDP Configuration': [
+            {
+              type:'doc',
+              id: 'Deployment/idp-configuration/auth0',
+              label: 'Auth0'
+            },
+            {
+              type:'doc',
+              id: 'Deployment/idp-configuration/cognito',
+              label: 'AWS Cognito'
+            },
+            {
+              type:'doc',
+              id: 'Deployment/idp-configuration/entraID',
+              label: 'Microsoft Entra'
+            },
+            {
+              type:'doc',
+              id: 'Deployment/idp-configuration/google',
+              label: 'Google OAuth2'
+            },
+            {
+              type:'doc',
+              id: 'Deployment/idp-configuration/keycloak',
+              label: 'Keycloak'
+            },
+            {
+              type:'doc',
+              id: 'Deployment/idp-configuration/okta',
+              label: 'Okta'
+            },
+          ],
         },
         'Deployment/OpenAI Model Deployment',
         'Deployment/Vertex Model Deployment',
