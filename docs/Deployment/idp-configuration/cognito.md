@@ -27,7 +27,7 @@ In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants
 
 ### Configure AWS Cognito
 
-> [!TIP]
+> **Note:**
 > Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
 
 Follow these steps to configure AWS Cognito:
@@ -63,7 +63,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
   AUTH_COGNITO_SECRET: "<cognito_client_secret>"
   ```
 
-> [!TIP]    
+> **Note:**    
 > `cognito_host` example: `https://cognito-idp.<cognito_region>.amazonaws.com/<cognito_pool-id>`
 
 #### AI DIAL Core Settings
@@ -78,7 +78,7 @@ Add the following parameters to AI DIAL Core **static** settings. Refer to [AI D
   aidial.identityProviders.cognito.loggingSalt: "loggingSalt"
   ```
    
-> [!TIP]
+> **Note:**
 > `cognito_jwks_uri` example: `https://cognito-idp.<cognito_region>.amazonaws.com/<cognito_pool-id>/.well-known/jwks.json`
 
 #### Assignment of Roles

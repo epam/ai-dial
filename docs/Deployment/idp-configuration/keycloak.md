@@ -29,7 +29,7 @@ In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants
 
 ### Configure Keycloak
 
-> [!TIP]
+> **Note:**
 > Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
 
 There are two ways to configure Keycloak: via Admin Console or using a CLI tool.
@@ -57,7 +57,7 @@ Follow these steps to configure Keycloak in Admin Console:
 
 For setting up Keycloak, which is included in the AI DIAL Helm chart, you can use [Keycloak Config CLI](https://github.com/bitnami/containers/tree/main/bitnami/keycloak-config-cli#configuration). We suggest using the following configuration, which can be passed to `keycloak.keycloakConfigCli.configuration."realm\.yaml"` in the DIAL [Helm chart](https://github.com/epam/ai-dial-helm/blob/56b41d6f3c2148b42bdd12c1dcecc9711e23fd6d/charts/dial/values.yaml#L29). 
 
-> [!IMPORTANT]
+> **Note:**
 > Replace `<fields>` before applying this configuration.
 
   ```yaml
@@ -161,7 +161,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
   AUTH_KEYCLOAK_CLIENT_ID: "<keycloak_client_id>"
   AUTH_KEYCLOAK_SECRET: "<keycloak_client_secret>"
   ```
-> [!TIP]
+> **Note:**
 > `AUTH_KEYCLOAK_HOST` example: `https://keycloak.example.com/realms/dial`
 
 #### AI DIAL Core Settings
@@ -176,7 +176,7 @@ Add the following parameters to AI DIAL Core **static** settings. Refer to [AI D
   aidial.identityProviders.keycloak.loggingSalt: "loggingSalt" # strong generated string
   ```
 
-> [!TIP]    
+> **Note:**    
 > -  `keycloak_jwks_uri` example: `https://<keycloak_host>/realms/<keycloak_realm_id>/protocol/openid-connect/certs`
 > - `keycloak_role_path` example: `resource_access.dial-chat.roles`
 > - `issuerPattern` example: `'^https:\/\/keycloak\.example\.com.+$'`

@@ -5,7 +5,7 @@
 <div class="docusaurus-ignore">
 
 <!-- omit from toc -->
-# Table of Contents
+## Table of Contents
 
 - [Introduction](#introduction)
 - [Configuration Guidelines](#configuration-guidelines)
@@ -27,20 +27,20 @@ In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants
 
 ### Configure Auth0
 
-> [!TIP]
+> **Note:**
 > Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
 
 Follow these steps to configure Auth0:
 
 1. **Create Tenant:** create a new tenant and save its name. Refer to [Auth0 documentation](https://auth0.com/docs/get-started/auth0-overview/create-tenants) to learn how to do it.
-1. **Create Application:** create an [Application](https://auth0.com/docs/get-started/auth0-overview/create-applications). Set a name and choose `Regular Web Applications`.
-1. **Configure Application Settings:** in the [**Applications/Settings**](https://auth0.com/docs/get-started/applications/application-settings) section, set the following parameters:
+2. **Create Application:** create an [Application](https://auth0.com/docs/get-started/auth0-overview/create-applications). Set a name and choose `Regular Web Applications`.
+3. **Configure Application Settings:** in the [**Applications/Settings**](https://auth0.com/docs/get-started/applications/application-settings) section, set the following parameters:
     - Obtain and save **Domain**,**Client ID** and **Client secrets** generated for your application.
     - Allowed Callback URLs: `https://<chat_url>/api/auth/callback/auth0`
-1. **Create API:** in the **Applications/APIs** section, configure a new [**API**](https://auth0.com/docs/get-started/apis/api-settings).
-1. **Create Users:** in the **User Management/Users** section, create necessary [Users](https://auth0.com/docs/manage-users/user-accounts/create-users).
-1. (Optional) **Create and Assign Roles:** in the **User Management/Roles** section, create necessary [Roles](https://auth0.com/docs/manage-users/access-control/configure-core-rbac/roles/create-roles).
-1. (Optional) **Create Action:** in the **Actions/Library** section, create a necessary [Action](https://auth0.com/docs/customize/actions/write-your-first-action#create-an-action) and [Deploy](https://auth0.com/docs/customize/actions/write-your-first-action#deploy-the-action) it. Action parameters:
+4. **Create API:** in the **Applications/APIs** section, configure a new [**API**](https://auth0.com/docs/get-started/apis/api-settings).
+5. **Create Users:** in the **User Management/Users** section, create necessary [Users](https://auth0.com/docs/manage-users/user-accounts/create-users).
+6. (Optional) **Create and Assign Roles:** in the **User Management/Roles** section, create necessary [Roles](https://auth0.com/docs/manage-users/access-control/configure-core-rbac/roles/create-roles).
+7. (Optional) **Create Action:** in the **Actions/Library** section, create a necessary [Action](https://auth0.com/docs/customize/actions/write-your-first-action#create-an-action) and [Deploy](https://auth0.com/docs/customize/actions/write-your-first-action#deploy-the-action) it. Action parameters:
    - Name: `DIAL role`
    - Trigger: `Login/Post Login`
    - Runtime: `Node 18`
@@ -53,7 +53,7 @@ Follow these steps to configure Auth0:
        }
      };
      ```   
-1. (Optional) **Configure the Login Flow:** in the **Actions/Flows** section, choose `Login`, add a custom action `DIAL role` to `Flow` and apply the change. Refer to [Auth0](https://auth0.com/docs/customize/actions/flows-and-triggers) documentation to learn more.
+8. (Optional) **Configure the Login Flow:** in the **Actions/Flows** section, choose `Login`, add a custom action `DIAL role` to `Flow` and apply the change. Refer to [Auth0](https://auth0.com/docs/customize/actions/flows-and-triggers) documentation to learn more.
 
 ### Configure AI DIAL
 

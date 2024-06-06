@@ -27,7 +27,7 @@ In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants
 
 ### Configure Okta
 
-> [!TIP]
+> **Note:**
 > Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
 
 Follow these steps to configure Okta:
@@ -62,7 +62,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
   AUTH_OKTA_ISSUER: "<okta_issuer>" 
   ```
 
-> [!TIP]
+> **Note:**
 > `okta_issuer` example: `https://${yourOktaDomain}/oauth2/${authorizationServerId}`
 
 #### AI DIAL Core Settings
@@ -76,7 +76,7 @@ Add the following parameters to AI DIAL Core **static** settings. Refer to [AI D
   aidial.identityProviders.okta.loggingKey: "sub"
   aidial.identityProviders.okta.loggingSalt: "loggingSalt"
   ```
-  > [!TIP]
+  > **Note:**
   > `okta_jwks_uri` example: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/keys`
 
 #### Assignment of Roles

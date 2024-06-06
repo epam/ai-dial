@@ -27,7 +27,7 @@ In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants
 
 ### Configure Microsoft Entra ID
 
-> [!TIP]
+> **Note:**
 > Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
 
 Follow these steps to configure Microsoft Entra ID:
@@ -50,7 +50,7 @@ To configure AI DIAL Chat and AI DIAL Core to work with Microsoft Entra ID, foll
 
 #### AI DIAL Chat Settings
 
-> [!NOTE]
+> **Note:**
 >  The application **scope** is required to validate signature of the access token.
 > Refer to [Microsoft Portal](https://learn.microsoft.com/en-us/answers/questions/318741/graphapi-cannot-validate-access-token-signature) to read more about this case.
 
