@@ -1,10 +1,6 @@
 
 <!-- omit from toc -->
-# How to Set Up Google OAuth2 as Identity Provider
-
-## Introduction
-
-This basic tutorial demonstrates how to configure [Google OAuth2](https://developers.google.com/identity/protocols/oauth2) and integrate it with AI DIAL for identity and access management.
+# How to Set Google OAuth2 as Identity Provider
 
 <div class="docusaurus-ignore">
 
@@ -17,9 +13,22 @@ This basic tutorial demonstrates how to configure [Google OAuth2](https://develo
   - [Configure AI DIAL](#configure-ai-dial)
     - [AI DIAL Chat Settings](#ai-dial-chat-settings)
     - [AI DIAL Core Settings](#ai-dial-core-settings)
-    - [Roles Management Guide](#roles-management-guide)
+    - [Assignment of Roles](#assignment-of-roles) 
   
 </div>
+
+## Introduction
+
+This basic tutorial demonstrates how to configure [Google OAuth2](https://developers.google.com/identity/protocols/oauth2) and integrate it with AI DIAL for identity and access management.
+
+In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
+
+The complete process includes three steps: 
+
+1. [Configure Google OAuth2](#configure-google-oauth2) 
+2. [Configuration of AI DIAL Chat and Core](#configure-ai-dial)
+3. [Assignment of Roles](#assignment-of-roles) to AI DIAL Models/Applications/Assistants/Addons
+
 
 ## Configuration Guidelines
 
@@ -30,15 +39,15 @@ This basic tutorial demonstrates how to configure [Google OAuth2](https://develo
 
 Follow these steps to configure Google OAuth2:
 
-1. **Create an OAuth consent screen:** You can refer to the official Google documentation for detailed instructions on [configure the OAuth consent screen](https://developers.google.com/workspace/guides/configure-oauth-consent).
-1. **Create Client ID and Secret:** Click **Create Credentials > OAuth Client ID** and fill it:
+1. **Create an OAuth consent screen:** refer [Google documentation](https://developers.google.com/workspace/guides/configure-oauth-consent) to learn how to do this.
+1. **Create Client ID and Secret:** click **Create Credentials > OAuth Client ID** and fill it with:
     - Name
     - Application Type: `Web Application`
     - Authorized JavaScript Origins: `https://<chat_url>`
     - Authorized Redirect URLs: `https://<chat_url>/api/auth/callback/google`
-1. Obtain and save **Client ID** and **Client Secret** from the __OAuth Client__ modal
+1. Obtain and save **Client ID** and **Client Secret** from the __OAuth Client__ modal.
 1. (Optional) **Create a Group and add members:** Once the application integration is set up, [create the necessary Group and add members in Google Group](https://support.google.com/a/answer/9400082?hl=en#zippy=%2Cstep-create-a-group).
-1. (Optional) **Enable the Google Cloud Identity API:** Under [your organization’s dashboard](https://console.cloud.google.com/apis/api/cloudidentity.googleapis.com/) click `ENABLE` .
+1. (Optional) **Enable the Google Cloud Identity API:** click `ENABLE` in [your organization’s dashboard](https://console.cloud.google.com/apis/api/cloudidentity.googleapis.com/).
 
 ### Configure AI DIAL
 
@@ -56,7 +65,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
 
 #### AI DIAL Core Settings
 
-Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) for more details.
+Add the following parameters to AI DIAL Core **static** settings. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings) for more details.
    
   ```yaml
   aidial.identityProviders.google.userInfoEndpoint: "https://openidconnect.googleapis.com/v1/userinfo"
@@ -65,19 +74,16 @@ Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Co
   aidial.identityProviders.google.loggingSalt: "loggingSalt"
   ```
 
-#### Roles Management Guide
+#### Assignment of Roles
 
-AI DIAL enables assignment of roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
-Group management process is consisted of three steps:
+Once all the above steps are completed, including the ones marked as **Optional**, you can assign roles to Models, Applications, Addons, and Assistants.
 
-1. Create a Group and add members in Google Group
-1. Enable the Google Cloud Identity API
-1. Configure AI DIAL Chat and Core
-1. Assign roles to AI DIAL Models/Applications/Assistants/Addons
+In AI DIAL Core:
 
-All the steps mentioned above have been completed, including the ones marked as **Optional**. The final step involves allocating Google Group towards AI DIAL Core configuration. The `aidial.identityProviders.google.rolePath` setting is leveraged for this purpose, alongside the `userRoles` section found within the description of the DIAL resource.
+* [Static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings): as value for `aidial.identityProviders.google.rolePath` provide an API endpoint from Google OAuth2.
+* [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): for `userRoles` provide a specific group name. 
 
-In this example, the roles are provided to AI DIAL Core from userinfo endpoint and are available via the path: `Groups` with values `google-group-name`
+In this example, `"google-group-name"` role from the `"fn:getGoogleWorkspaceGroups"` API endpoint is configured for `chat-gpt-35-turbo` model:
 
   ```yaml
   "models": {
