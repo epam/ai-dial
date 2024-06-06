@@ -2,10 +2,6 @@
 <!-- omit from toc -->
 # How to Set Up Okta as Identity Provider
 
-## Introduction
-
-This basic tutorial demonstrates how to configure an application in [Okta](https://www.okta.com/customer-identity/single-sign-on) and integrate it with AI DIAL for identity and access management.
-
 <div class="docusaurus-ignore">
 
 <!-- omit from toc -->
@@ -17,9 +13,21 @@ This basic tutorial demonstrates how to configure an application in [Okta](https
   - [Configure AI DIAL](#configure-ai-dial)
     - [AI DIAL Chat Settings](#ai-dial-chat-settings)
     - [AI DIAL Core Settings](#ai-dial-core-settings)
-    - [Roles Management Guide](#roles-management-guide)
+    - [Assignment of roles](#assignment-of-roles)
   
 </div>
+
+## Introduction
+
+This basic tutorial demonstrates how to configure an application in [Okta](https://www.okta.com/customer-identity/single-sign-on) and integrate it with AI DIAL for identity and access management.
+
+In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
+
+The complete process includes three steps:
+
+1. [Configuration of Okta](#configure-okta)
+2. [Configuration of AI DIAL Chat and Core](#configure-ai-dial)
+3. [Assignment of roles](#assignment-of-roles) to AI DIAL Models/Applications/Assistants/Addons
 
 ## Configuration Guidelines
 
@@ -30,17 +38,20 @@ This basic tutorial demonstrates how to configure an application in [Okta](https
 
 Follow these steps to configure Okta:
 
-1. **Create an Application:** Begin by creating an [Application](https://help.okta.com/okta_help.htm?type=oie&locale=en&id=csh-apps-main). You can refer to the official Okta documentation for detailed instructions on [how to create an OIDC app integration](https://help.okta.com/oie/en-us/content/topics/apps/apps_app_integration_wizard_oidc.htm).
-1. **Configure Application Settings:** Under the **Applications/Applications** section, set the following parameters:
-   
+1. **Create an Application:** begin by creating an [Application](https://help.okta.com/okta_help.htm?type=oie&locale=en&id=csh-apps-main). You can refer to the official Okta documentation for detailed instructions on [how to create an OIDC app integration](https://help.okta.com/oie/en-us/content/topics/apps/apps_app_integration_wizard_oidc.htm).
+2. **Configure Application Settings:** under the **Applications/Applications** section, set the following parameters:
     - Sign-in redirect URIs: `https://<chat_url>/api/auth/callback/okta`
     - Sign-out redirect URIs: `https://<chat_url>`
     - Obtain and save **Client ID** and **Client secrets** generated for your application.
-
-1. **Obtain Issuer URI and JWKS URI:** Under **Security/API** section, locate the **Issuer URI**. You can find the **jwks_uri** within the Issuer URI. This URI will be used in AI DIAL Core configuration.
-1. **Create Users:** Once the application integration is set up, create the necessary [People](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-people.htm)
-1. (Optional) **Create Groups and Assign People:** Create [Groups](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-groups-main.htm). After that assign users to the relevant groups.
-1. (Optional) **Assign Application to Group:** [Assign the Application to group](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-assign-app-group.htm)
+3. **Enable API Scopes:** under the **Applications/Okta API Scopes** section, enable the following scopes:
+    - okta.users.read
+    - okta.users.read.self
+4. **Obtain Issuer URI and JWKS URI:** under **Security/API** section, locate the **Issuer URI**. You can find the **jwks_uri** within the Issuer URI. This URI will be used in AI DIAL Core configuration.
+5. **Create Users:** once the application integration is set up, create the necessary users. Refer to [People](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-people.htm) to learn how to do this.
+6. (Optional) **Create Groups:** create the necessary [Groups](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-groups-main.htm) in Okta.
+7. (Optional) **Assign People:** assign users (People) to the relevant Groups.
+8. (Optional) **Assign Application to Group:** refer to [Assign the Application to group](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-assign-app-group.htm) to learn how to do this.
+9. (Optional) **Configure ID Token:** under the **Applications/Sign On/OpenID Connect ID Token** section, set **Groups** claim type to `Filter` and **Groups claim filter** to `groups; Matches regex: .*`. For more information, refer to the [Okta documentation](https://developer.okta.com/docs/guides/customize-tokens-groups-claim/main/).
 
 
 ### Configure AI DIAL
@@ -62,7 +73,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
 
 #### AI DIAL Core Settings
 
-Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) for more details.
+Add the following parameters to AI DIAL Core **static** settings. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings) for more details.
    
   ```yaml
   aidial.identityProviders.okta.jwksUrl: "<okta_jwks_uri>"
@@ -70,34 +81,31 @@ Add the following parameters to AI DIAL Core configuration. Refer to [AI DIAL Co
   aidial.identityProviders.okta.issuerPattern: '^https:\/\/${yourOktaAccount}\.okta\.com.*$'
   aidial.identityProviders.okta.loggingKey: "sub"
   aidial.identityProviders.okta.loggingSalt: "loggingSalt"
-
   ```
   > [!TIP]
   > `okta_jwks_uri` example: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/keys`
 
-#### Roles Management Guide
+#### Assignment of Roles
 
-AI DIAL enables assignment of roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
-Group management process is consisted of three steps:
+Once all the above steps are completed, including the ones marked as **Optional**, you can assign roles to Models, Applications, Addons, and Assistants.
 
-1. Create groups in Okta
-1. Include into JWT token custom claim.
-1. Configure AI DIAL Chat and Core
-1. Assign roles to AI DIAL Models/Applications/Assistants/Addons
+In AI DIAL Core:
 
-All the steps mentioned above have been completed, including the ones marked as **Optional**. The final step involves allocating Okta Groups towards AI DIAL Core configuration. The `aidial.identityProviders.okta.rolePath` setting is leveraged for this purpose, alongside the `userRoles` section found within the description of the DIAL resource.
+* [Static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings): as value for `aidial.identityProviders.okta.rolePath` provide a claim from Okta.
+* [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): for `userRoles` provide a specific claim value. 
 
-In this example, the roles are provided to AI DIAL Core via user access token(JWT) by Okta and are available via the path: `Groups` with values `okta-group-name`
+In this example, `okta-group-name` claim value from the `Groups` Okta claim is configured for `chat-gpt-35-turbo` model:
 
-  ```yaml
-  "models": {
-      "chat-gpt-35-turbo": {
-        "type": "chat",
-        "endpoint" : "http://localhost:7001/v1/openai/deployments/gpt-35-turbo/chat/completions",
-        "upstreams": [
-          {"endpoint": "http://localhost:7001", "key": "modelKey1"}
-        ],
-        "userRoles": ["okta-group-name"]
-      }
-  }
-  ```
+```yaml
+# Dynamic settings of AI DIAL Core
+"models": {
+    "chat-gpt-35-turbo": {
+      "type": "chat",
+      "endpoint" : "http://localhost:7001/v1/openai/deployments/gpt-35-turbo/chat/completions",
+      "upstreams": [
+        {"endpoint": "http://localhost:7001", "key": "modelKey1"}
+      ],
+      "userRoles": ["okta-group-name"]
+    }
+}
+```
