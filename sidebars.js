@@ -26,6 +26,11 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/quick-start-with-addon',
           label: 'Chat with Addon',
+        },
+        {
+          type: 'doc',
+          id: 'Deployment/Roles Management',
+          label: 'API Keys Roles and Limits',
         }
       ],
     },
