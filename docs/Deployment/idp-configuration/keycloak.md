@@ -6,22 +6,13 @@
 
 This basic tutorial demonstrates the steps to create a REALM in [Keycloak](https://www.keycloak.org) and use it as an identity and access management solution for AI DIAL users.
 
-<div class="docusaurus-ignore">
+In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
 
-<!-- omit from toc -->
-# Table of Contents
+The complete process includes three steps:
 
-- [Introduction](#introduction)
-- [Configuration Guidelines](#configuration-guidelines)
-  - [Configure Keycloak](#configure-keycloak)
-    - [Manual](#manual)
-    - [Using cli](#using-cli)
-  - [Configure AI DIAL](#configure-ai-dial)
-    - [AI DIAL Chat Settings](#ai-dial-chat-settings)
-    - [AI DIAL Core Settings](#ai-dial-core-settings)
-    - [Roles Management Guide](#roles-management-guide)
-  
-</div>
+1. [Configuration of Keycloak](#configure-keycloak)
+2. [Configuration of AI DIAL Chat and Core](#configure-ai-dial)
+3. [Assignment of roles](#assignment-of-roles) to AI DIAL Models/Applications/Assistants/Addons
 
 ## Configuration Guidelines
 
@@ -30,9 +21,11 @@ This basic tutorial demonstrates the steps to create a REALM in [Keycloak](https
 > [!TIP]
 > Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
 
-#### Manual
+There are two ways to configure Keycloak: via Admin Console or using a CLI tool.
 
-Follow these steps to configure Keycloak:
+#### Configuration in Keycloak Admin Console
+
+Follow these steps to configure Keycloak in Admin Console:
 
 1. **Create a Client:** [Create an OpenID Connect client](https://www.keycloak.org/docs/latest/server_admin/#proc-creating-oidc-client_server_administration_guide) in Keycloak with the following settings:
    - Client type: OpenID Connect
@@ -42,12 +35,16 @@ Follow these steps to configure Keycloak:
    - Valid redirect URIs: `<chat_url>/*`
    - Home URL: `<chat_url>`
    - Web origins: `<chat_url>`
-1.  **Collect configuration parameters:** Navigate to **Clients/Client details/Settings** and note the **Client ID**  Next, go to **Clients/Client details/Credentials** click on view **Client secret** and note it. Finally, visit **Realm settings/General** to get the **Realm ID**.
-1. **Create Users:** Сreate necessary [Users](https://www.keycloak.org/docs/latest/server_admin/#proc-creating-user_server_administration_guide).
-1. (Optional) **Create Roles and assign to User:** Under the **Clients/Client details/Roles** create necessary [Client roles](https://www.keycloak.org/docs/latest/server_admin/#con-client-roles_server_administration_guide). After that [assign roles to users](https://www.keycloak.org/docs/latest/server_admin/#proc-assigning-role-mappings_server_administration_guide).
+2.  **Collect configuration parameters:** in this step, you will collect parameters that will be required for [AI DIAL configuration](#ai-dial-chat-settings).
+    - In **Clients/Client details/Settings**, record the **Client ID**.
+    - In **Clients/Client details/Credentials**, click on view **Client secret** and record it. 
+    - In **Realm settings/General**, record the **Realm ID**.
+3. **Create Users:** create necessary [Users](https://www.keycloak.org/docs/latest/server_admin/#proc-creating-user_server_administration_guide).
+4. (Optional) **Create and Assign Roles:** under the **Clients/Client details/Roles**, create necessary [Client roles](https://www.keycloak.org/docs/latest/server_admin/#con-client-roles_server_administration_guide). After that [assign roles to users](https://www.keycloak.org/docs/latest/server_admin/#proc-assigning-role-mappings_server_administration_guide).
 
-#### Using cli
-For setting up Keycloak, which is included in dial Helm chart, you can use a special [tool](https://github.com/bitnami/containers/tree/main/bitnami/keycloak-config-cli#configuration). We suggest using the following configuration, which can be passed to `keycloak.keycloakConfigCli.configuration."realm\.yaml"`. 
+#### Configuration in Keycloak Config CLI
+
+For setting up Keycloak, which is included in the AI DIAL Helm chart, you can use [Keycloak Config CLI](https://github.com/bitnami/containers/tree/main/bitnami/keycloak-config-cli#configuration). We suggest using the following configuration, which can be passed to `keycloak.keycloakConfigCli.configuration."realm\.yaml"` in the DIAL [Helm chart](https://github.com/epam/ai-dial-helm/blob/56b41d6f3c2148b42bdd12c1dcecc9711e23fd6d/charts/dial/values.yaml#L29). 
 
 > [!IMPORTANT]
 > Replace `<fields>` before applying this configuration.
@@ -141,6 +138,7 @@ For setting up Keycloak, which is included in dial Helm chart, you can use a spe
 ### Configure AI DIAL
 
 By configuring both AI DIAL Chat and AI DIAL Core with the necessary environment variables, you will enable them to work together seamlessly with Identity Provider for authentication and authorization purposes.
+
 To configure AI DIAL Chat and AI DIAL Core to work with Keycloak, follow these steps:
 
 #### AI DIAL Chat Settings
@@ -157,7 +155,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
 
 #### AI DIAL Core Settings
 
-Add the following parameters to AI DIAL Core. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration) configuration to learn more.
+Add the following parameters to AI DIAL Core **static** settings. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings) for more details.
    
   ```yaml
   aidial.identityProviders.keycloak.jwksUrl: "<keycloak_jwks_uri>"
@@ -172,28 +170,27 @@ Add the following parameters to AI DIAL Core. Refer to [AI DIAL Core](https://gi
 > - `keycloak_role_path` example: `resource_access.dial-chat.roles`
 > - `issuerPattern` example: `'^https:\/\/keycloak\.example\.com.+$'`
 
-#### Roles Management Guide
+#### Assignment of Roles
 
-AI DIAL enables assignment of roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
-Group management process is consisted of three steps:
+Once all the above steps are completed, including the ones marked as **Optional**, you can assign roles to Models, Applications, Addons, and Assistants.
 
-1. Create roles in Keycloak
-1. Configure AI DIAL Chat and Core
-1. Assign roles to AI DIAL Models/Applications/Assistants/Addons
+In AI DIAL Core:
 
-All the steps mentioned above have been completed, including the ones marked as **Optional**. The final step involves allocating Keycloak Roles towards AI DIAL Core configuration. The `aidial.identityProviders.keycloak.rolePath` setting is leveraged for this purpose, alongside the `userRoles` section found within the description of the DIAL resource.
+* [Static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings): as value for `aidial.identityProviders.keycloak.rolePath` provide a role path from Keycloak.
+* [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): for `userRoles` provide a specific role name(s). 
 
-In this example, the roles are provided to AI DIAL Core via user access token(JWT) by Keycloak and are available via the path: `Roles` with values `keycloak-role-name`
+In this example, `"keycloak-role-name"` role from the `<keycloak_role_path>` is configured for `chat-gpt-35-turbo` model:
 
-  ```yaml
-  "models": {
-      "chat-gpt-35-turbo": {
-        "type": "chat",
-        "endpoint" : "http://localhost:7001/v1/openai/deployments/gpt-35-turbo/chat/completions",
-        "upstreams": [
-          {"endpoint": "http://localhost:7001", "key": "modelKey1"}
-        ],
-        "userRoles": ["keycloak-role-name"]
-      }
-  }
-  ```
+```yaml
+# Dynamic settings of AI DIAL Core
+"models": {
+    "chat-gpt-35-turbo": {
+      "type": "chat",
+      "endpoint" : "http://localhost:7001/v1/openai/deployments/gpt-35-turbo/chat/completions",
+      "upstreams": [
+        {"endpoint": "http://localhost:7001", "key": "modelKey1"}
+      ],
+      "userRoles": ["keycloak-role-name"]
+    }
+}
+```
