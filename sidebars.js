@@ -29,7 +29,7 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'Deployment/Roles Management',
+          id: 'tutorials/Roles Management',
           label: 'API Keys Roles and Limits',
         }
       ],
