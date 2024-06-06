@@ -1,6 +1,6 @@
 
 <!-- omit from toc -->
-# How to Set Up Okta as Identity Provider
+# How to Set Okta as Identity Provider
 
 <div class="docusaurus-ignore">
 
