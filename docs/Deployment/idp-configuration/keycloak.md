@@ -2,6 +2,21 @@
 <!-- omit from toc -->
 # How to Set Keycloak as Identity Provider
 
+<div class="docusaurus-ignore">
+
+<!-- omit from toc -->
+# Table of Contents
+
+- [Introduction](#introduction)
+- [Configuration Guidelines](#configuration-guidelines)
+  - [Configure Keycloak](#configure-keycloak)
+  - [Configure AI DIAL](#configure-ai-dial)
+    - [AI DIAL Chat Settings](#ai-dial-chat-settings)
+    - [AI DIAL Core Settings](#ai-dial-core-settings)
+    - [Assignment of Roles](#assignment-of-roles)
+  
+</div>
+
 ## Introduction
 
 This basic tutorial demonstrates the steps to create a REALM in [Keycloak](https://www.keycloak.org) and use it as an identity and access management solution for AI DIAL users.
@@ -12,7 +27,7 @@ The complete process includes three steps:
 
 1. [Configuration of Keycloak](#configure-keycloak)
 2. [Configuration of AI DIAL Chat and Core](#configure-ai-dial)
-3. [Assignment of roles](#assignment-of-roles) to AI DIAL Models/Applications/Assistants/Addons
+3. [Assignment of Roles](#assignment-of-roles) to AI DIAL Models/Applications/Assistants/Addons
 
 ## Configuration Guidelines
 
