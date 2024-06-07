@@ -278,6 +278,16 @@ You can as well perform several actions on your folders:
 
 ![](./img/attachments2.png)
 
+**To Unshare a file**
+
+Using the application that supports the atachments of files, you can create a conversation and share it with someone. When a conversation is shared, all the attached to the conversation files are shared as well. In the attachments manager, such shared files are tagged with a blue arrow:
+
+![](./img/unshare.png)
+
+In the file menu, you can choose to unshare it: 
+
+![](./img/file-menu.png)
+
 **To Download Attachments**:
 
 > Click a folder to expand it.
