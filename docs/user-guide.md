@@ -145,7 +145,7 @@ To import JSON or a zip file with conversations, click the **Import conversation
  
 ![](./img/import_conv.png)
 
-> Note, that when importing a duplicate of an existing conversation, you will be prompted to select one of the proceeding options: replace, ignore ot add a prefix.
+> Note, that when importing a duplicate of an existing conversation, you will be prompted to select one of the proceeding options: replace, ignore or add a prefix to the imported conversation.
 
 ![](./img/import-export.png)
 
@@ -423,6 +423,14 @@ You can duplicate a prompt, for example, to be able to change a prompt that was 
 > You can duplicate only prompt shared with you.
 
 ![](./img/duplicate_prompt.png)
+
+### Export Import
+
+You can export and import prompts. 
+
+> Note, that when importing a duplicate of an existing prompt, you will be prompted to select one of the proceeding options: replace, ignore or add a prefix to the imported prompt.
+
+![](./img/import-export-prompt.png)
 
 ## Chat Settings
 
