@@ -312,11 +312,11 @@ You can perform various actions with your prompts:
 
 - **Edit**: select a prompt on the right panel to invoke the Edit window. Make all necessary changes and click **Save**. 
 - **Export**: right-click a prompt on the right panel and select **Export**. The prompt will be exported as JSON.
+- **Import**: click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
 - **Move to**: use to place a prompt in a folder.
 - **Delete**: right-click a prompt on the right panel and select **Delete**, then confirm the action.
 - **Delete all prompts**: click the **Delete all** icon at the bottom of the right panel and confirm your action.
 - **Export all prompts**: click the **Export prompts** icon at the bottom of the right panel. All your prompts will be exported as JSON.
-- **Import**: click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
 - **Share**: use to share a prompt or a folder with several prompts with other users.
 - **Unshare**: use to revoke access to shared prompts.
 
@@ -343,12 +343,13 @@ You can filter prompts by the "Shared by me" criterion. To do so, click the **Fi
  
 ### Create
 
-![](./img/create_prompt.png)
+![](./img/create-pt.png)
 
 To create a new prompt:
 
 1.	On the right panel, select **New prompt**.
-2.	Fill in the **Name**, **Description**, and **Prompt** boxes. The following symbols in the prompt names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the prompt name is limited to 160 symbols. Everything beyond is cut off. 
+2.	Fill in the **Name**, **Description**, and **Prompt** boxes. The following symbols in the prompt names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the prompt name is limited to 160 symbols. Everything beyond is cut off.
+> Note, that **Name** and **Prompt** are the required parameters!
 3.	Click **Save**.
 
 >  **Name** and **Description** aren’t used as instructions for a language model. They only help you to distinguish the prompt from others. The language model will only use instructions from the **Prompt** box.
