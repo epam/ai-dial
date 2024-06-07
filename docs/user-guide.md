@@ -208,15 +208,13 @@ As you can see on the picture above, the system creates two conversations with t
 3. By default, only conversations with the same name are available in the drop box. Select **Show all conversations** to see the full list of conversations.
 4.	Type your question (prompt) in the chat box.
 
-### Manage Attachments
-
-#### Attach Files, Folders and Links
+### Attachments
 
 AI DIAL applications can support attaching files, links or folders to a conversation. 
 
 ![](./img/attachment1.png)
 
-##### Folders
+#### Folders
 
 If the selected application supports this, you can click a staple icon and select **Attach folders**.
 
@@ -230,9 +228,27 @@ In the pop-up window, select a checkbox for the folder you want to add to add it
 
 #### Attachments Manager 
 
-All attached files will be available in the attachment manager. To manage all attachments, click the **Attachments** icon at the bottom of the left panel.
+All attached files will be available in the attachments manager. To manage all attachments, click the **Attachments** icon at the bottom of the left panel.
 
 ![](./img/attachments3.png)
+
+**To create a folder:**
+
+You can create folders to group your attached files. 
+
+> AI DIAL applications can be configured to allow attaching entire folders to conversations. In this case, onlu folders creted in attachemnts manager can be attached to a conversation.
+
+![](./img/create-folder.png)
+
+1. Click a folder icon to create a new folder.
+2. Give your folder a name.
+3. Click submit to approve.
+
+You can as well perform several actions on your folders: 
+
+* Rename
+* Download
+* Add subfolders
 
 **To Upload a file:**
 
