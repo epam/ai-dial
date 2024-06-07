@@ -210,25 +210,37 @@ As you can see on the picture above, the system creates two conversations with t
 
 ### Attachments
 
-AI DIAL applications can support attaching files, links or folders to a conversation. 
+AI DIAL applications (e.g. DIAL RAG) can support attaching files, links or folders to a conversation and generate responses considering the attached resources.
 
 ![](./img/attachment1.png)
 
 #### Folders
 
-If the selected application supports this, you can click the attachment icon and select **Attach folders**.
+If the selected application supports this, you can click the attachment icon in the conversation box and select **Attach folders**.
 
 > Note, that you can attach only folders from the file manager and cannot upload folders from an external source.
 
 ![](./img/attach-folder1.png)
 
-In the pop-up window, select a checkbox for the folder you want to add to add it. The attached folder will appear in the conversation box. 
+In the pop-up window, select a checkbox for the folder you want to add to add it. The attached folder will appear in the conversation box and become available for the application to work with. 
 
 ![](./img/attach-folders.png)
 
+#### Links
+
+If the selected application supports this, you can click the attachment icon in the conversation box and select **Attach link**. Then, specify a valid URL and click **Attach**. The link will be displayed as attachment in the conversation box and become available for the application to work with.
+
+![](./img/attach-link.png)
+
+#### Files
+
+If the selected application supports this, you can click the attachment icon in the conversation box and select **Attach uploaded files**. In the attachments manager, select available files that you have previously uploaded and select a checkbox to add to the conversation. The file will be displayed as attachment in the conversation box and become available for the application to work with.
+
+![](./img/attach-file.png)
+
 #### Attachments Manager 
 
-All attached files are available in the attachments manager. To manage all attachments, click the **Attachments** icon at the bottom of the left panel.
+All attached and uploaded files are available in the attachments manager. To manage all attachments, click the **Attachments** icon at the bottom of the left panel.
 
 ![](./img/attachments3.png)
 
