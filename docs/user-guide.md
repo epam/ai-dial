@@ -250,6 +250,8 @@ You can as well perform several actions on your folders:
 * Download
 * Add subfolders
 
+![](./img/folder-actions.png)
+
 **To Upload a file:**
 
 1. In the Manage attachments dialog, select **Upload from device**.
