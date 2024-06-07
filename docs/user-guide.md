@@ -28,7 +28,7 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 - **Stop generating**: in the process of generating the response, you can stop it.
 - **Regenerate response**: when stopped, you can regenerate the response. **Important**: If you encounter a server error or click the **Stop Generating** button and receive an empty response, the **Send** button will be disabled. To continue the conversation, you'll need to generate the answer again. If you receive a partial response (a combination of text and an error), the model can still proceed, while for Assistants/Applications, you'll need to generate the response again.
 - **Delete/Edit**: during the conversation, you can edit or delete your prompts. After a prompt has been edited, the response is regenerated, and all your prompts after the edited one will be deleted. When you delete your prompt, the response will be deleted, too.
-- **Attach files**: some models and applications, like _DIAL RAG_ and _Echo_, support adding attachments (files, links, folders) to conversations. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#manage-attachments) section for details.
+- **Attach files**: some models and applications, like _DIAL RAG_ and _Echo_, support adding attachments (files, links, folders) to conversations. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#attachments) section for details.
 - **Download attached files**: click the **Download** icon near the file name.
 - **Preview attached images**: click the **Expand** icon near the image name. 
 - **Copy**: you can copy answers.
@@ -216,38 +216,38 @@ AI DIAL applications can support attaching files, links or folders to a conversa
 
 #### Folders
 
-If the selected application supports this, you can click a staple icon and select **Attach folders**.
+If the selected application supports this, you can click the attachment icon and select **Attach folders**.
 
 > Note, that you can attach only folders from the file manager and cannot upload folders from an external source.
 
 ![](./img/attach-folder1.png)
 
-In the pop-up window, select a checkbox for the folder you want to add to add it. 
+In the pop-up window, select a checkbox for the folder you want to add to add it. The attached folder will appear in the conversation box. 
 
 ![](./img/attach-folders.png)
 
 #### Attachments Manager 
 
-All attached files will be available in the attachments manager. To manage all attachments, click the **Attachments** icon at the bottom of the left panel.
+All attached files are available in the attachments manager. To manage all attachments, click the **Attachments** icon at the bottom of the left panel.
 
 ![](./img/attachments3.png)
 
 **To create a folder:**
 
-You can create folders to group your attached files. 
+You can create folders to group the attached files. 
 
-> AI DIAL applications can be configured to allow attaching entire folders to conversations. In this case, onlu folders creted in attachemnts manager can be attached to a conversation.
+> AI DIAL applications can be configured to allow attaching entire folders to conversations. In this case, only folders created in the attachemnts manager can be attached to a conversation.
 
 ![](./img/create-folder.png)
 
 1. Click a folder icon to create a new folder.
 2. Give your folder a name.
-3. Click submit to approve.
+3. Click submit to apply.
 
 You can as well perform several actions on your folders: 
 
 * Rename
-* Download
+* Upload files
 * Add subfolders
 
 ![](./img/folder-actions.png)
