@@ -180,7 +180,7 @@ The Playback mode can be used to simulate the current conversation without any e
 
 ![](./img/playback2.png)
 
-During the playback, you can manually stop and resume the playback process. 
+During the playback, you can move back and forward the playback process or stop it.
 
 ### Compare
 
