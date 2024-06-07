@@ -28,7 +28,7 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 - **Stop generating**: in the process of generating the response, you can stop it.
 - **Regenerate response**: when stopped, you can regenerate the response. **Important**: If you encounter a server error or click the **Stop Generating** button and receive an empty response, the **Send** button will be disabled. To continue the conversation, you'll need to generate the answer again. If you receive a partial response (a combination of text and an error), the model can still proceed, while for Assistants/Applications, you'll need to generate the response again.
 - **Delete/Edit**: during the conversation, you can edit or delete your prompts. After a prompt has been edited, the response is regenerated, and all your prompts after the edited one will be deleted. When you delete your prompt, the response will be deleted, too.
-- **Attach files**: some models and applications, like _DIAL RAG_ and _Echo_, allow adding attachments to the conversation. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#manage-attachments) section for details.
+- **Attach files**: some models and applications, like _DIAL RAG_ and _Echo_, support adding attachments (files, links, folders) to conversations. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#manage-attachments) section for details.
 - **Download attached files**: click the **Download** icon near the file name.
 - **Preview attached images**: click the **Expand** icon near the image name. 
 - **Copy**: you can copy answers.
@@ -210,7 +210,11 @@ As you can see on the picture above, the system creates two conversations with t
 
 ### Manage Attachments
 
-To manage all attachments, click the **Attachments** icon at the bottom of the left panel.
+AI DIAL applications can support adding files, links or folders to a conversation. 
+
+![](./img/attachment1.png)
+
+All attached files will be available in the attachment manager. To manage all attachments, click the **Attachments** icon at the bottom of the left panel.
 
 ![](./img/attachments3.png)
 
