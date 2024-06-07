@@ -4,6 +4,12 @@
 
 * [Contribution Guide](https://github.com/epam/ai-dial/blob/main/CONTRIBUTING.md)
 
+## Architecture
+
+* [Architecture Overview](./architecture.md)
+* [Authentication and Authorization of API Keys](./tutorials/roles-management.md)
+* [Authentication and Authorization of Users](./Deployment/idp-configuration/auth0.md)
+
 ## Quick Start
 
 * [Quick Start Guide](./quick-start.md)
