@@ -145,6 +145,10 @@ To import JSON or a zip file with conversations, click the **Import conversation
  
 ![](./img/import_conv.png)
 
+> Note, that when importing a duplicate of an existing conversation, you will be prompted to select one of the proceeding options: replace, ignore ot add a prefix.
+
+![](./img/export-import.png)
+
 ### Delete
 
 You can delete a single conversation or all conversations.
