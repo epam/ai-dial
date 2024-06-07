@@ -6,11 +6,11 @@ The AI DIAL Chat application interface has several sections, such as the chat bo
 
 ![](./img/home.png)
 
-1. **Conversations**: Here, you can manage your conversations: create new ones, organize them in folders, and delete. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
-2. **Prompts**: In this section, you can work with saved prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
-3. **Chat**: Use this section to enter a prompt, view results, and interact with language models.
-4. **Chat Settings**: In this section, you can select the language model, assistant, application, and addons you'd like to use. You can also provide a system prompt and adjust the temperature setting.
-5. **User Settings**: In your user settings, you can customize the color theme (dark or light), choose a custom logo and other customization options.
+1. [Conversations](#conversations): Here, you can manage your conversations: create new ones, organize them in folders, and delete. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
+2. **Chat**: Use this section to enter a prompt, view results, and interact with language models.
+3. [Chat Settings](#chat-settings): In this section, you can select the language model, assistant, application, and addons you'd like to use. You can also provide a system prompt and adjust the temperature setting.
+4. [Prompts](#prompts): In this section, you can work with saved prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
+5. [User Settings](#user-settings): In your user settings, you can customize the color theme (dark or light), choose a custom logo and other customization options.
 
 ## Conversations
 
@@ -454,6 +454,10 @@ In this section, you can choose the language model for communication, as well as
 
 ### Language Models
 
+1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
+2. Select the **Models** tab to display the available language models.
+3. To select a model: click any of the available models or select its version in the dropdown list. The selected model will appear in the models list as pre-selected for the new conversation.
+
 ![](./img/all_models.png)
 
 **Available language models**:
@@ -473,6 +477,10 @@ In this section, you can choose the language model for communication, as well as
 
 ### Assistants
 
+1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
+2. Select the **Assistants** tab to display the available assistants.
+3. Click any of the available assistants to start a conversation. 
+
 ![](./img/Talk_to_full_list_assistants.png)
 
 In the AI DIAL framework, Assistants are a combination of preselected Addons and System Prompts that enable specific behavior in the LLM, allowing for more tailored and adaptive responses to user needs. Unlike the Model+Addon configuration, where users have the flexibility to choose different Addons, Assistants come with predetermined Addons that cannot be removed or unselected. However, the Model can still be reassigned within the Assistant.
@@ -481,7 +489,11 @@ Assistants give you more control over LLM behavior, resulting in tailored and ac
 
 In a chat application, you can include custom Assistant(s) that users can choose when using AI DIAL.
 
-### Applications   
+### Applications
+
+1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
+2. Select the **Applications** tab to display the available applications.
+3. Click any of the available applications to start a conversation. 
 
 ![](./img/applications.png)
 
@@ -526,11 +538,12 @@ Adjusting the temperature allows you to balance creativity and consistency in th
 ### Addons
 
 You may want LLM to access particular data or technology to generate responses. This could be your company's database, a collection of PDF documents, calculation engines, API or any other data source or technology.
-Within the AI DIAL framework, an Addon is a service or any component that follows the Open API specification. LLMs can access and use any desired data source or technology to create responses.
+Within the AI DIAL framework, an Addon is a service or any component that follows the Open API specification. Some examples of Addon implementation are semantic search, Q&A search, DB query generator, or any other custom logic that meets your business needs. AI DIAL can include custom Addons that you can choose to activate a specific system behavior.
+
+1. In the **Talk to** area, click **See all addons...** to display all the available addons.
+2. Select one or several addons and click **Apply**
 
 ![](./img/addons2.png)
-
-Some examples of Addon implementation are semantic search, Q&A search, DB query generator, or any other custom logic that meets your business needs. AI DIAL can include custom Addons that you can choose to activate a specific system behavior.
 
 ### Isolated View Mode
 
