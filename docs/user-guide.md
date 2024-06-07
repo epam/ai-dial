@@ -248,7 +248,7 @@ All attached and uploaded files are available in the attachments manager. To man
 
 ![](./img/attachments3.png)
 
-**To create a folder:**
+**To Create a Folder:**
 
 You can create folders to group the attached files. 
 
@@ -268,7 +268,7 @@ You can as well perform several actions on your folders:
 
 ![](./img/folder-actions.png)
 
-**To Upload a file:**
+**To Upload a File:**
 
 1. In the Manage attachments dialog, select **Upload from device**.
 2. Select one or several files you want to upload and click **Open**.
@@ -278,7 +278,7 @@ You can as well perform several actions on your folders:
 
 ![](./img/attachments2.png)
 
-**To Unshare a file**
+**To Unshare a File**:
 
 Using the application that supports the attachments of files, you can create a conversation and share it with someone. When a conversation is shared, all the attached to the conversation files are shared as well. In the attachments manager, such shared files are tagged with a blue arrow:
 
