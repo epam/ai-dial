@@ -592,5 +592,11 @@ The visualizations come with standard Plotly controls for easy manipulation.
 
 > Refer to [Plotly GitHub](https://github.com/plotly/react-plotly.js) to learn more. 
 
+### Tables
 
+AI DIAL Chat supports rendering of tables and copying table data in various formats out-of-the-box.
+
+![](./img/table.png)
+
+As displayed on the illustration, you can ask a model to create a simple table. When created, you can pick one of three formats to copy its data: CSV, Markdow or Text.
 
