@@ -6,11 +6,11 @@ The AI DIAL Chat application interface has several sections, such as the chat bo
 
 ![](./img/home.png)
 
-1. **Conversations**: Here, you can manage your conversations: create new ones, organize them in folders, and delete. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
-2. **Prompts**: In this section, you can work with saved prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
-3. **Chat**: Use this section to enter a prompt, view results, and interact with language models.
-4. **Chat Settings**: In this section, you can select the language model, assistant, application, and addons you'd like to use. You can also provide a system prompt and adjust the temperature setting.
-5. **User Settings**: In your user settings, you can customize the color theme (dark or light), choose a custom logo and other customization options.
+1. [Conversations](#conversations): Here, you can manage your conversations: create new ones, organize them in folders, and delete. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
+2. **Chat**: Use this section to enter a prompt, view results, and interact with language models.
+3. [Chat Settings](#chat-settings): In this section, you can select the language model, assistant, application, and addons you'd like to use. You can also provide a system prompt and adjust the temperature setting.
+4. [Prompts](#prompts): In this section, you can work with saved prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
+5. [User Settings](#user-settings): In your user settings, you can customize the color theme (dark or light), choose a custom logo and other customization options.
 
 ## Conversations
 
@@ -28,13 +28,13 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 - **Stop generating**: in the process of generating the response, you can stop it.
 - **Regenerate response**: when stopped, you can regenerate the response. **Important**: If you encounter a server error or click the **Stop Generating** button and receive an empty response, the **Send** button will be disabled. To continue the conversation, you'll need to generate the answer again. If you receive a partial response (a combination of text and an error), the model can still proceed, while for Assistants/Applications, you'll need to generate the response again.
 - **Delete/Edit**: during the conversation, you can edit or delete your prompts. After a prompt has been edited, the response is regenerated, and all your prompts after the edited one will be deleted. When you delete your prompt, the response will be deleted, too.
-- **Attach files**: some models and applications, like _DIAL RAG_ and _Echo_, allow adding attachments to the conversation. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#manage-attachments) section for details.
+- **Attach files**: some models and applications (e.g. _DIAL RAG_) support adding attachments (files, links, folders) to conversations. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#attachments) section for details.
 - **Download attached files**: click the **Download** icon near the file name.
 - **Preview attached images**: click the **Expand** icon near the image name. 
 - **Copy**: you can copy answers.
 - **Like/dislike**: you can like and dislike responses in a conversation. Use likes to highlight important responses and dislikes to mark the responses you don't need. 
 - **Clear conversation messages**: you can clear all messages in your conversation. Click the eraser icon on the top bar to do that. 
-- **Change conversation settings**: during the conversation, you can access and edit its setting by clicking the gear icon on the top bar. Refer to [Chat Settings](#chat-settings) to learn more.
+- **Change conversation settings**: during the conversation, you can access and edit its setting by clicking the gear icon on the top bar. Refer to [Chat Settings](#conversation-settings) to learn more.
 - **View current settings**: on the top bar, point to the language model logo icon near the conversation name to see current settings.
 
 ### Arrange
@@ -74,7 +74,13 @@ To create a conversation:
 6. Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first question will be used as its name. 
 
 > The following symbols in the conversation names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&" and will be excluded. Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. 
- 
+
+### Conversation Settings
+
+In the conversation header, you can view the current settings, change settings (including model, temperature, prompt and [more](#chat-settings) or clear the conversation history to start from scratch: 
+
+![](./img/chat-settings.png)
+
 ### Share
 
 You can share a conversation or a folder with several conversations with other users.
@@ -145,6 +151,10 @@ To import JSON or a zip file with conversations, click the **Import conversation
  
 ![](./img/import_conv.png)
 
+> Note, that when importing a duplicate of an existing conversation, you will be prompted to select one of the proceeding options: replace, ignore or add a prefix to the imported conversation. If the imported conversation includes attachments, you will be prompted to make the same selection for them as well.
+
+![](./img/import-export.png)
+
 ### Delete
 
 You can delete a single conversation or all conversations.
@@ -208,21 +218,83 @@ As you can see on the picture above, the system creates two conversations with t
 3. By default, only conversations with the same name are available in the drop box. Select **Show all conversations** to see the full list of conversations.
 4.	Type your question (prompt) in the chat box.
 
-### Manage Attachments
+### Attachments
 
-To manage all attachments, click the **Attachments** icon at the bottom of the left panel.
+AI DIAL applications (e.g. DIAL RAG) can support attaching files, links or folders to a conversation and generate responses considering the attached resources.
+
+![](./img/attachment1.png)
+
+#### Folders
+
+If the selected application supports this, you can click the attachment icon in the conversation box and select **Attach folders**.
+
+> Note, that you can attach only folders from the file manager and cannot upload folders from an external source.
+
+![](./img/attach-folder1.png)
+
+In the pop-up window, select a checkbox for the folder you want to add to add it. The attached folder will appear in the conversation box and become available for the application to work with. 
+
+![](./img/attach-folders.png)
+
+#### Links
+
+If the selected application supports this, you can click the attachment icon in the conversation box and select **Attach link**. Then, specify a valid URL and click **Attach**. The link will be displayed as attachment in the conversation box and become available for the application to work with.
+
+![](./img/attach-link.png)
+
+#### Files
+
+If the selected application supports this, you can click the attachment icon in the conversation box and select **Attach uploaded files**. In the attachments manager, select available files that you have previously uploaded and select a checkbox to add to the conversation. The file will be displayed as attachment in the conversation box and become available for the application to work with.
+
+![](./img/attach-file.png)
+
+#### Attachments Manager 
+
+All attached and uploaded files are available in the attachments manager. To manage all attachments, click the **Attachments** icon at the bottom of the left panel.
 
 ![](./img/attachments3.png)
 
-**To Upload a file:**
+**To Create a Folder:**
+
+You can create folders and then upload files into them. **Note**, the only way to add a file into a folder is to upload it - you cannot move files between folders.
+
+> AI DIAL applications can be configured to allow attaching entire folders to conversations. In this case, only folders created in the attachemnts manager can be attached to a conversation.
+
+![](./img/create-folder.png)
+
+1. Click a folder icon to create a new folder.
+2. Give your folder a name.
+3. Click submit to apply.
+
+You can as well perform several actions on your folders: 
+
+* Rename
+* Upload files
+* Add subfolders
+
+![](./img/folder-actions.png)
+
+**To Upload a File:**
+
+To add a file into a folder it is necessary to upload it.
 
 1. In the Manage attachments dialog, select **Upload from device**.
 2. Select one or several files you want to upload and click **Open**.
 3. Under **Upload to**, select **Change** to pick a folder, in which the files will be uploaded.
-4. Under **Files**, change file names or delete files, if necessary. The following symbols in the file names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
+4. Under **Files**, change their names or delete them, if necessary. The following symbols in the file names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
 5. Click **Upload and attach files**.
 
 ![](./img/attachments2.png)
+
+**To Unshare a File**:
+
+Using the application that supports the attachments of files, you can create a conversation and share it with someone. When a conversation is shared, all the attached to the conversation files are shared as well. In the attachments manager, such shared files are tagged with a blue arrow:
+
+![](./img/unshare.png)
+
+In the file menu, you can choose to unshare it: 
+
+![](./img/file-menu.png)
 
 **To Download Attachments**:
 
@@ -258,11 +330,11 @@ You can perform various actions with your prompts:
 
 - **Edit**: select a prompt on the right panel to invoke the Edit window. Make all necessary changes and click **Save**. 
 - **Export**: right-click a prompt on the right panel and select **Export**. The prompt will be exported as JSON.
+- **Import**: click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
 - **Move to**: use to place a prompt in a folder.
 - **Delete**: right-click a prompt on the right panel and select **Delete**, then confirm the action.
 - **Delete all prompts**: click the **Delete all** icon at the bottom of the right panel and confirm your action.
 - **Export all prompts**: click the **Export prompts** icon at the bottom of the right panel. All your prompts will be exported as JSON.
-- **Import**: click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
 - **Share**: use to share a prompt or a folder with several prompts with other users.
 - **Unshare**: use to revoke access to shared prompts.
 
@@ -289,12 +361,15 @@ You can filter prompts by the "Shared by me" criterion. To do so, click the **Fi
  
 ### Create
 
-![](./img/create_prompt.png)
+![](./img/create-pt.png)
 
 To create a new prompt:
 
 1.	On the right panel, select **New prompt**.
-2.	Fill in the **Name**, **Description**, and **Prompt** boxes. The following symbols in the prompt names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the prompt name is limited to 160 symbols. Everything beyond is cut off. 
+2.	Fill in the **Name**, **Description**, and **Prompt** boxes. The following symbols in the prompt names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the prompt name is limited to 160 symbols. Everything beyond is cut off.
+
+  > Please note that both the **Name** and **Description** fields are mandatory to fill in order to create a prompt!
+
 3.	Click **Save**.
 
 >  **Name** and **Description** aren’t used as instructions for a language model. They only help you to distinguish the prompt from others. The language model will only use instructions from the **Prompt** box.
@@ -370,6 +445,14 @@ You can duplicate a prompt, for example, to be able to change a prompt that was 
 
 ![](./img/duplicate_prompt.png)
 
+### Export Import
+
+You can export and import prompts. 
+
+> Note, that when importing a duplicate of an existing prompt, you will be prompted to select one of the proceeding options: replace, ignore or add a prefix to the imported prompt.
+
+![](./img/import-export-prompt.png)
+
 ## Chat Settings
 
 In the Chat Settings section, there are the following components:
@@ -388,6 +471,10 @@ Take a closer look at each of these elements.
 In this section, you can choose the language model for communication, as well as an Assistant or Application to implement specific behavior for the LLM.
 
 ### Language Models
+
+1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
+2. All tabs (Models, Applications and Assistants) are enabled by default. To display just Models, disable the rest and keep the **Models** tab active.
+3. To select a model: click any of the available models or select its version in the dropdown list. The selected model will appear in the models list as pre-selected for the new conversation.
 
 ![](./img/all_models.png)
 
@@ -408,6 +495,10 @@ In this section, you can choose the language model for communication, as well as
 
 ### Assistants
 
+1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
+2. All tabs (Models, Applications and Assistants) are enabled by default. To display just Assistants, disable the rest and keep the **Assistants** tab active.
+3. Click any of the available assistants to start a conversation. 
+
 ![](./img/Talk_to_full_list_assistants.png)
 
 In the AI DIAL framework, Assistants are a combination of preselected Addons and System Prompts that enable specific behavior in the LLM, allowing for more tailored and adaptive responses to user needs. Unlike the Model+Addon configuration, where users have the flexibility to choose different Addons, Assistants come with predetermined Addons that cannot be removed or unselected. However, the Model can still be reassigned within the Assistant.
@@ -416,7 +507,11 @@ Assistants give you more control over LLM behavior, resulting in tailored and ac
 
 In a chat application, you can include custom Assistant(s) that users can choose when using AI DIAL.
 
-### Applications   
+### Applications
+
+1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
+2. All tabs (Models, Applications and Assistants) are enabled by default. To display just Applications, disable the rest and keep the **Applications** tab active.
+3. Click any of the available applications to start a conversation. 
 
 ![](./img/applications.png)
 
@@ -461,11 +556,12 @@ Adjusting the temperature allows you to balance creativity and consistency in th
 ### Addons
 
 You may want LLM to access particular data or technology to generate responses. This could be your company's database, a collection of PDF documents, calculation engines, API or any other data source or technology.
-Within the AI DIAL framework, an Addon is a service or any component that follows the Open API specification. LLMs can access and use any desired data source or technology to create responses.
+Within the AI DIAL framework, an Addon is a service or any component that follows the Open API specification. Some examples of Addon implementation are semantic search, Q&A search, DB query generator, or any other custom logic that meets your business needs. AI DIAL can include custom Addons that you can choose to activate a specific system behavior.
+
+1. In the **Talk to** area, click **See all addons...** to display all the available addons.
+2. Select one or several addons and click **Apply addons**.
 
 ![](./img/addons2.png)
-
-Some examples of Addon implementation are semantic search, Q&A search, DB query generator, or any other custom logic that meets your business needs. AI DIAL can include custom Addons that you can choose to activate a specific system behavior.
 
 ### Isolated View Mode
 
@@ -504,5 +600,11 @@ The visualizations come with standard Plotly controls for easy manipulation.
 
 > Refer to [Plotly GitHub](https://github.com/plotly/react-plotly.js) to learn more. 
 
+### Tables
 
+AI DIAL Chat supports rendering of tables and copying table data in various formats out-of-the-box.
+
+![](./img/table.png)
+
+As displayed on the illustration, you can ask a model to create a simple table. When created, you can pick one of three formats to copy its data: CSV, Markdow or Text.
 
