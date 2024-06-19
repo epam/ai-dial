@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           submodules: true
-      - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
+      - uses: isbang/compose-action@e5813a5909aca4ae36058edae58f6e52b9c971f8 # v2.0.1
         with:
           cwd: "./dial-cookbook/ci"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
@@ -23,17 +23,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-      - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
+      - uses: isbang/compose-action@e5813a5909aca4ae36058edae58f6e52b9c971f8 # v2.0.1
         name: Run quickstart model example
         with:
           cwd: "./dial-docker-compose/ci/model"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
-      - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
+      - uses: isbang/compose-action@e5813a5909aca4ae36058edae58f6e52b9c971f8 # v2.0.1
         name: Run quickstart application example
         with:
           cwd: "./dial-docker-compose/ci/application"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
-      - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
+      - uses: isbang/compose-action@e5813a5909aca4ae36058edae58f6e52b9c971f8 # v2.0.1
         name: Run quickstart addon example
         with:
           cwd: "./dial-docker-compose/ci/addon"
