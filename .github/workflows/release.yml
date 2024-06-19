@@ -10,7 +10,7 @@ jobs:
     name: Run example Python notebooks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           submodules: true
       - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
@@ -22,7 +22,7 @@ jobs:
     name: Run quickstart examples
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
         name: Run quickstart model example
         with:
@@ -43,7 +43,7 @@ jobs:
     needs: [run-notebooks, run-quickstart]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version: 18
