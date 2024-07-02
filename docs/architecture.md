@@ -79,7 +79,7 @@ In this approach, a configuration file includes multiple upstream endpoints for 
 
 A well-distributed rate-limiting mechanism ensures the control over the total number of tokens that can be sent to a model (typically a one-minute or 24-hour window) by any Application, Addon, or Assistant.
 
-> Refer to [AI DIAL Configuration](./Deployment/configuration.md#some-of-the-dynamic-parameters) to learn more about roles and rate limits.
+> Refer to [AI DIAL Configuration](./Deployment/configuration#dynamic-settings) to learn more about roles and rate limits.
 
 #### Extension Framework
 
