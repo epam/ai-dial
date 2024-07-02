@@ -22,7 +22,7 @@
 
 ## Development Guides
 
-* [A basic guide for development of applications for AI DIAL](./tutorials/quick-start-with-application.md)
+* [A basic guide for development of applications for AI DIAL](https://github.com/epam/ai-dial/blob/main/docs/tutorials/quick-start-with-application.md)
 
 ## AI DIAL Chat Application User Manual
 
