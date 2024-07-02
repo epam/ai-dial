@@ -1,5 +1,5 @@
 # DIAL RAG
 
-[![Watch the video](https://img.youtube.com/vi/0fCWr4MB5KU/mqdefault.jpg)](https://youtu.be/0fCWr4MB5KU)
+[Watch the video](https://youtu.be/0fCWr4MB5KU)
 
 Dial RAG is our implementation of Retrieval Augmented Generation. The Dial RAG answers user questions using information from the documents provided by user. It supports the following document formats: PDF, DOC/DOCX, PPT/PPTX, TXT and other plain text formats such as code files. Internally, Dial RAG uses the unstructured library to parse the documents. It then employs a combination of semantic search using the bge-small-en embeddings model and a keyword search using the Okapi BM25 ranking algorithm to retrieve relevant parts of the document and pass them to the GPT-4 model to synthesize the answer. Initial processing of a new document may take a significant amount of time because the Dial RAG needs to parse the document and build the search indexes. The application stores pre-computed document indexes in the Dial File storage and reuses these indexes for future requests.
