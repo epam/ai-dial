@@ -35,6 +35,7 @@ const sidebars = {
       ],
     },
     'user-guide',
+    'chat-design',
     {
       type: 'category',
       label: 'Deployment',
