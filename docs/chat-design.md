@@ -107,3 +107,4 @@ Logo requirements:
 * Max file size: up to 512MB
 * Max width: 100px 
 
+![](./img/example-logo.png)
