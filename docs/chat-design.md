@@ -60,7 +60,7 @@ The user will not see settings for a new chat. These settings will not be access
 
 Mobile version is a modification that users see when they open AI Dial on their mobile devices or resize their browser window.
 
-![](./img/legend.png)
+![](./img/Legend.png)
 
 ![](./img/mobile.png)
 
