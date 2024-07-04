@@ -46,7 +46,7 @@ You can gather your conversations in folders.
 You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a conversation into a folder or use **Move to** in the context menu of a conversation to move it to a folder.
 Empty folders are deleted after refreshing a page.
 
-The following symbols in the folders names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&" and will be excluded. Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
+The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
 The MAX length of the folder name is limited to 160 symbols. Everything beyond is cut off. 
 
@@ -73,7 +73,7 @@ To create a conversation:
 5. Optionally, under **Addons**, select an Addon. For details, refer to the [Addons](#addons) section of this guide.
 6. Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first question will be used as its name. 
 
-> The following symbols in the conversation names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&" and will be excluded. Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. 
+> The following symbols in the conversation names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. 
 
 ### Conversation Settings
 
@@ -281,7 +281,7 @@ To add a file into a folder it is necessary to upload it.
 1. In the Manage attachments dialog, select **Upload from device**.
 2. Select one or several files you want to upload and click **Open**.
 3. Under **Upload to**, select **Change** to pick a folder, in which the files will be uploaded.
-4. Under **Files**, change their names or delete them, if necessary. The following symbols in the file names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed.
+4. Under **Files**, change their names or delete them, if necessary. The following symbols in the file names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&`. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
 5. Click **Upload and attach files**.
 
 ![](./img/attachments2.png)
@@ -349,7 +349,7 @@ The same way, you can either drag-n-drop a prompt into a folder or use **Move to
 
 > After refreshing the page or logging in again, any empty folders will be deleted.
 
-The following symbols in the folders names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the folder name is limited to 160 symbols. Everything beyond is cut off. 
+The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&`. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the folder name is limited to 160 symbols. Everything beyond is cut off. 
 
 ### Search and Filter
 
