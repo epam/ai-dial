@@ -68,7 +68,7 @@ Mobile version is a modification that users see when they open AI Dial on their 
 
 Modification where majority of action controls are hidden. User can’t save prompts and only has one chat. 
 
-![](./img/simple-mobile.png)
+![](./img/simpl-mobile.png)
 
 ## Overlay
 
