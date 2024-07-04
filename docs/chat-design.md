@@ -58,7 +58,7 @@ The user will not see settings for a new chat. These settings will not be access
 
 ### Default mobile
 
-Mobile version is a modification that users see when they open AI Dial on their mobile devices or resize their browser window.
+Mobile version is a modification that users see when they open AI DIAL on their mobile devices or resize their browser window.
 
 ![](./img/Legend.png)
 
@@ -72,8 +72,8 @@ Modification where majority of action controls are hidden. User can’t save pro
 
 ## Overlay
 
-Overlay is a modification where user can see AI Dial application within the other application (other website or even desktop app).
-Currently we have 2 possible modifications: Wide and Narrow.
+Overlay is a modification where user can see AI DIAL application within the other application (other website or even desktop app).
+Currently, we have 2 possible modifications: Wide and Narrow.
 
 ### Wide overlay
 
@@ -93,7 +93,7 @@ Can be used on desktop applications (e.g. Excel) or as a standalone component.
 
 Figma Variables component is used for colour scheme. This will allow us quickly apply custom colour themes for the application. 
 
-> Important: Variables names should remain the same when you create a new colour scheme.
+> **Important**: Variables names should remain the same when you create a new colour scheme.
 
 ### Basic Palette
 
@@ -110,7 +110,7 @@ Each item in the schema consists of a name and values for different modes, which
 
 ![](./img/mapping-schema.png)
 
-> Important: The mapping schema is closely connected to developers' variables. Therefore, it's crucial to keep design variables consistent in both name and quantity to ensure seamless application of the new theme.
+> **Important**: The mapping schema is closely connected to developers' variables. Therefore, it's crucial to keep design variables consistent in both name and quantity to ensure seamless application of the new theme.
 
 ![](./img/mapping-schema2.png)
 
