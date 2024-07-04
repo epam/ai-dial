@@ -20,7 +20,7 @@ Basic layout consists of the following components:
 
 ![](./img/Layout scheme.png)
 
-![](./img/Layout design.png)
+![](./img/Layout-design.png)
 
 ## Available Modifications
 
