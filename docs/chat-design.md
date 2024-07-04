@@ -18,7 +18,7 @@ Basic layout consists of the following components:
 * Start Chat window: is only visible for new chats. Allows to set a specific settings for your new chat (for example, select LLM, Temperature, Addons, etc).
 * Bottom bar: contains input where you manually type your questions or commands for the AI.
 
-![](./img/Layout scheme.png)
+![](./img/Layout-scheme.png)
 
 ![](./img/Layout-design.png)
 
@@ -34,25 +34,25 @@ Please note that any further modifications will necessitate additional discussio
 
 In this modification, the user will not be able to add multiple conversations nor save them. The user will have only one chat.
 
-![](./img/Layout scheme2.png)
+![](./img/Layout-scheme2.png)
 
 ### Hide prompts bar
 
 The ability to save prompts and use any existing ones will not be available.
 
-![](./img/Layout scheme3.png)
+![](./img/Layout-scheme3.png)
 
 ### Hide prompts and navigation bar
 
 The capability to save prompts and use any existing ones will not be available.
 
-![](./img/Layout scheme4.png)
+![](./img/Layout-scheme4.png)
 
 ### Hide start chat window
 
 The user will not see settings for a new chat. These settings will not be accessible from any part of the system on the user side.
 
-![](./img/Layout scheme5.png)
+![](./img/Layout-scheme5.png)
 
 ## Mobile
 
