@@ -1,0 +1,11 @@
+
+rules:
+  default: false
+  custom:
+    - seriesQuery: 'vertx_pool_queue_time_seconds_count{namespace!="",pod!=""}'
+      resources:
+        template: <<.Resource>>
+      name:
+        matches: ""
+        as: ""
+      metricsQuery: 'sum(rate(<<.Series>>{<<.LabelMatchers>>}[2m])) by (<<.GroupBy>>)'
