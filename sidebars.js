@@ -31,6 +31,11 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/roles-management',
           label: 'API Keys Roles and Limits',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/rate-limits-users',
+          label: 'Configure Rate Limits for Chat Users',
         }
       ],
     },
