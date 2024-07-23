@@ -1,0 +1,5 @@
+# DIAL Parameterized Replay
+
+[Watch the video](https://youtu.be/I8en0n0TQQU)
+
+Parameterized Replay combines parameterized prompts with replay functionality to allow users to go through entire conversational flows with selected variables replaced. By combining clever prompt engineering with DIAL’s collaborative capabilities, people can now share even the most complex conversational workflows with their organization with the help of parameterized replays.
