@@ -33,7 +33,7 @@ For example purposes, lets configure rate limits for AI DIAL Chat users with use
           }
       }
       ```
-5. In AI DIAL Core configuration file, in the `roles` section, add your role ("azure-group-name") and limits for it. Refer to [configuration example](https://github.com/epam/ai-dial-core/blob/9d7e3ba8380ffea3b9b6a7ccd65a96f024e842e3/sample/aidial.config.json#L191) for example purposes. For `roles.<role_name>.limits` you can configure `minute` (0total tokens per minute limit sent to the model, managed via floating window approach for well-distributed rate limiting. If it's not set the default value is unlimited) or `day` (total tokens per day limit sent to the model, managed via floating window approach for balanced rate limiting. If it's not set the default value is unlimited):
+5. In AI DIAL Core configuration file, in the `roles` section, add your role ("azure-group-name") and limits for it. Refer to [configuration example](https://github.com/epam/ai-dial-core/blob/9d7e3ba8380ffea3b9b6a7ccd65a96f024e842e3/sample/aidial.config.json#L191) for example purposes. For `roles.<role_name>.limits` you can configure `minute` (total tokens per minute limit sent to the model, managed via floating window approach for well-distributed rate limiting. If it's not set the default value is unlimited) or `day` (total tokens per day limit sent to the model, managed via floating window approach for balanced rate limiting. If it's not set the default value is unlimited):
 
       ```json
       "roles": {
