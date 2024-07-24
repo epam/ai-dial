@@ -10,6 +10,63 @@ const sidebars = {
     'architecture',
     {
       type: 'category',
+      label: 'Auth',
+      items: [
+        {
+          type:'doc',
+          id: 'Auth/overview',
+          label: 'Overview'
+        },
+        {
+          type:'doc',
+          id: 'Auth/programmatic-auth',
+          label: 'Programmatic Auth'
+        },
+        {
+          type: 'category',
+          label: 'Web Auth',
+          items: [
+            {
+              type:'doc',
+              id: 'Auth/Web/overview',
+              label: 'Overview'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/auth0',
+              label: 'Auth0'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/cognito',
+              label: 'AWS Cognito'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/entraID',
+              label: 'Microsoft Entra'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/google',
+              label: 'Google OAuth2'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/keycloak',
+              label: 'Keycloak'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/okta',
+              label: 'Okta'
+            }
+          ]
+        }
+      ],
+    },
+    {
+      type: 'category',
       label: 'Tutorials',
       items: [
         {
@@ -26,17 +83,8 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/quick-start-with-addon',
           label: 'Chat with Addon',
-        },
-        {
-          type: 'doc',
-          id: 'tutorials/roles-management',
-          label: 'API Keys Roles and Limits',
-        },
-        {
-          type: 'doc',
-          id: 'tutorials/rate-limits-users',
-          label: 'Configure Rate Limits for Chat Users',
         }
+        
       ],
     },
     'user-guide',
@@ -54,40 +102,6 @@ const sidebars = {
           type:'doc',
           id: 'Deployment/configuration',
           label: 'Configuration'
-        },
-        {
-          'IDP Configuration': [
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/auth0',
-              label: 'Auth0'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/cognito',
-              label: 'AWS Cognito'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/entraID',
-              label: 'Microsoft Entra'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/google',
-              label: 'Google OAuth2'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/keycloak',
-              label: 'Keycloak'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/okta',
-              label: 'Okta'
-            },
-          ],
         },
         'Deployment/OpenAI Model Deployment',
         'Deployment/Vertex Model Deployment',
