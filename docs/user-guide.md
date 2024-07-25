@@ -186,7 +186,7 @@ The replayed conversation is displayed as a new conversation with the `[Replay]`
 
 ### Parameterized Replay
 
-If you want to make your own chats or stories with custom variables and share them with your team, you can use a feature called Parameterized Replay. Use it ot set up a chat or story that others can follow, but provide their own details or answers to create a personalized experience. This makes chat a much more useful tool for sharing information and collaboration.
+If you want to make your own chats or stories with custom variables and share them with your team, you can use a feature called Parameterized Replay. Use it to set up a chat or a story that others can follow, but provide their own details or answers to create a personalized experience. This makes chat a much more useful tool for sharing information and collaboration.
 
 How it works: 
 
