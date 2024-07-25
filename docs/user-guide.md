@@ -200,7 +200,7 @@ How it works:
 
 Let's create a simple Travel Guide conversation, which will take a user though several stepts to clarify information and provide the answer.
 
-1. Start by [creating a special prompt](#create-1) with variables. Use templates (this `{{ParameterName|DefaultValue}}` or this `{{ParameterName}}`) to add variables into your prompt with or without default values. For example: I'd like to travel to {{country|Japan}}. Could you please suggest {{num-attractions|10}} of the best attractions? I will be there for {{num-days}}. Thank you.
+1. Start by [creating a special prompt](#create-1) with [variables](#variables). Use templates (this `{{VariableName|DefaultValue}}` or this `{{VariableName}}`) to add variables into your prompt with or without default values. For example: I'd like to travel to {{country|Japan}}. Could you please suggest {{num-attractions|10}} of the best attractions? I will be there for {{num-days}}. Thank you.
 2. To use it, type `/` in the conversation text input area and select your prompt. You will be prompted to provide your inputs for variables in a pop-up window. Enter your inputs and click `Submit`. The prompt is now populated with your inputs in the conversation text box. Click `Play` to start.
 3. The chat will return its response to your prompt.
 4. You can now click [Replay](#replay) in your conversation's menu to repeat this dialogue but with different input parameters.
@@ -440,7 +440,7 @@ Send the message to the model, and it will generate an answer using both mathema
 
 Generally, variables can be anything, not only numbers. For example, you can create a prompt with the following body: `Who played {{character}} in {{movie}}? or What is a Latin name of {{plant common name}}?`
 
-> Refer to [Parameterized Replay](#parameterized-replay) to view another use case when prompts are user to create a guided conversations.
+> Refer to [Parameterized Replay](#parameterized-replay) to view another use case when prompts are used to create a guided conversations.
 
 ### Share
 
