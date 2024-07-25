@@ -198,7 +198,7 @@ Let's create a simple Travel Guide conversation, which will take a user though s
 4. You can now click [Replay](#replay) in your conversation's menu to repeat this dialog but with different input parameters.
 5. You can [Share](#share) this conversation with someone. When a person opens the shared conversation, they will be prompted to fill in their personal input in the parameterized prompt, allowing them to have the same conversation but with their custom inputs, for example, travel to USA instead of Japan.
 
-> Watch a [demo video](https://youtu.be/I8en0n0TQQU?si=mMUQkpKvx0xEoElF) to see it in action nd more examples.
+> Watch a [demo video](https://youtu.be/I8en0n0TQQU?si=mMUQkpKvx0xEoElF) to see it in action and check out more examples.
 
 ### Playback
 
