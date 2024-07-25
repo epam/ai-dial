@@ -195,7 +195,7 @@ Let's create a simple Travel Guide conversation, which will take a user though s
 1. Start by [creating a special prompt](#create-1) with variables. Use templates (this `{{ParameterName|DefaultValue}}` or this `{{ParameterName}}`) to add variables into your prompt with or without default values. For example: I'd like to travel to {{country|Japan}}. Could you please suggest {{num-attractions|10}} of the best attractions? I will be there for {{num-days}}. Thank you.
 2. To use it, type `/` in the conversation text input area and select your prompt. You will be prompted to provide your inputs for variables in a pop-up window. Enter your inputs and click `Submit`. The prompt is now populated with your inputs in the conversation text box. Click `Play` to start.
 3. The chat will return its response to your prompt.
-4. You can now click [Replay](#replay) in your conversation's menu to repeat this dialog but with different input parameters.
+4. You can now click [Replay](#replay) in your conversation's menu to repeat this dialogue but with different input parameters.
 5. You can [Share](#share) this conversation with someone. When a person opens the shared conversation, they will be prompted to fill in their personal input in the parameterized prompt, allowing them to have the same conversation but with their custom inputs, for example, travel to USA instead of Japan.
 
 > Watch a [demo video](https://youtu.be/I8en0n0TQQU?si=mMUQkpKvx0xEoElF) to see it in action and check out more examples.
