@@ -1,6 +1,6 @@
 # Supported Models
 
-> In this list, you can find all the models that are currently supported. We are constantly updating this list and working on adding new ones.
+> In this list, you can find all LLMs that have been tested and verified. You can use our OpenAI adapter to connect to a much wider spectrum of models compatible with OpenAI API.
 
 * text-embedding-ada-002
 * text-embedding-3-large
