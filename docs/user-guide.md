@@ -157,14 +157,22 @@ To import JSON or a zip file with conversations, click the **Import conversation
 
 ### Delete
 
-You can delete a single conversation or all conversations.
+You can delete a single conversation, selected conversations or all conversations.
 
 To delete a single conversation, on the left panel, in the conversation contextual menu, select **Delete** and confirm your action.
 
 ![](./img/Delete_conv.png)
 
-To delete all conversations, at the bottom of the left panel, click the **Delete conversations** icon.
- 
+To delete all conversations, at the bottom of the left panel, click the **Delete all conversations** icon.
+
+To delete selected conversations, you can use either **Select all** button and choose the conversations you want to remove
+
+![](./img/select-chat1.png)
+
+or click **Select** in the menu of each conversation:
+
+![](./img/select-chat2.png)
+
 ### Replay
 
 You can use **Replay** to reproduce conversations but with different settings (e.g. a different model). A replayed conversation can be used to compare responses to the same questions from different models and with different settings of the conversation. 
@@ -389,6 +397,20 @@ To create a new prompt:
 3.	Click **Save**.
 
 >  **Name** and **Description** aren’t used as instructions for a language model. They only help you to distinguish the prompt from others. The language model will only use instructions from the **Prompt** box.
+
+### Delete 
+
+You can delete a single prompt, selected prompts or all prompts.
+
+* To delete a single prompt, in the menu of each prompt, select **Delete** and confirm your action.
+* To delete all prompts, at the bottom of the right panel, click the **Delete all prompts** icon.
+* To delete selected prompts, you can use either **Select all** button and choose the prompts you want to remove
+
+![](./img/select-prompt1.png)
+
+or click **Select** in the menu of each prompt:
+
+![](./img/select-prompt2.png)
 
 #### Variables
 
