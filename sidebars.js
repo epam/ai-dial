@@ -8,6 +8,7 @@ const sidebars = {
     },
     'quick-start',
     'architecture',
+    'supported-models',
     {
       type: 'category',
       label: 'Tutorials',
