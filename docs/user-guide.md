@@ -414,13 +414,14 @@ or click **Select** in the menu of each prompt:
 
 #### Variables
 
-You can use prompts as templates for your messages to a language model. For example, you need to calculate an equation `a + c/d`, round up the answer, and then divide it by 4. Let’s imagine that you need results for four sets of `a`, `c`, and `d`.
+You can use prompts as templates for your instructions to a language model. You can also add variables to your prompts. Use notation such as `{{variableName}}` or `{{variableName|Default Value}}` to add variables.
+
+For example, you need to calculate an equation `a + c/d`, round up the answer, and then divide it by 4. Let’s imagine that you need results for four sets of `a`, `c`, and `d`.
  
 In that case you can create the following prompt:
 
 ![](./img/Prompt_example_math_edit_window.png)
 
- 
 Here, `a`, `c`, and `d` are variables. In the prompt body, they are denoted by double curly brackets: `{{ }}`.
 
 > You can combine mathematical expressions and natural language in your prompts.
@@ -438,6 +439,8 @@ Send the message to the model, and it will generate an answer using both mathema
 ![](./img/Prompt_example_math_response.png)
 
 Generally, variables can be anything, not only numbers. For example, you can create a prompt with the following body: `Who played {{character}} in {{movie}}? or What is a Latin name of {{plant common name}}?`
+
+> Refer to [Parameterized Replay](#parameterized-replay) to view another use case when prompts are user to create a guided conversations.
 
 ### Share
 
