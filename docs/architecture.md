@@ -177,7 +177,7 @@ You can use AI DIAL SDK to develop such extensions. Applications and model Adapt
 
 > Refer to [AI DIAL SDK](https://github.com/epam/ai-dial-sdk) and [Development Examples](https://github.com/epam/ai-dial-sdk/tree/development/examples) to learn more.
 
-![](./img/minimal2.svg)
+![](./img/minimal-setup.svg)
 
 Extensions have freedom to employ a technology of their preference, be it any LLM framework, [LlamaIndex](https://github.com/run-llama/llama_index/tree/main), [LangChain](https://github.com/langchain-ai/langchain), [Semantic Kernel](https://github.com/microsoft/semantic-kernel?tab=readme-ov-file), vector DBs or any other.
 
