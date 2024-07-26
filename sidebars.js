@@ -67,6 +67,28 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Roles & Limits',
+      items: [
+        {
+          type:'doc',
+          id: 'Roles and Limits/overview',
+          label: 'Overview'
+        },
+        {
+          type:'doc',
+          id: 'Roles and Limits/API Keys',
+          label: 'API Keys'
+        },
+        ,
+        {
+          type:'doc',
+          id: 'Roles and Limits/chat-users',
+          label: 'Chat Users'
+        }
+      ],
+    },
+    {
+      type: 'category',
       label: 'Tutorials',
       items: [
         {
