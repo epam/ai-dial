@@ -160,17 +160,18 @@ To import JSON or a zip file with conversations, click the **Import conversation
 
 You can delete a single conversation, selected conversations or all conversations.
 
-* To delete a single conversation, on the left panel, in the conversation contextual menu, select **Delete** and confirm your action.
-* To delete all conversations, at the bottom of the left panel, click the **Delete all conversations** icon.
+* To delete a **single** conversation, on the left panel, in the conversation contextual menu, select **Delete** and confirm your action.
+* To delete **all** conversations, at the bottom of the left panel, click the **Delete all conversations** icon.
 
 ![](./img/Delete_conv.png)
 
+Also, you can use a *selection* mode to choose conversation(s) you want to delete:
 
-* To delete selected conversations, you can use either **Select all** button and choose the conversations you want to remove
+* Click **Select all** button in the bottom panel. In this case, all conversations are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
 
 ![](./img/select-chat1.png)
 
-or click **Select** in the menu of each conversation:
+* Click **Select** in the conversation menu. In this case, you can hover over any conversation and use checkboxes to select/unselect conversations you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
 
 ![](./img/select-chat2.png)
 
@@ -199,10 +200,10 @@ If you want to make your own chats or stories with custom variables and share th
 
 How it works: 
 
-Let's create a simple Travel Guide conversation, which will take a user though several stepts to clarify information and provide the answer.
+Let's create a simple Travel Guide conversation, which will take a user though several steps to clarify information and provide the answer.
 
 1. Start by [creating a special prompt](#create-1) with [variables](#variables). Use templates (this `{{VariableName|DefaultValue}}` or this `{{VariableName}}`) to add variables into your prompt with or without default values. For example: `I'd like to travel to {{country|Japan}}. Could you please suggest {{num-attractions|10}} of the best attractions? I will be there for {{num-days}}. Thank you.`
-2. To use it, type `/` in the conversation text input area and select your prompt. You will be prompted to provide your inputs for variables in a pop-up window. Enter your inputs and click `Submit`. The prompt is now populated with your inputs in the conversation text box. Click `Play` to start.
+2. To use it, type `/` in the conversation text input area and select your prompt. You will be prompted to provide your inputs for variables in a pop-up window. Enter your inputs and click `Submit`. The prompt is now populated with your inputs in the conversation text box. Send messsage to start.
 3. The chat will return its response to your prompt.
 4. You can now click [Replay](#replay) in your conversation's menu to repeat this dialogue but with different input parameters.
 5. You can [Share](#share) this conversation with someone. When a person opens the shared conversation, they will be prompted to fill in their personal input in the parameterized prompt, allowing them to have the same conversation but with their custom inputs, for example, travel to USA instead of Japan.
@@ -404,11 +405,14 @@ You can delete a single prompt, selected prompts or all prompts.
 
 * To delete a single prompt, in the menu of each prompt, select **Delete** and confirm your action.
 * To delete all prompts, at the bottom of the right panel, click the **Delete all prompts** icon.
-* To delete selected prompts, you can use either **Select all** button and choose the prompts you want to remove
+
+Also, you can use a *selection* mode to choose prompt(s) you want to delete:
+
+* Click **Select all** button in the bottom panel. In this case, all prompts are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
 
 ![](./img/select-prompt1.png)
 
-or click **Select** in the menu of each prompt:
+* Click **Select** in the prompts menu. In this case, you can hover over any prompt and use checkboxes to select/unselect prompts you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
 
 ![](./img/select-prompt2.png)
 
