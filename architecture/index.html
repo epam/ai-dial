@@ -14,7 +14,7 @@
 <script src="https://cookie-cdn.cookiepro.com/consent/3a34bbfa-93e4-4ba6-9383-7da88d67ed18/OtAutoBlock.js"></script>
 <script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js" charset="UTF-8" data-domain-script="3a34bbfa-93e4-4ba6-9383-7da88d67ed18"></script>
 <script src="src/scripts/optanonWrapper.js"></script><link rel="stylesheet" href="/assets/css/styles.57abfac1.css">
-<script src="/assets/js/runtime~main.a8c50948.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.eecaba83.js" defer="defer"></script>
 <script src="/assets/js/main.72b0fa9f.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -29,12 +29,12 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="ai-dial-architecture">AI DIAL Architecture<a href="#ai-dial-architecture" class="hash-link" aria-label="Direct link to AI DIAL Architecture" title="Direct link to AI DIAL Architecture">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="minimal-installation">Minimal Installation<a href="#minimal-installation" class="hash-link" aria-label="Direct link to Minimal Installation" title="Direct link to Minimal Installation">​</a></h3>
 <p>AI DIAL has only one required component – <a href="#ai-dial-core">AI DIAL Core</a>.</p>
-<p><img loading="lazy" src="/assets/images/minimal-setup-5c897bc68d3243bbb4396ea40a695e50.svg" width="1276" height="654" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/minimal2-5c897bc68d3243bbb4396ea40a695e50.svg" width="1276" height="654" class="img_ev3q"></p>
 <p>AI DIAL Core is headless. It exposes a <strong>Unified Protocol</strong> that can be used by custom extensions, internal and external API clients to get full access to all AI DIAL Core features.</p>
 <p>Unified Protocol streamlines communication and fosters interoperability by eliminating the need for multiple protocols for each integration. It is fully compatible with OpenAI API and supports streaming, tokens, seeds, tools, and multi-modality.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="standard-installation">Standard Installation<a href="#standard-installation" class="hash-link" aria-label="Direct link to Standard Installation" title="Direct link to Standard Installation">​</a></h3>
 <p>A <strong>Standard</strong> installation of AI DIAL includes, Core (including API), Chat and Adapters to selected LLMs. It can also include custom extension such as Applications, Addons or Assistants.</p>
-<p><img loading="lazy" src="/assets/images/standard-setup-31c1360f5c0bf8f6ca6847d15a52e646.svg" width="1483" height="911" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/standard2-31c1360f5c0bf8f6ca6847d15a52e646.svg" width="1483" height="911" class="img_ev3q"></p>
 <p>This configuration enables the utilization of Chat functionality, allowing users to engage with LLMs, as well as the integration of custom extensions with AI DIAL Core through the API.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="full-platform-landscape">Full Platform Landscape<a href="#full-platform-landscape" class="hash-link" aria-label="Direct link to Full Platform Landscape" title="Direct link to Full Platform Landscape">​</a></h3>
 <p>The diagram below demonstrates the most complete landscape of AI DIAL ecosystem:</p>
@@ -45,7 +45,7 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 <p>Refer to <a href="https://github.com/epam/ai-dial-core" target="_blank" rel="noopener noreferrer">DIAL Core</a> GitHub repository.</p>
 </blockquote>
 <p><strong>AI DIAL Core</strong> serves as the primary system component, acting as a <strong>main integration center</strong>, that employs a <strong>Unified Protocol</strong> (<a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/reference" target="_blank" rel="noopener noreferrer">OpenAI</a> compatible) for communication between internal and external clients, including LLM models, Applications, and other to access all its features in a governed and unified manner.</p>
-<p><img loading="lazy" src="/assets/images/minimal-setup-5c897bc68d3243bbb4396ea40a695e50.svg" width="1276" height="654" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/minimal2-5c897bc68d3243bbb4396ea40a695e50.svg" width="1276" height="654" class="img_ev3q"></p>
 <p><strong>The Unified Protocol supports</strong>:</p>
 <ul>
 <li>Streaming</li>
@@ -134,7 +134,7 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 <blockquote>
 <p>Refer to <a href="https://github.com/epam/ai-dial-sdk" target="_blank" rel="noopener noreferrer">AI DIAL SDK</a> and <a href="https://github.com/epam/ai-dial-sdk/tree/development/examples" target="_blank" rel="noopener noreferrer">Development Examples</a> to learn more.</p>
 </blockquote>
-<p><img loading="lazy" src="/assets/images/minimal-setup-5c897bc68d3243bbb4396ea40a695e50.svg" width="1276" height="654" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/minimal2-5c897bc68d3243bbb4396ea40a695e50.svg" width="1276" height="654" class="img_ev3q"></p>
 <p>Extensions have freedom to employ a technology of their preference, be it any LLM framework, <a href="https://github.com/run-llama/llama_index/tree/main" target="_blank" rel="noopener noreferrer">LlamaIndex</a>, <a href="https://github.com/langchain-ai/langchain" target="_blank" rel="noopener noreferrer">LangChain</a>, <a href="https://github.com/microsoft/semantic-kernel?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">Semantic Kernel</a>, vector DBs or any other.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="llm-adapters">LLM Adapters<a href="#llm-adapters" class="hash-link" aria-label="Direct link to LLM Adapters" title="Direct link to LLM Adapters">​</a></h3>
 <p>LLM Adapters unify the APIs of respective LLMs to align with the Unified Protocol of AI DIAL Core. Each Adapter operates within a dedicated container. Multi-modality allows supporting non-textual communications such as image-to-text, text-to-image, file transfers and more.</p>
