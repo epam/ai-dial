@@ -27,7 +27,8 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 - **Generate answer**: click enter to generate the response to your prompt. 
 - **Stop generating**: in the process of generating the response, you can stop it.
 - **Regenerate response**: when stopped, you can regenerate the response. **Important**: If you encounter a server error or click the **Stop Generating** button and receive an empty response, the **Send** button will be disabled. To continue the conversation, you'll need to generate the answer again. If you receive a partial response (a combination of text and an error), the model can still proceed, while for Assistants/Applications, you'll need to generate the response again.
-- **Delete/Edit**: during the conversation, you can edit or delete your prompts. After a prompt has been edited, the response is regenerated, and all your prompts after the edited one will be deleted. When you delete your prompt, the response will be deleted, too.
+- **Delete/Edit Prompts**: during the conversation, you can edit or delete your prompts. After a prompt has been edited, the response is regenerated, and all your prompts after the edited one will be deleted. When you delete your prompt, the response will be deleted, too.
+- **Delete conversations**: you can delete one, all or selected conversations. Refer to [Delete](#delete) section to learn more.
 - **Attach files**: some models and applications (e.g. _DIAL RAG_) support adding attachments (files, links, folders) to conversations. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#attachments) section for details.
 - **Download attached files**: click the **Download** icon near the file name.
 - **Preview attached images**: click the **Expand** icon near the image name. 
@@ -157,14 +158,23 @@ To import JSON or a zip file with conversations, click the **Import conversation
 
 ### Delete
 
-You can delete a single conversation or all conversations.
+You can delete a single conversation, selected conversations or all conversations.
 
-To delete a single conversation, on the left panel, in the conversation contextual menu, select **Delete** and confirm your action.
+* To delete a **single** conversation, on the left panel, in the conversation contextual menu, select **Delete** and confirm your action.
+* To delete **all** conversations, at the bottom of the left panel, click the **Delete all conversations** icon.
 
 ![](./img/Delete_conv.png)
 
-To delete all conversations, at the bottom of the left panel, click the **Delete conversations** icon.
- 
+Also, you can use a *selection* mode to choose conversation(s) you want to delete:
+
+* Click **Select all** button in the bottom panel. In this case, all conversations are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
+
+![](./img/select-chat1.png)
+
+* Click **Select** in the conversation menu. In this case, you can hover over any conversation and use checkboxes to select/unselect conversations you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
+
+![](./img/select-chat2.png)
+
 ### Replay
 
 You can use **Replay** to reproduce conversations but with different settings (e.g. a different model). A replayed conversation can be used to compare responses to the same questions from different models and with different settings of the conversation. 
@@ -183,6 +193,22 @@ To replay a conversation:
 4.	In the process of replaying, you can stop and resume the replay process.
 
 The replayed conversation is displayed as a new conversation with the `[Replay]` tag in the list of your conversations. 
+
+### Parameterized Replay
+
+If you want to make your own chats or stories with custom variables and share them with your team, you can use a feature called Parameterized Replay. Use it to set up a chat or a story that others can follow, but provide their own details or answers to create a personalized experience. This makes chat a much more useful tool for sharing information and collaboration.
+
+How it works: 
+
+Let's create a simple Travel Guide conversation, which will take a user though several steps to clarify information and provide the answer.
+
+1. Start by [creating a special prompt](#create-1) with [variables](#variables). Use templates (this `{{VariableName|DefaultValue}}` or this `{{VariableName}}`) to add variables into your prompt with or without default values. For example: `I'd like to travel to {{country|Japan}}. Could you please suggest {{num-attractions|10}} of the best attractions? I will be there for {{num-days}}. Thank you.`
+2. To use it, type `/` in the conversation text input area and select your prompt. You will be prompted to provide your inputs for variables in a pop-up window. Enter your inputs and click `Submit`. The prompt is now populated with your inputs in the conversation text box. Send messsage to start.
+3. The chat will return its response to your prompt.
+4. You can now click [Replay](#replay) in your conversation's menu to repeat this dialogue but with different input parameters.
+5. You can [Share](#share) this conversation with someone. When a person opens the shared conversation, they will be prompted to fill in their personal input in the parameterized prompt, allowing them to have the same conversation but with their custom inputs, for example, travel to USA instead of Japan.
+
+> Watch a [demo video](https://youtu.be/I8en0n0TQQU?si=mMUQkpKvx0xEoElF) to see it in action and check out more examples.
 
 ### Playback
 
@@ -332,8 +358,7 @@ You can perform various actions with your prompts:
 - **Export**: right-click a prompt on the right panel and select **Export**. The prompt will be exported as JSON.
 - **Import**: click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
 - **Move to**: use to place a prompt in a folder.
-- **Delete**: right-click a prompt on the right panel and select **Delete**, then confirm the action.
-- **Delete all prompts**: click the **Delete all** icon at the bottom of the right panel and confirm your action.
+- **Delete**: you can delete a single prompt, all prompts or selected prompts. Refer to [Delete](#delete-1) section to learn more.
 - **Export all prompts**: click the **Export prompts** icon at the bottom of the right panel. All your prompts will be exported as JSON.
 - **Share**: use to share a prompt or a folder with several prompts with other users.
 - **Unshare**: use to revoke access to shared prompts.
@@ -374,15 +399,35 @@ To create a new prompt:
 
 >  **Name** and **Description** aren’t used as instructions for a language model. They only help you to distinguish the prompt from others. The language model will only use instructions from the **Prompt** box.
 
+### Delete 
+
+You can delete a single prompt, selected prompts or all prompts.
+
+* To delete a single prompt, in the menu of each prompt, select **Delete** and confirm your action.
+* To delete all prompts, at the bottom of the right panel, click the **Delete all prompts** icon.
+
+Also, you can use a *selection* mode to choose prompt(s) you want to delete:
+
+* Click **Select all** button in the bottom panel. In this case, all prompts are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
+
+![](./img/select-prompt1.png)
+
+* Click **Select** in the prompts menu. In this case, you can hover over any prompt and use checkboxes to select/unselect prompts you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
+
+![](./img/select-prompt2.png)
+
 #### Variables
 
-You can use prompts as templates for your messages to a language model. For example, you need to calculate an equation `a + c/d`, round up the answer, and then divide it by 4. Let’s imagine that you need results for four sets of `a`, `c`, and `d`.
+You can use prompts as templates for your instructions to a language model. You can also add variables in your prompts. Use notation such as `{{variableName}}` or `{{variableName|Default Value}}` to add variables.
+
+> Refer to [Parameterized Replay](#parameterized-replay) to view a use case when prompts are used to create parametrized conversations.
+
+For example, you need to calculate an equation `a + c/d`, round up the answer, and then divide it by 4. Let’s imagine that you need results for four sets of `a`, `c`, and `d`.
  
 In that case you can create the following prompt:
 
 ![](./img/Prompt_example_math_edit_window.png)
 
- 
 Here, `a`, `c`, and `d` are variables. In the prompt body, they are denoted by double curly brackets: `{{ }}`.
 
 > You can combine mathematical expressions and natural language in your prompts.
