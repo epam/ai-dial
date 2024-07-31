@@ -67,22 +67,22 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Roles & Limits',
+      label: 'Roles & Access Control',
       items: [
         {
           type:'doc',
-          id: 'Roles and Limits/overview',
+          id: 'Roles and Access Control/overview',
           label: 'Overview'
         },
         {
           type:'doc',
-          id: 'Roles and Limits/API Keys',
+          id: 'Roles and Access Control/API Keys',
           label: 'API Keys'
         },
         ,
         {
           type:'doc',
-          id: 'Roles and Limits/chat-users',
+          id: 'Roles and Access Control/chat-users',
           label: 'Chat Users'
         }
       ],
