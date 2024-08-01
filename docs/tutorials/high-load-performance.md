@@ -31,14 +31,14 @@ When we conducted the same tests under heavier loads, the results clearly demons
 
 We also ran tests to measure the number of successful completions and the occurrence of errors, specifically HTTP 429 (Too Many Requests). These tests showed that users are far less likely to get an error in the response when using AI DIAL.
 
-**Errors reports**: completion=473, prompt=31, total=504
+**Few tokens**: completion=473, prompt=31, total=504
 
 |	|Model|Endpoints count|Load	|	Errors|
 |--|--|:--:|--|:--:|
 |Dial Core|	gpt-35-turbo-1106|	5|	3 requests per sec|	0|
 |OpenAI|	gpt-35-turbo-1106|	1|	3 requests per sec|	1%|
 
-**Errors reports**: completion=2189, prompt=2204, total=4393
+**Many tokens**: completion=2189, prompt=2204, total=4393
 
 |	|Model|Endpoints count|Load	|	Errors|
 |--|--|:--:|--|:--:|
