@@ -1,6 +1,6 @@
 # Handling High Loads in AI DIAL
 
-In this document, we provide the highlights of the results of testing we conducted to measure the latency, throughput and errors count in AI DIAL under various scenarios, especially under high loads, involving many completions and prompts. 
+In this document, we provide the highlights of the results of testing we conducted to measure the errors count and the response speed in AI DIAL under various scenarios, especially under high loads, involving many completions and prompts. 
 
 ## Preconditions
 
