@@ -7,11 +7,11 @@ In this document, we provide the highlights of the results of testing we conduct
 We ran a series of tests involving various scenarios: small prompt to small completion, small prompt to large completion, large prompt to small completion, and large prompt to large completion. 
 Also, AI DIAL setup with multiple endpoints was compared to a single-endpoint OpenAI setup to demonstrate the advantages of the load balancing contrary to using single-endpoint setups. 
 
-## Latency and Throughput
+## Response Speed
 
-When testing throughput (requests per second) and the average response time, AI DIAL has proven to deliver better results compared to single OpenAI instances.
+When testing the average response time, AI DIAL has proven to deliver better results compared to single OpenAI instances.
 
-**Few tokens**: tokens: completion=1, prompt=30, total=31
+**Few tokens**: completion=1, prompt=30, total=31
 
 |	|Model|Endpoints count|Load	|Avg response time, ms|
 |--|--|--|--|--|
@@ -20,7 +20,7 @@ When testing throughput (requests per second) and the average response time, AI 
 
 When we conducted the same tests under heavier loads, the results clearly demonstrated that AI DIAL performed better, further showcasing its effectiveness.
 
-**Many tokens**: tokens: completion=2189, prompt=2204, total=4393
+**Many tokens**: completion=2189, prompt=2204, total=4393
 
 |	|Model|Endpoints count|Load	|Avg response time, ms|
 |--|--|--|--|--|
