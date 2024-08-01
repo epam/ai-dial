@@ -14,7 +14,7 @@ When testing the average response time, AI DIAL has proven to deliver better res
 **Few tokens**: completion=1, prompt=30, total=31
 
 |	|Model|Endpoints count|Load	|Avg response time, ms|
-|--|--|--|--|--|
+|--|--|:--:|--|:--:|
 |Dial Core|	gpt-35-turbo-16k|	9	|10 requests per sec|	542|
 |OpenAI|	gpt-35-turbo-16k|	1	|10 requests per sec|	799|
 
@@ -23,7 +23,7 @@ When we conducted the same tests under heavier loads, the results clearly demons
 **Many tokens**: completion=2189, prompt=2204, total=4393
 
 |	|Model|Endpoints count|Load	|Avg response time, ms|
-|--|--|--|--|--|
+|--|--|:--:|--|:--:|
 |Dial Core|	gpt-4-0613|	6|	0.5 requests per sec|	121350|
 |OpenAI|	gpt-4-0613|	1|	0.5 requests per sec|	177370|
 
@@ -34,14 +34,14 @@ We also ran tests to measure the number of successful completions and the occurr
 **Errors reports**: tokens: completion=473, prompt=31, total=504
 
 |	|Model|Endpoints count|Load	|	Errors|
-|--|--|--|--|--|
+|--|--|:--:|--|:--:|
 |Dial Core|	gpt-35-turbo-1106|	5|	3 requests per sec|	0|
 |OpenAI|	gpt-35-turbo-1106|	1|	3 requests per sec|	1%|
 
 **Errors reports**: tokens: completion=2189, prompt=2204, total=4393
 
 |	|Model|Endpoints count|Load	|	Errors|
-|--|--|--|--|--|
+|--|--|:--:|--|:--:|
 |Dial Core|	gpt-4-1106-preview|	3|	1 request per sec|	0|
 |OpenAI|	gpt-4-1106-preview|	1	|1 request per sec	|57%|
 
