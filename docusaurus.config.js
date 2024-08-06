@@ -88,8 +88,8 @@ const config = {
         title: "", // 'EPAM DIAL',
         logo: {
           alt: "EPAM DIAL",
-          src: "img/logo_light.svg",
-          srcDark: "img/logo_dark.svg",
+          src: "img/dialx-logo.svg",
+          srcDark: "img/dialx-logo.svg",
         },
         items: [
           // {
