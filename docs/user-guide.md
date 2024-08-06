@@ -373,7 +373,7 @@ Users can publish conversations to make them available for the target audience i
    * If you have selected a folder, you can choose what conversations you want to unpublish. If conversation(s) include attachment(s), you can also select them in the **Files** section.
    * Click **Send request** to send your unpublish request to the administrator. **Note**: you can revoke your unpublish request only prior it has been approved.
   
-![](./img/unpublish-request.png)
+![](./img/unpublish-prompt-reques.png)
 
 3. When your request is apporved, the unpublished conversation or a folder with conversation(s) will become unavailable in the Organization section for the target audience.
    
