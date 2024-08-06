@@ -336,6 +336,39 @@ In the file menu, you can choose to unshare it:
 1. In the Manage attachments dialog, point to a file and select it. You can select several files.
 2. Click the **Delete** icon below the files tree.
 
+### Publish
+
+Users can publish conversations and this way make them available for the target audience.
+
+**Note**: to publish a shared conversation, [duplicate](#duplicate) it and then publish. 
+
+**To publish a conversation**: 
+
+1. Click **Publish** in the converstion menu. 
+
+![](./img/publish-conversation.png)
+
+2. In the pop-up window:
+   * Enter the publication request name in the upper area.
+   * Select the organization. You can also create a dedicated forlder to publish your conversation into.
+   * Specify access rules. For example Role-Equals-Admin. **Note**: the available roles and permissions are configured for each organization individually. Contact your support to find out the details applicable in your organization.
+   * If you have selected a folder, you can choose what conversations you want to publish. If conversations include attachments, you can also select them in the **Files** section.
+   * Click **Send request** to send your publication request to the administrator. **Note**: you can revoke your publication request only prior it has been approved.
+3. When your request is apporved, the published conversation or a folder with conversation(s) will become available in the Organization section above all your conversations.
+
+**To unpublish a conversation**: 
+
+1. Click **Unpublish** in the converstion menu. 
+
+![](./img/unpublish-conversation.png)
+
+2. In the pop-up window:
+   * Enter the unpublish request name in the upper area.
+   * Select the organization.
+   * If you have selected a folder, you can choose what conversations you want to unpublish. If conversations include attachments, you can also select them in the **Files** section.
+   * Click **Send request** to send your unpublish request to the administrator. **Note**: you can revoke your unpublish request only prior it has been approved.
+3. When your request is apporved, the unpublish conversation or a folder with conversation(s) will become unavailable in the Organization section above all your conversations.
+   
 ## Prompts
 
 A prompt is an instruction, a question, or a message that a user provides to a language model to receive an answer. Prompts can also contain constraints or requirements. They help the model understand the task at hand and the types of responses that are expected. 
@@ -498,6 +531,39 @@ You can export and import prompts.
 
 ![](./img/import-export-prompt.png)
 
+### Publish
+
+Users can publish prompts and this way make them available for the target audience.
+
+**Note**: to publish a shared prompt, [duplicate](#duplicate-1) it and then publish. 
+
+**To publish a conversation**: 
+
+1. Click **Publish** in the prompt menu. 
+
+![](./img/publish-prompt.png)
+
+2. In the pop-up window:
+   * Enter the publication request name in the upper area.
+   * Select the organization. You can also create a dedicated forlder to publishyour prompt into.
+   * Specify access rules. For example Role-Equals-Admin. **Note**: the available roles and permissions are configured for each organization individually. Contact your support to find out the details applicable in your organization.
+   * If you have selected a folder, you can choose what prompts you want to publish. If prompt(s) include attachment(s), you can also select them in the **Files** section.
+   * Click **Send request** to send your publication request to the administrator. **Note**: you can revoke your publication request only prior it has been approved.
+3. When your request is apporved, the published prompt or a folder with prompt(s) will become available in the Organization section above all your prompts.
+
+**To unpublish a prompt**: 
+
+1. Click **Unpublish** in the prompt menu. 
+
+![](./img/unpublish-prompt.png)
+
+2. In the pop-up window:
+   * Enter the unpublish request name in the upper area.
+   * Select the organization.
+   * If you have selected a folder, you can choose what prompts you want to unpublish. If prompt(s) include attachment(s), you can also select them in the **Files** section.
+   * Click **Send request** to send your unpublish request to the administrator. **Note**: you can revoke your unpublish request only prior it has been approved.
+3. When your request is apporved, the unpublish prompt or a folder with prompt(s) will become unavailable in the Organization section above all your prompts.
+
 ## Chat Settings
 
 In the Chat Settings section, there are the following components:
@@ -624,6 +690,36 @@ On the top bar, in the user area, you can click a down arrow to access additiona
 You can select the chat theme, dark or light, add a custom logo, and switch on a full width chat mode.
 
 ![](./img/user_settings.png)
+
+## Publications
+
+Chat users can publish/unpublish conversations and prompts, or even a collection of those, making them accessible within their organization. Additionally, AI DIAL provides functionality to manage access and permissions for these published resources, ensuring that the right information is accessible to the right individuals or teams within the organization.
+
+### Configuration
+
+To enable the publication feature:
+
+1. Configure your identity service provider by creating user groups for administrators
+2. Configure `access.admin.rules` in AI DIAL Core to define which user roles can perform the admin's actions. Refer to [configuration](https://github.com/epam/ai-dial-core) to view hte description of parameters.
+3. Configure AI DIAL Chat by including `ConversationsPublishing` and `PromptsPublishing` in the `ENABLED_FEATURES` variable. Refer to [configuration]([https://github.com/epam/ai-dial-core](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md)) to view hte description of parameters and [examples](https://github.com/epam/ai-dial-chat/blob/development/libs/shared/src/types/features.ts).
+
+### Flow
+
+This is the high level overview of the publications workflow: 
+
+1. User sends a publication request for the selected resource(s). Until the request is approved by the administrator, user can revoke it.
+2. Admin receives the publication request, reviews it and either approves or declines.
+3. In case the publication request has been approved, the published resource becomes available for the target audience in the Organization section.
+4. Resource owner can unpublish the published resource.
+
+> Refer to [Conversations](#publish) and [Prompts](#publish-1) to view a step-by-step instructions.
+
+### Admin Panel
+
+Users with admin roles have access to the administration panel in chat application. In this panel, they can view all publish and unpublish requests from users, review and reject them. 
+
+![](./img/admin-panel.png)
+
 
 ## Data Visualization
 
