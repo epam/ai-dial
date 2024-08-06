@@ -12,13 +12,13 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 
 ### Introduction
 
-Modular architecture of AI DIAL allows implementing scalable and customized solutions to fit specific business needs. Its key building blocks include [Core](#ai-dial-core) (the main and the only required component), [Chat](#chat) (web application with user interface), [Adapters](#llm-adapters) (align APIs of LLMs with the Universal API of Core), Applications (any custom logic with a conversation interface packaged as a ready-to-use solution), and a [persistent layer](#persistent-layer) that relies on a resilient and scalable cloud blob storage, with Redis layered on top to enhance performance. 
+Modular architecture of AI DIAL allows implementing scalable and customized solutions to fit specific business needs. Its key building blocks include [Core](#ai-dial-core) (the main and the only mandatory component), [Chat](#chat) (web application with user interface), [Adapters](#llm-adapters) (align APIs of LLMs with the Universal API), Applications (any custom logic with a conversation interface packaged as a ready-to-use solution), and a [persistent layer](#persistent-layer) that relies on a configured resilient and scalable cloud blob storage, with Redis layered on top to enhance performance. 
 
-Unified API offers a universal connectivity between models, external and internal clients. Applications can form an ecosystem and interact with each other through the Unified API with access to all DIAL Core features. DIAL Core employs a proprietary load balancer and a retry mechanism that enhance performance and fault tolerance, particularly during peak demand. This significantly reduces delays and boosts throughput.
+The Unified API enables universal connectivity between models of different modalities, including access to embedding models, and facilitates communication with the AI DIAL Core for both external and internal clients. Applications can form an ecosystem and interact with each other through the Unified API with access to all DIAL Core features among which is access to models, file storage, access control and other. DIAL Core employs a proprietary load balancer and a retry mechanism that enhance performance and fault tolerance, particularly during peak demand. This significantly reduces delays and boosts throughput.
 
 ![](./img/arch-intro.svg)
 
-You can have a [minimal installation](#minimal-installation) with Core (the only mandatory component) and a Unified public API to enable external and internal client access AI DIAL features. This package can be easily deployed even on a personal laptop or a desktop computer and is a good starting point to get familiar with AI DIAL. To engage chat users and access different LLMs, you can have a setup with Core, Chat and LLM adapters – we call it a [standard installation](#standard-installation). This package is better suited for enterprise-level production use.
+You can have a [minimal installation](#minimal-installation) just with AI DIAL Core which can be easily deployed even on a personal laptop or a desktop computer and is a good starting point to get familiar with AI DIAL. To engage chat users and access different LLMs, you can have a setup with Core, Chat and LLM adapters – we call it a [standard installation](#standard-installation). This package is better suited for enterprise-level production use.
 
 A modular architecture allows adding as many components as needed up to a [complete ecosystem](#full-platform-landscape).
 
@@ -121,7 +121,7 @@ In AI DIAL Core, user roles are defined and configured in the application config
 
 ### Persistent Layer
 
-AI DIAL architecture includes a persistent layer, that relies on a resilient and scalable cloud blob storage (S3, Google Cloud, Azure or a local file storage) where all conversations, prompts, and user files are saved. Redis Cache (either cluster or a standalone) is deployed on top of it to enhance performance.
+AI DIAL architecture includes a persistent layer, that relies on a resilient and scalable cloud blob storage (you can configure either S3, Google Cloud Storage, Azure or a local file storage) where all conversations, prompts, and user files will be stored. Redis Cache (either cluster or a standalone) is deployed on top of it to enhance performance.
 
 ![](./img/redis.svg)
 
