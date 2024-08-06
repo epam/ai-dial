@@ -569,7 +569,7 @@ Users can publish prompts to make them available for the target audience.
 
 1. Click **Unpublish** in the prompt's menu. 
 
-![](./img/unpublish-prompt.png)
+ ![](./img/unpublish-prompt.png)
 
 2. In the pop-up window:
    * Enter the unpublish request name in the upper area.
@@ -577,9 +577,11 @@ Users can publish prompts to make them available for the target audience.
    * If you have selected a folder, you can choose what prompts you want to unpublish. If prompt(s) include attachment(s), you can also select them in the **Files** section.
    * Click **Send request** to send your unpublish request to the administrator. **Note**: you can revoke your unpublish request only prior it has been approved.
 
-![](./img/unpublish-prompt-request.png)
+ ![](./img/unpublish-prompt-request.png)
 
 3. When your request is apporved, the unpublished prompt or a folder with prompt(s) will become unavailable in the Organization section for the selected target audience.
+
+ ![](./img/organization-section-prompt.png)
 
 ## Chat Settings
 
