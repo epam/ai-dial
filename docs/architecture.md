@@ -123,7 +123,7 @@ In AI DIAL Core, user roles are defined and configured in the application config
 
 ### Persistent Layer
 
-AI DIAL architecture includes a persistent layer, that relies on a resilient and scalable cloud blob storage (you can configure either S3, Google Cloud Storage, Azure or a local file storage) where all conversations, prompts, and user files will be stored. Redis Cache (either cluster or a standalone) is deployed on top of it to enhance performance.
+AI DIAL architecture includes a persistent layer, that relies on a resilient and scalable cloud blob storage (you can configure either AWS S3, Google Cloud Storage, Azure Blob Storage or a local file storage) where all conversations, prompts, and user files will be stored. Redis Cache (either cluster or a standalone) is deployed on top of it to enhance performance.
 
 ![](./img/redis.svg)
 
