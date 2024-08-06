@@ -10,6 +10,16 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 
 ## AI DIAL Architecture
 
+### Introduction
+
+Modular architecture of AI DIAL allows implementing scalable and customized solutions to fit specific business needs. Its key building blocks include Core, Chat, Adapters, Applications, and a resilient and scalable persistent blob storage, with Redis layered on top to enhance performance. 
+Unified API offers a universal connectivity between models, external and internal clients. Applications can form an ecosystem and interact with each other through high-performance AI DIAL Core using the Unified API. 
+
+![](./img/arch-intro.svg)
+
+You can have a [minimal installation](#minimal-installation) with Core (the only mandatory component) and a Unified public API to enable external and internal client access AI DIAL features. To engage chat users and access different LLMs, you can have a setup with Core, Chat and LLM adapters – we call it a [standard installation](#standard-installation). 
+A modular architecture allows adding as many components as needed up to a [complete ecosystem](#full-platform-landscape), including Chat and Chat Themes, Analytics Real-Time, Chat Overlay, Assistant, LLM Adapters and Auth Helper.
+
 ### Minimal Installation
 
 AI DIAL has only one required component – [AI DIAL Core](#ai-dial-core).
@@ -106,6 +116,14 @@ You can gather standard logs (which do not contain user messages) from component
 #### Entitlements
 
 In AI DIAL Core, user roles are defined and configured in the application config file. This allows administrators to specify which users or user groups are authorized to access specific resources or features within the application. These user roles match the once created in your IDP.
+
+### Persistent Layer
+
+AI DIAL architecture includes a resilient and scalable persistent storage layer that saves all conversations, prompts, and user files in a dedicated blob storage (S3, Google Cloud, Azure or a local file storage). Redis Cache (either cluster or a stand alone) is deployed on top of it to enhance performance.
+
+![](./img/standard2.svg)
+
+This architecture facilitates the swift retrieval of stored resources, supporting features such as the sharing and publication of conversations and prompts.
 
 ### Auth Helper
 
