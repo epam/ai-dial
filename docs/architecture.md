@@ -13,6 +13,7 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 ### Introduction
 
 Modular architecture of AI DIAL allows implementing scalable and customized solutions to fit specific business needs. Its key building blocks include Core, Chat, Adapters, Applications, and a resilient and scalable persistent blob storage, with Redis layered on top to enhance performance. 
+
 Unified API offers a universal connectivity between models, external and internal clients. Applications can form an ecosystem and interact with each other through high-performance AI DIAL Core using the Unified API. 
 
 ![](./img/arch-intro.svg)
