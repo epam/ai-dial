@@ -338,7 +338,7 @@ In the file menu, you can choose to unshare it:
 
 ### Publish
 
-Users can publish conversations and to make them available for the target audience in your organization.
+Users can publish conversations to make them available for the target audience in their organization.
 
 **Note**: to publish a shared conversation, [duplicate](#duplicate) it and then publish. 
 
