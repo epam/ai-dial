@@ -88,8 +88,8 @@ const config = {
         title: "", // 'EPAM DIAL',
         logo: {
           alt: "EPAM DIAL",
-          src: "img/logo_light.svg",
-          srcDark: "img/logo_dark.svg",
+          src: "img/dialx-logo.svg",
+          srcDark: "img/dialx-logo.svg",
         },
         items: [
           // {
@@ -104,8 +104,13 @@ const config = {
             position: "right",
           },
           {
-            href: "https://discord.gg/3TPc4zV4gS",
+            href: "https://discord.gg/hgqEAbEwZ9",
             label: "Discord",
+            position: "right",
+          },
+          {
+            href: "https://www.youtube.com/@TeamDialX",
+            label: "YouTube",
             position: "right",
           },
         ],
