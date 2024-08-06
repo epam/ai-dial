@@ -48,3 +48,8 @@
 .docusaurus-ignore {
   display: none;
 }
+
+.navbar__logo img {
+  height: 70%;
+  margin-left: 10px;
+}
