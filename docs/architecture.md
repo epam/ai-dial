@@ -16,7 +16,7 @@ Modular architecture of AI DIAL allows implementing scalable and customized solu
 
 The [Unified API](https://epam-rail.com/dial_api) enables universal connectivity between models (including models of different modalities), unified access to different embedding models, and facilitates communication with the AI DIAL Core for both external and internal clients. 
 
-Applications can form an **ecosystem and interact with each other** through the Unified API with access to all DIAL Core features among which is connectivity to models, file storage, access control and other - see the following illustration. To enhance performance and fault tolerance, AI DIAL Core employs a proprietary load balancer and a retry mechanism. This significantly reduces delays and boosts throughput especially during peak demand.
+Applications can form an **ecosystem and interact with each other** through the Unified API with access to all DIAL Core features among which is connectivity to models, file storage, access control, per-request API keys and other - see the following illustration. To enhance performance and fault tolerance, AI DIAL Core employs a proprietary load balancer and a retry mechanism. This significantly reduces delays and boosts throughput especially during peak demand.
 
 ![](./img/arch-intro.svg)
 
