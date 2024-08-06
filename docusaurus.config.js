@@ -104,8 +104,13 @@ const config = {
             position: "right",
           },
           {
-            href: "https://discord.gg/3TPc4zV4gS",
+            href: "https://discord.gg/hgqEAbEwZ9",
             label: "Discord",
+            position: "right",
+          },
+          {
+            href: "https://www.youtube.com/@TeamDialX",
+            label: "YouTube",
             position: "right",
           },
         ],
