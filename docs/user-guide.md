@@ -338,7 +338,7 @@ In the file menu, you can choose to unshare it:
 
 ### Publish
 
-Users can publish conversations and this way make them available for the target audience.
+Users can publish conversations and to make them available for the target audience in your organization.
 
 **Note**: to publish a shared conversation, [duplicate](#duplicate) it and then publish. 
 
@@ -349,12 +349,17 @@ Users can publish conversations and this way make them available for the target 
 ![](./img/publish-conversation.png)
 
 2. In the pop-up window:
-   * Enter the publication request name in the upper area.
-   * Select the organization. You can also create a dedicated forlder to publish your conversation into.
-   * Specify access rules. For example Role-Equals-Admin. **Note**: the available roles and permissions are configured for each organization individually. Contact your support to find out the details applicable in your organization.
+   * Enter the publish request name in the upper area.
+   * Select the organization. You can also create a dedicated folder to publish your conversation into.
+   * Specify access rules. For example Role-Equals-Admin. **Note**: the available roles and permissions are configured for each organization individually. Contact your support to find out the rules applicable in your organization.
    * If you have selected a folder, you can choose what conversations you want to publish. If conversations include attachments, you can also select them in the **Files** section.
-   * Click **Send request** to send your publication request to the administrator. **Note**: you can revoke your publication request only prior it has been approved.
+   * Click **Send request** to send your publish request to the administrator. **Note**: you can revoke your publish request only prior it has been approved.
+
+![](./img/publish-request.png)
+
 3. When your request is apporved, the published conversation or a folder with conversation(s) will become available in the Organization section above all your conversations.
+
+![](./img/organization-section.png)
 
 **To unpublish a conversation**: 
 
@@ -365,9 +370,12 @@ Users can publish conversations and this way make them available for the target 
 2. In the pop-up window:
    * Enter the unpublish request name in the upper area.
    * Select the organization.
-   * If you have selected a folder, you can choose what conversations you want to unpublish. If conversations include attachments, you can also select them in the **Files** section.
+   * If you have selected a folder, you can choose what conversations you want to unpublish. If conversation(s) include attachment(s), you can also select them in the **Files** section.
    * Click **Send request** to send your unpublish request to the administrator. **Note**: you can revoke your unpublish request only prior it has been approved.
-3. When your request is apporved, the unpublish conversation or a folder with conversation(s) will become unavailable in the Organization section above all your conversations.
+  
+![](./img/unpublish-request.png)
+
+3. When your request is apporved, the unpublished conversation or a folder with conversation(s) will become unavailable in the Organization section for the target audience.
    
 ## Prompts
 
@@ -395,6 +403,7 @@ You can perform various actions with your prompts:
 - **Export all prompts**: click the **Export prompts** icon at the bottom of the right panel. All your prompts will be exported as JSON.
 - **Share**: use to share a prompt or a folder with several prompts with other users.
 - **Unshare**: use to revoke access to shared prompts.
+- **Publish**: use to publish prompts within the organization. Refer to [Publish](#publish-1) section to learn more.
 
 ### Arrange
 
@@ -533,27 +542,32 @@ You can export and import prompts.
 
 ### Publish
 
-Users can publish prompts and this way make them available for the target audience.
+Users can publish prompts to make them available for the target audience.
 
 **Note**: to publish a shared prompt, [duplicate](#duplicate-1) it and then publish. 
 
-**To publish a conversation**: 
+**To publish a prompt**: 
 
 1. Click **Publish** in the prompt menu. 
 
 ![](./img/publish-prompt.png)
 
 2. In the pop-up window:
-   * Enter the publication request name in the upper area.
-   * Select the organization. You can also create a dedicated forlder to publishyour prompt into.
-   * Specify access rules. For example Role-Equals-Admin. **Note**: the available roles and permissions are configured for each organization individually. Contact your support to find out the details applicable in your organization.
-   * If you have selected a folder, you can choose what prompts you want to publish. If prompt(s) include attachment(s), you can also select them in the **Files** section.
+   * Enter the publish request name in the upper area.
+   * Select the organization. You can also create a dedicated folder to publish your prompt into.
+   * Specify access rules. For example Role-Equals-Admin. **Note**: the available roles and permissions are configured for each organization individually. Contact your support to find out the rules applicable in your organization.
+   * If you have selected a folder, you can choose what prompts you want to publish.
    * Click **Send request** to send your publication request to the administrator. **Note**: you can revoke your publication request only prior it has been approved.
-3. When your request is apporved, the published prompt or a folder with prompt(s) will become available in the Organization section above all your prompts.
+
+![](./img/publish-prompt-request.png)
+
+3. When your request is apporved, the published prompt or a folder with prompt(s) will become available in the Organization section.
+
+![](./img/organization-section-prompts.png)
 
 **To unpublish a prompt**: 
 
-1. Click **Unpublish** in the prompt menu. 
+1. Click **Unpublish** in the prompt's menu. 
 
 ![](./img/unpublish-prompt.png)
 
@@ -562,7 +576,10 @@ Users can publish prompts and this way make them available for the target audien
    * Select the organization.
    * If you have selected a folder, you can choose what prompts you want to unpublish. If prompt(s) include attachment(s), you can also select them in the **Files** section.
    * Click **Send request** to send your unpublish request to the administrator. **Note**: you can revoke your unpublish request only prior it has been approved.
-3. When your request is apporved, the unpublish prompt or a folder with prompt(s) will become unavailable in the Organization section above all your prompts.
+
+![](./img/unpublish-prompt-request.png)
+
+3. When your request is apporved, the unpublished prompt or a folder with prompt(s) will become unavailable in the Organization section for the selected target audience.
 
 ## Chat Settings
 
