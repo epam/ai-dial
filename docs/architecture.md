@@ -12,14 +12,15 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 
 ### Introduction
 
-Modular architecture of AI DIAL allows implementing scalable and customized solutions to fit specific business needs. Its key building blocks include Core, Chat, Adapters, Applications, and a resilient and scalable persistent blob storage, with Redis layered on top to enhance performance. 
+Modular architecture of AI DIAL allows implementing scalable and customized solutions to fit specific business needs. Its key building blocks include [Core](#ai-dial-core) (the main and the only required component), [Chat](#chat) (web application with user interface), [Adapters](#llm-adapters) (align APIs of LLMs with the Universal API of Core), Applications (any custom logic with a conversation interface packaged as a ready-to-use solution), and a [persistent layer](#persistent-layer) that relies on a resilient and scalable cloud blob storage, with Redis layered on top to enhance performance. 
 
-Unified API offers a universal connectivity between models, external and internal clients. Applications can form an ecosystem and interact with each other through high-performance AI DIAL Core using the Unified API. 
+Unified API offers a universal connectivity between models, external and internal clients. Applications can form an ecosystem and interact with each other through the Unified API with access to all DIAL Core features. DIAL Core employs a proprietary load balancer and a retry mechanism that enhance performance and fault tolerance, particularly during peak demand. This significantly reduces delays and boosts throughput.
 
 ![](./img/arch-intro.svg)
 
-You can have a [minimal installation](#minimal-installation) with Core (the only mandatory component) and a Unified public API to enable external and internal client access AI DIAL features. To engage chat users and access different LLMs, you can have a setup with Core, Chat and LLM adapters – we call it a [standard installation](#standard-installation). 
-A modular architecture allows adding as many components as needed up to a [complete ecosystem](#full-platform-landscape), including Chat and Chat Themes, Analytics Real-Time, Chat Overlay, Assistant, LLM Adapters and Auth Helper.
+You can have a [minimal installation](#minimal-installation) with Core (the only mandatory component) and a Unified public API to enable external and internal client access AI DIAL features. This package can be easily deployed even on a personal laptop or a desktop computer and is a good starting point to get familiar with AI DIAL. To engage chat users and access different LLMs, you can have a setup with Core, Chat and LLM adapters – we call it a [standard installation](#standard-installation). This package is better suited for enterprise-level production use.
+
+A modular architecture allows adding as many components as needed up to a [complete ecosystem](#full-platform-landscape).
 
 ### Minimal Installation
 
@@ -120,11 +121,11 @@ In AI DIAL Core, user roles are defined and configured in the application config
 
 ### Persistent Layer
 
-AI DIAL architecture includes a resilient and scalable persistent storage layer that saves all conversations, prompts, and user files in a dedicated blob storage (S3, Google Cloud, Azure or a local file storage). Redis Cache (either cluster or a stand alone) is deployed on top of it to enhance performance.
+AI DIAL architecture includes a persistent layer, that relies on a resilient and scalable cloud blob storage (S3, Google Cloud, Azure or a local file storage) where all conversations, prompts, and user files are saved. Redis Cache (either cluster or a standalone) is deployed on top of it to enhance performance.
 
 ![](./img/redis.svg)
 
-This architecture facilitates the swift retrieval of stored resources, supporting features such as the sharing and publication of conversations and prompts.
+This architecture facilitates the swift retrieval of stored resources, supporting features such as sharing and publication of conversations and prompts.
 
 ### Auth Helper
 
