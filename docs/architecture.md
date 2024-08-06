@@ -18,7 +18,7 @@ The Unified API enables universal connectivity between models (including models 
 
 ![](./img/arch-intro.svg)
 
-You can have a [minimal installation](#minimal-installation) (it includes only AI DIAL Core) which can be easily installed even on a personal laptop or a desktop computer and is a good starting point for getting familiar with AI DIAL. To engage chat users and access different LLMs, you can have a setup with Core, Chat and LLM adapters – we call it a [standard installation](#standard-installation). This package is better suited for enterprise-level production use.
+You can have a [minimal installation](#minimal-installation) (it includes only AI DIAL Core) which can be easily installed even on a personal laptop or a desktop computer and is a good starting point for getting familiar with AI DIAL. To engage chat users and access different LLMs, you can have a setup with Core, Chat and LLM adapters – we call it a [standard installation](#standard-installation). This package is more suitable for use in enterprise-level production environments.
 
 A modular architecture allows adding as many components as needed up to a [complete ecosystem](#full-platform-landscape).
 
