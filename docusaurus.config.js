@@ -81,25 +81,25 @@ const config = {
     ],
   ],
 
-  scripts:
-    process.env.NODE_ENV === 'development'
-      ? []
-      : [
-          {
-            src: 'https://cookie-cdn.cookiepro.com/consent/3a34bbfa-93e4-4ba6-9383-7da88d67ed18/OtAutoBlock.js',
-            type: 'text/javascript',
-          },
-          {
-            src: 'https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js',
-            type: 'text/javascript',
-            charset: 'UTF-8',
-            'data-domain-script': '3a34bbfa-93e4-4ba6-9383-7da88d67ed18',
-          },
-          {
-            src: 'src/scripts/optanonWrapper.js',
-            type: 'text/javascript',
-          },
-        ],
+  // scripts:
+  //   process.env.NODE_ENV === 'development'
+  //     ? []
+  //     : [
+  //         {
+  //           src: 'https://cookie-cdn.cookiepro.com/consent/3a34bbfa-93e4-4ba6-9383-7da88d67ed18/OtAutoBlock.js',
+  //           type: 'text/javascript',
+  //         },
+  //         {
+  //           src: 'https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js',
+  //           type: 'text/javascript',
+  //           charset: 'UTF-8',
+  //           'data-domain-script': '3a34bbfa-93e4-4ba6-9383-7da88d67ed18',
+  //         },
+  //         {
+  //           src: 'src/scripts/optanonWrapper.js',
+  //           type: 'text/javascript',
+  //         },
+  //       ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
