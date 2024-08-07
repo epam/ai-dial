@@ -7,6 +7,7 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import fauxRemarkEmbedder from '@remark-embedder/core';
 import fauxOembedTransformer from '@remark-embedder/transformer-oembed';
+import { readFileSync } from 'fs';
 
 const transformer = {
   ...fauxOembedTransformer,
@@ -18,6 +19,15 @@ const transformer = {
     }
     return html;
   },
+};
+
+const footerLink = (href, path) => {
+  return `<a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="${href}">${readFileSync(
+    path,
+    {
+      encoding: 'utf-8',
+    }
+  )}</a>`;
 };
 
 /** @type {import('@docusaurus/types').Config} */
@@ -132,13 +142,48 @@ const config = {
             href: 'https://www.youtube.com/@TeamDialX',
             label: 'YouTube',
             position: 'right',
-          }
+          },
         ],
       },
       footer: {
-        copyright: `Copyright © ${new Date().getFullYear()} EPAM Systems, Inc. All Rights Reserved`,
+        links: [
+          {
+            items: [
+              {
+                label: 'Privacy policy',
+                to: 'https://www.epam.com/privacy-policy',
+              },
+              {
+                label: 'Cookie policy',
+                to: 'https://www.epam.com/cookie-policy',
+              },
+            ],
+          },
+          {
+            items: [
+              {
+                html: `© ${new Date().getFullYear()} All Rights Reserved`,
+              },
+            ],
+          },
+          {
+            items: [
+              {
+                html: footerLink(
+                  'https://discord.gg/hgqEAbEwZ9',
+                  './static/discord.svg'
+                ),
+              },
+              {
+                html: footerLink(
+                  'https://www.youtube.com/@TeamDialX',
+                  './static/youtube.svg'
+                ),
+              },
+            ],
+          },
+        ],
       },
-
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
