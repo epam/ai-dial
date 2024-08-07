@@ -53,8 +53,9 @@
   padding: 0.25rem 0 0.25rem 0;
 }
 
+
 .iframe-video {
   width: 100%;
   aspect-ratio: 16/9;
-  border-style: none;
 }
+

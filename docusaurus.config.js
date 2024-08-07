@@ -132,7 +132,7 @@ const config = {
             href: 'https://www.youtube.com/@TeamDialX',
             label: 'YouTube',
             position: 'right',
-          },
+          }
         ],
       },
       footer: {
