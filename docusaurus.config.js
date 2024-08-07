@@ -5,6 +5,16 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import { themes as prismThemes } from "prism-react-renderer";
+import fauxRemarkEmbedder from '@remark-embedder/core';
+import fauxOembedTransformer from '@remark-embedder/transformer-oembed';
+
+/** @type {import('@remark-embedder/transformer-oembed').Config} */
+const transformerConfig = {
+  params: {
+    width: 640,
+    blabla:'blabla'
+  }
+};
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -48,6 +58,9 @@ const config = {
           // Remove this to remove the "edit this page" links.
           //editUrl:
           //  'https://github.com/epam/ai-dial/tree/main/',
+          remarkPlugins:[
+            [fauxRemarkEmbedder,{transformers:[[fauxOembedTransformer, transformerConfig]]}]
+          ]
         },
         blog: false,
         theme: {
@@ -64,7 +77,7 @@ const config = {
     ],
   ],
 
-  scripts: [
+  scripts: process.env.NODE_ENV === 'development' ? [] : [
     {
       src: "https://cookie-cdn.cookiepro.com/consent/3a34bbfa-93e4-4ba6-9383-7da88d67ed18/OtAutoBlock.js",
       type: "text/javascript",
@@ -88,8 +101,8 @@ const config = {
         title: "", // 'EPAM DIAL',
         logo: {
           alt: "EPAM DIAL",
-          src: "img/logo_light.svg",
-          srcDark: "img/logo_dark.svg",
+          src: "img/dialx-logo.svg",
+          srcDark: "img/dialx-logo.svg",
         },
         items: [
           // {
@@ -104,8 +117,13 @@ const config = {
             position: "right",
           },
           {
-            href: "https://discord.gg/3TPc4zV4gS",
+            href: "https://discord.gg/hgqEAbEwZ9",
             label: "Discord",
+            position: "right",
+          },
+          {
+            href: "https://www.youtube.com/@TeamDialX",
+            label: "YouTube",
             position: "right",
           },
         ],
@@ -113,6 +131,7 @@ const config = {
       footer: {
         copyright: `Copyright © ${new Date().getFullYear()} EPAM Systems, Inc. All Rights Reserved`,
       },
+      
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
