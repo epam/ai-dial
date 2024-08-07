@@ -350,11 +350,10 @@ You can publish conversations to make them available for the target audience. Yo
 
 2. In the pop-up window:
    * Enter **publication request name** in the upper area.
-   * In **Publish to**, you can select the target audience. You can also create a dedicated folder to publish your conversation into.
-   * In **Allow access..**, specify access rules. For example Role-Equals-Admin. **Note**: the available roles are configured for each organization individually. Contact your support to find out the rules are applicable in your organization.
+   * In **Publish to**, you can select the target destination. You can also create a dedicated folder to publish your conversation into.
+   * In **Allow access..**, specify access rules and the target audience. For example Role-Equals-Admin. **Note**: the available roles are configured for each organization individually. Contact your support to find out the rules are applicable in your organization.
    * In **Conversations**, you can choose what conversations you want to publish (if you have selected a folder with several conversations). If conversations include attachments, you can also select them in the **Files** section.
-   * Click **Send request** to send your publish request to the administrator. **Note**: you can revoke your publish request only prior it has been approved.
-
+   * Click **Send request** to send your publish request to the administrator.
 ![](./img/publish-request.png)
 
 3. When your request is approved, the published conversation or a folder with conversation(s) will become available in the Organization tab.
@@ -370,7 +369,7 @@ You can publish conversations to make them available for the target audience. Yo
 2. In the pop-up window:
    * Enter **unpublish request name** in the upper area.
    * In **Conversations**, if you have selected a folder, you can choose what conversations you want to unpublish. If conversation(s) include attachment(s), you can also select them in the **Files** section.
-   * Click **Send request** to send your unpublish request to the administrator. **Note**: you can revoke your unpublish request only prior it has been approved.
+   * Click **Send request** to send your unpublish request to the administrator.
   
 ![](./img/unpublish-request.png)
 
@@ -553,10 +552,10 @@ You can publish prompts to make them available for the target audience. You can 
 
 2. In the pop-up window:
    * Enter **publication request name** in the upper area.
-   * In **Publish to**, select the organization or a folder to publish your prompt into.
-   * In **Allow access...**, specify access rules. For example Role-Equals-Admin. **Note**: the available roles are defined in each organization individually. Contact your support to find out the rules are applicable in your organization.
+   * In **Publish to**, select the target destination or a folder to publish your prompt into.
+   * In **Allow access...**, specify access rules and the target audience. For example Role-Equals-Admin. **Note**: the available roles are defined in each organization individually. Contact your support to find out the rules are applicable in your organization.
    * In **Prompts**, if you have selected a folder, you can choose what prompts you want to publish.
-   * Click **Send request** to send your publication request to the administrator. **Note**: you can revoke your publication request only prior it has been approved.
+   * Click **Send request** to send your publication request to the administrator.
 
 ![](./img/publish-prompt-request.png)
 
@@ -573,7 +572,7 @@ You can publish prompts to make them available for the target audience. You can 
 2. In the pop-up window:
    * Enter **unpublish request name** in the upper area.
    * In **Prompts**, if you have selected a folder, you can choose what prompts you want to unpublish.
-   * Click **Send request** to send your unpublish request to the administrator. **Note**: you can revoke your unpublish request only prior it has been approved.
+   * Click **Send request** to send your unpublish request to the administrator.
 
 ![](./img/unpublish-prompt-reques.png)
 
@@ -722,7 +721,7 @@ To enable the publication feature:
 
 This is the high level overview of the publication workflow: 
 
-1. Chat user sends a publication request for the selected resource(s) (conversation, prompt). **Note**: until the request is approved by the administrator, user can revoke it.
+1. Chat user sends a publication request for the selected resource(s) (conversation, prompt).
 2. Admin receives the publication request, reviews it and either approves or declines.
 3. In case the publication request has been approved, the published resource becomes available for the target audience in the Organization section in the chat application.
 4. Resource owner can unpublish the published resource.
@@ -769,8 +768,8 @@ Users with the admin role have access to the **Approve required** tab in convers
 ![](./img/admin-panel.png)
 
 1. Click on any conversation or prompt request to open the review window. 
-2. In the review window, you can preview the details of the request and download attached files, if present.
-3. If **Continue review...** is displayed, click it to review conversation(s) or prompt(s) in the request. **Note**, you cannot approve the request without the review step. 
+2. In the review window, you can preview the details of the request and download attached files, if present. **Note**, that a request can include both publish and unpublish requests. The latter is highlighted in red color in the list of conversations or prompts. Such mixed requests can be currently realized exclusively using DIAL API. 
+3. If **Go toa review...** is displayed, click it to review conversation(s) or prompt(s) in the request. For the unfinished review, this button changes to **Continue review...**. **Note**, you cannot approve the request which has not been reviewed in full. 
 
 ![](./img/review-mode.png)
 
