@@ -65,7 +65,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
   ```yaml
   AUTH_AUTH0_HOST: "<auth0_domain>"
   AUTH_AUTH0_CLIENT_ID: "<auth0_client_id>"
-  AUTH_AUTH0_CLIENT_SECRET: "<auth0_client_secret>"
+  AUTH_AUTH0_SECRET: "<auth0_client_secret>"
   AUTH_AUTH0_AUDIENCE: "<auth0_api_audience>" 
   ```
 
