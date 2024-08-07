@@ -35,20 +35,26 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 - **Clear conversation messages**: you can clear all messages in your conversation. Click the eraser icon on the top bar to do that. 
 - **Change conversation settings**: during the conversation, you can access and edit its setting by clicking the gear icon on the top bar. Refer to [Chat Settings](#conversation-settings) to learn more.
 - **View current settings**: on the top bar, point to the language model logo icon near the conversation name to see current settings.
+- **Attach files**: some models and applications (e.g. _DIAL RAG_) support adding attachments (files, links, folders) to conversations. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#attachments) section for details.
+
 
 **Conversation menu**:
 
-- Select
-- Compare
-- Duplicate
-- Replay
-- Playback
-- Export
-- Move to
-- Share
-- **Attach files**: some models and applications (e.g. _DIAL RAG_) support adding attachments (files, links, folders) to conversations. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#attachments) section for details.
-- Publish
+- [Select](#select-to-delete): use to select conversations you want to delete.
+- Rename - use to rename a conversation.
+- [Compare](#compare): use to compare conversations with different settings.
+- [Duplicate](#duplicate): use to duplicate a shared conversation.
+- [Replay](#replay): use to to reproduce conversations but with different settings.
+- [Playback](#playback): use to simulate the current conversation without any engagement with models.
+- [Export](#export): use to export a conversation.
+- [Move to](#arrange): use to relocate conversations.
+- [Share](#share): use to share a conversation by providing a link.
+- [Unshare](#unshare): use to revoke a shred conversation.
+- [Publish](#publish): use to publish conversations within the target audience.
+- [Unpublish](#unpublish): use to revoke public access from published conversations.
+- [Delete](#delete): use to delete a single conversation.
 
+![](./img/conv-menu.png)
 
 ### Arrange
 
@@ -56,7 +62,7 @@ You can gather your conversations in folders.
 
 ![](./img/move_conv.png)
 
-You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a conversation into a folder or use **Move to** in the context menu of a conversation to move it to a folder.
+You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a conversation into a folder or use **Move to** in the context menu of a conversation to move it to a **parent** folder.
 Empty folders are deleted after refreshing a page.
 
 The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
@@ -176,6 +182,8 @@ You can delete a single conversation, selected conversations or all conversation
 * To delete **all** conversations, at the bottom of the left panel, click the **Delete all conversations** icon.
 
 ![](./img/Delete_conv.png)
+
+### Select to Delete
 
 Also, you can use a *selection* mode to choose conversation(s) you want to delete:
 
@@ -409,29 +417,18 @@ The section with your prompts is located in the right-hand area of the screen. I
 
 You can perform various actions with your prompts:
 
-- **Edit**: select a prompt on the right panel to invoke the Edit window. Make all necessary changes and click **Save**. 
-- **Export**: right-click a prompt on the right panel and select **Export**. The prompt will be exported as JSON.
-- **Import**: click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
-- **Move to**: use to place a prompt in a folder.
-- **Delete**: you can delete a single prompt, all prompts or selected prompts. Refer to [Delete](#delete-1) section to learn more.
+- [Select](#select-to-delete-1): use to select prompts you want to delete.
+- [Edit](#create-1): select a prompt on the right panel to invoke the Edit window. Make all necessary changes and click **Save**. 
+- [Duplicate](#duplicate-1): use to duplicate a shared prompt.
+- [Export](#export-import): right-click a prompt on the right panel and select **Export**. The prompt will be exported as JSON.
+- [Import](#export-import): click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
+- [Move to](#arrange-1): use to place a prompt in a folder.
+- [Share](#share-1): use to share a prompt or a folder with several prompts with other users.
+- [Unshare](#unshare-1): use to revoke access to shared prompts.
+- [Publish](#publish-1): use to publish prompts within the organization.
+- [Unpublish](#unpublish-1): use to withdraw prompts from public use.
+- [Delete](#delete-1): you can delete a single prompt, all prompts or selected prompts.
 - **Export all prompts**: click the **Export prompts** icon at the bottom of the right panel. All your prompts will be exported as JSON.
-- **Share**: use to share a prompt or a folder with several prompts with other users.
-- **Unshare**: use to revoke access to shared prompts.
-- **Publish**: use to publish prompts within the organization. Refer to [Publish](#publish-1) section to learn more.
-- **Unpublish**: use to withdraw prompts from public use. Refer to [Unpublish](#unpublish-1) section to learn more.
-
-### Arrange
-
-You can gather your prompts in folders.
-
-![](./img/move_prompt.png)
- 
-You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. 
-The same way, you can either drag-n-drop a prompt into a folder or use **Move to** in the context menu of a prompt to place it in one of the folders.  
-
-> After refreshing the page or logging in again, any empty folders will be deleted.
-
-The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&`. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the folder name is limited to 160 symbols. Everything beyond is cut off. 
 
 ### Search and Filter
 
@@ -441,6 +438,19 @@ The **Search** box can be utilized to find prompts and folders by their names.
 
 You can filter prompts by the "Shared by me" criterion. To do so, click the **Filter** icon and select **Shared by me**.
  
+### Arrange
+
+You can gather your prompts in folders.
+
+![](./img/move_prompt.png)
+ 
+You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. 
+The same way, you can either drag-n-drop a prompt into a folder or use **Move to** in the context menu of a prompt to place it in the **parent** folder.  
+
+> After refreshing the page or logging in again, any empty folders will be deleted.
+
+The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&`. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the folder name is limited to 160 symbols. Everything beyond is cut off. 
+
 ### Create
 
 ![](./img/create-pt.png)
@@ -455,23 +465,6 @@ To create a new prompt:
 3.	Click **Save**.
 
 >  **Name** and **Description** aren’t used as instructions for a language model. They only help you to distinguish the prompt from others. The language model will only use instructions from the **Prompt** box.
-
-### Delete 
-
-You can delete a single prompt, selected prompts or all prompts.
-
-* To delete a single prompt, in the menu of each prompt, select **Delete** and confirm your action.
-* To delete all prompts, at the bottom of the right panel, click the **Delete all prompts** icon.
-
-Also, you can use a *selection* mode to choose prompt(s) you want to delete:
-
-* Click **Select all** button in the bottom panel. In this case, all prompts are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
-
-![](./img/select-prompt1.png)
-
-* Click **Select** in the prompts menu. In this case, you can hover over any prompt and use checkboxes to select/unselect prompts you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
-
-![](./img/select-prompt2.png)
 
 #### Variables
 
@@ -503,6 +496,26 @@ Send the message to the model, and it will generate an answer using both mathema
 
 Generally, variables can be anything, not only numbers. For example, you can create a prompt with the following body: `Who played {{character}} in {{movie}}? or What is a Latin name of {{plant common name}}?`
 
+### Delete 
+
+You can delete a single prompt, selected prompts or all prompts.
+
+* To delete a single prompt, in the menu of each prompt, select **Delete** and confirm your action.
+* To delete all prompts, at the bottom of the right panel, click the **Delete all prompts** icon.
+
+### Select to Delete
+
+Also, you can use a *selection* mode to choose prompt(s) you want to delete:
+
+* Click **Select all** button in the bottom panel. In this case, all prompts are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
+
+![](./img/select-prompt1.png)
+
+* Click **Select** in the prompts menu. In this case, you can hover over any prompt and use checkboxes to select/unselect prompts you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
+
+![](./img/select-prompt2.png)
+
+
 ### Share
 
 You can share a prompt or a folder with several prompts with other users.
@@ -521,7 +534,6 @@ You can always view prompts that have been shared with you in a dedicated sectio
 * Duplicate: use to duplicate a shared with you prompt to be able to modify it. 
 * Delete: remove from the list.
 * Export: download in a JSON format.
-
 
 **To Share a Prompt**:
 
