@@ -28,8 +28,6 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 - **Stop generating**: in the process of generating the response, you can stop it.
 - **Regenerate response**: when stopped, you can regenerate the response. **Important**: If you encounter a server error or click the **Stop Generating** button and receive an empty response, the **Send** button will be disabled. To continue the conversation, you'll need to generate the answer again. If you receive a partial response (a combination of text and an error), the model can still proceed, while for Assistants/Applications, you'll need to generate the response again.
 - **Delete/Edit Prompts**: during the conversation, you can edit or delete your prompts. After a prompt has been edited, the response is regenerated, and all your prompts after the edited one will be deleted. When you delete your prompt, the response will be deleted, too.
-- **Delete conversations**: you can delete one, all or selected conversations. Refer to [Delete](#delete) section to learn more.
-- **Attach files**: some models and applications (e.g. _DIAL RAG_) support adding attachments (files, links, folders) to conversations. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#attachments) section for details.
 - **Download attached files**: click the **Download** icon near the file name.
 - **Preview attached images**: click the **Expand** icon near the image name. 
 - **Copy**: you can copy answers.
@@ -37,6 +35,20 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 - **Clear conversation messages**: you can clear all messages in your conversation. Click the eraser icon on the top bar to do that. 
 - **Change conversation settings**: during the conversation, you can access and edit its setting by clicking the gear icon on the top bar. Refer to [Chat Settings](#conversation-settings) to learn more.
 - **View current settings**: on the top bar, point to the language model logo icon near the conversation name to see current settings.
+
+**Conversation menu**:
+
+- Select
+- Compare
+- Duplicate
+- Replay
+- Playback
+- Export
+- Move to
+- Share
+- **Attach files**: some models and applications (e.g. _DIAL RAG_) support adding attachments (files, links, folders) to conversations. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#attachments) section for details.
+- Publish
+
 
 ### Arrange
 
@@ -338,7 +350,7 @@ In the file menu, you can choose to unshare it:
 
 ### Publish
 
-You can publish conversations to make them available for the target audience. You can also unpublish them to withdraw from public use.
+You can publish conversations to make them available for the target audience.
 
 **Note**: to publish a shared conversation, [duplicate](#duplicate) it and then publish. 
 
@@ -359,6 +371,10 @@ You can publish conversations to make them available for the target audience. Yo
 3. When your request is approved, the published conversation or a folder with conversation(s) will become available in the Organization tab.
 
 ![](./img/organization-section.png)
+
+### Unpublish
+
+You can unpublish conversations to withdraw them from public use.
 
 **To unpublish a conversation**: 
 
@@ -402,6 +418,7 @@ You can perform various actions with your prompts:
 - **Share**: use to share a prompt or a folder with several prompts with other users.
 - **Unshare**: use to revoke access to shared prompts.
 - **Publish**: use to publish prompts within the organization. Refer to [Publish](#publish-1) section to learn more.
+- **Unpublish**: use to withdraw prompts from public use. Refer to [Unpublish](#unpublish-1) section to learn more.
 
 ### Arrange
 
@@ -540,7 +557,7 @@ You can export and import prompts.
 
 ### Publish
 
-You can publish prompts to make them available for the target audience. You can also unpublish them to withdraw from the public use.
+You can publish prompts to make them available for the target audience. 
 
 **Note**: to publish a shared prompt, [duplicate](#duplicate-1) it and then publish. 
 
@@ -562,6 +579,10 @@ You can publish prompts to make them available for the target audience. You can 
 3. When your request is approved, the published prompt or a folder with prompt(s) will become available in the Organization tab.
 
 ![](./img/organization-section-prompts.png)
+
+### Unpublish
+
+You can unpublish prompts to withdraw them from the public use.
 
 **To unpublish a prompt**: 
 
