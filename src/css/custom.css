@@ -6,28 +6,28 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #5A8CE9;
-  --ifm-color-primary-dark: #5A8CE9;
+  --ifm-color-primary: #5a8ce9;
+  --ifm-color-primary-dark: #5a8ce9;
   --ifm-color-primary-darker: #5A8CE98;
-  --ifm-color-primary-darkest: #5A8CE9;
-  --ifm-color-primary-light: #5A8CE9;
-  --ifm-color-primary-lighter: #5A8CE9;
-  --ifm-color-primary-lightest: #5A8CE9;
-  --ifm-link-color: #5A8CE9;
+  --ifm-color-primary-darkest: #5a8ce9;
+  --ifm-color-primary-light: #5a8ce9;
+  --ifm-color-primary-lighter: #5a8ce9;
+  --ifm-color-primary-lightest: #5a8ce9;
+  --ifm-link-color: #5a8ce9;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #5A8CE9;
-  --ifm-color-primary-dark: #5A8CE9;
-  --ifm-color-primary-darker: #5A8CE9;
-  --ifm-color-primary-darkest: #5A8CE9;
-  --ifm-color-primary-light: #5A8CE9;
-  --ifm-color-primary-lighter: #5A8CE9;
-  --ifm-color-primary-lightest: #5A8CE9;
-  --ifm-link-color: #5A8CE9;
+  --ifm-color-primary: #5a8ce9;
+  --ifm-color-primary-dark: #5a8ce9;
+  --ifm-color-primary-darker: #5a8ce9;
+  --ifm-color-primary-darkest: #5a8ce9;
+  --ifm-color-primary-light: #5a8ce9;
+  --ifm-color-primary-lighter: #5a8ce9;
+  --ifm-color-primary-lightest: #5a8ce9;
+  --ifm-link-color: #5a8ce9;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
@@ -37,7 +37,7 @@
 }
 
 @media screen and (min-width: 1367px) and (max-width: 1920px) and (max-height: 1080px) {
-  .medium-zoom-image--opened[alt="max-zoom"] {
+  .medium-zoom-image--opened[alt='max-zoom'] {
     width: 93% !important;
     left: 45px !important;
     height: auto !important;
@@ -52,3 +52,10 @@
 .navbar__logo {
   padding: 0.25rem 0 0.25rem 0;
 }
+
+
+.iframe-video {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
