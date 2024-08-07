@@ -49,7 +49,6 @@
   display: none;
 }
 
-.navbar__logo img {
-  height: 70%;
-  margin-left: 10px;
+.navbar__logo {
+  padding: 0.25rem 0 0.25rem 0;
 }
