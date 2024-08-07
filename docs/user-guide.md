@@ -203,7 +203,7 @@ How it works:
 Let's create a simple Travel Guide conversation, which will take a user though several steps to clarify information and provide the answer.
 
 1. Start by [creating a special prompt](#create-1) with [variables](#variables). Use templates (this `{{VariableName|DefaultValue}}` or this `{{VariableName}}`) to add variables into your prompt with or without default values. For example: `I'd like to travel to {{country|Japan}}. Could you please suggest {{num-attractions|10}} of the best attractions? I will be there for {{num-days}}. Thank you.`
-2. To use it, type `/` in the conversation text input area and select your prompt. You will be prompted to provide your inputs for variables in a pop-up window. Enter your inputs and click `Submit`. The prompt is now populated with your inputs in the conversation text box. Send messsage to start.
+2. To use it, type `/` in the conversation text input area and select your prompt. You will be prompted to provide your inputs for variables in a pop-up window. Enter your inputs and click `Submit`. The prompt is now populated with your inputs in the conversation text box. Send message to start.
 3. The chat will return its response to your prompt.
 4. You can now click [Replay](#replay) in your conversation's menu to repeat this dialogue but with different input parameters.
 5. You can [Share](#share) this conversation with someone. When a person opens the shared conversation, they will be prompted to fill in their personal input in the parameterized prompt, allowing them to have the same conversation but with their custom inputs, for example, travel to USA instead of Japan.
@@ -284,7 +284,7 @@ All attached and uploaded files are available in the attachments manager. To man
 
 You can create folders and then upload files into them. **Note**, the only way to add a file into a folder is to upload it - you cannot move files between folders.
 
-> AI DIAL applications can be configured to allow attaching entire folders to conversations. In this case, only folders created in the attachemnts manager can be attached to a conversation.
+> AI DIAL applications can be configured to allow attaching entire folders to conversations. In this case, only folders created in the attachments manager can be attached to a conversation.
 
 ![](./img/create-folder.png)
 
@@ -344,7 +344,7 @@ Users can publish conversations to make them available for the target audience i
 
 **To publish a conversation**: 
 
-1. Click **Publish** in the converstion menu. 
+1. Click **Publish** in the conversation menu. 
 
 ![](./img/publish-conversation.png)
 
@@ -357,13 +357,13 @@ Users can publish conversations to make them available for the target audience i
 
 ![](./img/publish-request.png)
 
-3. When your request is apporved, the published conversation or a folder with conversation(s) will become available in the Organization section above all your conversations.
+3. When your request is approved, the published conversation or a folder with conversation(s) will become available in the Organization section above all your conversations.
 
 ![](./img/organization-section.png)
 
 **To unpublish a conversation**: 
 
-1. Click **Unpublish** in the converstion menu. 
+1. Click **Unpublish** in the conversation menu. 
 
 ![](./img/unpublish-conversation.png)
 
@@ -375,7 +375,7 @@ Users can publish conversations to make them available for the target audience i
   
 ![](./img/unpublish-prompt-reques.png)
 
-3. When your request is apporved, the unpublished conversation or a folder with conversation(s) will become unavailable in the Organization section for the target audience.
+3. When your request is approved, the unpublished conversation or a folder with conversation(s) will become unavailable in the Organization section for the target audience.
    
 ## Prompts
 
@@ -561,7 +561,7 @@ Users can publish prompts to make them available for the target audience.
 
 ![](./img/publish-prompt-request.png)
 
-3. When your request is apporved, the published prompt or a folder with prompt(s) will become available in the Organization section.
+3. When your request is approved, the published prompt or a folder with prompt(s) will become available in the Organization section.
 
 ![](./img/organization-section-prompts.png)
 
@@ -579,7 +579,7 @@ Users can publish prompts to make them available for the target audience.
 
 ![](./img/unpublish-prompt-reques.png)
 
-3. When your request is apporved, the unpublished prompt or a folder with prompt(s) will become unavailable in the Organization section for the selected target audience.
+3. When your request is approved, the unpublished prompt or a folder with prompt(s) will become unavailable in the Organization section for the selected target audience.
 
 ## Chat Settings
 
@@ -710,32 +710,26 @@ You can select the chat theme, dark or light, add a custom logo, and switch on a
 
 ## Publications
 
-Chat users can publish/unpublish conversations and prompts, or even a collection of those, making them accessible within their organization. Additionally, AI DIAL provides functionality to manage access and permissions for these published resources, ensuring that the right information is accessible to the right individuals or teams within the organization.
+You can publish/unpublish conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
 
 ### Configuration
 
 To enable the publication feature:
 
-1. Configure your identity service provider by creating user groups for administrators
-2. Configure `access.admin.rules` in AI DIAL Core to define which user roles can perform the admin's actions. Refer to [configuration](https://github.com/epam/ai-dial-core) to view hte description of parameters.
-3. Configure AI DIAL Chat by including `ConversationsPublishing` and `PromptsPublishing` in the `ENABLED_FEATURES` variable. Refer to [configuration]([https://github.com/epam/ai-dial-core](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md)) to view hte description of parameters and [examples](https://github.com/epam/ai-dial-chat/blob/development/libs/shared/src/types/features.ts).
+1. Configure your identity service provider by allocation users in a group for administrators.
+2. Configure `access.admin.rules` in AI DIAL Core to define which user roles can perform the admin's actions. Refer to [configuration](https://github.com/epam/ai-dial-core) to view the description of parameters.
+3. Configure AI DIAL Chat by including `ConversationsPublishing` and `PromptsPublishing` in the `ENABLED_FEATURES` variable. Refer to [configuration](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md) to view the description of parameters and [examples](https://github.com/epam/ai-dial-chat/blob/development/libs/shared/src/types/features.ts).
 
 ### Flow
 
-This is the high level overview of the publications workflow: 
+This is the high level overview of the publication workflow: 
 
-1. User sends a publication request for the selected resource(s). Until the request is approved by the administrator, user can revoke it.
+1. Chat user sends a publication request for the selected resource(s) (conversation, prompt). **Note**: until the request is approved by the administrator, user can revoke it.
 2. Admin receives the publication request, reviews it and either approves or declines.
-3. In case the publication request has been approved, the published resource becomes available for the target audience in the Organization section.
+3. In case the publication request has been approved, the published resource becomes available for the target audience in the Organization section in the chat application.
 4. Resource owner can unpublish the published resource.
 
 > Refer to [Conversations](#publish) and [Prompts](#publish-1) to view a step-by-step instructions.
-
-### Admin Panel
-
-Users with admin roles have access to the administration panel in chat application. In this panel, they can view all publish and unpublish requests from users, review and reject them. 
-
-![](./img/admin-panel.png)
 
 
 ## Data Visualization
@@ -764,5 +758,15 @@ AI DIAL Chat supports rendering of tables and copying table data in various form
 
 ![](./img/table.png)
 
-As displayed on the illustration, you can ask a model to create a simple table. When created, you can pick one of three formats to copy its data: CSV, Markdow or Text.
+As displayed on the illustration, you can ask a model to create a simple table. When created, you can pick one of three formats to copy its data: CSV, Markdown or Text.
+
+## Administrators
+
+Administrators are chat users that can perform additional actions. Chat interface for administrators includes extra components (for example the Approve required tab in conversations and prompts sections)
+
+### Process Publish Requests
+
+Users with the admin role have access to the **Approve required** tab in conversations and prompts sections, where they can view all publish and unpublish requests from users. 
+
+![](./img/admin-panel.png)
 
