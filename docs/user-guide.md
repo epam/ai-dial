@@ -338,7 +338,7 @@ In the file menu, you can choose to unshare it:
 
 ### Publish
 
-Users can publish conversations to make them available for the target audience in their organization.
+You can publish conversations to make them available for the target audience. You can also unpublish them to withdraw from public use.
 
 **Note**: to publish a shared conversation, [duplicate](#duplicate) it and then publish. 
 
@@ -349,15 +349,15 @@ Users can publish conversations to make them available for the target audience i
 ![](./img/publish-conversation.png)
 
 2. In the pop-up window:
-   * Enter the publish request name in the upper area.
-   * Select the organization. You can also create a dedicated folder to publish your conversation into.
-   * Specify access rules. For example Role-Equals-Admin. **Note**: the available roles and permissions are configured for each organization individually. Contact your support to find out the rules applicable in your organization.
-   * If you have selected a folder, you can choose what conversations you want to publish. If conversations include attachments, you can also select them in the **Files** section.
+   * Enter **publication request name** in the upper area.
+   * In **Publish to**, you can select the target audience. You can also create a dedicated folder to publish your conversation into.
+   * In **Allow access..**, specify access rules. For example Role-Equals-Admin. **Note**: the available roles are configured for each organization individually. Contact your support to find out the rules are applicable in your organization.
+   * In **Conversations**, you can choose what conversations you want to publish (if you have selected a folder with several conversations). If conversations include attachments, you can also select them in the **Files** section.
    * Click **Send request** to send your publish request to the administrator. **Note**: you can revoke your publish request only prior it has been approved.
 
 ![](./img/publish-request.png)
 
-3. When your request is approved, the published conversation or a folder with conversation(s) will become available in the Organization section above all your conversations.
+3. When your request is approved, the published conversation or a folder with conversation(s) will become available in the Organization tab.
 
 ![](./img/organization-section.png)
 
@@ -368,14 +368,13 @@ Users can publish conversations to make them available for the target audience i
 ![](./img/unpublish-conversation.png)
 
 2. In the pop-up window:
-   * Enter the unpublish request name in the upper area.
-   * Select the organization.
-   * If you have selected a folder, you can choose what conversations you want to unpublish. If conversation(s) include attachment(s), you can also select them in the **Files** section.
+   * Enter **unpublish request name** in the upper area.
+   * In **Conversations**, if you have selected a folder, you can choose what conversations you want to unpublish. If conversation(s) include attachment(s), you can also select them in the **Files** section.
    * Click **Send request** to send your unpublish request to the administrator. **Note**: you can revoke your unpublish request only prior it has been approved.
   
-![](./img/unpublish-prompt-reques.png)
+![](./img/unpublish-request.png)
 
-3. When your request is approved, the unpublished conversation or a folder with conversation(s) will become unavailable in the Organization section for the target audience.
+3. When your request is approved, the unpublished conversation or a folder with conversation(s) will become unavailable in the Organization tab.
    
 ## Prompts
 
@@ -542,26 +541,26 @@ You can export and import prompts.
 
 ### Publish
 
-Users can publish prompts to make them available for the target audience.
+You can publish prompts to make them available for the target audience. You can also unpublish them to withdraw from the public use.
 
 **Note**: to publish a shared prompt, [duplicate](#duplicate-1) it and then publish. 
 
 **To publish a prompt**: 
 
-1. Click **Publish** in the prompt menu. 
+1. Click **Publish** in the prompt's menu. 
 
 ![](./img/publish-prompt.png)
 
 2. In the pop-up window:
-   * Enter the publish request name in the upper area.
-   * Select the organization. You can also create a dedicated folder to publish your prompt into.
-   * Specify access rules. For example Role-Equals-Admin. **Note**: the available roles and permissions are configured for each organization individually. Contact your support to find out the rules applicable in your organization.
-   * If you have selected a folder, you can choose what prompts you want to publish.
+   * Enter **publication request name** in the upper area.
+   * In **Publish to**, select the organization or a folder to publish your prompt into.
+   * In **Allow access...**, specify access rules. For example Role-Equals-Admin. **Note**: the available roles are defined in each organization individually. Contact your support to find out the rules are applicable in your organization.
+   * In **Prompts**, if you have selected a folder, you can choose what prompts you want to publish.
    * Click **Send request** to send your publication request to the administrator. **Note**: you can revoke your publication request only prior it has been approved.
 
 ![](./img/publish-prompt-request.png)
 
-3. When your request is approved, the published prompt or a folder with prompt(s) will become available in the Organization section.
+3. When your request is approved, the published prompt or a folder with prompt(s) will become available in the Organization tab.
 
 ![](./img/organization-section-prompts.png)
 
@@ -572,14 +571,13 @@ Users can publish prompts to make them available for the target audience.
  ![](./img/unpublish-prompt.png)
 
 2. In the pop-up window:
-   * Enter the unpublish request name in the upper area.
-   * Select the organization.
-   * If you have selected a folder, you can choose what prompts you want to unpublish. If prompt(s) include attachment(s), you can also select them in the **Files** section.
+   * Enter **unpublish request name** in the upper area.
+   * In **Prompts**, if you have selected a folder, you can choose what prompts you want to unpublish.
    * Click **Send request** to send your unpublish request to the administrator. **Note**: you can revoke your unpublish request only prior it has been approved.
 
 ![](./img/unpublish-prompt-reques.png)
 
-3. When your request is approved, the unpublished prompt or a folder with prompt(s) will become unavailable in the Organization section for the selected target audience.
+3. When your request is approved, the unpublished prompt or a folder with prompt(s) will become unavailable in the Organization tab.
 
 ## Chat Settings
 
@@ -762,11 +760,24 @@ As displayed on the illustration, you can ask a model to create a simple table. 
 
 ## Administrators
 
-Administrators are chat users that can perform additional actions. Chat interface for administrators includes extra components (for example the Approve required tab in conversations and prompts sections)
+Administrators are chat users that can perform additional actions. Chat interface for administrators includes extra components (for example the **Approve required** tab in conversations and prompts sections)
 
 ### Process Publish Requests
 
 Users with the admin role have access to the **Approve required** tab in conversations and prompts sections, where they can view all publish and unpublish requests from users. 
 
 ![](./img/admin-panel.png)
+
+1. Click on any conversation or prompt request to open the review window. 
+2. In the review window, you can preview the details of the request and download attached files, if present.
+3. If **Continue review...** is displayed, click it to review conversation(s) or prompt(s) in the request. **Note**, you cannot approve the request without the review step. 
+
+![](./img/review-mode.png)
+
+4. In the review mode, you can use arrows to navigate between conversations/prompts and click **Back to publication request** when finished reviewing.
+
+![](./img/review-mode2.png)
+
+5. Once the review is completed, the **Approve** button is enabled. **Note**, you can approve or reject only the entire request.
+
 
