@@ -79,6 +79,7 @@
 }
 .footer .col:nth-of-type(2) .footer__items {
   justify-content: center;
+  color: var(--ifm-footer-link-color);
 }
 
 .footer .col:nth-of-type(3) .footer__items {
