@@ -89,6 +89,7 @@
   display: flex;
   gap: 2rem;
   justify-content: center;
+  color: var(--ifm-footer-link-color);
   height: 100%;
   align-items: center;
 }
