@@ -72,6 +72,10 @@
   padding: 1rem 0;
 }
 
+.icon-stroke {
+  stroke: var(--ifm-footer-background-color);
+}
+
 .footer .container {
   max-width: 100%;
 }
