@@ -7,7 +7,6 @@ const jupyterTransformer = {
     return url && regexp.test(url);
   },
   getHTML: async (urlString, getConfig = {}) => {
-    console.log(urlString);
     return `<div class="jupyter">
         <a href=${urlString} target="_blank" rel="noopener noreferrer"><img class="no-zoom" src="/jupyter.svg" alt="Jupyter" /> View Jupyter Notebook</a>
     </div>`;
