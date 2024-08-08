@@ -128,21 +128,7 @@ const config = {
           //   position: 'left',
           //   label: 'Tutorial',
           // },
-          {
-            href: 'https://github.com/search?q=org%3Aepam++DIAL&type=repositories',
-            label: 'GitHub',
-            position: 'right',
-          },
-          {
-            href: 'https://discord.gg/hgqEAbEwZ9',
-            label: 'Discord',
-            position: 'right',
-          },
-          {
-            href: 'https://www.youtube.com/@TeamDialX',
-            label: 'YouTube',
-            position: 'right',
-          },
+          
         ],
       },
       footer: {
@@ -178,6 +164,12 @@ const config = {
                 html: footerLink(
                   'https://www.youtube.com/@TeamDialX',
                   './static/youtube.svg'
+                ),
+              },
+              {
+                html: footerLink(
+                  'https://github.com/search?q=org%3Aepam++DIAL&type=repositories',
+                  './static/github.svg'
                 ),
               },
             ],
