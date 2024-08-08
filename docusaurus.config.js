@@ -157,7 +157,7 @@ const config = {
               {
                 html: footerLink(
                   'https://discord.gg/hgqEAbEwZ9',
-                  './static/discord2.svg'
+                  './static/discord.svg'
                 ),
               },
               {
