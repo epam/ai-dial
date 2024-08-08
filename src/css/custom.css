@@ -16,6 +16,8 @@
   --ifm-link-color: #5a8ce9;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-footer-background-color: #f4f7fb;
+  --ifm-footer-padding-vertical: 1.25rem;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -29,6 +31,7 @@
   --ifm-color-primary-lightest: #5a8ce9;
   --ifm-link-color: #5a8ce9;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-footer-background-color: #02050a;
 }
 
 .medium-zoom-image--opened,
@@ -53,9 +56,62 @@
   padding: 0.25rem 0 0.25rem 0;
 }
 
-
 .iframe-video {
   width: 100%;
   aspect-ratio: 16/9;
 }
 
+.icon-bg {
+  fill: var(--ifm-footer-background-color);
+}
+
+.footer .container {
+  max-width: 100%;
+}
+
+.footer .footer__links {
+  margin: 0;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer .col {
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  flex-basis: min-content;
+}
+
+.footer .footer__items {
+  flex-direction: row;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  color: var(--ifm-footer-link-color);
+  height: 100%;
+  align-items: center;
+}
+
+.footer .footer__title {
+  display: none;
+}
+
+.footer__link-item {
+  display: flex;
+}
+
+@media (min-width: 640px) {
+  .footer .footer__links {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .footer .col:first-of-type .footer__items {
+    justify-content: flex-start;
+  }
+
+  .footer .col:last-of-type .footer__items {
+    justify-content: flex-end;
+  }
+}
