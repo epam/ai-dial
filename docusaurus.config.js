@@ -6,20 +6,9 @@
 
 import { themes as prismThemes } from 'prism-react-renderer';
 import fauxRemarkEmbedder from '@remark-embedder/core';
-import fauxOembedTransformer from '@remark-embedder/transformer-oembed';
 import { readFileSync } from 'fs';
-
-const transformer = {
-  ...fauxOembedTransformer,
-  getHTML: async (url, getConfig = {}) => {
-    let html = await fauxOembedTransformer.getHTML(url, getConfig);
-    if (html?.startsWith('<iframe')) {
-      html = html.replace('width="200"', 'class="iframe-video"');
-      html = html.replace('height="113"', '');
-    }
-    return html;
-  },
-};
+import oembedTransformer from './src/transformers/oembed.js';
+import jupyterTransformer from './src/transformers/jupyter.js';
 
 const footerLink = (href, path) => {
   return `<a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="${href}">${readFileSync(
@@ -73,7 +62,10 @@ const config = {
           //editUrl:
           //  'https://github.com/epam/ai-dial/tree/main/',
           remarkPlugins: [
-            [fauxRemarkEmbedder, { transformers: [transformer] }],
+            [
+              fauxRemarkEmbedder,
+              { transformers: [oembedTransformer, jupyterTransformer] },
+            ],
           ],
         },
         blog: false,
@@ -188,7 +180,7 @@ const config = {
         maxHeadingLevel: 4,
       },
       zoom: {
-        selector: '.markdown img',
+        selector: '.markdown img:not(.no-zoom)',
         background: {
           light: 'rgb(255, 255, 255)',
           dark: 'rgb(50, 50, 50)',
