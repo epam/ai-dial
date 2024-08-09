@@ -16,7 +16,7 @@ Modular architecture of AI DIAL allows implementing scalable and customized solu
 
 The [Unified API](https://epam-rail.com/dial_api) enables universal connectivity between models (including models of different modalities), unified access to different embedding models, and facilitates communication with the AI DIAL Core for both external and internal clients. 
 
-Applications can form an **ecosystem and interact with each other** through the Unified API with access to all DIAL Core features among which is connectivity to models, file storage, access control, per-request API keys and other - see the following illustration. To enhance performance and fault tolerance, AI DIAL Core employs a proprietary load balancer and a retry mechanism. This significantly reduces delays and boosts throughput especially during peak demand.
+Applications can form an **ecosystem and interact with each other** through the Unified API with access to all DIAL Core features among which is connectivity to models, file storage, access control, per-request API keys and other - see the following illustration. To enhance performance and fault tolerance, AI DIAL Core employs a proprietary load balancer and a retry mechanism. This significantly reduces delays and boosts throughput especially during peak demand. Refer to the [document](./tutorials/high-load-performance) with the overview of the performance tests to learn more.
 
 ![](./img/arch-intro.svg)
 
@@ -87,7 +87,7 @@ There are two methods of CORE API calls authorization supported: JWT token and k
 
 For self-hosted models, you can use the standard load balancer (LB) capabilities provided by the target cloud platform. As for cloud-deployed models like Azure OpenAI and others, we typically rely on our custom-developed load balancing solution.
 
-In this approach, a configuration file includes multiple upstream endpoints for a model. When a request is received, it is forwarded to one of the endpoints using the round-robin method. If an upstream returns an overload limit error such as a 429 (Too Many Requests) or a 504 (Gateway Timeout), the system attempts another upstream and temporarily excludes the one that generated the error. This strategy ensures efficient load distribution and fault tolerance for optimal performance and reliability.
+In this approach, a configuration file includes multiple upstream endpoints for a model. When a request is received, it is forwarded to one of the endpoints using the round-robin method. If an upstream returns an overload limit error such as a 429 (Too Many Requests) or a 504 (Gateway Timeout), the system attempts another upstream and temporarily excludes the one that generated the error. This strategy ensures efficient load distribution and fault tolerance for optimal performance and reliability. Refer to the [document](./tutorials/high-load-performance) with the overview of the performance tests to learn more.
 
 #### Rate Limits & Cost Control
 
