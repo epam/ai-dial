@@ -7,8 +7,6 @@
 ## Architecture
 
 * [Architecture Overview](./architecture.md)
-* [Authentication and Authorization of API Keys](./tutorials/roles-management.md)
-* [Authentication and Authorization of Users](./Deployment/idp-configuration/auth0.md)
 
 ## Quick Start
 
@@ -37,7 +35,6 @@
 ## Configuration
 
 * Refer to [Configuration](./Deployment/configuration.md)
-* [Configure AI DIAL to work with AWS Cognito user pool](./Deployment/idp-configuration/cognito.md)
 
 ## Other AI DIAL Project Open Source Repositories
 
