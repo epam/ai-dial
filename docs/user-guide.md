@@ -27,8 +27,7 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 - **Generate answer**: click enter to generate the response to your prompt. 
 - **Stop generating**: in the process of generating the response, you can stop it.
 - **Regenerate response**: when stopped, you can regenerate the response. **Important**: If you encounter a server error or click the **Stop Generating** button and receive an empty response, the **Send** button will be disabled. To continue the conversation, you'll need to generate the answer again. If you receive a partial response (a combination of text and an error), the model can still proceed, while for Assistants/Applications, you'll need to generate the response again.
-- **Delete/Edit**: during the conversation, you can edit or delete your prompts. After a prompt has been edited, the response is regenerated, and all your prompts after the edited one will be deleted. When you delete your prompt, the response will be deleted, too.
-- **Attach files**: some models and applications (e.g. _DIAL RAG_) support adding attachments (files, links, folders) to conversations. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#attachments) section for details.
+- **Delete/Edit Prompts**: during the conversation, you can edit or delete your prompts. After a prompt has been edited, the response is regenerated, and all your prompts after the edited one will be deleted. When you delete your prompt, the response will be deleted, too.
 - **Download attached files**: click the **Download** icon near the file name.
 - **Preview attached images**: click the **Expand** icon near the image name. 
 - **Copy**: you can copy answers.
@@ -36,6 +35,26 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 - **Clear conversation messages**: you can clear all messages in your conversation. Click the eraser icon on the top bar to do that. 
 - **Change conversation settings**: during the conversation, you can access and edit its setting by clicking the gear icon on the top bar. Refer to [Chat Settings](#conversation-settings) to learn more.
 - **View current settings**: on the top bar, point to the language model logo icon near the conversation name to see current settings.
+- **Attach files**: some models and applications (e.g. _DIAL RAG_) support adding attachments (files, links, folders) to conversations. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#attachments) section for details.
+
+
+**Conversation menu**:
+
+- [Select](#select-to-delete): use to select conversations you want to delete.
+- Rename - use to rename a conversation.
+- [Compare](#compare): use to compare conversations with different settings.
+- [Duplicate](#duplicate): use to duplicate a shared conversation.
+- [Replay](#replay): use to to reproduce conversations but with different settings.
+- [Playback](#playback): use to simulate the current conversation without any engagement with models.
+- [Export](#export): use to export a conversation.
+- [Move to](#arrange): use to relocate conversations.
+- [Share](#share): use to share a conversation by providing a link.
+- [Unshare](#unshare): use to revoke a shred conversation.
+- [Publish](#publish): use to publish conversations within the target audience.
+- [Unpublish](#unpublish): use to revoke public access from published conversations.
+- [Delete](#delete): use to delete a single conversation.
+
+![](./img/conv-menu.png)
 
 ### Arrange
 
@@ -43,7 +62,7 @@ You can gather your conversations in folders.
 
 ![](./img/move_conv.png)
 
-You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a conversation into a folder or use **Move to** in the context menu of a conversation to move it to a folder.
+You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a conversation into a folder or use **Move to** in the context menu of a conversation to move it to a **parent** folder.
 Empty folders are deleted after refreshing a page.
 
 The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
@@ -157,14 +176,25 @@ To import JSON or a zip file with conversations, click the **Import conversation
 
 ### Delete
 
-You can delete a single conversation or all conversations.
+You can delete a single conversation, selected conversations or all conversations.
 
-To delete a single conversation, on the left panel, in the conversation contextual menu, select **Delete** and confirm your action.
+* To delete a **single** conversation, on the left panel, in the conversation contextual menu, select **Delete** and confirm your action.
+* To delete **all** conversations, at the bottom of the left panel, click the **Delete all conversations** icon.
 
 ![](./img/Delete_conv.png)
 
-To delete all conversations, at the bottom of the left panel, click the **Delete conversations** icon.
- 
+### Select to Delete
+
+Also, you can use a *selection* mode to choose conversation(s) you want to delete:
+
+* Click **Select all** button in the bottom panel. In this case, all conversations are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
+
+![](./img/select-chat1.png)
+
+* Click **Select** in the conversation menu. In this case, you can hover over any conversation and use checkboxes to select/unselect conversations you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
+
+![](./img/select-chat2.png)
+
 ### Replay
 
 You can use **Replay** to reproduce conversations but with different settings (e.g. a different model). A replayed conversation can be used to compare responses to the same questions from different models and with different settings of the conversation. 
@@ -183,6 +213,22 @@ To replay a conversation:
 4.	In the process of replaying, you can stop and resume the replay process.
 
 The replayed conversation is displayed as a new conversation with the `[Replay]` tag in the list of your conversations. 
+
+### Parameterized Replay
+
+If you want to make your own chats or stories with custom variables and share them with your team, you can use a feature called Parameterized Replay. Use it to set up a chat or a story that others can follow, but provide their own details or answers to create a personalized experience. This makes chat a much more useful tool for sharing information and collaboration.
+
+How it works: 
+
+Let's create a simple Travel Guide conversation, which will take a user though several steps to clarify information and provide the answer.
+
+1. Start by [creating a special prompt](#create-1) with [variables](#variables). Use templates (this `{{VariableName|DefaultValue}}` or this `{{VariableName}}`) to add variables into your prompt with or without default values. For example: `I'd like to travel to {{country|Japan}}. Could you please suggest {{num-attractions|10}} of the best attractions? I will be there for {{num-days}}. Thank you.`
+2. To use it, type `/` in the conversation text input area and select your prompt. You will be prompted to provide your inputs for variables in a pop-up window. Enter your inputs and click `Submit`. The prompt is now populated with your inputs in the conversation text box. Send message to start.
+3. The chat will return its response to your prompt.
+4. You can now click [Replay](#replay) in your conversation's menu to repeat this dialogue but with different input parameters.
+5. You can [Share](#share) this conversation with someone. When a person opens the shared conversation, they will be prompted to fill in their personal input in the parameterized prompt, allowing them to have the same conversation but with their custom inputs, for example, travel to USA instead of Japan.
+
+> Watch a [demo video](https://youtu.be/I8en0n0TQQU?si=mMUQkpKvx0xEoElF) to see it in action and check out more examples.
 
 ### Playback
 
@@ -258,7 +304,7 @@ All attached and uploaded files are available in the attachments manager. To man
 
 You can create folders and then upload files into them. **Note**, the only way to add a file into a folder is to upload it - you cannot move files between folders.
 
-> AI DIAL applications can be configured to allow attaching entire folders to conversations. In this case, only folders created in the attachemnts manager can be attached to a conversation.
+> AI DIAL applications can be configured to allow attaching entire folders to conversations. In this case, only folders created in the attachments manager can be attached to a conversation.
 
 ![](./img/create-folder.png)
 
@@ -310,6 +356,49 @@ In the file menu, you can choose to unshare it:
 1. In the Manage attachments dialog, point to a file and select it. You can select several files.
 2. Click the **Delete** icon below the files tree.
 
+### Publish
+
+You can publish conversations to make them available for the target audience.
+
+**Note**: to publish a shared conversation, [duplicate](#duplicate) it and then publish. 
+
+**To publish a conversation**: 
+
+1. Click **Publish** in the conversation menu. 
+
+![](./img/publish-conversation.png)
+
+2. In the pop-up window:
+   * Enter **publication request name** in the upper area.
+   * In **Publish to**, you can select the target destination. You can also create a dedicated folder to publish your conversation into.
+   * In **Allow access..**, specify access rules and the target audience. For example Role-Equals-Admin. **Note**: the available roles are configured for each organization individually. Contact your support to find out the rules are applicable in your organization.
+   * In **Conversations**, you can choose what conversations you want to publish (if you have selected a folder with several conversations). If conversations include attachments, you can also select them in the **Files** section.
+   * Click **Send request** to send your publish request to the administrator.
+![](./img/publish-request.png)
+
+3. When your request is approved, the published conversation or a folder with conversation(s) will become available in the Organization tab.
+
+![](./img/organization-section.png)
+
+### Unpublish
+
+You can unpublish conversations to withdraw them from public use.
+
+**To unpublish a conversation**: 
+
+1. Click **Unpublish** in the conversation menu. 
+
+![](./img/unpublish-conversation.png)
+
+2. In the pop-up window:
+   * Enter **unpublish request name** in the upper area.
+   * In **Conversations**, if you have selected a folder, you can choose what conversations you want to unpublish. If conversation(s) include attachment(s), you can also select them in the **Files** section.
+   * Click **Send request** to send your unpublish request to the administrator.
+  
+![](./img/unpublish-request.png)
+
+3. When your request is approved, the unpublished conversation or a folder with conversation(s) will become unavailable in the Organization tab.
+   
 ## Prompts
 
 A prompt is an instruction, a question, or a message that a user provides to a language model to receive an answer. Prompts can also contain constraints or requirements. They help the model understand the task at hand and the types of responses that are expected. 
@@ -328,28 +417,18 @@ The section with your prompts is located in the right-hand area of the screen. I
 
 You can perform various actions with your prompts:
 
-- **Edit**: select a prompt on the right panel to invoke the Edit window. Make all necessary changes and click **Save**. 
-- **Export**: right-click a prompt on the right panel and select **Export**. The prompt will be exported as JSON.
-- **Import**: click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
-- **Move to**: use to place a prompt in a folder.
-- **Delete**: right-click a prompt on the right panel and select **Delete**, then confirm the action.
-- **Delete all prompts**: click the **Delete all** icon at the bottom of the right panel and confirm your action.
+- [Select](#select-to-delete-1): use to select prompts you want to delete.
+- [Edit](#create-1): select a prompt on the right panel to invoke the Edit window. Make all necessary changes and click **Save**. 
+- [Duplicate](#duplicate-1): use to duplicate a shared prompt.
+- [Export](#export-import): right-click a prompt on the right panel and select **Export**. The prompt will be exported as JSON.
+- [Import](#export-import): click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
+- [Move to](#arrange-1): use to place a prompt in a folder.
+- [Share](#share-1): use to share a prompt or a folder with several prompts with other users.
+- [Unshare](#unshare-1): use to revoke access to shared prompts.
+- [Publish](#publish-1): use to publish prompts within the organization.
+- [Unpublish](#unpublish-1): use to withdraw prompts from public use.
+- [Delete](#delete-1): you can delete a single prompt, all prompts or selected prompts.
 - **Export all prompts**: click the **Export prompts** icon at the bottom of the right panel. All your prompts will be exported as JSON.
-- **Share**: use to share a prompt or a folder with several prompts with other users.
-- **Unshare**: use to revoke access to shared prompts.
-
-### Arrange
-
-You can gather your prompts in folders.
-
-![](./img/move_prompt.png)
- 
-You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. 
-The same way, you can either drag-n-drop a prompt into a folder or use **Move to** in the context menu of a prompt to place it in one of the folders.  
-
-> After refreshing the page or logging in again, any empty folders will be deleted.
-
-The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&`. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the folder name is limited to 160 symbols. Everything beyond is cut off. 
 
 ### Search and Filter
 
@@ -359,6 +438,19 @@ The **Search** box can be utilized to find prompts and folders by their names.
 
 You can filter prompts by the "Shared by me" criterion. To do so, click the **Filter** icon and select **Shared by me**.
  
+### Arrange
+
+You can gather your prompts in folders.
+
+![](./img/move_prompt.png)
+ 
+You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. 
+The same way, you can either drag-n-drop a prompt into a folder or use **Move to** in the context menu of a prompt to place it in the **parent** folder.  
+
+> After refreshing the page or logging in again, any empty folders will be deleted.
+
+The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&`. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the folder name is limited to 160 symbols. Everything beyond is cut off. 
+
 ### Create
 
 ![](./img/create-pt.png)
@@ -376,13 +468,16 @@ To create a new prompt:
 
 #### Variables
 
-You can use prompts as templates for your messages to a language model. For example, you need to calculate an equation `a + c/d`, round up the answer, and then divide it by 4. Let’s imagine that you need results for four sets of `a`, `c`, and `d`.
+You can use prompts as templates for your instructions to a language model. You can also add variables in your prompts. Use notation such as `{{variableName}}` or `{{variableName|Default Value}}` to add variables.
+
+> Refer to [Parameterized Replay](#parameterized-replay) to view a use case when prompts are used to create parametrized conversations.
+
+For example, you need to calculate an equation `a + c/d`, round up the answer, and then divide it by 4. Let’s imagine that you need results for four sets of `a`, `c`, and `d`.
  
 In that case you can create the following prompt:
 
 ![](./img/Prompt_example_math_edit_window.png)
 
- 
 Here, `a`, `c`, and `d` are variables. In the prompt body, they are denoted by double curly brackets: `{{ }}`.
 
 > You can combine mathematical expressions and natural language in your prompts.
@@ -400,6 +495,26 @@ Send the message to the model, and it will generate an answer using both mathema
 ![](./img/Prompt_example_math_response.png)
 
 Generally, variables can be anything, not only numbers. For example, you can create a prompt with the following body: `Who played {{character}} in {{movie}}? or What is a Latin name of {{plant common name}}?`
+
+### Delete 
+
+You can delete a single prompt, selected prompts or all prompts.
+
+* To delete a single prompt, in the menu of each prompt, select **Delete** and confirm your action.
+* To delete all prompts, at the bottom of the right panel, click the **Delete all prompts** icon.
+
+### Select to Delete
+
+Also, you can use a *selection* mode to choose prompt(s) you want to delete:
+
+* Click **Select all** button in the bottom panel. In this case, all prompts are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
+
+![](./img/select-prompt1.png)
+
+* Click **Select** in the prompts menu. In this case, you can hover over any prompt and use checkboxes to select/unselect prompts you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
+
+![](./img/select-prompt2.png)
+
 
 ### Share
 
@@ -419,7 +534,6 @@ You can always view prompts that have been shared with you in a dedicated sectio
 * Duplicate: use to duplicate a shared with you prompt to be able to modify it. 
 * Delete: remove from the list.
 * Export: download in a JSON format.
-
 
 **To Share a Prompt**:
 
@@ -452,6 +566,50 @@ You can export and import prompts.
 > Note, that when importing a duplicate of an existing prompt, you will be prompted to select one of the proceeding options: replace, ignore or add a prefix to the imported prompt.
 
 ![](./img/import-export-prompt.png)
+
+### Publish
+
+You can publish prompts to make them available for the target audience. 
+
+**Note**: to publish a shared prompt, [duplicate](#duplicate-1) it and then publish. 
+
+**To publish a prompt**: 
+
+1. Click **Publish** in the prompt's menu. 
+
+![](./img/publish-prompt.png)
+
+2. In the pop-up window:
+   * Enter **publication request name** in the upper area.
+   * In **Publish to**, select the target destination or a folder to publish your prompt into.
+   * In **Allow access...**, specify access rules and the target audience. For example Role-Equals-Admin. **Note**: the available roles are defined in each organization individually. Contact your support to find out the rules are applicable in your organization.
+   * In **Prompts**, if you have selected a folder, you can choose what prompts you want to publish.
+   * Click **Send request** to send your publication request to the administrator.
+
+![](./img/publish-prompt-request.png)
+
+3. When your request is approved, the published prompt or a folder with prompt(s) will become available in the Organization tab.
+
+![](./img/organization-section-prompts.png)
+
+### Unpublish
+
+You can unpublish prompts to withdraw them from the public use.
+
+**To unpublish a prompt**: 
+
+1. Click **Unpublish** in the prompt's menu. 
+
+ ![](./img/unpublish-prompt.png)
+
+2. In the pop-up window:
+   * Enter **unpublish request name** in the upper area.
+   * In **Prompts**, if you have selected a folder, you can choose what prompts you want to unpublish.
+   * Click **Send request** to send your unpublish request to the administrator.
+
+![](./img/unpublish-prompt-reques.png)
+
+3. When your request is approved, the unpublished prompt or a folder with prompt(s) will become unavailable in the Organization tab.
 
 ## Chat Settings
 
@@ -580,6 +738,30 @@ You can select the chat theme, dark or light, add a custom logo, and switch on a
 
 ![](./img/user_settings.png)
 
+## Publications
+
+You can publish/unpublish conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
+
+### Configuration
+
+To enable the publication feature:
+
+1. Configure your identity service provider by allocation users in a group for administrators.
+2. Configure `access.admin.rules` in AI DIAL Core to define which user roles can perform the admin's actions. Refer to [configuration](https://github.com/epam/ai-dial-core) to view the description of parameters.
+3. Configure AI DIAL Chat by including `ConversationsPublishing` and `PromptsPublishing` in the `ENABLED_FEATURES` variable. Refer to [configuration](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md) to view the description of parameters and [examples](https://github.com/epam/ai-dial-chat/blob/development/libs/shared/src/types/features.ts).
+
+### Flow
+
+This is the high level overview of the publication workflow: 
+
+1. Chat user sends a publication request for the selected resource(s) (conversation, prompt).
+2. Admin receives the publication request, reviews it and either approves or declines.
+3. In case the publication request has been approved, the published resource becomes available for the target audience in the Organization section in the chat application.
+4. Resource owner can unpublish the published resource.
+
+> Refer to [Conversations](#publish) and [Prompts](#publish-1) to view a step-by-step instructions.
+
+
 ## Data Visualization
 
 AI DIAL Chat enables data visualization for specific data types using data visualizers. It comes with built-in support for the [Plotly data visualizer](#plotly). To link any other custom visualizers, you can use the [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) library.
@@ -606,5 +788,34 @@ AI DIAL Chat supports rendering of tables and copying table data in various form
 
 ![](./img/table.png)
 
-As displayed on the illustration, you can ask a model to create a simple table. When created, you can pick one of three formats to copy its data: CSV, Markdow or Text.
+As displayed on the illustration, you can ask a model to create a simple table. When created, you can pick one of three formats to copy its data: CSV, Markdown or Text.
+
+## Administrators
+
+Administrators are chat users that can perform additional actions. Chat interface for administrators includes extra components (for example the **Approve required** tab in conversations and prompts sections)
+
+### Process Publish Requests
+
+Users with the admin role have access to the **Approve required** tab in conversations and prompts sections, where they can view all publish and unpublish requests from users. 
+
+![](./img/admin-panel.png)
+
+The count shows the number of requests to be reviewed. Each such request has a color dot attached to it. The refresh of a browser updates this information.
+
+![](./img/review3.png)
+
+**To review**:
+
+1. Click on any conversation or prompt request to open the review window. 
+2. In the review window, you can preview the details of the request and download attached files, if present. **Note**, that a request can include both publish and unpublish requests. The latter is highlighted in red color in the list of conversations or prompts. Such mixed requests can be currently realized exclusively using DIAL API. 
+3. If **Go to a review...** is displayed, click it to review conversation(s) or prompt(s) in the request. For the unfinished review, this button changes to **Continue review...**. **Note**, you cannot approve the request which has not been reviewed in full. 
+
+![](./img/review-mode.png)
+
+4. In the review mode, you can use arrows to navigate between conversations/prompts and click **Back to publication request** when finished reviewing.
+
+![](./img/review-mode2.png)
+
+5. Once the review is completed, the **Approve** button is enabled. **Note**, you can approve or reject only the entire request.
+
 
