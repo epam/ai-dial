@@ -12,17 +12,33 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 
 ### Introduction
 
-Modular architecture of AI DIAL allows implementing scalable and customized solutions to fit specific business needs. Its key building blocks include [Core](#ai-dial-core) (the main and the only mandatory component), [Chat](#chat) (web application with user interface), [Adapters](#llm-adapters) (align APIs of LLMs with the Universal API), [Applications](https://docs.epam-rail.com/architecture#extension-framework) (any custom logic with a conversation interface packaged as a ready-to-use solution), and a [persistent layer](#persistent-layer) that relies on a configured resilient and scalable cloud blob storage, with Redis layer on top to enhance performance. AI DIAL, allows to use various Identity Service Providers (IDPs) to manage user identities.
+Modular architecture of AI DIAL allows implementing scalable and customized solutions to fit specific business needs. 
 
-The [Unified API](https://epam-rail.com/dial_api) enables universal connectivity between models (including models of different modalities), unified access to different embedding models, and facilitates communication with the AI DIAL Core for both external and internal clients. 
+**Components**:
 
-Applications can form an **ecosystem and interact with each other** through the Unified API with access to all DIAL Core features among which is connectivity to models, file storage, access control, per-request API keys and other - see the following illustration. To enhance performance and fault tolerance, AI DIAL Core employs a proprietary load balancer and a retry mechanism. This significantly reduces delays and boosts throughput especially during peak demand. Refer to the [document](./tutorials/high-load-performance) with the overview of the performance tests to learn more.
+The AI DIAL architecture key building blocks:
+
+* [Core](#ai-dial-core)- the main and the only mandatory component.
+* The [Unified API](https://epam-rail.com/dial_api) - enables universal connectivity between models (including models of different modalities), unified access to different embedding models, and facilitates communication with the AI DIAL Core for both external and internal clients. 
+* [Chat](#chat) - web application with user interface.
+* [Adapters](#llm-adapters) - align APIs of LLMs with the Unified API.
+* [Persistent layer](#persistent-layer) that relies on a configured resilient and scalable cloud blob storage, with Redis layer on top to enhance performance. 
+* AI DIAL, allows to use various Identity Service Providers (IDPs) to manage user identities.
+* [Applications](https://docs.epam-rail.com/architecture#extension-framework) - any custom logic with a conversation interface packaged as a ready-to-use solution.
+* To enhance performance and fault tolerance, AI DIAL Core employs a proprietary load balancer and a retry mechanism. This significantly reduces delays and boosts throughput especially during peak demand. Refer to the [document](./tutorials/high-load-performance) with the overview of the performance tests to learn more.
+
+**Installation options**:
+
+* **Minimal**: you can have a [minimal installation](#minimal-installation) (it includes only AI DIAL Core) which can be easily installed even on a personal laptop or a desktop computer and is a good starting point for getting familiar with AI DIAL. 
+* **Standard**: to engage chat users and access different LLMs, you can have a setup with Core, Chat and LLM adapters – we call it a [standard installation](#standard-installation). This package is more suitable for use in enterprise-level production environments.
+* **Complete**: A modular architecture allows adding as many components as needed up to a [full platform landscape](#full-platform-landscape).
+
+**Ecosystem**:
+
+Applications can form an **ecosystem and interact with each other** through the Unified API with access to all DIAL Core features among which is connectivity to models, file storage, access control, per-request API keys and other - see the following illustration. 
 
 ![](./img/arch-intro.svg)
 
-You can have a [minimal installation](#minimal-installation) (it includes only AI DIAL Core) which can be easily installed even on a personal laptop or a desktop computer and is a good starting point for getting familiar with AI DIAL. To engage chat users and access different LLMs, you can have a setup with Core, Chat and LLM adapters – we call it a [standard installation](#standard-installation). This package is more suitable for use in enterprise-level production environments.
-
-A modular architecture allows adding as many components as needed up to a [full platform landscape](#full-platform-landscape).
 
 ### Minimal Installation
 
