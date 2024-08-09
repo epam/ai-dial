@@ -11,6 +11,85 @@ const sidebars = {
     'supported-models',
     {
       type: 'category',
+      label: 'Auth',
+      items: [
+        {
+          type:'doc',
+          id: 'Auth/overview',
+          label: 'Overview'
+        },
+        {
+          type:'doc',
+          id: 'Auth/programmatic-auth',
+          label: 'Programmatic Auth'
+        },
+        {
+          type: 'category',
+          label: 'Web Auth',
+          items: [
+            {
+              type:'doc',
+              id: 'Auth/Web/overview',
+              label: 'Overview'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/auth0',
+              label: 'Auth0'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/cognito',
+              label: 'AWS Cognito'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/entraID',
+              label: 'Microsoft Entra'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/google',
+              label: 'Google OAuth2'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/keycloak',
+              label: 'Keycloak'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/okta',
+              label: 'Okta'
+            }
+          ]
+        }
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Roles & Access Control',
+      items: [
+        {
+          type:'doc',
+          id: 'Roles and Access Control/overview',
+          label: 'Overview'
+        },
+        {
+          type:'doc',
+          id: 'Roles and Access Control/API Keys',
+          label: 'API Keys'
+        },
+        ,
+        {
+          type:'doc',
+          id: 'Roles and Access Control/chat-users',
+          label: 'Chat Users'
+        }
+      ],
+    },
+    {
+      type: 'category',
       label: 'Tutorials',
       items: [
         {
@@ -30,19 +109,10 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'tutorials/roles-management',
-          label: 'API Keys Roles and Limits',
-        },
-        {
-          type: 'doc',
-          id: 'tutorials/rate-limits-users',
-          label: 'Configure Rate Limits for Chat Users',
-        },
-        {
-          type: 'doc',
           id: 'tutorials/high-load-performance',
           label: 'Handling High Loads',
         }
+        
       ],
     },
     'user-guide',
@@ -60,40 +130,6 @@ const sidebars = {
           type:'doc',
           id: 'Deployment/configuration',
           label: 'Configuration'
-        },
-        {
-          'IDP Configuration': [
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/auth0',
-              label: 'Auth0'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/cognito',
-              label: 'AWS Cognito'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/entraID',
-              label: 'Microsoft Entra'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/google',
-              label: 'Google OAuth2'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/keycloak',
-              label: 'Keycloak'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/okta',
-              label: 'Okta'
-            },
-          ],
         },
         'Deployment/OpenAI Model Deployment',
         'Deployment/Vertex Model Deployment',
