@@ -106,6 +106,11 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/quick-start-with-addon',
           label: 'Chat with Addon',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/high-load-performance',
+          label: 'Handling High Loads',
         }
         
       ],
