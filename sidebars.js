@@ -37,6 +37,11 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/rate-limits-users',
           label: 'Configure Rate Limits for Chat Users',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/high-load-performance',
+          label: 'Handling High Loads',
         }
       ],
     },
