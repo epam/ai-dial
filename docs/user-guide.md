@@ -334,9 +334,7 @@ To add a file into a folder it is necessary to upload it.
 
 **To Unshare a File**:
 
-Using the application that supports the attachments of files, you can create a conversation and share it with someone. When a conversation is shared, all the attached to the conversation files are shared as well. In the attachments manager, such shared files are tagged with a blue arrow:
-
-![](./img/unshare.png)
+Using the application that supports the attachments of files, you can create a conversation and share it with someone. When a conversation is shared, all the attached to the conversation files are shared as well. In the attachments manager, such shared files are tagged with a blue arrow.
 
 In the file menu, you can choose to unshare it: 
 
