@@ -1,6 +1,6 @@
 
 <!-- omit from toc -->
-# How to Set Google OAuth2 as Identity Provider
+# How to Set Google Identity as Identity Provider
 
 <div class="docusaurus-ignore">
 
@@ -9,7 +9,7 @@
 
 - [Introduction](#introduction)
 - [Configuration Guidelines](#configuration-guidelines)
-  - [Configure Google OAuth2](#configure-google-oauth2)
+  - [Configure Google Identity](#configure-google-oauth2)
   - [Configure AI DIAL](#configure-ai-dial)
     - [AI DIAL Chat Settings](#ai-dial-chat-settings)
     - [AI DIAL Core Settings](#ai-dial-core-settings)
@@ -19,17 +19,17 @@
 
 ## Introduction
 
-This basic tutorial demonstrates how to configure [Google OAuth2](https://developers.google.com/identity/protocols/oauth2) and integrate it with AI DIAL for identity and access management.
+This basic tutorial demonstrates how to configure [Google Identity](https://developers.google.com/identity/protocols/oauth2) and integrate it with AI DIAL for identity and access management.
 
 In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
 
 ## Configuration Guidelines
 
-### Configure Google OAuth2
+### Configure Google Identity
 
 > **Note:** Replace `<chat_url>` with the actual address of your AI DIAL Chat application.
 
-Follow these steps to configure Google OAuth2:
+Follow these steps to configure Google Identity:
 
 1. **Create an OAuth consent screen:** refer [Google documentation](https://developers.google.com/workspace/guides/configure-oauth-consent) to learn how to do this.
 1. **Create Client ID and Secret:** click **Create Credentials > OAuth Client ID** and fill it with:
@@ -43,7 +43,7 @@ Follow these steps to configure Google OAuth2:
 
 ### Configure AI DIAL
 
-To enable AI DIAL Chat and AI DIAL Core to work with Google OAuth2, configure them with the necessary specific parameters.
+To enable AI DIAL Chat and AI DIAL Core to work with Google Identity, configure them with the necessary specific parameters.
 
 #### AI DIAL Chat Settings
 
@@ -72,7 +72,7 @@ Once all the above steps are completed, including the ones marked as **Optional*
 
 In AI DIAL Core:
 
-* [Static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings): as value for `aidial.identityProviders.google.rolePath` provide an API endpoint from Google OAuth2.
+* [Static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings): as value for `aidial.identityProviders.google.rolePath` provide an API endpoint from Google Identity.
 * [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): for `userRoles` provide a specific group name. 
 
 In this example, `"google-group-name"` role from the `"fn:getGoogleWorkspaceGroups"` API endpoint is configured for `chat-gpt-35-turbo` model:

@@ -50,7 +50,7 @@ const sidebars = {
             {
               type:'doc',
               id: 'Auth/Web/IDPs/google',
-              label: 'Google OAuth2'
+              label: 'Google Identity'
             },
             {
               type:'doc',
