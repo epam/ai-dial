@@ -15,7 +15,7 @@ const footerLink = (href, path) => {
     path,
     {
       encoding: 'utf-8',
-    }
+    },
   )}</a>`;
 };
 
@@ -29,6 +29,7 @@ const config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
+  trailingSlash: false,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -37,8 +38,8 @@ const config = {
   deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw', //'throw', for exceptions
-  onBrokenMarkdownLinks: 'warn',
-
+  onBrokenMarkdownLinks: 'throw',
+  onDuplicateRoutes: 'throw',
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -120,7 +121,6 @@ const config = {
           //   position: 'left',
           //   label: 'Tutorial',
           // },
-          
         ],
       },
       footer: {
@@ -149,19 +149,19 @@ const config = {
               {
                 html: footerLink(
                   'https://discord.gg/hgqEAbEwZ9',
-                  './static/discord.svg'
+                  './static/discord.svg',
                 ),
               },
               {
                 html: footerLink(
                   'https://www.youtube.com/@TeamDialX',
-                  './static/youtube.svg'
+                  './static/youtube.svg',
                 ),
               },
               {
                 html: footerLink(
                   'https://github.com/search?q=org%3Aepam++DIAL&type=repositories',
-                  './static/github.svg'
+                  './static/github.svg',
                 ),
               },
             ],
