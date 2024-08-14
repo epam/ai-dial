@@ -1,5 +1,5 @@
 # DIAL Unified API
 
-https://youtu.be/watch?v=PqIHlRKQMkw
+https://youtu.be/PqIHlRKQMkw
 
 By providing a unified API for all models and applications in your DIAL instance, DIAL eliminates the need for multiple protocols for each integration, making it easier to develop and maintain applications within the AI DIAL ecosystem. In addition, it alleviates concerns of vendor lock-in and provides peace of mind that changing models or applications within your DIAL-based application will not require a complete code re-write. 
