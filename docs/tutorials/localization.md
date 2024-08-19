@@ -4,7 +4,11 @@ The AI DIAL Chat application uses [next-i18next](https://github.com/i18next/next
 
 ## How it Works
 
-AI DIAL Chat project has a special directory called [locales](https://github.com/epam/ai-dial-chat/tree/development/apps/chat/public/locales/). In this directory, you can create sub-folders with translations for different languages. In a sub-folder, place JSON files, each corresponding to a particular category of UI elements. Currently we support the following category of elements: 
+AI DIAL Chat project has a special directory called [locales](https://github.com/epam/ai-dial-chat/tree/development/apps/chat/public/locales/). In this directory, you can create sub-folders with translations for different languages. In a sub-folder, place JSON files, each corresponding to a particular category of UI elements. 
+
+**Important**: currently, we support only **en** folder, where you can override the text of elements of AI DIAL Chat UI. Multi-language support is on our roadmap in the near future. 
+
+Currently we support the following category of elements: 
 
 * chat - the central chat area on UI
 * promptbar - the panel with prompts
@@ -19,7 +23,7 @@ In each file, you can provide the alternative text for particular UI elements in
 
 **Example**:
 
-To translate the words **New conversation** to French, create a sub-folder **/locales/fr** with the `sidebar.json` file with the following content:
+To translate the words **New conversation** to French, in a sub-folder **/locales/en**, in the `sidebar.json` file, add the following content:
 
 ```json
 {
