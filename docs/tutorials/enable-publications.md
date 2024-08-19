@@ -12,13 +12,13 @@ In the response, you get an object with the `PENDING` status, which is awaiting 
 
 ### Admin Flow
 
-As an administrator, you can get a list of publication request awaiting your decision by calling [/v1/ops/publication/list ](https://epam-rail.com/dial_api#tag/Publications/paths/~1v1~1ops~1publication~1list/post) endpoint. Further, you can call [/v1/ops/publication/get](https://epam-rail.com/dial_api#tag/Publications/paths/~1v1~1ops~1publication~1delete/post) endpoint to get a specific publication request and then execute [/v1/ops/publication/approve](https://epam-rail.com/dial_api#tag/Publications/paths/~1v1~1ops~1publication~1approve/post) or [/v1/ops/publication/reject](https://epam-rail.com/dial_api#tag/Publications/paths/~1v1~1ops~1publication~1reject/post) to change its status.
+As an administrator, you can get a list of publication requests awaiting your decision by calling [/v1/ops/publication/list ](https://epam-rail.com/dial_api#tag/Publications/paths/~1v1~1ops~1publication~1list/post) endpoint. Further, you can call [/v1/ops/publication/get](https://epam-rail.com/dial_api#tag/Publications/paths/~1v1~1ops~1publication~1delete/post) endpoint to get a specific publication request and then execute [/v1/ops/publication/approve](https://epam-rail.com/dial_api#tag/Publications/paths/~1v1~1ops~1publication~1approve/post) or [/v1/ops/publication/reject](https://epam-rail.com/dial_api#tag/Publications/paths/~1v1~1ops~1publication~1reject/post) to change its status.
 
 ### Working with Rules
 
-Use rules in publication requests to define or change access rules for specific folders. **Note**, that all resources (conversations, prompts, files, applications) placed in the root folder are always accessible to everyone. To apply access rules, it is necessary to create folders and apply rules to them.
+Use rules in publication requests to define or change access rules for specific folder(s). **Note**, that all resources (conversations, prompts, files, applications) placed in the root folder are always accessible to everyone. To apply access rules, it is necessary to create folders and apply rules to them.
 
-You can call [/v1/ops/publication/rules/list](https://epam-rail.com/dial_api#tag/Publications/paths/~1v1~1ops~1publication~1rules~1list/post) endpoint to get a list of all rules. Then, call a [/v1/ops/publication/create](https://epam-rail.com/dial_api#tag/Publications/paths/~1v1~1ops~1publication~1create/post) endpoint providing a path to a desired folder and a list of rules to be changed.
+You can call [/v1/ops/publication/rules/list](https://epam-rail.com/dial_api#tag/Publications/paths/~1v1~1ops~1publication~1rules~1list/post) endpoint to get a list of all rules for the provided path (folder sequence). Then, call a [/v1/ops/publication/create](https://epam-rail.com/dial_api#tag/Publications/paths/~1v1~1ops~1publication~1create/post) endpoint providing a path to a desired folder (`targetFolder`in the request body) and a list of rules to be changed. For instance, if you create a request with `"targetFolder":"public/folder1/folder2/"`, it will only overwrite the rules for `folder2`, while the rules for `folder1` will stay unchanged.
 
 You can create a [/v1/ops/publication/create](https://epam-rail.com/dial_api#tag/Publications/paths/~1v1~1ops~1publication~1create/post) request without the `rules` object to left the rules intact.
 
@@ -37,7 +37,7 @@ To enable the publication feature in AI DIAL Chat:
 
 ### Step 1: Users
 
-Create configurations for your users in your identity service provider (IDP) and configure AI DIAL to work with it. Refer to [Web Auth](../Auth/Web/overview) to view the supported IDPs and configuration guidelines.
+Create user hierarchy (including claims) in your identity service provider (IDP) and configure AI DIAL to work with it. Refer to [Web Auth](../Auth/Web/overview) to view the supported IDPs and configuration guidelines.
 
 ### Step 2: AI DIAL Core
 
