@@ -111,6 +111,11 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/high-load-performance',
           label: 'Handling High Loads',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/enable-publications',
+          label: 'Publications',
         }
         
       ],

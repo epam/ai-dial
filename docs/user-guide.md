@@ -742,6 +742,8 @@ You can publish/unpublish conversations and prompts, or even a collection of tho
 
 ### Configuration
 
+> Refer to [tutorials](/tutorials/enable-publications#dial-chat) to learn more about working and configuring publications.
+
 To enable the publication feature:
 
 1. Configure your identity service provider by allocation users in a group for administrators.
