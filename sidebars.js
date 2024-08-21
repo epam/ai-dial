@@ -117,7 +117,6 @@ const sidebars = {
           id: 'tutorials/localization',
           label: 'Chat Localization',
         }
-        
       ],
     },
     'user-guide',
