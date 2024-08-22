@@ -11,14 +11,14 @@ Ultimately, we aim to innovate without compromising on simplicity and ensure tha
 
 Basic layout consists of the following components:
 
-* Header: component where customizable logo element is displayed. This component also contains: Navigation bar button, Prompts bar button and user profile.
-* Navigation bar: contains all active chats and a button to start a new one.
-* Prompts bar: contains user prompts and an action to add a new one.
-* Conversation area: are where user questions and LLM responds will take place.
+* Header: component where customizable logo element is displayed. This component also contains: Conversations section button, Prompts section button and a user profile section.
+* Conversations section: contains all active conversations and a button to start a new one.
+* Prompts section: contains user prompts and an action to add a new one.
+* Chat area: area where user questions and LLM responds will take place.
 * Start Chat window: is only visible for new chats. Allows to set a specific settings for your new chat (for example, select LLM, Temperature, Addons, etc).
-* Bottom bar: contains input where you manually type your questions or commands for the AI.
+* Chat box: contains input where you manually type your questions or commands for models.
 
-![](./img/Layout-scheme.png)
+![](./img/layout-scheme.svg)
 
 ![](./img/Layout-design.png)
 
@@ -30,45 +30,45 @@ Please note that any further modifications will necessitate additional discussio
 
 ## Desktop
 
-### Hide navigation bar
+### Hide Conversations Section
 
 In this modification, the user will not be able to add multiple conversations nor save them. The user will have only one chat.
 
-![](./img/Layout-scheme2.png)
+![](./img/layout-scheme2.svg)
 
-### Hide prompts bar
+### Hide Prompts Section
 
 The ability to save prompts and use any existing ones will not be available.
 
-![](./img/Layout-scheme3.png)
+![](./img/layout-scheme3.svg)
 
-### Hide prompts and navigation bar
+### Hide Prompts and Conversations Sections
 
 The capability to save prompts and use any existing ones will not be available.
 
-![](./img/Layout-scheme4.png)
+![](./img/layout-scheme4.svg)
 
-### Hide start chat window
+### Hide Start Chat Window
 
 The user will not see settings for a new chat. These settings will not be accessible from any part of the system on the user side.
 
-![](./img/Layout-scheme5.png)
+![](./img/layout-scheme5.svg)
 
 ## Mobile
 
-### Default mobile
+### Default Mobile
 
 Mobile version is a modification that users see when they open AI DIAL on their mobile devices or resize their browser window.
 
 ![](./img/header.png)
 
-1. Navigation bar
+1. Conversations section
 2. Start new chat button
-3. Prompts bar
+3. Prompts section
 
 ![](./img/mobile.svg)
 
-### Simplified mobile
+### Simplified Mobile
 
 Modification where majority of action controls are hidden. User can’t save prompts and only has one chat. 
 
@@ -79,15 +79,15 @@ Modification where majority of action controls are hidden. User can’t save pro
 Overlay is a modification where user can see AI DIAL application within the other application (other website or even desktop app).
 Currently, we have 2 possible modifications: Wide and Narrow.
 
-### Wide overlay
+### Wide Overlay
 
 Can be used for demo purposes on different websites.
 
-![](./img/wide-overlay.png)
+![](./img/wide-overlay.svg)
 
 ![](./img/wide-overlay2.png)
 
-### Narrow overlay
+### Narrow Overlay
 
 Can be used on desktop applications (e.g. Excel) or as a standalone component.
 
