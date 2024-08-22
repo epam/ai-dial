@@ -11,7 +11,7 @@ Ultimately, we aim to innovate without compromising on simplicity and ensure tha
 
 Basic layout consists of the following components:
 
-* Header: component where customisable logo element is displayed. This component also contains: Navigation bar button, Prompts bar button and user profile.
+* Header: component where customizable logo element is displayed. This component also contains: Navigation bar button, Prompts bar button and user profile.
 * Navigation bar: contains all active chats and a button to start a new one.
 * Prompts bar: contains user prompts and an action to add a new one.
 * Conversation area: are where user questions and LLM responds will take place.
@@ -66,13 +66,13 @@ Mobile version is a modification that users see when they open AI DIAL on their 
 2. Start new chat button
 3. Prompts bar
 
-![](./img/mobile.png)
+![](./img/mobile.svg)
 
 ### Simplified mobile
 
 Modification where majority of action controls are hidden. User can’t save prompts and only has one chat. 
 
-![](./img/simpl-mobile.png)
+![](./img/simple-mobile.svg)
 
 ## Overlay
 
@@ -91,21 +91,21 @@ Can be used for demo purposes on different websites.
 
 Can be used on desktop applications (e.g. Excel) or as a standalone component.
 
-![](./img/narrow-overlay.png)
+![](./img/simple-mobile.svg)
 
-## Colour Schemes
+## Color Schemes
 
-Figma Variables component is used for colour scheme. This will allow us quickly apply custom colour themes for the application. 
+Figma Variables component is used for color scheme. This will allow us quickly apply custom color themes for the application. 
 
-> **Important**: Variables names should remain the same when you create a new colour scheme.
+> **Important**: Variables names should remain the same when you create a new color scheme.
 
 ### Basic Palette
 
-Basic palette contains a list of all colours used in the system for Dark theme. Each item consists of a name and a value.
+Basic palette contains a list of all colors used in the system for Dark theme. Each item consists of a name and a value.
 
 ![](./img/basic-palette.png)
 
-## Custom Colour Schemes
+## Custom Color Schemes
 
 ### Mapping Schema
 
@@ -116,23 +116,23 @@ Each item in the schema consists of a name and values for different modes, which
 
 > **Important**: The mapping schema is closely connected to developers' variables. Therefore, it's crucial to keep design variables consistent in both name and quantity to ensure seamless application of the new theme.
 
-![](./img/mapping-schema2.png)
+![](./img/mapping-schema.svg)
 
-To create a new style, establish a new mode in the Mapping schema. This new mode details how interface components will be coloured using the basic palette.
+To create a new style, establish a new mode in the Mapping schema. This new mode details how interface components will be colored using the basic palette.
 This approach maintains design consistency while allowing flexibility.
 Please note that additional changes to the base palette may require discussion with the product team and potentially additional development resources.
 
 ### Example: Dark DIAL Theme
 
-![](./img/example-dak.png)
+![](./img/example-dark.svg)
 
 ### Example: Light DIAL Theme
 
-![](./img/example-light.png)
+![](./img/example-light.svg)
 
 ### Example: Custom DIAL Theme
 
-![](./img/example-custom.png)
+![](./img/example-color.svg)
 
 ## Logo
 
