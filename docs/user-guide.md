@@ -7,10 +7,12 @@ The AI DIAL Chat application interface has several sections, such as the chat bo
 ![](./img/home.png)
 
 1. [Conversations](#conversations): Here, you can manage your conversations: create new ones, organize them in folders, and delete. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
-2. **Chat**: Use this section to enter a prompt, view results, and interact with language models.
+2. [Chat](#chat): Use this section to enter a prompt, view results, and interact with language models.
 3. [Chat Settings](#chat-settings): In this section, you can select the language model, assistant, application, and addons you'd like to use. You can also provide a system prompt and adjust the temperature setting.
 4. [Prompts](#prompts): In this section, you can work with saved prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
 5. [User Settings](#user-settings): In your user settings, you can customize the color theme (dark or light), choose a custom logo and other customization options.
+
+
 
 ## Conversations
 
@@ -18,27 +20,13 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 
 > All your conversations are stored on the server, and you can access them from any device you use.
 
- 
 ### Actions
 
-**During a conversation**, you can perform various actions:
+Click a **...** icon to open a conversation menu. There, you can find a list of all the available actions for the selected conversation.
 
-- **Enter prompt**: you can use a text box at the bottom to enter your prompts. 
-- **Generate answer**: click enter to generate the response to your prompt. 
-- **Stop generating**: in the process of generating the response, you can stop it.
-- **Regenerate response**: when stopped, you can regenerate the response. **Important**: If you encounter a server error or click the **Stop Generating** button and receive an empty response, the **Send** button will be disabled. To continue the conversation, you'll need to generate the answer again. If you receive a partial response (a combination of text and an error), the model can still proceed, while for Assistants/Applications, you'll need to generate the response again.
-- **Delete/Edit Prompts**: during the conversation, you can edit or delete your prompts. After a prompt has been edited, the response is regenerated, and all your prompts after the edited one will be deleted. When you delete your prompt, the response will be deleted, too.
-- **Download attached files**: click the **Download** icon near the file name.
-- **Preview attached images**: click the **Expand** icon near the image name. 
-- **Copy**: you can copy answers.
-- **Like/dislike**: you can like and dislike responses in a conversation. Use likes to highlight important responses and dislikes to mark the responses you don't need. 
-- **Clear conversation messages**: you can clear all messages in your conversation. Click the eraser icon on the top bar to do that. 
-- **Change conversation settings**: during the conversation, you can access and edit its setting by clicking the gear icon on the top bar. Refer to [Chat Settings](#conversation-settings) to learn more.
-- **View current settings**: on the top bar, point to the language model logo icon near the conversation name to see current settings.
-- **Attach files**: some models and applications (e.g. _DIAL RAG_) support adding attachments (files, links, folders) to conversations. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#attachments) section for details.
+![](./img/conversation-menu.png)
 
-
-**Conversation menu**:
+This is the list of all the supported actions. **Note**, that actions may vary for the selected conversation (e.g. there will not be an Unpublish action if the conversation has not yet been published)
 
 - [Select](#select-to-delete): use to select conversations you want to delete.
 - Rename - use to rename a conversation.
@@ -264,96 +252,6 @@ As you can see on the picture above, the system creates two conversations with t
 3. By default, only conversations with the same name are available in the drop box. Select **Show all conversations** to see the full list of conversations.
 4.	Type your question (prompt) in the chat box.
 
-### Attachments
-
-AI DIAL applications (e.g. DIAL RAG) can support attaching files, links or folders to a conversation and generate responses considering the attached resources.
-
-![](./img/attachment1.png)
-
-#### Folders
-
-If the selected application supports this, you can click the attachment icon in the conversation box and select **Attach folders**.
-
-> Note, that you can attach only folders from the file manager and cannot upload folders from an external source.
-
-![](./img/attach-folder1.png)
-
-In the pop-up window, select a checkbox for the folder you want to add to add it. The attached folder will appear in the conversation box and become available for the application to work with. 
-
-![](./img/attach-folders.png)
-
-#### Links
-
-If the selected application supports this, you can click the attachment icon in the conversation box and select **Attach link**. Then, specify a valid URL and click **Attach**. The link will be displayed as attachment in the conversation box and become available for the application to work with.
-
-![](./img/attach-link.png)
-
-#### Files
-
-If the selected application supports this, you can click the attachment icon in the conversation box and select **Attach uploaded files**. In the attachments manager, select available files that you have previously uploaded and select a checkbox to add to the conversation. The file will be displayed as attachment in the conversation box and become available for the application to work with.
-
-![](./img/attach-file.png)
-
-#### Attachments Manager 
-
-All attached and uploaded files are available in the attachments manager. To manage all attachments, click the **Attachments** icon at the bottom of the left panel.
-
-![](./img/attachments3.png)
-
-**To Create a Folder:**
-
-You can create folders and then upload files into them. **Note**, the only way to add a file into a folder is to upload it - you cannot move files between folders.
-
-> AI DIAL applications can be configured to allow attaching entire folders to conversations. In this case, only folders created in the attachments manager can be attached to a conversation.
-
-![](./img/create-folder.png)
-
-1. Click a folder icon to create a new folder.
-2. Give your folder a name.
-3. Click submit to apply.
-
-You can as well perform several actions on your folders: 
-
-* Rename
-* Upload files
-* Add subfolders
-
-![](./img/folder-actions.png)
-
-**To Upload a File:**
-
-To add a file into a folder it is necessary to upload it.
-
-1. In the Manage attachments dialog, select **Upload from device**.
-2. Select one or several files you want to upload and click **Open**.
-3. Under **Upload to**, select **Change** to pick a folder, in which the files will be uploaded.
-4. Under **Files**, change their names or delete them, if necessary. The following symbols in the file names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&`. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
-5. Click **Upload and attach files**.
-
-![](./img/attachments2.png)
-
-**To Unshare a File**:
-
-Using the application that supports the attachments of files, you can create a conversation and share it with someone. When a conversation is shared, all the attached to the conversation files are shared as well. In the attachments manager, such shared files are tagged with a blue arrow.
-
-In the file menu, you can choose to unshare it: 
-
-![](./img/file-menu.png)
-
-**To Download Attachments**:
-
-> Click a folder to expand it.
-
-1. In the Manage attachments dialog, point to a file and select it. You can select several files.
-2. Click the **Download** icon below the files tree.
-
-**To Delete Attachments**:
-
-> You won't be able to preview or download a deleted file in a conversation, but you still will see its name.
-
-1. In the Manage attachments dialog, point to a file and select it. You can select several files.
-2. Click the **Delete** icon below the files tree.
-
 ### Publish
 
 You can publish conversations to make them available for the target audience.
@@ -411,9 +309,11 @@ The section with your prompts is located in the right-hand area of the screen. I
 
 ### Actions
 
-![](./img/prompt_actions.png)
+Click a **...** icon to open a prompt menu. There, you can find a list of all the available actions for the selected prompt.
 
-You can perform various actions with your prompts:
+![](./img/prompt-menu.png)
+
+This is the list of all the supported actions. Note, that actions may vary for the selected prompt (e.g. there will not be an Unpublish action if the prompt has not yet been published)
 
 - [Select](#select-to-delete-1): use to select prompts you want to delete.
 - [Edit](#create-1): select a prompt on the right panel to invoke the Edit window. Make all necessary changes and click **Save**. 
@@ -427,6 +327,8 @@ You can perform various actions with your prompts:
 - [Unpublish](#unpublish-1): use to withdraw prompts from public use.
 - [Delete](#delete-1): you can delete a single prompt, all prompts or selected prompts.
 - **Export all prompts**: click the **Export prompts** icon at the bottom of the right panel. All your prompts will be exported as JSON.
+
+![](./img/prompt_actions.png)
 
 ### Search and Filter
 
@@ -609,14 +511,63 @@ You can unpublish prompts to withdraw them from the public use.
 
 3. When your request is approved, the unpublished prompt or a folder with prompt(s) will become unavailable in the Organization tab.
 
+## Chat 
+
+Chat has a central section where you can enter messages, view responses and perform other supported actions, depending on the application and chat configurations.
+
+![](./img/chat.png)
+
+### Actions
+
+**During a conversation**, you can perform various actions:
+
+**Entering messages**: you can use a text box at the bottom to enter your prompts and trigger the generation of answers by hitting **Enter** on your keyboard or clicking the **Send** button in the text box.
+
+![](./img/caht-box.png)
+
+**Copying responses**: you can copy answers to reuse them some place else.
+
+![](./img/copy-answer.png)
+
+**Stop and Regenerate**: in the process of generating the response, you can stop it by clicking a **Stop** icon in the text box.
+
+![](./img/stop-generating.png)
+
+When the response generation has been stopped, you can regenerate it. **Important**: If you encounter a server error or click the **Stop Generating** button and receive an empty response, the **Send** button will be disabled. To continue the conversation, you'll need to generate the answer again. If you receive a partial response (a combination of text and an error), the model can still proceed, while for Assistants/Applications, you'll need to generate the response again.
+
+![](./img/regenerate.png)
+
+**Working with prompts**: during the conversation, you can edit or delete your prompts. After a prompt has been edited, the response is regenerated, and all your prompts after the edited one will be deleted. When you delete your prompt, the response will be deleted, too.
+
+**Working with attachments in responses**: if in the response you have received an attachment, you can click the **Download** icon near the file name to download it or an **Expand** to preview:
+
+![](./img/download-file.png)
+
+**Attach files to requests**: some models and applications (e.g. _DIAL RAG_) support adding attachments (files, links, folders) to conversations. In this case, you'll see the **Attachments** icon available in the chat box. Click it to upload a file from your device or select an already uploaded file. Refer to the [Manage attachments](#attachments) section for details.
+
+![](./img/attach.png)
+
+**Like/Dislike**: you can like and dislike responses in a conversation. Use likes to highlight important responses and dislikes to mark the responses you don't need. 
+
+![](./img/like.png)
+
+**View current settings**: on the top bar, point to the language model logo icon near the conversation name to see current settings. In the same bar, you can click the Eraser icon to **clear conversation messages** and click the Gear icon to **change conversation settings**. Refer to [Chat Settings](#conversation-settings) to learn more.
+
+![](./img/chat-settings-bar.png)
+
+
 ## Chat Settings
+
+In the Chat Settings section, you can define setting for a new conversation by selecting an entity you are going to communicate with (model, application or assistant), defining a system prompt, temperature or addon. During an ongoing conversation, you can edit these settings in a [settings box](#conversation-settings).
 
 In the Chat Settings section, there are the following components:
 
-- Talk To
-- System Prompt
-- Temperature
-- Addons
+- [Talk to](#talk-to)
+- [System prompt](#system-prompt)
+- [Temperature](#temperature)
+- [Addons](#addons)
+
+![](./img/chat-settings-main.png)
 
 Take a closer look at each of these elements.
 
@@ -626,7 +577,7 @@ Take a closer look at each of these elements.
 
 In this section, you can choose the language model for communication, as well as an Assistant or Application to implement specific behavior for the LLM.
 
-### Language Models
+#### Language Models
 
 1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
 2. All tabs (Models, Applications and Assistants) are enabled by default. To display just Models, disable the rest and keep the **Models** tab active.
@@ -635,6 +586,8 @@ In this section, you can choose the language model for communication, as well as
 ![](./img/all_models.png)
 
 **Available language models**:
+
+> See the full [list of supported models](/supported-models).
 
 - *GPT-3.5* is an advanced language model developed by OpenAI, known for its powerful natural language processing, understanding, and context awareness. Enabling human-like conversations, it can carry out various tasks, including summarizing, translation, content creation, and answering queries.
 - *GPT-4* is the latest iteration of the GTP series by OpenAI, offering more powerful natural language processing capabilities than its previous versions. It harnesses extensive training and massive datasets to deliver lifelike conversations, unsurpassed context awareness, and high-quality content generation across multiple languages and domains.
@@ -649,7 +602,8 @@ In this section, you can choose the language model for communication, as well as
 - *Anthropic (Claude V2)* is an upgraded version of the Anthropic (Claude) model, with 400 billion parameters, making it one of the largest language models to date. This model is designed for sophisticated NLP applications involving complex reasoning, inference, and understanding of long-form text data.
 - *AWS (Titan)*: AWS (Amazon Web Services) developed an LLM called Titan in 2021, which has 850 billion parameters, making it the largest publicly available language model at the time of its introduction. The model was trained on a diverse set of text sources, including web pages, books, and news articles. Titan is designed to handle complex natural language processing tasks, such as summarization, dialogue generation, and translation.
 
-### Assistants
+
+#### Assistants
 
 1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
 2. All tabs (Models, Applications and Assistants) are enabled by default. To display just Assistants, disable the rest and keep the **Assistants** tab active.
@@ -663,7 +617,7 @@ Assistants give you more control over LLM behavior, resulting in tailored and ac
 
 In a chat application, you can include custom Assistant(s) that users can choose when using AI DIAL.
 
-### Applications
+#### Applications
 
 1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
 2. All tabs (Models, Applications and Assistants) are enabled by default. To display just Applications, disable the rest and keep the **Applications** tab active.
@@ -732,9 +686,99 @@ For instance, if a user wants to open GPT-4 without any extra features or config
 
 On the top bar, in the user area, you can click a down arrow to access additional settings or logout.
 
-You can select the chat theme, dark or light, add a custom logo, and switch on a full width chat mode.
+You can select the chat theme (dark or light), change logo, and switch to the full-width chat mode.
 
 ![](./img/user_settings.png)
+
+## Attachments
+
+AI DIAL applications (e.g. DIAL RAG) can support attaching files, links or folders to a conversation and generate responses considering the attached resources.
+
+![](./img/attachment1.png)
+
+### Folders
+
+If the selected application supports this, you can click the attachment icon in the conversation box and select **Attach folders**.
+
+> Note, that you can attach only folders from the file manager and cannot upload folders from an external source.
+
+![](./img/attach-folder1.png)
+
+In the pop-up window, select a checkbox for the folder you want to add to add it. The attached folder will appear in the conversation box and become available for the application to work with. 
+
+![](./img/attach-folders.png)
+
+### Links
+
+If the selected application supports this, you can click the attachment icon in the conversation box and select **Attach link**. Then, specify a valid URL and click **Attach**. The link will be displayed as attachment in the conversation box and become available for the application to work with.
+
+![](./img/attach-link.png)
+
+### Files
+
+If the selected application supports this, you can click the attachment icon in the conversation box and select **Attach uploaded files**. In the attachments manager, select available files that you have previously uploaded and select a checkbox to add to the conversation. The file will be displayed as attachment in the conversation box and become available for the application to work with.
+
+![](./img/attach-file.png)
+
+### Attachments Manager 
+
+All attached and uploaded files are available in the attachments manager. To manage all attachments, click the **Attachments** icon at the bottom of the left panel.
+
+![](./img/attachments3.png)
+
+**To Create a Folder:**
+
+You can create folders and then upload files into them. **Note**, the only way to add a file into a folder is to upload it - you cannot move files between folders.
+
+> AI DIAL applications can be configured to allow attaching entire folders to conversations. In this case, only folders created in the attachments manager can be attached to a conversation.
+
+![](./img/create-folder.png)
+
+1. Click a folder icon to create a new folder.
+2. Give your folder a name.
+3. Click submit to apply.
+
+You can as well perform several actions on your folders: 
+
+* Rename
+* Upload files
+* Add subfolders
+
+![](./img/folder-actions.png)
+
+**To Upload a File:**
+
+To add a file into a folder it is necessary to upload it.
+
+1. In the Manage attachments dialog, select **Upload from device**.
+2. Select one or several files you want to upload and click **Open**.
+3. Under **Upload to**, select **Change** to pick a folder, in which the files will be uploaded.
+4. Under **Files**, change their names or delete them, if necessary. The following symbols in the file names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&`. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
+5. Click **Upload and attach files**.
+
+![](./img/attachments2.png)
+
+**To Unshare a File**:
+
+Using the application that supports the attachments of files, you can create a conversation and share it with someone. When a conversation is shared, all the attached to the conversation files are shared as well. In the attachments manager, such shared files are tagged with a blue arrow.
+
+In the file menu, you can choose to unshare it: 
+
+![](./img/file-menu.png)
+
+**To Download Attachments**:
+
+> Click a folder to expand it.
+
+1. In the Manage attachments dialog, point to a file and select it. You can select several files.
+2. Click the **Download** icon below the files tree.
+
+**To Delete Attachments**:
+
+> You won't be able to preview or download a deleted file in a conversation, but you still will see its name.
+
+1. In the Manage attachments dialog, point to a file and select it. You can select several files.
+2. Click the **Delete** icon below the files tree.
 
 ## Publications
 
