@@ -11,9 +11,9 @@ Ultimately, we aim to innovate without compromising on simplicity and ensure tha
 
 Basic layout consists of the following components:
 
-* Header: component where customizable logo element is displayed. This component also contains: Conversations section button, Prompts section button and a user profile section.
-* Conversations section: contains all active conversations and a button to start a new one.
-* Prompts section: contains user prompts and an action to add a new one.
+* Header: component where customizable logo element is displayed. This component also contains: Conversation list button, Prompt list button and a user settings.
+* Conversation list: contains all active conversations and a button to start a new one.
+* Prompt list: contains user prompts and an action to add a new one.
 * Chat area: area where user questions and LLM responds will take place.
 * Start Chat window: is only visible for new chats. Allows to set a specific settings for your new chat (for example, select LLM, Temperature, Addons, etc).
 * Chat box: contains input where you manually type your questions or commands for models.
@@ -30,19 +30,19 @@ Please note that any further modifications will necessitate additional discussio
 
 ## Desktop
 
-### Hide Conversations Section
+### Hide Conversation List
 
 In this modification, the user will not be able to add multiple conversations nor save them. The user will have only one chat.
 
 ![](./img/layout-scheme2.svg)
 
-### Hide Prompts Section
+### Hide Prompt List
 
 The ability to save prompts and use any existing ones will not be available.
 
 ![](./img/layout-scheme3.svg)
 
-### Hide Prompts and Conversations Sections
+### Hide Prompt and Conversation Lists
 
 The capability to save prompts and use any existing ones will not be available.
 
@@ -62,9 +62,9 @@ Mobile version is a modification that users see when they open AI DIAL on their 
 
 ![](./img/header.png)
 
-1. Conversations section
+1. Conversation list
 2. Start new chat button
-3. Prompts section
+3. Prompt list
 
 ![](./img/mobile.svg)
 
