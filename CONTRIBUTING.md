@@ -52,7 +52,7 @@ DIAL platform releases occur periodically according to a formal schedule. Typica
 ## Milestones
 Since GitHub only supports milestones within a single repository, we use a custom field called `Milestones` in the [AI DIAL Project](https://github.com/orgs/epam/projects/22). The built-in milestone field is not used. When we refer to a milestone, we mean this custom field.
 
-Milestones are used to indicate the target release version (and date) for a given issue. The milestone name format is `2023-Dec-6`. We maintain the scope of one current and two upcoming milestones. The plan for the current milestone can be considered accurate with minor deviations (subject to changes every Monday). The two upcoming milestones may undergo significant changes, but they provide an indication of our current objectives.
+Milestones are used to indicate the target release version (and date) for a given issue. The milestone name format is `2024-09-04`(yyyy-MM-dd). We maintain the scope of one current and two upcoming milestones. The plan for the current milestone can be considered accurate with minor deviations (subject to changes every Monday). The two upcoming milestones may undergo significant changes, but they provide an indication of our current objectives.
 
 If an issue does not have a milestone, it is in the plan and not expected to be addressed in the near future.
 
