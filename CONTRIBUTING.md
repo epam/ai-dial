@@ -32,6 +32,8 @@ AI DIAL is a secure, enterprise-grade, free LLM orchestrator that is API-first a
 
 The solution is domain-agnostic. We prioritize use case-agnostic generic features (such as rendering charts in the frontend based on model responses) over features that are overly specific to a single domain (like supporting medical anthologies). However, specific implementations can be built as extensions or derived works. For more information, refer to our [extension framework](https://epam-rail.com/extension-framework) and [API reference](https://epam-rail.com/dial_api).
 
+AI DIAL as a product is not intended to replace solutions like AI studios from various cloud providers or LangChain. On the contrary, it is designed to complement them by providing additional features and simplifying the development process of GenAI applications. AI DIAL empowers organizations to interact with a variety of models and applications, ensuring they can leverage the strengths of other platforms to maximize efficiency and innovation in their AI development processes.
+
 ## Feature Validation Checklist
 Every new feature will be meticulously evaluated for:
 - Overall correctness
