@@ -10,14 +10,14 @@ AI DIAL Chat project has a special directory called [locales](https://github.com
 
 Currently we support the following category of elements: 
 
-* chat - the central chat area on UI
-* promptbar - the panel with prompts
-* sidebar - the panel with conversations
-* settings - conversation settings panel
-* common - general 
-* markdown - markdown renderer
-* header - the application header
-* files - files manager panel
+* `chat` - the central chat area on UI
+* `promptbar` - the panel with prompts
+*` sidebar` - the panel with conversations
+* `settings` - conversation settings panel
+* `common` - general 
+* `markdown` - markdown renderer
+* `header` - the application header
+* `files` - files manager panel
 
 In each file, you can provide the alternative text for particular UI elements in the format: `key:value`. Where `key` is the original text on the chat UI and `value` is the replacement text. **Note**: if the replacement is not provided, the original text applies.
 
