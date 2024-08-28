@@ -2,6 +2,8 @@
 
 In this list, you can find models that we have tested and verified. We are commited to adding more and constantly update this list. You can use our OpenAI adapter to connect to a much wider spectrum of models compatible with OpenAI API. Refer to [OpenAI](https://github.com/epam/ai-dial-adapter-openai), [Bedrock](https://github.com/epam/ai-dial-adapter-bedrock/?tab=readme-ov-file#supported-models), [Vertex](https://github.com/epam/ai-dial-adapter-vertexai/?tab=readme-ov-file#supported-models) adapters to view more details about them and the supported models.
 
+You can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom model adapters. Applications and model adapters implemented using this framework will be compatible with [AI DIAL API](https://epam-rail.com/dial_api) that was designed based on [Azure OpenAI API](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference).
+
 | Vendor | Models |
 | :-- | :-- |
 | AI21| ai21.j2-grande-instruct, ai21.j2-jumbo-instruct |
