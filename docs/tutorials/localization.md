@@ -2,7 +2,7 @@
 
 The AI DIAL Chat application uses [next-i18next](https://github.com/i18next/next-i18next) plugin to manage the translation of the UI elements. 
 
-## How it Works
+## How it works
 
 AI DIAL Chat project has a special directory called [locales](https://github.com/epam/ai-dial-chat/tree/development/apps/chat/public/locales/). In this directory, you can create sub-folders with translations for different languages. In a sub-folder, place JSON files, each corresponding to a particular category of UI elements. 
 
