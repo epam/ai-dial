@@ -39,7 +39,8 @@ AI DIAL is a product that is designed to **enhance** or **extend**, rather than 
 - Model vendors including [OpenAI](https://openai.com/), [Claude](https://www.anthropic.com/claude), [Google DeepMind](https://deepmind.google/), [Meta](https://ai.meta.com/), and [Mistral](https://mistral.ai/)
 - AI studios like [Azure AI Studio](https://azure.microsoft.com/en-us/products/ai-studio), [Google AI Studio](https://ai.google.dev/aistudio), and [Meta AI Studio](https://ai.meta.com/ai-studio/)
 - Data platforms such as [Databricks](https://www.databricks.com/) and [Dataiku](https://www.dataiku.com/)
-- Application development frameworks including [LangChain](https://www.langchain.com/), [LlamaIndex](https://www.llamaindex.ai/), [Flowise](https://flowiseai.com/) and [SemanticKernel](https://github.com/microsoft/semantic-kernel)
+- Application development frameworks including [LangChain](https://www.langchain.com/), [LlamaIndex](https://www.llamaindex.ai/) and [SemanticKernel](https://github.com/microsoft/semantic-kernel)
+- Low-code application designers like [Flowise](https://flowiseai.com/)
  
 We aim to complement these services, streamlining the development, deployment, and operation of GenAI applications, as well as facilitating the [interoperability](https://docs.epam-rail.com/architecture#introduction) of various applications to achieve specific business objectives. For this purpose we provide:
  
