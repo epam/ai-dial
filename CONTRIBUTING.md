@@ -41,10 +41,10 @@ AI DIAL is a product that is designed to **enhance** or **extend**, rather than 
 - Data platforms such as [Databricks](https://www.databricks.com/) and [Dataiku](https://www.dataiku.com/)
 - Application development frameworks including [LangChain](https://www.langchain.com/), [LlamaIndex](https://www.llamaindex.ai/), [Flowise](https://flowiseai.com/) and [SemanticKernel](https://github.com/microsoft/semantic-kernel)
  
-We aim to complement these services, streamlining the development, deployment, and operation of GenAI applications, as well as facilitating the [interoperability](https://docs.epam-rail.com/architecture#introduction) of various applications to achieve business objectives. For this purpose we provide:
+We aim to complement these services, streamlining the development, deployment, and operation of GenAI applications, as well as facilitating the [interoperability](https://docs.epam-rail.com/architecture#introduction) of various applications to achieve specific business objectives. For this purpose we provide:
  
 - [Unified API](https://epam-rail.com/dial_api) to access multimodal models, assistants, applications, and embedding models.
-- Essential services such as resilient file/chat/model [storage](https://docs.epam-rail.com/architecture#persistent-layer) with user-based [access control](https://docs.epam-rail.com/Roles%20and%20Access%20Control/overview).
+- Essential services such as resilient file/chat/prompt//model [storage](https://docs.epam-rail.com/architecture#persistent-layer) with user-based [access control](https://docs.epam-rail.com/Roles%20and%20Access%20Control/overview).
 - Important operational features, including [sharing](https://epam-rail.com/dial_api#tag/Sharing), organization-wide [publications](https://epam-rail.com/dial_api#tag/Publications), [review processes](https://docs.epam-rail.com/tutorials/enable-publications#admin-flow), and [rate limits](https://docs.epam-rail.com/architecture#rate-limits--cost-control).
 
 ## Feature Validation Checklist
