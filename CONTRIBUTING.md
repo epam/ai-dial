@@ -28,11 +28,28 @@ Here is the current list of repositories:
 Please see [repository map](https://epam-rail.com/open-source).
 
 # Project Vision
+
 AI DIAL is a secure, enterprise-grade, free LLM orchestrator that is API-first and model-agnostic. It is designed to be cloud-agnostic, providing horizontal features that simplify interactions with various models and LLM-centric applications, as well as the development of LLM applications. We strive to avoid dependencies on specific cloud or LLM vendors, compromises on scalability or security, excessive expansion of our tech footprint, or potential licensing risks. We typically design features as APIs, which custom extensions can leverage.
 
 The solution is domain-agnostic. We prioritize use case-agnostic generic features (such as rendering charts in the frontend based on model responses) over features that are overly specific to a single domain (like supporting medical anthologies). However, specific implementations can be built as extensions or derived works. For more information, refer to our [extension framework](https://epam-rail.com/extension-framework) and [API reference](https://epam-rail.com/dial_api).
 
+AI DIAL is a product that is designed to **enhance** or **extend**, rather than replace or compete with:
+ 
+- Model providers such as [Azure](https://azure.microsoft.com/), [AWS](https://aws.amazon.com/), and [GCP](https://cloud.google.com/)
+- Model vendors including [OpenAI](https://openai.com/), [Claude](https://www.anthropic.com/claude), [Google DeepMind](https://deepmind.google/), [Meta](https://ai.meta.com/), and [Mistral](https://mistral.ai/)
+- AI studios like [Azure AI Studio](https://azure.microsoft.com/en-us/products/ai-studio), [Google AI Studio](https://ai.google.dev/aistudio), and [Meta AI Studio](https://ai.meta.com/ai-studio/)
+- Data platforms such as [Databricks](https://www.databricks.com/) and [Dataiku](https://www.dataiku.com/)
+- Application development frameworks including [LangChain](https://www.langchain.com/), [LlamaIndex](https://www.llamaindex.ai/) and [SemanticKernel](https://github.com/microsoft/semantic-kernel)
+- Low-code application designers like [Flowise](https://flowiseai.com/)
+ 
+We aim to complement these services, streamlining the development, deployment, and operation of GenAI applications, as well as facilitating the [interoperability](https://docs.epam-rail.com/architecture#introduction) of various applications to achieve specific business objectives. For this purpose we provide:
+ 
+- [Unified API](https://epam-rail.com/dial_api) to access multimodal models, assistants, applications, and embedding models.
+- Essential services such as resilient file/chat/prompt//model [storage](https://docs.epam-rail.com/architecture#persistent-layer) with user-based [access control](https://docs.epam-rail.com/Roles%20and%20Access%20Control/overview).
+- Important operational features, including [sharing](https://epam-rail.com/dial_api#tag/Sharing), organization-wide [publications](https://epam-rail.com/dial_api#tag/Publications), [review processes](https://docs.epam-rail.com/tutorials/enable-publications#admin-flow), and [rate limits](https://docs.epam-rail.com/architecture#rate-limits--cost-control).
+
 ## Feature Validation Checklist
+
 Every new feature will be meticulously evaluated for:
 - Overall correctness
 - API-first design, ensuring usefulness for extensions and derived work
