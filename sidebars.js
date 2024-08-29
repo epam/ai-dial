@@ -114,6 +114,11 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'tutorials/enable-publications',
+          label: 'Publications',
+        },
+        {
+          type: 'doc',
           id: 'tutorials/localization',
           label: 'Chat Localization',
         }
