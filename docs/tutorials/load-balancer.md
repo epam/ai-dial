@@ -83,7 +83,7 @@ You can use a combination of `weight` and `tier` parameters to define a more com
 
 ### Tiers
 
-Use `tier` to aggregate endpoints in groups. In a regular scenario, all requests are routed to endpoints with the highest `tier`,
+Use `tier` to aggregate endpoints in groups. In a regular scenario, all requests are routed to endpoints with the lowest `tier`,
 but in case of the outage or hitting the limits, the second in line `tier` helps to handle the load.
 
 For example, requests will be routed to a group of endpoint with `"tier": 0` before they go to the group with `"tier": 1`.
@@ -147,4 +147,4 @@ Example of configuration of AI DIAL Core:
 }
 ```
 
-In this setup, requests are initially directed to tier=0. Within this tier, 30% of the traffic is sent to the first endpoint and 20% to the second. If tier=0 is unavailable or reaches its capacity limits, the remaining traffic is then routed to tier=1. Additionally, if the endpoint with the highest weight fails, the subsequent retry will be directed to the endpoint with the second-highest weight to avoid repeated retries to the same endpoint because of its high weight.
+In this setup, requests are initially directed to tier=0. Within this tier, the share of the total traffic in 50% (3+2): `host1: 3/5*100 = 60%` and `host2: 2/5*100 = 40%`. If tier=0 is unavailable or reaches its capacity limits, the remaining traffic is then routed to tier=1. Additionally, if the endpoint with the highest weight fails, the subsequent retry will be directed to the endpoint with the second-highest weight to avoid repeated retries to the same endpoint because of its high weight.
