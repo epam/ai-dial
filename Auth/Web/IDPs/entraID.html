@@ -10,7 +10,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="DIAL Knowledge Base" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.a62d7352.css">
-<script src="/assets/js/runtime~main.b5d95a65.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.f626b07f.js" defer="defer"></script>
 <script src="/assets/js/main.cdd9e8a9.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -51,7 +51,11 @@
 <li>After registering an application, obtain and save <strong>Application (client) ID</strong> and <strong>Directory (tenant) ID</strong> - you will need them to configure AI DIAL. Refer to <a href="https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application#application-id-client-id" target="_blank" rel="noopener noreferrer">Microsoft documentation</a>.</li>
 <li><strong>Create and save a Client secret:</strong> in the <strong>Certificates &amp; secrets/Client secret</strong> section, create <strong>New client secret</strong> and save its value. Refer to <a href="https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application#certificates--secrets" target="_blank" rel="noopener noreferrer">Microsoft documentation</a>.</li>
 <li>(Optional) <strong>Create a Group and add members:</strong> once the application integration is set up, create the necessary Group and add members. Refer to <a href="https://learn.microsoft.com/en-us/entra/fundamentals/groups-view-azure-portal" target="_blank" rel="noopener noreferrer">Microsoft documentation</a>.</li>
-<li>(Optional) <strong>Configure ID Token:</strong> in the <strong>Token Configuration</strong> section, <strong>Add Groups claim</strong> and customize which groups you want to include and where (access, ID token). Refer to <a href="https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#important-caveats-for-this-functionality" target="_blank" rel="noopener noreferrer">Microsoft documentation</a>.</li>
+<li>(Optional) <strong>Configure ID Token:</strong> in the <strong>Token Configuration</strong> section, <strong>Add Groups claim</strong> and customize which groups you want to include and where (access, ID token). Refer to <a href="https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#important-caveats-for-this-functionality" target="_blank" rel="noopener noreferrer">Microsoft documentation</a>.<!-- -->
+<blockquote>
+<p><strong>Note:</strong> <code>sAMAccountName</code> and on-premises <code>GroupSID</code> attributes are available only on group objects synced from Active Directory. They aren&#x27;t available on groups created in <code>Microsoft Entra ID</code> or <code>Office 365</code>. Applications configured in Microsoft Entra ID to get synced on-premises group attributes get them for synced groups only.</p>
+</blockquote>
+</li>
 </ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="configure-ai-dial">Configure AI DIAL<a href="#configure-ai-dial" class="hash-link" aria-label="Direct link to Configure AI DIAL" title="Direct link to Configure AI DIAL">​</a></h3>
 <p>By configuring both AI DIAL Chat and AI DIAL Core with the necessary Microsoft Entra ID environment variables, you will enable them to work together seamlessly with Microsoft Entra ID for authentication and authorization purposes.</p>
