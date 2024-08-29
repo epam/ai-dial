@@ -40,6 +40,7 @@ Follow these steps to configure Microsoft Entra ID:
 1. **Create and save a Client secret:** in the **Certificates & secrets/Client secret** section, create **New client secret** and save its value. Refer to [Microsoft documentation](https://learn.microsoft.com/en-us/azure/healthcare-apis/register-application#certificates--secrets).
 1. (Optional) **Create a Group and add members:** once the application integration is set up, create the necessary Group and add members. Refer to [Microsoft documentation](https://learn.microsoft.com/en-us/entra/fundamentals/groups-view-azure-portal).
 2. (Optional) **Configure ID Token:** in the **Token Configuration** section, **Add Groups claim** and customize which groups you want to include and where (access, ID token). Refer to [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#important-caveats-for-this-functionality).
+    > **Note:** `sAMAccountName` and on-premises `GroupSID` attributes are available only on group objects synced from Active Directory. They aren't available on groups created in `Microsoft Entra ID` or `Office 365`. Applications configured in Microsoft Entra ID to get synced on-premises group attributes get them for synced groups only.
 
 ### Configure AI DIAL
 
