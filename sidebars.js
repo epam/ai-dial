@@ -121,6 +121,11 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/localization',
           label: 'Chat Localization',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/load-balancer',
+          label: 'Load Balancer',
         }
       ],
     },
