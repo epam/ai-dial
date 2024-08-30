@@ -2,11 +2,22 @@
 
 ## Introduction
 
-Interceptors are AI DIAL components used to facilitate the implementation of a so-called Responsible AI approach and enforce compliance with internal and external privacy regulations and policies.
+Interceptors can be seen as a middleware that modifies incoming or outgoing request according to a specific logic. In AI DIAL, we use interceptors to facilitate the implementation of a so-called Responsible AI approach and enforce compliance with internal and external privacy regulations and policies.
 
-Interceptors, are pluggable components that can be triggered before a chat completion request (pre-interceptor) or after a chat completion response (post-interceptor) to execute a certain logic and delegate the analysis of information to third-party models.
+Interceptors in AI DIAL could be classified into the following categories:
 
-For example, interceptors can be utilized to block requests that violate specific regulations, originate from restricted domains, or potentially lead to data leaks or biased responses. Another use case is when interceptors allow applications or models to respond solely to specific subjects and anonymize Personally Identifiable Information (PII) from user requests, cache LLM responses.
+* **Pre-interceptors** that only modify the incoming request from the client (e.g. rejecting requests following certain criteria)
+* **Post-interceptors** that only modify the response received from the upstream (e.g. censoring the response)
+* **Generic interceptors** that modify both the incoming request and the response from the upstream (e.g. caching the responses)
+
+Interceptors in AI DIAL can:
+
+* Modify an incoming AI DIAL request received from the client (or it may leave it as is).
+* Call an upstream AI DIAL application (the upstream for short) with the modified request.
+* Modify the response from the upstream (or it may leave it as is).
+* Return the modified response to the client.
+
+For example, interceptors can block requests that violate specific regulations, related with restricted domains, or potentially lead to data leaks or biased responses. Another use case is when interceptors allow applications or models to respond solely to specific subjects and anonymize Personally Identifiable Information (PII) from user requests, or cache LLM responses.
 
 To implement PII (Personally Identifiable Information) anonymization for all data sent to models through AI DIAL, you can use interceptors which can employ specific locally deployed NLP models to obfuscate (replace with token) PII in requests (pre-interceptor) and decode it in responses (post-interceptor), effectively ensuring the anonymization of all personal data.
 
@@ -14,11 +25,24 @@ To implement PII (Personally Identifiable Information) anonymization for all dat
 
 Technically speaking, interceptors in AI DIAL are components inserted into deployments (applications or model adapters) that can be called before or after [chat completion requests](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post).
 
+The stack of interceptors in AI DIAL works similarly to a stack of middleware in Express.js or Django. Every request/response in the diagram above goes through AI DIAL Core (this is hidden from the diagram for brevity):
+
+```js
+Client -> (original request) ->
+  Interceptor 1 -> (modified request #1) ->
+    Interceptor 2 -> (modified request #2) ->
+      Upstream -> (original response) ->
+    Interceptor 2 -> (modified response #1) ->
+  Interceptor 1 -> (modified response #2) ->
+Client
+```
+
 AI DIAL Core manages chat completion requests from interceptors through the endpoint: `/openai/deployments/<deployment|interceptor>/chat/completions`. It uses the deployment name `interceptor` to handle requests from all interceptors. Upon receiving a request, it identifies the next interceptor based on the current interceptor specified in the API Key data. The final interceptor in the sequence is always the target deployment (application, model).
 
-For the example purposes, lets take two interceptors **gtp-cache** and **pii-anonymizer** configured for the **GPT-4** model:
+To demonstrate the flow on a more specific example, lets take two interceptors **gtp-cache** and **pii-anonymizer** configured for the **GPT-4** model:
 
 ```json
+//configuration in AI DIAL Core
     "models": {
         "chat-gpt-4": {
             "interceptors": ["gtp-cache", "pii-anonymizer"]
@@ -46,11 +70,11 @@ Interceptors can be defined and assigned in AI DIAL Core [dynamic settings](http
 ```json
     "interceptors": {
         "gpt-cache": {
-            "endpoint": "http://localhost:4088/api/v1/interceptor/handle",
+            "endpoint": "${INTERCEPTOR_SERVICE_URL}/openai/deployments/gpt-cache/chat/completions",
             "description": "description"
         },
         "pii-anonymizer": {
-            "endpoint": "http://localhost:4089/api/v1/interceptor/handle",
+            "endpoint": "${INTERCEPTOR_SERVICE_URL}/openai/deployments/pii-anonymizer/chat/completions",
             "description": "description"
         }
     }
@@ -81,6 +105,8 @@ To assign `interceptors` to `applications` and `models`:
     ...
     }
 ```
+
+**Note**: make sure that chat completion interceptors are only used in chat models or application, embeddings interceptors are only used in embeddings models.
 
 ## Interceptor Endpoint Specification
 
