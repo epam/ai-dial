@@ -19,7 +19,7 @@ Interceptors in AI DIAL can:
 
 For example, interceptors can block requests that violate specific regulations, related with restricted domains, or potentially lead to data leaks or biased responses. Another use case is when interceptors allow applications or models to respond solely to specific subjects and anonymize Personally Identifiable Information (PII) from user requests, or cache LLM responses.
 
-To implement PII (Personally Identifiable Information) anonymization for all data sent to models through AI DIAL, you can use interceptors which can employ specific locally deployed NLP models to obfuscate (replace with token) PII in requests (pre-interceptor) and decode it in responses (post-interceptor), effectively ensuring the anonymization of all personal data.
+To implement PII (Personally Identifiable Information) anonymization for all data sent to models through AI DIAL, you can use a generic interceptor which can employ specific locally deployed NLP models to obfuscate (replace with token) PII in requests (pre-interceptor) and decode it in responses (post-interceptor), effectively ensuring the anonymization of all personal data.
 
 ## Flow
 
