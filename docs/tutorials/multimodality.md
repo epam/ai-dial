@@ -27,15 +27,15 @@ For audio/video-to-text tasks, AI DIAL has adapters for Gemini 1.5 Pro and Flash
 
 ### Applications
 
-You can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom applications, which are basically any custom logic with a conversation interface packaged as a ready-to-use solution. Refer to [Tutorials](../tutorials/quick-start-with-application) to learn how to create a simple application or watch a [demo video](../video%20demos/demos-for-developers/dial-develop-and-deploy).
+You can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom applications, which are basically any custom logic with a conversation interface packaged as a ready-to-use solution. Refer to [Tutorials](./quick-start-with-application) to learn how to create a simple application or watch a [demo video](../video%20demos/demos-for-developers/dial-develop-and-deploy).
 
 Such application can be designed and configured to use multimodal LLMs to perform specific tasks or even form an ecosystem of applications that can interact with each other. 
 
 In the Cookbook section, you can find several examples:
 
-* [Text-to-text](../Cookbook/dial-cookbook/examples/how_to_call_text_to_text_applications)
-* [Text-to-image](../Cookbook/dial-cookbook/examples/how_to_call_text_to_image_applications)
-* [Image-to-text](../Cookbook/dial-cookbook/examples/how_to_call_image_to_text_applications)
+* [Text-to-text](https://docs.epam-rail.com/Cookbook/dial-cookbook/examples/how_to_call_text_to_text_applications)
+* [Text-to-image](https://docs.epam-rail.com/Cookbook/dial-cookbook/examples/how_to_call_text_to_image_applications)
+* [Image-to-text](https://docs.epam-rail.com/Cookbook/dial-cookbook/examples/how_to_call_image_to_text_applications)
 
 ### Orchestrator
 
