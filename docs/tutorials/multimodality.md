@@ -16,7 +16,7 @@ Working with different types of media is made available by supporting working wi
 
 Connection to LLMs is realized using so-called **adapters**. Refer to [OpenAI](https://github.com/epam/ai-dial-adapter-openai), [Bedrock](https://github.com/epam/ai-dial-adapter-bedrock/?tab=readme-ov-file#supported-models), [Vertex](https://github.com/epam/ai-dial-adapter-vertexai/?tab=readme-ov-file#supported-models) adapters to learn more about them and the supported models. You can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom model adapters.
 
-AI DIAL has adapters to a variety of text-to-text processing LLMs. Refer to [Supported Models](../supported-models) to view th list of supported models. 
+AI DIAL has adapters to a variety of text-to-text processing LLMs. Refer to [Supported Models](../supported-models) to view the list of supported models. 
 
 Regarding working with images:
 
@@ -41,5 +41,5 @@ In the Cookbook section, you can find several examples:
 
 Besides creating an application which solves a specific multimodal task, you could create a generic application which is aware of multimodal DIAL models and is able to use them as tools to solve a given task. We call such generic applications orchestrators. 
 
-[DIAL ChatHub](../video%20demos/demos/dial-chathub) is an example of a flow orchestrator that combines several applications and models into one unified access point. ChatHub can automatically route prompts to one of several agents (text-to-text applications, text-to-image applications, vision-to-text applications) depending on the task that needs to be performed. For example, if a user asks about weather, the Web RAG agent is engaged, if a user wants to output an image based on the text input - a specific application handles this task that is connected with a corresponding model. All this is done while interacting with one ChatHub solution.
+[DIAL ChatHub](../video%20demos/demos/dial-chathub) is an example of an orchestrator that combines several applications and models into one unified access point. ChatHub can automatically route prompts to one of several agents (text-to-text applications, text-to-image applications, vision-to-text applications) depending on the task that needs to be performed. For example, if a user asks about weather, the Web RAG agent is engaged, if a user wants to output an image based on the text input - a specific application handles this task that is connected with a corresponding model. All this is done while interacting with one ChatHub solution.
 
