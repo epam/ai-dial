@@ -17,7 +17,7 @@ Interceptors in AI DIAL can:
 * Modify the response from the upstream (or it may leave it as is).
 * Return the modified response to the client.
 
-For example, interceptors can block requests that violate specific regulations, related with restricted domains, or potentially lead to data leaks or biased responses. Another use case is when interceptors allow applications or models to respond solely to specific subjects and anonymize Personally Identifiable Information (PII) from user requests, or cache LLM responses.
+For example, interceptors can block requests that violate specific regulations, related to restricted domains, or potentially lead to data leaks or biased responses. Another use case is when interceptors allow applications or models to respond solely to specific subjects and anonymize Personally Identifiable Information (PII) from user requests, or cache LLM responses.
 
 To implement PII (Personally Identifiable Information) anonymization for all data sent to models through AI DIAL, you can use a generic interceptor which can employ specific locally deployed NLP models to obfuscate (replace with token) PII in requests (pre-interceptor) and decode it in responses (post-interceptor), effectively ensuring the anonymization of all personal data.
 
@@ -37,15 +37,15 @@ Client -> (original request) ->
 Client
 ```
 
-AI DIAL Core manages chat completion requests from interceptors through the endpoint: `/openai/deployments/<deployment|interceptor>/chat/completions`. It uses the deployment name `interceptor` to handle requests from all interceptors. Upon receiving a request, it identifies the next interceptor based on the current interceptor specified in the API Key data. The final interceptor in the sequence is always the target deployment (application, model).
+AI DIAL Core manages chat completion requests from interceptors through the endpoint: `/openai/deployments/interceptor/chat/completions`. It uses the reserved deployment name `interceptor` to handle requests from all interceptors. Upon receiving a request, it identifies the next interceptor based on its per-request API key. The final interceptor in the sequence is always the target deployment (application, model).
 
-To demonstrate the flow on a more specific example, lets take two interceptors **gtp-cache** and **pii-anonymizer** configured for the **GPT-4** model:
+To demonstrate the flow on a more specific example, lets take two interceptors **gpt-cache** and **pii-anonymizer** configured for the **GPT-4** model:
 
 ```json
 //configuration in AI DIAL Core
     "models": {
         "chat-gpt-4": {
-            "interceptors": ["gtp-cache", "pii-anonymizer"]
+            "interceptors": ["gpt-cache", "pii-anonymizer"]
         }
 ```
 
