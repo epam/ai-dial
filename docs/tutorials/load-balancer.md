@@ -147,4 +147,4 @@ Example of configuration of AI DIAL Core:
 }
 ```
 
-In this setup, requests are initially directed to tier=0. Within this tier, hostname1 gets 60%` and hostname2 gets 40% of traffic. If tier=0 is unavailable or reaches its capacity limits, the remaining traffic is then routed to tier=1. Additionally, if the endpoint with the highest weight fails, the subsequent retry will be directed to the endpoint with the second-highest weight to avoid repeated retries to the same endpoint because of its high weight.
+In this setup, requests are initially directed to tier=0. Within this tier, hostname1 gets 60% and hostname2 gets 40% of traffic. If tier=0 is unavailable or reaches its capacity limits, the remaining traffic is then routed to tier=1. Additionally, if the endpoint with the highest weight fails, the subsequent retry will be directed to the endpoint with the second-highest weight to avoid repeated retries to the same endpoint because of its high weight.

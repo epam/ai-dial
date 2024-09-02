@@ -126,6 +126,11 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/load-balancer',
           label: 'Load Balancer',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/interceptors',
+          label: 'Interceptors',
         }
       ],
     },
