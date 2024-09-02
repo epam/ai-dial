@@ -23,7 +23,7 @@ For example, to implement PII (Personally Identifiable Information) anonymizatio
 * Modify the response from the upstream (or it may leave it as is).
 * Return the modified response to the client. -->
 
-The stack of interceptors in AI DIAL works similarly to a stack of middleware in Express.js or Django. Every request/response in the diagram above goes through AI DIAL Core (this is hidden from the diagram for brevity):
+For illustration, the below diagram shows the flow of requests if two interceptors are configured. Every request/response goes through AI DIAL Core (this is hidden from the diagram for brevity):
 
 ```js
 Client -> (original request) ->
