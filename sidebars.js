@@ -131,6 +131,11 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/multimodality',
           label: 'Multimodality',
+        },
+        }
+          type: 'doc',
+          id: 'tutorials/interceptors',
+          label: 'Interceptors',
         }
       ],
     },
