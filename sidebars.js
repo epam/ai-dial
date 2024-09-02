@@ -132,7 +132,7 @@ const sidebars = {
           id: 'tutorials/multimodality',
           label: 'Multimodality',
         },
-        }
+        {
           type: 'doc',
           id: 'tutorials/interceptors',
           label: 'Interceptors',
