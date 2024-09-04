@@ -810,6 +810,8 @@ This is the high level overview of the publication workflow:
 
 AI DIAL Chat enables data visualization for specific data types using data visualizers. It comes with built-in support for the [Plotly data visualizer](#plotly). To link any other custom visualizers, you can use the [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) library.
 
+Watch a [demo video](./video%20demos/demos-for-developers/dial-data-viz) to see some examples.
+
 ### Plotly
 
 Plotly is an open-source JavaScript library that enables the creation of diverse data visualizations, including charts, 3D graphs, and more.
