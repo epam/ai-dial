@@ -2,7 +2,7 @@
 
 ## Introduction
 
-DIAL [Completions API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) is based on OpenAI Azure API and was extended to support working with advanced AI DIAL assistants and applications (you can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create those). Applications can implement a specific logic and require rendering special elements in the AI DIAL Chat UI. This is achieved by using `custom_content` in the body of request or response.
+DIAL [Completions API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) is based on OpenAI Azure API and was extended to support working with advanced AI DIAL assistants and applications (you can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create those). Applications can implement a specific logic and may require rendering a special content in the AI DIAL Chat UI. This is achieved by using `custom_content` in the body of API request or response.
 
 `custom_content` can include:
 
@@ -14,14 +14,11 @@ DIAL [Completions API](https://epam-rail.com/dial_api#/paths/~1openai~1deploymen
 
 ## Attachments
 
-**Definition**: by an attachment we understand a specific content (according to [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types)) that can be included by a user in the request to an application or by the application in the response. Such attachments can be rendered in the chat UI, where they can be viewed or downloaded. Attachments can also we shared among a specific audience. AI DIAL supports several types of attachments: files (text and images), links and folders. Attachments can be both URL and base64-encoded strings.
-
-`type`- according to [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types):
-
-* text/markdown
-* image/png
+**Definition**: by an attachment we understand a specific content that can be included by a user in the request to an application or by the application in the response. Such attachments can be rendered in the chat UI, where they can be viewed or downloaded. Attachments can also we shared among a specific audience. 
 
 > To learn how chat users can use attachments with their requests to applications and models, refer to [User Guide](/user-guide#attachments).
+
+AI DIAL supports several types of attachments: files (text and images), links and folders. Attached files are stored in a configured blob storage - refer to [AI DIAL Core](https://github.com/epam/ai-dial-core) to learn how to configure a file storage. Attachments can be both URL and base64-encoded strings. Each attachment has a specific `type`- according to [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
 In this section, we will describe how attachments can be used by applications in their responses and rendered in the AI DIAL Chat UI.
 
@@ -43,7 +40,7 @@ To render an attachment in the response from the application, include `attachmen
 
 Applications can be made to return documents in the response. AI DIAL supports the following document formats: PDF, DOC/DOCX, PPT/PPTX, TXT and other plain text formats such as code files. 
 
-For example, [DIAL RAG](../video%20demos/demos/dial-web-rag) application allows users to attach files to their requests. Such files are placed in a dedicated bucket of a user which can be made accessible for specific applications. Then, the application generates the response considering the attached files and outputs them together with the response. 
+For example, the [DIAL RAG](../video%20demos/demos/dial-web-rag) application enables users to attach files to their requests. These files are stored in a dedicated user bucket, which can be configured to grant access to specific applications. The app then generates the response, taking into consideration the attached files, and includes them in the output along with the response.
 
 To attach a document in the response of your application, follow the example below:
 
@@ -53,11 +50,14 @@ To attach a document in the response of your application, follow the example bel
       "custom_content": {
         "attachments": [
           {
-            "index": 0,
-            "type": "text/markdown",
-            "title": "Document title",
-            "data": "Information in the markdown format.",
-            "reference_url": "files/user_bucket/attached_document"
+            "type": "application/pdf",
+            "title": "test.pdf",
+            "url": "files/bucket/my_test_folder/test.pdf"
+          },
+          {
+            "type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "title": "test.pptx",
+            "url": "files/bucket/my_test_folder/test.pptx"
           }
         ]
       }
@@ -65,6 +65,7 @@ To attach a document in the response of your application, follow the example bel
   ]
 ```
 
+> Refer to [Completions API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) to view the description of all fields.
 
 This will render an attachment (similar to the below illustration) with a document in the response in AI DIAL Chat UI:
 
@@ -90,9 +91,9 @@ const imageTypes: Set<ImageMIMEType> = new Set<ImageMIMEType>([
 ]);
 ```
 
-For example, [DIAL ChatHub](../video%20demos/demos/dial-chathub) application includes agents that can generate images return them attached to the response. Such images are then stored in the dedicated bucket of the application and is accessible to authorized users.
+For example, [DIAL ChatHub](../video%20demos/demos/dial-chathub) application includes agents that use models of a specific modality to generate images from text and return them attached to the response as files. Such images are then stored in the dedicated bucket of the application and are accessible to authorized users.
 
-To attach an image in the response of your application, follow the example below::
+To attach an image in the response of your application, follow the example below:
 
 ```json
   "messages": [
@@ -110,6 +111,7 @@ To attach an image in the response of your application, follow the example below
     }
   ]
 ```
+> Refer to [Completions API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) to view the description of all fields.
 
 This will render at attachment with an image in the response in AI DIAL Chat UI:
 
@@ -140,6 +142,8 @@ To attach a URL in the response of your application, follow the example below:
   ]
 ```
 
+> Refer to [Completions API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) to view the description of all fields.
+
 This will render an attachment (similar to the below illustration) with a URL in the response in AI DIAL Chat UI:
 
 ![](./img/att-url.png)
@@ -147,7 +151,7 @@ This will render an attachment (similar to the below illustration) with a URL in
 
 ### Folder
 
-To attach a folder in the response of your application, follow the example below::
+To attach a folder in the response of your application, follow the example below:
 
 ```json
   "messages": [
@@ -166,15 +170,15 @@ To attach a folder in the response of your application, follow the example below
   ]
 ```
 
-This will render at attachment with an image in the response in AI DIAL Chat UI:
-
-**Image coming soon**
+> Refer to [Completions API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) to view the description of all fields.
 
 ## Stages
 
-Stages are intermediate steps an AI DIAL assistant or application went through to generate the response. An application can include logic to return and render stages in the AI DIAL Chat UI. Stages can include attachments - see the example further in this section.
+**Definition**: Stages are intermediate steps an AI DIAL assistant or application went through to generate the response. 
 
-To attach stages in the response of your application, follow the example below:
+An application can include logic to return stages in the response  and render them in the AI DIAL Chat UI. Stages can include [attachments](#attachments) - see the example further in this section.
+
+To include stages to the response of your application, follow the example below:
 
 ```json
   "messages": [
@@ -210,42 +214,67 @@ To attach stages in the response of your application, follow the example below:
 ]
 ```
 
-Following the above pattern, you can render three stages on UI:
+> Refer to [Completions API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) to view the description of all fields.
+
+Following the above pattern, you can render three stages in AI DIAL Chat UI:
 
 ![](./img/att-stages.png)
 
 ## Markdown
 
-AI DIAL Chat natively supports markdown. You can create a message using a standard markdown notation:
+AI DIAL Chat natively supports markdown. 
+
+You can create a message using a standard markdown notation:
 
 ```json
   "messages": [
     {
       "role": "user",
-      "content": "[link](api/files/7MTJHKbiS2d3pcHhKeCe66nepchPcDPuYYzMNQ9NasXbUjt8FMVGNzUV8Kt4iDz1vo/Avengers-11.jpg)\n\n![image](api/files/7MTJHKbiS2d3pcHhKeCe66nepchPcDPuYYzMNQ9NasXbUjt8FMVGNzUV8Kt4iDz1vo/Avengers-11.jpg)\n\n| Month    | Savings |\n| -------- | ------- |\n| January  | $250    |\n| February | $80     |\n| March    | $420    |\n\n",
-      "templateMapping": {},
-      "model": { "id": "mirror" },
-      "settings": {
-        "prompt": "",
-        "temperature": 1,
-        "selectedAddons": [],
-        "assistantModelId": "gpt-4"
-      }
+      "content": "[link](api/files/bucket/your_image.jpg)\n\n![image](api/files/bucket/your_image.jpg)\n\n| Month    | Savings |\n| -------- | ------- |\n| January  | $250    |\n| February | $80     |\n| March    | $420    |\n\n",
+      ...
     }
   ]
 ```
 
-To get a chat response like this: 
+This message will be rendered in AI DIAL Chat UI like this: 
 
 ![](./img/markdown.png)
 
 
 ## Visualizers
 
-Special applications to render a specific type of content.
+We call Visualizers special applications that are used for rendering a specific type of content in AI DIAL Chat UI. AI DIAL Chat comes with built-in support for the [Plotly data visualizer](#plotly). You can use [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) library to create visualizers for specific types of content.
+
+Watch a [demo video](../video%20demos/demos-for-developers/dial-data-viz) to view how a financial data can be visualized in AI DIAL Chat.
 
 ## Plotly
 
-AI DIAL natively supports Plotly for visualizations of specific types of content.
+AI DIAL Chat has a built-in support for Plotly data visualization library. We use a specific MIME type for Plotly: 
 
-'application/vnd.plotly.v1+json' - MIME type for plotly response
+`"type": "application/vnd.plotly.v1+json"`
+
+To attach a Plotly visualization in the response of your application, follow the example below:
+
+```json
+  "messages": [
+    {
+      "custom_content": {
+        "attachments": [
+          {
+            "index": 1,
+            "type": "application/vnd.plotly.v1+json",
+            "title": "Your visualization name",
+            "url": "files/bucket/appdata/app_name/your_viz_file.json"
+          }
+        ]
+      }
+    }
+  ]
+```
+
+Similar structure in the application response will include a visualization as an attachment in AI DIAL Chat UI: 
+
+![](./img/att-plotly.png)
+
+
+Watch a [demo video](../video%20demos/demos/animated-scatterplot) to view how a statistical data can be visualized in AI DIAL Chat in Plotly animated scatterplot or a demo video of the [Omics AI Assistant](../video%20demos/demos/dial-omics-assistant) to see how protein structures can be visualized using Plotly.
