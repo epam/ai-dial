@@ -136,6 +136,11 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/interceptors',
           label: 'Interceptors',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/data-visualization',
+          label: 'Data Visualization',
         }
       ],
     },
