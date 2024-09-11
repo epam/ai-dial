@@ -1,5 +1,13 @@
 # Chat User Guide
 
+## Introduction
+
+AI DIAL Chat is a powerful enterprise-grade application that serves as a default web interface for users, providing access to the full set of AI DIAL features.
+
+> Watch a [demo video](../video%20demos/demos/dial-ui-basics) to learn more.
+
+> Refer to [AI DIAL Chat repository](https://github.com/epam/ai-dial-chat) to view the project source code.
+
 ## Interface Components
 
 The AI DIAL Chat application interface has several sections, such as the chat box, settings, and panels for managing conversations and saved prompts.
