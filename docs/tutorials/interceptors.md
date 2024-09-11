@@ -6,6 +6,8 @@ Interceptors can be seen as a middleware that modifies incoming or outgoing requ
 
 For example, interceptors can block requests that violate specific regulations, related to restricted domains, or potentially lead to data leaks or biased responses. Another use case is when interceptors allow applications or models to respond solely to specific subjects and anonymize Personally Identifiable Information (PII) from user requests, or cache LLM responses.
 
+> Watch a [demo video](../../video%20demos/demos/interceptors) to learn more about interceptors.
+
 Technically speaking, interceptors in AI DIAL are components inserted into deployments (applications or model adapters) that can be called before or after [chat completion requests](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post).
 
 Interceptors in AI DIAL could be classified into the following categories:
@@ -36,6 +38,10 @@ Client
 ```
 
 AI DIAL Core manages chat completion requests from interceptors through the endpoint: `/openai/deployments/interceptor/chat/completions`. It uses the reserved deployment name `interceptor` to handle requests from all interceptors. Upon receiving a request, it identifies the next interceptor based on its [per-request API key](../Roles%20and%20Access%20Control/API%20Keys#per-request-keys). The final interceptor in the sequence is always the target deployment (application, model).
+
+## Interceptors SDK
+
+You can use [AI DIAL Interceptors Python SDK](https://github.com/epam/ai-dial-interceptors-sdk) to create your custom interceptors. Refer to [Examples](https://github.com/epam/ai-dial-interceptors-sdk/tree/development/aidial_interceptors_sdk/examples) for your reference.
 
 ## Configuration
 
@@ -94,16 +100,3 @@ To demonstrate the flow, lets take two interceptors **gpt-cache** and **pii-anon
 7. The **gpt-cache** interceptor stores the response in the cache and returns it to AI DIAL Core.
 8. AI DIAL Core sends the final response back to AI DIAL Chat.
 
-<!-- ## Interceptor Endpoint Specification
-
-Each interceptor operates with an endpoint defined as `POST interceptor_endpoint HTTP/1.1`. It is mandatory for every interceptor to have the `DIAL_URL` environment variable set.
-
-When an interceptor calls the next one, it uses the special deployment name "interceptor" and the [per-request API key](../Roles%20and%20Access%20Control/API%20Keys#per-request-keys), which is extracted from the request's HTTP header named `api-key`.
-
-An interceptor can handle a request in one of the following ways:
-
-1. Accept the request and return an HTTP response code of 200 along with the chat completion response, such as a response from the GPT cache.
-2. Accept the request and forward the HTTP response from the subsequent interceptor.
-3. Reject the request and return an HTTP response code of 451, including an error message in the response body.
-
-**Note**: It is possible for a client to encounter an error during a streaming response, even if the initial HTTP response code indicates success. -->
