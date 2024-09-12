@@ -99,7 +99,7 @@ The **Search** box can be utilized to find conversations and folders by their na
 
 ### Rename
 
-When you create a new conversation, it is automatically named after your first prompt. After that, you can rename your conversation.
+When you create a new conversation, it is automatically named after the first line in your first prompt. For example, if your prompt includes several sentences separated by tab, the first one will be used to name the conversation. Moreover,the MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. After that, you can rename your conversation.
 
 **To rename a conversation**:
 
@@ -108,7 +108,7 @@ When you create a new conversation, it is automatically named after your first p
 
 ![](./img/rename-conversation.png)
 
-The following symbols in the conversation names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. 
+The following symbols in the conversation names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
 ### Conversation Settings
 
