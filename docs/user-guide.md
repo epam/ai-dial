@@ -30,14 +30,16 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 
 ### Actions
 
-Click a **...** icon to open a conversation menu. There, you can find a list of all the available actions for the selected conversation.
+Click a **...** icon to open a conversation menu. There, you can find the list of all the available actions for the selected conversation.
 
 ![](./img/conversation-menu.png)
 
-This is the list of all the supported actions. **Note**, that actions may vary for the selected conversation (e.g. there will not be an Unpublish action if the conversation has not yet been published)
+> **Note**, that actions may vary for the selected conversation (e.g. there will not be an Unpublish action if the conversation has not yet been published).
+
+This is the list of all the supported actions:
 
 - [Select](#select-to-delete): use to select conversations you want to delete.
-- Rename - use to rename a conversation.
+- [Rename](#rename) - use to rename a conversation.
 - [Compare](#compare): use to compare conversations with different settings.
 - [Duplicate](#duplicate): use to duplicate a shared conversation.
 - [Replay](#replay): use to to reproduce conversations but with different settings.
@@ -54,41 +56,59 @@ This is the list of all the supported actions. **Note**, that actions may vary f
 
 ### Arrange
 
-You can gather your conversations in folders.
+You can arrange your conversations in folders. To create a new folder, click a folder icon in the bottom menu:
 
-![](./img/move_conv.png)
+![](./img/create-new-folder.png)
+
+You can also create a new folder or move a conversation to the existing folder from the **Move to** context menu of the selected conversation: 
+
+![](./img/pinned-conversations.png)
+
+New folders will automatically be arranged in the **Pinned conversations** tab in the Conversations panel.
+
+**Hierarchy**
 
 You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a conversation into a folder or use **Move to** in the context menu of a conversation to move it to a **parent** folder.
-Empty folders are deleted after refreshing a page.
+
+> **Note**: empty folders are deleted after refreshing the page.
+
+**Naming Conventions**
 
 The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
 The MAX length of the folder name is limited to 160 symbols. Everything beyond is cut off. 
 
-> When you use the contextual menu to move a conversation, you can create a new folder, in which the conversation should be moved.
-
 ### Search and Filter
 
-The **Search** box can be utilized to find conversations and folders by their names.
+The **Search** box can be utilized to find conversations and folders by their names. If you have any share d conversations, you can apply **Shared by me** filter to sort them out.
 
 ![](./img/search-conv.png)
-
-You can filter conversations by the "Shared by me" criterion. To do so, click the **Filter** icon and select **Shared by me**.
 
 ### Create
 
 ![](./img/conversations.png)
 
-To create a conversation:
+**To create a conversation**:
 
 1. On the left panel, click **New conversation**.
 2. In the main section, under **Talk To**, select a language model, an assistant, or an application. Five most recently used items are shown in the section. To see all available items, click **See full list**.
 3. Optionally, under **System prompts**, select a prompt by typing "/" in the text box. For details, refer to the [Prompts](#prompts) section of this guide.
 4. Under **Temperature**, set a value of the temperature parameter. For details, refer to the [Temperature](#temperature) section of this guide.
 5. Optionally, under **Addons**, select an Addon. For details, refer to the [Addons](#addons) section of this guide.
-6. Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first question will be used as its name. 
+6. Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first prompts will be used as its name. 
 
-> The following symbols in the conversation names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. 
+### Rename
+
+When you create a new conversation, it is automatically named after your first prompt. After that, you can rename your conversation.
+
+**To rename a conversation**:
+
+1. Click **Rename** in the context menu of the selected conversation.
+2. Enter a new name and submit.
+
+![](./img/rename-conversation.png)
+
+The following symbols in the conversation names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. 
 
 ### Conversation Settings
 
@@ -98,27 +118,42 @@ In the conversation header, you can view the current settings, change settings (
 
 ### Share
 
-You can share a conversation or a folder with several conversations with other users.
+You can share a conversation or a folder with several conversations with other users. Yo can also receive a shared conversation.
 
-> When someone shared a conversation with you, you can find it in the **Shared with me** section on the left panel. **Important**: you cannot change a conversation that has been shared with you. To be able to work with it, [duplicate it](#duplicate).
+**To receive a shared conversation**:
 
-To share a conversation or a folder, click **Share** in the contextual menu and copy the link. After someone has opened your link, an arrow icon appears near its name and this conversation can be found when **Shared by me** checkbox is selected in the **Search** menu.
+When someone shared a conversation with you, you can find it in the **Shared with me** section in the left panel. 
 
-![](./img/shared.png)
+![](./img/shared-with-me.png)
 
-When you share a folder, all folders and conversations in this folders will be shared.
+> **Important**: you cannot change a conversation that has been shared with you. To be able to work with it, [duplicate it](#duplicate).
+
+**To share a conversation**:
+
+> **Note**: You can share entire folders with conversations. When you share a folder, all folders and conversations in it will be shared as well.
+
+To share a conversation or a folder, click **Share** in the contextual menu and copy the link.
 
 ![](./img/share_conv.png)
 
+After the recipient has opened your link, the arrow icon appears near its name.
+
+![](./img/shared.png)
+
+Click **Shared by me** checkbox to select just the conversations that you have shared:
+
+![](./img/shared-by-me.png)
+
+
 ### Unshare
 
-To revoke access from all users, click **Unshare** in the contextual menu and then confirm action in the dialog window.
+To revoke access from all users you have shared with, click **Unshare** in the contextual menu and then confirm action in the dialog window.
 
 ![](./img/unshare_conv.png)
 
 ### Duplicate
 
-You can duplicate a conversation, for example, to be able to change a conversation that was shared with you. To duplicate a conversation, click **Duplicate** in the contextual menu.
+Duplicate a shared with you conversation to be able to change it. To duplicate a conversation, click **Duplicate** in the contextual menu.
 
 > This feature is available only for conversations shared with you. 
 
@@ -126,27 +161,29 @@ You can duplicate a conversation, for example, to be able to change a conversati
 
 ### Export
 
-You can export selected conversations with or without attachments or all conversations without attachments in a JSON format.
+You can export selected conversations. If a conversation includes attachments, you can export it with or without attachments. 
+
+You can also export all your conversations at once without attachments in a JSON format.
 
 > Exported conversations are named by the following pattern: prefix "epam_ai_dial_chat", then "with_attachments" if the conversation was exported with attachments, then "month_day". However, the naming convention is configurable in the chat config.
 
-![](./img/export-conv.png)
-
 **Export a single conversation with attachments**
 
-To export a single conversation:
 1. On the left panel, in the conversation contextual menu, point to **Export**.
 2. Click **With attachments**. 
 
 The conversation will be exported as a **ZIP** archive.
 
+![](./img/export-with-att.png)
+
 **Export a single conversation without attachments**
 
-To export a single conversation:
 1. On the left panel, in the conversation contextual menu, point to **Export**.
 2. Click **Without attachments**. 
 
 The conversation will be exported as a **JSON** file.
+
+![](./img/export-without-att.png)
 
 **Export all conversations**
 
@@ -160,13 +197,19 @@ To export all conversations, at the bottom of the left panel, click the **Export
 
 Exported conversations can be imported. 
 
-To import JSON or a zip file with conversations, click the **Import conversations** icon at the bottom of the left panel and then select a file with conversations.
+To import a JSON file with a conversation or a ZIP archive with several conversations (may include attachments as well), click the **Import conversations** icon at the bottom of the left panel and then select a file with conversations.
 
-> When you import a conversation with attachments, the attachments will be available in the Imports folder.
- 
 ![](./img/import_conv.png)
 
-> Note, that when importing a duplicate of an existing conversation, you will be prompted to select one of the proceeding options: replace, ignore or add a prefix to the imported conversation. If the imported conversation includes attachments, you will be prompted to make the same selection for them as well.
+When you import a conversation with attachments, the attachments will be available in the **Imports** folder in the [Attachments Manager](#attachments-manager).
+ 
+![](./img/imports-folder.png)
+
+When importing a **duplicate** of an existing conversation, you will be prompted to select one of the proceeding options for both the conversation and each of the attachments: 
+
+* Replace - replace the original conversation/attachment 
+* Ignore - do nothing
+* Postfix - add a postfix to the imported conversation/attachment. For example: *my-conversation 1* , where 1 is added postfix to the name of the duplicated imported conversation.
 
 ![](./img/import-export.png)
 
@@ -177,17 +220,17 @@ You can delete a single conversation, selected conversations or all conversation
 * To delete a **single** conversation, on the left panel, in the conversation contextual menu, select **Delete** and confirm your action.
 * To delete **all** conversations, at the bottom of the left panel, click the **Delete all conversations** icon.
 
-![](./img/Delete_conv.png)
+![](./img/delete-conversation.png)
 
 ### Select to Delete
 
 Also, you can use a *selection* mode to choose conversation(s) you want to delete:
 
-* Click **Select all** button in the bottom panel. In this case, all conversations are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
+* Click **Select all** button in the bottom panel. When you do this, all conversations get preselected and you can unselect the ones you want to **keep**. You can also click **Unselect all** in the bottom panel to clear the selection.
 
 ![](./img/select-chat1.png)
 
-* Click **Select** in the conversation menu. In this case, you can hover over any conversation and use checkboxes to select/unselect conversations you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
+* Click **Select** in the conversation menu to enter into a *selection* mode. In this mode, you can hover over any conversation and use checkboxes to select/unselect conversations you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
 
 ![](./img/select-chat2.png)
 
@@ -195,13 +238,13 @@ Also, you can use a *selection* mode to choose conversation(s) you want to delet
 
 You can use **Replay** to reproduce conversations but with different settings (e.g. a different model). A replayed conversation can be used to compare responses to the same questions from different models and with different settings of the conversation. 
 
-![](./img/replay2.png)
+![](./img/replay-conversation.png)
  
 Use **Replay as is** to reproduce the conversation with the original settings. 
 
 ![](./img/Replay_as_is.png) 
 
-To replay a conversation: 
+**To replay a conversation**: 
 
 1.	Click **Replay** in the conversation menu. 
 2.	Select **Replay as is** in **More info** in the Replay settings to reproduce the conversation with the original settings or change the conversation settings. 
@@ -230,9 +273,11 @@ Let's create a simple Travel Guide conversation, which will take a user though s
 
 The Playback mode can be used to simulate the current conversation without any engagement with models. This mode accurately reproduces the conversation like a recording. It should be noted that this differs from the Replay mode, where the prompts are resubmitted to the chosen model and the outcomes may differ from the initial conversation.
 
-![](./img/playback2.png)
+![](./img/playback-conversation.png)
 
 During the playback, you can move back and forward the playback process or stop it.
+
+![](./img/playback-controls.png)
 
 ### Compare
 
@@ -277,8 +322,9 @@ You can publish conversations to make them available for the target audience.
    * In **Publish to**, you can select the target destination. You can also create a dedicated folder to publish your conversation into.
    * In **Allow access..**, specify access rules and the target audience. For example Role-Equals-Admin. **Note**: the available roles are configured for each organization individually. Contact your support to find out the rules are applicable in your organization.
    * In **Conversations**, you can choose what conversations you want to publish (if you have selected a folder with several conversations). If conversations include attachments, you can also select them in the **Files** section.
+      - You can also add a **version** of your publication next to the conversation check box.
    * Click **Send request** to send your publish request to the administrator.
-![](./img/publish-request.png)
+   ![](./img/publish-request.png)
 
 3. When your request is approved, the published conversation or a folder with conversation(s) will become available in the Organization tab.
 
