@@ -80,7 +80,7 @@ The MAX length of the folder name is limited to 160 symbols. Everything beyond i
 
 ### Search and Filter
 
-The **Search** box can be utilized to find conversations and folders by their names. If you have any share d conversations, you can apply **Shared by me** filter to sort them out.
+The **Search** box can be utilized to find conversations and folders by their names. If you have any shared conversations, you can apply **Shared by me** filter to sort them out.
 
 ![](./img/search-conv.png)
 
@@ -322,13 +322,31 @@ You can publish conversations to make them available for the target audience.
    * In **Publish to**, you can select the target destination. You can also create a dedicated folder to publish your conversation into.
    * In **Allow access..**, specify access rules and the target audience. For example Role-Equals-Admin. **Note**: the available roles are configured for each organization individually. Contact your support to find out the rules are applicable in your organization.
    * In **Conversations**, you can choose what conversations you want to publish (if you have selected a folder with several conversations). If conversations include attachments, you can also select them in the **Files** section.
-      - You can also add a **version** of your publication next to the conversation check box.
+   * Assign a version to your request. 
    * Click **Send request** to send your publish request to the administrator.
    ![](./img/publish-request.png)
 
 3. When your request is approved, the published conversation or a folder with conversation(s) will become available in the Organization tab.
 
 ![](./img/organization-section.png)
+
+**Versioning**
+
+When you make a publication request, it is required to assign it a unique version number. A version must follow format: `0.0.0`. With each request you must provide a new version - the system will not accept two identical versions. 
+
+Versioning helps you create specific publications for different groups of people, run experiments, and keep track of your conversations easily.
+
+You can add a **version** of your publication request next to the conversation check box:
+
+![](./img/versioning1.png)
+
+If you try to publish this conversation again, you will be able to view the last version or a drop-down with versions:
+
+![](./img/versioning2.png)
+
+When you open a published conversation, you can view and switch between its versions in the [conversation settings](#conversation-settings): 
+
+![](./img/versioning3.png)
 
 ### Unpublish
 
@@ -384,37 +402,49 @@ This is the list of all the supported actions. Note, that actions may vary for t
 
 ![](./img/prompt_actions.png)
 
+### Arrange
+
+You can arrange your prompts in folders. To create a new folder, click a folder icon in the bottom menu:
+
+![](./img/create-new-folder-prompt.png)
+
+You can also create a new folder or move a prompt to the existing folder from the **Move to** context menu of the selected prompt: 
+
+![](./img/move_prompt.png)
+
+New folders will automatically be arranged in the **Pinned prompts** tab in the Prompts panel.
+
+![](./img/pinned-prompts.png)
+
+**Hierarchy**
+
+You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a prompt into a folder or use **Move to** in the context menu of a prompt to move it to a **parent** folder.
+
+> **Note**: empty folders are deleted after refreshing the page.
+
+**Naming Conventions**
+
+The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
+
+The MAX length of the folder name is limited to 160 symbols. Everything beyond is cut off. 
+
 ### Search and Filter
+
+The **Search** box can be utilized to find prompts and folders by their names. If you have any shared prompts, you can apply **Shared by me** filter to sort them out.
 
 ![](./img/pt_search.png)
 
-The **Search** box can be utilized to find prompts and folders by their names.
-
-You can filter prompts by the "Shared by me" criterion. To do so, click the **Filter** icon and select **Shared by me**.
- 
-### Arrange
-
-You can gather your prompts in folders.
-
-![](./img/move_prompt.png)
- 
-You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. 
-The same way, you can either drag-n-drop a prompt into a folder or use **Move to** in the context menu of a prompt to place it in the **parent** folder.  
-
-> After refreshing the page or logging in again, any empty folders will be deleted.
-
-The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&`. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the folder name is limited to 160 symbols. Everything beyond is cut off. 
 
 ### Create
 
 ![](./img/create-pt.png)
 
-To create a new prompt:
+**To create a new prompt**:
 
 1.	On the right panel, select **New prompt**.
 2.	Fill in the **Name**, **Description**, and **Prompt** boxes. The following symbols in the prompt names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the prompt name is limited to 160 symbols. Everything beyond is cut off.
 
-  > Please note that both the **Name** and **Description** fields are mandatory to fill in order to create a prompt!
+      > Please note that both the **Name** and **Description** fields are mandatory to fill in order to create a prompt!
 
 3.	Click **Save**.
 
@@ -456,6 +486,8 @@ You can delete a single prompt, selected prompts or all prompts.
 
 * To delete a single prompt, in the menu of each prompt, select **Delete** and confirm your action.
 * To delete all prompts, at the bottom of the right panel, click the **Delete all prompts** icon.
+
+![](./img/delete-prompt.png)
 
 ### Select to Delete
 
@@ -501,13 +533,13 @@ To share a prompt or a folder, click **Share** in the contextual menu and copy t
 
 ### Unshare
 
-To revoke access from all users, click **Unshare** in the contextual menu and then confirm actions in the dialog window.
+To revoke access from all users you have shared with, click **Unshare** in the contextual menu and then confirm actions in the dialog window.
 
 ![](./img/pt_unshare.png)
 
 ### Duplicate
 
-You can duplicate a prompt, for example, to be able to change a prompt that was shared with you. To duplicate a prompt, click **Duplicate** in the contextual menu.
+You can duplicate a prompt to be able to change a prompt that was shared with you. To duplicate a prompt, click **Duplicate** in the contextual menu.
 
 > You can duplicate only prompt shared with you.
 
@@ -515,9 +547,19 @@ You can duplicate a prompt, for example, to be able to change a prompt that was 
 
 ### Export Import
 
-You can export and import prompts. 
+You can export 
 
-> Note, that when importing a duplicate of an existing prompt, you will be prompted to select one of the proceeding options: replace, ignore or add a prefix to the imported prompt.
+![](./img/export-prompt.png)
+
+and import prompts as Json files
+
+![](./img/import-prompt.png)
+
+When importing a **duplicate** of an existing prompt, you will be asked to select one of the proceeding options: 
+
+* Replace - replace the original prompt 
+* Ignore - do nothing
+* Postfix - add a postfix to the imported prompt. For example: *my-prompt 1* , where 1 is added postfix to the name of the duplicated imported prompt.
 
 ![](./img/import-export-prompt.png)
 
@@ -525,7 +567,7 @@ You can export and import prompts.
 
 You can publish prompts to make them available for the target audience. 
 
-**Note**: to publish a shared prompt, [duplicate](#duplicate-1) it and then publish. 
+> **Note**: to publish a shared prompt, [duplicate](#duplicate-1) it and then publish. 
 
 **To publish a prompt**: 
 
@@ -538,6 +580,7 @@ You can publish prompts to make them available for the target audience.
    * In **Publish to**, select the target destination or a folder to publish your prompt into.
    * In **Allow access...**, specify access rules and the target audience. For example Role-Equals-Admin. **Note**: the available roles are defined in each organization individually. Contact your support to find out the rules are applicable in your organization.
    * In **Prompts**, if you have selected a folder, you can choose what prompts you want to publish.
+   * Assign a **version** to your publication request.
    * Click **Send request** to send your publication request to the administrator.
 
 ![](./img/publish-prompt-request.png)
@@ -545,6 +588,21 @@ You can publish prompts to make them available for the target audience.
 3. When your request is approved, the published prompt or a folder with prompt(s) will become available in the Organization tab.
 
 ![](./img/organization-section-prompts.png)
+
+**Versioning**
+
+When you make a publication request, it is required to assign it a unique version number. A version must follow format: `0.0.0`. With each request you must provide a new version - the system will not accept two identical versions. 
+
+Versioning helps you create specific publications for different groups of people, run experiments, and keep track of your prompts easily.
+
+You can add a **version** of your publication request next to the prompt check box:
+
+![](./img/prompt-versioning1.png)
+
+If you try to publish this prompt again, you will be able to view the last version or a drop-down with versions:
+
+![](./img/versioning2.png)
+
 
 ### Unpublish
 
@@ -780,6 +838,14 @@ All attached and uploaded files are available in the attachments manager. To man
 
 ![](./img/attachments3.png)
 
+There can be a few tabs in the Attachments Manager: 
+
+* Organization - published files
+* Shared with me - files shared with you
+* All files - the rest of your files
+
+![](./img/att-manager.png)
+
 **To Create a Folder:**
 
 You can create folders and then upload files into them. **Note**, the only way to add a file into a folder is to upload it - you cannot move files between folders.
@@ -822,10 +888,12 @@ In the file menu, you can choose to unshare it:
 
 **To Download Attachments**:
 
-> Click a folder to expand it.
+Click a folder to expand it.
 
 1. In the Manage attachments dialog, point to a file and select it. You can select several files.
 2. Click the **Download** icon below the files tree.
+
+![](./img/file-download.png)
 
 **To Delete Attachments**:
 
@@ -833,6 +901,8 @@ In the file menu, you can choose to unshare it:
 
 1. In the Manage attachments dialog, point to a file and select it. You can select several files.
 2. Click the **Delete** icon below the files tree.
+
+![](./img/file-delete.png)
 
 ## Publications
 
@@ -854,7 +924,7 @@ This is the high level overview of the publication workflow:
 
 1. Chat user sends a publication request for the selected resource(s) (conversation, prompt).
 2. Admin receives the publication request, reviews it and either approves or declines.
-3. In case the publication request has been approved, the published resource becomes available for the target audience in the Organization section in the chat application.
+3. In case the publication request has been approved, the published resource becomes available for the target audience in the Organization section in the chat application. If the published resource includes attachments, they will be available in the Organization section in the [Attachments Manager](#attachments-manager).
 4. Resource owner can unpublish the published resource.
 
 > Refer to [Conversations](#publish) and [Prompts](#publish-1) to view a step-by-step instructions.

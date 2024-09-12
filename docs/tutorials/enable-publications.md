@@ -1,5 +1,7 @@
 # Publications
 
+You can publish/unpublish conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
+
 ## DIAL API
 
 Refer to [AI DIAL API](https://epam-rail.com/dial_api#tag/Publications) to view publications endpoints.
