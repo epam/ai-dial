@@ -136,11 +136,11 @@ To share a conversation or a folder, click **Share** in the contextual menu and 
 
 ![](./img/share_conv.png)
 
-After the recipient has opened your link, the arrow icon appears near its name.
+After the recipient has opened your link, the arrow icon appears near its name. **Note**, it may be required to reload the page.
 
 ![](./img/shared.png)
 
-Click **Shared by me** checkbox to select just the conversations that you have shared:
+Click **Shared by me** checkbox in the filter to select just the conversations that you have shared:
 
 ![](./img/shared-by-me.png)
 
@@ -201,9 +201,7 @@ To import a JSON file with a conversation or a ZIP archive with several conversa
 
 ![](./img/import_conv.png)
 
-When you import a conversation with attachments, the attachments will be available in the **Imports** folder in the [Attachments Manager](#attachments-manager).
- 
-![](./img/imports-folder.png)
+When you import a conversation with attachments, the attachments will be available in the parent of the root folder in the [Attachments Manager](#attachments-manager).
 
 When importing a **duplicate** of an existing conversation, you will be prompted to select one of the proceeding options for both the conversation and each of the attachments: 
 
@@ -523,7 +521,7 @@ You can always view prompts that have been shared with you in a dedicated sectio
 
 **To Share a Prompt**:
 
-To share a prompt or a folder, click **Share** in the contextual menu and copy the link. After someone has opened your link, an arrow icon appears near its name and this prompt can be found when **Shared by me** checkbox is selected in the **Search** menu.
+To share a prompt or a folder, click **Share** in the contextual menu and copy the link. After someone has opened your link, an arrow icon appears near its name and this prompt can be found when **Shared by me** checkbox in the filter is selected.
 
 ![](./img/shared_prompt.png)
 
