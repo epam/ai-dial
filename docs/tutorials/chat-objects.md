@@ -113,7 +113,7 @@ To attach an image in the response of your application, follow the example below
 ```
 > Refer to [Completions API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) to view the description of all fields.
 
-This will render at attachment with an image in the response in AI DIAL Chat UI:
+This will render an attachment with an image in the response in AI DIAL Chat UI:
 
 ![](./img/att-img.png)
 
