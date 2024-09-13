@@ -1,4 +1,4 @@
-# DIAL ChatHub
+# ChatHub
 
 https://youtu.be/IG0HawQuU-w
 

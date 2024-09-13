@@ -1,4 +1,4 @@
-# DIAL Excel Plug-in
+# MS Excel Plug-in for DIAL
 
 https://youtu.be/ifPvHvnWgAc
 
