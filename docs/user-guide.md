@@ -1,5 +1,13 @@
 # Chat User Guide
 
+## Introduction
+
+AI DIAL Chat is a powerful enterprise-grade application that serves as a default web interface for users, providing access to the full set of AI DIAL features.
+
+> Watch a [demo video](../video%20demos/demos/dial-ui-basics) to learn more.
+
+> Refer to [AI DIAL Chat repository](https://github.com/epam/ai-dial-chat) to view the project source code.
+
 ## Interface Components
 
 The AI DIAL Chat application interface has several sections, such as the chat box, settings, and panels for managing conversations and saved prompts.
@@ -22,14 +30,16 @@ In the AI DIAL framework, a conversation is a dialogue between an agent, such as
 
 ### Actions
 
-Click a **...** icon to open a conversation menu. There, you can find a list of all the available actions for the selected conversation.
+Click a **...** icon to open a conversation menu. There, you can find the list of all the available actions for the selected conversation.
 
 ![](./img/conversation-menu.png)
 
-This is the list of all the supported actions. **Note**, that actions may vary for the selected conversation (e.g. there will not be an Unpublish action if the conversation has not yet been published)
+> **Note**, that actions may vary for the selected conversation (e.g. there will not be an Unpublish action if the conversation has not yet been published).
+
+This is the list of all the supported actions:
 
 - [Select](#select-to-delete): use to select conversations you want to delete.
-- Rename - use to rename a conversation.
+- [Rename](#rename) - use to rename a conversation.
 - [Compare](#compare): use to compare conversations with different settings.
 - [Duplicate](#duplicate): use to duplicate a shared conversation.
 - [Replay](#replay): use to to reproduce conversations but with different settings.
@@ -46,41 +56,59 @@ This is the list of all the supported actions. **Note**, that actions may vary f
 
 ### Arrange
 
-You can gather your conversations in folders.
+You can arrange your conversations in folders. To create a new folder, click a folder icon in the bottom menu:
 
-![](./img/move_conv.png)
+![](./img/create-new-folder.png)
+
+You can also create a new folder or move a conversation to the existing folder from the **Move to** context menu of the selected conversation: 
+
+![](./img/pinned-conversations.png)
+
+New folders will automatically be arranged in the **Pinned conversations** tab in the Conversations panel.
+
+**Hierarchy**
 
 You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a conversation into a folder or use **Move to** in the context menu of a conversation to move it to a **parent** folder.
-Empty folders are deleted after refreshing a page.
+
+> **Note**: empty folders are deleted after refreshing the page.
+
+**Naming Conventions**
 
 The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
 The MAX length of the folder name is limited to 160 symbols. Everything beyond is cut off. 
 
-> When you use the contextual menu to move a conversation, you can create a new folder, in which the conversation should be moved.
-
 ### Search and Filter
 
-The **Search** box can be utilized to find conversations and folders by their names.
+The **Search** box can be utilized to find conversations and folders by their names. If you have any shared conversations, you can apply **Shared by me** filter to sort them out.
 
 ![](./img/search-conv.png)
-
-You can filter conversations by the "Shared by me" criterion. To do so, click the **Filter** icon and select **Shared by me**.
 
 ### Create
 
 ![](./img/conversations.png)
 
-To create a conversation:
+**To create a conversation**:
 
 1. On the left panel, click **New conversation**.
 2. In the main section, under **Talk To**, select a language model, an assistant, or an application. Five most recently used items are shown in the section. To see all available items, click **See full list**.
 3. Optionally, under **System prompts**, select a prompt by typing "/" in the text box. For details, refer to the [Prompts](#prompts) section of this guide.
 4. Under **Temperature**, set a value of the temperature parameter. For details, refer to the [Temperature](#temperature) section of this guide.
 5. Optionally, under **Addons**, select an Addon. For details, refer to the [Addons](#addons) section of this guide.
-6. Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first question will be used as its name. 
+6. Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first prompts will be used as its name. 
 
-> The following symbols in the conversation names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. 
+### Rename
+
+When you create a new conversation, it is automatically named after the first line in your first prompt. For example, if your prompt includes several sentences separated by tab, the first one will be used to name the conversation. Moreover,the MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. After that, you can rename your conversation.
+
+**To rename a conversation**:
+
+1. Click **Rename** in the context menu of the selected conversation.
+2. Enter a new name and submit.
+
+![](./img/rename-conversation.png)
+
+The following symbols in the conversation names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
 ### Conversation Settings
 
@@ -90,27 +118,42 @@ In the conversation header, you can view the current settings, change settings (
 
 ### Share
 
-You can share a conversation or a folder with several conversations with other users.
+You can share a conversation or a folder with several conversations with other users. Yo can also receive a shared conversation.
 
-> When someone shared a conversation with you, you can find it in the **Shared with me** section on the left panel. **Important**: you cannot change a conversation that has been shared with you. To be able to work with it, [duplicate it](#duplicate).
+**To receive a shared conversation**:
 
-To share a conversation or a folder, click **Share** in the contextual menu and copy the link. After someone has opened your link, an arrow icon appears near its name and this conversation can be found when **Shared by me** checkbox is selected in the **Search** menu.
+When someone shared a conversation with you, you can find it in the **Shared with me** section in the left panel. 
 
-![](./img/shared.png)
+![](./img/shared-with-me.png)
 
-When you share a folder, all folders and conversations in this folders will be shared.
+> **Important**: you cannot change a conversation that has been shared with you. To be able to work with it, [duplicate it](#duplicate).
+
+**To share a conversation**:
+
+> **Note**: You can share entire folders with conversations. When you share a folder, all folders and conversations in it will be shared as well.
+
+To share a conversation or a folder, click **Share** in the contextual menu and copy the link.
 
 ![](./img/share_conv.png)
 
+After the recipient has opened your link, the arrow icon appears near its name. **Note**, it may be required to reload the page.
+
+![](./img/shared.png)
+
+Click **Shared by me** checkbox in the filter to select just the conversations that you have shared:
+
+![](./img/shared-by-me.png)
+
+
 ### Unshare
 
-To revoke access from all users, click **Unshare** in the contextual menu and then confirm action in the dialog window.
+To revoke access from all users you have shared with, click **Unshare** in the contextual menu and then confirm action in the dialog window.
 
 ![](./img/unshare_conv.png)
 
 ### Duplicate
 
-You can duplicate a conversation, for example, to be able to change a conversation that was shared with you. To duplicate a conversation, click **Duplicate** in the contextual menu.
+Duplicate a shared with you conversation to be able to change it. To duplicate a conversation, click **Duplicate** in the contextual menu.
 
 > This feature is available only for conversations shared with you. 
 
@@ -118,27 +161,29 @@ You can duplicate a conversation, for example, to be able to change a conversati
 
 ### Export
 
-You can export selected conversations with or without attachments or all conversations without attachments in a JSON format.
+You can export selected conversations. If a conversation includes attachments, you can export it with or without attachments. 
+
+You can also export all your conversations at once without attachments in a JSON format.
 
 > Exported conversations are named by the following pattern: prefix "epam_ai_dial_chat", then "with_attachments" if the conversation was exported with attachments, then "month_day". However, the naming convention is configurable in the chat config.
 
-![](./img/export-conv.png)
-
 **Export a single conversation with attachments**
 
-To export a single conversation:
 1. On the left panel, in the conversation contextual menu, point to **Export**.
 2. Click **With attachments**. 
 
 The conversation will be exported as a **ZIP** archive.
 
+![](./img/export-with-att.png)
+
 **Export a single conversation without attachments**
 
-To export a single conversation:
 1. On the left panel, in the conversation contextual menu, point to **Export**.
 2. Click **Without attachments**. 
 
 The conversation will be exported as a **JSON** file.
+
+![](./img/export-without-att.png)
 
 **Export all conversations**
 
@@ -152,13 +197,17 @@ To export all conversations, at the bottom of the left panel, click the **Export
 
 Exported conversations can be imported. 
 
-To import JSON or a zip file with conversations, click the **Import conversations** icon at the bottom of the left panel and then select a file with conversations.
+To import a JSON file with a conversation or a ZIP archive with several conversations (may include attachments as well), click the **Import conversations** icon at the bottom of the left panel and then select a file with conversations.
 
-> When you import a conversation with attachments, the attachments will be available in the Imports folder.
- 
 ![](./img/import_conv.png)
 
-> Note, that when importing a duplicate of an existing conversation, you will be prompted to select one of the proceeding options: replace, ignore or add a prefix to the imported conversation. If the imported conversation includes attachments, you will be prompted to make the same selection for them as well.
+When you import a conversation with attachments, the attachments will be available in the parent of the root folder in the [Attachments Manager](#attachments-manager).
+
+When importing a **duplicate** of an existing conversation, you will be prompted to select one of the proceeding options for both the conversation and each of the attachments: 
+
+* Replace - replace the original conversation/attachment 
+* Ignore - do nothing
+* Postfix - add a postfix to the imported conversation/attachment. For example: *my-conversation 1* , where 1 is added postfix to the name of the duplicated imported conversation.
 
 ![](./img/import-export.png)
 
@@ -169,17 +218,17 @@ You can delete a single conversation, selected conversations or all conversation
 * To delete a **single** conversation, on the left panel, in the conversation contextual menu, select **Delete** and confirm your action.
 * To delete **all** conversations, at the bottom of the left panel, click the **Delete all conversations** icon.
 
-![](./img/Delete_conv.png)
+![](./img/delete-conversation.png)
 
 ### Select to Delete
 
 Also, you can use a *selection* mode to choose conversation(s) you want to delete:
 
-* Click **Select all** button in the bottom panel. In this case, all conversations are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
+* Click **Select all** button in the bottom panel. When you do this, all conversations get preselected and you can unselect the ones you want to **keep**. You can also click **Unselect all** in the bottom panel to clear the selection.
 
 ![](./img/select-chat1.png)
 
-* Click **Select** in the conversation menu. In this case, you can hover over any conversation and use checkboxes to select/unselect conversations you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
+* Click **Select** in the conversation menu to enter into a *selection* mode. In this mode, you can hover over any conversation and use checkboxes to select/unselect conversations you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
 
 ![](./img/select-chat2.png)
 
@@ -187,13 +236,13 @@ Also, you can use a *selection* mode to choose conversation(s) you want to delet
 
 You can use **Replay** to reproduce conversations but with different settings (e.g. a different model). A replayed conversation can be used to compare responses to the same questions from different models and with different settings of the conversation. 
 
-![](./img/replay2.png)
+![](./img/replay-conversation.png)
  
 Use **Replay as is** to reproduce the conversation with the original settings. 
 
 ![](./img/Replay_as_is.png) 
 
-To replay a conversation: 
+**To replay a conversation**: 
 
 1.	Click **Replay** in the conversation menu. 
 2.	Select **Replay as is** in **More info** in the Replay settings to reproduce the conversation with the original settings or change the conversation settings. 
@@ -222,9 +271,11 @@ Let's create a simple Travel Guide conversation, which will take a user though s
 
 The Playback mode can be used to simulate the current conversation without any engagement with models. This mode accurately reproduces the conversation like a recording. It should be noted that this differs from the Replay mode, where the prompts are resubmitted to the chosen model and the outcomes may differ from the initial conversation.
 
-![](./img/playback2.png)
+![](./img/playback-conversation.png)
 
 During the playback, you can move back and forward the playback process or stop it.
+
+![](./img/playback-controls.png)
 
 ### Compare
 
@@ -269,12 +320,31 @@ You can publish conversations to make them available for the target audience.
    * In **Publish to**, you can select the target destination. You can also create a dedicated folder to publish your conversation into.
    * In **Allow access..**, specify access rules and the target audience. For example Role-Equals-Admin. **Note**: the available roles are configured for each organization individually. Contact your support to find out the rules are applicable in your organization.
    * In **Conversations**, you can choose what conversations you want to publish (if you have selected a folder with several conversations). If conversations include attachments, you can also select them in the **Files** section.
+   * Assign a version to your request. 
    * Click **Send request** to send your publish request to the administrator.
-![](./img/publish-request.png)
+   ![](./img/publish-request.png)
 
 3. When your request is approved, the published conversation or a folder with conversation(s) will become available in the Organization tab.
 
 ![](./img/organization-section.png)
+
+**Versioning**
+
+When you make a publication request, it is required to assign it a unique version number. A version must follow format: `0.0.0`. With each request you must provide a new version - the system will not accept two identical versions. 
+
+Versioning helps you create specific publications for different groups of people, run experiments, and keep track of your conversations easily.
+
+You can add a **version** of your publication request next to the conversation check box:
+
+![](./img/versioning1.png)
+
+If you try to publish this conversation again, you will be able to view the last version or a drop-down with versions:
+
+![](./img/versioning2.png)
+
+When you open a published conversation, you can view and switch between its versions in the [conversation settings](#conversation-settings): 
+
+![](./img/versioning3.png)
 
 ### Unpublish
 
@@ -330,37 +400,49 @@ This is the list of all the supported actions. Note, that actions may vary for t
 
 ![](./img/prompt_actions.png)
 
+### Arrange
+
+You can arrange your prompts in folders. To create a new folder, click a folder icon in the bottom menu:
+
+![](./img/create-new-folder-prompt.png)
+
+You can also create a new folder or move a prompt to the existing folder from the **Move to** context menu of the selected prompt: 
+
+![](./img/move_prompt.png)
+
+New folders will automatically be arranged in the **Pinned prompts** tab in the Prompts panel.
+
+![](./img/pinned-prompts.png)
+
+**Hierarchy**
+
+You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a prompt into a folder or use **Move to** in the context menu of a prompt to move it to a **parent** folder.
+
+> **Note**: empty folders are deleted after refreshing the page.
+
+**Naming Conventions**
+
+The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
+
+The MAX length of the folder name is limited to 160 symbols. Everything beyond is cut off. 
+
 ### Search and Filter
+
+The **Search** box can be utilized to find prompts and folders by their names. If you have any shared prompts, you can apply **Shared by me** filter to sort them out.
 
 ![](./img/pt_search.png)
 
-The **Search** box can be utilized to find prompts and folders by their names.
-
-You can filter prompts by the "Shared by me" criterion. To do so, click the **Filter** icon and select **Shared by me**.
- 
-### Arrange
-
-You can gather your prompts in folders.
-
-![](./img/move_prompt.png)
- 
-You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. 
-The same way, you can either drag-n-drop a prompt into a folder or use **Move to** in the context menu of a prompt to place it in the **parent** folder.  
-
-> After refreshing the page or logging in again, any empty folders will be deleted.
-
-The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&`. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the folder name is limited to 160 symbols. Everything beyond is cut off. 
 
 ### Create
 
 ![](./img/create-pt.png)
 
-To create a new prompt:
+**To create a new prompt**:
 
 1.	On the right panel, select **New prompt**.
 2.	Fill in the **Name**, **Description**, and **Prompt** boxes. The following symbols in the prompt names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the prompt name is limited to 160 symbols. Everything beyond is cut off.
 
-  > Please note that both the **Name** and **Description** fields are mandatory to fill in order to create a prompt!
+      > Please note that both the **Name** and **Description** fields are mandatory to fill in order to create a prompt!
 
 3.	Click **Save**.
 
@@ -403,6 +485,8 @@ You can delete a single prompt, selected prompts or all prompts.
 * To delete a single prompt, in the menu of each prompt, select **Delete** and confirm your action.
 * To delete all prompts, at the bottom of the right panel, click the **Delete all prompts** icon.
 
+![](./img/delete-prompt.png)
+
 ### Select to Delete
 
 Also, you can use a *selection* mode to choose prompt(s) you want to delete:
@@ -437,7 +521,7 @@ You can always view prompts that have been shared with you in a dedicated sectio
 
 **To Share a Prompt**:
 
-To share a prompt or a folder, click **Share** in the contextual menu and copy the link. After someone has opened your link, an arrow icon appears near its name and this prompt can be found when **Shared by me** checkbox is selected in the **Search** menu.
+To share a prompt or a folder, click **Share** in the contextual menu and copy the link. After someone has opened your link, an arrow icon appears near its name and this prompt can be found when **Shared by me** checkbox in the filter is selected.
 
 ![](./img/shared_prompt.png)
 
@@ -447,13 +531,13 @@ To share a prompt or a folder, click **Share** in the contextual menu and copy t
 
 ### Unshare
 
-To revoke access from all users, click **Unshare** in the contextual menu and then confirm actions in the dialog window.
+To revoke access from all users you have shared with, click **Unshare** in the contextual menu and then confirm actions in the dialog window.
 
 ![](./img/pt_unshare.png)
 
 ### Duplicate
 
-You can duplicate a prompt, for example, to be able to change a prompt that was shared with you. To duplicate a prompt, click **Duplicate** in the contextual menu.
+You can duplicate a prompt to be able to change a prompt that was shared with you. To duplicate a prompt, click **Duplicate** in the contextual menu.
 
 > You can duplicate only prompt shared with you.
 
@@ -461,9 +545,19 @@ You can duplicate a prompt, for example, to be able to change a prompt that was 
 
 ### Export Import
 
-You can export and import prompts. 
+You can export 
 
-> Note, that when importing a duplicate of an existing prompt, you will be prompted to select one of the proceeding options: replace, ignore or add a prefix to the imported prompt.
+![](./img/export-prompt.png)
+
+and import prompts as Json files
+
+![](./img/import-prompt.png)
+
+When importing a **duplicate** of an existing prompt, you will be asked to select one of the proceeding options: 
+
+* Replace - replace the original prompt 
+* Ignore - do nothing
+* Postfix - add a postfix to the imported prompt. For example: *my-prompt 1* , where 1 is added postfix to the name of the duplicated imported prompt.
 
 ![](./img/import-export-prompt.png)
 
@@ -471,7 +565,7 @@ You can export and import prompts.
 
 You can publish prompts to make them available for the target audience. 
 
-**Note**: to publish a shared prompt, [duplicate](#duplicate-1) it and then publish. 
+> **Note**: to publish a shared prompt, [duplicate](#duplicate-1) it and then publish. 
 
 **To publish a prompt**: 
 
@@ -484,6 +578,7 @@ You can publish prompts to make them available for the target audience.
    * In **Publish to**, select the target destination or a folder to publish your prompt into.
    * In **Allow access...**, specify access rules and the target audience. For example Role-Equals-Admin. **Note**: the available roles are defined in each organization individually. Contact your support to find out the rules are applicable in your organization.
    * In **Prompts**, if you have selected a folder, you can choose what prompts you want to publish.
+   * Assign a **version** to your publication request.
    * Click **Send request** to send your publication request to the administrator.
 
 ![](./img/publish-prompt-request.png)
@@ -491,6 +586,21 @@ You can publish prompts to make them available for the target audience.
 3. When your request is approved, the published prompt or a folder with prompt(s) will become available in the Organization tab.
 
 ![](./img/organization-section-prompts.png)
+
+**Versioning**
+
+When you make a publication request, it is required to assign it a unique version number. A version must follow format: `0.0.0`. With each request you must provide a new version - the system will not accept two identical versions. 
+
+Versioning helps you create specific publications for different groups of people, run experiments, and keep track of your prompts easily.
+
+You can add a **version** of your publication request next to the prompt check box:
+
+![](./img/prompt-versioning1.png)
+
+If you try to publish this prompt again, you will be able to view the last version or a drop-down with versions:
+
+![](./img/versioning2.png)
+
 
 ### Unpublish
 
@@ -726,6 +836,14 @@ All attached and uploaded files are available in the attachments manager. To man
 
 ![](./img/attachments3.png)
 
+There can be a few tabs in the Attachments Manager: 
+
+* Organization - published files
+* Shared with me - files shared with you
+* All files - the rest of your files
+
+![](./img/att-manager.png)
+
 **To Create a Folder:**
 
 You can create folders and then upload files into them. **Note**, the only way to add a file into a folder is to upload it - you cannot move files between folders.
@@ -768,10 +886,12 @@ In the file menu, you can choose to unshare it:
 
 **To Download Attachments**:
 
-> Click a folder to expand it.
+Click a folder to expand it.
 
 1. In the Manage attachments dialog, point to a file and select it. You can select several files.
 2. Click the **Download** icon below the files tree.
+
+![](./img/file-download.png)
 
 **To Delete Attachments**:
 
@@ -779,6 +899,8 @@ In the file menu, you can choose to unshare it:
 
 1. In the Manage attachments dialog, point to a file and select it. You can select several files.
 2. Click the **Delete** icon below the files tree.
+
+![](./img/file-delete.png)
 
 ## Publications
 
@@ -800,7 +922,7 @@ This is the high level overview of the publication workflow:
 
 1. Chat user sends a publication request for the selected resource(s) (conversation, prompt).
 2. Admin receives the publication request, reviews it and either approves or declines.
-3. In case the publication request has been approved, the published resource becomes available for the target audience in the Organization section in the chat application.
+3. In case the publication request has been approved, the published resource becomes available for the target audience in the Organization section in the chat application. If the published resource includes attachments, they will be available in the Organization section in the [Attachments Manager](#attachments-manager).
 4. Resource owner can unpublish the published resource.
 
 > Refer to [Conversations](#publish) and [Prompts](#publish-1) to view a step-by-step instructions.
