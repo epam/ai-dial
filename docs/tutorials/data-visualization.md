@@ -2,17 +2,22 @@
 
 ## Introduction
 
-AI DIAL Chat has capability to render different types of contenting within a conversation. For example, chat has a built-in support for markdown and in case the response message from application includes content in a markdown notation, it automatically renders it in the body of conversation. 
+AI DIAL Chat has the capability to render different types of content within a conversation. For example, it has built-in support for Markdown. If the response message from the application includes content in Markdown notation, it will automatically render it in the body of the conversation.
 
 ![](img/markdown.png)
 
-AI DIAL Chat has also a built-in support for Plotly data visualization library: 
+AI DIAL Chat has also a built-in support for Plotly data visualization libraries: 
+
+* [Plotly JavaScript Open Source Graphing Library](https://plotly.com/javascript/)
+* [React Plotly.js in JavaScript](https://plotly.com/javascript/react/)
 
 ![](img/plotly.png)
 
-You can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom applications which may require to render different types of content in the body of their response in the chat UI. It can be attachments with documents and images, stages, and other types of data compatible with [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Refer to Custom Content to learn more.
+You can use the [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom applications that may need to render different types of content in the body of their response in the chat UI.
 
-Watch a [demo video](../video%20demos/demos/animated-scatterplot) to view how a statistical data can be visualized in AI DIAL Chat in Plotly animated scatterplot or a demo video of the [Omics AI Assistant](../video%20demos/demos/dial-omics-assistant) to see how protein structures can be visualized using Plotly.
+This can include attachments with documents and images, stages, and other types of data compatible with the [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Refer to the Custom Content section to learn more.
+
+Watch a [demo video](../video%20demos/demos/animated-scatterplot) to see how statistical data can be visualized in AI DIAL Chat using a Plotly animated scatterplot, or view a demo video of the [Omics AI Assistant](../video%20demos/demos/dial-omics-assistant) to see how protein structures can be visualized with Plotly.
 
 ## Visualizers
 
@@ -30,7 +35,7 @@ Watch a [demo video](../video%20demos/demos-for-developers/dial-data-viz) to vie
 
 Configure AI DIAL Chat to enable visualizers:
 
-- `ALLOWED_IFRAME_SOURCES` - a list of allowed iframe sources in `<source> <source>` format. For security reasons, your AI DIAL Chat application should configure sources where your custom visualizers will be hosted. **Note**: for development purposes you can set `*`.
+- `ALLOWED_IFRAME_SOURCES` - a list of allowed iframe sources in `<source> <source>` format. For security reasons, your AI DIAL Chat application should configure the sources where your custom visualizers will be hosted. **Note**: For development purposes, you can set `*`.
 
     ```
     ALLOWED_IFRAME_SOURCES=http://localhost:8000
@@ -65,13 +70,13 @@ Configure AI DIAL Chat to enable visualizers:
                     ]
 
     ```
-- `ALLOW_VISUALIZER_SEND_MESSAGES` - a flag to allow/disable the addition of custom buttons or input fields to enable a custom visualizer to send `SEND_MESSAGE` events on behalf of a user, in the form of messages within a conversation. 
+- `ALLOW_VISUALIZER_SEND_MESSAGES` - is a flag that allows or disables the addition of custom buttons or input fields. This enables a custom visualizer to send `SEND_MESSAGE` events on behalf of a user in the form of messages within a conversation.
 
 ### Main Concepts
 
 `ChatVisualizerConnector` class provides all the necessary methods for a visualizer (rendered in the iframe) to interact with AI DIAL Chat (receive data to visualize).
 
-A model or application should send data in **Json**-like format which should include a *layout* object with `width` and `height` properties. All other properties could be set to anything you need for your visualizer:
+A model or application should send data in **Json**-like format which should include a `CustomVisualizerDataLayout` object with `width` and `height` properties. All other properties could be set to anything you need for your visualizer:
 
 ```typescript
 export interface CustomVisualizerDataLayout {
@@ -92,7 +97,7 @@ export interface CustomVisualizerData {
     npm i @epam/ai-dial-chat-visualizer-connector
     ```
 
-2. Add a file to the serving folder in your application or just import it in code:
+2. Add a file to the serving folder in your application, or simply import it in the code:
 
     ```typescript
     import { AttachmentData, ChatVisualizerConnector, CustomVisualizerDataLayout } from '@epam/ai-dial-chat-visualizer-connector';
