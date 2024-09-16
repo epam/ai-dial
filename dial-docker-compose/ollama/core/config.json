@@ -1,0 +1,23 @@
+{
+  "routes": {},
+  "models": {
+    "llama3:8b": {
+      "type": "chat",
+      "displayName": "Llama3 8B (Locally hosted)",
+      "endpoint": "http://ollama:11434/v1/chat/completions"
+    }
+  },
+  "keys": {
+    "dial_api_key": {
+      "project": "TEST-PROJECT",
+      "role": "default"
+    }
+  },
+  "roles": {
+    "default": {
+      "limits": {
+        "llama3:8b": {}
+      }
+    }
+  }
+}

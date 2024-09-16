@@ -1,0 +1,66 @@
+import os
+import aiohttp
+import asyncio
+import backoff
+
+import logging
+
+
+def get_env(name: str) -> str:
+    value = os.environ.get(name)
+    if value is None:
+        raise ValueError(f"'{name}' environment variable must be defined")
+    return value
+
+
+DIAL_URL = get_env("DIAL_URL")
+DIAL_API_KEY = get_env("DIAL_API_KEY")
+DIAL_API_VERSION = get_env("DIAL_API_VERSION")
+DIAL_DEPLOYMENT = get_env("DIAL_DEPLOYMENT")
+
+logging.basicConfig(level=logging.DEBUG)
+log = logging.getLogger(__name__)
+
+
+@backoff.on_exception(
+    backoff.expo,
+    (aiohttp.ClientError, aiohttp.ServerTimeoutError),
+    max_time=60,
+)
+async def post_with_retry(url: str, payload: dict, headers: dict, params: dict):
+    async with aiohttp.ClientSession() as session:
+        async with session.post(
+            url, json=payload, headers=headers, params=params
+        ) as response:
+            response.raise_for_status()
+            return await response.json()
+
+
+async def test_model(deployment_id: str):
+    api_url = f"{DIAL_URL}/openai/deployments/{deployment_id}/chat/completions"
+
+    message = "12 + 23 = ? Reply with a single number:"
+    payload = {
+        "model": deployment_id,
+        "messages": [{"role": "user", "content": message}],
+        "stream": False,
+    }
+    headers = {"api-key": DIAL_API_KEY}
+    params = {"api-version": DIAL_API_VERSION}
+
+    body = await post_with_retry(api_url, payload, headers, params)
+    log.debug(f"Response: {body}")
+
+    content = body.get("choices", [])[0].get("message", {}).get("content", "")
+
+    if "35" not in content:
+        raise ValueError(f"Test failed for {deployment_id!r}. ")
+
+
+async def tests():
+    await test_model(DIAL_DEPLOYMENT)
+
+
+if __name__ == "__main__":
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(tests())
