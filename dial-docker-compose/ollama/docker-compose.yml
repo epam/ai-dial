@@ -17,9 +17,7 @@ services:
     image: alpine:3.20.3
     environment:
       - OLLAMA_URL=http://ollama:11434
-      - OLLAMA_ENABLED=${OLLAMA_ENABLED:-1}
       - OLLAMA_MODEL=${OLLAMA_MODEL:-llama3:8b-instruct-q2_K}
-      - OLLAMA_MODEL_ALIAS=${OLLAMA_MODEL_ALIAS:-llama3:8b}
     volumes:
       - ./ollama_setup.sh:/setup.sh
     command: sh /setup.sh

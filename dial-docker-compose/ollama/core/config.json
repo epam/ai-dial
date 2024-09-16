@@ -1,9 +1,9 @@
 {
   "routes": {},
   "models": {
-    "llama3:8b": {
+    "ollama-model": {
       "type": "chat",
-      "displayName": "Llama3 8B (Locally hosted)",
+      "displayName": "Self-hosted model",
       "endpoint": "http://ollama:11434/v1/chat/completions"
     }
   },
@@ -16,7 +16,7 @@
   "roles": {
     "default": {
       "limits": {
-        "llama3:8b": {}
+        "ollama-model": {}
       }
     }
   }
