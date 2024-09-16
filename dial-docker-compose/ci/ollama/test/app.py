@@ -16,7 +16,6 @@ def get_env(name: str) -> str:
 DIAL_URL = get_env("DIAL_URL")
 DIAL_API_KEY = get_env("DIAL_API_KEY")
 DIAL_API_VERSION = get_env("DIAL_API_VERSION")
-DIAL_DEPLOYMENT = get_env("DIAL_DEPLOYMENT")
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
@@ -58,7 +57,7 @@ async def test_model(deployment_id: str):
 
 
 async def tests():
-    await test_model(DIAL_DEPLOYMENT)
+    await test_model("ollama-model")
 
 
 if __name__ == "__main__":

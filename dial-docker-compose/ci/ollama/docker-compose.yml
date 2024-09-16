@@ -9,7 +9,6 @@ services:
       DIAL_URL: "http://core:8080"
       DIAL_API_KEY: "dial_api_key"
       DIAL_API_VERSION: "2024-02-01"
-      DIAL_DEPLOYMENT: "llama3:8b"
     depends_on:
       ollama-setup:
         condition: service_healthy
