@@ -238,7 +238,7 @@ You can create a message using a standard markdown notation:
 
 This message will be rendered in AI DIAL Chat UI like this: 
 
-![](./img/markdown.png)
+![](./img/markdown2.png)
 
 
 ## Visualizers
