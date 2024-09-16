@@ -932,7 +932,7 @@ This is the high level overview of the publication workflow:
 
 AI DIAL Chat enables data visualization for specific data types using data visualizers. It comes with built-in support for the [Plotly data visualizer](#plotly). To link any other custom visualizers, you can use the [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) library.
 
-Watch a [demo video](./video%20demos/demos-for-developers/dial-data-viz) to see some examples.
+> Refer to [Data Visualization](../tutorials/data-visualization) to learn more about visualizing data in chat and custom visualization apps.
 
 ### Plotly
 
@@ -949,14 +949,6 @@ AI DIAL Chat integrates with Plotly, offering robust data visualization capabili
 The visualizations come with standard Plotly controls for easy manipulation.
 
 > Refer to [Plotly GitHub](https://github.com/plotly/react-plotly.js) to learn more. 
-
-### Tables
-
-AI DIAL Chat supports rendering of tables and copying table data in various formats out-of-the-box.
-
-![](./img/table.png)
-
-As displayed on the illustration, you can ask a model to create a simple table. When created, you can pick one of three formats to copy its data: CSV, Markdown or Text.
 
 ## Administrators
 
