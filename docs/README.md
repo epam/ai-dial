@@ -48,7 +48,9 @@ Here is the current list of repositories where you can find more details.
 - [DIAL SDK](https://github.com/epam/ai-dial-sdk) - development kit for applications and model adapters
 - [DIAL Interceptors Python SDK](https://github.com/epam/ai-dial-interceptors-sdk) - framework for creating DIAL Interceptors in Python for chat completion and embedding models.
 - [DIAL Chat](https://github.com/epam/ai-dial-chat) - default UI
+- [DIAL Overlay](https://github.com/epam/ai-dial-chat/blob/development/libs/overlay/README.md) - a library for using AI DIAL Chat in an overlay format
 - [DIAL Chat Themes](https://github.com/epam/ai-dial-chat-themes) - static content and UI customizations for default UI
+- [Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) - a library for connecting custom visualizers
 - [DIAL CI](https://github.com/epam/ai-dial-ci) - github CI commons
 - [DIAL Assistant](https://github.com/epam/ai-dial-assistant) - model agnostic assistant/addon implementation for DIAL. It allows to use self-hosted OpenAI plugins as DIAL addons.
 - [DIAL Analytics Realtime](https://github.com/epam/ai-dial-analytics-realtime) - simple real-time usage analytics. That transforms logs into InfluxDB metrics
