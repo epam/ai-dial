@@ -141,6 +141,11 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/chat-objects',
           label: 'Custom Content in Chat',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/data-visualization',
+          label: 'Data Visualization',
         }
       ],
     },
