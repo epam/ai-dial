@@ -144,6 +144,11 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'tutorials/adapter-dial',
+          label: 'DIAL-to-DIAL Adapter',
+        },
+        {
+          type: 'doc',
           id: 'tutorials/data-visualization',
           label: 'Data Visualization',
         }
