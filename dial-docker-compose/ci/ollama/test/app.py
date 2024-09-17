@@ -1,9 +1,13 @@
+import base64
 import os
+from pathlib import Path
 import aiohttp
 import asyncio
 import backoff
 
 import logging
+import time
+from contextlib import asynccontextmanager
 
 
 def get_env(name: str) -> str:
@@ -21,6 +25,15 @@ logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
 
 
+@asynccontextmanager
+async def timer(name: str):
+    log.debug(f"[{name}] Starting...")
+    start = time.perf_counter()
+    yield
+    elapsed = time.perf_counter() - start
+    log.debug(f"[{name}] Executed in {elapsed:.2f} seconds")
+
+
 @backoff.on_exception(
     backoff.expo,
     (aiohttp.ClientError, aiohttp.ServerTimeoutError),
@@ -35,13 +48,15 @@ async def post_with_retry(url: str, payload: dict, headers: dict, params: dict):
             return await response.json()
 
 
-async def test_model(deployment_id: str):
+def read_image_base64(png_file: Path) -> str:
+    return base64.b64encode(png_file.read_bytes()).decode("utf-8")
+
+async def dial_chat_completion(deployment_id: str, messages: list) -> str:
     api_url = f"{DIAL_URL}/openai/deployments/{deployment_id}/chat/completions"
 
-    message = "12 + 23 = ? Reply with a single number:"
     payload = {
         "model": deployment_id,
-        "messages": [{"role": "user", "content": message}],
+        "messages": messages,
         "stream": False,
     }
     headers = {"api-key": DIAL_API_KEY}
@@ -52,12 +67,44 @@ async def test_model(deployment_id: str):
 
     content = body.get("choices", [])[0].get("message", {}).get("content", "")
 
-    if "35" not in content:
-        raise ValueError(f"Test failed for {deployment_id!r}. ")
+    log.debug(f"Content: {content}")
 
+    return content
+
+async def test_chat_model(deployment_id: str):
+    message = "2 + 3 = ? Reply with a single number:"
+    messages = [{"role": "user", "content": message}]
+    content = await dial_chat_completion(deployment_id, messages)
+
+    if "5" not in content:
+        raise ValueError(f"Test failed for {deployment_id!r}")
+
+
+async def test_vision_model(deployment_id: str):
+    base64_data = read_image_base64(Path("./image.png"))
+    base64_image = f"data:image/png;base64,{base64_data}"
+
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "Describe the image"},
+                {"type": "image_url", "image_url": {"url": base64_image}},
+            ],
+        }
+    ]
+
+    content = await dial_chat_completion(deployment_id, messages)
+
+    if "vision" not in content.lower():
+        raise ValueError(f"Test failed for {deployment_id!r}")
 
 async def tests():
-    await test_model("ollama-model")
+    async with timer("Testing chat-model"):
+        await test_chat_model("chat-model")
+
+    async with timer("Testing vision-model"):
+        await test_vision_model("vision-model")
 
 
 if __name__ == "__main__":

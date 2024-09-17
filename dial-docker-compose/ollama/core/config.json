@@ -1,10 +1,25 @@
 {
   "routes": {},
   "models": {
-    "ollama-model": {
+    "chat-model": {
       "type": "chat",
-      "displayName": "Self-hosted model",
+      "displayName": "Self-hosted chat model",
       "endpoint": "http://ollama:11434/v1/chat/completions"
+    },
+    "vision-model": {
+      "type": "chat",
+      "displayName": "Self-hosted vision model",
+      "endpoint": "http://adapter-openai:5000/openai/deployments/vision-model/chat/completions",
+      "inputAttachmentTypes": [
+        "image/png",
+        "image/jpeg"
+      ],
+      "upstreams": [
+        {
+          "endpoint": "http://ollama:11434/v1/chat/completions",
+          "key": "dummy-key"
+        }
+      ]
     }
   },
   "keys": {
@@ -16,7 +31,8 @@
   "roles": {
     "default": {
       "limits": {
-        "ollama-model": {}
+        "chat-model": {},
+        "vision-model": {}
       }
     }
   }
