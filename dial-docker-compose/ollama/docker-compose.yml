@@ -19,6 +19,7 @@ services:
       - OLLAMA_URL=http://ollama:11434
       - OLLAMA_CHAT_MODEL=${OLLAMA_CHAT_MODEL}
       - OLLAMA_VISION_MODEL=${OLLAMA_VISION_MODEL}
+      - OLLAMA_EMBEDDING_MODEL=${OLLAMA_EMBEDDING_MODEL}
     healthcheck:
       test: ["CMD", "test", "-f", "/healthy"]
       interval: 10s

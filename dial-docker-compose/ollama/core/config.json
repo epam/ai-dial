@@ -20,6 +20,10 @@
           "key": "dummy-key"
         }
       ]
+    },
+    "embedding-model": {
+      "type": "embedding",
+      "endpoint": "http://ollama:11434/v1/embeddings"
     }
   },
   "keys": {
@@ -32,7 +36,8 @@
     "default": {
       "limits": {
         "chat-model": {},
-        "vision-model": {}
+        "vision-model": {},
+        "embedding-model": {}
       }
     }
   }

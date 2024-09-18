@@ -10,6 +10,7 @@ if OLLAMA_URL is None:
 
 OLLAMA_CHAT_MODEL = os.getenv("OLLAMA_CHAT_MODEL")
 OLLAMA_VISION_MODEL = os.getenv("OLLAMA_VISION_MODEL")
+OLLAMA_EMBEDDING_MODEL = os.getenv("OLLAMA_EMBEDDING_MODEL")
 
 HEALTH_FILE = "/healthy"
 
@@ -21,6 +22,7 @@ def print_info(*args, **kwargs):
 print_info(f"OLLAMA_URL = {OLLAMA_URL}")
 print_info(f"OLLAMA_CHAT_MODEL = {OLLAMA_CHAT_MODEL}")
 print_info(f"OLLAMA_VISION_MODEL = {OLLAMA_VISION_MODEL}")
+print_info(f"OLLAMA_EMBEDDING_MODEL = {OLLAMA_EMBEDDING_MODEL}")
 
 
 @asynccontextmanager
@@ -29,7 +31,7 @@ async def timer(name: str):
     start = time.perf_counter()
     yield
     elapsed = time.perf_counter() - start
-    print_info(f"[{name}] Executed in {elapsed:.2f} seconds")
+    print_info(f"[{name}] Finished in {elapsed:.2f} seconds")
 
 
 ollama = httpx.AsyncClient(base_url=OLLAMA_URL, timeout=300)
@@ -71,6 +73,7 @@ async def main():
     for model, alias in [
         (OLLAMA_CHAT_MODEL, "chat-model"),
         (OLLAMA_VISION_MODEL, "vision-model"),
+        (OLLAMA_EMBEDDING_MODEL, "embedding-model"),
     ]:
         if model:
             async with timer(f"Pulling model {model}"):
@@ -79,7 +82,7 @@ async def main():
             async with timer(f"Creating alias for {model}: {alias}"):
                 await create_alias(model, alias)
 
-    if model_to_load := OLLAMA_CHAT_MODEL or OLLAMA_VISION_MODEL:
+    if model_to_load := (OLLAMA_CHAT_MODEL or OLLAMA_VISION_MODEL):
         async with timer(f"Loading model {model_to_load} into memory"):
             await load_model(model_to_load)
 

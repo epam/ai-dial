@@ -1,6 +1,7 @@
 import base64
 import os
 from pathlib import Path
+from typing import Any
 import aiohttp
 import asyncio
 import backoff
@@ -71,6 +72,25 @@ async def dial_chat_completion(deployment_id: str, messages: list) -> str:
 
     return content
 
+async def dial_embeddings(deployment_id: str, input: Any) -> str:
+    api_url = f"{DIAL_URL}/openai/deployments/{deployment_id}/embeddings"
+
+    payload = {
+        "model": deployment_id,
+        "input": input,
+    }
+    headers = {"api-key": DIAL_API_KEY}
+    params = {"api-version": DIAL_API_VERSION}
+
+    body = await post_with_retry(api_url, payload, headers, params)
+    log.debug(f"Response: {body}")
+
+    embedding = body.get("data", [])[0].get("embedding", [])
+
+    log.debug(f"Len embedding vector: {len(embedding)}")
+
+    return embedding
+
 async def test_chat_model(deployment_id: str):
     message = "2 + 3 = ? Reply with a single number:"
     messages = [{"role": "user", "content": message}]
@@ -99,6 +119,13 @@ async def test_vision_model(deployment_id: str):
     if "vision" not in content.lower():
         raise ValueError(f"Test failed for {deployment_id!r}")
 
+async def test_embedding_model(deployment_id: str):
+    embeddings = await dial_embeddings(deployment_id, "cat")
+
+    if len(embeddings) == 0 or not isinstance(embeddings[0], float):
+        raise ValueError(f"Test failed for {deployment_id!r}")
+
+
 async def tests():
     async with timer("Testing chat-model"):
         await test_chat_model("chat-model")
@@ -106,6 +133,8 @@ async def tests():
     async with timer("Testing vision-model"):
         await test_vision_model("vision-model")
 
+    async with timer("Testing embedding-model"):
+        await test_embedding_model("embedding-model")
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
