@@ -7,7 +7,7 @@ on:
 
 jobs:
   run-notebooks:
-    name: Run example Python notebooks
+    name: Cookbook notebooks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -19,7 +19,7 @@ jobs:
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
   run-quickstart-model:
-    name: Run quickstart model example
+    name: Quickstart model
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -30,7 +30,7 @@ jobs:
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
   run-quickstart-application:
-    name: Run quickstart application example
+    name: Quickstart application
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -40,7 +40,7 @@ jobs:
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
   run-quickstart-addon:
-    name: Run quickstart addon example
+    name: Quickstart addon
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -50,7 +50,7 @@ jobs:
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
   run-quickstart-self-hosted-model:
-    name: Run quickstart self-hosted model example
+    name: Quickstart self-hosted model
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
