@@ -17,6 +17,18 @@
 ## Helm Deployment
 
 * [AI DIAL Generic Installation Simple Guide](https://github.com/epam/ai-dial-helm/tree/main/charts/dial/examples/generic/simple)
+* [GCP Installation](https://github.com/epam/ai-dial-helm/blob/main/charts/dial/examples/gcp/complete/README.md)
+* [Azure Installation](https://github.com/epam/ai-dial-helm/blob/main/charts/dial/examples/azure/simple/README.md)
+* [AWS Installation](https://github.com/epam/ai-dial-helm/blob/main/charts/dial/examples/aws/complete/README.md)
+
+## Configuration
+
+* Refer to [Configuration](./Deployment/configuration.md)
+
+## Development Guides
+
+* [A basic guide for development of applications for AI DIAL](./tutorials/quick-start-with-application.md)
+* [DIAL-to-DIAL Adapter](https://github.com/epam/ai-dial-adapter-dial) - application which adapts calls from one DIAL Core to calls to another DIAL Core.
 
 ## Tutorials
 
@@ -24,17 +36,9 @@
 * [Launch AI DIAL Chat with a Sample Application](./tutorials/quick-start-with-application.md)
 * [Launch AI DIAL Chat with a Sample Addon](./tutorials/quick-start-with-addon.md)
 
-## Development Guides
-
-* [A basic guide for development of applications for AI DIAL](./tutorials/quick-start-with-application.md)
-
 ## AI DIAL Chat Application User Manual
 
 * [AI DIAL Chat User Manual](./user-guide.md)
-
-## Configuration
-
-* Refer to [Configuration](./Deployment/configuration.md)
 
 ## Other AI DIAL Project Open Source Repositories
 
@@ -58,5 +62,4 @@ Here is the current list of repositories where you can find more details.
     - [DIAL Azure OpenAI Adapter](https://github.com/epam/ai-dial-adapter-openai) - plugable Azure ChatGPT adapter
     - [DIAL GCP VertexAI Adapter](https://github.com/epam/ai-dial-adapter-vertexai) - plugable Google LLMs adapter
     - [DIAL AWS Bedrock Adapter](https://github.com/epam/ai-dial-adapter-bedrock) - plugable Amazon LLMs adapter (Anthropic Claude 1/2 is included)
-    - [AI DIAL Adapter](https://github.com/epam/ai-dial-adapter-dial) - application which adapts calls from one DIAL Core to calls to another DIAL Core.
     - More LLM adapters will be released (you may contribute)
