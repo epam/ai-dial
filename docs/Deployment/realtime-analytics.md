@@ -25,10 +25,6 @@ Examples of the computed artifacts:
 * Language of conversations.
 * Any other calculated statistics based on conversations.
 
-
-**TODO**
-Update AI DIAL Analytics Realtime [README](https://github.com/epam/ai-dial-analytics-realtime/blob/development/README.md) with a link to this document.
-
 ## Configuration
 
 This section outlines the required steps for configuring Analytics Realtime service.
@@ -47,6 +43,8 @@ Use the default AI DIAL Core [Gflog Configuration](https://github.com/epam/ai-di
 
 Refer to InfluxDB documentation to learn how to [install](https://docs.influxdata.com/influxdb/v2/install/) it and how to [create tokens](https://docs.influxdata.com/influxdb/v2/admin/tokens/create-token/) to read from a bucket.
 
+> Refer to [Configuration](https://github.com/epam/ai-dial-analytics-realtime?tab=readme-ov-file#configuration) to view how to configure InfluxDB for Analytics Realtime.
+
 ### Step 3: AI DIAL Analytics Realtime
 
 Follow the [instructions](https://github.com/epam/ai-dial-analytics-realtime/blob/development/README.md) to setup AI DIAL Analytics Realtime service.
@@ -57,7 +55,7 @@ By default, AI DIAL Core uses the external open-source solution [vector.dev](htt
 
 > You can find more details on delivering observability data to an HTTP server in the vector.dev [documentation](https://vector.dev/docs/reference/configuration/sinks/http).
 
-As a reference on how to enable log collection, you can use AI DIAL Core [Helm chart configuration](https://github.com/epam/ai-dial-helm/blob/cb7ee62f9a7f2cedb85544c4b0eaa1e07e5a24a1/charts/dial-core/values.yaml#L482).
+As a reference on how to enable log collection, you can use AI DIAL Core [configuration](https://github.com/epam/ai-dial-helm/blob/cb7ee62f9a7f2cedb85544c4b0eaa1e07e5a24a1/charts/dial-core/values.yaml#L482).
 
 ```yaml
 sources:
