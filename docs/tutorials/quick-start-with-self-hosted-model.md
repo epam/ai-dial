@@ -51,40 +51,28 @@ All the models support streaming.
 
 ## Step 3: Launch AI DIAL Chat
 
-### Chat model
+Configure `.env` file in the current directory according to the type of model you've chosen:
 
-If you have chosen a regular chat model _(e.g. llama3.1:8b-instruct-q4_0)_, then run the command:
+* Set `OLLAMA_CHAT_MODEL` for the name of a text model.
+* Set `OLLAMA_VISION_MODEL` for the name of a vision model.
+* Set `OLLAMA_EMBEDDING_MODEL` for the name of an embedding model.
 
-```sh
-OLLAMA_CHAT_MODEL=model_of_your_choice docker compose up --abort-on-container-exit
-```
+It's not necessary to configure all the models.
+If a model isn't set, then it won't be downloaded.
 
-The model will be pulled and loaded into the memory of the Ollama server automatically. This may take a minute on the first run.
-
-Finally, open http://localhost:3000/ in your browser to launch the AI DIAL Chat application and select `Self-hosted chat model` deployment to converse with the model.
-
-### Vision model
-
-If you have chosen a vision model _(e.g. llava-phi3:3.8b-mini-q4_0)_, then run the command:
+Then run the command:
 
 ```sh
-OLLAMA_VISION_MODEL=model_of_your_choice docker compose up --abort-on-container-exit
+docker compose up --abort-on-container-exit
 ```
 
-The model will be pulled and loaded into the memory of the Ollama server automatically. This may take a minute on the first run.
+It will pull and load into the memory of the Ollama server the specified models.
 
-Finally, open http://localhost:3000/ in your browser to launch the AI DIAL Chat application and select `Self-hosted vision model` deployment to converse with the model.
+> Keep in mind that a typical size of a lightweight Ollama model is around a few gigabytes. So it may take a few minutes _(or dozens of minutes)_ to download them on the first run depending on your Internet bandwidth.
 
-> Note, that the vision models we tested, do not support streaming of response. Moreover, they are typically more computationally expensive than the chat models. So it may take minutes for a vision model to respond.
+Finally, open http://localhost:3000/ in your browser to launch the AI DIAL Chat application and select an appropriate DIAL deployments to converse with:
 
-### Embedding model
-
-If you have chosen an embedding model _(e.g. nomic-embed-text:137m-v1.5-fp16)_, then run the command:
-
-```sh
-OLLAMA_EMBEDDING_MODEL=model_of_your_choice docker compose up --abort-on-container-exit
-```
-
-The model will be pulled and loaded into the memory of the Ollama server automatically. This may take a minute on the first run.
+* `Self-hosted chat model` deployment for the `OLLAMA_CHAT_MODEL`,
+* `Self-hosted vision model` deployment for the `OLLAMA_VISION_MODEL`,
 
 The embedding model will become available in DIAL under the deployment name `embedding-model` and could be called via the endpoint: `localhost:8080/openai/deployments/embedding-model/embeddings`.
