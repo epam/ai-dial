@@ -8,6 +8,86 @@ const sidebars = {
     },
     'quick-start',
     'architecture',
+    'supported-models',
+    {
+      type: 'category',
+      label: 'Auth',
+      items: [
+        {
+          type:'doc',
+          id: 'Auth/overview',
+          label: 'Overview'
+        },
+        {
+          type:'doc',
+          id: 'Auth/programmatic-auth',
+          label: 'Programmatic Auth'
+        },
+        {
+          type: 'category',
+          label: 'Web Auth',
+          items: [
+            {
+              type:'doc',
+              id: 'Auth/Web/overview',
+              label: 'Overview'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/auth0',
+              label: 'Auth0'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/cognito',
+              label: 'AWS Cognito'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/entraID',
+              label: 'Microsoft Entra'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/google',
+              label: 'Google Identity'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/keycloak',
+              label: 'Keycloak'
+            },
+            {
+              type:'doc',
+              id: 'Auth/Web/IDPs/okta',
+              label: 'Okta'
+            }
+          ]
+        }
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Roles & Access Control',
+      items: [
+        {
+          type:'doc',
+          id: 'Roles and Access Control/overview',
+          label: 'Overview'
+        },
+        {
+          type:'doc',
+          id: 'Roles and Access Control/API Keys',
+          label: 'API Keys'
+        },
+        ,
+        {
+          type:'doc',
+          id: 'Roles and Access Control/chat-users',
+          label: 'Chat Users'
+        }
+      ],
+    },
     {
       type: 'category',
       label: 'Tutorials',
@@ -29,12 +109,53 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'tutorials/roles-management',
-          label: 'API Keys Roles and Limits',
+          id: 'tutorials/high-load-performance',
+          label: 'Handling High Loads',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/enable-publications',
+          label: 'Publications',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/localization',
+          label: 'Chat Localization',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/load-balancer',
+          label: 'Load Balancer',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/multimodality',
+          label: 'Multimodality',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/interceptors',
+          label: 'Interceptors',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/chat-objects',
+          label: 'Custom Content in Chat',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/adapter-dial',
+          label: 'DIAL-to-DIAL Adapter',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/data-visualization',
+          label: 'Data Visualization',
         }
       ],
     },
     'user-guide',
+    'chat-design',
     {
       type: 'category',
       label: 'Deployment',
@@ -54,40 +175,6 @@ const sidebars = {
           id: 'Deployment/realtime-analytics',
           label: 'Analytics Realtime',
         },
-        {
-          'IDP Configuration': [
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/auth0',
-              label: 'Auth0'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/cognito',
-              label: 'AWS Cognito'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/entraID',
-              label: 'Microsoft Entra'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/google',
-              label: 'Google OAuth2'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/keycloak',
-              label: 'Keycloak'
-            },
-            {
-              type:'doc',
-              id: 'Deployment/idp-configuration/okta',
-              label: 'Okta'
-            },
-          ],
-        },
         'Deployment/OpenAI Model Deployment',
         'Deployment/Vertex Model Deployment',
         'Deployment/Bedrock Model Deployment',
@@ -106,6 +193,26 @@ const sidebars = {
       type: 'link',
       label: 'API Reference',
       href: 'https://epam-rail.com/dial_api'
+    },
+    {
+      type: 'category',
+      label: 'Video Demos',
+      items: [
+        {
+          Demos: [
+            {
+              type: 'autogenerated',
+              dirName: 'video demos/demos', 
+            },
+          ],
+          'Demos For Developers': [
+            {
+              type: 'autogenerated',
+              dirName: 'video demos/demos-for-developers', 
+            },
+          ],
+        },
+      ]
     }
   ],
 };

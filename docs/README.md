@@ -7,8 +7,6 @@
 ## Architecture
 
 * [Architecture Overview](./architecture.md)
-* [Authentication and Authorization of API Keys](./tutorials/roles-management.md)
-* [Authentication and Authorization of Users](./Deployment/idp-configuration/auth0.md)
 
 ## Quick Start
 
@@ -19,6 +17,18 @@
 ## Helm Deployment
 
 * [AI DIAL Generic Installation Simple Guide](https://github.com/epam/ai-dial-helm/tree/main/charts/dial/examples/generic/simple)
+* [GCP Installation](https://github.com/epam/ai-dial-helm/blob/main/charts/dial/examples/gcp/complete/README.md)
+* [Azure Installation](https://github.com/epam/ai-dial-helm/blob/main/charts/dial/examples/azure/simple/README.md)
+* [AWS Installation](https://github.com/epam/ai-dial-helm/blob/main/charts/dial/examples/aws/complete/README.md)
+
+## Configuration
+
+* Refer to [Configuration](./Deployment/configuration.md)
+
+## Development Guides
+
+* [A basic guide for development of applications for AI DIAL](./tutorials/quick-start-with-application.md)
+* [DIAL-to-DIAL Adapter](https://github.com/epam/ai-dial-adapter-dial) - application which adapts calls from one DIAL Core to calls to another DIAL Core.
 
 ## Tutorials
 
@@ -26,18 +36,9 @@
 * [Launch AI DIAL Chat with a Sample Application](./tutorials/quick-start-with-application.md)
 * [Launch AI DIAL Chat with a Sample Addon](./tutorials/quick-start-with-addon.md)
 
-## Development Guides
-
-* [A basic guide for development of applications for AI DIAL](./tutorials/quick-start-with-application.md)
-
 ## AI DIAL Chat Application User Manual
 
 * [AI DIAL Chat User Manual](./user-guide.md)
-
-## Configuration
-
-* Refer to [Configuration](./Deployment/configuration.md)
-* [Configure AI DIAL to work with AWS Cognito user pool](./Deployment/idp-configuration/cognito.md)
 
 ## Other AI DIAL Project Open Source Repositories
 
@@ -48,8 +49,11 @@ Here is the current list of repositories where you can find more details.
 - [DIAL Helm](https://github.com/epam/ai-dial-helm) - helm chart, find stable assemblies here.
 - [DIAL Core](https://github.com/epam/ai-dial-core) - the main component that exposes API
 - [DIAL SDK](https://github.com/epam/ai-dial-sdk) - development kit for applications and model adapters
+- [DIAL Interceptors Python SDK](https://github.com/epam/ai-dial-interceptors-sdk) - framework for creating DIAL Interceptors in Python for chat completion and embedding models.
 - [DIAL Chat](https://github.com/epam/ai-dial-chat) - default UI
+- [DIAL Overlay](https://github.com/epam/ai-dial-chat/blob/development/libs/overlay/README.md) - a library for using AI DIAL Chat in an overlay format
 - [DIAL Chat Themes](https://github.com/epam/ai-dial-chat-themes) - static content and UI customizations for default UI
+- [Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) - a library for connecting custom visualizers
 - [DIAL CI](https://github.com/epam/ai-dial-ci) - github CI commons
 - [DIAL Assistant](https://github.com/epam/ai-dial-assistant) - model agnostic assistant/addon implementation for DIAL. It allows to use self-hosted OpenAI plugins as DIAL addons.
 - [DIAL Analytics Realtime](https://github.com/epam/ai-dial-analytics-realtime) - simple real-time usage analytics. That transforms logs into InfluxDB metrics

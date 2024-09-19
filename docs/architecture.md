@@ -10,6 +10,20 @@ We prioritize developing use case-agnostic generic features that facilitate deve
 
 ## AI DIAL Architecture
 
+### Introduction
+
+Modular architecture of AI DIAL allows implementing scalable and customized solutions to fit specific business needs. Its key building blocks include [Core](#ai-dial-core) (the main and the only mandatory component), [Chat](#chat) (web application with user interface), [Adapters](#llm-adapters) (align APIs of LLMs with the Universal API), [Applications](https://docs.epam-rail.com/architecture#extension-framework) (any custom logic with a conversation interface packaged as a ready-to-use solution), and a [persistent layer](#persistent-layer) that relies on a configured resilient and scalable cloud blob storage, with Redis layer on top to enhance performance. AI DIAL, allows to use various Identity Service Providers (IDPs) to manage user identities.
+
+The [Unified API](https://epam-rail.com/dial_api) enables universal connectivity between models (including models of different modalities), unified access to different embedding models, and facilitates communication with the AI DIAL Core for both external and internal clients. 
+
+Applications can form an **ecosystem and interact with each other** through the Unified API with access to all DIAL Core features among which is connectivity to models, file storage, access control, per-request API keys and other - see the following illustration. To enhance performance and fault tolerance, AI DIAL Core employs a proprietary load balancer and a retry mechanism. This significantly reduces delays and boosts throughput especially during peak demand. Refer to the [document](/tutorials/high-load-performance) with the overview of the performance tests to learn more.
+
+![](./img/arch-intro.svg)
+
+You can have a [minimal installation](#minimal-installation) (it includes only AI DIAL Core) which can be easily installed even on a personal laptop or a desktop computer and is a good starting point for getting familiar with AI DIAL. To engage chat users and access different LLMs, you can have a setup with Core, Chat and LLM adapters – we call it a [standard installation](#standard-installation). This package is more suitable for use in enterprise-level production environments.
+
+A modular architecture allows adding as many components as needed up to a [full platform landscape](#full-platform-landscape).
+
 ### Minimal Installation
 
 AI DIAL has only one required component – [AI DIAL Core](#ai-dial-core).
@@ -61,25 +75,23 @@ AI DIAL Core is headless and is the **only mandatory component**. It includes al
 
 #### Authentication and Authorization
 
-AI DIAL provides native support for [OpenID Connect](https://openid.net/developers/how-connect-works/) and [OAuth2](https://oauth.net/2/) and offers integration with various Identity Providers (IDP) such as Azure AD, Auth0, Okta, Microsoft Entra, Google OAuth2, and AWS Cognito where you can define user roles and attributes to support your custom permissions model. Additionally, you can leverage Keycloak to work with even wider range of IDPs.
-
-> Refer to [IDP Configuration](./Deployment/idp-configuration/auth0.md) to view deployment tutorials for supported IDP providers.
+AI DIAL provides native support for [OpenID Connect](https://openid.net/developers/how-connect-works/) and [OAuth2](https://oauth.net/2/) and offers [integration with various Identity Providers (IDP)](/Auth/Web/overview) such as Azure AD, Auth0, Okta, Microsoft Entra, Google OAuth2, and AWS Cognito where you can define user roles and attributes to support your custom permissions model. Additionally, you can leverage Keycloak to work with even wider range of IDPs.
 
 There are two methods of CORE API calls authorization supported: JWT token and key. Both options provide granular permission management, allowing you to control access to specific functionalities or resources. Additionally, these authorization methods also enable rate and cost control, giving you the ability to manage the frequency of API calls.
 
-> Refer to [API Keys Roles and Limits](./tutorials/roles-management.md) to learn how to authenticate and authorize API keys.
+> Refer to [Auth](/Auth/overview) to learn how to authenticate API keys and chat users and to [Roles & Access Control](/Roles%20and%20Access%20Control/overview) to learn how to implement a custom role-based access policy.
 
 #### Load Balancer
 
 For self-hosted models, you can use the standard load balancer (LB) capabilities provided by the target cloud platform. As for cloud-deployed models like Azure OpenAI and others, we typically rely on our custom-developed load balancing solution.
 
-In this approach, a configuration file includes multiple upstream endpoints for a model. When a request is received, it is forwarded to one of the endpoints using the round-robin method. If an upstream returns an overload limit error such as a 429 (Too Many Requests) or a 504 (Gateway Timeout), the system attempts another upstream and temporarily excludes the one that generated the error. This strategy ensures efficient load distribution and fault tolerance for optimal performance and reliability.
+In this approach, a configuration file includes multiple upstream endpoints for a model. When a request is received, it is forwarded to one of the endpoints using the round-robin method. If an upstream returns an overload limit error such as a 429 (Too Many Requests) or a 504 (Gateway Timeout), the system attempts another upstream and temporarily excludes the one that generated the error. This strategy ensures efficient load distribution and fault tolerance for optimal performance and reliability. Refer to the [document](/tutorials/high-load-performance) with the overview of the performance tests to learn more.
 
 #### Rate Limits & Cost Control
 
 A well-distributed rate-limiting mechanism ensures the control over the total number of tokens that can be sent to a model (typically a one-minute or 24-hour window) by any Application, Addon, or Assistant.
 
-> Refer to [AI DIAL Configuration](./Deployment/configuration.md#some-of-the-dynamic-parameters) to learn more about roles and rate limits.
+> Refer to [AI DIAL Configuration](/Deployment/configuration#dynamic-settings) to learn more about roles and rate limits.
 
 #### Extension Framework
 
@@ -106,6 +118,14 @@ You can gather standard logs (which do not contain user messages) from component
 #### Entitlements
 
 In AI DIAL Core, user roles are defined and configured in the application config file. This allows administrators to specify which users or user groups are authorized to access specific resources or features within the application. These user roles match the once created in your IDP.
+
+### Persistent Layer
+
+AI DIAL architecture includes a persistent layer, that relies on a resilient and scalable cloud blob storage (you can configure either AWS S3, Google Cloud Storage, Azure Blob Storage or a local file storage) where all conversations, prompts, and user files will be stored. Redis Cache (either cluster or a standalone) is deployed on top of it to enhance performance.
+
+![](./img/redis.svg)
+
+This architecture facilitates the swift retrieval of stored resources, supporting features such as sharing and publication of conversations and prompts.
 
 ### Auth Helper
 
