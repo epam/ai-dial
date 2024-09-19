@@ -56,7 +56,7 @@ All the models support streaming.
     * Set `OLLAMA_CHAT_MODEL` for the name of a text model.
     * Set `OLLAMA_VISION_MODEL` for the name of a vision model.
     * Set `OLLAMA_EMBEDDING_MODEL` for the name of an embedding model.
-    
+
     **Note**: It's not necessary to configure all the models. If a model isn't set, then it won't be downloaded.
 
 2. Then run the following command to pull and load into the memory of the Ollama server the specified models:
@@ -66,10 +66,14 @@ All the models support streaming.
     ```
 
     > Keep in mind that a typical size of a lightweight Ollama model is around a few gigabytes. So it may take a few minutes _(or dozens of minutes)_ to download them on the first run depending on your Internet bandwidth.
+    >
+    > The model is fully loaded once `ollama-setup` service prints `The Ollama server is up and running.`
 
 3. Finally, open http://localhost:3000/ in your browser to launch the AI DIAL Chat application and select an appropriate AI DIAL deployments to converse with:
 
     * `Self-hosted chat model` deployment for the `OLLAMA_CHAT_MODEL`
     * `Self-hosted vision model` deployment for the `OLLAMA_VISION_MODEL`
+
+> Note, that the vision models we tested, do not support streaming of response. Moreover, they are typically more computationally expensive than the chat models. So it may take minutes for a vision model to respond.
 
 The embedding model will become available in AI DIAL under the deployment name `embedding-model` and could be called via the endpoint: `localhost:8080/openai/deployments/embedding-model/embeddings`.

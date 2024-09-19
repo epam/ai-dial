@@ -1,8 +1,11 @@
 import asyncio
 from contextlib import asynccontextmanager
 import os
+import sys
 import time
-import httpx
+import asyncio
+from ollama import AsyncClient
+from tqdm import tqdm
 
 OLLAMA_URL = os.getenv("OLLAMA_URL")
 if OLLAMA_URL is None:
@@ -15,9 +18,19 @@ OLLAMA_EMBEDDING_MODEL = os.getenv("OLLAMA_EMBEDDING_MODEL")
 HEALTH_FILE = "/healthy"
 
 
-def print_info(*args, **kwargs):
-    print(*args, **kwargs, flush=True)
+class Writer:
+    @classmethod
+    def write(cls, s: str):
+        # NOTE: every tqdm progress bar update is deliberately ended with "\n",
+        # otherwise one wouldn't see the bar running in console upon running `docker compose up`.
+        print(s, file=sys.stdout, flush=True, end="\n")
 
+    @classmethod
+    def flush(cls):
+        sys.stdout.flush()
+
+
+print_info = Writer.write
 
 print_info(f"OLLAMA_URL = {OLLAMA_URL}")
 print_info(f"OLLAMA_CHAT_MODEL = {OLLAMA_CHAT_MODEL}")
@@ -34,39 +47,57 @@ async def timer(name: str):
     print_info(f"[{name}] Finished in {elapsed:.2f} seconds")
 
 
-ollama = httpx.AsyncClient(base_url=OLLAMA_URL, timeout=300000)
-
-
 async def wait_for_startup():
+    attempt = 0
     while True:
+        attempt += 1
         try:
-            if (await ollama.get("/")).is_success:
-                break
+            await AsyncClient(host=OLLAMA_URL, timeout=5).ps()
         except Exception:
-            pass
-        await asyncio.sleep(1)
+            print_info(f"[{attempt:>3}] Waiting for Ollama to start...")
+            await asyncio.sleep(5)
+        else:
+            break
 
 
-async def pull_model(model):
-    data = {"name": model, "stream": False}
-    (await ollama.post("/api/pull", json=data)).raise_for_status()
+async def pull_model(client: AsyncClient, model: str):
+    response = await client.pull(model, stream=True)
+
+    progress_bar = None
+    prev_status = None
+
+    async for chunk in response:
+        status = chunk["status"]
+        total = chunk.get("total")
+        completed = chunk.get("completed")
+
+        if status != prev_status and total:
+            prev_status = status
+            if progress_bar:
+                progress_bar.close()
+            progress_bar = tqdm(
+                total=total, unit="B", unit_scale=True, desc=f"[{status}]", file=Writer
+            )
+
+        if completed and progress_bar and total:
+            progress_bar.n = completed
+            progress_bar.set_description(f"[{status}]")
+            progress_bar.refresh()
+
+        if total and total == completed and progress_bar:
+            progress_bar.close()
+
+        if not completed and not total:
+            print_info(f"[{status}]")
 
 
-async def create_alias(source, dest):
-    data = {"source": source, "destination": dest}
-    (await ollama.post(f"/api/copy", json=data)).raise_for_status()
-
-
-async def load_model(model):
-    data = {"model": model}
-    (await ollama.post(f"/api/generate", json=data)).raise_for_status()
-
-
-async def mark_as_healthy():
+async def create_health_mark():
     open(HEALTH_FILE, "w").close()
 
 
 async def main():
+    client = AsyncClient(host=OLLAMA_URL, timeout=300000)
+
     async with timer("Waiting for Ollama to start"):
         await wait_for_startup()
 
@@ -77,16 +108,18 @@ async def main():
     ]:
         if model:
             async with timer(f"Pulling model {model}"):
-                await pull_model(model)
+                await pull_model(client, model)
 
             async with timer(f"Creating alias for {model}: {alias}"):
-                await create_alias(model, alias)
+                await client.copy(model, alias)
 
     if model_to_load := (OLLAMA_CHAT_MODEL or OLLAMA_VISION_MODEL):
         async with timer(f"Loading model {model_to_load} into memory"):
-            await load_model(model_to_load)
+            await client.generate(model_to_load)
 
-    await mark_as_healthy()
+    await create_health_mark()
+
+    print_info("The Ollama server is up and running.")
 
 
 if __name__ == "__main__":
