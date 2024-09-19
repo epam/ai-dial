@@ -57,7 +57,7 @@ Follow the [instructions](https://github.com/epam/ai-dial-analytics-realtime/blo
 
 ### Step 4: Log Collector
 
-AI DIAL uses the external open-source solution [Vector](https://github.com/vectordotdev/vector) as a log collector to transfer a `.log` file with **chat completion logs** to AI DIAL Analytics Realtime service via HTTP. Analytics Realtime is a "sink" of Vector. Vector can also be used to send logs to storages such as AWS S3, Azure Blob Store, GCP Cloud Storage or any other "sink".
+AI DIAL uses the external open-source solution [Vector](https://github.com/vectordotdev/vector) as a log collector to transfer a `.log` file with **chat completion logs** to AI DIAL Analytics Realtime service via HTTP. Analytics Realtime functions as a "sink" for Vector, providing an endpoint designed to receive logs from it. To connect, you only need to know the hostname and port, such as http://localhost:5001/data - see the example below.
 
 > You can find an additional information on delivering observability data to an HTTP server in the Vector [documentation](https://vector.dev/docs/reference/configuration/sinks/http).
 
