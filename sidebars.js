@@ -50,6 +50,11 @@ const sidebars = {
           label: 'Configuration'
         },
         {
+          type: 'doc',
+          id: 'Deployment/realtime-analytics',
+          label: 'Analytics Realtime',
+        },
+        {
           'IDP Configuration': [
             {
               type:'doc',
