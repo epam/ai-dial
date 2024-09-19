@@ -22,11 +22,33 @@ Follow the instructions in [AI DIAL Core](https://github.com/epam/ai-dial-core/b
 - Describe gflog.xml
 
 ### Prompt Log Collector
+By default, AI Dial platform uses the external open-source solution [Vector](https://vector.dev) to send prompt logs to other storages such as AWS S3, Azure Blob Store, GCP Cloud Storage or any other "sink". It is also used to send promt logs to AI Dial Analytics Realtime via http.
 
-AI DIAL Core uses [Vector](https://vector.dev/docs/reference/configuration/sinks/http/) (a lightweight, ultra-fast tool for building observability pipelines) to redirect users’ messages to S3, Azure Blob Store, GCP Cloud Storage or any other "sink". The collector takes prompt logs from AI DIAL Core and sends them to AI DIAL Analytics Realtime. 
+The approximate configuration in yaml format that can be used for sending data to analytics:
 
-**TODO**
-- Describe container settings in k8s pod. See logger container in the staging: timberio/vector:0.35.0-alpine.
+  ```yaml
+  sources:
+    aidial_logs:
+      type: "file"
+      max_line_bytes: 100000000
+      oldest_first: true
+      include:
+        - /app/log/*.log
+    http_analytics_opensource:
+      inputs:
+        - aidial_logs
+      type: http
+      uri: http://dial-analytics.dial:80/data
+      request:
+        timeout_secs: 300
+      batch:
+        max_bytes: 1049000
+        timeout_secs: 60
+      encoding:
+        codec: "json"
+  ```
+
+You can find more detailed configuration in the [Vector documentation](https://vector.dev/docs/reference/configuration/sinks/http).
 
 ### AI DIAL Analytics Realtime
 
