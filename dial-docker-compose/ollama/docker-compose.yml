@@ -1,0 +1,35 @@
+include:
+  - path: ../common.yml
+    env_file: ./.env
+
+services:
+  ollama:
+    image: ollama/ollama:0.3.10
+    volumes:
+      - ./.ollama:/root/.ollama
+    ports:
+      - "11434:11434"
+
+  ollama-setup:
+    depends_on:
+      ollama:
+        condition: service_started
+    build: ./ollama_setup
+    environment:
+      - OLLAMA_URL=http://ollama:11434
+      - OLLAMA_CHAT_MODEL=${OLLAMA_CHAT_MODEL}
+      - OLLAMA_VISION_MODEL=${OLLAMA_VISION_MODEL}
+      - OLLAMA_EMBEDDING_MODEL=${OLLAMA_EMBEDDING_MODEL}
+    healthcheck:
+      test: ["CMD", "test", "-f", "/healthy"]
+      interval: 10s
+      start_period: 10s
+      retries: 10
+
+  adapter-openai:
+    image: epam/ai-dial-adapter-openai:0.14.0
+    environment:
+      WEB_CONCURRENCY: "3"
+      DIAL_URL: "http://core:8080"
+      DIAL_USE_FILE_STORAGE: "True"
+      GPT4_VISION_DEPLOYMENTS: "vision-model"

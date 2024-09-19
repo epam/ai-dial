@@ -7,7 +7,7 @@ on:
 
 jobs:
   run-notebooks:
-    name: Run example Python notebooks
+    name: Cookbook notebooks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -18,8 +18,8 @@ jobs:
           cwd: "./dial-cookbook/ci"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
-  run-quickstart:
-    name: Run quickstart examples
+  run-quickstart-model:
+    name: Quickstart model
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -28,19 +28,44 @@ jobs:
         with:
           cwd: "./dial-docker-compose/ci/model"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
+
+  run-quickstart-application:
+    name: Quickstart application
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
-        name: Run quickstart application example
         with:
           cwd: "./dial-docker-compose/ci/application"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
+
+  run-quickstart-addon:
+    name: Quickstart addon
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
-        name: Run quickstart addon example
         with:
           cwd: "./dial-docker-compose/ci/addon"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
+  run-quickstart-self-hosted-model:
+    name: Quickstart self-hosted model
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: isbang/compose-action@802a148945af6399a338c7906c267331b39a71af # v2.0.0
+        with:
+          cwd: "./dial-docker-compose/ci/ollama"
+          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
+
   build:
-    needs: [run-notebooks, run-quickstart]
+    needs:
+      - run-notebooks
+      - run-quickstart-model
+      - run-quickstart-application
+      - run-quickstart-addon
+      - run-quickstart-self-hosted-model
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
