@@ -154,7 +154,7 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'Deployment/realtime-analytics',
+          id: 'tutorials/realtime-analytics',
           label: 'Analytics Realtime',
         }
       ],
