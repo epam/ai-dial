@@ -4,14 +4,14 @@
 
 [DIAL Core](https://github.com/epam/ai-dial-core) collects **system logs** and **chat completion logs**:
 
-* System logs do not include any user data and contain logs of all requests from system components to AI DIAL Core (using the ELK stack (Elasticsearch, Logstash, Kibana) or other log collection system). **Note**: system logs is out of scope of this document!
-* [chat completion requests](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) logs include information users send in their requests to LLMs and the information they get in responses.
+* System logs do not include any user data and contain logs of all requests from system components to AI DIAL Core (using the ELK stack (Elasticsearch, Logstash, Kibana) or other log collection system). **Note**: this document does not cover system logs.
+* [Chat completion requests](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) logs include information that users send in their requests to LLMs and the information they get in responses.
 
 [AI DIAL setup](../architecture#full-platform-landscape) can include a special tool called DIAL Analytics Realtime, which uses diverse techniques such as embedding algorithms, clustering algorithms, frameworks, light-weight self-hosted language models, to analyze **chat completion logs** and extract the needed information, which can be presented in tools such as Grafana for visualization and analytics.
 
 > Refer to [Analytics Realtime](https://github.com/epam/ai-dial-analytics-realtime) repository to learn more and view the project source code.
 
-Analytics Realtime tool is a sink of [vector.dev](https://vector.dev/). It does not retain any private information, such as user prompts or conversations, beyond the system. Instead, only the computed artifacts are collected and stored in time-series databases like InfluxDB or any scalable database capable of handling voluminous, constantly changing information.
+Analytics Realtime tool does not retain any private information, such as user prompts or conversations, beyond the system. Instead, only the computed artifacts are collected and stored in time-series databases like InfluxDB or any scalable database capable of handling voluminous, constantly changing information.
 
 Examples of the computed artifacts:
 
@@ -27,17 +27,17 @@ Examples of the computed artifacts:
 
 ## Configuration
 
-This section outlines the required steps for configuring Analytics Realtime service.
+This section outlines the required steps for configuring Analytics Realtime service and other necessary components:
 
 - Step 1: Configure [DIAL Core](https://github.com/epam/ai-dial-core)
 - Step 2: Install [Influx DB](https://github.com/influxdata/influxdb)
 - Step 3: Configure [DIAL Analytics Realtime](https://github.com/epam/ai-dial-analytics-realtime)
-- Step 4: Configure [Prompt Log Collector](https://github.com/vectordotdev/vector)
+- Step 4: Configure [Log Collector](https://github.com/vectordotdev/vector)
 - Step 5: Configure [Grafana](https://github.com/grafana/grafana)
 
 **Flow:**
 
-AI DIAL Core generates a `.log` file containing chat completion logs, which is stored in InfluxDB. The log collector tool then transfers this file to AI DIAL Analytics Realtime for analysis. The insights derived from the analysis can subsequently be visualized using Grafana.
+AI DIAL Core generates a `.log` file containing chat completion logs. The log collector tool then transfers this file to AI DIAL Analytics Realtime for analysis. The insights derived from the analysis are stored in InfluxDB and can subsequently be visualized using Grafana.
 
 ### Step 1: AI DIAL Core
 
@@ -47,9 +47,7 @@ Use the default AI DIAL Core [Gflog Configuration](https://github.com/epam/ai-di
 
 ### Step 2: Influx DB
 
-`.log` file is stored in InfluxDB.
-
-Refer to InfluxDB documentation to learn how to [install](https://docs.influxdata.com/influxdb/v2/install/) it and how to [create tokens](https://docs.influxdata.com/influxdb/v2/admin/tokens/create-token/) to read from a bucket.
+Analytics Realtime uses InfluxDB to store the analytics of chat completion logs. Refer to InfluxDB documentation to learn how to [install](https://docs.influxdata.com/influxdb/v2/install/) it and how to [create tokens](https://docs.influxdata.com/influxdb/v2/admin/tokens/create-token/) to read from a bucket.
 
 > Refer to [Configuration](https://github.com/epam/ai-dial-analytics-realtime?tab=readme-ov-file#configuration) to view how to configure InfluxDB for Analytics Realtime service.
 
@@ -57,13 +55,13 @@ Refer to InfluxDB documentation to learn how to [install](https://docs.influxdat
 
 Follow the [instructions](https://github.com/epam/ai-dial-analytics-realtime/blob/development/README.md) to setup AI DIAL Analytics Realtime service.
 
-### Step 4: Prompt Log Collector
+### Step 4: Log Collector
 
-By default, AI DIAL Core uses the external open-source solution [vector.dev](https://vector.dev/) as a log collector to send **chat completion logs** to AI DIAL Analytics Realtime via HTTP. It can also be used to send it to storages such as AWS S3, Azure Blob Store, GCP Cloud Storage or any other "sink".
+AI DIAL uses the external open-source solution [Vector](https://github.com/vectordotdev/vector) as a log collector to transfer a `.log` file with **chat completion logs** to AI DIAL Analytics Realtime service via HTTP. Analytics Realtime tool is a "sink" of Vector. Vector can also be used to send logs to storages such as AWS S3, Azure Blob Store, GCP Cloud Storage or any other "sink".
 
-> You can find more details on delivering observability data to an HTTP server in the vector.dev [documentation](https://vector.dev/docs/reference/configuration/sinks/http).
+> You can find more details on delivering observability data to an HTTP server in the Vector [documentation](https://vector.dev/docs/reference/configuration/sinks/http).
 
-This is the example of vector.dev configuration: 
+This is an example of Vector configuration: 
 
 ```yaml
 sources:
@@ -89,6 +87,7 @@ sources:
 
 ### Step 5: Grafana
 
-> Refer to Grafana documentation to learn how to [install](https://grafana.com/docs/grafana/latest/setup-grafana/installation/) it and to [import dashboards](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/import-dashboards/). 
+Grafana can be [configured](https://grafana.com/docs/grafana/latest/datasources/influxdb/#influxdb-data-source) to use InfluxDB with analytics of DIAL logs as a data source. You can use pre-configured samples of [dashboards](https://github.com/epam/ai-dial-analytics-realtime/blob/development/dashboards/README.md) to visualized data in Grafana.
 
-> Refer to Analytics Realtime repository to view samples of [dashboards](https://github.com/epam/ai-dial-analytics-realtime/blob/development/dashboards/README.md).
+> Refer to Grafana documentation to learn how to [install](https://grafana.com/docs/grafana/latest/setup-grafana/installation/) it and [import dashboards](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/import-dashboards/). 
+
