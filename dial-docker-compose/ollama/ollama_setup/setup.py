@@ -34,7 +34,7 @@ async def timer(name: str):
     print_info(f"[{name}] Finished in {elapsed:.2f} seconds")
 
 
-ollama = httpx.AsyncClient(base_url=OLLAMA_URL, timeout=300)
+ollama = httpx.AsyncClient(base_url=OLLAMA_URL, timeout=300000)
 
 
 async def wait_for_startup():
