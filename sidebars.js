@@ -105,7 +105,7 @@ const sidebars = {
         {
           type: 'doc',
           id: 'tutorials/quick-start-with-self-hosted-model',
-          label: 'Chat with a self-hosted model',
+          label: 'Chat with a Self-Hosted Model',
         },
         {
           type: 'doc',
