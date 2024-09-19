@@ -151,6 +151,11 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/data-visualization',
           label: 'Data Visualization',
+        },
+        {
+          type: 'doc',
+          id: 'Deployment/realtime-analytics',
+          label: 'Analytics Realtime',
         }
       ],
     },
@@ -169,11 +174,6 @@ const sidebars = {
           type:'doc',
           id: 'Deployment/configuration',
           label: 'Configuration'
-        },
-        {
-          type: 'doc',
-          id: 'Deployment/realtime-analytics',
-          label: 'Analytics Realtime',
         },
         'Deployment/OpenAI Model Deployment',
         'Deployment/Vertex Model Deployment',

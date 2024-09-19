@@ -55,8 +55,6 @@ By default, AI DIAL Core uses the external open-source solution [vector.dev](htt
 
 > You can find more details on delivering observability data to an HTTP server in the vector.dev [documentation](https://vector.dev/docs/reference/configuration/sinks/http).
 
-As a reference on how to enable log collection, you can use AI DIAL Core [configuration](https://github.com/epam/ai-dial-helm/blob/cb7ee62f9a7f2cedb85544c4b0eaa1e07e5a24a1/charts/dial-core/values.yaml#L482).
-
 ```yaml
 sources:
   aidial_logs:
