@@ -7,6 +7,8 @@
 * System logs do not include any user data and contain logs of all requests from system components to AI DIAL Core (using the ELK stack (Elasticsearch, Logstash, Kibana) or other log collection system). **Note**: this document does not cover system logs.
 * [Chat completion requests](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) logs include information that users send in their requests to LLMs and the information they get in responses.
 
+> **Important**: AI DIAL Core **will log** user requests and deployment responses unless the requests are authorized with a **secured** API key. This means that user requests and deployment responses will be recorded in logs for all requests authorized with an access token (like JWT) or unsecured API keys. Refer to [configuration](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) to learn how to create secured and other types of API keys.
+
 [AI DIAL setup](../architecture#full-platform-landscape) can include a special service called DIAL Analytics Realtime, which uses diverse techniques such as embedding algorithms, clustering algorithms, frameworks, light-weight self-hosted language models, to analyze **chat completion logs** and extract the needed information, which can be presented in tools such as Grafana for visualization and analytics.
 
 > Refer to [Analytics Realtime](https://github.com/epam/ai-dial-analytics-realtime) repository to learn more and view the project source code.
