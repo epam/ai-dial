@@ -33,8 +33,9 @@
 ## Tutorials
 
 * [Launch AI DIAL Chat with an Azure model](./tutorials/quick-start-model.md)
-* [Launch AI DIAL Chat with a Sample Application](./tutorials/quick-start-with-application.md)
-* [Launch AI DIAL Chat with a Sample Addon](./tutorials/quick-start-with-addon.md)
+* [Launch AI DIAL Chat with a self-hosted model](./tutorials/quick-start-with-self-hosted-model.md)
+* [Launch AI DIAL Chat with a sample application](./tutorials/quick-start-with-application.md)
+* [Launch AI DIAL Chat with a sample addon](./tutorials/quick-start-with-addon.md)
 
 ## AI DIAL Chat Application User Manual
 
