@@ -189,6 +189,8 @@ Examples of the computed artifacts:
 - Language of conversations.
 - Any other calculated statistics based on conversations.
 
+> Refer to [Tutorials](/tutorials/realtime-analytics) to learn more.
+
 ## Extensions
 
 Extensions such as Applications, Addons, Assistants and Adapters can be additionally developed and deployed to communicate with the AI DIAL Core via the Unified Protocol.

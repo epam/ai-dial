@@ -156,6 +156,11 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/data-visualization',
           label: 'Data Visualization',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/realtime-analytics',
+          label: 'Analytics Realtime',
         }
       ],
     },
