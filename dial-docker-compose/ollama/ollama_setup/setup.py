@@ -23,11 +23,13 @@ class Writer:
     def write(cls, s: str):
         # NOTE: every tqdm progress bar update is deliberately ended with "\n",
         # otherwise one wouldn't see the bar running in console upon running `docker compose up`.
-        print(s, file=sys.stdout, flush=True, end="\n")
+        if s in ["\n", ""]:
+            return
+        print(s.rstrip(), file=sys.stderr, flush=True, end="\n")
 
     @classmethod
     def flush(cls):
-        sys.stdout.flush()
+        sys.stderr.flush()
 
 
 print_info = Writer.write
@@ -73,19 +75,22 @@ async def pull_model(client: AsyncClient, model: str):
 
         if status != prev_status and total:
             prev_status = status
-            if progress_bar:
-                progress_bar.close()
             progress_bar = tqdm(
-                total=total, unit="B", unit_scale=True, desc=f"[{status}]", file=Writer
+                total=total,
+                unit="B",
+                unit_scale=True,
+                desc=f"[{status}]",
+                mininterval=1,
+                file=Writer,
             )
 
-        if completed and progress_bar and total:
+        if completed and total and progress_bar:
             progress_bar.n = completed
-            progress_bar.set_description(f"[{status}]")
-            progress_bar.refresh()
+            progress_bar.update(n=0)
 
         if total and total == completed and progress_bar:
             progress_bar.close()
+            progress_bar = None
 
         if not completed and not total:
             print_info(f"[{status}]")
@@ -96,7 +101,7 @@ async def create_health_mark():
 
 
 async def main():
-    client = AsyncClient(host=OLLAMA_URL, timeout=300000)
+    client = AsyncClient(host=OLLAMA_URL, timeout=300)
 
     async with timer("Waiting for Ollama to start"):
         await wait_for_startup()

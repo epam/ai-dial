@@ -12,6 +12,7 @@ services:
       - themes
       - core
     environment:
+      KEEP_ALIVE_TIMEOUT: "610000"
       NEXTAUTH_SECRET: "secret"
       THEMES_CONFIG_HOST: "http://themes:8080"
       DIAL_API_HOST: "http://core:8080"
