@@ -17,6 +17,7 @@ services:
       DIAL_API_HOST: "http://core:8080"
       DIAL_API_KEY: "dial_api_key"
       ENABLED_FEATURES: "conversations-section,prompts-section,top-settings,top-clear-conversation,top-chat-info,top-chat-model-settings,empty-chat-settings,header,footer,request-api-key,report-an-issue,likes,input-files,attachments-manager"
+      KEEP_ALIVE_TIMEOUT: ${CHAT_KEEP_ALIVE_TIMEOUT}
 
   redis:
     image: redis:7.2.4-alpine3.19

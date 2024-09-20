@@ -20,11 +20,6 @@ services:
       - OLLAMA_CHAT_MODEL=${OLLAMA_CHAT_MODEL}
       - OLLAMA_VISION_MODEL=${OLLAMA_VISION_MODEL}
       - OLLAMA_EMBEDDING_MODEL=${OLLAMA_EMBEDDING_MODEL}
-    healthcheck:
-      test: ["CMD", "test", "-f", "/healthy"]
-      interval: 10s
-      start_period: 10s
-      retries: 10
 
   adapter-openai:
     image: epam/ai-dial-adapter-openai:0.14.0
