@@ -1,5 +1,0 @@
-# DIAL Guided Conversation
-
-https://youtu.be/1XT4NDh1xnc
-
-The Guided Conversation is an example of an interactive survey; a guided conversation application built on the AI DIAL framework.

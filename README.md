@@ -13,10 +13,11 @@
 ## Helm Deployment
 
 * [AI DIAL Generic Installation Simple Guide](https://github.com/epam/ai-dial-helm/tree/main/charts/dial/examples/generic/simple)
-  
+
 ## Tutorials
 
 * [Launch AI DIAL Chat with an Azure model](./docs/tutorials/quick-start-model.md)
+* [Launch AI DIAL Chat with a self-hosted model](./docs/tutorials/quick-start-with-self-hosted-model.md)
 * [Launch AI DIAL Chat with a Sample Application](./docs/tutorials/quick-start-with-application.md)
 * [Launch AI DIAL Chat with a Sample Addon](./docs/tutorials/quick-start-with-addon.md)
 
@@ -31,7 +32,7 @@
 ## Configuration
 
 * Refer to [Configuration](./docs/Deployment/configuration.md)
-  
+
 ## Other AI DIAL Project Open Source Repositories
 
 Here is the current list of repositories where you can find more details. You can also refer to [repository map](https://epam-rail.com/open-source).
