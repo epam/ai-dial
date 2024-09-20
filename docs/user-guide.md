@@ -4,9 +4,23 @@
 
 AI DIAL Chat is a powerful enterprise-grade application that serves as a default web interface for users, providing access to the full set of AI DIAL features.
 
-> Watch a [demo video](../video%20demos/demos/dial-ui-basics) to learn more.
+> Watch a [demo video](../video%20demos/demos/dial-ui-basics) with introduction to AI DIAL Chat UI.
 
-> Refer to [AI DIAL Chat repository](https://github.com/epam/ai-dial-chat) to view the project source code.
+### Additional Documentation
+
+Refer to [AI DIAL Chat repository](https://github.com/epam/ai-dial-chat) to view the project source code and documentation for additional components:
+
+* DIAL Chat [documentation](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md).
+* DIAL Chat Theming [documentation](https://github.com/epam/ai-dial-chat/blob/development/docs/THEME-CUSTOMIZATION.md).
+* Chat Overlay [documentation](https://github.com/epam/ai-dial-chat/blob/development/libs/overlay/README.md).
+* DIAL Chat Visualizer Connector [documentation](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md).
+
+You can also refer to other topics in this documentation:
+
+* Chat localization [instruction](/tutorials/localization).
+* List of [supported LLMs](/supported-models).
+* Chat UI design [guidelines](/chat-design).
+* Authentication [guidelines](/Auth/Web/overview).
 
 ## Interface Components
 
