@@ -65,7 +65,7 @@ All the models support streaming.
     docker compose up --abort-on-container-exit
     ```
 
-    > Keep in mind that a typical size of a lightweight Ollama model is around a few gigabytes. So it may take a few minutes _(or dozens of minutes)_ to download them on the first run depending on your Internet bandwidth.
+    > Keep in mind that a typical size of a lightweight Ollama model is around a few gigabytes. So it may take a few minutes _(or more)_ to download it on the first run, depending on your internet bandwidth and the size of the model you choose.
     >
     > The model is fully loaded once `ollama-setup` service prints `The Ollama server is up and running.`
 
