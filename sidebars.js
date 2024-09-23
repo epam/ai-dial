@@ -170,6 +170,13 @@ const sidebars = {
       ],
     },
     {
+      type: 'category',
+      label: 'Observability',
+      items: [
+        "Observability/Observability",
+      ],
+    },
+    {
       type: 'link',
       label: 'API Reference',
       href: 'https://epam-rail.com/dial_api'
