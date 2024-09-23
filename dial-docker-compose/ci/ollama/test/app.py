@@ -58,7 +58,8 @@ async def dial_chat_completion(deployment_id: str, messages: list) -> str:
     payload = {
         "model": deployment_id,
         "messages": messages,
-        "stream": False,
+        "temperature": 0.0,
+        "stream": False
     }
     headers = {"api-key": DIAL_API_KEY}
     params = {"api-version": DIAL_API_VERSION}

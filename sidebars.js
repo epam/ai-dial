@@ -177,6 +177,11 @@ const sidebars = {
               label: 'Notifications'
             }
           ]
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/realtime-analytics',
+          label: 'Analytics Realtime',
         }
       ],
     },
