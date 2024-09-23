@@ -33,13 +33,13 @@ The effective access rules for a folder structure can be described as follows:
 
 ## DIAL Chat
 
-Refer to [user guide](../../user-guide#flow) to learn how chat users can use publications for conversations and prompts.
+Refer to [user guide](../user-guide#flow) to learn how chat users can use publications for conversations and prompts.
 
 To enable the publication feature in AI DIAL Chat:
 
 ### Step 1: Users
 
-Create user hierarchy (including claims) in your identity service provider (IDP) and configure AI DIAL to work with it. Refer to [Web Auth](../../Auth/Web/overview) to view the supported IDPs and configuration guidelines.
+Create user hierarchy (including claims) in your identity service provider (IDP) and configure AI DIAL to work with it. Refer to [Web Auth](../Auth/Web/overview) to view the supported IDPs and configuration guidelines.
 
 ### Step 2: AI DIAL Core
 
