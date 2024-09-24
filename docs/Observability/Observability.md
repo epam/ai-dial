@@ -10,18 +10,18 @@ AI DIAL components provide the following types of monitoring/observability:
 <!-- omit from toc -->
 
 - [Overview](#overview)
-  - [Container logs](#container-logs)
+  - [Container Logs](#container-logs)
     - [Configuration AI DIAL](#configuration-ai-dial)
-      - [Configure python components](#configure-python-components)
-      - [Configure AI DIAL Chat](#configure-ai-dial-chat)
-      - [Configure AI DIAL Core](#configure-ai-dial-core)
+      - [Python Components](#python-components)
+      - [AI DIAL Chat](#ai-dial-chat)
+      - [AI DIAL Core](#ai-dial-core)
   - [Prometheus](#prometheus)
-    - [Configuration AI DIAL components](#configuration-ai-dial-components)
-    - [Configuration DIAL helm charts](#configuration-dial-helm-charts)
+    - [Configure AI DIAL Components](#configure-ai-dial-components)
+    - [Configure DIAL Helm Charts](#configure-dial-helm-charts)
   - [OpenTelemetry](#opentelemetry)
-    - [Configuration AI DIAL](#configuration-ai-dial-1)
-      - [Configure python components](#configure-python-components-1)
-      - [Configure nodejs components](#configure-nodejs-components)
+    - [Configure AI DIAL](#configure-ai-dial)
+      - [Python Components](#python-components-1)
+      - [Node.js Components](#nodejs-components)
   
 </div>
 
