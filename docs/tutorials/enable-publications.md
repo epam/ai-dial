@@ -29,7 +29,7 @@ The effective access rules for a folder structure can be described as follows:
 1. Within a single folder, the effective access rule is determined by the logical OR operation applied to all the access rules assigned to that folder. For example, in folder A with access rules a, b, and c, the effective rule is "a OR b OR c".
 2. Between nested folders, the effective access rule is determined by the logical AND operation applied between the effective rules of the parent folder and its subfolder. For example, if folder B with access rules d, e, and f is nested under folder A, the effective rule for accessing folder B is "(a OR b OR c) AND (d OR e OR f)".
 
-![](/img/rules.svg)
+![](./img/rules.svg)
 
 ## DIAL Chat
 
