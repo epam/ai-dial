@@ -8,24 +8,24 @@ AI DIAL components provide the following types of monitoring/observability:
 <div class="docusaurus-ignore">
 
 <!-- omit from toc -->
-
+# Table of Contents
 - [Overview](#overview)
-  - [Container Logs](#container-logs)
-    - [Configuration AI DIAL](#configuration-ai-dial)
-      - [Python Components](#python-components)
-      - [AI DIAL Chat](#ai-dial-chat)
-      - [AI DIAL Core](#ai-dial-core)
-  - [Prometheus](#prometheus)
-    - [Configure AI DIAL Components](#configure-ai-dial-components)
-    - [Configure DIAL Helm Charts](#configure-dial-helm-charts)
-  - [OpenTelemetry](#opentelemetry)
-    - [Configure AI DIAL](#configure-ai-dial)
-      - [Python Components](#python-components-1)
-      - [Node.js Components](#nodejs-components)
+- [Container Logs](#container-logs)
+  - [Configuration AI DIAL](#configuration-ai-dial)
+    - [Python Components](#python-components)
+    - [AI DIAL Chat](#ai-dial-chat)
+    - [AI DIAL Core](#ai-dial-core)
+- [Prometheus](#prometheus)
+  - [Configure AI DIAL Components](#configure-ai-dial-components)
+  - [Configure DIAL Helm Charts](#configure-dial-helm-charts)
+- [OpenTelemetry](#opentelemetry)
+  - [Configure AI DIAL](#configure-ai-dial)
+    - [Python Components](#python-components-1)
+    - [Node.js Components](#nodejs-components)
   
 </div>
 
-## Container Logs
+# Container Logs
 
 Unix and Linux commands typically open three I/O streams when they run, called STDIN, STDOUT, and STDERR. 
 
@@ -35,33 +35,33 @@ Unix and Linux commands typically open three I/O streams when they run, called S
 
 AI DIAL components by default use this approach for outputting system logs.
 
-### Configuration AI DIAL
+## Configuration AI DIAL
 
 ToDO: add parameters for logging
 
-#### Python Components
+### Python Components
 
 LOG_LEVEL 
 
-#### AI DIAL Chat
+### AI DIAL Chat
 
 ???
 
-#### AI DIAL Core
+### AI DIAL Core
 
 AIDIAL_LOG_LEVEL - Level filter. Values: TRACE, DEBUG, INFO, WARN, ERROR, FATAL.
 
-## Prometheus
+# Prometheus
 
 [Prometheus](https://prometheus.io/) is an open-source monitoring and alerting toolkit designed for reliability and scalability. It collects metrics from configured targets at specified intervals, stores them in a time-series database, and provides powerful querying capabilities. With its flexible architecture, Prometheus is particularly suited for dynamic environments, making it a popular choice for cloud-native applications and microservices. Its intuitive visualization tools help to gain deep insights into system performance, ensuring timely detection of issues.
 
 [Prometheus Operator](https://prometheus-operator.dev/) manages Prometheus clusters atop Kubernetes.
 
-### Configure AI DIAL Components
+## Configure AI DIAL Components
 
 By default, AI DIAL components have metrics enabled in Prometheus format on port 9464.
 
-### Configure DIAL Helm Charts
+## Configure DIAL Helm Charts
 
 Add the following helm values to AI DIAL Helm. Refer to [AI DIAL](https://github.com/epam/ai-dial-helm/tree/main/charts/dial) to learn more.
 
@@ -74,17 +74,17 @@ Add the following helm values to AI DIAL Helm. Refer to [AI DIAL](https://github
   ```
 The default port for collecting metrics in AI DIAL components is 9464. You can change the parameter `<component>.containerPorts.metrics` to change the default port.
 
-## OpenTelemetry
+# OpenTelemetry
 
 [OpenTelemetry](https://opentelemetry.io/) is an open-source observability framework designed to standardize the collection of telemetry data across distributed systems. By providing a unified set of APIs, libraries, and agents, it enables developers to capture traces, metrics, and logs from their applications seamlessly. OpenTelemetry simplifies the monitoring process and enhances visibility into application performance and reliability, making it easier to troubleshoot issues and optimize systems in real-time.
 
 AI DIAL supports OpenTelemetry (OTEL) methods to enhance observability by providing powerful metrics for collection and tracing capabilities, enabling deeper insights into system performance and behavior.
 
-### Configure AI DIAL
+## Configure AI DIAL
 
 All environment variables you can find in the official OpenTelemetry [documentation](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/).
 
-#### Python Components
+### Python Components
 
 All standard python environment variables you can find in the official OpenTelemetry [documentation](https://opentelemetry-python-contrib.readthedocs.io/en/latest/instrumentation/logging/logging.html). 
 
@@ -103,7 +103,7 @@ Example configuration of OpenTelemetry:
   OTEL_PYTHON_FASTAPI_EXCLUDED_URLS: "<exclude_url>" # to exclude certain URLs from tracking
 ```
 
-#### Node.js Components
+### Node.js Components
 
 * If the value for **OTEL_METRICS_EXPORTER** is not set, the [OpenTelemetry Prometheus Metric Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-prometheus) will be used. 
 * If its value is set to `"otlp"`, the [OpenTelemetry Collector Metrics Exporter for Web and Node](https://www.npmjs.com/package/@opentelemetry/exporter-metrics-otlp-http) will be used.
