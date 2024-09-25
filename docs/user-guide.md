@@ -4,7 +4,8 @@
 
 AI DIAL Chat is a powerful enterprise-grade application that serves as a default web interface for users, providing access to the full set of AI DIAL features.
 
-> Watch a [demo video](../video%20demos/demos/dial-ui-basics) with introduction to AI DIAL Chat UI.
+> * Watch a [demo video](../video%20demos/demos/dial-ui-basics) with introduction to AI DIAL Chat UI.
+> * Refer to [Quick Start](quick-start) to learn how to launch AI DIAL Chat in a few clicks.
 
 ### Additional Documentation
 
@@ -133,6 +134,8 @@ In the conversation header, you can view the current settings, change settings (
 ### Share
 
 You can share a conversation or a folder with several conversations with other users. Yo can also receive a shared conversation.
+
+> Watch [Collaboration](../video%20demos/demos/dial-collaboration) demo video to learn more about sharing and other collaboration features in AI DIAL.
 
 **To receive a shared conversation**:
 
@@ -321,7 +324,9 @@ As you can see on the picture above, the system creates two conversations with t
 
 You can publish conversations to make them available for the target audience.
 
-**Note**: to publish a shared conversation, [duplicate](#duplicate) it and then publish. 
+> Watch [Publications](../video%20demos/demos/dial-publications) demo video to learn more about collaboration features in AI DIAL.
+
+> **Note**: to publish a shared conversation, [duplicate](#duplicate) it and then publish. 
 
 **To publish a conversation**: 
 
@@ -518,6 +523,8 @@ Also, you can use a *selection* mode to choose prompt(s) you want to delete:
 
 You can share a prompt or a folder with several prompts with other users.
 
+> Watch [Collaboration](../video%20demos/demos/dial-collaboration) demo video to learn more about sharing and other collaboration features in AI DIAL.
+
 **To Receive a Shared Prompt**:
 
 To obtain a prompt from someone else (receive a shared prompt), you must get a link from them. By clicking on this link, you will import the prompt into your chat.
@@ -578,6 +585,8 @@ When importing a **duplicate** of an existing prompt, you will be asked to selec
 ### Publish
 
 You can publish prompts to make them available for the target audience. 
+
+> Watch [Publications](../video%20demos/demos/dial-publications) demo video to learn more about collaboration features in AI DIAL.
 
 > **Note**: to publish a shared prompt, [duplicate](#duplicate-1) it and then publish. 
 
@@ -919,6 +928,8 @@ Click a folder to expand it.
 ## Publications
 
 You can publish/unpublish conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
+
+> Watch [Publications](../video%20demos/demos/dial-publications) demo video to learn more about collaboration features in AI DIAL.
 
 ### Configuration
 

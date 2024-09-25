@@ -27,7 +27,7 @@ For audio/video-to-text tasks, AI DIAL has adapters for Gemini 1.5 Pro and Flash
 
 ### Applications
 
-You can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom applications, which are basically any custom logic with a conversation interface packaged as a ready-to-use solution. Refer to [Tutorials](./quick-start-with-application) to learn how to create a simple application or watch a [demo video](../video%20demos/demos-for-developers/dial-develop-and-deploy).
+You can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom applications, which are basically any custom logic with a conversation interface packaged as a ready-to-use solution. Refer to [Tutorials](./quick-start-with-application) to learn how to create a simple application or watch a [demo video](../video%20demos/demos-for-developers/develop-application).
 
 Such application can be designed and configured to use multimodal LLMs to perform specific tasks or even form an ecosystem of applications that can interact with each other. 
 
