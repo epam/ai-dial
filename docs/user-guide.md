@@ -916,6 +916,79 @@ Click a folder to expand it.
 
 ![](./img/file-delete.png)
 
+## Applications
+
+Application in AI DIAL is any custom logic with a conversation interface packaged as a ready-to-use solution. Applications can be developed (using [DIAL SDK](https://github.com/epam/ai-dial-sdk)) to execute any custom logic and can even form an [ecosystem](./architecture#introduction) and interact with each other through the [Unified API](https://epam-rail.com/dial_api) with access to all DIAL Core features among which is connectivity to models, file storage, access control, per-request API keys and other.
+
+> Watch a [DIAL RAG](../video%20demos/demos/dial-rag) video as an example of what DIAL applications may look like.
+
+AI DIAL platform serves as an **application server**, offering tools to develop, deploy and operate custom applications.
+
+In the [Talk To](#talk-to) section, chat users can select what applications they want to interact with, register and publish their own applications.
+
+### Register
+
+In the the [Talk To](#talk-to) section, chat users can register their own applications:
+
+![](./img/register-app.png)
+
+**To register application:**
+
+1. Click **Add app**
+2. Fill in the [Add application](#addedit-application-form) form
+3. The registered application will appear in the list of applications.
+
+Once you register you application, you can select it for interaction in the Talk To/Applications section. 
+
+#### Add/Edit Application Form
+
+![](./img/add-app.png)
+
+|Field|Required|Description|
+|---|---|-------------|
+|Name|Yes|Application name|
+|Version|Yes|Application version, following the format `x.y.z` and contain only numbers and dots.|
+|Icon|Yes|The icon that will be rendered in the chat UI for this application|
+|Description|No|Enter a short description that will be rendered in the chat UI. Add two line breaks and provide an addition description if needed.|
+|Features data|No|Application features in Json format. Currently, only two are supported: rate and configuration endpoints. Rate endpoint is the endpoint for rate requests.|
+|Attachments type|No|Types of attachments allowed for this application. Provide the types according to [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). E.g.: image/png and click enter.|
+|Max. attachments number|No|Skip to apply the max integer number. Enter `0` to disable attachments.|
+|Completion URL|Yes|A completion URL for the application.|
+
+
+### Edit
+
+You can edit registered applications:
+
+1. Click **Edit** to invoke the [Edit application form](#addedit-application-form)
+
+![](./img/register-app2.png)
+
+2. Make changes and click **Save**
+
+### Publish
+
+You can publish you applications to make them accessible to the selected audience in your organization. Refer to [Publications](#publications) to learn more about this functionality.
+
+**To publish application:**
+
+1. In the application menu (you can also find a Publish icon in the Edit application form), click **Publish**
+
+![](./img/register-app3.png)
+
+1. Enter **publication request name** in the upper area.
+2. In **Publish to**, select the target destination or a folder to publish your prompt into.
+3. In **Allow access...**, specify access rules and the target audience. For example Role-Equals-Admin. **Note**: the available roles are defined in each organization individually. Contact your support to find out the rules are applicable in your organization.
+4. In **Applications** you can choose what applications you want to publish.
+5. Click **Send request** to send your publication request to the administrator.
+
+When your request is approved, the published application will become available in the Talk to/Applications for the target audience.
+
+### Delete
+
+![](./img/register-app4.png)
+
+
 ## Publications
 
 You can publish/unpublish conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
