@@ -15,6 +15,8 @@ AI DIAL components provide the following types of monitoring/observability:
     - [Python Components](#python-components)
     - [AI DIAL Chat](#ai-dial-chat)
     - [AI DIAL Core](#ai-dial-core)
+    - [AI DIAL Bedrock Adapter](#ai-dial-bedrock-adapter)
+    - [AI DIAL Vertex Adapter](#ai-dial-vertex-adapter)
 - [Prometheus](#prometheus)
   - [Configure AI DIAL Components](#configure-ai-dial-components)
   - [Configure DIAL Helm Charts](#configure-dial-helm-charts)
