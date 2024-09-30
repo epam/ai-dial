@@ -49,7 +49,19 @@ LOG_LEVEL
 
 ### AI DIAL Core
 
-AIDIAL_LOG_LEVEL - Level filter. Values: TRACE, DEBUG, INFO, WARN, ERROR, FATAL.
+`AIDIAL_LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`.
+
+### AI DIAL Bedrock Adapter
+
+`LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod
+
+`AIDIAL_LOG_LEVEL` - AI DIAL SDK log level. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`.
+
+### AI DIAL Vertex Adapter
+
+`LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod
+
+`AIDIAL_LOG_LEVEL` - AI DIAL SDK Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`.
 
 # Prometheus
 
