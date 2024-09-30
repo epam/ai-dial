@@ -697,23 +697,27 @@ Take a closer look at each of these elements.
 
 ### Talk To
 
-![](./img/Talk_to_full_list.png)
+In this section, you can view all models, applications and assistants that you have selected in My Applications section. Here, you can select them to use in conversations.
 
-In this section, you can choose the language model for communication, as well as an Assistant or Application to implement specific behavior for the LLM.
+![](./img/talk-to.png)
 
 #### Language Models
 
-1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
-2. All tabs (Models, Applications and Assistants) are enabled by default. To display just Models, disable the rest and keep the **Models** tab active.
-3. To select a model: click any of the available models or select its version in the dropdown list. The selected model will appear in the models list as pre-selected for the new conversation.
+1. In the **Talk to** area, click **Search on My applications** to navigate to **My applications** where you can display all models, applications and assistants that you have selected. Note, in the **DIAL Marketplace** section, you can view all the models available on your DIAL environment. There, you can select models to add them to **My applications**.
+2. To display just Models, disable all other **Types** and enable just **Models**.
+3. To select a model, click any of the available models or select its version in the dropdown list. The selected model will appear in the models list as pre-selected for the new conversation.
 
-![](./img/all_models.png)
+![](./img/talk-to-models.png)
 
-**Available language models**:
+#### Available Models
 
-> See the full [list of supported models](/supported-models).
+In the **DIAL Marketplace** section, you can view all the models available on your DIAL environment. There, you can select models to add them to **My applications**.
 
-- *GPT-3.5* is an advanced language model developed by OpenAI, known for its powerful natural language processing, understanding, and context awareness. Enabling human-like conversations, it can carry out various tasks, including summarizing, translation, content creation, and answering queries.
+![](./img/talk-to-models2.png)
+
+> Refer to [Supported Models](/supported-models) to view all the models supported in AI DIAL.
+
+<!-- - *GPT-3.5* is an advanced language model developed by OpenAI, known for its powerful natural language processing, understanding, and context awareness. Enabling human-like conversations, it can carry out various tasks, including summarizing, translation, content creation, and answering queries.
 - *GPT-4* is the latest iteration of the GTP series by OpenAI, offering more powerful natural language processing capabilities than its previous versions. It harnesses extensive training and massive datasets to deliver lifelike conversations, unsurpassed context awareness, and high-quality content generation across multiple languages and domains.
 - *GPT-4-32K* is the extension for GTP-4 that can possess a larger context window size (32,000 tokens). It offers several advantages, including a better understanding of context, improved performance in long-form tasks, enhanced reasoning and knowledge handling, and increased creativity in content generation. Please only use this one if you absolutely need it. It's slower and more expensive.
 - *PaLM2 (Bison)* is an LLM developed by Google that leverages an innovative hierarchical architecture to enhance its linguistic competence and computational efficiency. By employing parallel and multitask learning mechanisms, PaLM2 (Bison) provides exceptional performance in diverse language tasks, like question-answering, summarization, and translation, while also being highly scalable and adaptive to new environments.
@@ -724,16 +728,16 @@ In this section, you can choose the language model for communication, as well as
 - *Anthropic (Claude)* is a large-scale LLM with 175 billion parameters that is optimized for general-purpose language tasks, including question answering, dialogue generation, and text completion. The model has been trained on data from a wide range of sources to provide high accuracy in many contexts.
 - *Anthropic (Claude Instant)* is an LLM that can generate responses in real-time, making it useful for applications such as chatbots and virtual assistants. It is a smaller model than the Anthropic (Claude) model, with 9 billion parameters, and is optimized for low-latency inference.
 - *Anthropic (Claude V2)* is an upgraded version of the Anthropic (Claude) model, with 400 billion parameters, making it one of the largest language models to date. This model is designed for sophisticated NLP applications involving complex reasoning, inference, and understanding of long-form text data.
-- *AWS (Titan)*: AWS (Amazon Web Services) developed an LLM called Titan in 2021, which has 850 billion parameters, making it the largest publicly available language model at the time of its introduction. The model was trained on a diverse set of text sources, including web pages, books, and news articles. Titan is designed to handle complex natural language processing tasks, such as summarization, dialogue generation, and translation.
+- *AWS (Titan)*: AWS (Amazon Web Services) developed an LLM called Titan in 2021, which has 850 billion parameters, making it the largest publicly available language model at the time of its introduction. The model was trained on a diverse set of text sources, including web pages, books, and news articles. Titan is designed to handle complex natural language processing tasks, such as summarization, dialogue generation, and translation. -->
 
 
 #### Assistants
 
-1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
-2. All tabs (Models, Applications and Assistants) are enabled by default. To display just Assistants, disable the rest and keep the **Assistants** tab active.
-3. Click any of the available assistants to start a conversation. 
+1. In the **Talk to** area, click **Search on My applications** to navigate to **My applications** where you can display all models, applications and assistants that you have selected. 
+2. To display just Assistants, disable all other **Types** and enable just **Assistants**. Note, in the **DIAL Marketplace** section, you can view all the Assistants available on your DIAL environment. There, you can select Assistants to add them to **My applications**.
+3. To select an Assistant, click any of the available Assistants.
 
-![](./img/Talk_to_full_list_assistants.png)
+![](./img/talk-to-assistants.png)
 
 In the AI DIAL framework, Assistants are a combination of preselected Addons and System Prompts that enable specific behavior in the LLM, allowing for more tailored and adaptive responses to user needs. Unlike the Model+Addon configuration, where users have the flexibility to choose different Addons, Assistants come with predetermined Addons that cannot be removed or unselected. However, the Model can still be reassigned within the Assistant.
 
@@ -743,13 +747,13 @@ In a chat application, you can include custom Assistant(s) that users can choose
 
 #### Applications
 
-1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
-2. All tabs (Models, Applications and Assistants) are enabled by default. To display just Applications, disable the rest and keep the **Applications** tab active.
+> Refer to [Applications](#applications-1) to learn more about them and how to register custom apps in AI DIAL Chat.
+
+1. In the **Talk to** area, click **Search on My applications** to navigate to **My applications** where you can display all models, applications and assistants that you have selected. 
+2.  display just Applications, disable all other **Types** and enable just **Applications**. Note, in the **DIAL Marketplace** section, you can view all the Applications available on your DIAL environment. There, you can select Applications to add them to **My applications**.
 3. Click any of the available applications to start a conversation. 
 
-![](./img/applications.png)
-
-In the AI DIAL framework, Applications are ready-to-use solutions made up of predefined configurations of Addons and other services or any custom logic. They help you customize LLM behavior by integrating Addons with any desired logic. Applications can be any component that meets API requirements and implements non-LLM-related logic, such as repeating user messages, creating a fully deterministic chatbot, or managing complex multi-LLM interactions. This versatility in Applications allows for tailored handling of unique scenarios and requirements.
+![](./img/talk-to-apps.png)
 
 ### System Prompt
 
@@ -790,10 +794,12 @@ Adjusting the temperature allows you to balance creativity and consistency in th
 ### Addons
 
 You may want LLM to access particular data or technology to generate responses. This could be your company's database, a collection of PDF documents, calculation engines, API or any other data source or technology.
-Within the AI DIAL framework, an Addon is a service or any component that follows the Open API specification. Some examples of Addon implementation are semantic search, Q&A search, DB query generator, or any other custom logic that meets your business needs. AI DIAL can include custom Addons that you can choose to activate a specific system behavior.
 
-1. In the **Talk to** area, click **See all addons...** to display all the available addons.
-2. Select one or several addons and click **Apply addons**.
+In the AI DIAL framework, an **Addon** refers to a service or component that conforms to the Open API specification. Examples of Addon implementations include semantic search, Q&A search, database query generators, or any custom logic tailored to meet specific business requirements. AI DIAL allows for the inclusion of custom Addons, which can be activated to achieve desired system behaviors.
+
+1. In the **Talk to** area, select a model to display additional parameters in the section to the right.
+2. In the **Addons** section you can view the addons available in your DIAL environment. 
+3. Click on **See all addons...** to view all available addons. You can select one or more addons and then click **Apply addons** to start using them.
 
 ![](./img/addons2.png)
 
@@ -918,17 +924,21 @@ Click a folder to expand it.
 
 ## Applications
 
-Application in AI DIAL is any custom logic with a conversation interface packaged as a ready-to-use solution. Applications can be developed (using [DIAL SDK](https://github.com/epam/ai-dial-sdk)) to execute any custom logic and can even form an [ecosystem](./architecture#introduction) and interact with each other through the [Unified API](https://epam-rail.com/dial_api) with access to all DIAL Core features among which is connectivity to models, file storage, access control, per-request API keys and other.
+An Application in AI DIAL refers to any custom logic with a conversational interface, adhering to a [Unified API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post), and packaged as a ready-to-deploy solution. Applications can facilitate the customization of LLM behavior by incorporating Addons with various desired functionalities. Additionally, Applications can support logic not directly related to LLMs, such as echoing user messages, creating a fully deterministic chatbot, or orchestrating complex interactions involving multiple LLMs. The flexibility offered by Applications enables customized solutions for distinct scenarios and needs.
+
+Applications can be developed (using [DIAL SDK](https://github.com/epam/ai-dial-sdk)) to execute any custom logic and can even form an [ecosystem](./architecture#introduction) and interact with each other through the [Unified API](https://epam-rail.com/dial_api) with access to all DIAL Core features among which is connectivity to models, file storage, access control, per-request API keys and other.
 
 > Watch a [DIAL RAG](../video%20demos/demos/dial-rag) video as an example of what DIAL applications may look like.
 
 AI DIAL platform serves as an **application server**, offering tools to develop, deploy and operate custom applications.
 
-In the [Talk To](#talk-to) section, chat users can select what applications they want to interact with, register and publish their own applications.
-
 ### Register
 
-In the the [Talk To](#talk-to) section, chat users can register their own applications:
+If you want to use your custom application, you can register it in In AI DIAL Chat. Once you add applications through this process,  configuration JSON files for your registered applications will be stored in a dedicated folder within a bucket assigned to your user account. These files can then be accessed by DIAL Core to facilitate the integration and operation of your applications. 
+
+> **Important Requirement**: Custom applications must provide a chat completion endpoint for DIAL Core and adhere to the [Unified API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) standards to ensure seamless integration and functionality.
+
+You can register and view your applications in the **My Applications** section. From there, you can select which applications you want to appear in the [Talk To](#talk-to) section, making them available for use in conversations.
 
 ![](./img/register-app.png)
 
@@ -936,25 +946,22 @@ In the the [Talk To](#talk-to) section, chat users can register their own applic
 
 1. Click **Add app**
 2. Fill in the [Add application](#addedit-application-form) form
-3. The registered application will appear in the list of applications.
-
-Once you register you application, you can select it for interaction in the Talk To/Applications section. 
+3. The registered application will appear in **My applications**
 
 #### Add/Edit Application Form
 
 ![](./img/add-app.png)
 
 |Field|Required|Description|
-|---|---|-------------|
-|Name|Yes|Application name|
+|---|:---:|-------------|
+|Name|Yes|Application name.|
 |Version|Yes|Application version, following the format `x.y.z` and contain only numbers and dots.|
-|Icon|Yes|The icon that will be rendered in the chat UI for this application|
-|Description|No|Enter a short description that will be rendered in the chat UI. Add two line breaks and provide an addition description if needed.|
-|Features data|No|Application features in Json format. Currently, only two are supported: rate and configuration endpoints. Rate endpoint is the endpoint for rate requests.|
+|Icon|Yes|The icon that will be rendered in the chat UI for this application.|
+|Description|No|A short description that will be rendered in the chat UI. Add two line breaks and provide an addition description if needed.|
+|Features data|No|Application features are specific configurations of applications specified in JSON format. Currently, only two are supported: rate and configuration endpoints. Rate endpoint is the endpoint for rate requests. Refer to [DIAL Core config](https://github.com/epam/ai-dial-core/blob/72871a1869fecc26561313cd1ce9797c37d101d6/sample/aidial.config.json#L92) to view the full set of available features.|
 |Attachments type|No|Types of attachments allowed for this application. Provide the types according to [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). E.g.: image/png and click enter.|
-|Max. attachments number|No|Skip to apply the max integer number. Enter `0` to disable attachments.|
-|Completion URL|Yes|A completion URL for the application.|
-
+|Max. attachments number|No|The maximal number of attachments the application is allowed to accept. Skip to apply the max integer number. Enter `0` to disable attachments.|
+|Completion URL|Yes|A completion URL exposed by your application and used by DIAL Core to send chat completion requests.|
 
 ### Edit
 
@@ -965,6 +972,17 @@ You can edit registered applications:
 ![](./img/register-app2.png)
 
 2. Make changes and click **Save**
+
+### Converse
+
+1. In **My applications**, click an application and select to use it.  
+
+   ![](./img/select-app.png)
+
+2. Click **Back to Chat** to return to the main chat screen.
+3. Click **New conversation**. The selected application will appear in the [Talk To](#talk-to) section. From there, you can use it for conversations.
+
+   ![](./img/select-app2.png)
 
 ### Publish
 
@@ -982,16 +1000,21 @@ You can publish you applications to make them accessible to the selected audienc
 4. In **Applications** you can choose what applications you want to publish.
 5. Click **Send request** to send your publication request to the administrator.
 
-When your request is approved, the published application will become available in the Talk to/Applications for the target audience.
+> **Note**, when your request is approved, the published application will become available in the Marketplace section for the target audience.
 
 ### Delete
 
-![](./img/register-app4.png)
+You can remove an application from the section My applications. Use Delete in the app's menu to do this: 
 
+1. Navigate to the My applications section.
+2. In the application menu, click **Delete**.
+3. Confirm your action in the dialog window.
+
+![](./img/register-app4.png)
 
 ## Publications
 
-You can publish/unpublish conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
+You can publish/unpublish your applications, conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
 
 ### Configuration
 
