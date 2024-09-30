@@ -41,12 +41,6 @@ AI DIAL components by default use this approach for outputting system logs.
 
 ## Configuration AI DIAL
 
-ToDO: add parameters for logging
-
-### Python Components
-
-`LOG_LEVEL` - Level filter.
-
 ### AI DIAL Chat
 
 AI DIAL supports OpenTelemetry (OTEL) methods to enhance observability by providing powerful metrics for collection and tracing capabilities, enabling deeper insights into system performance and behavior.
@@ -55,7 +49,6 @@ All environment variables you can find in the official OpenTelemetry Collector L
 
 ```yaml
 OTEL_EXPORTER_OTLP_LOGS_ENDPOINT: #The endpoint to send logs to. By default https://localhost:4318/v1/logs will be used. v1/logs will not be appended automatically and has to be added explicitly.
-
 OTEL_EXPORTER_OTLP_LOGS_TIMEOUT: #The maximum waiting time, in milliseconds, allowed to send each OTLP log batch. Default is 10000.
 ```
 
@@ -63,33 +56,44 @@ AI DIAL supports OpenTelemetry SDK for Node.js.
 
 All environment variables you can find in the official OpenTelemetry SDK for Node.js [documentation](https://www.npmjs.com/package/@opentelemetry/sdk-node).
 
-`OTEL_SDK_DISABLED` - Disable the SDK by setting the OTEL_SDK_DISABLED environment variable to `true`.
-
-`OTEL_LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod
+```yaml
+OTEL_SDK_DISABLED: #Disable the SDK by setting the OTEL_SDK_DISABLED environment variable to `true`
+OTEL_LOG_LEVEL: #Log level used by the SDK logger.` Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
+```
 
 ### AI DIAL Core
 
-`AIDIAL_LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`.
+The nex environment variables you can for the configuring logging:
+```yaml
+AIDIAL_LOG_FILE: #Place when the log file should be stored.
+AIDIAL_LOG_LEVEL: #The logging levels used are ERROR, WARN, INFO, DEBUG, and TRACE.
+```
 
 ### AI DIAL Bedrock Adapter
 
-`LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod
-
-`AIDIAL_LOG_LEVEL` - AI DIAL SDK log level. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`.
+```yaml
+LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
+AIDIAL_LOG_LEVEL: #AI DIAL SDK log level. Values: `TRACE, DEBUG, INFO, WARNING, ERROR, FATAL`.
+```
 
 ### AI DIAL Vertex Adapter
 
-`LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod
-
-`AIDIAL_LOG_LEVEL` - AI DIAL SDK Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`.
+```yaml
+LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
+AIDIAL_LOG_LEVEL: #AI DIAL SDK Level filter. Values: `TRACE, DEBUG, INFO, WARNING, ERROR, FATAL`.
+```
 
 ### AI DIAL OpenAI Adapter
 
-`LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod
+```yaml
+LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
+```
 
 ### AI DIAL Adapter
 
-`LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod
+```yaml
+LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
+```
 
 # Prometheus
 
