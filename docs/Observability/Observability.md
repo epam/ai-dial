@@ -17,6 +17,8 @@ AI DIAL components provide the following types of monitoring/observability:
     - [AI DIAL Core](#ai-dial-core)
     - [AI DIAL Bedrock Adapter](#ai-dial-bedrock-adapter)
     - [AI DIAL Vertex Adapter](#ai-dial-vertex-adapter)
+    - [AI DIAL OpenAI Adapter](#ai-dial-openai-adapter)
+    - [AI DIAL Adapter](#ai-dial-adapter)
 - [Prometheus](#prometheus)
   - [Configure AI DIAL Components](#configure-ai-dial-components)
   - [Configure DIAL Helm Charts](#configure-dial-helm-charts)
@@ -64,6 +66,14 @@ LOG_LEVEL
 `LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod
 
 `AIDIAL_LOG_LEVEL` - AI DIAL SDK Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`.
+
+### AI DIAL OpenAI Adapter
+
+`LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod
+
+### AI DIAL Adapter
+
+`LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod
 
 # Prometheus
 
