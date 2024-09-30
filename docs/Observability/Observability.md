@@ -59,6 +59,14 @@ OTEL_EXPORTER_OTLP_LOGS_ENDPOINT: #The endpoint to send logs to. By default http
 OTEL_EXPORTER_OTLP_LOGS_TIMEOUT: #The maximum waiting time, in milliseconds, allowed to send each OTLP log batch. Default is 10000.
 ```
 
+AI DIAL supports OpenTelemetry SDK for Node.js. 
+
+All environment variables you can find in the official OpenTelemetry SDK for Node.js [documentation](https://www.npmjs.com/package/@opentelemetry/sdk-node).
+
+`OTEL_SDK_DISABLED` - Disable the SDK by setting the OTEL_SDK_DISABLED environment variable to `true`.
+
+`OTEL_LOG_LEVEL` - - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod
+
 ### AI DIAL Core
 
 `AIDIAL_LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`.
