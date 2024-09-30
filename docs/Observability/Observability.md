@@ -65,7 +65,7 @@ All environment variables you can find in the official OpenTelemetry SDK for Nod
 
 `OTEL_SDK_DISABLED` - Disable the SDK by setting the OTEL_SDK_DISABLED environment variable to `true`.
 
-`OTEL_LOG_LEVEL` - - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod
+`OTEL_LOG_LEVEL` - Level filter. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod
 
 ### AI DIAL Core
 
