@@ -48,6 +48,12 @@ The diagram below demonstrates the most complete landscape of AI DIAL ecosystem:
 
 ![max-zoom](./img/full-landscape3.svg)
 
+## Resources
+
+In AI DIAL, we call *resources* applications, language models, conversations, prompts and files. DIAL resources are handled according to the similar pattern (CRUD operations, publications, sharing, storage and other).
+
+> In [DIAL API](https://epam-rail.com/dial_api) you can find dedicated sections for working with resources.
+
 ## AI DIAL Components
 
 ### AI DIAL Core

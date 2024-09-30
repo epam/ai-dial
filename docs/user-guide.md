@@ -33,6 +33,7 @@ The AI DIAL Chat application interface has several sections, such as the chat bo
 3. [Chat Settings](#chat-settings): In this section, you can select the language model, assistant, application, and addons you'd like to use. You can also provide a system prompt and adjust the temperature setting.
 4. [Prompts](#prompts): In this section, you can work with saved prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
 5. [User Settings](#user-settings): In your user settings, you can customize the color theme (dark or light), choose a custom logo and other customization options.
+6. [DIAL Marketplace](#dial-marketplace): This section includes all applications, language models and assistants available on your DIAL environment.
 
 
 
@@ -929,7 +930,7 @@ You can publish/unpublish your applications, conversations and prompts, or even 
 
 ### Configuration
 
-> Refer to [tutorials](/tutorials/enable-publications#dial-chat) to learn more about working and configuring publications.
+> Refer to [tutorials](/tutorials/Collaboration/enable-publications#dial-chat) to learn more about working and configuring publications.
 
 To enable the publication feature:
 
@@ -941,35 +942,13 @@ To enable the publication feature:
 
 This is the high level overview of the publication workflow: 
 
-1. Chat user sends a publication request for the selected resource(s) (conversation, prompt).
-2. Admin receives the publication request, reviews it and either approves or declines.
-3. In case the publication request has been approved, the published resource becomes available for the target audience in the Organization section in the chat application. If the published resource includes attachments, they will be available in the Organization section in the [Attachments Manager](#attachments-manager).
+1. Chat user sends a publication request for the selected resource(s) ([conversation](#publish), [prompt](#publish-1), [application](#publish-app)).
+2. Admin receives the publication request, reviews it and either approves or declines. Refer to [Process Publish Requests](#process-publish-requests) to learn more.
+3. In case the publication request has been approved, the published resources (conversations and prompts) become available for the target audience in the Organization section in the chat application. Published applications can be found on the [Home page](#home-page). If the published conversation includes attachments, they will be available in the [Attachments Manager](#attachments-manager).
 4. Resource owner can unpublish the published resource.
 
-> Refer to [Conversations](#publish) and [Prompts](#publish-1) to view a step-by-step instructions.
+> Refer to [Conversations](#publish), [Prompts](#publish-1) and [Publish App](#publish-app) to view step-by-step instructions.
 
-
-## Data Visualization
-
-AI DIAL Chat enables data visualization for specific data types using data visualizers. It comes with built-in support for the [Plotly data visualizer](#plotly). To link any other custom visualizers, you can use the [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) library.
-
-> Refer to [Data Visualization](../tutorials/data-visualization) to learn more about visualizing data in chat and custom visualization apps.
-
-### Plotly
-
-Plotly is an open-source JavaScript library that enables the creation of diverse data visualizations, including charts, 3D graphs, and more.
-
-![](./img/plotly.png)
-
-> Refer to [Plotly](https://plotly.com/) to learn more. 
-
-AI DIAL Chat integrates with Plotly, offering robust data visualization capabilities. To utilize Plotly, choose an AI DIAL application that supports this feature. These applications must be capable of querying data (either from a URL or directly from the Chat application) based on user input and returning it in a format compatible with Plotly. Chat automatically detects attachments in this format and uses Plotly to visualize the data.
-
-![](./img/plotly2.png)
-
-The visualizations come with standard Plotly controls for easy manipulation.
-
-> Refer to [Plotly GitHub](https://github.com/plotly/react-plotly.js) to learn more. 
 
 ## Administrators
 
@@ -998,6 +977,29 @@ The count shows the number of requests to be reviewed. Each such request has a c
 ![](./img/review-mode2.png)
 
 5. Once the review is completed, the **Approve** button is enabled. **Note**, you can approve or reject only the entire request.
+
+## Data Visualization
+
+AI DIAL Chat enables data visualization for specific data types using data visualizers. It comes with built-in support for the [Plotly data visualizer](#plotly). To link any other custom visualizers, you can use the [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) library.
+
+> Refer to [Data Visualization](../tutorials/data-visualization) to learn more about visualizing data in chat and custom visualization apps.
+
+### Plotly
+
+Plotly is an open-source JavaScript library that enables the creation of diverse data visualizations, including charts, 3D graphs, and more.
+
+![](./img/plotly.png)
+
+> Refer to [Plotly](https://plotly.com/) to learn more. 
+
+AI DIAL Chat integrates with Plotly, offering robust data visualization capabilities. To utilize Plotly, choose an AI DIAL application that supports this feature. These applications must be capable of querying data (either from a URL or directly from the Chat application) based on user input and returning it in a format compatible with Plotly. Chat automatically detects attachments in this format and uses Plotly to visualize the data.
+
+![](./img/plotly2.png)
+
+The visualizations come with standard Plotly controls for easy manipulation.
+
+> Refer to [Plotly GitHub](https://github.com/plotly/react-plotly.js) to learn more. 
+
 
 ## Applications
 
@@ -1125,7 +1127,7 @@ You can edit registered applications:
 
 #### Publish App
 
-You can publish you applications to make them accessible to the selected audience in your organization. Refer to [Publications](#publications) to learn more about this functionality.
+You can publish you applications to make them accessible to the selected audience in your organization. Refer to [Publications](#publications) to learn more about this functionality and to [Tutorials](./tutorials/Collaboration/enable-publications) for a more extended documentation.
 
 **To publish application:**
 
