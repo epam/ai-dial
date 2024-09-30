@@ -45,11 +45,19 @@ ToDO: add parameters for logging
 
 ### Python Components
 
-LOG_LEVEL 
+`LOG_LEVEL` - Level filter.
 
 ### AI DIAL Chat
 
-???
+AI DIAL supports OpenTelemetry (OTEL) methods to enhance observability by providing powerful metrics for collection and tracing capabilities, enabling deeper insights into system performance and behavior.
+
+All environment variables you can find in the official OpenTelemetry Collector Logs Exporter for web and node with HTTP [documentation](https://www.npmjs.com/package/@opentelemetry/exporter-logs-otlp-http).
+
+```yaml
+OTEL_EXPORTER_OTLP_LOGS_ENDPOINT: #The endpoint to send logs to. By default https://localhost:4318/v1/logs will be used. v1/logs will not be appended automatically and has to be added explicitly.
+
+OTEL_EXPORTER_OTLP_LOGS_TIMEOUT: #The maximum waiting time, in milliseconds, allowed to send each OTLP log batch. Default is 10000.
+```
 
 ### AI DIAL Core
 
