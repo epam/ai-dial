@@ -73,14 +73,14 @@ AIDIAL_LOG_LEVEL: #The logging levels used are ERROR, WARN, INFO, DEBUG, and TRA
 
 ```yaml
 LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
-AIDIAL_LOG_LEVEL: #AI DIAL SDK log level. Values: `TRACE, DEBUG, INFO, WARNING, ERROR, FATAL`.
+AIDIAL_LOG_LEVEL: #AI DIAL SDK Level filter for the LLM and response logging. Values: `TRACE, DEBUG, INFO, WARNING, ERROR, FATAL`.
 ```
 
 ### AI DIAL Vertex Adapter
 
 ```yaml
 LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
-AIDIAL_LOG_LEVEL: #AI DIAL SDK Level filter. Values: `TRACE, DEBUG, INFO, WARNING, ERROR, FATAL`.
+AIDIAL_LOG_LEVEL: #AI DIAL SDK Level filter for the LLM and response logging. Values: `TRACE, DEBUG, INFO, WARNING, ERROR, FATAL`.
 ```
 
 ### AI DIAL OpenAI Adapter
