@@ -4,6 +4,8 @@
 
 In this tutorial, you will learn how to quickly launch AI DIAL Chat with a self-hosted model powered by [Ollama](https://ollama.com/).
 
+> Watch a [demo video](../video%20demos/demos-for-developers/deploy-ollama) to see it in action.
+
 ## Prerequisites
 
 Docker engine installed on your machine (Docker Compose Version 2.20.0 +).

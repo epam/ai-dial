@@ -4,6 +4,8 @@
 
 From this tutorial, you will learn how to create and deploy a simple Echo application for AI DIAL Chat. Echo application mirrors all user prompts.
 
+> Watch a [demo video](../video%20demos/demos-for-developers/develop-application) to see in action how to develop a simple application.
+
 > Take note that this document covers the most basic aspects of developing and testing AI DIAL applications. Deploying and distributing these applications for production purposes will require additional configurations that guarantee secure access to the application endpoints through the implementation of firewalls and other network security settings to prevent unauthorized intrusion to the deployed applications.
 
 ## About AI DIAL Extension Framework

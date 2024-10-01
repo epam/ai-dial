@@ -2,6 +2,8 @@
 
 You can publish/unpublish conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
 
+> Watch [Publications](../video%20demos/demos/dial-publications) demo video to learn more about collaboration features in AI DIAL.
+
 ## DIAL API
 
 Refer to [AI DIAL API](https://epam-rail.com/dial_api#tag/Publications) to view publications endpoints.
