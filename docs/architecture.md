@@ -50,9 +50,9 @@ The diagram below demonstrates the most complete landscape of AI DIAL ecosystem:
 
 ## Resources
 
-In AI DIAL, we call *resources* applications, language models, conversations, prompts and files. DIAL resources are handled according to the similar pattern (CRUD operations, publications, sharing, storage and other).
+In AI DIAL, we call *resources* applications, conversations, prompts and files. When added to the system, they are stored in a dedicated folder within a blob store account bucket assigned to your user account. You can handle resources according to the similar pattern (CRUD operations, publications, sharing and other).
 
-> In [DIAL API](https://epam-rail.com/dial_api) you can find dedicated sections for working with resources.
+> In [DIAL API](https://epam-rail.com/dial_api) you can find dedicated sections for working with resources: [applications](https://epam-rail.com/dial_api#tag/Applications), [conversations](https://epam-rail.com/dial_api#tag/Conversations), [prompts](https://epam-rail.com/dial_api#tag/Prompts) and [files](https://epam-rail.com/dial_api#tag/Files).
 
 ## AI DIAL Components
 
