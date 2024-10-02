@@ -1,6 +1,7 @@
 # Overview
 
 AI DIAL components provide the following types of monitoring/observability:
+
 - Logs ([Container logs](#container-logs) or [OTel](#opentelemetry))
 - Metrics ([Prometheus](#prometheus) or [OTel](#opentelemetry))
 - Traces ([OTel](#opentelemetry))
@@ -60,44 +61,54 @@ OTEL_LOG_LEVEL: #Log level used by the SDK logger.` Values: `TRACE, DEBUG, INFO,
 ```
 
 #### Core
-The main component of AI DIAL, which provides unified API to different chat completion and embedding models, assistants, and applications.
 
-The next environment variables you can for the configuring logging:
+[DIAL Core](https://github.com/epam/ai-dial-core) is the main component of AI DIAL, which provides [Unified API](https://epam-rail.com/dial_api) to different chat completion and embedding models, assistants, and applications.
+
+These environment variables you can use to configure logging:
+
 ```yaml
 AIDIAL_LOG_FILE: #Place when the log file should be stored.
 AIDIAL_LOG_LEVEL: #The logging levels used are ERROR, WARN, INFO, DEBUG, and TRACE.
 ```
 
 #### Bedrock Adapter
-The project implements AI DIAL API for language models from AWS Bedrock
 
-The next environment variables you can for the configuring logging:
+[AI DIAL Bedrock Adapter](https://github.com/epam/ai-dial-adapter-bedrock) implements AI DIAL API for language models from AWS Bedrock.
+
+These environment variables you can use to configure logging:
+
 ```yaml
 LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
 AIDIAL_LOG_LEVEL: #AI DIAL SDK Level filter for the LLM and response logging. Values: `TRACE, DEBUG, INFO, WARNING, ERROR, FATAL`.
 ```
 
 #### Vertex Adapter
-The project implements AI DIAL API for language models and embeddings from Vertex AI
 
-The next environment variables you can for the configuring logging:
+[AI DIAL Vertex AI Adapter](https://github.com/epam/ai-dial-adapter-vertexai) implements AI DIAL API for language models and embeddings from Vertex AI.
+
+These environment variables you can use to configure logging:
+
 ```yaml
 LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
 AIDIAL_LOG_LEVEL: #AI DIAL SDK Level filter for the LLM and response logging. Values: `TRACE, DEBUG, INFO, WARNING, ERROR, FATAL`.
 ```
 
 #### OpenAI Adapter
-The project implements AI DIAL API for language models from Azure OpenAI
 
-The next environment variables you can for the configuring logging:
+[AI DIAL OpenAI Adapter](https://github.com/epam/ai-dial-adapter-openai) implements AI DIAL API for language models from Azure OpenAI.
+
+These environment variables you can use to configure logging:
+
 ```yaml
 LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
 ```
 
 #### DIAL Adapter
-The project implements application which adapts calls from one DIAL Core to calls to another DIAL Core.
 
-The next environment variables you can for the configuring logging:
+[DIAL Adapter](https://github.com/epam/ai-dial-adapter-dial) adapts calls from one DIAL Core to calls to another DIAL Core.
+
+These environment variables you can use to configure logging:
+
 ```yaml
 LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
 ```
@@ -116,13 +127,13 @@ By default, AI DIAL components have metrics enabled in Prometheus format on port
 
 Add the following helm values to AI DIAL Helm. Refer to [AI DIAL Helm](https://github.com/epam/ai-dial-helm/tree/main/charts/dial) to learn more.
 
-  ```yaml
-  <component>:
-    metrics:
-      enabled: true 
-      serviceMonitor:
-        enabled: true # when using the Prometheus Operator
-  ```
+```yaml
+<component>:
+  metrics:
+    enabled: true 
+    serviceMonitor:
+      enabled: true # when using the Prometheus Operator
+```
 The default port for collecting metrics in AI DIAL components is 9464. You can change the parameter `<component>.containerPorts.metrics` to change the default port.
 
 ## OpenTelemetry
