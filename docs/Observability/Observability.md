@@ -1,4 +1,4 @@
-# Overview
+# Observability and Monitoring
 
 AI DIAL components provide the following types of monitoring/observability:
 

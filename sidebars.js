@@ -170,11 +170,9 @@ const sidebars = {
       ],
     },
     {
-      type: 'category',
+      type: 'doc',
+      id: 'Observability/Observability',
       label: 'Observability',
-      items: [
-        "Observability/Observability",
-      ],
     },
     {
       type: 'link',

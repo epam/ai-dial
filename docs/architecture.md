@@ -217,6 +217,8 @@ Metrics are gathered for the entire system and/or for individual system componen
 
 You can use any OTLE Collector such as Prometheus, Jaeger, Fluentd, Zipkin and other.
 
+> Refer to [Observability](./Observability/Observability.md) to learn more.
+
 ## Key Vault
 
 All sensitive information is stored according to the best practices of the selected cloud platform, utilizing systems like GCP Cloud Key Management Service, AWS Secrets Manager, Azure Key Vault, and Vault by Hashicorp.
