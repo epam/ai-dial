@@ -62,35 +62,44 @@ OTEL_LOG_LEVEL: #Log level used by the SDK logger.` Values: `TRACE, DEBUG, INFO,
 ```
 
 ### AI DIAL Core
+The main component of AI DIAL, which provides unified API to different chat completion and embedding models, assistants, and applications.
 
-The nex environment variables you can for the configuring logging:
+The next environment variables you can for the configuring logging:
 ```yaml
 AIDIAL_LOG_FILE: #Place when the log file should be stored.
 AIDIAL_LOG_LEVEL: #The logging levels used are ERROR, WARN, INFO, DEBUG, and TRACE.
 ```
 
 ### AI DIAL Bedrock Adapter
+The project implements AI DIAL API for language models from AWS Bedrock
 
+The next environment variables you can for the configuring logging:
 ```yaml
 LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
 AIDIAL_LOG_LEVEL: #AI DIAL SDK Level filter for the LLM and response logging. Values: `TRACE, DEBUG, INFO, WARNING, ERROR, FATAL`.
 ```
 
 ### AI DIAL Vertex Adapter
+The project implements AI DIAL API for language models and embeddings from Vertex AI
 
+The next environment variables you can for the configuring logging:
 ```yaml
 LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
 AIDIAL_LOG_LEVEL: #AI DIAL SDK Level filter for the LLM and response logging. Values: `TRACE, DEBUG, INFO, WARNING, ERROR, FATAL`.
 ```
 
 ### AI DIAL OpenAI Adapter
+The project implements AI DIAL API for language models from Azure OpenAI
 
+The next environment variables you can for the configuring logging:
 ```yaml
 LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
 ```
 
 ### AI DIAL Adapter
+The project implements application which adapts calls from one DIAL Core to calls to another DIAL Core.
 
+The next environment variables you can for the configuring logging:
 ```yaml
 LOG_LEVEL: #Level filter for the Adapter logger. Values: `TRACE, DEBUG, INFO, WARN, ERROR, FATAL`. Use `DEBUG` for dev purposes and INFO in prod. It is strongly recommended not to use the logging level `DEBUG` for prod purposes.
 ```
