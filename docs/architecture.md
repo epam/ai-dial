@@ -115,6 +115,8 @@ AI DIAL Core uses [Vector](https://vector.dev/docs/reference/configuration/sinks
 
 You can gather standard logs (which do not contain user messages) from components using the ELK stack (Elasticsearch, Logstash, Kibana) or other log collection system.
 
+> Refer to [Observability](./Observability/Observability.md) to learn more.
+
 #### Entitlements
 
 In AI DIAL Core, user roles are defined and configured in the application config file. This allows administrators to specify which users or user groups are authorized to access specific resources or features within the application. These user roles match the once created in your IDP.
@@ -218,6 +220,8 @@ AI DIAL uses [OpenTelemetry](https://opentelemetry.io/), an open-source observab
 Metrics are gathered for the entire system and/or for individual system components, and subsequently stored in a time-series databases like Prometheus or any other database capable of handling substantial volumes of time-series data and integrating with visualization tools like Grafana.
 
 You can use any OTLE Collector such as Prometheus, Jaeger, Fluentd, Zipkin and other.
+
+> Refer to [Observability](./Observability/Observability.md) to learn more.
 
 ## Key Vault
 
