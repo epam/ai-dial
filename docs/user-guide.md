@@ -701,8 +701,6 @@ In the Chat Settings section, there are the following components:
 - [Temperature](#temperature)
 - [Addons](#addons)
 
-![](./img/chat-settings-main.png)
-
 Take a closer look at each of these elements.
 
 ### Talk To
@@ -713,17 +711,15 @@ In this section, you can view all models, applications and assistants that you h
 
 #### Language Models
 
-1. In the **Talk to** area, click **Search on My applications** to navigate to [My applications](#my-applications) where you can display all models, applications and assistants that you have selected. Note, in the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My applications](#my-applications).
+1. In the **Talk to** area, click **Search on My applications** to navigate to [My applications](#my-applications) where you can display all models, applications and assistants that you have selected. Note, in the [All applications](#all-applications) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My applications](#my-applications).
 2. To display just Models, disable all other **Types** and enable just **Models**.
 3. To select a model, click any of the available models or select its version in the dropdown list. The selected model will appear in the models list as pre-selected for the new conversation.
 
-![](./img/talk-to-models.png)
-
 #### Available Models
 
-In the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My applications](#my-applications).
+In the [All applications](#all-applications) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My applications](#my-applications).
 
-![](./img/talk-to-models2.png)
+![](./img/marketplace-home-select.png)
 
 > Refer to [Supported Models](/supported-models) to view all the models supported in AI DIAL.
 
@@ -744,7 +740,7 @@ In the [DIAL Marketplace](#dial-marketplace) section, you can view all the model
 #### Assistants
 
 1. In the **Talk to** area, click **Search on My applications** to navigate to [My applications](#my-applications) where you can display all models, applications and assistants that you have selected. 
-2. To display just Assistants, disable all other **Types** and enable just **Assistants**. Note, in the [DIAL Marketplace](#dial-marketplace) section, you can view all the Assistants available on your DIAL environment. There, you can select Assistants to add them to [My applications](#my-applications).
+2. To display just Assistants, disable all other **Types** and enable just **Assistants**. Note, in the [All applications](#all-applications) section, you can view all the Assistants available on your DIAL environment. There, you can select Assistants to add them to [My applications](#my-applications).
 3. To select an Assistant, click any of the available Assistants.
 
 ![](./img/talk-to-assistants.png)
