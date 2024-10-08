@@ -955,7 +955,7 @@ This is the high level overview of the publication workflow:
 
 1. Chat user sends a publication request for the selected resource(s) ([conversation](#publish), [prompt](#publish-1), [application](#publish-app)).
 2. Admin receives the publication request, reviews it and either approves or declines. Refer to [Process Publish Requests](#process-publish-requests) to learn more.
-3. In case the publication request has been approved, the published resources (conversations and prompts) become available for the target audience in the Organization section in the chat application. Published applications can be found on the [Home page](#home-page). If the published conversation includes attachments, they will be available in the [Attachments Manager](#attachments-manager).
+3. In case the publication request has been approved, the published resources (conversations and prompts) become available for the target audience in the Organization section in the chat application. Published applications can be found in [All applications](#all-applications). If the published conversation includes attachments, they will be available in the [Attachments Manager](#attachments-manager).
 4. Resource owner can unpublish the published resource.
 
 > Refer to [Conversations](#publish), [Prompts](#publish-1) and [Publish App](#publish-app) to view step-by-step instructions.
@@ -1026,7 +1026,9 @@ AI DIAL platform serves as an **application server**, offering tools to develop,
 
 ## DIAL Marketplace
 
-The DIAL Marketplace includes all applications, language models, and assistants that are available within your DIAL environment. Additionally, you can find all applications that have been [published](#publish-2) within your organization here.
+### Overview
+
+The DIAL Marketplace includes all applications, language models, and assistants that are available within your DIAL environment. Additionally, you can find all applications that have been [published](#publish-app) within your organization here.
 
 ![](./img/dial-marketplace.png)
 
@@ -1036,8 +1038,8 @@ You can navigate to this section form the main chat screen:
 
 In DIAL Marketplace, there are two sections: 
 
-* [Home page](#home): this section includes all applications, language models and assistants available on your DIAL environment.
-* [My applications](#my-applications): this section includes all applications, language models and assistants that you have selected on the Home page.
+* [All applications](#all-applications): this section includes all applications, language models and assistants available on your DIAL environment.
+* [My applications](#my-applications): this section includes all applications, language models and assistants that you have selected in All applications. In this section, you can also register your custom applications and quick apps.
 
 ![](./img/dial-marketplace2.png)
 
@@ -1045,24 +1047,20 @@ From both these sections you can click **Back to Chat** to navigate to the main 
 
 ![](./img/dial-marketplace3.png)
 
+Use the **Type** filters to display any or all applications, language models, and assistants, and categorize them by **Topic**. Additionally, the **Search** allows you to swiftly locate any item.
 
-Use filter to display any or all applications, language models and assistants:
+![](./img/dial-marketplace5.png)
 
-![](./img/dial-marketplace4.png)
+### All applications
 
-### Home
+Click **All applications** to navigate to the *home page* of DIAL Marketplace where you can find all applications, language models and assistants available on your DIAL environment. Here, you can also find all applications [published](#publish-app) in your organization.
 
-Click **Home page** to navigate to the home page of DIAL Marketplace where you can find all applications, language models and assistants available on your DIAL environment. Here, you can also find all applications [published](#publish-2) in your organization.
+![](./img/all-applications.png)
 
-![](./img/marketplace-home.png)
+In the All applications section, you can view details of any item and add it to [My applications](#my-applications):
 
-On this page, you can view details and select items you want to add to [My applications](#my-applications):
-
-1. Select an item.
+1. Click any item to view its details.
 2. Choose its version (if available). Note, that you can add different versions in several iterations. In this case, you will be able to select a version in [Talk to](#talk-to) before the conversation.
-
-   ![](./img/model-version.png)
-
 3. Click **Use** to add.
 4. You can find the added item in [My applications](#my-applications) and in [Talk to](#talk-to).
 
@@ -1070,7 +1068,39 @@ On this page, you can view details and select items you want to add to [My appli
 
 ### My applications
 
-In the **My Applications** section, you can access all the applications, language models, and assistants that you have added from the [Home page](#home). This area allows you to view and select items for your conversations, as well as remove them from the list. Additionally, you can [register](#register-app) custom [applications](#applications-1) here, which provides you with options for an extended range of actions.
+In **My Applications**, you can access all the applications, language models, and assistants that you have added in [All applications](#all-applications). This area allows you to view and select items for your conversations, as well as remove them from the list. Additionally, you can [register](#add-custom-app) custom [applications](#applications-1) here, which provides you with options for an extended range of actions.
+
+#### Add Custom App
+
+If you want to use your custom application, you can register it in AI DIAL Chat. After adding applications, the configuration JSON files for your registered applications will be saved in a dedicated folder within a blob store account bucket assigned to your user account. These files can then be accessed by DIAL Core to facilitate the integration and operation of your applications. Configuration of a custom application matches DIAL Core dynamic configuration for applications. Refer to [Examples](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json) to view how it can look like.
+
+> **Important Requirement**: Custom applications must provide a chat completion endpoint for DIAL Core and adhere to the [Unified API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) standards to ensure seamless integration and functionality.
+
+You can register and view your applications in the [My applications](#my-applications) section. From there, you can select which applications you want to appear in the [Talk To](#talk-to) section, making them available for use in conversations.
+
+![](./img/register-app.png)
+
+##### To register application
+
+1. Click **Add app** and select **Custom app**.
+2. Fill in the [Add application](#addedit-application-form) form
+3. The registered application will appear in [My applications](#my-applications)
+
+##### Add/Edit application form
+
+|Field|Required|Description|
+|---|:---:|-------------|
+|Name|Yes|Application name.|
+|Version|Yes|Application version, following the format `x.y.z` and contain only numbers and dots.|
+|Icon|Yes|The icon that will be rendered in the chat UI for this application.|
+|Topics|No|You can assign pre-defined topics to your application.|
+|Description|No|A short description that will be rendered in the chat UI. Add two line breaks and provide an addition description if needed.|
+|Features data|No|Application features are specific configurations of applications specified in JSON format. Currently, only two are supported: rate and configuration endpoints:<br />`rateEndpoint` is the endpoint for rate requests.<br />`configurationEndpoint` is the endpoint to request application configuration parameters as JSON schema.<br />Refer to [DIAL Core documentation](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) to view the full set of available application features.|
+|Attachments type|No|Types of attachments allowed for this application. Provide the types according to [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). E.g.: image/png and click enter.|
+|Max. attachments number|No|The maximal number of attachments the application is allowed to accept. Skip to apply the max integer number. Enter `0` to disable attachments.|
+|Completion URL|Yes|A chat completion URL exposed by your application and used by DIAL Core to send chat completion requests.|
+
+![](./img/add-app.png)
 
 #### Converse
 
@@ -1083,52 +1113,13 @@ In the **My Applications** section, you can access all the applications, languag
 
    ![](./img/select-app2.png)
 
-#### Remove
-
-You can remove an application/model/assistant from the section My applications. Use Remove in the item's menu to do this: 
-
-1. Navigate to the My applications section.
-2. In the item's menu, click **Remove**.
-3. Confirm your action in the dialog window.
-
-![](./img/remove-app.png)
-
-#### Register App
-
-If you want to use your custom application, you can register it in AI DIAL Chat. After adding applications, the configuration JSON files for your registered applications will be saved in a dedicated folder within a blob store account bucket assigned to your user account. These files can then be accessed by DIAL Core to facilitate the integration and operation of your applications. Configuration of a custom application matches DIAL Core dynamic configuration for applications. Refer to [Examples](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json) to view how it can look like.
-
-> **Important Requirement**: Custom applications must provide a chat completion endpoint for DIAL Core and adhere to the [Unified API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) standards to ensure seamless integration and functionality.
-
-You can register and view your applications in the [My applications](#my-applications) section. From there, you can select which applications you want to appear in the [Talk To](#talk-to) section, making them available for use in conversations.
-
-![](./img/register-app.png)
-
-##### To register application
-
-1. Click **Add app**
-2. Fill in the [Add application](#addedit-application-form) form
-3. The registered application will appear in [My applications](#my-applications)
-
-##### Add/Edit application form
-
-|Field|Required|Description|
-|---|:---:|-------------|
-|Name|Yes|Application name.|
-|Version|Yes|Application version, following the format `x.y.z` and contain only numbers and dots.|
-|Icon|Yes|The icon that will be rendered in the chat UI for this application.|
-|Description|No|A short description that will be rendered in the chat UI. Add two line breaks and provide an addition description if needed.|
-|Features data|No|Application features are specific configurations of applications specified in JSON format. Currently, only two are supported: rate and configuration endpoints:<br />`rateEndpoint` is the endpoint for rate requests.<br />`configurationEndpoint` is the endpoint to request application configuration parameters as JSON schema.<br />Refer to [DIAL Core documentation](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) to view the full set of available application features.|
-|Attachments type|No|Types of attachments allowed for this application. Provide the types according to [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). E.g.: image/png and click enter.|
-|Max. attachments number|No|The maximal number of attachments the application is allowed to accept. Skip to apply the max integer number. Enter `0` to disable attachments.|
-|Completion URL|Yes|A chat completion URL exposed by your application and used by DIAL Core to send chat completion requests.|
-
-![](./img/add-app.png)
-
 #### Edit App
 
-> You can also edit your app in [Talk To](#talk-to).
+> You can also edit your **custom** application in [Talk To](#talk-to).
 
-##### To edit a registered application:
+Use Edit in the app's menu to modify the selected application. **Note** that you can edit only your custom applications.
+
+##### To edit application
 
 1. Click **Edit** to invoke the [Edit application form](#addedit-application-form)
 
@@ -1138,11 +1129,11 @@ You can register and view your applications in the [My applications](#my-applica
 
 #### Publish App
 
-You can publish you applications to make them accessible to the selected audience in your organization. Refer to [Publications](#publications) to learn more about this functionality and to [Tutorials](./tutorials/Collaboration/enable-publications) for a more extended documentation.
+You can publish your custom applications to make them accessible to the selected audience in your organization. Refer to [Publications](#publications) to learn more about this functionality and to [Tutorials](./tutorials/Collaboration/enable-publications) for a more extended documentation.
 
-##### To publish application:
+##### To publish application
 
-> You can also publish your app in [Talk To](#talk-to).
+> You can also publish your **custom** application in [Talk To](#talk-to).
 
 1. In the application menu (you can also find a Publish icon in the Edit application form), click **Publish**
 
@@ -1154,13 +1145,25 @@ You can publish you applications to make them accessible to the selected audienc
 5. In **Applications** you can choose what applications you want to publish.
 6. Click **Send request** to send your publication request to the administrator.
 
-> **Note**, when your request is approved, the published application will become available in the [Home page](#home) for the target audience.
+> **Note**, when your request is approved, the published application will become available in the [All applications](#all-applications) for the target audience.
+
+#### Remove
+
+You can remove any application/model/assistant from My applications. Use Remove in the item's menu to do this: 
+
+1. Navigate to the My applications section.
+2. In the item's menu, click **Remove**.
+3. Confirm your action in the dialog window.
+
+![](./img/remove-app.png)
 
 #### Delete App
 
-> You can also delete your app in [Talk To](#talk-to).
+> You can also delete your **custom** application in [Talk To](#talk-to).
 
-Use Delete in the app's menu to completely delete the selected application: 
+Use Delete in the app's menu to completely delete the selected application. **Note** that you can delete only your custom applications.
+
+##### To delete application
 
 1. Navigate to the My applications section.
 2. In the application menu, click **Delete**.
