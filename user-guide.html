@@ -10,7 +10,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="DIAL Knowledge Base" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.a62d7352.css">
-<script src="/assets/js/runtime~main.0fbdeb34.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.dbbe32c6.js" defer="defer"></script>
 <script src="/assets/js/main.5bb5fe26.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -215,19 +215,40 @@
 </ol>
 <p>The replayed conversation is displayed as a new conversation with the <code>[Replay]</code> tag in the list of your conversations.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="parameterized-replay">Parameterized Replay<a href="#parameterized-replay" class="hash-link" aria-label="Direct link to Parameterized Replay" title="Direct link to Parameterized Replay">​</a></h3>
-<p>If you want to make your own chats or stories with custom variables and share them with your team, you can use a feature called Parameterized Replay. Use it to set up a chat or a story that others can follow, but provide their own details or answers to create a personalized experience. This makes chat a much more useful tool for sharing information and collaboration.</p>
-<p>How it works:</p>
+<p>You can use Parameterized Replay to create your own chats or stories with custom variables and share them with your team. Such parametrized conversations others can follow, but with their own details or answers to create a personalized experience. This makes chat a much more useful tool for sharing information and collaboration.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="prompt-based">Prompt-based<a href="#prompt-based" class="hash-link" aria-label="Direct link to Prompt-based" title="Direct link to Prompt-based">​</a></h5>
+<p>You can create a parametrized conversation using a special prompt with variables.</p>
 <p>Let&#x27;s create a simple Travel Guide conversation, which will take a user though several steps to clarify information and provide the answer.</p>
 <ol>
 <li>Start by <a href="#create-1">creating a special prompt</a> with <a href="#variables">variables</a>. Use templates (this <code>{{VariableName|DefaultValue}}</code> or this <code>{{VariableName}}</code>) to add variables into your prompt with or without default values. For example: <code>I&#x27;d like to travel to {{country|Japan}}. Could you please suggest {{num-attractions|10}} of the best attractions? I will be there for {{num-days}}. Thank you.</code></li>
-<li>To use it, type <code>/</code> in the conversation text input area and select your prompt. You will be prompted to provide your inputs for variables in a pop-up window. Enter your inputs and click <code>Submit</code>. The prompt is now populated with your inputs in the conversation text box. Send message to start.</li>
+<li>To use your parametrized prompt, type <code>/</code> in the conversation text input area and select your prompt. You will be asked to provide your inputs for variables in a pop-up window. Enter your inputs and click <code>Submit</code>. The prompt is now populated with your inputs in the conversation text box. Send message to start.</li>
 <li>The chat will return its response to your prompt.</li>
 <li>You can now click <a href="#replay">Replay</a> in your conversation&#x27;s menu to repeat this dialogue but with different input parameters.</li>
 <li>You can <a href="#share">Share</a> this conversation with someone. When a person opens the shared conversation, they will be prompted to fill in their personal input in the parameterized prompt, allowing them to have the same conversation but with their custom inputs, for example, travel to USA instead of Japan.</li>
 </ol>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="dynamic">Dynamic<a href="#dynamic" class="hash-link" aria-label="Direct link to Dynamic" title="Direct link to Dynamic">​</a></h5>
+<p>You can create a parametrized conversation from any message in your chat. This scenario does not require having any pre-configured prompts.</p>
 <blockquote>
-<p>Watch a <a href="https://youtu.be/I8en0n0TQQU?si=mMUQkpKvx0xEoElF" target="_blank" rel="noopener noreferrer">demo video</a> to see it in action and check out more examples.</p>
+<p>Watch a <a href="/video demos/demos/dial-parameterized-replay">demo video</a> to see it in action.</p>
 </blockquote>
+<ol>
+<li>
+<p>Within a conversation, you can set any message as a template for subsequent replay. Use <strong>Set message template</strong> to invoke the <strong>Message template</strong> window.</p>
+<p><img loading="lazy" src="/assets/images/param-replay-icon-e25dd0fbc7d93df3a198544f4ea3a62e.png" width="739" height="119" class="img_ev3q"></p>
+</li>
+<li>
+<p>In the <strong>Message template</strong> window, you can substitute sections of your original message with <a href="#variables">variables</a> under the <strong>Set template</strong> tab. To achieve this, copy a segment from your original message and paste it into the first input box. Then, in the second input box, introduce a variable using the format: <code>{{Variable name}}</code>. For instance, in our example, we have replaced &quot;France&quot; with the <code>{{Country}}</code> variable.</p>
+<p><img loading="lazy" src="/assets/images/param-replay-form-deae9535b6f917110ab821af2c89bd90.png" width="1152" height="779" class="img_ev3q"></p>
+<p>In the <strong>Preview</strong> tab, you can preview your original message with variables:</p>
+<p><img loading="lazy" src="/assets/images/param-replay-form-preview-b1f10414cf7bea41c7e6f350646bfa08.png" width="783" height="132" class="img_ev3q"></p>
+</li>
+<li>
+<p>Once you click save, you can return to your conversation. In the conversation menu, select <a href="#replay">Replay</a> to initiate the replay of this conversation. The chat will prompt you to input values for your variable(s) to replay the conversation. You have the option to replay it as it originally was (using the same model as in your initial conversation) - select <strong>Replay as is</strong> in <a href="#talk-to">Talk to</a>, or you can alter the settings of the conversation to experiment with different models and parameters.</p>
+</li>
+<li>
+<p>You can <a href="#share">Share</a> this conversation with others. When someone opens the shared conversation, they will be prompted to provide their own inputs in the template. This allows experiencing the same conversation but with personalized inputs, such as traveling to the USA instead of France.</p>
+</li>
+</ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="playback">Playback<a href="#playback" class="hash-link" aria-label="Direct link to Playback" title="Direct link to Playback">​</a></h3>
 <p>The Playback mode can be used to simulate the current conversation without any engagement with models. This mode accurately reproduces the conversation like a recording. It should be noted that this differs from the Replay mode, where the prompts are resubmitted to the chosen model and the outcomes may differ from the initial conversation.</p>
 <p><img loading="lazy" src="/assets/images/playback-conversation-a62c169ca07a1cbe5e25f4cd4f922c57.png" width="428" height="288" class="img_ev3q"></p>
