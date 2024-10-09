@@ -294,7 +294,7 @@ You can create a parametrized conversation from any message in your chat. This s
 
    ![](./img/param-replay-icon.png)
 
-2. In the **Message template** window, you can substitute sections of your original message with [variables](#variables) under the **Set template** tab. To achieve this, copy a segment from your original message and paste it into the first input box. Then, in the second input box, introduce a variable using the format: `{{Variable name|Default value}}`. For instance, in our example, we have replaced "France" with the `{{Country}}` variable.
+2. In the **Message template** window, you can substitute sections of your original message with [variables](#variables) under the **Set template** tab. To achieve this, copy a segment from your original message and paste it into the first input box. Then, in the second input box, introduce a variable using the format: `{{Variable name}}`. For instance, in our example, we have replaced "France" with the `{{Country}}` variable.
 
    ![](./img/param-replay-form.png)
 
