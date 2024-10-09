@@ -271,19 +271,40 @@ The replayed conversation is displayed as a new conversation with the `[Replay]`
 
 ### Parameterized Replay
 
-If you want to make your own chats or stories with custom variables and share them with your team, you can use a feature called Parameterized Replay. Use it to set up a chat or a story that others can follow, but provide their own details or answers to create a personalized experience. This makes chat a much more useful tool for sharing information and collaboration.
+You can use Parameterized Replay to create your own chats or stories with custom variables and share them with your team. Such parametrized conversations others can follow, but with their own details or answers to create a personalized experience. This makes chat a much more useful tool for sharing information and collaboration.
 
-How it works: 
+##### Prompt-based
+
+You can create a parametrized conversation using a special prompt with variables.
 
 Let's create a simple Travel Guide conversation, which will take a user though several steps to clarify information and provide the answer.
 
 1. Start by [creating a special prompt](#create-1) with [variables](#variables). Use templates (this `{{VariableName|DefaultValue}}` or this `{{VariableName}}`) to add variables into your prompt with or without default values. For example: `I'd like to travel to {{country|Japan}}. Could you please suggest {{num-attractions|10}} of the best attractions? I will be there for {{num-days}}. Thank you.`
-2. To use it, type `/` in the conversation text input area and select your prompt. You will be prompted to provide your inputs for variables in a pop-up window. Enter your inputs and click `Submit`. The prompt is now populated with your inputs in the conversation text box. Send message to start.
+2. To use your parametrized prompt, type `/` in the conversation text input area and select your prompt. You will be asked to provide your inputs for variables in a pop-up window. Enter your inputs and click `Submit`. The prompt is now populated with your inputs in the conversation text box. Send message to start.
 3. The chat will return its response to your prompt.
 4. You can now click [Replay](#replay) in your conversation's menu to repeat this dialogue but with different input parameters.
 5. You can [Share](#share) this conversation with someone. When a person opens the shared conversation, they will be prompted to fill in their personal input in the parameterized prompt, allowing them to have the same conversation but with their custom inputs, for example, travel to USA instead of Japan.
 
-> Watch a [demo video](https://youtu.be/I8en0n0TQQU?si=mMUQkpKvx0xEoElF) to see it in action and check out more examples.
+##### Dynamic
+
+You can create a parametrized conversation from any message in your chat. This scenario does not require having any pre-configured prompts.
+
+> Watch a [demo video](../video%20demos/demos/dial-parameterized-replay) to see it in action.
+
+1. Within a conversation, you can set any message as a template for subsequent replay. Use **Set message template** to invoke the **Message template** window.
+
+   ![](./img/param-replay-icon.png)
+
+2. In the **Message template** window, you can substitute sections of your original message with [variables](#variables) under the **Set template** tab. To achieve this, copy a segment from your original message and paste it into the first input box. Then, in the second input box, introduce a variable using the format: `{{Variable name}}`. For instance, in our example, we have replaced "France" with the `{{Country}}` variable.
+
+   ![](./img/param-replay-form.png)
+
+   In the **Preview** tab, you can preview your original message with variables:
+
+   ![](./img/param-replay-form-preview.png)
+
+3. Once you click save, you can return to your conversation. In the conversation menu, select [Replay](#replay) to initiate the replay of this conversation. The chat will prompt you to input values for your variable(s) to replay the conversation. You have the option to replay it as it originally was (using the same model as in your initial conversation) - select **Replay as is** in [Talk to](#talk-to), or you can alter the settings of the conversation to experiment with different models and parameters.
+4. You can [Share](#share) this conversation with others. When someone opens the shared conversation, they will be prompted to provide their own inputs in the template. This allows experiencing the same conversation but with personalized inputs, such as traveling to the USA instead of France.
 
 ### Playback
 
