@@ -46,7 +46,7 @@ We aim to complement these services, streamlining the development, deployment, a
  
 - [Unified API](https://epam-rail.com/dial_api) to access multimodal models, assistants, applications, and embedding models.
 - Essential services such as resilient file/chat/prompt//model [storage](https://docs.epam-rail.com/architecture#persistent-layer) with user-based [access control](https://docs.epam-rail.com/Roles%20and%20Access%20Control/overview).
-- Important operational features, including [sharing](https://epam-rail.com/dial_api#tag/Sharing), organization-wide [publications](https://epam-rail.com/dial_api#tag/Publications), [review processes](https://docs.epam-rail.com/tutorials/enable-publications#admin-flow), and [rate limits](https://docs.epam-rail.com/architecture#rate-limits--cost-control).
+- Important operational features, including [sharing](https://epam-rail.com/dial_api#tag/Sharing), organization-wide [publications](https://epam-rail.com/dial_api#tag/Publications), [review processes](https://docs.epam-rail.com/tutorials/Collaboration/enable-publications#admin-flow), and [rate limits](https://docs.epam-rail.com/architecture#rate-limits--cost-control).
 
 ## Feature Validation Checklist
 

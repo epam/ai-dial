@@ -119,11 +119,6 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'tutorials/enable-publications',
-          label: 'Publications',
-        },
-        {
-          type: 'doc',
           id: 'tutorials/localization',
           label: 'Chat Localization',
         },
@@ -156,6 +151,32 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/data-visualization',
           label: 'Data Visualization',
+        },
+        {
+          type: 'category',
+          label: 'Collaboration',
+          items: [
+            {
+              type:'doc',
+              id: 'tutorials/collaboration/overview',
+              label: 'Overview'
+            },
+            {
+              type: 'doc',
+              id: 'tutorials/collaboration/enable-publications',
+              label: 'Publications',
+            },
+            {
+              type:'doc',
+              id: 'tutorials/collaboration/sharing',
+              label: 'Sharing'
+            },
+            {
+              type:'doc',
+              id: 'tutorials/collaboration/notifications',
+              label: 'Notifications'
+            }
+          ]
         },
         {
           type: 'doc',

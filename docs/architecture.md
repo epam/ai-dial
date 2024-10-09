@@ -48,6 +48,13 @@ The diagram below demonstrates the most complete landscape of AI DIAL ecosystem:
 
 ![max-zoom](./img/full-landscape3.svg)
 
+## Resources
+
+In AI DIAL, we call *resources* applications, conversations, prompts and files. When added to the system, they are stored in a dedicated folder within a blob store account bucket assigned to your user account. You can handle resources according to the similar pattern (CRUD operations, publications, sharing and other).
+
+> * In [DIAL API](https://epam-rail.com/dial_api) you can find dedicated sections for working with resources: [applications](https://epam-rail.com/dial_api#tag/Applications), [conversations](https://epam-rail.com/dial_api#tag/Conversations), [prompts](https://epam-rail.com/dial_api#tag/Prompts) and [files](https://epam-rail.com/dial_api#tag/Files).
+> * Refer to [Collaboration](./tutorials/collaboration/overview) to learn about collaboration features such as sharing and publication that can be applied to resources.
+
 ## AI DIAL Components
 
 ### AI DIAL Core
@@ -123,7 +130,7 @@ In AI DIAL Core, user roles are defined and configured in the application config
 
 ### Persistent Layer
 
-AI DIAL architecture includes a persistent layer, that relies on a resilient and scalable cloud blob storage (you can configure either AWS S3, Google Cloud Storage, Azure Blob Storage or a local file storage) where all conversations, prompts, and user files will be stored. Redis Cache (either cluster or a standalone) is deployed on top of it to enhance performance.
+AI DIAL architecture includes a persistent layer, that relies on a resilient and scalable cloud blob storage (you can configure either AWS S3, Google Cloud Storage, Azure Blob Storage or a local file storage) where all conversations, prompts, custom applications and user files will be stored. Redis Cache (either cluster or a standalone) is deployed on top of it to enhance performance.
 
 ![](./img/redis.svg)
 
