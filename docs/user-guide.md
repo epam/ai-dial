@@ -40,7 +40,7 @@ The AI DIAL Chat application interface has several sections, such as the chat bo
 
 ## Conversations
 
-In the AI DIAL framework, a conversation is a dialogue between an agent, such as a language model, assistant, or application, and a human user. The agent uses natural language to interact with a human and receive/give a feedback. Within one conversation, you can refer to previous questions and answers. But different conversations don’t share context.
+In the AI DIAL framework, a conversation is a dialogue between an agent, such as a language model, assistant, or application, and a human user. The agent uses natural language to interact with a human and receive/give a feedback. Within one conversation, you can refer to previous questions and answers. But different conversations don't share context.
 
 > All your conversations are stored on the server, and you can access them from any device you use.
 
@@ -478,7 +478,7 @@ The **Search** box can be utilized to find prompts and folders by their names. I
 
 ![](./img/create-pt.png)
 
-**To create a new prompt**:
+##### To create a new prompt
 
 1.	On the right panel, select **New prompt**.
 2.	Fill in the **Name**, **Description**, and **Prompt** boxes. The following symbols in the prompt names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the prompt name is limited to 160 symbols. Everything beyond is cut off.
@@ -499,15 +499,15 @@ For example, you need to calculate an equation `a + c/d`, round up the answer, a
  
 In that case you can create the following prompt:
 
-![](./img/Prompt_example_math_edit_window.png)
+![](./img/math-prompt1.png)
 
 Here, `a`, `c`, and `d` are variables. In the prompt body, they are denoted by double curly brackets: `{{ }}`.
 
 > You can combine mathematical expressions and natural language in your prompts.
 
-After you’ve created the prompt, you can use it by typing a slash `/` in the chat box and selecting the name of a prompt (it is **Math** in our example). You’ll see the following form where you can enter any numbers:
+After you have created the prompt, you can use it by typing a slash `/` in the chat box and selecting the name of a prompt (it is **Math** in our example). You’ll see the following form where you can enter any numbers:
 
-![](./img/Prompt_example_math_enter_variables.png)
+![](./img/math-prompt.png)
 
 When you submit the form, your message will look like on the illustration below:
   
@@ -726,19 +726,19 @@ Take a closer look at each of these elements.
 
 ### Talk To
 
-In this section, you can view all models, applications and assistants that you have added to My Applications section. Here, you can select them to use in conversations.
+In this section, you can view all models, applications and assistants that you have added to My workspace section. Here, you can select them to use in conversations.
 
 ![](./img/talk-to.png)
 
 #### Language Models
 
-1. In the **Talk to** area, click **Search on My applications** to navigate to [My applications](#my-applications) where you can display all models, applications and assistants that you have selected. Note, in the [All applications](#all-applications) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My applications](#my-applications).
+1. In the **Talk to** area, click **Search on My workspace** to navigate to [My workspace](#my-workspace) where you can display all models, applications and assistants that you have selected. Note, in the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
 2. To display just Models, disable all other **Types** and enable just **Models**.
 3. To select a model, click any of the available models or select its version in the dropdown list. The selected model will appear in the models list as pre-selected for the new conversation.
 
 #### Available Models
 
-In the [All applications](#all-applications) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My applications](#my-applications).
+In the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
 
 ![](./img/marketplace-home-select.png)
 
@@ -760,8 +760,8 @@ In the [All applications](#all-applications) section, you can view all the model
 
 #### Assistants
 
-1. In the **Talk to** area, click **Search on My applications** to navigate to [My applications](#my-applications) where you can display all models, applications and assistants that you have selected. 
-2. To display just Assistants, disable all other **Types** and enable just **Assistants**. Note, in the [All applications](#all-applications) section, you can view all the Assistants available on your DIAL environment. There, you can select Assistants to add them to [My applications](#my-applications).
+1. In the **Talk to** area, click **Search on My workspace** to navigate to [My workspace](#my-workspace) where you can display all models, applications and assistants that you have selected. 
+2. To display just Assistants, disable all other **Types** and enable just **Assistants**. Note, in the [DIAL Marketplace](#dial-marketplace) section, you can view all the Assistants available on your DIAL environment. There, you can select Assistants to add them to [My workspace](#my-workspace).
 3. To select an Assistant, click any of the available Assistants.
 
 ![](./img/talk-to-assistants.png)
@@ -775,10 +775,10 @@ In a chat application, you can include custom Assistant(s) that users can choose
 #### Applications
 
 > * Refer to [Applications](#applications-1) to learn more about them.
-> * Refer to [My applications](#my-applications) to learn how to register and manage custom apps in AI DIAL Chat.
+> * Refer to [My workspace](#my-workspace) to learn how to register and manage custom apps in AI DIAL Chat.
 
-1. In the **Talk to** area, click **Search on My applications** to navigate to [My applications](#my-applications) where you can display all models, applications and assistants that you have selected. 
-2.  display just Applications, disable all other **Types** and enable just **Applications**. Note, in the [DIAL Marketplace](#dial-marketplace) section, you can view all the Applications available on your DIAL environment. There, you can select Applications to add them to [My applications](#my-applications).
+1. In the **Talk to** area, click **Search on My workspace** to navigate to [My workspace](#my-workspace) where you can display all models, applications and assistants that you have selected. 
+2.  display just Applications, disable all other **Types** and enable just **Applications**. Note, in the [DIAL Marketplace](#dial-marketplace) section, you can view all the Applications available on your DIAL environment. There, you can select Applications to add them to [My workspace](#my-workspace).
 3. Click any of the available applications to start a conversation. 
 
 ![](./img/talk-to-apps.png)
@@ -787,15 +787,15 @@ In a chat application, you can include custom Assistant(s) that users can choose
 
 ![](./img/system_prompt.png)
 
-The system prompt in AI DIAL refers to the initial instructions given to the model. You can use any previously created prompt as a system prompt (for details, refer to the [Create](#create) in Prompts), and it will set the context and tone for the whole conversation.
+The system prompt in AI DIAL refers to the initial instructions given to the model. The system prompt in AI DIAL is like a compass for a traveler, pointing the model in the right direction to navigate the conversational landscape, ensuring it stays on course and aligned with the overall purpose and desired outcome.
 
-The system prompt in AI DIAL is like a compass for a traveler, pointing the model in the right direction to navigate the conversational landscape, ensuring it stays on course and aligned with the overall purpose and desired outcome. 
+Type `/` in the text box to select any previously created prompt as a system prompt (for details, refer to the [Create](#create) in Prompts), and it will set the context and tone for the whole conversation.
 
-You can change system prompts during a conversation by selecting the **Settings** icon at the top bar of the conversation. 
+You can change system prompts during a conversation by selecting the [Settings](#conversation-settings) icon at the top bar of the conversation. 
 
 #### Example
 
-Let’s compare a conversation with a system prompt selected and a conversation without a system prompt. For illustration purposes, we’re going to use the compare mode (refer to the [Compare](#compare) section for details) and create two conversations with identical settings except for the system prompt selection.
+Let's compare a conversation with a system prompt selected and a conversation without a system prompt. For illustration purposes, we are going to use the compare mode (refer to the [Compare](#compare) section for details) and create two conversations with identical settings except for the system prompt selection.
 
 The prompt used as a system prompt is as follows:
 
@@ -838,7 +838,6 @@ In the Isolated View Mode, a user can follow a specific URL `https://server/mode
 For instance, if a user wants to open GPT-4 without any extra features or configurations, they can simply go to `https://AI DIAL Chat URL/models/gpt-4` and access a streamlined user interface that only contains a chat input with GPT-4:
 
 ![](./img/isolated_view_mode.png)
-
 
 ## User Settings
 
@@ -972,11 +971,10 @@ This is the high level overview of the publication workflow:
 
 1. Chat user sends a publication request for the selected resource(s) ([conversation](#publish), [prompt](#publish-1), [application](#publish-app)).
 2. Admin receives the publication request, reviews it and either approves or declines. Refer to [Process Publish Requests](#process-publish-requests) to learn more.
-3. In case the publication request has been approved, the published resources (conversations and prompts) become available for the target audience in the Organization section in the chat application. Published applications can be found in [All applications](#all-applications). If the published conversation includes attachments, they will be available in the [Attachments Manager](#attachments-manager).
+3. In case the publication request has been approved, the published resources (conversations and prompts) become available for the target audience in the Organization section in the chat application. Published applications can be found in [DIAL Marketplace](#dial-marketplace). If the published conversation includes attachments, they will be available in the [Attachments Manager](#attachments-manager).
 4. Resource owner can unpublish the published resource.
 
 > Refer to [Conversations](#publish), [Prompts](#publish-1) and [Publish App](#publish-app) to view step-by-step instructions.
-
 
 ## Administrators
 
@@ -1028,10 +1026,9 @@ The visualizations come with standard Plotly controls for easy manipulation.
 
 > Refer to [Plotly GitHub](https://github.com/plotly/react-plotly.js) to learn more. 
 
-
 ## Applications
 
-> Refer to [My applications](#my-applications) to learn how to register and manage custom apps in AI DIAL Chat.
+> Refer to [My workspace](#my-workspace) to learn how to register and manage custom apps in AI DIAL Chat.
 
 An **Application** in AI DIAL refers to any custom logic with a conversational interface, adhering to a [Unified API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post), and packaged as a ready-to-deploy solution. Applications can facilitate the customization of LLM behavior by incorporating tools (such as [Addons](#addons)) with a desired functionality. Additionally, applications can support logic not directly related to LLMs, such as echoing user messages, creating a fully deterministic chatbot, or orchestrating complex interactions involving multiple LLMs. The flexibility offered by applications enables customized solutions for distinct scenarios and needs.
 
@@ -1057,8 +1054,8 @@ You can navigate to this section form the main chat screen:
 
 In DIAL Marketplace, there are two sections: 
 
-* [All applications](#all-applications): this section includes all applications, language models and assistants available on your DIAL environment.
-* [My applications](#my-applications): this section includes all applications, language models and assistants that you have selected in All applications. In this section, you can also register your custom applications and quick apps.
+* [DIAL Marketplace](#dial-marketplace): this section includes all applications, language models and assistants available on your DIAL environment.
+* [My workspace](#my-workspace): this section includes all applications, language models and assistants that you have selected in DIAL Marketplace. In this section, you can also register your custom applications and quick apps.
 
 ![](./img/dial-marketplace2.png)
 
@@ -1070,24 +1067,24 @@ Use the **Type** filters to display any or all applications, language models, an
 
 ![](./img/dial-marketplace5.png)
 
-### All applications
+### DIAL Marketplace
 
-Click **All applications** to navigate to the *home page* of DIAL Marketplace where you can find all applications, language models and assistants available on your DIAL environment. Here, you can also find all applications [published](#publish-app) in your organization.
+Click **DIAL Marketplace** to navigate to the *home page* of DIAL Marketplace where you can find all applications, language models and assistants available on your DIAL environment. Here, you can also find all applications [published](#publish-app) in your organization.
 
-![](./img/all-applications.png)
+![](./img/dial-marketplace.png)
 
-In the All applications section, you can view details of any item and add it to [My applications](#my-applications):
+In the DIAL Marketplace section, you can view details of any item and add it to [My workspace](#my-workspace):
 
 1. Click any item to view its details.
 2. Choose its version (if available). Note, that you can add different versions in several iterations. In this case, you will be able to select a version in [Talk to](#talk-to) before the conversation.
 3. Click **Use** to add.
-4. You can find the added item in [My applications](#my-applications) and in [Talk to](#talk-to).
+4. You can find the added item in [My workspace](#my-workspace) and in [Talk to](#talk-to).
 
 ![](./img/marketplace-home-select.png)
 
-### My applications
+### My workspace
 
-In **My Applications**, you can access all the applications, language models, and assistants that you have added in [All applications](#all-applications). This area allows you to view and select items for your conversations, as well as remove them from the list. Additionally, you can [register](#add-custom-app) custom [applications](#applications-1) here, which provides you with options for an extended range of actions.
+In **My workspace**, you can access all the applications, language models, and assistants that you have added in [DIAL Marketplace](#dial-marketplace). This area allows you to view and select items for your conversations, as well as remove them from the list. Additionally, you can [register](#add-custom-app) custom [applications](#applications-1) here, which provides you with options for an extended range of actions.
 
 #### Add Custom App
 
@@ -1097,7 +1094,7 @@ If you want to use your custom application, you can register it in AI DIAL Chat 
 
 > **Important Requirement**: Custom applications must provide a chat completion endpoint for DIAL Core and adhere to the [Unified API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) standards to ensure seamless integration and functionality.
 
-In DIAL Chat, you can register and view your applications in the [My applications](#my-applications) section. From there, you can select which applications you want to appear in the [Talk To](#talk-to) section, making them available for use in conversations.
+In DIAL Chat, you can register and view your applications in the [My workspace](#my-workspace) section. From there, you can select which applications you want to appear in the [Talk To](#talk-to) section, making them available for use in conversations.
 
 ![](./img/register-app.png)
 
@@ -1105,7 +1102,7 @@ In DIAL Chat, you can register and view your applications in the [My application
 
 1. Click **Add app** and select **Custom app**.
 2. Fill in the [Add application](#addedit-application-form) form
-3. The registered application will appear in [My applications](#my-applications)
+3. The registered application will appear in [My workspace](#my-workspace)
 
 ##### Add/Edit application form
 
@@ -1125,7 +1122,7 @@ In DIAL Chat, you can register and view your applications in the [My application
 
 #### Converse
 
-1. In [My applications](#my-applications), click an app/model/assistant and select to use it.  
+1. In [My workspace](#my-workspace), click an app/model/assistant and select to use it.  
 
    ![](./img/select-app.png)
 
@@ -1166,13 +1163,13 @@ You can publish your custom applications to make them accessible to the selected
 5. In **Applications** you can choose what applications you want to publish.
 6. Click **Send request** to send your publication request to the administrator.
 
-> **Note**, when your request is approved, the published application will become available in the [All applications](#all-applications) for the target audience.
+> **Note**, when your request is approved, the published application will become available in the [DIAL Marketplace](#dial-marketplace) for the target audience.
 
 #### Remove
 
-You can remove any application/model/assistant from My applications. Use Remove in the item's menu to do this: 
+You can remove any application/model/assistant from My workspace. Use Remove in the item's menu to do this: 
 
-1. Navigate to the My applications section.
+1. Navigate to the My workspace section.
 2. In the item's menu, click **Remove**.
 3. Confirm your action in the dialog window.
 
@@ -1186,7 +1183,7 @@ Use Delete in the app's menu to completely delete the selected application. **No
 
 ##### To delete application
 
-1. Navigate to the My applications section.
+1. Navigate to the My workspace section.
 2. In the application menu, click **Delete**.
 3. Confirm your action in the dialog window.
 
