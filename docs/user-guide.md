@@ -34,12 +34,11 @@ The AI DIAL Chat application interface has several sections, such as the chat bo
 3. [Chat Settings](#chat-settings): In this section, you can select the language model, assistant, application, and addons you'd like to use. You can also provide a system prompt and adjust the temperature setting.
 4. [Prompts](#prompts): In this section, you can work with saved prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
 5. [User Settings](#user-settings): In your user settings, you can customize the color theme (dark or light), choose a custom logo and other customization options.
-
-
+6. [DIAL Marketplace](#marketplace): This section includes all applications, language models and assistants available on your DIAL environment.
 
 ## Conversations
 
-In the AI DIAL framework, a conversation is a dialogue between an agent, such as a language model, assistant, or application, and a human user. The agent uses natural language to interact with a human and receive/give a feedback. Within one conversation, you can refer to previous questions and answers. But different conversations don’t share context.
+In the AI DIAL framework, a conversation is a dialogue between an agent, such as a language model, assistant, or application, and a human user. The agent uses natural language to interact with a human and receive/give a feedback. Within one conversation, you can refer to previous questions and answers. But different conversations don't share context.
 
 > All your conversations are stored on the server, and you can access them from any device you use.
 
@@ -81,13 +80,13 @@ You can also create a new folder or move a conversation to the existing folder f
 
 New folders will automatically be arranged in the **Pinned conversations** tab in the Conversations panel.
 
-**Hierarchy**
+##### Hierarchy
 
 You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a conversation into a folder or use **Move to** in the context menu of a conversation to move it to a **parent** folder.
 
 > **Note**: empty folders are deleted after refreshing the page.
 
-**Naming Conventions**
+##### Naming conventions
 
 The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
@@ -101,9 +100,7 @@ The **Search** box can be utilized to find conversations and folders by their na
 
 ### Create
 
-![](./img/conversations.png)
-
-**To create a conversation**:
+##### To create a conversation
 
 1. On the left panel, click **New conversation**.
 2. In the main section, under **Talk To**, select a language model, an assistant, or an application. Five most recently used items are shown in the section. To see all available items, click **See full list**.
@@ -112,11 +109,13 @@ The **Search** box can be utilized to find conversations and folders by their na
 5. Optionally, under **Addons**, select an Addon. For details, refer to the [Addons](#addons) section of this guide.
 6. Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first prompts will be used as its name. 
 
+![](./img/conversations.png)
+
 ### Rename
 
 When you create a new conversation, it is automatically named after the first line in your first prompt. For example, if your prompt includes several sentences separated by tab, the first one will be used to name the conversation. Moreover,the MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. After that, you can rename your conversation.
 
-**To rename a conversation**:
+##### To rename a conversation
 
 1. Click **Rename** in the context menu of the selected conversation.
 2. Enter a new name and submit.
@@ -137,7 +136,7 @@ You can share a conversation or a folder with several conversations with other u
 
 > Watch [Collaboration](../video%20demos/demos/dial-collaboration) demo video to learn more about sharing and other collaboration features in AI DIAL.
 
-**To receive a shared conversation**:
+##### To receive a shared conversation
 
 When someone shared a conversation with you, you can find it in the **Shared with me** section in the left panel. 
 
@@ -145,7 +144,7 @@ When someone shared a conversation with you, you can find it in the **Shared wit
 
 > **Important**: you cannot change a conversation that has been shared with you. To be able to work with it, [duplicate it](#duplicate).
 
-**To share a conversation**:
+##### To share a conversation
 
 > **Note**: You can share entire folders with conversations. When you share a folder, all folders and conversations in it will be shared as well.
 
@@ -184,7 +183,7 @@ You can also export all your conversations at once without attachments in a JSON
 
 > Exported conversations are named by the following pattern: prefix "epam_ai_dial_chat", then "with_attachments" if the conversation was exported with attachments, then "month_day". However, the naming convention is configurable in the chat config.
 
-**Export a single conversation with attachments**
+##### Export a single conversation with attachments
 
 1. On the left panel, in the conversation contextual menu, point to **Export**.
 2. Click **With attachments**. 
@@ -193,7 +192,7 @@ The conversation will be exported as a **ZIP** archive.
 
 ![](./img/export-with-att.png)
 
-**Export a single conversation without attachments**
+##### Export a single conversation without attachments
 
 1. On the left panel, in the conversation contextual menu, point to **Export**.
 2. Click **Without attachments**. 
@@ -202,7 +201,7 @@ The conversation will be exported as a **JSON** file.
 
 ![](./img/export-without-att.png)
 
-**Export all conversations**
+##### Export all conversations
 
 To export all conversations, at the bottom of the left panel, click the **Export conversations** icon.
 
@@ -259,7 +258,7 @@ Use **Replay as is** to reproduce the conversation with the original settings.
 
 ![](./img/Replay_as_is.png) 
 
-**To replay a conversation**: 
+##### To replay a conversation
 
 1.	Click **Replay** in the conversation menu. 
 2.	Select **Replay as is** in **More info** in the Replay settings to reproduce the conversation with the original settings or change the conversation settings. 
@@ -321,7 +320,7 @@ Use the Compare mode to compare two new (or two existing) conversations with dif
 
 ![](./img/compare2.png)
 
-**To compare two **new** conversations**:
+##### To compare two NEW conversations
 
 1.	Click the **Compare** icon at the bottom of the left panel.
 2.	Choose settings of the first conversations.
@@ -330,7 +329,7 @@ Use the Compare mode to compare two new (or two existing) conversations with dif
 
 As you can see on the picture above, the system creates two conversations with the same name but adds numbers to them. If you have chosen different language models, the conversations icons on the left panel will differ.
  
-**You can also compare two existing conversations**:
+##### To compare two EXISTING conversations
 
 ![](./img/compare.png)
 
@@ -349,7 +348,7 @@ You can publish conversations to make them available for the target audience.
 
 > **Note**: to publish a shared conversation, [duplicate](#duplicate) it and then publish. 
 
-**To publish a conversation**: 
+##### To publish a conversation
 
 1. Click **Publish** in the conversation menu. 
 
@@ -368,7 +367,7 @@ You can publish conversations to make them available for the target audience.
 
 ![](./img/organization-section.png)
 
-**Versioning**
+##### Versioning
 
 When you make a publication request, it is required to assign it a unique version number. A version must follow format: `0.0.0`. With each request you must provide a new version - the system will not accept two identical versions. 
 
@@ -390,7 +389,7 @@ When you open a published conversation, you can view and switch between its vers
 
 You can unpublish conversations to withdraw them from public use.
 
-**To unpublish a conversation**: 
+##### To unpublish a conversation
 
 1. Click **Unpublish** in the conversation menu. 
 
@@ -454,13 +453,13 @@ New folders will automatically be arranged in the **Pinned prompts** tab in the 
 
 ![](./img/pinned-prompts.png)
 
-**Hierarchy**
+##### Hierarchy
 
 You can create a hierarchy of folders with three nesting levels. Just create a folder and drag-n-drop it in the other folder to create a nesting level. The same way, you can either drag-n-drop a prompt into a folder or use **Move to** in the context menu of a prompt to move it to a **parent** folder.
 
 > **Note**: empty folders are deleted after refreshing the page.
 
-**Naming Conventions**
+##### Naming conventions
 
 The following symbols in the folders names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
 
@@ -472,12 +471,11 @@ The **Search** box can be utilized to find prompts and folders by their names. I
 
 ![](./img/pt_search.png)
 
-
 ### Create
 
 ![](./img/create-pt.png)
 
-**To create a new prompt**:
+##### To create a new prompt
 
 1.	On the right panel, select **New prompt**.
 2.	Fill in the **Name**, **Description**, and **Prompt** boxes. The following symbols in the prompt names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the prompt name is limited to 160 symbols. Everything beyond is cut off.
@@ -498,15 +496,15 @@ For example, you need to calculate an equation `a + c/d`, round up the answer, a
  
 In that case you can create the following prompt:
 
-![](./img/Prompt_example_math_edit_window.png)
+![](./img/math-prompt1.png)
 
 Here, `a`, `c`, and `d` are variables. In the prompt body, they are denoted by double curly brackets: `{{ }}`.
 
 > You can combine mathematical expressions and natural language in your prompts.
 
-After you’ve created the prompt, you can use it by typing a slash `/` in the chat box and selecting the name of a prompt (it is **Math** in our example). You’ll see the following form where you can enter any numbers:
+After you have created the prompt, you can use it by typing a slash `/` in the chat box and selecting the name of a prompt (it is **Math** in our example). You’ll see the following form where you can enter any numbers:
 
-![](./img/Prompt_example_math_enter_variables.png)
+![](./img/math-prompt.png)
 
 When you submit the form, your message will look like on the illustration below:
   
@@ -546,7 +544,7 @@ You can share a prompt or a folder with several prompts with other users.
 
 > Watch [Collaboration](../video%20demos/demos/dial-collaboration) demo video to learn more about sharing and other collaboration features in AI DIAL.
 
-**To Receive a Shared Prompt**:
+##### To receive a shared prompt
 
 To obtain a prompt from someone else (receive a shared prompt), you must get a link from them. By clicking on this link, you will import the prompt into your chat.
 
@@ -561,7 +559,7 @@ You can always view prompts that have been shared with you in a dedicated sectio
 * Delete: remove from the list.
 * Export: download in a JSON format.
 
-**To Share a Prompt**:
+##### To share a prompt
 
 To share a prompt or a folder, click **Share** in the contextual menu and copy the link. After someone has opened your link, an arrow icon appears near its name and this prompt can be found when **Shared by me** checkbox in the filter is selected.
 
@@ -611,7 +609,7 @@ You can publish prompts to make them available for the target audience.
 
 > **Note**: to publish a shared prompt, [duplicate](#duplicate-1) it and then publish. 
 
-**To publish a prompt**: 
+##### To publish a prompt 
 
 1. Click **Publish** in the prompt's menu. 
 
@@ -631,7 +629,7 @@ You can publish prompts to make them available for the target audience.
 
 ![](./img/organization-section-prompts.png)
 
-**Versioning**
+##### Versioning
 
 When you make a publication request, it is required to assign it a unique version number. A version must follow format: `0.0.0`. With each request you must provide a new version - the system will not accept two identical versions. 
 
@@ -645,12 +643,11 @@ If you try to publish this prompt again, you will be able to view the last versi
 
 ![](./img/versioning2.png)
 
-
 ### Unpublish
 
 You can unpublish prompts to withdraw them from the public use.
 
-**To unpublish a prompt**: 
+##### To unpublish a prompt 
 
 1. Click **Unpublish** in the prompt's menu. 
 
@@ -721,29 +718,29 @@ In the Chat Settings section, there are the following components:
 - [Temperature](#temperature)
 - [Addons](#addons)
 
-![](./img/chat-settings-main.png)
-
 Take a closer look at each of these elements.
 
 ### Talk To
 
-![](./img/Talk_to_full_list.png)
+In this section, you can view all models, applications and assistants that you have added to My workspace section. Here, you can select them to use in conversations.
 
-In this section, you can choose the language model for communication, as well as an Assistant or Application to implement specific behavior for the LLM.
+![](./img/talk-to.png)
 
 #### Language Models
 
-1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
-2. All tabs (Models, Applications and Assistants) are enabled by default. To display just Models, disable the rest and keep the **Models** tab active.
-3. To select a model: click any of the available models or select its version in the dropdown list. The selected model will appear in the models list as pre-selected for the new conversation.
+1. In the **Talk to** area, click **Search on My workspace** to navigate to [My workspace](#my-workspace) where you can display all models, applications and assistants that you have selected. Note, in the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
+2. To display just Models, disable all other **Types** and enable just **Models**.
+3. To select a model, click any of the available models or select its version in the dropdown list. The selected model will appear in the models list as pre-selected for the new conversation.
 
-![](./img/all_models.png)
+#### Available Models
 
-**Available language models**:
+In the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
 
-> See the full [list of supported models](/supported-models).
+![](./img/marketplace-home-select.png)
 
-- *GPT-3.5* is an advanced language model developed by OpenAI, known for its powerful natural language processing, understanding, and context awareness. Enabling human-like conversations, it can carry out various tasks, including summarizing, translation, content creation, and answering queries.
+> Refer to [Supported Models](/supported-models) to view all the models supported in AI DIAL.
+
+<!-- - *GPT-3.5* is an advanced language model developed by OpenAI, known for its powerful natural language processing, understanding, and context awareness. Enabling human-like conversations, it can carry out various tasks, including summarizing, translation, content creation, and answering queries.
 - *GPT-4* is the latest iteration of the GTP series by OpenAI, offering more powerful natural language processing capabilities than its previous versions. It harnesses extensive training and massive datasets to deliver lifelike conversations, unsurpassed context awareness, and high-quality content generation across multiple languages and domains.
 - *GPT-4-32K* is the extension for GTP-4 that can possess a larger context window size (32,000 tokens). It offers several advantages, including a better understanding of context, improved performance in long-form tasks, enhanced reasoning and knowledge handling, and increased creativity in content generation. Please only use this one if you absolutely need it. It's slower and more expensive.
 - *PaLM2 (Bison)* is an LLM developed by Google that leverages an innovative hierarchical architecture to enhance its linguistic competence and computational efficiency. By employing parallel and multitask learning mechanisms, PaLM2 (Bison) provides exceptional performance in diverse language tasks, like question-answering, summarization, and translation, while also being highly scalable and adaptive to new environments.
@@ -754,16 +751,16 @@ In this section, you can choose the language model for communication, as well as
 - *Anthropic (Claude)* is a large-scale LLM with 175 billion parameters that is optimized for general-purpose language tasks, including question answering, dialogue generation, and text completion. The model has been trained on data from a wide range of sources to provide high accuracy in many contexts.
 - *Anthropic (Claude Instant)* is an LLM that can generate responses in real-time, making it useful for applications such as chatbots and virtual assistants. It is a smaller model than the Anthropic (Claude) model, with 9 billion parameters, and is optimized for low-latency inference.
 - *Anthropic (Claude V2)* is an upgraded version of the Anthropic (Claude) model, with 400 billion parameters, making it one of the largest language models to date. This model is designed for sophisticated NLP applications involving complex reasoning, inference, and understanding of long-form text data.
-- *AWS (Titan)*: AWS (Amazon Web Services) developed an LLM called Titan in 2021, which has 850 billion parameters, making it the largest publicly available language model at the time of its introduction. The model was trained on a diverse set of text sources, including web pages, books, and news articles. Titan is designed to handle complex natural language processing tasks, such as summarization, dialogue generation, and translation.
+- *AWS (Titan)*: AWS (Amazon Web Services) developed an LLM called Titan in 2021, which has 850 billion parameters, making it the largest publicly available language model at the time of its introduction. The model was trained on a diverse set of text sources, including web pages, books, and news articles. Titan is designed to handle complex natural language processing tasks, such as summarization, dialogue generation, and translation. -->
 
 
 #### Assistants
 
-1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
-2. All tabs (Models, Applications and Assistants) are enabled by default. To display just Assistants, disable the rest and keep the **Assistants** tab active.
-3. Click any of the available assistants to start a conversation. 
+1. In the **Talk to** area, click **Search on My workspace** to navigate to [My workspace](#my-workspace) where you can display all models, applications and assistants that you have selected. 
+2. To display just Assistants, disable all other **Types** and enable just **Assistants**. Note, in the [DIAL Marketplace](#dial-marketplace) section, you can view all the Assistants available on your DIAL environment. There, you can select Assistants to add them to [My workspace](#my-workspace).
+3. To select an Assistant, click any of the available Assistants.
 
-![](./img/Talk_to_full_list_assistants.png)
+![](./img/talk-to-assistants.png)
 
 In the AI DIAL framework, Assistants are a combination of preselected Addons and System Prompts that enable specific behavior in the LLM, allowing for more tailored and adaptive responses to user needs. Unlike the Model+Addon configuration, where users have the flexibility to choose different Addons, Assistants come with predetermined Addons that cannot be removed or unselected. However, the Model can still be reassigned within the Assistant.
 
@@ -773,27 +770,28 @@ In a chat application, you can include custom Assistant(s) that users can choose
 
 #### Applications
 
-1. In the **Talk to** area, click **See full list...** to display all the available models, applications and assistants.
-2. All tabs (Models, Applications and Assistants) are enabled by default. To display just Applications, disable the rest and keep the **Applications** tab active.
+> * Refer to [Applications](#applications-1) to learn more about them.
+> * Refer to [My workspace](#my-workspace) to learn how to register and manage custom apps in AI DIAL Chat.
+
+1. In the **Talk to** area, click **Search on My workspace** to navigate to [My workspace](#my-workspace) where you can display all models, applications and assistants that you have selected. 
+2.  display just Applications, disable all other **Types** and enable just **Applications**. Note, in the [DIAL Marketplace](#dial-marketplace) section, you can view all the Applications available on your DIAL environment. There, you can select Applications to add them to [My workspace](#my-workspace).
 3. Click any of the available applications to start a conversation. 
 
-![](./img/applications.png)
-
-In the AI DIAL framework, Applications are ready-to-use solutions made up of predefined configurations of Addons and other services or any custom logic. They help you customize LLM behavior by integrating Addons with any desired logic. Applications can be any component that meets API requirements and implements non-LLM-related logic, such as repeating user messages, creating a fully deterministic chatbot, or managing complex multi-LLM interactions. This versatility in Applications allows for tailored handling of unique scenarios and requirements.
+![](./img/talk-to-apps.png)
 
 ### System Prompt
 
 ![](./img/system_prompt.png)
 
-The system prompt in AI DIAL refers to the initial instructions given to the model. You can use any previously created prompt as a system prompt (for details, refer to the [Create](#create) in Prompts), and it will set the context and tone for the whole conversation.
+The system prompt in AI DIAL refers to the initial instructions given to the model. The system prompt in AI DIAL is like a compass for a traveler, pointing the model in the right direction to navigate the conversational landscape, ensuring it stays on course and aligned with the overall purpose and desired outcome.
 
-The system prompt in AI DIAL is like a compass for a traveler, pointing the model in the right direction to navigate the conversational landscape, ensuring it stays on course and aligned with the overall purpose and desired outcome. 
+Type `/` in the text box to select any previously created prompt as a system prompt (for details, refer to the [Create](#create) in Prompts), and it will set the context and tone for the whole conversation.
 
-You can change system prompts during a conversation by selecting the **Settings** icon at the top bar of the conversation. 
+You can change system prompts during a conversation by selecting the [Settings](#conversation-settings) icon at the top bar of the conversation. 
 
-#### Example
+##### Example
 
-Let’s compare a conversation with a system prompt selected and a conversation without a system prompt. For illustration purposes, we’re going to use the compare mode (refer to the [Compare](#compare) section for details) and create two conversations with identical settings except for the system prompt selection.
+Let's compare a conversation with a system prompt selected and a conversation without a system prompt. For illustration purposes, we are going to use the compare mode (refer to the [Compare](#compare) section for details) and create two conversations with identical settings except for the system prompt selection.
 
 The prompt used as a system prompt is as follows:
 
@@ -820,10 +818,12 @@ Adjusting the temperature allows you to balance creativity and consistency in th
 ### Addons
 
 You may want LLM to access particular data or technology to generate responses. This could be your company's database, a collection of PDF documents, calculation engines, API or any other data source or technology.
-Within the AI DIAL framework, an Addon is a service or any component that follows the Open API specification. Some examples of Addon implementation are semantic search, Q&A search, DB query generator, or any other custom logic that meets your business needs. AI DIAL can include custom Addons that you can choose to activate a specific system behavior.
 
-1. In the **Talk to** area, click **See all addons...** to display all the available addons.
-2. Select one or several addons and click **Apply addons**.
+In the AI DIAL framework, an **Addon** refers to a service or component that conforms to the Open API specification. Examples of Addon implementations include semantic search, Q&A search, database query generators, or any custom logic tailored to meet specific business requirements. AI DIAL allows for the inclusion of custom Addons, which can be activated to achieve desired system behaviors.
+
+1. In the **Talk to** area, select a model to display additional parameters in the section to the right.
+2. In the **Addons** section you can view the addons available in your DIAL environment. 
+3. Click on **See all addons...** to view all available addons. You can select one or more addons and then click **Apply addons** to start using them.
 
 ![](./img/addons2.png)
 
@@ -834,7 +834,6 @@ In the Isolated View Mode, a user can follow a specific URL `https://server/mode
 For instance, if a user wants to open GPT-4 without any extra features or configurations, they can simply go to `https://AI DIAL Chat URL/models/gpt-4` and access a streamlined user interface that only contains a chat input with GPT-4:
 
 ![](./img/isolated_view_mode.png)
-
 
 ## User Settings
 
@@ -888,7 +887,7 @@ There can be a few tabs in the Attachments Manager:
 
 ![](./img/att-manager.png)
 
-**To Create a Folder:**
+##### To create a folder
 
 You can create folders and then upload files into them. **Note**, the only way to add a file into a folder is to upload it - you cannot move files between folders.
 
@@ -908,7 +907,7 @@ You can as well perform several actions on your folders:
 
 ![](./img/folder-actions.png)
 
-**To Upload a File:**
+##### To upload a file
 
 To add a file into a folder it is necessary to upload it.
 
@@ -920,7 +919,7 @@ To add a file into a folder it is necessary to upload it.
 
 ![](./img/attachments2.png)
 
-**To Unshare a File**:
+##### To unshare a file
 
 Using the application that supports the attachments of files, you can create a conversation and share it with someone. When a conversation is shared, all the attached to the conversation files are shared as well. In the attachments manager, such shared files are tagged with a blue arrow.
 
@@ -928,7 +927,7 @@ In the file menu, you can choose to unshare it:
 
 ![](./img/file-menu.png)
 
-**To Download Attachments**:
+##### To download attachments
 
 Click a folder to expand it.
 
@@ -937,7 +936,7 @@ Click a folder to expand it.
 
 ![](./img/file-download.png)
 
-**To Delete Attachments**:
+##### To delete attachments
 
 > You won't be able to preview or download a deleted file in a conversation, but you still will see its name.
 
@@ -948,13 +947,13 @@ Click a folder to expand it.
 
 ## Publications
 
-You can publish/unpublish conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
+You can publish/unpublish your applications, conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
 
 > Watch [Publications](../video%20demos/demos/dial-publications) demo video to learn more about collaboration features in AI DIAL.
 
 ### Configuration
 
-> Refer to [tutorials](/tutorials/enable-publications#dial-chat) to learn more about working and configuring publications.
+> Refer to [tutorials](/tutorials/Collaboration/enable-publications#dial-chat) to learn more about working and configuring publications.
 
 To enable the publication feature:
 
@@ -966,35 +965,12 @@ To enable the publication feature:
 
 This is the high level overview of the publication workflow: 
 
-1. Chat user sends a publication request for the selected resource(s) (conversation, prompt).
-2. Admin receives the publication request, reviews it and either approves or declines.
-3. In case the publication request has been approved, the published resource becomes available for the target audience in the Organization section in the chat application. If the published resource includes attachments, they will be available in the Organization section in the [Attachments Manager](#attachments-manager).
+1. Chat user sends a publication request for the selected resource(s) ([conversation](#publish), [prompt](#publish-1), [application](#publish-app)).
+2. Admin receives the publication request, reviews it and either approves or declines. Refer to [Process Publish Requests](#process-publish-requests) to learn more.
+3. In case the publication request has been approved, the published resources (conversations and prompts) become available for the target audience in the Organization section in the chat application. Published applications can be found in [DIAL Marketplace](#dial-marketplace). If the published conversation includes attachments, they will be available in the [Attachments Manager](#attachments-manager).
 4. Resource owner can unpublish the published resource.
 
-> Refer to [Conversations](#publish) and [Prompts](#publish-1) to view a step-by-step instructions.
-
-
-## Data Visualization
-
-AI DIAL Chat enables data visualization for specific data types using data visualizers. It comes with built-in support for the [Plotly data visualizer](#plotly). To link any other custom visualizers, you can use the [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) library.
-
-> Refer to [Data Visualization](../tutorials/data-visualization) to learn more about visualizing data in chat and custom visualization apps.
-
-### Plotly
-
-Plotly is an open-source JavaScript library that enables the creation of diverse data visualizations, including charts, 3D graphs, and more.
-
-![](./img/plotly.png)
-
-> Refer to [Plotly](https://plotly.com/) to learn more. 
-
-AI DIAL Chat integrates with Plotly, offering robust data visualization capabilities. To utilize Plotly, choose an AI DIAL application that supports this feature. These applications must be capable of querying data (either from a URL or directly from the Chat application) based on user input and returning it in a format compatible with Plotly. Chat automatically detects attachments in this format and uses Plotly to visualize the data.
-
-![](./img/plotly2.png)
-
-The visualizations come with standard Plotly controls for easy manipulation.
-
-> Refer to [Plotly GitHub](https://github.com/plotly/react-plotly.js) to learn more. 
+> Refer to [Conversations](#publish), [Prompts](#publish-1) and [Publish App](#publish-app) to view step-by-step instructions.
 
 ## Administrators
 
@@ -1023,5 +999,196 @@ The count shows the number of requests to be reviewed. Each such request has a c
 ![](./img/review-mode2.png)
 
 5. Once the review is completed, the **Approve** button is enabled. **Note**, you can approve or reject only the entire request.
+
+## Data Visualization
+
+AI DIAL Chat enables data visualization for specific data types using data visualizers. It comes with built-in support for the [Plotly data visualizer](#plotly). To link any other custom visualizers, you can use the [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) library.
+
+> Refer to [Data Visualization](../tutorials/data-visualization) to learn more about visualizing data in chat and custom visualization apps.
+
+### Plotly
+
+Plotly is an open-source JavaScript library that enables the creation of diverse data visualizations, including charts, 3D graphs, and more.
+
+![](./img/plotly.png)
+
+> Refer to [Plotly](https://plotly.com/) to learn more. 
+
+AI DIAL Chat integrates with Plotly, offering robust data visualization capabilities. To utilize Plotly, choose an AI DIAL application that supports this feature. These applications must be capable of querying data (either from a URL or directly from the Chat application) based on user input and returning it in a format compatible with Plotly. Chat automatically detects attachments in this format and uses Plotly to visualize the data.
+
+![](./img/plotly2.png)
+
+The visualizations come with standard Plotly controls for easy manipulation.
+
+> Refer to [Plotly GitHub](https://github.com/plotly/react-plotly.js) to learn more. 
+
+## Applications
+
+> Refer to [My workspace](#my-workspace) to learn how to register and manage custom apps in AI DIAL Chat.
+
+An **Application** in AI DIAL refers to any custom logic with a conversational interface, adhering to a [Unified API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post), and packaged as a ready-to-deploy solution. Applications can facilitate the customization of LLM behavior by incorporating tools (such as [Addons](#addons)) with a desired functionality. Additionally, applications can support logic not directly related to LLMs, such as echoing user messages, creating a fully deterministic chatbot, or orchestrating complex interactions involving multiple LLMs. The flexibility offered by applications enables customized solutions for distinct scenarios and needs.
+
+Applications can be developed (using [DIAL SDK](https://github.com/epam/ai-dial-sdk)) to execute any custom logic and can even form an [ecosystem](./architecture#introduction) and interact with each other through the [Unified API](https://epam-rail.com/dial_api) with access to all DIAL Core features among which is connectivity to models, file storage, access control, per-request API keys and other.
+
+> Watch a [DIAL RAG](../video%20demos/demos/dial-rag) video as an example of what DIAL applications may look like.
+
+AI DIAL platform serves as an **application server**, offering tools to develop, deploy and operate custom applications.
+
+DIAL applications can be integrated into the DIAL Core deployment. By doing so, these applications will be immediately available in your chat from the start. For examples, refer to the [dynamic setting](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) in DIAL Core. Additionally, you can register your custom and deployed applications through the [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put) and [DIAL Chat UI](#add-custom-app). In such cases, the configuration of your custom applications, described in a JSON file, is saved in your blob store and accessed by DIAL Core for usage.
+
+## Marketplace
+
+### Overview
+
+Click **DIAL Marketplace** to navigate to the *home page* of DIAL Marketplace where you can find all [applications](#applications), [language models](#available-models) and [assistants](#assistants) available on your DIAL environment. Here, you can also find all applications [published](#publish-app) in your organization.
+
+![](./img/dial-marketplace.png)
+
+You can navigate to this section form the main chat screen: 
+
+![](./img/dial-marketplace1.png)
+
+In DIAL Marketplace, there are two sections: 
+
+* [DIAL Marketplace](#dial-marketplace): this section includes all applications, language models and assistants available on your DIAL environment.
+* [My workspace](#my-workspace): this section includes all applications, language models and assistants that you have selected in DIAL Marketplace. In this section, you can also register your custom applications.
+
+![](./img/dial-marketplace2.png)
+
+From both these sections you can click **Back to Chat** to navigate to the main chat screen.
+
+![](./img/dial-marketplace3.png)
+
+Use the **Type** filters to display any or all applications, language models, and assistants, and categorize them by **Topic**. Additionally, the **Search** allows you to swiftly locate any item.
+
+![](./img/dial-marketplace5.png)
+
+### DIAL Marketplace
+
+Click **DIAL Marketplace** to navigate to the *home page* of DIAL Marketplace where you can find all [applications](#applications), [language models](#available-models) and [assistants](#assistants) available on your DIAL environment. Here, you can also find all applications [published](#publish-app) in your organization.
+
+![](./img/dial-marketplace.png)
+
+##### Add to workspace
+
+In the DIAL Marketplace section, you can view details of any item and add it to [My workspace](#my-workspace):
+
+1. Click any item to view its details.
+2. Choose its version (if available). Note, that you can add different versions in several iterations. In this case, you will be able to select a version in [Talk to](#talk-to) before the conversation.
+3. Click **Use** to add.
+4. You can find the added item in [My workspace](#my-workspace) and in [Talk to](#talk-to).
+
+![](./img/marketplace-home-select.png)
+
+### My workspace
+
+In **My workspace**, you can access all the applications, language models, and assistants that you have added in [DIAL Marketplace](#dial-marketplace). This area allows you to view and select items for your conversations, as well as remove them from the list. Additionally, you can [register](#add-custom-app) custom [applications](#applications-1) here, which provides you with options for an extended range of actions.
+
+#### Add Custom App
+
+> You can also add custom applications using [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put).
+
+If you want to use your custom application, you can register it in AI DIAL Chat or add using [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put). After adding a custom application, a JSON file describing the configuration of your application will be saved in a dedicated folder within a blob store account bucket assigned to your user account. These files can then be accessed by DIAL Core to facilitate the integration and operation of your applications. Configuration of a custom application matches DIAL Core dynamic configuration for applications. Refer to [Examples](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json) to view how it can look like.
+
+> **Important Requirement**: Custom applications must provide a chat completion endpoint for DIAL Core and adhere to the [Unified API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) standards to ensure seamless integration and functionality.
+
+##### To register application
+
+1. Click **Add app** and select **Custom app**.
+
+![](./img/register-app.png)
+
+2. Fill in the [Add application](#addedit-application-form) form
+
+![](./img/add-app.png)
+
+3. The registered application will appear in [My workspace](#my-workspace)
+
+##### Add/Edit application form
+
+|Field|Required|Description|
+|---|:---:|-------------|
+|Name|Yes|Application name.|
+|Version|Yes|Application version, following the format `x.y.z` and contain only numbers and dots.|
+|Icon|Yes|The icon that will be rendered in the chat UI for this application.|
+|Topics|No|You can assign one of pre-defined topics to your custom application. Topics and their styles are defined in [AI DIAL Chat Themes](https://github.com/epam/ai-dial-chat-themes/blob/development/static/config.json). You can also add custom applications using [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put). In this case, you can add any custom topic to your application by including this parameter in the application configuration JSON file: `"description_keywords": ["My custom topic"]`|
+|Description|No|A short description that will be rendered in the chat UI. Add two line breaks and provide an addition description if needed.|
+|Features data|No|Application features are specific configurations of applications specified in JSON format. Currently, only two are supported: rate and configuration endpoints:<br />`rateEndpoint` is the endpoint for rate requests.<br />`configurationEndpoint` is the endpoint to request application configuration parameters as JSON schema.<br />Refer to [DIAL Core documentation](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) to view the full set of available application features.|
+|Attachments type|No|Types of attachments allowed for this application. Provide the types according to [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). E.g.: image/png and click enter.|
+|Max. attachments number|No|The maximal number of attachments the application is allowed to accept. Skip to apply the max integer number. Enter `0` to disable attachments.|
+|Completion URL|Yes|A chat completion URL exposed by your application and used by DIAL Core to send chat completion requests.|
+
+#### Converse
+
+In My workspace, you can select with application, model or assistant you want to have in [Talk To](#talk-to) and then use in your conversations.
+
+1. In [My workspace](#my-workspace), click an app/model/assistant and select to use it.  
+
+   ![](./img/select-app.png)
+
+2. Click **Back to Chat** to return to the main chat screen.
+3. Click **New conversation**. Select the desired item in the [Talk To](#talk-to) section. From there, you can use it for conversations.
+
+   ![](./img/select-app2.png)
+
+#### Edit App
+
+> You can also edit your **custom** application in [Talk To](#talk-to).
+
+Use Edit in the app's menu to modify the selected application. **Note** that you can edit only your custom applications.
+
+##### To edit application
+
+1. Click **Edit** to invoke the [Edit application form](#addedit-application-form)
+
+   ![](./img/register-app2.png)
+
+2. Make changes and click **Save**
+
+#### Publish App
+
+You can publish your custom applications to make them accessible to the selected audience in your organization. Refer to [Publications](#publications) to learn more about this functionality and to [Tutorials](./tutorials/Collaboration/enable-publications) for a more extended documentation.
+
+> **Note**: all published applications within your organization will appear in DIAL Marketplace for the corresponding audience.
+
+##### To publish application
+
+> You can also publish your **custom** application in [Talk To](#talk-to).
+
+1. In the application menu (you can also find a Publish icon in the Edit application form), click **Publish**
+
+   ![](./img/register-app3.png)
+
+2. Enter **publication request name** in the upper area.
+3. In **Publish to**, select the target destination or a folder to publish your prompt into.
+4. In **Allow access...**, specify access rules and the target audience. For example Role-Equals-Admin. **Note**: the available roles are defined in each organization individually. Contact your support to find out the rules are applicable in your organization.
+5. In **Applications** you can choose what applications you want to publish.
+6. Click **Send request** to send your publication request to the administrator.
+
+> **Note**, when your request is approved, the published application will become available in the [DIAL Marketplace](#dial-marketplace) for the target audience.
+
+#### Remove
+
+You can remove any application/model/assistant from My workspace. Use Remove in the item's menu to do this: 
+
+1. Navigate to the My workspace section.
+2. In the item's menu, click **Remove**.
+3. Confirm your action in the dialog window.
+
+![](./img/remove-app.png)
+
+#### Delete App
+
+> You can also delete your **custom** application in [Talk To](#talk-to).
+
+Use Delete in the app's menu to completely delete the selected application. **Note** that you can delete only your custom applications.
+
+##### To delete application
+
+1. Navigate to the My workspace section.
+2. In the application menu, click **Delete**.
+3. Confirm your action in the dialog window.
+
+![](./img/register-app4.png)
 
 
