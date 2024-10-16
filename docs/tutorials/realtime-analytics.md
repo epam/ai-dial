@@ -4,10 +4,8 @@
 
 [DIAL Core](https://github.com/epam/ai-dial-core) collects **system logs** and **chat completion logs**:
 
-* System logs do not include any user data and contain logs of all requests from system components to AI DIAL Core (using the ELK stack (Elasticsearch, Logstash, Kibana) or other log collection system). **Note**: this document does not cover system logs.
+* System logs do not include any user data and contain logs of all requests from system components to AI DIAL Core (using the ELK stack (Elasticsearch, Logstash, Kibana) or other log collection system). Refer to [Observability](../Observability) to learn about logs, metrics and traces supported in AI DIAL.
 * [Chat completion requests](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) logs include information that users send in their requests to LLMs and the information they get in responses.
-
-> **Important**: AI DIAL Core **will log** user requests and deployment responses unless the requests are authorized with a **secured** API key. This means that user requests and deployment responses will be recorded in logs for all requests authorized with an access token (like JWT) or unsecured API keys. Refer to [configuration](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) to learn how to create secured and other types of API keys.
 
 [AI DIAL setup](../architecture#full-platform-landscape) can include a special service called DIAL Analytics Realtime, which uses diverse techniques such as embedding algorithms, clustering algorithms, frameworks, light-weight self-hosted language models, to analyze **chat completion logs** and extract the needed information, which can be presented in tools such as Grafana for visualization and analytics.
 
@@ -26,6 +24,12 @@ Examples of the computed artifacts:
 * Cost analysis of the communication.
 * Language of conversations.
 * Any other calculated statistics based on conversations.
+
+## Anonymization
+
+AI DIAL Core **will log** all user requests and deployment responses authorized with an access token (like JWT) or **unsecured** API keys. To avoid this, create and use a **secured** API key - in this case the system will not collect logs of user requests and related responses from applications, assistants and models.
+
+Refer to [DIAL Core configuration](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) to learn how to create secured and other types of API keys.
 
 ## Configuration
 
