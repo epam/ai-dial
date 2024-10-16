@@ -949,7 +949,7 @@ Click a folder to expand it.
 
 You can publish/unpublish your applications, conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
 
-> Watch [Publications](../video%20demos/demos/dial-publications) demo video to learn more about collaboration features in AI DIAL.
+> Watch [Publications](../video%20demos/demos/dial-publications) demo video to learn more about publication and collaboration features in AI DIAL.
 
 ### Configuration
 
@@ -1012,7 +1012,9 @@ Plotly is an open-source JavaScript library that enables the creation of diverse
 
 ![](./img/plotly.png)
 
-> Refer to [Plotly](https://plotly.com/) to learn more. 
+> * Refer to [Plotly](https://plotly.com/) to learn more. 
+> * Watch [Animated Scatterplot](../video%20demos/demos/animated-scatterplot) demo video to see how statistical data can be visualized in AI DIAL Chat using a Plotly animated scatterplot.
+> * Watch [Omics AI Assistant](../video%20demos/demos/dial-omics-assistant) demo video to see how protein structures can be visualized with Plotly.
 
 AI DIAL Chat integrates with Plotly, offering robust data visualization capabilities. To utilize Plotly, choose an AI DIAL application that supports this feature. These applications must be capable of querying data (either from a URL or directly from the Chat application) based on user input and returning it in a format compatible with Plotly. Chat automatically detects attachments in this format and uses Plotly to visualize the data.
 
@@ -1039,6 +1041,8 @@ DIAL applications can be integrated into the DIAL Core deployment. By doing so, 
 ## Marketplace
 
 ### Overview
+
+> Watch [Marketplace](../video%20demos/demos/marketplace) demo video to see it in action.
 
 Click **DIAL Marketplace** to navigate to the *home page* of DIAL Marketplace where you can find all [applications](#applications), [language models](#available-models) and [assistants](#assistants) available on your DIAL environment. Here, you can also find all applications [published](#publish-app) in your organization.
 
