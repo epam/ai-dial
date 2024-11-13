@@ -8,7 +8,7 @@ You can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom mod
 | :-- | :-- |
 | AI21| ai21.j2-grande-instruct, ai21.j2-jumbo-instruct |
 | Amazon| amazon.titan-tg1-large, amazon.titan-embed-text-v1, amazon.titan-embed-text-v2:0, amazon.titan-embed-image-v1 |
-| Anthropic| anthropic.claude-instant-v1, anthropic.claude-v2, anthropic.claude-v2-1, anthropic.claude-v3-opus, anthropic.claude-v3-haiku, anthropic.claude-v3-sonnet, anthropic.claude-v3-5-sonnet, anthropic.claude-3-5-sonnet-20241022-v2:0, anthropic.claude |
+| Anthropic| anthropic.claude-instant-v1, anthropic.claude-v2, anthropic.claude-v2-1, anthropic.claude-v3-opus, anthropic.claude-v3-haiku, anthropic.claude-v3-sonnet, anthropic.claude-v3-5-sonnet, anthropic.claude-3-5-sonnet-20241022-v2, anthropic.claude |
 | Cohere| cohere.command-text-v14 |
 | Databricks| databricks-bge-large-en, databricks-llama-2-70b-chat, databricks-mixtral-8x7b-instruct, databricks-dbrx-instruct |
 | E5| e5-large-v2 |
@@ -16,7 +16,7 @@ You can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom mod
 | Meta| meta.llama3-8b-instruct-v1, meta.llama3-70b-instruct-v1, meta.llama3, meta.llama2-13b-chat-v1, meta.llama2-70b-chat-v1, meta.llama2, CodeLlama-34b-Instruct-hf, Llama-3-8B-Instruct |
 | Mistral| Mistral-7B-Instruct, Mixtral-8x7B-Instruct-v0.1, mistral-large-azure |
 | OpenAI| gpt-35-turbo-0301, gpt-35-turbo-0613, gpt-35-turbo-1106, gpt-35-turbo-0125, gpt-35-turbo, gpt-35-turbo-16k, gpt-4-0613, gpt-4, gpt-4-1106-preview, gpt-4-0125-preview, gpt-4-turbo-2024-04-09, gpt-4-turbo, gpt-4-32k-0314, gpt-4-32k-0613, gpt-4-32k, gpt-4-vision-preview, gpt-4o-2024-05-13, dall-e-3, text-embedding-ada-002, text-embedding-3-large, text-embedding-3-small |
-| Stability AI| stability.stable-diffusion-xl, stability.stable-image-core-v1:0, stability.sd3-large-v1:0, stability.stable-image-ultra-v1:0|
+| Stability AI| stability.stable-diffusion-xl, stability.stable-image-core-v1, stability.sd3-large-v1, stability.stable-image-ultra-v1|
 
 
 
