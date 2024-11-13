@@ -15,7 +15,7 @@ Analytics Realtime does not retain any private information, such as user prompts
 
 Examples of the computed artifacts:
 
-* Who has used the AI? – user hash, title, and never personal data such as names.
+* Information about user(user hash, title, and never personal data such as names).
 * What areas have people asked questions about?
 * Are there any recurring patterns?
 * Topics of conversations.
@@ -25,7 +25,7 @@ Examples of the computed artifacts:
 * Language of conversations.
 * Any other calculated statistics based on conversations.
 
-## Anonymization
+## Disable Logging of User Information
 
 AI DIAL Core **will log** all user requests and deployment responses authorized with an access token (like JWT) or **unsecured** API keys. To avoid this, create and use a **secured** API key - in this case the system will not collect logs of user requests and related responses from applications, assistants and models.
 

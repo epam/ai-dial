@@ -1073,18 +1073,28 @@ Click **DIAL Marketplace** to navigate to the *home page* of DIAL Marketplace wh
 
 ![](./img/dial-marketplace.png)
 
-##### Add to workspace
+##### Add to My Workspace
 
-In the DIAL Marketplace section, you can view details of any item and add it to [My workspace](#my-workspace):
+In the DIAL Marketplace section, you can view details of any item and add it to [My workspace](#my-workspace).
 
-1. Click any item to view its details.
-2. Choose its version (if available). Note, that you can add different versions in several iterations. In this case, you will be able to select a version in [Talk to](#talk-to) before the conversation.
-3. Click **Use** to add.
-4. You can find the added item in [My workspace](#my-workspace) and in [Talk to](#talk-to).
+To simply add/remove an item to/from My Workspace, click **Add/Remove to/from My workspace** label:
+
+![](./img/add-to-workspace.png)
+
+You can also add an item to My Workspace by initiating a conversation with it. For example, to add a model:
+
+1. Click a model to view its details.
+2. Choose its version (if available). Note, that you can add different versions in several iterations. In this case, you will be able to select a model's version in [Talk to](#talk-to) before the conversation.
+3. Click **Use** to initiate a conversation.
+4. You can find the added model in [My workspace](#my-workspace) and in [Talk to](#talk-to).
 
 ![](./img/marketplace-home-select.png)
 
-### My workspace
+> **Please note**, that if you start a conversation and then remove the associated item from My Workspace, you will need to reinstate the item to continue the conversation. A button will appear in place of the chat text box. Simply click this button to return the item to My Workspace and resume the conversation.
+
+![](./img/add-to-continue.png)
+
+### My Workspace
 
 In **My workspace**, you can access all the applications, language models, and assistants that you have added in [DIAL Marketplace](#dial-marketplace). This area allows you to view and select items for your conversations, as well as remove them from the list. Additionally, you can [register](#add-custom-app) custom [applications](#applications-1) here, which provides you with options for an extended range of actions.
 
