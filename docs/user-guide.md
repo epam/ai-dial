@@ -1026,17 +1026,45 @@ The visualizations come with standard Plotly controls for easy manipulation.
 
 ## Applications
 
-> Refer to [My workspace](#my-workspace) to learn how to register and manage custom apps in AI DIAL Chat.
+> Refer to [My workspace](#my-workspace) to learn how to add and manage applications in AI DIAL Chat.
 
-An **Application** in AI DIAL refers to any custom logic with a conversational interface, adhering to a [Unified API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post), and packaged as a ready-to-deploy solution. Applications can facilitate the customization of LLM behavior by incorporating tools (such as [Addons](#addons)) with a desired functionality. Additionally, applications can support logic not directly related to LLMs, such as echoing user messages, creating a fully deterministic chatbot, or orchestrating complex interactions involving multiple LLMs. The flexibility offered by applications enables customized solutions for distinct scenarios and needs.
+An **Application** in AI DIAL refers to any custom logic with a conversational interface, adhering to a [Unified API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post), and packaged as a ready-to-deploy solution. Applications can facilitate the customization of a language model behavior by incorporating tools (such as [Addons](#addons)) with a desired functionality. Additionally, applications can support logic not directly related to LLMs, such as echoing user messages, creating a fully deterministic chatbot, or orchestrating complex interactions involving multiple LLMs. The flexibility offered by applications enables customized solutions for distinct scenarios and needs.
 
-Applications can be developed (using [DIAL SDK](https://github.com/epam/ai-dial-sdk)) to execute any custom logic and can even form an [ecosystem](./architecture#introduction) and interact with each other through the [Unified API](https://epam-rail.com/dial_api) with access to all DIAL Core features among which is connectivity to models, file storage, access control, per-request API keys and other.
+AI DIAL platform serves as an **application server**, offering tools to develop, deploy and operate custom applications. Refer to [Application Types](#application-types) to learn more about DIAL applications.
 
-> Watch a [DIAL RAG](../video%20demos/demos/dial-rag) video as an example of what DIAL applications may look like.
+Applications can be developed (using [DIAL SDK](https://github.com/epam/ai-dial-sdk)) to execute any custom logic and can even form an [ecosystem](./architecture#introduction) and interact with each other through the [Unified API](https://epam-rail.com/dial_api) with access to all DIAL Core features among which is connectivity to models (including multi-modal models), file storage, access control, per-request API keys and other.
 
-AI DIAL platform serves as an **application server**, offering tools to develop, deploy and operate custom applications.
+> Watch a [DIAL RAG](../video%20demos/demos/dial-rag) and [DIAL ChatHub](../video%20demos/demos/dial-chathub) videos as examples of what DIAL applications may look like.
+
+### Application Types
+
+#### Custom Apps
 
 DIAL applications can be integrated into the DIAL Core deployment. By doing so, these applications will be immediately available in your chat from the start. For examples, refer to the [dynamic setting](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) in DIAL Core. Additionally, you can register your custom and deployed applications through the [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put) and [DIAL Chat UI](#add-custom-app). In such cases, the configuration of your custom applications, described in a JSON file, is saved in your blob store and accessed by DIAL Core for usage.
+
+> Refer to [My Workspace](#add-custom-app) to learn how to add a custom app.
+
+#### Quick Apps
+
+DIAL Quick Apps are conceptually similar to OpenAI's GPT. Quick Apps do not contain any programming code (they include a toolset, description and instruction to the language model) and enable you to rapidly build an application right within DIAL Chat, use it, and share it with others. Quick Apps can be used to simplify a workflow or carry out a specific task. For example, you can create a quick app with a configuration allowing it to call an external API to get a real-time weather forecast for a specific location.
+
+> Watch a [Demo Video](../video%20demos/demos/quick-apps) with an introduction to Quick Apps.
+
+#### Code Apps
+
+DIAL Core Apps allows you to develop, deploy and run your Python applications directly in the AI DIAL Chat. It is a useful tool if you need to quickly create an application for the POC, deploy it and share with the selected audience.  
+
+> Watch a [Demo Video](../video%20demos/demos/code-apps) with an introduction to Code Apps.
+
+Code apps are deployed and maintained exclusively by AI DIAL platform, similarly, to handling lambda function by cloud providers. 
+
+Limitations and security restrictions:
+
+* Code Apps do not have access to internet.
+* Code Apps do not have state outside of DIAL APIs.
+* You can use only Python libraries, databases, and models that are supported by AI DIAL.
+* Code Apps cannot call each other or any external endpoints with the exception of  DIAL Core, if it is allowed.
+* All traffic is encrypted, and Code Apps are run in an isolated network.
 
 ## Marketplace
 
