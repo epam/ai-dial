@@ -5,6 +5,7 @@ import asyncio
 from fastapi import FastAPI
 from ollama import AsyncClient
 from tqdm import tqdm
+from tenacity import retry, stop_after_attempt
 
 from utils import Writer, print_info, timer
 
@@ -30,6 +31,7 @@ async def wait_for_startup():
             break
 
 
+@retry(stop=stop_after_attempt(5))
 async def pull_model(client: AsyncClient, model: str):
     response = await client.pull(model, stream=True)
 
