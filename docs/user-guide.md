@@ -1042,23 +1042,23 @@ Applications can be developed (using [DIAL SDK](https://github.com/epam/ai-dial-
 
 DIAL applications can be integrated into the DIAL Core deployment. By doing so, these applications will be immediately available in your chat from the start. For examples, refer to the [dynamic setting](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) in DIAL Core. Additionally, you can register your custom and deployed applications through the [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put) and [DIAL Marketplace](#add-custom-app). In such cases, the configuration of your custom applications, described in a JSON file, is saved in your blob store and accessed by DIAL Core for usage.
 
-> Refer to [My Workspace](#add-custom-app) to learn how to add a custom app in DIAL Marketplace.
+> Refer to [My workspace](#add-custom-app) to learn how to add a custom app in DIAL Marketplace.
 
 #### Quick Apps
 
-DIAL Quick Apps are conceptually similar to OpenAI's GPT. Quick Apps do not contain any programming code (they include a toolset, description and instruction to the language model) and enable you to rapidly build an application right within DIAL Chat, use it, and share it with others. Quick Apps can be used to simplify a workflow or carry out a specific task. For example, you can create a quick app with a configuration allowing it to call an external API to get a real-time weather forecast for a specific location.
+DIAL Quick Apps are conceptually similar to OpenAI's GPT. Quick Apps do not contain any programming code (they include a toolset, description and instruction to the language model) and enable you to rapidly build an application right within DIAL Chat, use it, and share it with others. Quick Apps can be used to simplify a workflow or carry out a specific task. For example, you can create a Quick App with a configuration allowing it to call an external API to get a real-time weather forecast for a specific location.
 
 > * Watch a [Demo Video](../video%20demos/demos/quick-apps) with an introduction to Quick Apps.
-> * Refer to [My Workspace](#add-quick-app) to learn how to add a Quick app in DIAL Marketplace.
+> * Refer to [My workspace](#add-quick-app) to learn how to add a Quick App in DIAL Marketplace.
 
 #### Code Apps
 
-DIAL Core Apps allows you to develop, deploy and run your Python applications directly in the AI DIAL Chat. It is a useful tool if you need to quickly create an application for the POC, deploy it and share with the selected audience.  
+DIAL Core Apps allow you to develop, deploy and run your Python applications directly in the AI DIAL Chat. It is a useful tool if you need to quickly create an application for the POC, deploy it and share with the selected audience.  
 
 > * Watch a [Demo Video](../video%20demos/demos/code-apps) with an introduction to Code Apps.
-> * Refer to [My Workspace](#add-code-app) to learn how to add a Code app in DIAL Marketplace.
+> * Refer to [My workspace](#add-code-app) to learn how to add a Code App in DIAL Marketplace.
 
-Code apps are deployed and maintained exclusively by AI DIAL platform, similarly, to handling lambda function by cloud providers. 
+Code Apps are deployed and maintained exclusively by AI DIAL platform, similarly, to handling lambda function by cloud providers. 
 
 ## Marketplace
 
@@ -1095,15 +1095,15 @@ Click **DIAL Marketplace** to navigate to the *home page* of DIAL Marketplace wh
 
 ![](./img/dial-marketplace.png)
 
-##### Add to My Workspace
+##### Add to My workspace
 
 In the DIAL Marketplace section, you can view details of any item and add it to [My workspace](#my-workspace).
 
-To simply add/remove an item to/from My Workspace, click **Add/Remove to/from My workspace** label:
+To simply add/remove an item to/from My workspace, click **Add/Remove to/from My workspace** label:
 
 ![](./img/add-to-workspace.png)
 
-You can also add an item to My Workspace by initiating a conversation with it. For example, to add a model:
+You can also add an item to My workspace by initiating a conversation with it. For example, to add a model:
 
 1. Click a model to view its details.
 2. Choose its version (if available). Note, that you can add different versions in several iterations. In this case, you will be able to select a model's version in [Talk to](#talk-to) before the conversation.
@@ -1112,25 +1112,27 @@ You can also add an item to My Workspace by initiating a conversation with it. F
 
 ![](./img/marketplace-home-select.png)
 
-> **Please note**, that if you start a conversation and then remove the associated item from My Workspace, you will need to reinstate the item to continue the conversation. A button will appear in place of the chat text box. Simply click this button to return the item to My Workspace and resume the conversation.
+> **Please note**, that if you start a conversation and then remove the associated item from My workspace, you will need to reinstate the item to continue the conversation. A button will appear in place of the chat text box. Simply click this button to return the item to My workspace and resume the conversation.
 
 ![](./img/add-to-continue.png)
 
-### My Workspace
+### My workspace
 
-In **My workspace**, you can access all the applications, language models, and assistants that you have added in [DIAL Marketplace](#dial-marketplace). This area allows you to view and select items for your conversations, as well as remove them from the list. Additionally, you can [register](#add-custom-app) custom [applications](#custom-apps) here, which provides you with options for an extended range of actions.
+In **My workspace**, you can access all the applications, language models, and assistants that you have added in [DIAL Marketplace](#dial-marketplace). Here, you can view and select items for your conversations, as well as remove them from the list. Additionally, in My workspace, you can add [custom](#add-custom-app), [quick](#add-custom-app), and [code](#add-custom-app) apps.
+
+> Refer to [Application Types](#application-types) to learn more about DIAL applications.
 
 #### Add Custom App
 
 > You can also add custom applications using [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put).
 
-If you want to use your custom application, you can register it in AI DIAL Chat or add using [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put). After adding a custom application, a JSON file describing the configuration of your application will be saved in a dedicated folder within a blob store account bucket assigned to your user account. These files can then be accessed by DIAL Core to facilitate the integration and operation of your applications. Configuration of a custom application matches DIAL Core dynamic configuration for applications. Refer to [Examples](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json) to view how it can look like.
+If you want to add your custom application, you can do it in AI DIAL Chat or via [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put). After adding a custom application, a JSON file describing the configuration of your application will be saved in a dedicated folder within a blob store account bucket assigned to your user account. These files can then be accessed by DIAL Core to facilitate the integration and operation of your applications. Configuration of a custom application matches DIAL Core dynamic configuration for applications. Refer to [Examples](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json) to view how it can look like.
 
 > **Important Requirement**: Custom applications must provide a chat completion endpoint for DIAL Core and adhere to the [Unified API](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) standards to ensure seamless integration and functionality.
 
-##### To register application
+##### To Add Custom App
 
-1. Click **Add app** and select **Custom app**.
+1. In My workspace, click **Add app** and select **Custom App**.
 
 ![](./img/register-app.png)
 
@@ -1138,7 +1140,7 @@ If you want to use your custom application, you can register it in AI DIAL Chat 
 
 ![](./img/add-app.png)
 
-3. The registered application will appear in [My workspace](#my-workspace)
+3. Your new application will appear in [My workspace](#my-workspace).
 
 ##### Add/Edit application form
 
@@ -1160,16 +1162,16 @@ DIAL Quick Apps are not composed of programming code. Instead, they can be chara
 
 > Refer to [Quick Apps](#quick-apps) to learn more.
 
-##### To add Quick App
+##### To Add Quick App
 
-1. Click **Add app** and select **Quick App**.
+1. In My workspace, click **Add app** and select **Quick App**.
 
 ![](./img/register-quick-app.png)
 
-2. Fill in the [Add Quick app](#addedit-quick-app-form) form.
-3. The registered application will appear in [My workspace](#my-workspace)
+2. Fill in the [Add quick app](#addedit-quick-app-form) form.
+3. Your Quick App will appear in [My workspace](#my-workspace).
 
-##### Add/Edit Quick App form
+##### Add/Edit Quick app form
 
 |Field|Required|Description|
 |---|:---:|-------------|
@@ -1177,20 +1179,22 @@ DIAL Quick Apps are not composed of programming code. Instead, they can be chara
 |Version|Yes|Quick app version, following the format `x.y.z` and contain only numbers and dots.|
 |Icon|No|The icon that will be rendered in the chat UI for this Quick app.|
 |Topics|No|You can assign one of pre-defined topics to your Quick app. Topics and their styles are defined in [AI DIAL Chat Themes](https://github.com/epam/ai-dial-chat-themes/blob/development/static/config.json).|
-|Description|No|A short description that will be rendered in the chat UI. Add two line breaks and provide an addition description if needed.|
-|Configure toolset|Yes|Enter a valid Json with a toolset configuration that will be used when making requests. E.g. this toolset can define how make calls to external API.|
+|Description|No|A short description that will be rendered in the chat UI. **Tip:** Add two line breaks and provide an addition description if needed.|
+|Configure toolset|Yes|Enter a valid Json with a toolset configuration that will be used when making requests. E.g. this toolset can define how to make calls to external API.|
 |Instructions|No|Instructions to the language model.|
 |Temperature|Yes|The temperature controls the creativity and randomness of the model's output.|
 
 #### Add Code App
 
-You can develop, edit, deploy, and run Python applications directly within DIAL Chat UI:
+DIAL Code Apps allow you to develop, edit, deploy, and run Python applications directly within DIAL Chat UI. 
+
+You can:
 
 * Create and customize Code Apps using the built-in Python code editor directly in DIAL Chat.
-* Deploy applications without worrying about hosting or scalability.
+* Deploy Code Apps without worrying about hosting or scalability.
 * Implement essential endpoints for DIAL compatibility.
 * Manage environment variables.
-* Edit and publish Code apps.
+* Edit and publish Code Apps.
 
 > Refer to [Code Apps](#code-apps) to learn more.
 
@@ -1202,31 +1206,37 @@ Limitations and security restrictions:
 * Code Apps cannot call each other or any external endpoints with the exception of  DIAL Core, if it is allowed.
 * All traffic is encrypted, and Code Apps are run in an isolated network.
 
-##### To add Code App
+##### To Add Code App
 
-1. Click **Add app** and select **Code App**.
+1. In My workspace, click **Add app** and select **Code App**.
 
 ![](./img/register-code-app.png)
 
-2. Fill in the [Add Code app](#addedit-code-app-form) form.
+2. Fill in the [Add code app](#addedit-code-app-form) form.
 
-##### To launch Code App
+##### To Launch Code App
 
-The registered application will appear in [My workspace](#my-workspace). 
+After adding, your new Code App will appear in [My workspace](#my-workspace). 
 
-1. Click **Deploy** in the application menu to run it. When deployed, you will get a notification on your screen and the status icon will turn from yellow to green - this may take a few minutes.
+1. Click **Deploy** in the Code App menu to run it. When deployed, you will get a notification on your screen and the Code App's status icon will turn from yellow to green - this may take a few minutes.
 
 ![](./img/deploy-code-app.png)
 
 2. Select the application and click **Use application** to launch it.
 
-You can also access/download application logs in the application menu.
+##### To Access Code App Logs
+
+You can view and download Code App's logs in the application menu.
+
+
+
+##### To Edit Code App
 
 To modify the application source code or the application form parameters, you need to undeploy it. Both edit and undeploy buttons are located in the application menu:
 
 ![](./img/app-menu.png)
 
-##### Add/Edit Code App form
+##### Add/Edit code app form
 
 |Field|Required|Description|
 |---|:---:|-------------|
