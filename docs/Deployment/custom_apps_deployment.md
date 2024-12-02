@@ -54,5 +54,5 @@ Having successfully deployed your application using Helm chart, you can now add 
   }
 }
 ```
-> Refer to [dynamic setting](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) to view the description of parameters.
+> Refer to [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) to view the description of parameters.
 
