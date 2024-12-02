@@ -1132,14 +1132,10 @@ If you want to add your custom application, you can do it in AI DIAL Chat or via
 
 ##### To Add Custom App
 
-1. In My workspace, click **Add app** and select **Custom App**.
-
 ![](./img/register-app.png)
 
-2. Fill in the [Add application](#addedit-application-form) form
-
-![](./img/add-app.png)
-
+1. In My workspace, click **Add app** and select **Custom App**.
+2. Fill in the [Add application](#addedit-application-form) form.
 3. Your new application will appear in [My workspace](#my-workspace).
 
 ##### Add/Edit application form
@@ -1152,7 +1148,7 @@ If you want to add your custom application, you can do it in AI DIAL Chat or via
 |Topics|No|You can assign one of pre-defined topics to your custom application. Topics and their styles are defined in [AI DIAL Chat Themes](https://github.com/epam/ai-dial-chat-themes/blob/development/static/config.json). You can also add custom applications using [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put). In this case, you can add any custom topic to your application by including this parameter in the application configuration JSON file: `"description_keywords": ["My custom topic"]`|
 |Description|No|A short description that will be rendered in the chat UI. Add two line breaks and provide an addition description if needed.|
 |Features data|No|Application features are specific configurations of applications specified in JSON format. Currently, only two are supported: rate and configuration endpoints:<br />`rateEndpoint` is the endpoint for rate requests.<br />`configurationEndpoint` is the endpoint to request application configuration parameters as JSON schema.<br />Refer to [DIAL Core documentation](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) to view the full set of available application features.|
-|Attachments type|No|Types of attachments allowed for this application. Provide the types according to [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). E.g.: image/png and click enter.|
+|Attachments type|No|Types of attachments allowed for this application. Provide the types according to [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). E.g.: image/png and click enter. Enter `*/*` to allow all types.|
 |Max. attachments number|No|The maximal number of attachments the application is allowed to accept. Skip to apply the max integer number. Enter `0` to disable attachments.|
 |Completion URL|Yes|A chat completion URL exposed by your application and used by DIAL Core to send chat completion requests.|
 
@@ -1164,10 +1160,9 @@ DIAL Quick Apps are not composed of programming code. Instead, they can be chara
 
 ##### To Add Quick App
 
-1. In My workspace, click **Add app** and select **Quick App**.
-
 ![](./img/register-quick-app.png)
 
+1. In My workspace, click **Add app** and select **Quick App**.
 2. Fill in the [Add quick app](#addedit-quick-app-form) form.
 3. Your Quick App will appear in [My workspace](#my-workspace).
 
@@ -1208,10 +1203,9 @@ Limitations and security restrictions:
 
 ##### To Add Code App
 
-1. In My workspace, click **Add app** and select **Code App**.
-
 ![](./img/register-code-app.png)
 
+1. In My workspace, click **Add app** and select **Code App**.
 2. Fill in the [Add code app](#addedit-code-app-form) form.
 
 ##### To Launch Code App
@@ -1226,13 +1220,13 @@ After adding, your new Code App will appear in [My workspace](#my-workspace).
 
 ##### To Access Code App Logs
 
-You can view and download Code App's logs in the application menu.
+You can view and download logs of the deployed Code App from the application menu.
 
-
+![](./img/logs-code-app.png)
 
 ##### To Edit Code App
 
-To modify the application source code or the application form parameters, you need to undeploy it. Both edit and undeploy buttons are located in the application menu:
+To modify the application source code or the application form parameters, you need to undeploy it. Both **Edit** and **Undeploy** buttons are located in the application's menu:
 
 ![](./img/app-menu.png)
 
@@ -1247,38 +1241,31 @@ To modify the application source code or the application form parameters, you ne
 |Description|No|A short description that will be rendered in the chat UI. Add two line breaks and provide an addition description if needed.|
 |Attachments type|No|Types of attachments allowed for this application. Provide the types according to [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). E.g.: image/png and click enter. Enter `*/*` to allow all types.|
 |Max. attachments number|No|The maximal number of attachments the application is allowed to accept. Skip to apply the max integer number. Enter `0` to disable attachments.|
-|Select folder with source files|Yes|Use this to define the file structure of your application and enter into the built-in fully functional Python code editor. Here, you can write your app from scratch or upload existing files with the application source code.|
+|Select folder with source files|Yes|Use this to define the file structure of your application and enter into the built-in fully functional Python code editor. Here, you can write your app from scratch or upload the existing source code files.|
 |Runtime version|Yes|Select the environment in which Python code will be executed.|
-|Endpoints|Yes|Code app must expose a chat completion endpoint. You can also add rate and configuration endpoints. Refer to [DIAL Core](https://github.com/epam/ai-dial-core) to learn about endpoints. **Note**: Code Apps cannot call each other or any external endpoints with the exception of  DIAL Core, if it is allowed.|
-|Environment variables|Yes|You can define environment variables with values for your application.|
+|Endpoints|Yes|Code App must expose a chat completion endpoint. You can also add rate and configuration endpoints. Refer to [DIAL Core](https://github.com/epam/ai-dial-core) to learn about endpoints. **Note**: Code Apps cannot call each other or any external endpoints with the exception of  DIAL Core, if it is allowed.|
+|Environment variables|No|You can define environment variables with values for your application.|
 
 #### Converse
 
 In My workspace, you can select which application, model or assistant you want to have in [Talk To](#talk-to) and then use in your conversations.
 
-1. In [My workspace](#my-workspace), click an app/model/assistant and select to use it.  
+1. In [My workspace](#my-workspace), click an app/model/assistant.
+2. Click **Use..** to start a new conversation with the selected entity. This entity will also be added in your [Talk To](#talk-to) section.
 
-   ![](./img/select-app.png)
-
-2. Click **Back to Chat** to return to the main chat screen.
-3. Click **New conversation**. Select the desired item in the [Talk To](#talk-to) section. From there, you can use it for conversations.
-
-   ![](./img/select-app2.png)
+![](./img/select-app.png)
 
 #### Edit App
 
 > You can also edit your custom, quick and code applications in [Talk To](#talk-to).
 
-Use Edit in the app's menu to modify the selected application.
+Use Edit in the app's menu to modify your apps.
 
-> **Note**: you can edit only your own applications. To edit a Code app, undeploy it first.
+> **Note**: you can edit only **your own** apps. To [Edit a Code App](#to-edit-code-app), undeploy it first.
 
 ##### To edit application
 
-1. Click **Edit** to invoke the [Edit application form](#addedit-application-form)
-
-   ![](./img/register-app2.png)
-
+1. Click **Edit** to invoke the [Edit app](#addedit-application-form)/[Edit quick app](#addedit-quick-app-form)/[Edit quick app](#addedit-code-app-form)
 2. Make changes and click **Save**
 
 #### Publish App
@@ -1317,7 +1304,7 @@ You can remove any application/model/assistant from My workspace. Use Remove in 
 
 > You can also delete your custom, quick and code applications in [Talk To](#talk-to).
 
-Use Delete in the app's menu to completely delete the selected application. **Note** that you can delete only your custom applications.
+Use Delete in the app's menu to completely delete the selected application. **Note** that you can delete only your own apps.
 
 ##### To delete application
 
