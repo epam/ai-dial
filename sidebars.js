@@ -198,6 +198,11 @@ const sidebars = {
         },
         {
           type:'doc',
+          id: 'Deployment/custom_apps_deployment',
+          label: 'Custom Apps Deployment'
+        },
+        {
+          type:'doc',
           id: 'Deployment/configuration',
           label: 'Configuration'
         },
