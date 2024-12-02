@@ -1038,6 +1038,8 @@ AI DIAL platform serves as an **application server**, offering tools to develop,
 
 DIAL applications can be integrated into the DIAL Core deployment. By doing so, these applications will be immediately available in your chat from the start. For examples, refer to the [dynamic setting](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) in DIAL Core. Additionally, you can register your custom and deployed applications through the [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put) and [DIAL Chat UI](#add-custom-app). In such cases, the configuration of your custom applications, described in a JSON file, is saved in your blob store and accessed by DIAL Core for usage.
 
+> Refer to [Custom Apps Deployment](./Deployment/custom_apps_deplyment) to learn how to deploy custom apps using Helm chart and add them to DIAL Core configuration.
+
 ## Marketplace
 
 ### Overview
