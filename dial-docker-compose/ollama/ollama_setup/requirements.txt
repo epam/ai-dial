@@ -3,3 +3,4 @@ tqdm==4.66.5
 ollama==0.3.3
 fastapi==0.115.0
 uvicorn==0.30.6
+tenacity==9.0.0
