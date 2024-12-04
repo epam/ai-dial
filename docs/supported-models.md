@@ -8,7 +8,7 @@ You can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom mod
 | :-- | :-- |
 | AI21| ai21.j2-grande-instruct, ai21.j2-jumbo-instruct |
 | Amazon| amazon.titan-tg1-large, amazon.titan-embed-text-v1, amazon.titan-embed-text-v2:0, amazon.titan-embed-image-v1 |
-| Anthropic| anthropic.claude-instant-v1, anthropic.claude-v2, anthropic.claude-v2-1, anthropic.claude-v3-opus, anthropic.claude-v3-haiku, anthropic.claude-v3-sonnet, anthropic.claude-v3-5-sonnet, anthropic.claude-3-5-sonnet-20241022-v2, anthropic.claude |
+| Anthropic| anthropic.claude-instant-v1, anthropic.claude-v2, anthropic.claude-v2-1, anthropic.claude-v3-opus, anthropic.claude-v3-haiku, anthropic.claude-3-5-haiku-20241022-v1, anthropic.claude-v3-sonnet, anthropic.claude-v3-5-sonnet, anthropic.claude-3-5-sonnet-20241022-v2, anthropic.claude |
 | Cohere| cohere.command-text-v14 |
 | Databricks| databricks-bge-large-en, databricks-llama-2-70b-chat, databricks-mixtral-8x7b-instruct, databricks-dbrx-instruct |
 | E5| e5-large-v2 |
