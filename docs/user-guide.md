@@ -1058,8 +1058,6 @@ DIAL Core Apps allow you to develop, deploy and run your Python applications dir
 > * Watch a [Demo Video](../video%20demos/demos/code-apps) with an introduction to Code Apps.
 > * Refer to [My workspace](#add-code-app) to learn how to add a Code App in DIAL Marketplace.
 
-Code Apps are deployed and maintained exclusively by AI DIAL platform, similarly, to handling lambda function by cloud providers. 
-
 ## Marketplace
 
 ### Overview
@@ -1118,7 +1116,7 @@ You can also add an item to My workspace by initiating a conversation with it. F
 
 ### My workspace
 
-In **My workspace**, you can access all the applications, language models, and assistants that you have added in [DIAL Marketplace](#dial-marketplace). Here, you can view and select items for your conversations, as well as remove them from the list. Additionally, in My workspace, you can add [custom](#add-custom-app), [quick](#add-custom-app), and [code](#add-custom-app) apps.
+In **My workspace**, you can access all the applications, language models, and assistants that you have added in [DIAL Marketplace](#dial-marketplace). Here, you can view and select items for your conversations, as well as remove them from the list. Additionally, in My workspace, you can add [custom](#add-custom-app), [quick](#add-quick-app), and [code](#add-code-app) apps.
 
 > Refer to [Application Types](#application-types) to learn more about DIAL applications.
 
@@ -1195,6 +1193,7 @@ You can:
 
 Limitations and security restrictions:
 
+* Code Apps are deployed and maintained exclusively by AI DIAL platform, similarly, to handling lambda function by cloud providers. 
 * Code Apps do not have access to internet.
 * Code Apps do not have state outside of DIAL APIs.
 * You can use only Python libraries, databases, and models that are supported by AI DIAL.
