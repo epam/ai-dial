@@ -34,7 +34,7 @@ The AI DIAL Chat application interface has several sections, such as the chat bo
 3. [Chat Settings](#chat-settings): In this section, you can select the language model, assistant, application, and addons you'd like to use. You can also provide a system prompt and adjust the temperature setting.
 4. [Prompts](#prompts): In this section, you can work with saved prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
 5. [User Settings](#user-settings): In your user settings, you can customize the color theme (dark or light), choose a custom logo and other customization options.
-6. [DIAL Marketplace](#marketplace): This section includes all applications, language models and assistants available on your DIAL environment.
+6. [DIAL Marketplace](#marketplace): Marketplace displays all applications, language models and assistants available on your DIAL environment.
 
 ## Conversations
 
@@ -1042,7 +1042,8 @@ Applications can be developed (using [DIAL SDK](https://github.com/epam/ai-dial-
 
 DIAL applications can be integrated into the DIAL Core deployment. By doing so, these applications will be immediately available in your chat from the start. For examples, refer to the [dynamic setting](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) in DIAL Core. Additionally, you can register your custom and deployed applications through the [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put) and [DIAL Marketplace](#add-custom-app). In such cases, the configuration of your custom applications, described in a JSON file, is saved in your blob store and accessed by DIAL Core for usage.
 
-> Refer to [My workspace](#add-custom-app) to learn how to add a custom app in DIAL Marketplace.
+> * Refer to [My workspace](#add-custom-app) to learn how to add a custom app in DIAL Marketplace.
+> * Refer to [Custom Apps Deployment](/Deployment/custom_apps_deployment) to learn how to deploy custom applications using Helm chat and configure DIAL Core.
 
 #### Quick Apps
 
@@ -1057,8 +1058,6 @@ DIAL Core Apps allow you to develop, deploy and run your Python applications dir
 
 > * Watch a [Demo Video](../video%20demos/demos/code-apps) with an introduction to Code Apps.
 > * Refer to [My workspace](#add-code-app) to learn how to add a Code App in DIAL Marketplace.
-
-Code Apps are deployed and maintained exclusively by AI DIAL platform, similarly, to handling lambda function by cloud providers. 
 
 ## Marketplace
 
@@ -1076,12 +1075,12 @@ You can navigate to this section form the main chat screen:
 
 In DIAL Marketplace, there are two sections: 
 
-* [DIAL Marketplace](#dial-marketplace): this section includes all applications, language models and assistants available on your DIAL environment.
-* [My workspace](#my-workspace): this section includes all applications, language models and assistants that you have selected in DIAL Marketplace. In this section, you can also register your custom applications.
+* [DIAL Marketplace](#dial-marketplace): the main screen of DIAL Marketplace which includes all applications, language models and assistants available on your DIAL environment.
+* [My workspace](#my-workspace): this screen includes all applications, language models and assistants that you have selected in DIAL Marketplace. In this section, you can also add and manage your custom applications.
 
 ![](./img/dial-marketplace2.png)
 
-From both these sections you can click **Back to Chat** to navigate to the main chat screen.
+From both the main screen and workspace you can click **Back to Chat** to navigate to the main chat screen.
 
 ![](./img/dial-marketplace3.png)
 
@@ -1097,7 +1096,7 @@ Click **DIAL Marketplace** to navigate to the *home page* of DIAL Marketplace wh
 
 ##### Add to My workspace
 
-In the DIAL Marketplace section, you can view details of any item and add it to [My workspace](#my-workspace).
+In the DIAL Marketplace main screen, you can view details of any item and add it to [My workspace](#my-workspace).
 
 To simply add/remove an item to/from My workspace, click **Add/Remove to/from My workspace** label:
 
@@ -1118,7 +1117,7 @@ You can also add an item to My workspace by initiating a conversation with it. F
 
 ### My workspace
 
-In **My workspace**, you can access all the applications, language models, and assistants that you have added in [DIAL Marketplace](#dial-marketplace). Here, you can view and select items for your conversations, as well as remove them from the list. Additionally, in My workspace, you can add [custom](#add-custom-app), [quick](#add-custom-app), and [code](#add-custom-app) apps.
+In **My workspace**, you can access all the applications, language models, and assistants that you have added in [DIAL Marketplace](#dial-marketplace). Here, you can view and select items for your conversations, as well as remove them from the list. Additionally, in My workspace, you can add [custom](#add-custom-app), [quick](#add-quick-app), and [code](#add-code-app) apps.
 
 > Refer to [Application Types](#application-types) to learn more about DIAL applications.
 
@@ -1195,6 +1194,7 @@ You can:
 
 Limitations and security restrictions:
 
+* Code Apps are deployed and maintained exclusively by AI DIAL platform, similarly, to handling lambda function by cloud providers. 
 * Code Apps do not have access to internet.
 * Code Apps do not have state outside of DIAL APIs.
 * You can use only Python libraries, databases, and models that are supported by AI DIAL.
