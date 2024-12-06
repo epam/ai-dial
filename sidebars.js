@@ -186,6 +186,7 @@ const sidebars = {
       ],
     },
     'user-guide',
+    'marketplace',
     'chat-design',
     {
       type: 'category',
