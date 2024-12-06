@@ -4,6 +4,8 @@
 
 In this tutorial, you will learn how to quickly launch AI DIAL Chat with a self-hosted model powered by [Ollama](https://ollama.com/).
 
+> Watch a [demo video](../video%20demos/demos-for-developers/deploy-ollama) to see it in action.
+
 ## Prerequisites
 
 Docker engine installed on your machine (Docker Compose Version 2.20.0 +).
@@ -65,15 +67,15 @@ All the models support streaming.
     docker compose up --abort-on-container-exit
     ```
 
-    > Keep in mind that a typical size of a lightweight Ollama model is around a few gigabytes. So it may take a few minutes _(or dozens of minutes)_ to download them on the first run depending on your Internet bandwidth.
+    > Keep in mind that a typical size of a lightweight Ollama model is around a few gigabytes. So it may take a few minutes _(or more)_ to download it on the first run, depending on your internet bandwidth and the size of the model you choose.
     >
-    > The model is fully loaded once `ollama-setup` service prints `The Ollama server is up and running.`
+    > The models are fully loaded once `ollama-setup` service prints `The Ollama server is up and running.`
 
 3. Finally, open http://localhost:3000/ in your browser to launch the AI DIAL Chat application and select an appropriate AI DIAL deployments to converse with:
 
     * `Self-hosted chat model` deployment for the `OLLAMA_CHAT_MODEL`
     * `Self-hosted vision model` deployment for the `OLLAMA_VISION_MODEL`
 
-> Note, that the vision models we tested, do not support streaming of response. Moreover, they are typically more computationally expensive than the chat models. So it may take minutes for a vision model to respond.
+    > Note, that the vision models we tested, do not support streaming of response. Moreover, they are typically more computationally expensive than the chat models. So it may take minutes for a vision model to respond.
 
-The embedding model will become available in AI DIAL under the deployment name `embedding-model` and could be called via the endpoint: `localhost:8080/openai/deployments/embedding-model/embeddings`.
+    The embedding model will become available in AI DIAL under the deployment name `embedding-model` and could be called via the endpoint: `localhost:8080/openai/deployments/embedding-model/embeddings`.

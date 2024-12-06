@@ -119,11 +119,6 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'tutorials/enable-publications',
-          label: 'Publications',
-        },
-        {
-          type: 'doc',
           id: 'tutorials/localization',
           label: 'Chat Localization',
         },
@@ -156,6 +151,37 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/data-visualization',
           label: 'Data Visualization',
+        },
+        {
+          type: 'category',
+          label: 'Collaboration',
+          items: [
+            {
+              type:'doc',
+              id: 'tutorials/collaboration/overview',
+              label: 'Overview'
+            },
+            {
+              type: 'doc',
+              id: 'tutorials/collaboration/enable-publications',
+              label: 'Publications',
+            },
+            {
+              type:'doc',
+              id: 'tutorials/collaboration/sharing',
+              label: 'Sharing'
+            },
+            {
+              type:'doc',
+              id: 'tutorials/collaboration/notifications',
+              label: 'Notifications'
+            }
+          ]
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/realtime-analytics',
+          label: 'Analytics Realtime',
         }
       ],
     },
@@ -188,6 +214,11 @@ const sidebars = {
         "Cookbook/dial-cookbook/examples/how_to_call_text_to_image_applications",
         "Cookbook/dial-cookbook/examples/how_to_call_image_to_text_applications",
       ],
+    },
+    {
+      type: 'doc',
+      id: 'Observability/Observability',
+      label: 'Observability',
     },
     {
       type: 'link',

@@ -2,6 +2,8 @@
 
 You can publish/unpublish conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
 
+> Watch [Publications](../video%20demos/demos/dial-publications) demo video to learn more about collaboration features in AI DIAL.
+
 ## DIAL API
 
 Refer to [AI DIAL API](https://epam-rail.com/dial_api#tag/Publications) to view publications endpoints.
@@ -29,7 +31,7 @@ The effective access rules for a folder structure can be described as follows:
 1. Within a single folder, the effective access rule is determined by the logical OR operation applied to all the access rules assigned to that folder. For example, in folder A with access rules a, b, and c, the effective rule is "a OR b OR c".
 2. Between nested folders, the effective access rule is determined by the logical AND operation applied between the effective rules of the parent folder and its subfolder. For example, if folder B with access rules d, e, and f is nested under folder A, the effective rule for accessing folder B is "(a OR b OR c) AND (d OR e OR f)".
 
-![](img/rules.svg)
+![](./img/rules.svg)
 
 ## DIAL Chat
 
