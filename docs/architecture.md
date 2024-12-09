@@ -54,6 +54,7 @@ In AI DIAL, we call *resources* applications, conversations, prompts and files. 
 
 > * In [DIAL API](https://epam-rail.com/dial_api) you can find dedicated sections for working with resources: [applications](https://epam-rail.com/dial_api#tag/Applications), [conversations](https://epam-rail.com/dial_api#tag/Conversations), [prompts](https://epam-rail.com/dial_api#tag/Prompts) and [files](https://epam-rail.com/dial_api#tag/Files).
 > * Refer to [Collaboration](./tutorials/collaboration/overview) to learn about collaboration features such as sharing and publication that can be applied to resources.
+> * Refer to [Applications](/user-guide#applications-1) to learn how to develop, add and manage apps in DIAL.
 
 ## AI DIAL Components
 
@@ -94,11 +95,14 @@ For self-hosted models, you can use the standard load balancer (LB) capabilities
 
 In this approach, a configuration file includes multiple upstream endpoints for a model. When a request is received, it is forwarded to one of the endpoints using the round-robin method. If an upstream returns an overload limit error such as a 429 (Too Many Requests) or a 504 (Gateway Timeout), the system attempts another upstream and temporarily excludes the one that generated the error. This strategy ensures efficient load distribution and fault tolerance for optimal performance and reliability. Refer to the [document](/tutorials/high-load-performance) with the overview of the performance tests to learn more.
 
+> Refer to [Load Balancer](/tutorials/load-balancer) to learn more.
+
 #### Rate Limits & Cost Control
 
 A well-distributed rate-limiting mechanism ensures the control over the total number of tokens that can be sent to a model (typically a one-minute or 24-hour window) by any Application, Addon, or Assistant.
 
-> Refer to [AI DIAL Configuration](/Deployment/configuration#dynamic-settings) to learn more about roles and rate limits.
+> * Refer to [AI DIAL Configuration](/Deployment/configuration#dynamic-settings) to learn more about roles and rate limits.
+> * Refer to [Roles & Access Control](/Roles%20and%20Access%20Control/overview) to learn how to configure limits for API keys and users.
 
 #### Extension Framework
 
@@ -110,9 +114,9 @@ You can use AI DIAL SDK to develop such extensions. Applications and model Adapt
 
 **Addon**: Addon is similar to a concept of tool or function in some other frameworks. Within the AI DIAL framework, an Addon is a service — or any component adhering to its own or provided [OpenAPI specification](https://www.openapis.org/what-is-openapi) — that empowers LLMs to access and utilize any desired data source or technology to produce their responses.
 
-**Application**: any custom logic with a conversation interface packaged as a ready-to-use solution. It can be any component conforming with Unified Protocol requirements.
+**Application**: any custom logic with a conversation interface packaged as a ready-to-use solution. It can be any component conforming with Unified Protocol requirements. Refer to [Applications](/user-guide#applications-1) to learn more about DIAL apps and their types.
 
-**The Assistant Service** is used to enable communication between Addons and the AI DIAL Core. Assistants can range from simple implementations, like instructing the LLM to provide answers using a specific language tone or style, to more complex use cases, such as limiting the LLM's data scope to a particular geographical location.
+**The Assistant Service** is used to enable communication between Addons and the AI DIAL Core. Assistants can range from simple implementations, like instructing the LLM to provide answers using a specific language tone or style, to more complex use cases, such as limiting the LLM's data scope to a particular geographical location. Refer to [AI DIAL Assistant](https://github.com/epam/ai-dial-assistant) repository in GitHub.
 
 **Adapter**: unifies APIs of respective LLMs to align with the Unified Protocol of AI DIAL Core.
 
@@ -127,6 +131,8 @@ You can gather standard logs (which do not contain user messages) from component
 #### Entitlements
 
 In AI DIAL Core, user roles are defined and configured in the application config file. This allows administrators to specify which users or user groups are authorized to access specific resources or features within the application. These user roles match the once created in your IDP.
+
+> Refer to [Web Auth](/Auth/Web/overview) to learn about supported identity service providers.
 
 ### Persistent Layer
 
@@ -148,13 +154,16 @@ It is a proxy service that implements OpenID-compatible Web API endpoints to avo
 
 Chat is a default AI DIAL UI which provides access to the full set of its features.
 
-> Refer to [Chat](https://github.com/epam/ai-dial-chat) repository in GitHub to learn more.
+> * Refer to [Chat](https://github.com/epam/ai-dial-chat) repository in GitHub to learn more.
+> * Refer to [User Guide](/user-guide) to learn about DIAL Chat features.
 
 ![](./img/chat.svg)
 
 #### Overlay
 
 UI Overlay allows adding Chat to a web application with zero effort by simply inserting a short HTML block.
+
+> Refer to [Chat Overlay](https://github.com/epam/ai-dial-chat/blob/development/libs/overlay/README.md) repository in GitHub to learn more.
 
 ```html
 <html>
@@ -198,7 +207,7 @@ Examples of the computed artifacts:
 - Language of conversations.
 - Any other calculated statistics based on conversations.
 
-> Refer to [Tutorials](/tutorials/realtime-analytics) to learn more.
+> Refer to [Tutorials](/tutorials/realtime-analytics) to learn more about configuration and usage of this service.
 
 ## Extensions
 
