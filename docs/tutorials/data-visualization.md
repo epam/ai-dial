@@ -4,7 +4,7 @@
 
 AI DIAL Chat has the capability to render different types of content within a conversation. For example, it has built-in support for Markdown. If the response message from the application includes content in Markdown notation, it will automatically render it in the body of the conversation.
 
-![](img/markdown.png)
+![](img/md-render1.png)
 
 AI DIAL Chat has also a built-in support for Plotly data visualization libraries: 
 
