@@ -101,3 +101,55 @@ Create an Entra ID application registration for the custom connector:
 
 14.	Click **Add platform**, select **Web**, paste the copied Redirect URL, and click **Configure**.
 15. The custom connector actions can now be added to the prompt flow within the Copilot Studio topic.
+
+## Auth with API Key and DIAL API Exposed to the Internet
+
+### Prerequisites
+
+* DIAL API is exposed to the Internet.
+* Open API definition YAML file for DIAL API is available.
+
+### Create Connector in Copilot Studio
+
+1. Perform **steps 1-4** from the section [Create Connector in Copilot Studio](#step-2-create-connector-in-copilot-studio).
+3. Select **API Key** authentication type and populate the required fields as shown on the screenshot.
+
+  ![](img/copilot-dial/14.png)
+
+3. Perform **steps 6-9** from the section [Create Connector in Copilot Studio](#step-2-create-connector-in-copilot-studio).
+
+## Auth with API Key and DIAL API NOT Exposed to the Internet
+
+### Prerequisites
+
+* An [on-premises data gateway](https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-install) is installed within the on-premises network and DIAL API is reachable from the machine it is installed on.
+* Open API definition YAML file for DIAL API is available.
+
+### Create Connector in Copilot Studio
+
+1. Patch the Open API definition YAML file for DIAL API to add one more parameter to each method specifying the API Key:
+
+    ```yaml
+    - name: Api-Key
+      in: header
+      required: true
+      schema:
+        type: string
+    ```
+
+2. Perform **steps 1-4** from the section [Create Connector in Copilot Studio](#step-2-create-connector-in-copilot-studio).
+3. Select **None** authentication type.
+4. Perform **steps 6-9** from the section [Create Connector in Copilot Studio](#step-2-create-connector-in-copilot-studio).
+5. In Copilot Studio, navigate to **Solutions** and choose the solution that was created when you set up the custom connector. This solution will have the same name as the custom connector.
+
+    ![](img/copilot-dial/15.png)
+
+6. Find the custom connector in the selected solution and click on it.
+7. In the Power Automate page for the selected custom connector click **Edit**.
+8. Set the checkmark **Connect via on-premises data gateway** in the custom connector properties and update the definition.
+
+  ![](img/copilot-dial/16.png)
+
+9. When creating a connection for further usage, the connector administrator will have to select the on-premise data gateway.
+
+  ![](img/copilot-dial/17.png)
