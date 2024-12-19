@@ -72,11 +72,11 @@ Create an Entra ID application registration for the custom connector:
 
 5.	At the **Authentication** step, select **OAuth (2.0)** authentication type and populate the remaining fields according to the following instructions:
 
-  - **Client ID** – the GUID from the **Application (client) ID** property of the application registration created for this custom connector.
-  - **Client Secret** – the secret generated when creating the application registration.
-  - **Authorization URL** – `https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize`, where `{tenant}` is a placeholder for your Entra ID tenant identifier.
-  - **Token URL** – `https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token`
-  - **Refresh URL** – `https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token`
+  - **Client ID** - the GUID from the **Application (client) ID** property of the application registration created for this custom connector.
+  - **Client Secret** - the secret generated when creating the application registration.
+  - **Authorization URL** - `https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize`, where `{tenant}` is a placeholder for your Entra ID tenant identifier.
+  - **Token URL** - `https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token`
+  - **Refresh URL** - `https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token`
   - **Scope** - openid profile email `offline_access {DIAL Application ID}/.default`, where `{DIAL Application ID}` is the application identifier of the AI DIAL API.
 
 6.	At the **Select Actions** step, select the API method you need to call (e.g. completion).
