@@ -154,6 +154,11 @@ const sidebars = {
           label: 'Data Visualization',
         },
         {
+          type: 'doc',
+          id: 'tutorials/copilot-to-dial',
+          label: 'MS Copilot to DIAL',
+        },
+        {
           type: 'category',
           label: 'Collaboration',
           items: [
