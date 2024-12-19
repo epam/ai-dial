@@ -7,6 +7,7 @@ const sidebars = {
       label: 'Home', // sidebar label
     },
     'quick-start',
+    'privacy',
     'architecture',
     'supported-models',
     {
