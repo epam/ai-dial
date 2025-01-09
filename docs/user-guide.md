@@ -134,7 +134,7 @@ In the conversation header, you can view the current settings, change settings (
 
 You can share a conversation or a folder with several conversations with other users. Yo can also receive a shared conversation.
 
-> Watch [Collaboration](../video%20demos/demos/dial-collaboration) demo video to learn more about sharing and other collaboration features in AI DIAL.
+> Watch [Collaboration](../video%20demos/demos/5.dial-collaboration) demo video to learn more about sharing and other collaboration features in AI DIAL.
 
 ##### To receive a shared conversation
 
