@@ -18,10 +18,10 @@ Refer to [AI DIAL Chat repository](https://github.com/epam/ai-dial-chat) to view
 
 You can also refer to other topics in this documentation:
 
-* Chat localization [instruction](/tutorials/localization).
-* List of [supported LLMs](/supported-models).
-* Chat UI design [guidelines](/chat-design).
-* Authentication [guidelines](/Auth/Web/overview).
+* Chat localization [instruction](/docs/tutorials/localization.md).
+* List of [supported LLMs](/docs/supported-models.md).
+* Chat UI design [guidelines](/docs/chat-design.md).
+* Authentication [guidelines](/docs/Auth/2.%20Web/1.overview.md).
 
 ## Interface Components
 
@@ -738,7 +738,7 @@ In the [DIAL Marketplace](#dial-marketplace) section, you can view all the model
 
 ![](./img/marketplace-home-select.png)
 
-> Refer to [Supported Models](/supported-models) to view all the models supported in AI DIAL.
+> Refer to [Supported Models](/docs/supported-models.md) to view all the models supported in AI DIAL.
 
 <!-- - *GPT-3.5* is an advanced language model developed by OpenAI, known for its powerful natural language processing, understanding, and context awareness. Enabling human-like conversations, it can carry out various tasks, including summarizing, translation, content creation, and answering queries.
 - *GPT-4* is the latest iteration of the GTP series by OpenAI, offering more powerful natural language processing capabilities than its previous versions. It harnesses extensive training and massive datasets to deliver lifelike conversations, unsurpassed context awareness, and high-quality content generation across multiple languages and domains.
@@ -953,7 +953,7 @@ You can publish/unpublish your applications, conversations and prompts, or even 
 
 ### Configuration
 
-> Refer to [tutorials](/tutorials/Collaboration/enable-publications#dial-chat) to learn more about working and configuring publications.
+> Refer to [tutorials](/docs/tutorials/collaboration/2.enable-publications.md#dial-chat) to learn more about working and configuring publications.
 
 To enable the publication feature:
 
@@ -1043,7 +1043,7 @@ Applications can be developed (using [DIAL SDK](https://github.com/epam/ai-dial-
 DIAL applications can be integrated into the DIAL Core deployment. By doing so, these applications will be immediately available in your chat from the start. For examples, refer to the [dynamic setting](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) in DIAL Core. Additionally, you can register your custom and deployed applications through the [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put) and [DIAL Marketplace](#add-custom-app). In such cases, the configuration of your custom applications, described in a JSON file, is saved in your blob store and accessed by DIAL Core for usage.
 
 > * Refer to [My workspace](#add-custom-app) to learn how to add a custom app in DIAL Marketplace.
-> * Refer to [Custom Apps Deployment](/Deployment/custom_apps_deployment) to learn how to deploy custom applications using Helm chat and configure DIAL Core.
+> * Refer to [Custom Apps Deployment](/docs/Deployment/custom_apps_deployment.md) to learn how to deploy custom applications using Helm chat and configure DIAL Core.
 
 #### Quick Apps
 
