@@ -80,7 +80,7 @@ IAM (Identity and Access Management) users in AWS (Amazon Web Services) are enti
 
 #### Assign to Service Account
 
-In case your cluster is located at AWS, the best practise for using Bedrock is to assign an IAM Policy to your Service Account. You can do this via IAM Roles.
+In case your cluster is located at AWS, the best practice for using Bedrock is to assign an IAM Policy to your Service Account. You can do this via IAM Roles.
 
 > Refer to [AWS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) to learn how to configure an IAM roles for service accounts.
 
@@ -94,7 +94,7 @@ Add your model with its parameters in the `models` section.
 
 > Refer to [AI DIAL Core Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
 
-> Refer to [Configure core config](./configuration.md#core-parameters) to view the configuration of AI DIAL core parameters in the helm-based installation.
+> Refer to [Configure core config](/docs/Deployment/configuration.md#core-parameters) to view the configuration of AI DIAL core parameters in the helm-based installation.
 
 ### Configure AI DIAL Adapter
 

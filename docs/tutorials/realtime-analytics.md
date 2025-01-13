@@ -4,10 +4,10 @@
 
 [DIAL Core](https://github.com/epam/ai-dial-core) collects **system logs** and **chat completion logs**:
 
-* System logs do not include any user data and contain logs of all requests from system components to AI DIAL Core (using the ELK stack (Elasticsearch, Logstash, Kibana) or other log collection system). Refer to [Observability](../Observability) to learn about logs, metrics and traces supported in AI DIAL.
+* System logs do not include any user data and contain logs of all requests from system components to AI DIAL Core (using the ELK stack (Elasticsearch, Logstash, Kibana) or other log collection system). Refer to [Observability](/docs/Observability/Observability.md) to learn about logs, metrics and traces supported in AI DIAL.
 * [Chat completion requests](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post) logs include information that users send in their requests to LLMs and the information they get in responses.
 
-[AI DIAL setup](../architecture#full-platform-landscape) can include a special service called DIAL Analytics Realtime, which uses diverse techniques such as embedding algorithms, clustering algorithms, frameworks, light-weight self-hosted language models, to analyze **chat completion logs** and extract the needed information, which can be presented in tools such as Grafana for visualization and analytics.
+[AI DIAL setup](/docs/architecture.md#full-platform-landscape) can include a special service called DIAL Analytics Realtime, which uses diverse techniques such as embedding algorithms, clustering algorithms, frameworks, light-weight self-hosted language models, to analyze **chat completion logs** and extract the needed information, which can be presented in tools such as Grafana for visualization and analytics.
 
 > Refer to [Analytics Realtime](https://github.com/epam/ai-dial-analytics-realtime) repository to learn more and view the project source code.
 

@@ -87,9 +87,9 @@ To work with Azure, AWS or GCP models, AI DIAL uses applications called Adapters
 You can modify adapters settings using environment variables.
 
 > Refer to these repositories to learn how to configure adapters:
-> * [Bedrock Model Deployment](./Bedrock%20Model%20Deployment.md#configure-adapter)
-> * [OpenAI Model Deployment](./OpenAI%20Model%20Deployment.md#configure-adapter)
-> * [Vertex Model Deployment](./Vertex%20Model%20Deployment.md#configure-adapter)
+> * [Bedrock Model Deployment](/docs/Deployment/Bedrock%20Model%20Deployment.md)
+> * [OpenAI Model Deployment](/docs/Deployment/OpenAI%20Model%20Deployment.md)
+> * [Vertex Model Deployment](/docs/Deployment/Vertex%20Model%20Deployment.md)
 
 ## Assistant Parameters
 

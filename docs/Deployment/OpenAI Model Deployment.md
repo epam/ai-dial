@@ -71,7 +71,7 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
 #### Configure Kubernetes Service Account
 
-In case your cluster is located at Azure, the best practise for using Azure OpenAI is to assign an Azure user-assigned managed identity to Kubernetes Service Account. You can do this using Microsoft Entra Workload ID with Azure Kubernetes Service.
+In case your cluster is located at Azure, the best practice for using Azure OpenAI is to assign an Azure user-assigned managed identity to Kubernetes Service Account. You can do this using Microsoft Entra Workload ID with Azure Kubernetes Service.
 
 > Refer to [Azure Documentation](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview) to learn how to configure Microsoft Entra Workload ID with Azure Kubernetes Service.
 
@@ -87,7 +87,7 @@ Add your model with its parameters in the `models` section.
 
 > Refer to [AI DIAL Core Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
 
-> Refer to [Configure core config](./configuration.md#core-parameters) to view the configuration of AI DIAL core parameters in the helm-based installation.
+> Refer to [Configure core config](/docs/Deployment/configuration.md#core-parameters) to view the configuration of AI DIAL core parameters in the helm-based installation.
 
 ### Configure AI DIAL Adapter
 
