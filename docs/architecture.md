@@ -46,7 +46,7 @@ This configuration enables the utilization of Chat functionality, allowing users
 
 The diagram below demonstrates the most complete landscape of AI DIAL ecosystem:
 
-![max-zoom](./img/full-landscape3.svg)
+![max-zoom](./img/full-landscape3.1.svg)
 
 ## Resources
 
@@ -235,10 +235,10 @@ AI DIAL uses [OpenTelemetry](https://opentelemetry.io/), an open-source observab
 
 Metrics are gathered for the entire system and/or for individual system components, and subsequently stored in a time-series databases like Prometheus or any other database capable of handling substantial volumes of time-series data and integrating with visualization tools like Grafana.
 
-You can use any OTLE Collector such as Prometheus, Jaeger, Fluentd, Zipkin and other.
+You can use any OTEL Collector such as Prometheus, Jaeger, Fluentd, Zipkin and other.
 
 > Refer to [Observability](/docs/Observability/Observability.md) to learn more.
 
 ## Key Vault
 
-All sensitive information is stored according to the best practices of the selected cloud platform, utilizing systems like GCP Cloud Key Management Service, AWS Secrets Manager, Azure Key Vault, and Vault by Hashicorp.
+All sensitive information is stored according to the best practices of the selected cloud platform, utilizing systems like GCP Cloud Key Management Service, AWS Secrets Manager, Azure Key Vault, and Vault by HashiCorp.
