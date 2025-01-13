@@ -16,7 +16,7 @@ Modular architecture of AI DIAL allows implementing scalable and customized solu
 
 The [Unified API](https://epam-rail.com/dial_api) enables universal connectivity between models (including models of different modalities), unified access to different embedding models, and facilitates communication with the AI DIAL Core for both external and internal clients. 
 
-Applications can form an **ecosystem and interact with each other** through the Unified API with access to all DIAL Core features among which is connectivity to models, file storage, access control, per-request API keys and other - see the following illustration. To enhance performance and fault tolerance, AI DIAL Core employs a proprietary load balancer and a retry mechanism. This significantly reduces delays and boosts throughput especially during peak demand. Refer to the [document](/tutorials/high-load-performance) with the overview of the performance tests to learn more.
+Applications can form an **ecosystem and interact with each other** through the Unified API with access to all DIAL Core features among which is connectivity to models, file storage, access control, per-request API keys and other - see the following illustration. To enhance performance and fault tolerance, AI DIAL Core employs a proprietary load balancer and a retry mechanism. This significantly reduces delays and boosts throughput especially during peak demand. Refer to the [document](/docs/tutorials/high-load-performance.md) with the overview of the performance tests to learn more.
 
 ![](./img/arch-intro.svg)
 
@@ -53,7 +53,7 @@ The diagram below demonstrates the most complete landscape of AI DIAL ecosystem:
 In AI DIAL, we call *resources* applications, conversations, prompts and files. When added to the system, they are stored in a dedicated folder within a blob store account bucket assigned to your user account. You can handle resources according to the similar pattern (CRUD operations, publications, sharing and other).
 
 > * In [DIAL API](https://epam-rail.com/dial_api) you can find dedicated sections for working with resources: [applications](https://epam-rail.com/dial_api#tag/Applications), [conversations](https://epam-rail.com/dial_api#tag/Conversations), [prompts](https://epam-rail.com/dial_api#tag/Prompts) and [files](https://epam-rail.com/dial_api#tag/Files).
-> * Refer to [Collaboration](./tutorials/collaboration/overview) to learn about collaboration features such as sharing and publication that can be applied to resources.
+> * Refer to [Collaboration](/docs/tutorials/collaboration/1.overview.md) to learn about collaboration features such as sharing and publication that can be applied to resources.
 > * Refer to [Applications](/user-guide#applications-1) to learn how to develop, add and manage apps in DIAL.
 
 ## AI DIAL Components
@@ -126,7 +126,7 @@ AI DIAL Core uses [Vector](https://vector.dev/docs/reference/configuration/sinks
 
 You can gather standard logs (which do not contain user messages) from components using the ELK stack (Elasticsearch, Logstash, Kibana) or other log collection system.
 
-> Refer to [Observability](./Observability/Observability.md) to learn more.
+> Refer to [Observability](/docs/Observability/Observability.md) to learn more.
 
 #### Entitlements
 
@@ -237,7 +237,7 @@ Metrics are gathered for the entire system and/or for individual system componen
 
 You can use any OTLE Collector such as Prometheus, Jaeger, Fluentd, Zipkin and other.
 
-> Refer to [Observability](./Observability/Observability.md) to learn more.
+> Refer to [Observability](/docs/Observability/Observability.md) to learn more.
 
 ## Key Vault
 
