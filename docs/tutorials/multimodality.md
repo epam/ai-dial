@@ -16,7 +16,7 @@ Working with different types of media is made available by supporting working wi
 
 Connection to LLMs is realized using so-called **adapters**. Refer to [OpenAI](https://github.com/epam/ai-dial-adapter-openai), [Bedrock](https://github.com/epam/ai-dial-adapter-bedrock/?tab=readme-ov-file#supported-models), [Vertex](https://github.com/epam/ai-dial-adapter-vertexai/?tab=readme-ov-file#supported-models) adapters to learn more about them and the supported models. You can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom model adapters.
 
-AI DIAL has adapters to a variety of text-to-text processing LLMs. Refer to [Supported Models](../supported-models) to view the list of supported models. 
+AI DIAL has adapters to a variety of text-to-text processing LLMs. Refer to [Supported Models](/docs/supported-models.md) to view the list of supported models. 
 
 Regarding working with images:
 

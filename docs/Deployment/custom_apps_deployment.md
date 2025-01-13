@@ -4,7 +4,7 @@
 
 Follow steps described in this guide, to deploy your custom application using a Helm chart and integrate it with AI DIAL Core configuration.
 
-> * Refer to [User Guide](../user-guide#applications-1) to learn about DIAL apps.
+> * Refer to [User Guide](/docs/user-guide.md#applications-1) to learn about DIAL apps.
 > * Refer to [DIAL Core dynamic setting](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json) to learn how to add apps to config.
 > * Refer to [DIAL Helm](https://github.com/epam/ai-dial-helm) to view deployment examples.
 

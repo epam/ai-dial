@@ -80,7 +80,7 @@ IAM (Identity and Access Management) users in AWS (Amazon Web Services) are enti
 
 #### Assign to Service Account
 
-In case your cluster is located at AWS, the best practise for using Bedrock is to assign an IAM Policy to your Service Account. You can do this via IAM Roles.
+In case your cluster is located at AWS, the best practice for using Bedrock is to assign an IAM Policy to your Service Account. You can do this via IAM Roles.
 
 > Refer to [AWS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) to learn how to configure an IAM roles for service accounts.
 

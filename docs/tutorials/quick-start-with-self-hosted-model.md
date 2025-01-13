@@ -4,7 +4,7 @@
 
 In this tutorial, you will learn how to quickly launch AI DIAL Chat with a self-hosted model powered by [Ollama](https://ollama.com/).
 
-> Watch a [demo video](../video%20demos/demos-for-developers/deploy-ollama) to see it in action.
+> Watch a [demo video](/docs/video%20demos/demos-for-developers/4.deploy-ollama.md) to see it in action.
 
 ## Prerequisites
 

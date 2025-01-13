@@ -16,7 +16,7 @@ DIAL [Completions API](https://epam-rail.com/dial_api#/paths/~1openai~1deploymen
 
 **Definition**: by an attachment we understand a specific content that can be included by a user in the request to an application or by the application in the response. Such attachments can be rendered in the chat UI, where they can be viewed or downloaded. Attachments can also we shared among a specific audience. 
 
-> To learn how chat users can use attachments with their requests to applications and models, refer to [User Guide](/user-guide#attachments).
+> To learn how chat users can use attachments with their requests to applications and models, refer to [User Guide](/docs/user-guide.md#attachments).
 
 AI DIAL supports several types of attachments: files (text and images), links and folders. Attached files are stored in a configured blob storage - refer to [AI DIAL Core](https://github.com/epam/ai-dial-core) to learn how to configure a file storage. Attachments can be both URL and base64-encoded strings. Each attachment has a specific `type`- according to [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
@@ -40,7 +40,7 @@ To render an attachment in the response from the application, include `attachmen
 
 Applications can be made to return documents in the response. AI DIAL supports the following document formats: PDF, DOC/DOCX, PPT/PPTX, TXT and other plain text formats such as code files. 
 
-For example, the [DIAL RAG](../video%20demos/demos/dial-web-rag) application enables users to attach files to their requests. These files are stored in a dedicated user bucket, which can be configured to grant access to specific applications. The app then generates the response, taking into consideration the attached files, and includes them in the output along with the response.
+For example, the [DIAL RAG](/docs/video%20demos/demos/9.dial-web-rag.md) application enables users to attach files to their requests. These files are stored in a dedicated user bucket, which can be configured to grant access to specific applications. The app then generates the response, taking into consideration the attached files, and includes them in the output along with the response.
 
 To attach a document in the response of your application, follow the example below:
 
@@ -91,7 +91,7 @@ const imageTypes: Set<ImageMIMEType> = new Set<ImageMIMEType>([
 ]);
 ```
 
-For example, [DIAL ChatHub](../video%20demos/demos/dial-chathub) application includes agents that use models of a specific modality to generate images from text and return them attached to the response as files. Such images are then stored in the dedicated bucket of the application and are accessible to authorized users.
+For example, [DIAL ChatHub](/docs/video%20demos/demos/dial-chathub.md) application includes agents that use models of a specific modality to generate images from text and return them attached to the response as files. Such images are then stored in the dedicated bucket of the application and are accessible to authorized users.
 
 To attach an image in the response of your application, follow the example below:
 
@@ -120,7 +120,7 @@ This will render an attachment with an image in the response in AI DIAL Chat UI:
 
 ### URL
 
-Applications can be made to return a URL in the response. For example, [DIAL Web RAG](../video%20demos/demos/dial-web-rag) application takes the user's message and sends it as a search query to Bing Search. The search results are then passed to the DIAL RAG application and rendered in AI DIAL Chat UI as attachments.
+Applications can be made to return a URL in the response. For example, [DIAL Web RAG](/docs/video%20demos/demos/9.dial-web-rag.md) application takes the user's message and sends it as a search query to Bing Search. The search results are then passed to the DIAL RAG application and rendered in AI DIAL Chat UI as attachments.
 
 To attach a URL in the response of your application, follow the example below:
 
@@ -245,7 +245,7 @@ This message will be rendered in AI DIAL Chat UI like this:
 
 We call Visualizers special applications that are used for rendering a specific type of content in AI DIAL Chat UI. AI DIAL Chat comes with built-in support for the [Plotly data visualizer](#plotly). You can use [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) library to create visualizers for specific types of content.
 
-Watch a [demo video](../video%20demos/demos-for-developers/dial-data-viz) to view how a financial data can be visualized in AI DIAL Chat.
+Watch a [demo video](/docs/video%20demos/demos-for-developers/7.dial-data-viz.md) to view how a financial data can be visualized in AI DIAL Chat.
 
 ## Plotly
 
@@ -277,4 +277,4 @@ Similar structure in the application response will include a visualization as an
 ![](./img/att-plotly.png)
 
 
-Watch a [demo video](../video%20demos/demos/animated-scatterplot) to view how a statistical data can be visualized in AI DIAL Chat in Plotly animated scatterplot or a demo video of the [Omics AI Assistant](../video%20demos/demos/dial-omics-assistant) to see how protein structures can be visualized using Plotly.
+Watch a [demo video](/docs/video%20demos/demos/animated-scatterplot.md) to view how a statistical data can be visualized in AI DIAL Chat in Plotly animated scatterplot or a demo video of the [Omics AI Assistant](/docs/video%20demos/demos/dial-omics-assistant.md) to see how protein structures can be visualized using Plotly.

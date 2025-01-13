@@ -6,7 +6,7 @@ Interceptors can be seen as a middleware that modifies incoming or outgoing requ
 
 For example, interceptors can block requests that violate specific regulations, related to restricted domains, or potentially lead to data leaks or biased responses. Another use case is when interceptors allow applications or models to respond solely to specific subjects and anonymize Personally Identifiable Information (PII) from user requests, or cache LLM responses.
 
-> Watch a [demo video](../../video%20demos/demos/interceptors) to learn more about interceptors.
+> Watch a [demo video](/docs/video%20demos/demos/4.interceptors.md) to learn more about interceptors.
 
 Technically speaking, interceptors in AI DIAL are components inserted into deployments (applications or model adapters) that can be called before or after [chat completion requests](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post).
 
@@ -37,7 +37,7 @@ Client -> (original request) ->
 Client
 ```
 
-AI DIAL Core manages chat completion requests from interceptors through the endpoint: `/openai/deployments/interceptor/chat/completions`. It uses the reserved deployment name `interceptor` to handle requests from all interceptors. Upon receiving a request, it identifies the next interceptor based on its [per-request API key](../Roles%20and%20Access%20Control/API%20Keys#per-request-keys). The final interceptor in the sequence is always the target deployment (application, model).
+AI DIAL Core manages chat completion requests from interceptors through the endpoint: `/openai/deployments/interceptor/chat/completions`. It uses the reserved deployment name `interceptor` to handle requests from all interceptors. Upon receiving a request, it identifies the next interceptor based on its [per-request API key](/docs/Roles%20and%20Access%20Control/3.API%20Keys.md#per-request-keys). The final interceptor in the sequence is always the target deployment (application, model).
 
 ## Interceptors SDK
 

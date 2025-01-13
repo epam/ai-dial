@@ -17,13 +17,13 @@ You can use the [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom
 
 This can include attachments with documents and images, stages, and other types of data compatible with the [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Refer to the Custom Content section to learn more.
 
-Watch a [demo video](../video%20demos/demos/animated-scatterplot) to see how statistical data can be visualized in AI DIAL Chat using a Plotly animated scatterplot, or view a demo video of the [Omics AI Assistant](../video%20demos/demos/dial-omics-assistant) to see how protein structures can be visualized with Plotly.
+Watch a [demo video](/docs/video%20demos/demos/animated-scatterplot.md) to see how statistical data can be visualized in AI DIAL Chat using a Plotly animated scatterplot, or view a demo video of the [Omics AI Assistant](/docs/video%20demos/demos/dial-omics-assistant.md) to see how protein structures can be visualized with Plotly.
 
 ## Visualizers
 
 We call Visualizers special applications that are used for rendering a specific type of content in AI DIAL Chat UI. You can use [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) library to create your custom visualizers for specific types of content.
 
-Watch a [demo video](../video%20demos/demos-for-developers/dial-data-viz) to view how a financial data can be visualized in AI DIAL Chat.
+Watch a [demo video](/docs/video%20demos/demos-for-developers/7.dial-data-viz.md) to view how a financial data can be visualized in AI DIAL Chat.
 
 ## Create Custom Visualizer
 
