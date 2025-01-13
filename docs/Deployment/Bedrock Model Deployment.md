@@ -94,7 +94,7 @@ Add your model with its parameters in the `models` section.
 
 > Refer to [AI DIAL Core Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
 
-> Refer to [Configure core config](./configuration.md#core-parameters) to view the configuration of AI DIAL core parameters in the helm-based installation.
+> Refer to [Configure core config](/docs/Deployment/configuration.md#core-parameters) to view the configuration of AI DIAL core parameters in the helm-based installation.
 
 ### Configure AI DIAL Adapter
 
