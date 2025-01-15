@@ -2,7 +2,7 @@
 
 ## Introduction
 
-AI DIAL Chat is a powerful enterprise-grade application that serves as a default web interface for users, providing access to the full set of AI DIAL features.
+AI DIAL Chat is a powerful enterprise-grade application that serves as a default web interface for AI DIAL users, providing access to the full set of AI DIAL features.
 
 > * Watch a [demo video](/docs/video%20demos/demos/2.dial-ui-basics.md) with introduction to AI DIAL Chat UI.
 > * Refer to [Quick Start](quick-start) to learn how to launch AI DIAL Chat in a few clicks.
@@ -25,30 +25,30 @@ You can also refer to other topics in this documentation:
 
 ## Interface Components
 
-The AI DIAL Chat application user interface has several sections:
+The AI DIAL Chat application user interface has several main sections:
 
-1. [Conversations](#conversations): Here, you can manage your conversations: create new ones, organize them in folders, and delete. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
-2. [Chat](#chat): Use this section to enter a prompt, view results, and interact with language models.
+1. [Conversations](#conversations): Here, you can access and manage your conversations. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
+2. [Chat](#chat): Use this section to enter a prompt, view results, and interact with conversational agents.
 3. [Conversation settings](#conversation-settings): by default, this section displays the last conversational agent used by the user. In this section, you can modify settings of the selected agent or change the agent.
-4. [Prompts](#prompts): In this section, you can work with saved prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
-5. [User Settings](#user-settings): In your user settings, you can customize the color theme (dark or light), choose a custom logo and other customization options.
-6. [DIAL Marketplace](#marketplace): Marketplace displays all applications, language models and assistants available on your DIAL environment.
+4. [Prompts](#prompts): In this section, you can work with prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
+5. [User Settings](#user-settings): In your user settings, you can customize the color theme (dark or light), replace the standard logo and access other UI customization options.
+6. [DIAL Marketplace](#marketplace): Marketplace displays all conversational agents (applications, language models and assistants) available on your DIAL environment. In My workspace, you can gather conversational agents that you want to be at hand and add you custom applications.
 
 ![](./img/home.png)
 
 ## Conversations
 
-In the AI DIAL framework, a conversation is a dialogue between an agent, such as a language model, assistant, or application, and a human user. The agent uses natural language to interact with a human and receive/give a feedback. Within one conversation, you can refer to previous questions and answers. But different conversations don't share context.
+In the AI DIAL, a conversation is a dialogue between a conversational agent, such as a language model, assistant, or application, and a human user. The agent uses natural language to interact with a human and receive/give a feedback. Within one conversation, you can refer to previous questions and answers. But different conversations don't share context.
 
 > All your conversations are stored on the server, and you can access them from any device you use.
 
 ### Actions
 
-Click a **...** icon to open a conversation menu. There, you can find the list of all the available actions for the selected conversation.
+Click a **...** icon to open a conversation menu. There, you can view a list of all possible actions for the chosen conversation.
 
 ![](./img/conversation-menu.png)
 
-> **Note**, that actions may vary for the selected conversation (e.g. there will not be an Unpublish action if the conversation has not yet been published).
+> **Note**, that the available actions can vary depending on the selected conversation. For example, the Unpublish action will not be available if the conversation hasn't been published yet.
 
 This is the list of all the supported actions:
 
@@ -56,13 +56,13 @@ This is the list of all the supported actions:
 - [Rename](#rename) - use to rename a conversation.
 - [Compare](#compare): use to compare conversations with different settings.
 - [Duplicate](#duplicate): use to duplicate a shared conversation.
-- [Replay](#replay): use to to reproduce conversations but with different settings.
+- [Replay](#replay): use to reproduce conversations but with different settings.
 - [Playback](#playback): use to simulate the current conversation without any engagement with models.
 - [Export](#export): use to export a conversation.
 - [Move to](#arrange): use to relocate conversations.
 - [Share](#share): use to share a conversation by providing a link.
 - [Unshare](#unshare): use to revoke a shred conversation.
-- [Publish](#publish): use to publish conversations within the target audience.
+- [Publish](#publish): use to publish conversations.
 - [Unpublish](#unpublish): use to revoke public access from published conversations.
 - [Delete](#delete): use to delete a single conversation.
 
@@ -70,15 +70,13 @@ This is the list of all the supported actions:
 
 ### Arrange
 
-You can arrange your conversations in folders. To create a new folder, click a folder icon in the bottom menu:
+You can organize your conversations into folders. To create a new folder, simply click on the folder icon located in the bottom menu:
 
 ![](./img/create-new-folder.png)
 
-You can also create a new folder or move a conversation to the existing folder from the **Move to** context menu of the selected conversation: 
+You can also create a new folder or move a conversation to the existing folder from the **Move to** context menu of the selected conversation. New folders will automatically be arranged in the **Pinned conversations** tab in the Conversations panel.
 
 ![](./img/pinned-conversations.png)
-
-New folders will automatically be arranged in the **Pinned conversations** tab in the Conversations panel.
 
 ##### Hierarchy
 
@@ -94,34 +92,23 @@ The MAX length of the folder name is limited to 160 symbols. Everything beyond i
 
 ### Search and Filter
 
-The **Search** box can be utilized to find conversations and folders by their names. If you have any shared conversations, you can apply **Shared by me** filter to sort them out.
+Use the **Search** box to find conversations and folders by their names. If you have any shared conversations, you can apply **Shared by me** filter to sort them out.
 
 ![](./img/search-conv.png)
 
 ### Create
 
-There are several ways to initiate a conversation: 
+There are several ways to initiate a dialog with a [conversational agent](#conversational-agents): 
 
 * To communicate with the current conversational agent (by default, the last one used by the user), simply begin typing in the text box located in the chat area.
-* In My Workspace or Marketplace, click **Use ...** button to talk to the selected agent. Refer to [Converse](#converse) to learn more.
+* In My Workspace or Marketplace, select an agent and click **Use ...** button to initiate a conversation. Refer to [Converse](#converse) to learn more.
 * On the main chat screen, click **New conversation** to select agent and start a conversation.
 
 ![](./img/start-conv.png)
 
-<!-- ##### To create a conversation
-
-1. On the left panel, click **New conversation**.
-2. In the main section, under **Talk To**, select a language model, an assistant, or an application. Five most recently used items are shown in the section. To see all available items, click **See full list**.
-3. Optionally, under **System prompts**, select a prompt by typing "/" in the text box. For details, refer to the [Prompts](#prompts) section of this guide.
-4. Under **Temperature**, set a value of the temperature parameter. For details, refer to the [Temperature](#temperature) section of this guide.
-5. Optionally, under **Addons**, select an Addon. For details, refer to the [Addons](#addons) section of this guide.
-6. Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first prompts will be used as its name. 
-
-![](./img/conversations.png) -->
-
 ### Rename
 
-When you create a new conversation, it is automatically named after the first line in your first prompt. For example, if your prompt includes several sentences separated by tab, the first one will be used to name the conversation. Moreover,the MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. After your conversation is created, you can rename it.
+When you create a new conversation, it is automatically named after the first line in your first prompt. For instance, if your prompt consists of several sentences divided by a tab, the first sentence will be used as the conversation's name. Moreover, the MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. After a conversation is created, you can rename it.
 
 ##### To rename a conversation
 
@@ -140,15 +127,13 @@ The following symbols in the conversation names are prohibited: tab, `"`, `:`, `
 
 You can modify the conversation settings before or during the conversation:
 
-Before you begin a new conversation, click **Configure settings** in the main chat area to invoke the **Conversation settings** window.
+**Before** you begin a new conversation, click **Configure settings** in the main chat area to invoke the **Conversation settings** window.
 
 ![](./img/chat-settings-new.png)
 
-During the conversation, in the conversation header, you can modify the current conversation settings.
+**During** the conversation, in the conversation header, you can modify the current conversation settings. In the conversation header, you can view the current settings, change settings (including agent, temperature, prompt and more) or clear the conversation history to start from scratch. You can also access the standard conversation [actions menu](#actions) by clicking the menu icon.
 
 ![](./img/chat-settings.png)
-
-In the conversation header, you can view the current settings, change settings (including agent, temperature, prompt and more) or clear the conversation history to start from scratch. You can also access the standard conversation [actions menu](#actions) by clicking a menu icon.
 
 In the Conversation Settings window, you can access the following components depending on the selected agent:
 
@@ -167,21 +152,21 @@ In AI DIAL Chat you can have a conversation with several types of agents: langua
 
 You have the option to select an agent before starting a conversation or switch to a different one during the conversation:
 
-* Before you begin the conversation, click **Change agent** to invoke the **Select an agent for conversation** window. Here, you can choose among the agents available in My workspace section.
+Before you begin a conversation, click **Change agent** to invoke the **Select an agent for conversation** window. Here, you can choose among the added agents or navigate to My workspace section.
 
 ![](./img/change-agent.png)
 
-* In the middle of conversation, you can view the current agent info and change it in the conversation header.
+In the middle of a conversation, you can view the current agent info and change it in the conversation header.
 
 ![](./img/change-agent2.png)
 
 #### System Prompt
 
-![](./img/system_prompt.png)
-
-The system prompt in AI DIAL acts as the initial set of instructions provided to the model. It serves as a compass for the model, guiding it through the conversational landscape to ensure it remains on track and aligned with the intended purpose and desired outcome of the conversation.
+The system prompt in AI DIAL acts as the initial set of instructions provided to the model. It serves as a compass for the model, guiding it through the conversational landscape to ensure it remains on track and stays aligned with the intended purpose and desired outcome of the conversation.
 
 Type `/` in the text box to select any previously created prompt as a system prompt (for details, refer to the [Create](#create-1) in Prompts), and it will set the context and tone for the whole conversation.
+
+![](./img/system_prompt.png)
 
 <!-- ##### Example
 
@@ -211,13 +196,13 @@ Adjusting the temperature allows you to balance creativity and consistency in th
  
 #### Addons
 
-You may want LLM to access particular data or technology to generate responses. This could be your company's database, a collection of PDF documents, calculation engines, API or any other data source or technology.
+You may want LLM to access particular data or technology to generate responses. This could be your company's database, a collection of PDF documents, calculation engines, API or any other data source or technology. You can accomplish this by using addons that allow AI models to tap into and use various data sources or technologies to produce responses.
 
-In the AI DIAL framework, an **Addon** refers to a service or component that conforms to the Open API specification. Examples of Addon implementations include semantic search, Q&A search, database query generators, or any custom logic tailored to meet specific business requirements. AI DIAL allows for the inclusion of custom Addons, which can be activated to achieve desired system behaviors.
+In the AI DIAL framework, an **Addon** refers to a service or component that conforms to the Open API specification. Examples of Addon implementations include semantic search, Q&A search, database query generators, or any custom logic tailored to meet specific business requirements. You can add and use custom Addons to achieve a desired system behavior.
 
 ##### To select addons
 
-In the **Conversation settings** window, click on **See all addons...** to view all available addons. You can select one or more addons and then click **Apply addons** to start using them.
+In the **Conversation settings** window for the selected model, click **See all addons...** to view all available addons. You can select one or more addons and then click **Apply addons** to start using them.
 
 ![](./img/addons2.png)
 
@@ -229,7 +214,7 @@ You can share a conversation or a folder with several conversations with other u
 
 ##### To receive a shared conversation
 
-When someone shared a conversation with you, you can find it in the **Shared with me** section in the left panel. 
+If a conversation has been shared with you, it can be located in the **Shared with me** section in the left panel.
 
 ![](./img/shared-with-me.png)
 
@@ -239,15 +224,15 @@ When someone shared a conversation with you, you can find it in the **Shared wit
 
 > **Note**: You can share entire folders with conversations. When you share a folder, all folders and conversations in it will be shared as well.
 
-To share a conversation or a folder, click **Share** in the contextual menu and copy the link.
+If you want to share a conversation or a folder, click on **Share** in the contextual menu and send the link to the intended recipient.
 
 ![](./img/share_conv.png)
 
-After the recipient has opened your link, the arrow icon appears near its name. **Note**, it may be required to reload the page.
+After the recipient has opened your link, the arrow icon appears near its name. **Note**, it may be required to reload the page to update the status of the shared conversation.
 
 ![](./img/shared.png)
 
-Click **Shared by me** checkbox in the filter to select just the conversations that you have shared:
+To filter and view only the conversations that you have shared, click on the **Shared by me** checkbox in the filter:
 
 ![](./img/shared-by-me.png)
 
@@ -268,7 +253,7 @@ Duplicate a shared with you conversation to be able to change it. To duplicate a
 
 ### Export
 
-You can export selected conversations. If a conversation includes attachments, you can export it with or without attachments. 
+You can export conversations. If a conversation includes attachments, you can export it with or without attachments. 
 
 You can also export all your conversations at once without attachments in a JSON format.
 
@@ -279,7 +264,7 @@ You can also export all your conversations at once without attachments in a JSON
 1. On the left panel, in the conversation contextual menu, point to **Export**.
 2. Click **With attachments**. 
 
-The conversation will be exported as a **ZIP** archive.
+The conversation will be exported as a **ZIP** archive. Please note that the name of the ZIP archive follows the format `file_name.dial`. You can manage it just like a normal ZIP archive.
 
 ![](./img/export-with-att.png)
 
@@ -400,11 +385,11 @@ You can create a parametrized conversation from any message in your chat. This s
 
 ### Playback
 
-The Playback mode can be used to simulate the current conversation without any engagement with models. This mode accurately reproduces the conversation like a recording. It should be noted that this differs from the Replay mode, where the prompts are resubmitted to the chosen model and the outcomes may differ from the initial conversation.
+The Playback mode can be used to simulate the current conversation without any engagement with models. This mode accurately reproduces the conversation like a recording. **Note**, that this differs from the Replay mode, where the prompts are resubmitted to the chosen model and the outcomes may differ from the initial conversation.
 
 ![](./img/playback-conversation.png)
 
-During the playback, you can move back and forward the playback process or stop it.
+During playback, you have the ability to rewind, fast forward, or halt the process.
 
 ![](./img/playback-controls.png)
 
@@ -415,26 +400,25 @@ Use the Compare mode to compare two new (or two existing) conversations with dif
 ##### To compare two NEW conversations
 
 1.	Click the **Compare** icon in the menu at the bottom of the left panel.
-2.	Choose settings of the first conversations.
-3.	Choose settings of the second conversation.
-4.	Type your question (prompt) in the chat box.
+2.	Define settings for both conversations. To do that, click **Configure settings** for any conversation to open a dialog window.
+3.	Type your question (prompt) in the chat box to begin.
 
 ![](./img/compare-3.png)
 
-Once you initiate a conversation in this mode, the system creates two new conversations with the same name but adds numbers to them. If you have chosen different language models, the conversations icons on the left panel will differ.
+Once you initiate a conversation in this mode, the system creates two new conversations with the same name but adds numbers to them. If you have chosen different language models, the conversations icons will differ  accordingly.
 
 ![](./img/compare-4.png)
 
 ##### To compare two EXISTING conversations
 
-![](./img/compare.png)
-
-> This Compare mode works only with conversations with the same amount of prompts from a user. The application will not allow comparing two conversations with different amounts of prompts.
+> **Important**: this Compare mode works only with conversations with the same amount of prompts from a user. The application will not allow comparing two conversations with different amounts of prompts.
 
 1.	On the left panel, in the conversation menu of a conversation, select **Compare**.
 2.	In the main section, under **Select conversation to compare with**, select the second conversation from the drop box. 
 3. By default, only conversations with the same name are available in the drop box. Select **Show all conversations** to see the full list of conversations.
 4.	Type your question (prompt) in the chat box.
+
+![](./img/compare.png)
 
 ### Publish
 
@@ -489,16 +473,16 @@ You can unpublish conversations to withdraw them from public use.
 
 1. Click **Unpublish** in the conversation menu. 
 
-![](./img/unpublish-conversation.png)
+   ![](./img/unpublish-conversation.png)
 
 2. In the pop-up window:
    * Enter **unpublish request name** in the upper area.
    * In **Conversations**, if you have selected a folder, you can choose what conversations you want to unpublish. If conversation(s) include attachment(s), you can also select them in the **Files** section.
    * Click **Send request** to send your unpublish request to the administrator.
   
-![](./img/unpublish-request.png)
+   ![](./img/unpublish-request.png)
 
-3. When your request is approved, the unpublished conversation or a folder with conversation(s) will become unavailable in the Organization tab.
+3. When your request is approved by the administrator, the unpublished conversation or a folder with conversation(s) will become unavailable in the Organization tab.
    
 ## Prompts
 
@@ -799,11 +783,13 @@ When the response generation has been stopped, you can regenerate it. **Importan
 
 ### Isolated View Mode
 
-In the Isolated View Mode, a user can follow a specific URL `https://server/models/modelID` or `https://server/models/applicationID` to use the AI DIAL Chat in a simplified view with minimal configuration settings for a selected model or application. Conversation settings, conversation and prompt panels are not shown in this case. All created conversations are saved and displayed in the regular chat view mode as well (when just created, names of such conversations are appended in the regular view mode with an `isolated` prefix in the beginning. e.g. `isolated_dial-rag`).
+In the Isolated View Mode, you can access the AI DIAL Chat in a simplified view mode with the predefined conversational agent. To access this mode, follow a specific URL `https://server/models/modelID` or `https://server/models/applicationID`. Conversation and prompt panels are not shown in this mode. All conversations that are created in this mode, will also be displayed in the standard chat view mode. When initially created, these conversations are added to the standard view with a unique prefix at the start, such as `isolated_dial-rag`.
 
-For instance, if a user wants to open GPT-4 without any extra features or configurations, they can simply go to `https://AI DIAL Chat URL/models/gpt-4` and access a streamlined user interface that only contains a chat input with GPT-4:
+For instance, to open chat with GPT-4 model, go to `https://AI DIAL Chat URL/models/gpt-4` and access a streamlined user interface that only contains a chat input with GPT-4:
 
 ![](./img/isolated_view_mode.png)
+
+Although this mode offers a simplified view, you can access [Conversation settings](#conversation-settings) the usual way.
 
 ## User Settings
 
