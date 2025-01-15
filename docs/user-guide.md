@@ -32,7 +32,7 @@ The AI DIAL Chat application user interface has several main sections:
 3. [Conversation settings](#conversation-settings): by default, this section displays the last conversational agent used by the user. In this section, you can modify settings of the selected agent or change the agent.
 4. [Prompts](#prompts): In this section, you can work with prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
 5. [User Settings](#user-settings): In your user settings, you can customize the color theme (dark or light), replace the standard logo and access other UI customization options.
-6. [DIAL Marketplace](#marketplace): Marketplace displays all conversational agents (applications, language models and assistants) available on your DIAL environment. In My workspace, you can gather conversational agents that you want to be at hand and add you custom applications.
+6. [DIAL Marketplace](#marketplace): Marketplace displays all conversational agents (applications, language models and assistants) available on your DIAL environment. In My workspace, you can gather conversational agents that you want to be at hand and add custom applications.
 
 ![](./img/home.png)
 
@@ -92,7 +92,7 @@ The MAX length of the folder name is limited to 160 symbols. Everything beyond i
 
 ### Search and Filter
 
-Use the **Search** box to search conversations and folders by their names. If you have any shared conversations, you can apply **Shared by me** filter to sort them out.
+Use the **Search** box to search conversations by their names. If you have any shared conversations, you can apply **Shared by me** filter to sort them out.
 
 ![](./img/search-conv.png)
 
@@ -102,7 +102,7 @@ There are several ways to initiate a dialog with a [conversational agent](#conve
 
 * To communicate with the current conversational agent (by default, the last one used by the user), simply begin typing in the text box located in the chat area.
 * In My Workspace or Marketplace, select an agent and click **Use ...** button to initiate a conversation. Refer to [Converse](#converse) to learn more.
-* On the main chat screen, click **New conversation** to select agent and start a conversation.
+* On the main chat screen, click the **Plus** icon to select agent and start a conversation.
 
 ![](./img/start-conv.png)
 
@@ -131,7 +131,13 @@ You can modify the conversation settings before or during the conversation:
 
 ![](./img/chat-settings-new.png)
 
-**During** the conversation, in the conversation header, you can modify the current conversation settings. In the conversation header, you can view the current settings, change settings (including agent, temperature, prompt and more) or clear the conversation history to start from scratch. You can also access the standard conversation [actions menu](#actions) by clicking the menu icon.
+**During** the conversation, in the conversation header you can view and modify conversation settings by clicking the gear icon.
+
+In the conversation header menu you also can: 
+
+* View and change the current agent: you can view information about the current agent and change it by clicking the agent icon.
+* Clear conversation history: click the eraser icon to clear the conversation history and start from scratch. 
+* Access conversation action menu: click the three-dot menu icon to access the standard conversation [actions menu](#actions).
 
 ![](./img/chat-settings.png)
 
@@ -156,7 +162,7 @@ Before you begin a conversation, click **Change agent** to invoke the **Select a
 
 ![](./img/change-agent.png)
 
-In the middle of a conversation, you can view the current agent info and change it in the conversation header.
+In the middle of a conversation, you can view information about the current agent and change it by clicking the agent icon. 
 
 ![](./img/change-agent2.png)
 
@@ -405,7 +411,7 @@ Use the Compare mode to compare two new (or two existing) conversations with dif
 
 ![](./img/compare-3.png)
 
-Once you initiate a conversation in this mode, the system creates two new conversations with the same name but adds numbers to them. If you have chosen different language models, the conversations icons will differ  accordingly.
+Once you initiate a conversation in this mode, the system creates two new conversations with the same name but adds numbers to them. If you have chosen different language models, the conversations icons will differ accordingly.
 
 ![](./img/compare-4.png)
 
@@ -546,7 +552,7 @@ The MAX length of the folder name is limited to 160 symbols. Everything beyond i
 
 ### Search and Filter
 
-Use the **Search** box to search prompts and folders by their names. If you have any shared prompts, you can apply **Shared by me** filter to sort them out.
+Use the **Search** box to search prompts by their names. If you have any shared prompts, you can apply **Shared by me** filter to sort them out.
 
 ![](./img/pt_search.png)
 
@@ -791,13 +797,13 @@ When the response generation has been stopped, you can regenerate it. **Importan
 
 ![](./img/like.png)
 
-**View and change current settings**: on the top bar, point to the language model logo icon near the conversation name to see current settings. In the same bar, you can click the Eraser icon to **clear conversation messages** and click the Gear icon to **change conversation settings**. Refer to [Conversation Settings](#conversation-settings) to learn more.
+**View and change current settings**: on the top bar you can view and manage agent and conversation settings. Refer to [Conversation Settings](#conversation-settings) to learn more.
 
 ![](./img/chat-settings-bar.png)
 
 ### Isolated View Mode
 
-In the Isolated View Mode, you can access the AI DIAL Chat in a simplified view mode with the predefined conversational agent. To access this mode, follow a specific URL `https://server/models/modelID` or `https://server/models/applicationID`. Conversation and prompt panels are not shown in this mode. All conversations that are created in this mode, will also be displayed in the standard chat view mode. When initially created, these conversations are added to the standard view with a unique prefix at the start, such as `isolated_dial-rag`.
+In the Isolated View Mode, you can access the AI DIAL Chat in a simplified view mode with the predefined conversational agent. To access this mode, follow a specific URL `https://server/models/modelID` or `https://server/models/applicationID`. Conversation and prompt panels are not shown in this mode. All conversations that are created in this mode, will also be displayed in the standard chat view mode.
 
 For instance, to open chat with GPT-4 model, go to `https://AI DIAL Chat URL/models/gpt-4` and access a streamlined user interface that only contains a chat input with GPT-4:
 
@@ -1017,7 +1023,7 @@ In the [DIAL Marketplace](#dial-marketplace) section, you can view all the model
 ##### To talk to a model
 
 1. In the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
-2. To display just models, disable all other **Types** and enable just **Models**.
+2. To display just models, select just **Models** in **Types**.
 3. Click any of the available models in Marketplace or My workspace, click **Use model** to navigate back to the main screen with this model pre-selected for conversation.
 
 > Refer to [Agents](#agents) to learn how to change conversational agents prior or during a conversation. 
@@ -1041,7 +1047,7 @@ In the [DIAL Marketplace](#dial-marketplace) section, you can view all the appli
 ##### To talk to an application
 
 1. In the [DIAL Marketplace](#dial-marketplace) section, you can view all the applications available on your DIAL environment. There, you can select applications to add them to [My workspace](#my-workspace).
-2. To display just applications, disable all other **Types** and enable just **Applications**.
+2. To display applications, select just **Applications** in **Types**.
 3. Click any of the available applications in Marketplace or My workspace, click **Use application** to navigate back to the main screen with this application pre-selected for conversation.
 
 > Refer to [Agents](#agents) to learn how to change conversational agents prior or during a conversation. 
@@ -1082,7 +1088,7 @@ In the [DIAL Marketplace](#dial-marketplace) section, you can view all the assis
 ##### To talk to an assistant
 
 1. In the [DIAL Marketplace](#dial-marketplace) section, you can view all the assistants available on your DIAL environment. There, you can select assistants to add them to [My workspace](#my-workspace).
-2. To display just assistants, disable all other **Types** and enable just **Assistants**.
+2. To display assistants, select just **Assistants** in **Types**.
 3. Click any of the available assistants in Marketplace or My workspace, click **Use assistant** to navigate back to the main screen with this assistant pre-selected for conversation.
 
 > Refer to [Agents](#agents) to learn how to change conversational agents prior or during a conversation. 
@@ -1114,7 +1120,7 @@ From both marketplace and workspace you can click **Back to Chat** to navigate t
 
 ![](./img/dial-marketplace3.png)
 
-Use the **Type** filters to display any or all applications, language models, and assistants, and categorize them by **Topic**. Additionally, the **Search** allows you to swiftly locate any item.
+Use the **Type** filters to display any or all conversational agent and categorize them by **Topic**. Additionally, the **Search** allows you to swiftly locate any item. **Note**, that all agents are displayed by default - use the Type filter to narrow down the scope of the displayed agents.
 
 ![](./img/dial-marketplace5.png)
 
@@ -1135,7 +1141,7 @@ To simply add/remove an item to/from My workspace, click **Add/Remove to/from My
 You can also add a conversational agent to My workspace by initiating a conversation with it. For example, to add a model:
 
 1. In the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
-2. To display just models, disable all other **Types** and enable just **Models**.
+2. To display models, select just **Models** in **Types**.
 3. To select a model, click any of the available models in Marketplace or My workspace, click **Use model** to navigate back to the main screen with this model pre-selected for conversation.
 
 > Refer to [Agents](#agents) to learn how to change conversational agents prior or during a conversation. 
