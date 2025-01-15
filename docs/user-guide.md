@@ -92,7 +92,7 @@ The MAX length of the folder name is limited to 160 symbols. Everything beyond i
 
 ### Search and Filter
 
-Use the **Search** box to find conversations and folders by their names. If you have any shared conversations, you can apply **Shared by me** filter to sort them out.
+Use the **Search** box to search conversations and folders by their names. If you have any shared conversations, you can apply **Shared by me** filter to sort them out.
 
 ![](./img/search-conv.png)
 
@@ -502,26 +502,25 @@ Click a **...** icon to open a prompt menu. There, you can find a list of all th
 
 ![](./img/prompt-menu.png)
 
-This is the list of all the supported actions. Note, that actions may vary for the selected prompt (e.g. there will not be an Unpublish action if the prompt has not yet been published)
+This is the list of all the supported actions. Please note that the available actions can differ depending on the selected prompt. For instance, the Unpublish action won't be available if the prompt hasn't been published yet.
 
 - [Select](#select-to-delete-1): use to select prompts you want to delete.
-- [Edit](#create-1): select a prompt on the right panel to invoke the Edit window. Make all necessary changes and click **Save**. 
+- [Edit](#create-1): use to edit prompts. 
 - [Duplicate](#duplicate-1): use to duplicate a shared prompt.
-- [Export](#export-import): right-click a prompt on the right panel and select **Export**. The prompt will be exported as JSON.
-- [Import](#export-import): click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
-- [Move to](#arrange-1): use to place a prompt in a folder.
+- [Export](#export-import): use to export prompts in JSON format.
+- [Import](#export-import): use to import prompts in JSON format.
+- [Move to](#arrange-1): use to organize a prompts in folders.
 - [Share](#share-1): use to share a prompt or a folder with several prompts with other users.
 - [Unshare](#unshare-1): use to revoke access to shared prompts.
 - [Publish](#publish-1): use to publish prompts within the organization.
 - [Unpublish](#unpublish-1): use to withdraw prompts from public use.
 - [Delete](#delete-1): you can delete a single prompt, all prompts or selected prompts.
-- **Export all prompts**: click the **Export prompts** icon at the bottom of the right panel. All your prompts will be exported as JSON.
 
 ![](./img/prompt_actions.png)
 
 ### Arrange
 
-You can arrange your prompts in folders. To create a new folder, click a folder icon in the bottom menu:
+You can organize your prompts in folders. To create a new folder, click on the folder icon in the bottom menu:
 
 ![](./img/create-new-folder-prompt.png)
 
@@ -547,7 +546,7 @@ The MAX length of the folder name is limited to 160 symbols. Everything beyond i
 
 ### Search and Filter
 
-The **Search** box can be utilized to find prompts and folders by their names. If you have any shared prompts, you can apply **Shared by me** filter to sort them out.
+Use the **Search** box to search prompts and folders by their names. If you have any shared prompts, you can apply **Shared by me** filter to sort them out.
 
 ![](./img/pt_search.png)
 
@@ -556,13 +555,10 @@ The **Search** box can be utilized to find prompts and folders by their names. I
 ##### To create a new prompt
 
 1.	On the right panel, select **New prompt**.
-2.	Fill in the **Name**, **Description**, and **Prompt** boxes. The following symbols in the prompt names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the prompt name is limited to 160 symbols. Everything beyond is cut off.
-
-      > Please note that both the **Name** and **Description** fields are mandatory to fill in order to create a prompt!
-
+2.	Fill in the **Name**, **Description**, and **Prompt** boxes. The following symbols in the prompt names are prohibited: tab, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&`. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the prompt name is limited to 160 symbols. Everything beyond is cut off.
 3.	Click **Save**.
 
->  **Name** and **Description** aren’t used as instructions for a language model. They only help you to distinguish the prompt from others. The language model will only use instructions from the **Prompt** box.
+> While both the **Name** and **Description** fields are required to create a prompt, they do not serve as instructions for the language model. They simply help you differentiate this prompt from others. The language model will only utilize instructions from the **Prompt** box.
 
 ![](./img/create-pt.png)
 
@@ -574,7 +570,11 @@ You can use prompts as templates for your instructions to a language model. You 
 
 For example, you need to calculate an equation `a + b/c`, round up the answer, and then divide it by 4.
  
-Create the following prompt:
+Create the following prompt: 
+
+`{{a}}+{{b}}/{{c}}=`
+
+Round up the answer to three digits and divide by four
 
 ![](./img/math-prompt1.png)
 
@@ -605,11 +605,11 @@ You can delete a single prompt, selected prompts or all prompts.
 
 Also, you can use a *selection* mode to choose prompt(s) you want to delete:
 
-* Click **Select all** button in the bottom panel. In this case, all prompts are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
+Click **Select all** button in the bottom panel. In this case, all prompts are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
 
 ![](./img/select-prompt1.png)
 
-* Click **Select** in the prompts menu. In this case, you can hover over any prompt and use checkboxes to select/unselect prompts you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
+Click **Select** in the prompts menu. In this case, you can hover over any prompt and use checkboxes to select/unselect prompts you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
 
 ![](./img/select-prompt2.png)
 
@@ -636,13 +636,15 @@ You can always view prompts that have been shared with you in a dedicated sectio
 
 ##### To share a prompt
 
-To share a prompt or a folder, click **Share** in the contextual menu and copy the link. After someone has opened your link, an arrow icon appears near its name and this prompt can be found when **Shared by me** checkbox in the filter is selected.
+If you want to share a prompt or a folder, click on **Share** in the contextual menu and copy the link. All shared prompts can then be located by selecting the **Shared by me** checkbox in the filter.
+
+![](./img/pt_share.png)
+
+Once the recipient opens your link, an arrow icon will appear next to its name.
 
 ![](./img/shared_prompt.png)
 
 > When you share a folder, all folders and prompts in this folders will be shared.
-
-![](./img/pt_share.png)
 
 ### Unshare
 
@@ -660,11 +662,23 @@ You can duplicate a prompt to be able to change a prompt that was shared with yo
 
 ### Export Import
 
-You can export 
+You can export and import prompts. 
+
+##### To export a single prompt
+
+Select **Export** in the prompt's menu. The prompt will be exported as a JSON file.
 
 ![](./img/export-prompt.png)
 
-and import prompts as Json files
+##### To export all prompts
+
+Click **Export prompts** at the bottom of the right panel. All your prompts will be exported as a JSON file.
+
+![](./img/export-all-prompts.png)
+
+##### To import prompts
+
+Click **Import prompts** at the bottom of the right panel. Only valid JSON files can be imported.
 
 ![](./img/import-prompt.png)
 
@@ -688,7 +702,7 @@ You can publish prompts to make them available for the target audience.
 
 1. Click **Publish** in the prompt's menu. 
 
-![](./img/publish-prompt.png)
+   ![](./img/publish-prompt.png)
 
 2. In the pop-up window:
    * Enter **publication request name** in the upper area.
@@ -698,11 +712,11 @@ You can publish prompts to make them available for the target audience.
    * Assign a **version** to your publication request.
    * Click **Send request** to send your publication request to the administrator.
 
-![](./img/publish-prompt-request.png)
+   ![](./img/publish-prompt-request.png)
 
-3. When your request is approved, the published prompt or a folder with prompt(s) will become available in the Organization tab.
+3. When your request is approved by the administrator, the published prompt or a folder with prompt(s) will become available in the Organization tab.
 
-![](./img/organization-section-prompts.png)
+   ![](./img/organization-section-prompts.png)
 
 ##### Versioning
 
@@ -726,16 +740,16 @@ You can unpublish prompts to withdraw them from the public use.
 
 1. Click **Unpublish** in the prompt's menu. 
 
- ![](./img/unpublish-prompt.png)
+   ![](./img/unpublish-prompt.png)
 
 2. In the pop-up window:
    * Enter **unpublish request name** in the upper area.
    * In **Prompts**, if you have selected a folder, you can choose what prompts you want to unpublish.
    * Click **Send request** to send your unpublish request to the administrator.
 
-![](./img/unpublish-prompt-reques.png)
+   ![](./img/unpublish-prompt-reques.png)
 
-3. When your request is approved, the unpublished prompt or a folder with prompt(s) will become unavailable in the Organization tab.
+3. When your request is approved by the administrator, the unpublished prompt or a folder with prompt(s) will become unavailable in the Organization tab.
 
 ## Chat 
 
@@ -777,7 +791,7 @@ When the response generation has been stopped, you can regenerate it. **Importan
 
 ![](./img/like.png)
 
-**View current settings**: on the top bar, point to the language model logo icon near the conversation name to see current settings. In the same bar, you can click the Eraser icon to **clear conversation messages** and click the Gear icon to **change conversation settings**. Refer to [Chat Settings](#conversation-settings) to learn more.
+**View and change current settings**: on the top bar, point to the language model logo icon near the conversation name to see current settings. In the same bar, you can click the Eraser icon to **clear conversation messages** and click the Gear icon to **change conversation settings**. Refer to [Conversation Settings](#conversation-settings) to learn more.
 
 ![](./img/chat-settings-bar.png)
 
@@ -793,9 +807,7 @@ Although this mode offers a simplified view, you can access [Conversation settin
 
 ## User Settings
 
-On the top bar, in the user area, you can click a down arrow to access additional settings or logout.
-
-You can select the chat theme (dark or light), change logo, and switch to the full-width chat mode.
+In the user area on the top bar, you can click the down arrow to access additional settings or to log out. Here you can choose the chat theme (dark or light), change the logo, and switch to full-width chat mode.
 
 ![](./img/user_settings.png)
 
@@ -877,7 +889,7 @@ To add a file into a folder it is necessary to upload it.
 
 ##### To unshare a file
 
-Using the application that supports the attachments of files, you can create a conversation and share it with someone. When a conversation is shared, all the attached to the conversation files are shared as well. In the attachments manager, such shared files are tagged with a blue arrow.
+With an application that supports file attachments, you can create a conversation and share it. When a conversation is shared, all files attached to that conversation are also shared. In the attachments manager, these shared files are marked with a blue arrow.
 
 In the file menu, you can choose to unshare it: 
 
@@ -905,11 +917,12 @@ Click a folder to expand it.
 
 You can publish/unpublish your applications, conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
 
-> Watch [Publications](/docs/video%20demos/demos/6.dial-publications.md) demo video to learn more about publication and collaboration features in AI DIAL.
+> * Watch [Publications](/docs/video%20demos/demos/6.dial-publications.md) demo video to learn more about publication and collaboration features in AI DIAL.
+> * Refer to [Collaboration](/docs/tutorials/collaboration/1.overview.md) to learn more about collaboration features in AI DIAL.
 
 ### Configuration
 
-> Refer to [tutorials](/docs/tutorials/collaboration/2.enable-publications.md#dial-chat) to learn more about working and configuring publications.
+> Refer to [Collaboration](/docs/tutorials/collaboration/2.enable-publications.md#dial-chat) to learn more about working and configuring publications.
 
 To enable the publication feature:
 
@@ -936,9 +949,11 @@ Administrators are chat users that can perform additional actions. Chat interfac
 
 Users with the admin role have access to the **Approve required** tab in conversations and prompts sections, where they can view all publish and unpublish requests from users. 
 
+> **Note**, publication requests for applications appear in the Prompts section.
+
 ![](./img/admin-panel.png)
 
-The count shows the number of requests to be reviewed. Each such request has a color dot attached to it. The refresh of a browser updates this information.
+The counter shows the number of requests to be reviewed. Each such request has a color dot attached to it. The refresh of a browser updates this information.
 
 ![](./img/review3.png)
 
@@ -955,6 +970,13 @@ The count shows the number of requests to be reviewed. Each such request has a c
 ![](./img/review-mode2.png)
 
 5. Once the review is completed, the **Approve** button is enabled. **Note**, you can approve or reject only the entire request.
+
+### Deploy and Undeploy Code Apps
+
+In the [DIAL Marketplace](#dial-marketplace), administrators can deploy and undeploy Code Apps of different users.
+
+1. Go to DIAL Marketplace and apply filter by Applications. Deployed Code Apps have a green status icon. 
+2. Click the app you want to undeploy/deploy. Refer to [Launch Code App](#to-launch-code-app) to learn more.
 
 ## Data Visualization
 
@@ -982,13 +1004,13 @@ The visualizations come with standard Plotly controls for easy manipulation.
 
 ## Conversational Agents
 
-In AI DIAL Chat you can have a conversation with several types of agents: language models, applications and assistants.
+In AI DIAL Chat, you can have a dialog with several types of conversational agents: language models, applications and assistants.
 
 ### Language Models
 
 ##### Available Models
 
-In the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
+In the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your AI DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
 
 > Refer to [Supported Models](/docs/supported-models.md) to view all the models supported in AI DIAL.
 
@@ -996,7 +1018,7 @@ In the [DIAL Marketplace](#dial-marketplace) section, you can view all the model
 
 1. In the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
 2. To display just models, disable all other **Types** and enable just **Models**.
-3. To select a model, click any of the available models in Marketplace or My workspace, click **Use model** to navigate back to the main screen with this model pre-selected for conversation.
+3. Click any of the available models in Marketplace or My workspace, click **Use model** to navigate back to the main screen with this model pre-selected for conversation.
 
 > Refer to [Agents](#agents) to learn how to change conversational agents prior or during a conversation. 
 
@@ -1020,7 +1042,7 @@ In the [DIAL Marketplace](#dial-marketplace) section, you can view all the appli
 
 1. In the [DIAL Marketplace](#dial-marketplace) section, you can view all the applications available on your DIAL environment. There, you can select applications to add them to [My workspace](#my-workspace).
 2. To display just applications, disable all other **Types** and enable just **Applications**.
-3. To select an application, click any of the available applications in Marketplace or My workspace, click **Use application** to navigate back to the main screen with this application pre-selected for conversation.
+3. Click any of the available applications in Marketplace or My workspace, click **Use application** to navigate back to the main screen with this application pre-selected for conversation.
 
 > Refer to [Agents](#agents) to learn how to change conversational agents prior or during a conversation. 
 
@@ -1032,7 +1054,7 @@ In the [DIAL Marketplace](#dial-marketplace) section, you can view all the appli
 
 DIAL applications can be integrated into the DIAL Core deployment. By doing so, these applications will be immediately available in your chat from the start. For examples, refer to the [dynamic setting](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) in DIAL Core. Additionally, you can register your custom and deployed applications through the [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put) and [DIAL Marketplace](#add-custom-app). In such cases, the configuration of your custom applications, described in a JSON file, is saved in your blob store and accessed by DIAL Core for usage.
 
-> * Refer to [My workspace](#add-custom-app) to learn how to add a custom app in DIAL Marketplace.
+> * Refer to [My workspace](#add-custom-app) to learn how to add a custom app.
 > * Refer to [Custom Apps Deployment](/docs/Deployment/custom_apps_deployment.md) to learn how to deploy custom applications using Helm chat and configure DIAL Core.
 
 #### Quick Apps
@@ -1040,20 +1062,20 @@ DIAL applications can be integrated into the DIAL Core deployment. By doing so, 
 DIAL Quick Apps are conceptually similar to OpenAI's GPT. Quick Apps do not contain any programming code (they include a toolset, description and instruction to the language model) and enable you to rapidly build an application right within DIAL Chat, use it, and share it with others. Quick Apps can be used to simplify a workflow or carry out a specific task. For example, you can create a Quick App with a configuration allowing it to call an external API to get a real-time weather forecast for a specific location.
 
 > * Watch a [Demo Video](/docs/video%20demos/demos/12.quick-apps.md) with an introduction to Quick Apps.
-> * Refer to [My workspace](#add-quick-app) to learn how to add a Quick App in DIAL Marketplace.
+> * Refer to [My workspace](#add-quick-app) to learn how to add Quick Apps.
 
 #### Code Apps
 
 DIAL Core Apps allow you to develop, deploy and run your Python applications directly in the AI DIAL Chat. It is a useful tool if you need to quickly create an application for the POC, deploy it and share with the selected audience.  
 
 > * Watch a [Demo Video](/docs/video%20demos/demos/11.code-apps.md) with an introduction to Code Apps.
-> * Refer to [My workspace](#add-code-app) to learn how to add a Code App in DIAL Marketplace.
+> * Refer to [My workspace](#add-code-app) to learn how to add Code Apps.
 
 ### Assistants
 
-In the AI DIAL framework, assistants are a combination of preselected Addons and System Prompts that enable specific behavior in the LLM, allowing for more tailored and adaptive responses to user needs. Unlike the Model+Addon configuration, where users have the flexibility to choose different addons, assistants come with predetermined Addons that cannot be removed or unselected. However, the Model can still be reassigned within the Assistant.
+In the AI DIAL, assistant is a combination of a preselected [addon](#addons) and a [system prompt](#system-prompt) that enable specific behavior of a language model, allowing to achieve responses adjusted to user needs. Unlike the model+addon configuration, where users have the flexibility to choose different addons, assistants come with predetermined addons that cannot be removed or unselected. However, the model can still be reassigned within the assistant.
 
-Assistants give you more control over LLM behavior, resulting in tailored and accurate responses that match specific needs. The flexibility of this combination lets you create custom assistants within the AI DIAL framework. These assistants can range from simple tasks, like asking the LLM to provide answers in a specific tone or style (e.g., like a pirate), to more complex tasks, such as restricting the LLM's data to a specific geographical area (e.g., providing weather forecasts for Chicago only). Combining Addons and System Prompts enables better customization and adaptability to various situations, leading to more versatile responses.
+Assistants give you more control over LLM behavior, resulting in tailored and accurate responses that match specific needs. The flexibility of this combination lets you create custom assistants. These assistants can range from simple tasks, like asking the LLM to provide answers in a specific tone or style (e.g., like a pirate), to more complex tasks, such as restricting the LLM's data to a specific geographical area (e.g., providing weather forecasts for Chicago only). Combining addons and system prompts enables better customization and adaptability to various situations, leading to more versatile responses.
 
 In the [DIAL Marketplace](#dial-marketplace) section, you can view all the assistants available on your DIAL environment. There, you can select assistants to add them to [My workspace](#my-workspace).
 
@@ -1061,7 +1083,7 @@ In the [DIAL Marketplace](#dial-marketplace) section, you can view all the assis
 
 1. In the [DIAL Marketplace](#dial-marketplace) section, you can view all the assistants available on your DIAL environment. There, you can select assistants to add them to [My workspace](#my-workspace).
 2. To display just assistants, disable all other **Types** and enable just **Assistants**.
-3. To select an assistant, click any of the available assistants in Marketplace or My workspace, click **Use assistant** to navigate back to the main screen with this assistant pre-selected for conversation.
+3. Click any of the available assistants in Marketplace or My workspace, click **Use assistant** to navigate back to the main screen with this assistant pre-selected for conversation.
 
 > Refer to [Agents](#agents) to learn how to change conversational agents prior or during a conversation. 
 
@@ -1073,7 +1095,7 @@ In the [DIAL Marketplace](#dial-marketplace) section, you can view all the assis
 
 > Watch [Marketplace](/docs/video%20demos/demos/10.marketplace.md) demo video to see it in action.
 
-Click **DIAL Marketplace** to navigate to the *home page* of DIAL Marketplace where you can find all [applications](#applications), [language models](#available-models) and [assistants](#assistants) available on your DIAL environment. Here, you can also find all applications [published](#publish-app) in your organization.
+In DIAL Marketplace where you can find all conversational agents ([applications](#applications), [language models](#available-models) and [assistants](#assistants)) available on your AI DIAL environment. Here, you can also find all applications [published](#publish-app) in your organization.
 
 ![](./img/dial-marketplace.png)
 
@@ -1083,8 +1105,8 @@ You can navigate to this section form the main chat screen:
 
 In DIAL Marketplace, there are two sections: 
 
-* [DIAL Marketplace](#dial-marketplace): the main screen of DIAL Marketplace which includes all applications, language models and assistants available on your DIAL environment.
-* [My workspace](#my-workspace): this screen includes all applications, language models and assistants that you have selected in DIAL Marketplace. In this section, you can also add and manage your custom applications.
+* [DIAL Marketplace](#dial-marketplace): the main screen of DIAL Marketplace which includes all conversational agents available on your DIAL environment.
+* [My workspace](#my-workspace): this screen includes all conversational agents that you have selected in DIAL Marketplace. In this section, you can also add and manage your custom applications.
 
 ![](./img/dial-marketplace2.png)
 
@@ -1126,7 +1148,7 @@ You can also add a conversational agent to My workspace by initiating a conversa
 
 ### My workspace
 
-In **My workspace**, you can access all the applications, language models, and assistants that you have added in [DIAL Marketplace](#dial-marketplace). Here, you can view and select items for your conversations, as well as remove them from the list. Additionally, in My workspace, you can add [custom](#add-custom-app), [quick](#add-quick-app), and [code](#add-code-app) apps.
+In **My workspace**, you can access all conversational agents that you have added in [DIAL Marketplace](#dial-marketplace). Here, you can view and manage your agents. Additionally, in My workspace, you can add [custom](#add-custom-app), [quick](#add-quick-app), and [code](#add-code-app) apps.
 
 > Refer to [Application Types](#application-types) to learn more about DIAL applications.
 
@@ -1257,7 +1279,7 @@ To modify the application source code or the application form parameters, you ne
 
 #### Converse
 
-In My workspace, you can select which [conversational agent](#conversational-agents) you want to talk in your conversations.
+In My workspace, you can select which [conversational agent](#conversational-agents) you want to have a dialog with.
 
 1. In [My workspace](#my-workspace), click any conversational agent.
 2. Click **Use..** to start a new conversation with the selected agent.
@@ -1296,7 +1318,7 @@ You can publish your custom, quick and code applications to make them accessible
 
 ![](./img/register-app3.png)
 
-> **Note**, when your request is approved, the published application will become available in the [DIAL Marketplace](#dial-marketplace) for the target audience.
+> **Note**, when your request is approved by the administrator, the published application will become available in the [DIAL Marketplace](#dial-marketplace) for the target audience.
 
 #### Remove from Workspace
 
