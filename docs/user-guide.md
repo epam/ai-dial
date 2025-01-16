@@ -28,11 +28,12 @@ You can also refer to other topics in this documentation:
 The AI DIAL Chat application user interface has several main sections:
 
 1. [Conversations](#conversations): Here, you can access and manage your conversations. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
-2. [Chat](#chat): Use this section to enter a prompt, view results, and interact with conversational agents.
-3. [Conversation settings](#conversation-settings): by default, this section displays the last conversational agent used by the user. In this section, you can modify settings of the selected agent or change the agent.
-4. [Prompts](#prompts): In this section, you can work with prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
-5. [User Settings](#user-settings): In your user settings, you can customize the color theme (dark or light), replace the standard logo and access other UI customization options.
-6. [DIAL Marketplace](#marketplace): Marketplace displays all conversational agents (applications, language models and assistants) available on your DIAL environment. In My workspace, you can gather conversational agents that you want to be at hand and add custom applications.
+2. [Prompts](#prompts): In this section, you can work with prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
+3. [Chat](#chat): Use this section to enter a prompt, view results, and interact with conversational agents.
+4. [User Settings](#user-settings): In your user settings, you can customize the color theme (dark or light), replace the standard logo and access other UI customization options.
+5. [Agents](#agents): you can view and change conversational agent before or during a conversation.
+6. [Conversation settings](#conversation-settings): By default, this section displays the last conversational agent used by the user. In this section, you can modify settings of the selected agent or change the agent.
+7. [DIAL Marketplace](#marketplace): Marketplace displays all conversational agents (applications, language models and assistants) available on your DIAL environment. In My workspace, you can gather conversational agents that you want to be at hand and add custom applications.
 
 ![](./img/home.png)
 
@@ -41,6 +42,94 @@ The AI DIAL Chat application user interface has several main sections:
 In the AI DIAL, a conversation is a dialogue between a conversational agent, such as a language model, assistant, or application, and a human user. The agent uses natural language to interact with a human and receive/give a feedback. Within one conversation, you can refer to previous questions and answers. But different conversations don't share context.
 
 > All your conversations are stored on the server, and you can access them from any device you use.
+
+### Agents
+
+In AI DIAL Chat you can have a conversation with several types of agents: language models, applications and assistants. You can access all the available agents in [DIAL Marketplace](#dial-marketplace) and add them to [My workspace](#my-workspace). Refer to [Conversational Agents](#conversational-agents) to learn more about them.
+
+##### To change agent
+
+By default, the main window displays the last agent used by the user. You can proceed and have a dialog with this agent or change it before starting a conversation or switch to a different one during the conversation:
+
+Before you begin a conversation, click **Change agent** to invoke the **Select an agent for conversation** window. Here, you can choose among the added agents or navigate to My workspace section.
+
+![](./img/change-agent.png)
+
+In the middle of a conversation, you can view information about the current agent and change it by clicking the agent icon. 
+
+![](./img/change-agent2.png)
+
+### Conversation Settings
+
+> **Note**: The conversation settings can vary based on the agent selected. It's possible that some agents might not have any configurable settings.
+
+In the Conversation Settings, you can access and modify the following components depending on the selected agent:
+
+- [System prompt](#system-prompt)
+- [Temperature](#temperature)
+- [Addons](#addons)
+
+You can modify the conversation settings before or during the conversation:
+
+**Before** you begin a new conversation, click **Configure settings** in the main chat area to invoke the **Conversation settings** window.
+
+![](./img/chat-settings-new.png)
+
+**During** the conversation, in the conversation header you can view and modify conversation settings by clicking the **gear** icon.
+
+In the conversation header menu you also can: 
+
+* View and change the current agent: you can view information about the current agent and change it by clicking the agent icon. Refer to [Agents](#agents) to learn more.
+* Access conversation action menu: click the three-dot menu icon to access the standard conversation [actions menu](#actions).
+* Clear conversation history: click the eraser icon to clear the conversation history and start from scratch. 
+
+![](./img/chat-settings.png)
+
+#### System Prompt
+
+The system prompt in AI DIAL acts as the initial set of instructions provided to the model. It serves as a compass for the model, guiding it through the conversational landscape to ensure it remains on track and stays aligned with the intended purpose and desired outcome of the conversation.
+
+Type `/` in the text box to select any previously created prompt as a system prompt (for details, refer to the [Create](#create-1) in Prompts), and it will set the context and tone for the whole conversation.
+
+![](./img/system_prompt.png)
+
+<!-- ##### Example
+
+Let's compare a conversation with a system prompt selected and a conversation without a system prompt. For illustration purposes, we are going to use the compare mode (refer to the [Compare](#compare) section for details) and create two conversations with identical settings except for the system prompt selection.
+
+The prompt used as a system prompt is as follows:
+
+> Let's play a game. Name a city that starts with the last letter of the one that I named in a previous message and then tell me that it is my turn to name a city.
+
+![](./img/System_prompt_example_compare_settings.png)
+
+![](./img/System_prompt_example_conversation.png)
+
+| **User message** | **Language model response without a system prompt** | **Language model response with a system prompt** |
+| ------------- | ------------------------------------------------ | --------------------------------------------------------- |
+| Grodno | Grodno, also known as Hrodna, is a city in western Belarus, near the borders with Poland and Lithuania. It is the administrative center of Grodno region and has a population of around 365,000 people. Grodno is one of the oldest cities in Belarus, dating back to the 11th century. The city boasts a rich history and diverse architectural styles, including baroque, classicism, and modernism. | Oslo. It's your turn!|
+| Osaka | Osaka is a large port city and commercial center on the Japanese island of Honshu. It's known for its modern architecture, nightlife, and hearty street food. One of Osaka's most popular tourist destinations is the bustling urban area of Dotonbori, where the city's entertainment and dining scenes come to life with numerous restaurants, bars, and shops. | Ankara. Now it's your turn to name a city! |
+| Antwerp | Antwerp is a city in Belgium, and it's the country’s biggest port. It is located on the River Scheldt, linked to the North Sea by the Westerschelde estuary. Known for its many historical buildings, squares, museums, and cultural attractions, it's a popular tourist destination. | Prague. Your turn to name a city! | -->
+
+#### Temperature
+
+The temperature parameter controls the creativity and randomness of the model's output. A higher temperature (e.g., 1.0) makes the output more diverse and creative, while a lower temperature (e.g., 0.1) makes the output more focused and deterministic.
+
+![](./img/temperature.png)
+
+Adjusting the temperature allows you to balance creativity and consistency in the generated response.
+ 
+#### Addons
+
+You may want LLM to access particular data or technology to generate responses. This could be your company's database, a collection of PDF documents, calculation engines, API or any other data source or technology. You can accomplish this by using addons that allow AI models to tap into and use various data sources or technologies to produce responses.
+
+In the AI DIAL framework, an **Addon** refers to a service or component that conforms to the Open API specification. Examples of Addon implementations include semantic search, Q&A search, database query generators, or any custom logic tailored to meet specific business requirements. You can add and use custom Addons to achieve a desired system behavior.
+
+##### To select addons
+
+In the **Conversation settings** window for the selected model, click **See all addons...** to view all available addons. You can select one or more addons and then click **Apply addons** to start using them.
+
+![](./img/addons2.png)
 
 ### Actions
 
@@ -120,97 +209,6 @@ When you create a new conversation, it is automatically named after the first li
 ##### Naming conventions
 
 The following symbols in the conversation names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
-
-### Conversation Settings
-
-> **Note**: The conversation settings can vary based on the agent selected. It's possible that some agents might not have any configurable settings.
-
-You can modify the conversation settings before or during the conversation:
-
-**Before** you begin a new conversation, click **Configure settings** in the main chat area to invoke the **Conversation settings** window.
-
-![](./img/chat-settings-new.png)
-
-**During** the conversation, in the conversation header you can view and modify conversation settings by clicking the gear icon.
-
-In the conversation header menu you also can: 
-
-* View and change the current agent: you can view information about the current agent and change it by clicking the agent icon.
-* Clear conversation history: click the eraser icon to clear the conversation history and start from scratch. 
-* Access conversation action menu: click the three-dot menu icon to access the standard conversation [actions menu](#actions).
-
-![](./img/chat-settings.png)
-
-In the Conversation Settings window, you can access the following components depending on the selected agent:
-
-- [Agents](#agents)
-- [System prompt](#system-prompt)
-- [Temperature](#temperature)
-- [Addons](#addons)
-
-Take a closer look at each of these elements.
-
-#### Agents
-
-In AI DIAL Chat you can have a conversation with several types of agents: language models, applications and assistants. You can access all the available agents in [DIAL Marketplace](#dial-marketplace) and add them to [My workspace](#my-workspace). Refer to [Conversational Agents](#conversational-agents) to learn more about them.
-
-##### To change agent
-
-You have the option to select an agent before starting a conversation or switch to a different one during the conversation:
-
-Before you begin a conversation, click **Change agent** to invoke the **Select an agent for conversation** window. Here, you can choose among the added agents or navigate to My workspace section.
-
-![](./img/change-agent.png)
-
-In the middle of a conversation, you can view information about the current agent and change it by clicking the agent icon. 
-
-![](./img/change-agent2.png)
-
-#### System Prompt
-
-The system prompt in AI DIAL acts as the initial set of instructions provided to the model. It serves as a compass for the model, guiding it through the conversational landscape to ensure it remains on track and stays aligned with the intended purpose and desired outcome of the conversation.
-
-Type `/` in the text box to select any previously created prompt as a system prompt (for details, refer to the [Create](#create-1) in Prompts), and it will set the context and tone for the whole conversation.
-
-![](./img/system_prompt.png)
-
-<!-- ##### Example
-
-Let's compare a conversation with a system prompt selected and a conversation without a system prompt. For illustration purposes, we are going to use the compare mode (refer to the [Compare](#compare) section for details) and create two conversations with identical settings except for the system prompt selection.
-
-The prompt used as a system prompt is as follows:
-
-> Let's play a game. Name a city that starts with the last letter of the one that I named in a previous message and then tell me that it is my turn to name a city.
-
-![](./img/System_prompt_example_compare_settings.png)
-
-![](./img/System_prompt_example_conversation.png)
-
-| **User message** | **Language model response without a system prompt** | **Language model response with a system prompt** |
-| ------------- | ------------------------------------------------ | --------------------------------------------------------- |
-| Grodno | Grodno, also known as Hrodna, is a city in western Belarus, near the borders with Poland and Lithuania. It is the administrative center of Grodno region and has a population of around 365,000 people. Grodno is one of the oldest cities in Belarus, dating back to the 11th century. The city boasts a rich history and diverse architectural styles, including baroque, classicism, and modernism. | Oslo. It's your turn!|
-| Osaka | Osaka is a large port city and commercial center on the Japanese island of Honshu. It's known for its modern architecture, nightlife, and hearty street food. One of Osaka's most popular tourist destinations is the bustling urban area of Dotonbori, where the city's entertainment and dining scenes come to life with numerous restaurants, bars, and shops. | Ankara. Now it's your turn to name a city! |
-| Antwerp | Antwerp is a city in Belgium, and it's the country’s biggest port. It is located on the River Scheldt, linked to the North Sea by the Westerschelde estuary. Known for its many historical buildings, squares, museums, and cultural attractions, it's a popular tourist destination. | Prague. Your turn to name a city! | -->
-
-#### Temperature
-
-The temperature parameter controls the creativity and randomness of the model's output. A higher temperature (e.g., 1.0) makes the output more diverse and creative, while a lower temperature (e.g., 0.1) makes the output more focused and deterministic.
-
-![](./img/temperature.png)
-
-Adjusting the temperature allows you to balance creativity and consistency in the generated response.
- 
-#### Addons
-
-You may want LLM to access particular data or technology to generate responses. This could be your company's database, a collection of PDF documents, calculation engines, API or any other data source or technology. You can accomplish this by using addons that allow AI models to tap into and use various data sources or technologies to produce responses.
-
-In the AI DIAL framework, an **Addon** refers to a service or component that conforms to the Open API specification. Examples of Addon implementations include semantic search, Q&A search, database query generators, or any custom logic tailored to meet specific business requirements. You can add and use custom Addons to achieve a desired system behavior.
-
-##### To select addons
-
-In the **Conversation settings** window for the selected model, click **See all addons...** to view all available addons. You can select one or more addons and then click **Apply addons** to start using them.
-
-![](./img/addons2.png)
 
 ### Share
 
