@@ -87,6 +87,8 @@ In the conversation header menu you also can:
 
 #### System Prompt
 
+> **Note**, there are language models that do not support this feature. In such cases system prompt is disabled. 
+
 The system prompt in AI DIAL acts as the initial set of instructions provided to the model. It serves as a compass for the model, guiding it through the conversational landscape to ensure it remains on track and stays aligned with the intended purpose and desired outcome of the conversation.
 
 Type `/` in the text box to select any previously created prompt as a system prompt (for details, refer to the [Create](#create-1) in Prompts), and it will set the context and tone for the whole conversation.
