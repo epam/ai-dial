@@ -2,7 +2,7 @@
 
 ## Introduction
 
-AI DIAL Chat is a powerful enterprise-grade application that serves as a default web interface for users, providing access to the full set of AI DIAL features.
+AI DIAL Chat is a powerful enterprise-grade application that serves as a default web interface for AI DIAL users, providing access to the full set of AI DIAL features.
 
 > * Watch a [demo video](/docs/video%20demos/demos/2.dial-ui-basics.md) with introduction to AI DIAL Chat UI.
 > * Refer to [Quick Start](quick-start) to learn how to launch AI DIAL Chat in a few clicks.
@@ -25,30 +25,121 @@ You can also refer to other topics in this documentation:
 
 ## Interface Components
 
-The AI DIAL Chat application interface has several sections, such as the chat box, settings, and panels for managing conversations and saved prompts.
+The AI DIAL Chat application user interface has several main sections:
+
+1. [Conversations](#conversations): Here, you can access and manage your conversations. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
+2. [Prompts](#prompts): In this section, you can work with prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
+3. [Chat](#chat): Use this section to enter a prompt, view results, and interact with conversational agents.
+4. [User Settings](#user-settings): In your user settings, you can customize the color theme (dark or light), replace the standard logo and access other UI customization options.
+5. [Agents](#agents): you can view and change conversational agent before or during a conversation.
+6. [Conversation settings](#conversation-settings): By default, this section displays the last conversational agent used by the user. In this section, you can modify settings of the selected agent or change the agent.
+7. [DIAL Marketplace](#marketplace): Marketplace displays all conversational agents (applications, language models and assistants) available on your DIAL environment. In My workspace, you can gather conversational agents that you want to be at hand and add custom applications.
 
 ![](./img/home.png)
 
-1. [Conversations](#conversations): Here, you can manage your conversations: create new ones, organize them in folders, and delete. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
-2. [Chat](#chat): Use this section to enter a prompt, view results, and interact with language models.
-3. [Chat Settings](#chat-settings): In this section, you can select the language model, assistant, application, and addons you'd like to use. You can also provide a system prompt and adjust the temperature setting.
-4. [Prompts](#prompts): In this section, you can work with saved prompts: create new templates, update them, and organize them in folders. You can collapse and expand the panel by clicking the **Hide panel** icon above it.
-5. [User Settings](#user-settings): In your user settings, you can customize the color theme (dark or light), choose a custom logo and other customization options.
-6. [DIAL Marketplace](#marketplace): Marketplace displays all applications, language models and assistants available on your DIAL environment.
-
 ## Conversations
 
-In the AI DIAL framework, a conversation is a dialogue between an agent, such as a language model, assistant, or application, and a human user. The agent uses natural language to interact with a human and receive/give a feedback. Within one conversation, you can refer to previous questions and answers. But different conversations don't share context.
+In the AI DIAL, a conversation is a dialogue between a conversational agent, such as a language model, assistant, or application, and a human user. The agent uses natural language to interact with a human and receive/give a feedback. Within one conversation, you can refer to previous questions and answers. But different conversations don't share context.
 
 > All your conversations are stored on the server, and you can access them from any device you use.
 
+### Agents
+
+In AI DIAL Chat you can have a conversation with several types of agents: language models, applications and assistants. You can access all the available agents in [DIAL Marketplace](#dial-marketplace) and add them to [My workspace](#my-workspace). Refer to [Conversational Agents](#conversational-agents) to learn more about them.
+
+##### To change agent
+
+By default, the main window displays the last agent used by the user. You can proceed and have a dialog with this agent or change it before starting a conversation or switch to a different one during the conversation:
+
+Before you begin a conversation, click **Change agent** to invoke the **Select an agent for conversation** window. Here, you can choose among the added agents or navigate to My workspace section.
+
+![](./img/change-agent.png)
+
+In the middle of a conversation, you can view information about the current agent and change it by clicking the agent icon. 
+
+![](./img/change-agent2.png)
+
+### Conversation Settings
+
+> **Note**: The conversation settings can vary based on the agent selected. It's possible that some agents might not have any configurable settings.
+
+In the Conversation Settings, you can access and modify the following components depending on the selected agent:
+
+- [System prompt](#system-prompt)
+- [Temperature](#temperature)
+- [Addons](#addons)
+
+You can modify the conversation settings before or during the conversation:
+
+**Before** you begin a new conversation, click **Configure settings** in the main chat area to invoke the **Conversation settings** window.
+
+![](./img/chat-settings-new.png)
+
+**During** the conversation, in the conversation header you can view and modify conversation settings by clicking the **gear** icon.
+
+In the conversation header menu you also can: 
+
+* View and change the current agent: you can view information about the current agent and change it by clicking the agent icon. Refer to [Agents](#agents) to learn more.
+* Access conversation action menu: click the three-dot menu icon to access the standard conversation [actions menu](#actions).
+* Clear conversation history: click the eraser icon to clear the conversation history and start from scratch. 
+
+![](./img/chat-settings.png)
+
+#### System Prompt
+
+> **Note**, there are language models that do not support this feature. In such cases system prompt is disabled. 
+
+The system prompt in AI DIAL acts as the initial set of instructions provided to the model. It serves as a compass for the model, guiding it through the conversational landscape to ensure it remains on track and stays aligned with the intended purpose and desired outcome of the conversation.
+
+Type `/` in the text box to select any previously created prompt as a system prompt (for details, refer to the [Create](#create-1) in Prompts), and it will set the context and tone for the whole conversation.
+
+![](./img/system_prompt.png)
+
+<!-- ##### Example
+
+Let's compare a conversation with a system prompt selected and a conversation without a system prompt. For illustration purposes, we are going to use the compare mode (refer to the [Compare](#compare) section for details) and create two conversations with identical settings except for the system prompt selection.
+
+The prompt used as a system prompt is as follows:
+
+> Let's play a game. Name a city that starts with the last letter of the one that I named in a previous message and then tell me that it is my turn to name a city.
+
+![](./img/System_prompt_example_compare_settings.png)
+
+![](./img/System_prompt_example_conversation.png)
+
+| **User message** | **Language model response without a system prompt** | **Language model response with a system prompt** |
+| ------------- | ------------------------------------------------ | --------------------------------------------------------- |
+| Grodno | Grodno, also known as Hrodna, is a city in western Belarus, near the borders with Poland and Lithuania. It is the administrative center of Grodno region and has a population of around 365,000 people. Grodno is one of the oldest cities in Belarus, dating back to the 11th century. The city boasts a rich history and diverse architectural styles, including baroque, classicism, and modernism. | Oslo. It's your turn!|
+| Osaka | Osaka is a large port city and commercial center on the Japanese island of Honshu. It's known for its modern architecture, nightlife, and hearty street food. One of Osaka's most popular tourist destinations is the bustling urban area of Dotonbori, where the city's entertainment and dining scenes come to life with numerous restaurants, bars, and shops. | Ankara. Now it's your turn to name a city! |
+| Antwerp | Antwerp is a city in Belgium, and it's the country’s biggest port. It is located on the River Scheldt, linked to the North Sea by the Westerschelde estuary. Known for its many historical buildings, squares, museums, and cultural attractions, it's a popular tourist destination. | Prague. Your turn to name a city! | -->
+
+#### Temperature
+
+The temperature parameter controls the creativity and randomness of the model's output. A higher temperature (e.g., 1.0) makes the output more diverse and creative, while a lower temperature (e.g., 0.1) makes the output more focused and deterministic.
+
+![](./img/temperature.png)
+
+Adjusting the temperature allows you to balance creativity and consistency in the generated response.
+ 
+#### Addons
+
+You may want LLM to access particular data or technology to generate responses. This could be your company's database, a collection of PDF documents, calculation engines, API or any other data source or technology. You can accomplish this by using addons that allow AI models to tap into and use various data sources or technologies to produce responses.
+
+In the AI DIAL framework, an **Addon** refers to a service or component that conforms to the Open API specification. Examples of Addon implementations include semantic search, Q&A search, database query generators, or any custom logic tailored to meet specific business requirements. You can add and use custom Addons to achieve a desired system behavior.
+
+##### To select addons
+
+In the **Conversation settings** window for the selected model, click **See all addons...** to view all available addons. You can select one or more addons and then click **Apply addons** to start using them.
+
+![](./img/addons2.png)
+
 ### Actions
 
-Click a **...** icon to open a conversation menu. There, you can find the list of all the available actions for the selected conversation.
+Click a **...** icon to open a conversation menu. There, you can view a list of all possible actions for the chosen conversation.
 
 ![](./img/conversation-menu.png)
 
-> **Note**, that actions may vary for the selected conversation (e.g. there will not be an Unpublish action if the conversation has not yet been published).
+> **Note**, that the available actions can vary depending on the selected conversation. For example, the Unpublish action will not be available if the conversation hasn't been published yet.
 
 This is the list of all the supported actions:
 
@@ -56,13 +147,13 @@ This is the list of all the supported actions:
 - [Rename](#rename) - use to rename a conversation.
 - [Compare](#compare): use to compare conversations with different settings.
 - [Duplicate](#duplicate): use to duplicate a shared conversation.
-- [Replay](#replay): use to to reproduce conversations but with different settings.
+- [Replay](#replay): use to reproduce conversations but with different settings.
 - [Playback](#playback): use to simulate the current conversation without any engagement with models.
 - [Export](#export): use to export a conversation.
 - [Move to](#arrange): use to relocate conversations.
 - [Share](#share): use to share a conversation by providing a link.
 - [Unshare](#unshare): use to revoke a shred conversation.
-- [Publish](#publish): use to publish conversations within the target audience.
+- [Publish](#publish): use to publish conversations.
 - [Unpublish](#unpublish): use to revoke public access from published conversations.
 - [Delete](#delete): use to delete a single conversation.
 
@@ -70,15 +161,13 @@ This is the list of all the supported actions:
 
 ### Arrange
 
-You can arrange your conversations in folders. To create a new folder, click a folder icon in the bottom menu:
+You can organize your conversations into folders. To create a new folder, simply click on the folder icon located in the bottom menu:
 
 ![](./img/create-new-folder.png)
 
-You can also create a new folder or move a conversation to the existing folder from the **Move to** context menu of the selected conversation: 
+You can also create a new folder or move a conversation to the existing folder from the **Move to** context menu of the selected conversation. New folders will automatically be arranged in the **Pinned conversations** tab in the Conversations panel.
 
 ![](./img/pinned-conversations.png)
-
-New folders will automatically be arranged in the **Pinned conversations** tab in the Conversations panel.
 
 ##### Hierarchy
 
@@ -94,26 +183,23 @@ The MAX length of the folder name is limited to 160 symbols. Everything beyond i
 
 ### Search and Filter
 
-The **Search** box can be utilized to find conversations and folders by their names. If you have any shared conversations, you can apply **Shared by me** filter to sort them out.
+Use the **Search** box to search conversations by their names. If you have any shared conversations, you can apply **Shared by me** filter to sort them out.
 
 ![](./img/search-conv.png)
 
 ### Create
 
-##### To create a conversation
+There are several ways to initiate a dialog with a [conversational agent](#conversational-agents): 
 
-1. On the left panel, click **New conversation**.
-2. In the main section, under **Talk To**, select a language model, an assistant, or an application. Five most recently used items are shown in the section. To see all available items, click **See full list**.
-3. Optionally, under **System prompts**, select a prompt by typing "/" in the text box. For details, refer to the [Prompts](#prompts) section of this guide.
-4. Under **Temperature**, set a value of the temperature parameter. For details, refer to the [Temperature](#temperature) section of this guide.
-5. Optionally, under **Addons**, select an Addon. For details, refer to the [Addons](#addons) section of this guide.
-6. Under conversation settings, type your text (prompt) in the chat box and click the **Send** icon. The conversation will be created, and your first prompts will be used as its name. 
+* To communicate with the current conversational agent (by default, the last one used by the user), simply begin typing in the text box located in the chat area.
+* In My Workspace or Marketplace, select an agent and click **Use ...** button to initiate a conversation. Refer to [Converse](#converse) to learn more.
+* On the main chat screen, click the **Plus** icon to select agent and start a conversation.
 
-![](./img/conversations.png)
+![](./img/start-conv.png)
 
 ### Rename
 
-When you create a new conversation, it is automatically named after the first line in your first prompt. For example, if your prompt includes several sentences separated by tab, the first one will be used to name the conversation. Moreover,the MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. After that, you can rename your conversation.
+When you create a new conversation, it is automatically named after the first line in your first prompt. For instance, if your prompt consists of several sentences divided by a tab, the first sentence will be used as the conversation's name. Moreover, the MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. After a conversation is created, you can rename it.
 
 ##### To rename a conversation
 
@@ -122,13 +208,9 @@ When you create a new conversation, it is automatically named after the first li
 
 ![](./img/rename-conversation.png)
 
+##### Naming conventions
+
 The following symbols in the conversation names are prohibited: tab, `"`, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&` and will be excluded. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed.
-
-### Conversation Settings
-
-In the conversation header, you can view the current settings, change settings (including model, temperature, prompt and [more](#chat-settings) or clear the conversation history to start from scratch: 
-
-![](./img/chat-settings.png)
 
 ### Share
 
@@ -138,7 +220,7 @@ You can share a conversation or a folder with several conversations with other u
 
 ##### To receive a shared conversation
 
-When someone shared a conversation with you, you can find it in the **Shared with me** section in the left panel. 
+If a conversation has been shared with you, it can be located in the **Shared with me** section in the left panel.
 
 ![](./img/shared-with-me.png)
 
@@ -148,15 +230,15 @@ When someone shared a conversation with you, you can find it in the **Shared wit
 
 > **Note**: You can share entire folders with conversations. When you share a folder, all folders and conversations in it will be shared as well.
 
-To share a conversation or a folder, click **Share** in the contextual menu and copy the link.
+If you want to share a conversation or a folder, click on **Share** in the contextual menu and send the link to the intended recipient.
 
 ![](./img/share_conv.png)
 
-After the recipient has opened your link, the arrow icon appears near its name. **Note**, it may be required to reload the page.
+After the recipient has opened your link, the arrow icon appears near its name. **Note**, it may be required to reload the page to update the status of the shared conversation.
 
 ![](./img/shared.png)
 
-Click **Shared by me** checkbox in the filter to select just the conversations that you have shared:
+To filter and view only the conversations that you have shared, click on the **Shared by me** checkbox in the filter:
 
 ![](./img/shared-by-me.png)
 
@@ -177,7 +259,7 @@ Duplicate a shared with you conversation to be able to change it. To duplicate a
 
 ### Export
 
-You can export selected conversations. If a conversation includes attachments, you can export it with or without attachments. 
+You can export conversations. If a conversation includes attachments, you can export it with or without attachments. 
 
 You can also export all your conversations at once without attachments in a JSON format.
 
@@ -188,7 +270,7 @@ You can also export all your conversations at once without attachments in a JSON
 1. On the left panel, in the conversation contextual menu, point to **Export**.
 2. Click **With attachments**. 
 
-The conversation will be exported as a **ZIP** archive.
+The conversation will be exported as a **ZIP** archive. Please note that the name of the ZIP archive follows the format `file_name.dial`. You can manage it just like a normal ZIP archive.
 
 ![](./img/export-with-att.png)
 
@@ -254,18 +336,21 @@ You can use **Replay** to reproduce conversations but with different settings (e
 
 ![](./img/replay-conversation.png)
  
-Use **Replay as is** to reproduce the conversation with the original settings. 
+Use **Replay as is** to reproduce the conversation with the original settings. You can find Replay as is if you click **Change agent** or an agent icon in the conversation header menu.
 
 ![](./img/Replay_as_is.png) 
 
 ##### To replay a conversation
 
 1.	Click **Replay** in the conversation menu. 
-2.	Select **Replay as is** in **More info** in the Replay settings to reproduce the conversation with the original settings or change the conversation settings. 
-3.	Click **Start replay**.
-4.	In the process of replaying, you can stop and resume the replay process.
+2.	Click **Start replay**.
+3.	In the process of replaying, you can stop and resume the replay process using controls in the text box **Stop generating** and **Continue replay** respectively.
+
+![](./img/continue-replay.png) 
 
 The replayed conversation is displayed as a new conversation with the `[Replay]` tag in the list of your conversations. 
+
+![](./img/replay1.png) 
 
 ### Parameterized Replay
 
@@ -301,16 +386,16 @@ You can create a parametrized conversation from any message in your chat. This s
 
    ![](./img/param-replay-form-preview.png)
 
-3. Once you click save, you can return to your conversation. In the conversation menu, select [Replay](#replay) to initiate the replay of this conversation. The chat will prompt you to input values for your variable(s) to replay the conversation. You have the option to replay it as it originally was (using the same model as in your initial conversation) - select **Replay as is** in [Talk to](#talk-to), or you can alter the settings of the conversation to experiment with different models and parameters.
+3. Once you click save, you can return to your conversation. In the conversation menu, select [Replay](#replay) to initiate the replay of this conversation. The chat will prompt you to input values for your variable(s) to replay the conversation. You have the option to replay it as it originally was (using the same model as in your initial conversation) - select **Replay as is** (you can find it if you click **Change agent**), or you can alter the settings of the conversation to experiment with different models and parameters.
 4. You can [Share](#share) this conversation with others. When someone opens the shared conversation, they will be prompted to provide their own inputs in the template. This allows experiencing the same conversation but with personalized inputs, such as traveling to the USA instead of France.
 
 ### Playback
 
-The Playback mode can be used to simulate the current conversation without any engagement with models. This mode accurately reproduces the conversation like a recording. It should be noted that this differs from the Replay mode, where the prompts are resubmitted to the chosen model and the outcomes may differ from the initial conversation.
+The Playback mode can be used to simulate the current conversation without any engagement with models. This mode accurately reproduces the conversation like a recording. **Note**, that this differs from the Replay mode, where the prompts are resubmitted to the chosen model and the outcomes may differ from the initial conversation.
 
 ![](./img/playback-conversation.png)
 
-During the playback, you can move back and forward the playback process or stop it.
+During playback, you have the ability to rewind, fast forward, or halt the process.
 
 ![](./img/playback-controls.png)
 
@@ -318,27 +403,28 @@ During the playback, you can move back and forward the playback process or stop 
 
 Use the Compare mode to compare two new (or two existing) conversations with different setting (e.g. different models or temperature).
 
-![](./img/compare2.png)
-
 ##### To compare two NEW conversations
 
-1.	Click the **Compare** icon at the bottom of the left panel.
-2.	Choose settings of the first conversations.
-3.	Choose settings of the second conversation.
-4.	Type your question (prompt) in the chat box.
+1.	Click the **Compare** icon in the menu at the bottom of the left panel.
+2.	Define settings for both conversations. To do that, click **Configure settings** for any conversation to open a dialog window.
+3.	Type your question (prompt) in the chat box to begin.
 
-As you can see on the picture above, the system creates two conversations with the same name but adds numbers to them. If you have chosen different language models, the conversations icons on the left panel will differ.
- 
+![](./img/compare-3.png)
+
+Once you initiate a conversation in this mode, the system creates two new conversations with the same name but adds numbers to them. If you have chosen different language models, the conversations icons will differ accordingly.
+
+![](./img/compare-4.png)
+
 ##### To compare two EXISTING conversations
 
-![](./img/compare.png)
-
-> The Compare mode works only with conversations with the same amount of prompts from a user. The application will not allow comparing two conversations with different amounts of prompts.
+> **Important**: this Compare mode works only with conversations with the same amount of prompts from a user. The application will not allow comparing two conversations with different amounts of prompts.
 
 1.	On the left panel, in the conversation menu of a conversation, select **Compare**.
 2.	In the main section, under **Select conversation to compare with**, select the second conversation from the drop box. 
 3. By default, only conversations with the same name are available in the drop box. Select **Show all conversations** to see the full list of conversations.
 4.	Type your question (prompt) in the chat box.
+
+![](./img/compare.png)
 
 ### Publish
 
@@ -393,16 +479,16 @@ You can unpublish conversations to withdraw them from public use.
 
 1. Click **Unpublish** in the conversation menu. 
 
-![](./img/unpublish-conversation.png)
+   ![](./img/unpublish-conversation.png)
 
 2. In the pop-up window:
    * Enter **unpublish request name** in the upper area.
    * In **Conversations**, if you have selected a folder, you can choose what conversations you want to unpublish. If conversation(s) include attachment(s), you can also select them in the **Files** section.
    * Click **Send request** to send your unpublish request to the administrator.
   
-![](./img/unpublish-request.png)
+   ![](./img/unpublish-request.png)
 
-3. When your request is approved, the unpublished conversation or a folder with conversation(s) will become unavailable in the Organization tab.
+3. When your request is approved by the administrator, the unpublished conversation or a folder with conversation(s) will become unavailable in the Organization tab.
    
 ## Prompts
 
@@ -422,26 +508,25 @@ Click a **...** icon to open a prompt menu. There, you can find a list of all th
 
 ![](./img/prompt-menu.png)
 
-This is the list of all the supported actions. Note, that actions may vary for the selected prompt (e.g. there will not be an Unpublish action if the prompt has not yet been published)
+This is the list of all the supported actions. Please note that the available actions can differ depending on the selected prompt. For instance, the Unpublish action won't be available if the prompt hasn't been published yet.
 
 - [Select](#select-to-delete-1): use to select prompts you want to delete.
-- [Edit](#create-1): select a prompt on the right panel to invoke the Edit window. Make all necessary changes and click **Save**. 
+- [Edit](#create-1): use to edit prompts. 
 - [Duplicate](#duplicate-1): use to duplicate a shared prompt.
-- [Export](#export-import): right-click a prompt on the right panel and select **Export**. The prompt will be exported as JSON.
-- [Import](#export-import): click the **Import prompts** icon at the bottom of the right panel and then select a JSON file with prompts.
-- [Move to](#arrange-1): use to place a prompt in a folder.
+- [Export](#export-import): use to export prompts in JSON format.
+- [Import](#export-import): use to import prompts in JSON format.
+- [Move to](#arrange-1): use to organize a prompts in folders.
 - [Share](#share-1): use to share a prompt or a folder with several prompts with other users.
 - [Unshare](#unshare-1): use to revoke access to shared prompts.
 - [Publish](#publish-1): use to publish prompts within the organization.
 - [Unpublish](#unpublish-1): use to withdraw prompts from public use.
 - [Delete](#delete-1): you can delete a single prompt, all prompts or selected prompts.
-- **Export all prompts**: click the **Export prompts** icon at the bottom of the right panel. All your prompts will be exported as JSON.
 
 ![](./img/prompt_actions.png)
 
 ### Arrange
 
-You can arrange your prompts in folders. To create a new folder, click a folder icon in the bottom menu:
+You can organize your prompts in folders. To create a new folder, click on the folder icon in the bottom menu:
 
 ![](./img/create-new-folder-prompt.png)
 
@@ -467,24 +552,21 @@ The MAX length of the folder name is limited to 160 symbols. Everything beyond i
 
 ### Search and Filter
 
-The **Search** box can be utilized to find prompts and folders by their names. If you have any shared prompts, you can apply **Shared by me** filter to sort them out.
+Use the **Search** box to search prompts by their names. If you have any shared prompts, you can apply **Shared by me** filter to sort them out.
 
 ![](./img/pt_search.png)
 
 ### Create
 
-![](./img/create-pt.png)
-
 ##### To create a new prompt
 
 1.	On the right panel, select **New prompt**.
-2.	Fill in the **Name**, **Description**, and **Prompt** boxes. The following symbols in the prompt names are prohibited: tab, ":", ";", "/", "\", ",", "=", "{", "}", "%", "&". Note that you can use the "." symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the prompt name is limited to 160 symbols. Everything beyond is cut off.
-
-      > Please note that both the **Name** and **Description** fields are mandatory to fill in order to create a prompt!
-
+2.	Fill in the **Name**, **Description**, and **Prompt** boxes. The following symbols in the prompt names are prohibited: tab, `:`, `;`, `/`, `\`, `,`, `=`, `{`, `}`, `%`, `&`. Note that you can use the `.` symbol at the start or inside a name, but the dot at the end will be automatically removed. The MAX length of the prompt name is limited to 160 symbols. Everything beyond is cut off.
 3.	Click **Save**.
 
->  **Name** and **Description** aren’t used as instructions for a language model. They only help you to distinguish the prompt from others. The language model will only use instructions from the **Prompt** box.
+> While both the **Name** and **Description** fields are required to create a prompt, they do not serve as instructions for the language model. They simply help you differentiate this prompt from others. The language model will only utilize instructions from the **Prompt** box.
+
+![](./img/create-pt.png)
 
 #### Variables
 
@@ -492,13 +574,17 @@ You can use prompts as templates for your instructions to a language model. You 
 
 > Refer to [Parameterized Replay](#parameterized-replay) to view a use case when prompts are used to create parametrized conversations.
 
-For example, you need to calculate an equation `a + c/d`, round up the answer, and then divide it by 4. Let’s imagine that you need results for four sets of `a`, `c`, and `d`.
+For example, you need to calculate an equation `a + b/c`, round up the answer, and then divide it by 4.
  
-In that case you can create the following prompt:
+Create the following prompt: 
+
+`{{a}}+{{b}}/{{c}}=`
+
+Round up the answer to three digits and divide by four
 
 ![](./img/math-prompt1.png)
 
-Here, `a`, `c`, and `d` are variables. In the prompt body, they are denoted by double curly brackets: `{{ }}`.
+Here, `a`, `b`, and `c` are variables. In the prompt body, they are denoted by double curly brackets: `{{ }}`.
 
 > You can combine mathematical expressions and natural language in your prompts.
 
@@ -508,11 +594,7 @@ After you have created the prompt, you can use it by typing a slash `/` in the c
 
 When you submit the form, your message will look like on the illustration below:
   
-![](./img/Prompt_example_math_resulting_message.png)
-
-Send the message to the model, and it will generate an answer using both mathematical and natural language instructions:
- 
-![](./img/Prompt_example_math_response.png)
+![](./img/math-prompt3.png)
 
 Generally, variables can be anything, not only numbers. For example, you can create a prompt with the following body: `Who played {{character}} in {{movie}}? or What is a Latin name of {{plant common name}}?`
 
@@ -529,14 +611,13 @@ You can delete a single prompt, selected prompts or all prompts.
 
 Also, you can use a *selection* mode to choose prompt(s) you want to delete:
 
-* Click **Select all** button in the bottom panel. In this case, all prompts are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
+Click **Select all** button in the bottom panel. In this case, all prompts are preselected and you can unselect the ones you want to keep. You can also click **Unselect all** in the bottom panel to clear the selection.
 
 ![](./img/select-prompt1.png)
 
-* Click **Select** in the prompts menu. In this case, you can hover over any prompt and use checkboxes to select/unselect prompts you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
+Click **Select** in the prompts menu. In this case, you can hover over any prompt and use checkboxes to select/unselect prompts you want to delete. You can also click **Unselect all** in the bottom panel to clear the selection.
 
 ![](./img/select-prompt2.png)
-
 
 ### Share
 
@@ -561,13 +642,15 @@ You can always view prompts that have been shared with you in a dedicated sectio
 
 ##### To share a prompt
 
-To share a prompt or a folder, click **Share** in the contextual menu and copy the link. After someone has opened your link, an arrow icon appears near its name and this prompt can be found when **Shared by me** checkbox in the filter is selected.
+If you want to share a prompt or a folder, click on **Share** in the contextual menu and copy the link. All shared prompts can then be located by selecting the **Shared by me** checkbox in the filter.
+
+![](./img/pt_share.png)
+
+Once the recipient opens your link, an arrow icon will appear next to its name.
 
 ![](./img/shared_prompt.png)
 
 > When you share a folder, all folders and prompts in this folders will be shared.
-
-![](./img/pt_share.png)
 
 ### Unshare
 
@@ -585,11 +668,23 @@ You can duplicate a prompt to be able to change a prompt that was shared with yo
 
 ### Export Import
 
-You can export 
+You can export and import prompts. 
+
+##### To export a single prompt
+
+Select **Export** in the prompt's menu. The prompt will be exported as a JSON file.
 
 ![](./img/export-prompt.png)
 
-and import prompts as Json files
+##### To export all prompts
+
+Click **Export prompts** at the bottom of the right panel. All your prompts will be exported as a JSON file.
+
+![](./img/export-all-prompts.png)
+
+##### To import prompts
+
+Click **Import prompts** at the bottom of the right panel. Only valid JSON files can be imported.
 
 ![](./img/import-prompt.png)
 
@@ -613,7 +708,7 @@ You can publish prompts to make them available for the target audience.
 
 1. Click **Publish** in the prompt's menu. 
 
-![](./img/publish-prompt.png)
+   ![](./img/publish-prompt.png)
 
 2. In the pop-up window:
    * Enter **publication request name** in the upper area.
@@ -623,11 +718,11 @@ You can publish prompts to make them available for the target audience.
    * Assign a **version** to your publication request.
    * Click **Send request** to send your publication request to the administrator.
 
-![](./img/publish-prompt-request.png)
+   ![](./img/publish-prompt-request.png)
 
-3. When your request is approved, the published prompt or a folder with prompt(s) will become available in the Organization tab.
+3. When your request is approved by the administrator, the published prompt or a folder with prompt(s) will become available in the Organization tab.
 
-![](./img/organization-section-prompts.png)
+   ![](./img/organization-section-prompts.png)
 
 ##### Versioning
 
@@ -651,20 +746,20 @@ You can unpublish prompts to withdraw them from the public use.
 
 1. Click **Unpublish** in the prompt's menu. 
 
- ![](./img/unpublish-prompt.png)
+   ![](./img/unpublish-prompt.png)
 
 2. In the pop-up window:
    * Enter **unpublish request name** in the upper area.
    * In **Prompts**, if you have selected a folder, you can choose what prompts you want to unpublish.
    * Click **Send request** to send your unpublish request to the administrator.
 
-![](./img/unpublish-prompt-reques.png)
+   ![](./img/unpublish-prompt-reques.png)
 
-3. When your request is approved, the unpublished prompt or a folder with prompt(s) will become unavailable in the Organization tab.
+3. When your request is approved by the administrator, the unpublished prompt or a folder with prompt(s) will become unavailable in the Organization tab.
 
 ## Chat 
 
-Chat has a central section where you can enter messages, view responses and perform other supported actions, depending on the application and chat configurations.
+The chat occupies the central part of the main screen, allowing you to input messages, see replies, and execute various supported tasks based on the application and chat settings.
 
 ![](./img/chat.png)
 
@@ -702,144 +797,23 @@ When the response generation has been stopped, you can regenerate it. **Importan
 
 ![](./img/like.png)
 
-**View current settings**: on the top bar, point to the language model logo icon near the conversation name to see current settings. In the same bar, you can click the Eraser icon to **clear conversation messages** and click the Gear icon to **change conversation settings**. Refer to [Chat Settings](#conversation-settings) to learn more.
+**View and change current settings**: on the top bar you can view and manage agent and conversation settings. Refer to [Conversation Settings](#conversation-settings) to learn more.
 
 ![](./img/chat-settings-bar.png)
 
-
-## Chat Settings
-
-In the Chat Settings section, you can define setting for a new conversation by selecting an entity you are going to communicate with (model, application or assistant), defining a system prompt, temperature or addon. During an ongoing conversation, you can edit these settings in a [settings box](#conversation-settings).
-
-In the Chat Settings section, there are the following components:
-
-- [Talk to](#talk-to)
-- [System prompt](#system-prompt)
-- [Temperature](#temperature)
-- [Addons](#addons)
-
-Take a closer look at each of these elements.
-
-### Talk To
-
-In this section, you can view all models, applications and assistants that you have added to My workspace section. Here, you can select them to use in conversations.
-
-![](./img/talk-to.png)
-
-#### Language Models
-
-1. In the **Talk to** area, click **Search on My workspace** to navigate to [My workspace](#my-workspace) where you can display all models, applications and assistants that you have selected. Note, in the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
-2. To display just Models, disable all other **Types** and enable just **Models**.
-3. To select a model, click any of the available models or select its version in the dropdown list. The selected model will appear in the models list as pre-selected for the new conversation.
-
-#### Available Models
-
-In the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
-
-![](./img/marketplace-home-select.png)
-
-> Refer to [Supported Models](/docs/supported-models.md) to view all the models supported in AI DIAL.
-
-<!-- - *GPT-3.5* is an advanced language model developed by OpenAI, known for its powerful natural language processing, understanding, and context awareness. Enabling human-like conversations, it can carry out various tasks, including summarizing, translation, content creation, and answering queries.
-- *GPT-4* is the latest iteration of the GTP series by OpenAI, offering more powerful natural language processing capabilities than its previous versions. It harnesses extensive training and massive datasets to deliver lifelike conversations, unsurpassed context awareness, and high-quality content generation across multiple languages and domains.
-- *GPT-4-32K* is the extension for GTP-4 that can possess a larger context window size (32,000 tokens). It offers several advantages, including a better understanding of context, improved performance in long-form tasks, enhanced reasoning and knowledge handling, and increased creativity in content generation. Please only use this one if you absolutely need it. It's slower and more expensive.
-- *PaLM2 (Bison)* is an LLM developed by Google that leverages an innovative hierarchical architecture to enhance its linguistic competence and computational efficiency. By employing parallel and multitask learning mechanisms, PaLM2 (Bison) provides exceptional performance in diverse language tasks, like question-answering, summarization, and translation, while also being highly scalable and adaptive to new environments.
-- *AI21 (Jurassic-2 Grande)* is a large-scale language model with 178 billion parameters developed by AI21 Labs. It is an upgraded version of its predecessor AI21 Jurassic-1 and is capable of processing extensive amounts of text and generating contextually appropriate replies. The model's distinguishing features include its scale, contextual understanding, multilingualism, few-shot learning, and knowledge integration with external sources. It is designed to enhance natural language processing, chatbots, virtual assistants, and other applications requiring advanced language capabilities.
-- *AI21 (Jurassic-2 Jumbo)* is an expansion of the AI21 Jurassic-2 Grande model, leveraging improved training techniques, larger datasets, and advanced hardware resources. Jumbo provides a boost in performance and is specifically designed for challenging natural language applications such as sentiment analysis, language translation, and document summarization. AI21 Jurassic-2 Jumbo has 199 billion parameters, making it the largest publicly available language model to date.
-- *CodeLlama-34b* is a language model developed by Meta that has 34 billion parameters. CodeLlama-34b is specifically designed for use in software development and is trained on a diverse set of technical documentation, including programming languages, code samples, and developer forums. The model is optimized for code-related natural language queries, including code completion, code understanding, and code generation.
-- *Llama2q-70B* is an LLM developed by Meta, which has 70 billion parameters. Like CodeLlama-34b, it is designed for technical applications but with a broader scope. Llama2q-70B has a wide range of capabilities, including question answering, text classification, and summarization. It is trained on a variety of sources, including technical documents, academic papers, and news articles, and is designed to provide accurate results for a wide range of technical queries and applications.
-- *Anthropic (Claude)* is a large-scale LLM with 175 billion parameters that is optimized for general-purpose language tasks, including question answering, dialogue generation, and text completion. The model has been trained on data from a wide range of sources to provide high accuracy in many contexts.
-- *Anthropic (Claude Instant)* is an LLM that can generate responses in real-time, making it useful for applications such as chatbots and virtual assistants. It is a smaller model than the Anthropic (Claude) model, with 9 billion parameters, and is optimized for low-latency inference.
-- *Anthropic (Claude V2)* is an upgraded version of the Anthropic (Claude) model, with 400 billion parameters, making it one of the largest language models to date. This model is designed for sophisticated NLP applications involving complex reasoning, inference, and understanding of long-form text data.
-- *AWS (Titan)*: AWS (Amazon Web Services) developed an LLM called Titan in 2021, which has 850 billion parameters, making it the largest publicly available language model at the time of its introduction. The model was trained on a diverse set of text sources, including web pages, books, and news articles. Titan is designed to handle complex natural language processing tasks, such as summarization, dialogue generation, and translation. -->
-
-
-#### Assistants
-
-1. In the **Talk to** area, click **Search on My workspace** to navigate to [My workspace](#my-workspace) where you can display all models, applications and assistants that you have selected. 
-2. To display just Assistants, disable all other **Types** and enable just **Assistants**. Note, in the [DIAL Marketplace](#dial-marketplace) section, you can view all the Assistants available on your DIAL environment. There, you can select Assistants to add them to [My workspace](#my-workspace).
-3. To select an Assistant, click any of the available Assistants.
-
-![](./img/talk-to-assistants.png)
-
-In the AI DIAL framework, Assistants are a combination of preselected Addons and System Prompts that enable specific behavior in the LLM, allowing for more tailored and adaptive responses to user needs. Unlike the Model+Addon configuration, where users have the flexibility to choose different Addons, Assistants come with predetermined Addons that cannot be removed or unselected. However, the Model can still be reassigned within the Assistant.
-
-Assistants give you more control over LLM behavior, resulting in tailored and accurate responses that match specific needs. The flexibility of this combination lets you create custom Assistants within the AI DIAL framework. These Assistants can range from simple tasks, like asking the LLM to provide answers in a specific tone or style (e.g., like a pirate), to more complex tasks, such as restricting the LLM's data to a specific geographical area (e.g., providing weather forecasts for Chicago only). Combining Addons and System Prompts enables better customization and adaptability to various situations, leading to more versatile responses.
-
-In a chat application, you can include custom Assistant(s) that users can choose when using AI DIAL.
-
-#### Applications
-
-> * Refer to [Applications](#applications-1) to learn more about them.
-> * Refer to [My workspace](#my-workspace) to learn how to register and manage custom apps in AI DIAL Chat.
-
-1. In the **Talk to** area, click **Search on My workspace** to navigate to [My workspace](#my-workspace) where you can display all models, applications and assistants that you have selected. 
-2.  display just Applications, disable all other **Types** and enable just **Applications**. Note, in the [DIAL Marketplace](#dial-marketplace) section, you can view all the Applications available on your DIAL environment. There, you can select Applications to add them to [My workspace](#my-workspace).
-3. Click any of the available applications to start a conversation. 
-
-![](./img/talk-to-apps.png)
-
-### System Prompt
-
-![](./img/system_prompt.png)
-
-The system prompt in AI DIAL refers to the initial instructions given to the model. The system prompt in AI DIAL is like a compass for a traveler, pointing the model in the right direction to navigate the conversational landscape, ensuring it stays on course and aligned with the overall purpose and desired outcome.
-
-Type `/` in the text box to select any previously created prompt as a system prompt (for details, refer to the [Create](#create) in Prompts), and it will set the context and tone for the whole conversation.
-
-You can change system prompts during a conversation by selecting the [Settings](#conversation-settings) icon at the top bar of the conversation. 
-
-##### Example
-
-Let's compare a conversation with a system prompt selected and a conversation without a system prompt. For illustration purposes, we are going to use the compare mode (refer to the [Compare](#compare) section for details) and create two conversations with identical settings except for the system prompt selection.
-
-The prompt used as a system prompt is as follows:
-
-> Let's play a game. Name a city that starts with the last letter of the one that I named in a previous message and then tell me that it is my turn to name a city.
-
-![](./img/System_prompt_example_compare_settings.png)
-
-![](./img/System_prompt_example_conversation.png)
-
-| **User message** | **Language model response without a system prompt** | **Language model response with a system prompt** |
-| ------------- | ------------------------------------------------ | --------------------------------------------------------- |
-| Grodno | Grodno, also known as Hrodna, is a city in western Belarus, near the borders with Poland and Lithuania. It is the administrative center of Grodno region and has a population of around 365,000 people. Grodno is one of the oldest cities in Belarus, dating back to the 11th century. The city boasts a rich history and diverse architectural styles, including baroque, classicism, and modernism. | Oslo. It's your turn!|
-| Osaka | Osaka is a large port city and commercial center on the Japanese island of Honshu. It's known for its modern architecture, nightlife, and hearty street food. One of Osaka's most popular tourist destinations is the bustling urban area of Dotonbori, where the city's entertainment and dining scenes come to life with numerous restaurants, bars, and shops. | Ankara. Now it's your turn to name a city! |
-| Antwerp | Antwerp is a city in Belgium, and it's the country’s biggest port. It is located on the River Scheldt, linked to the North Sea by the Westerschelde estuary. Known for its many historical buildings, squares, museums, and cultural attractions, it's a popular tourist destination. | Prague. Your turn to name a city! |
-
-### Temperature
-
-The temperature parameter controls the creativity and randomness of the model's output. A higher temperature (e.g., 1.0) makes the output more diverse and creative, while a lower temperature (e.g., 0.1) makes the output more focused and deterministic.
-
-![](./img/temperature.png)
-
-Adjusting the temperature allows you to balance creativity and consistency in the generated response.
- 
-### Addons
-
-You may want LLM to access particular data or technology to generate responses. This could be your company's database, a collection of PDF documents, calculation engines, API or any other data source or technology.
-
-In the AI DIAL framework, an **Addon** refers to a service or component that conforms to the Open API specification. Examples of Addon implementations include semantic search, Q&A search, database query generators, or any custom logic tailored to meet specific business requirements. AI DIAL allows for the inclusion of custom Addons, which can be activated to achieve desired system behaviors.
-
-1. In the **Talk to** area, select a model to display additional parameters in the section to the right.
-2. In the **Addons** section you can view the addons available in your DIAL environment. 
-3. Click on **See all addons...** to view all available addons. You can select one or more addons and then click **Apply addons** to start using them.
-
-![](./img/addons2.png)
-
 ### Isolated View Mode
 
-In the Isolated View Mode, a user can follow a specific URL `https://server/models/modelID` or `https://server/models/applicationID` to use the AI DIAL Chat in a simplified view with minimal configuration settings for a selected model or application. Conversation settings, conversation and prompt panels are not shown in this case. All created conversations are saved and displayed in the regular chat view mode as well (when just created, names of such conversations are appended in the regular view mode with an `isolated` prefix in the beginning. e.g. `isolated_dial-rag`).
+In the Isolated View Mode, you can access the AI DIAL Chat in a simplified view mode with the predefined conversational agent. To access this mode, follow a specific URL `https://server/models/modelID` or `https://server/models/applicationID`. Conversation and prompt panels are not shown in this mode. All conversations that are created in this mode, will also be displayed in the standard chat view mode.
 
-For instance, if a user wants to open GPT-4 without any extra features or configurations, they can simply go to `https://AI DIAL Chat URL/models/gpt-4` and access a streamlined user interface that only contains a chat input with GPT-4:
+For instance, to open chat with GPT-4 model, go to `https://AI DIAL Chat URL/models/gpt-4` and access a streamlined user interface that only contains a chat input with GPT-4:
 
 ![](./img/isolated_view_mode.png)
 
+Although this mode offers a simplified view, you can access [Conversation settings](#conversation-settings) the usual way.
+
 ## User Settings
 
-On the top bar, in the user area, you can click a down arrow to access additional settings or logout.
-
-You can select the chat theme (dark or light), change logo, and switch to the full-width chat mode.
+In the user area on the top bar, you can click the down arrow to access additional settings or to log out. Here you can choose the chat theme (dark or light), change the logo, and switch to full-width chat mode.
 
 ![](./img/user_settings.png)
 
@@ -921,7 +895,7 @@ To add a file into a folder it is necessary to upload it.
 
 ##### To unshare a file
 
-Using the application that supports the attachments of files, you can create a conversation and share it with someone. When a conversation is shared, all the attached to the conversation files are shared as well. In the attachments manager, such shared files are tagged with a blue arrow.
+With an application that supports file attachments, you can create a conversation and share it. When a conversation is shared, all files attached to that conversation are also shared. In the attachments manager, these shared files are marked with a blue arrow.
 
 In the file menu, you can choose to unshare it: 
 
@@ -949,11 +923,12 @@ Click a folder to expand it.
 
 You can publish/unpublish your applications, conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
 
-> Watch [Publications](/docs/video%20demos/demos/6.dial-publications.md) demo video to learn more about publication and collaboration features in AI DIAL.
+> * Watch [Publications](/docs/video%20demos/demos/6.dial-publications.md) demo video to learn more about publication and collaboration features in AI DIAL.
+> * Refer to [Collaboration](/docs/tutorials/collaboration/1.overview.md) to learn more about collaboration features in AI DIAL.
 
 ### Configuration
 
-> Refer to [tutorials](/docs/tutorials/collaboration/2.enable-publications.md#dial-chat) to learn more about working and configuring publications.
+> Refer to [Collaboration](/docs/tutorials/collaboration/2.enable-publications.md#dial-chat) to learn more about working and configuring publications.
 
 To enable the publication feature:
 
@@ -980,9 +955,11 @@ Administrators are chat users that can perform additional actions. Chat interfac
 
 Users with the admin role have access to the **Approve required** tab in conversations and prompts sections, where they can view all publish and unpublish requests from users. 
 
+> **Note**, publication requests for applications appear in the Prompts section.
+
 ![](./img/admin-panel.png)
 
-The count shows the number of requests to be reviewed. Each such request has a color dot attached to it. The refresh of a browser updates this information.
+The counter shows the number of requests to be reviewed. Each such request has a color dot attached to it. The refresh of a browser updates this information.
 
 ![](./img/review3.png)
 
@@ -999,6 +976,13 @@ The count shows the number of requests to be reviewed. Each such request has a c
 ![](./img/review-mode2.png)
 
 5. Once the review is completed, the **Approve** button is enabled. **Note**, you can approve or reject only the entire request.
+
+### Deploy and Undeploy Code Apps
+
+In the [DIAL Marketplace](#dial-marketplace), administrators can deploy and undeploy Code Apps of different users.
+
+1. Go to DIAL Marketplace and apply filter by Applications. Deployed Code Apps have a green status icon. 
+2. Click the app you want to undeploy/deploy. Refer to [Launch Code App](#to-launch-code-app) to learn more.
 
 ## Data Visualization
 
@@ -1024,7 +1008,29 @@ The visualizations come with standard Plotly controls for easy manipulation.
 
 > Refer to [Plotly GitHub](https://github.com/plotly/react-plotly.js) to learn more. 
 
-## Applications
+## Conversational Agents
+
+In AI DIAL Chat, you can have a dialog with several types of conversational agents: language models, applications and assistants.
+
+### Language Models
+
+##### Available Models
+
+In the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your AI DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
+
+> Refer to [Supported Models](/docs/supported-models.md) to view all the models supported in AI DIAL.
+
+##### To talk to a model
+
+1. In the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
+2. To display just models, select just **Models** in **Types**.
+3. Click any of the available models in Marketplace or My workspace, click **Use model** to navigate back to the main screen with this model pre-selected for conversation.
+
+> Refer to [Agents](#agents) to learn how to change conversational agents prior or during a conversation. 
+
+![](./img/marketplace-home-select.png)
+
+### Applications
 
 > Refer to [My workspace](#my-workspace) to learn how to add and manage applications in AI DIAL Chat.
 
@@ -1036,13 +1042,25 @@ Applications can be developed (using [DIAL SDK](https://github.com/epam/ai-dial-
 
 > Watch a [DIAL RAG](/docs/video%20demos/demos/8.dial-rag.md) and [DIAL ChatHub](/docs/video%20demos/demos/dial-chathub.md) videos as examples of what DIAL applications may look like.
 
+In the [DIAL Marketplace](#dial-marketplace) section, you can view all the applications available on your DIAL environment. There, you can select applications to add them to [My workspace](#my-workspace).
+
+##### To talk to an application
+
+1. In the [DIAL Marketplace](#dial-marketplace) section, you can view all the applications available on your DIAL environment. There, you can select applications to add them to [My workspace](#my-workspace).
+2. To display applications, select just **Applications** in **Types**.
+3. Click any of the available applications in Marketplace or My workspace, click **Use application** to navigate back to the main screen with this application pre-selected for conversation.
+
+> Refer to [Agents](#agents) to learn how to change conversational agents prior or during a conversation. 
+
+![](./img/marketplace-app-select.png)
+
 ### Application Types
 
 #### Custom Apps
 
 DIAL applications can be integrated into the DIAL Core deployment. By doing so, these applications will be immediately available in your chat from the start. For examples, refer to the [dynamic setting](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) in DIAL Core. Additionally, you can register your custom and deployed applications through the [DIAL API](https://epam-rail.com/dial_api#tag/Applications/paths/~1v1~1applications~1%7BBucket%7D~1%7BApplication%20Path%7D/put) and [DIAL Marketplace](#add-custom-app). In such cases, the configuration of your custom applications, described in a JSON file, is saved in your blob store and accessed by DIAL Core for usage.
 
-> * Refer to [My workspace](#add-custom-app) to learn how to add a custom app in DIAL Marketplace.
+> * Refer to [My workspace](#add-custom-app) to learn how to add a custom app.
 > * Refer to [Custom Apps Deployment](/docs/Deployment/custom_apps_deployment.md) to learn how to deploy custom applications using Helm chat and configure DIAL Core.
 
 #### Quick Apps
@@ -1050,14 +1068,32 @@ DIAL applications can be integrated into the DIAL Core deployment. By doing so, 
 DIAL Quick Apps are conceptually similar to OpenAI's GPT. Quick Apps do not contain any programming code (they include a toolset, description and instruction to the language model) and enable you to rapidly build an application right within DIAL Chat, use it, and share it with others. Quick Apps can be used to simplify a workflow or carry out a specific task. For example, you can create a Quick App with a configuration allowing it to call an external API to get a real-time weather forecast for a specific location.
 
 > * Watch a [Demo Video](/docs/video%20demos/demos/12.quick-apps.md) with an introduction to Quick Apps.
-> * Refer to [My workspace](#add-quick-app) to learn how to add a Quick App in DIAL Marketplace.
+> * Refer to [My workspace](#add-quick-app) to learn how to add Quick Apps.
 
 #### Code Apps
 
 DIAL Core Apps allow you to develop, deploy and run your Python applications directly in the AI DIAL Chat. It is a useful tool if you need to quickly create an application for the POC, deploy it and share with the selected audience.  
 
 > * Watch a [Demo Video](/docs/video%20demos/demos/11.code-apps.md) with an introduction to Code Apps.
-> * Refer to [My workspace](#add-code-app) to learn how to add a Code App in DIAL Marketplace.
+> * Refer to [My workspace](#add-code-app) to learn how to add Code Apps.
+
+### Assistants
+
+In the AI DIAL, assistant is a combination of a preselected [addon](#addons) and a [system prompt](#system-prompt) that enable specific behavior of a language model, allowing to achieve responses adjusted to user needs. Unlike the model+addon configuration, where users have the flexibility to choose different addons, assistants come with predetermined addons that cannot be removed or unselected. However, the model can still be reassigned within the assistant.
+
+Assistants give you more control over LLM behavior, resulting in tailored and accurate responses that match specific needs. The flexibility of this combination lets you create custom assistants. These assistants can range from simple tasks, like asking the LLM to provide answers in a specific tone or style (e.g., like a pirate), to more complex tasks, such as restricting the LLM's data to a specific geographical area (e.g., providing weather forecasts for Chicago only). Combining addons and system prompts enables better customization and adaptability to various situations, leading to more versatile responses.
+
+In the [DIAL Marketplace](#dial-marketplace) section, you can view all the assistants available on your DIAL environment. There, you can select assistants to add them to [My workspace](#my-workspace).
+
+##### To talk to an assistant
+
+1. In the [DIAL Marketplace](#dial-marketplace) section, you can view all the assistants available on your DIAL environment. There, you can select assistants to add them to [My workspace](#my-workspace).
+2. To display assistants, select just **Assistants** in **Types**.
+3. Click any of the available assistants in Marketplace or My workspace, click **Use assistant** to navigate back to the main screen with this assistant pre-selected for conversation.
+
+> Refer to [Agents](#agents) to learn how to change conversational agents prior or during a conversation. 
+
+![](./img/talk-to-assistants.png)
 
 ## Marketplace
 
@@ -1065,7 +1101,7 @@ DIAL Core Apps allow you to develop, deploy and run your Python applications dir
 
 > Watch [Marketplace](/docs/video%20demos/demos/10.marketplace.md) demo video to see it in action.
 
-Click **DIAL Marketplace** to navigate to the *home page* of DIAL Marketplace where you can find all [applications](#applications), [language models](#available-models) and [assistants](#assistants) available on your DIAL environment. Here, you can also find all applications [published](#publish-app) in your organization.
+In DIAL Marketplace where you can find all conversational agents ([applications](#applications), [language models](#available-models) and [assistants](#assistants)) available on your AI DIAL environment. Here, you can also find all applications [published](#publish-app) in your organization.
 
 ![](./img/dial-marketplace.png)
 
@@ -1075,16 +1111,16 @@ You can navigate to this section form the main chat screen:
 
 In DIAL Marketplace, there are two sections: 
 
-* [DIAL Marketplace](#dial-marketplace): the main screen of DIAL Marketplace which includes all applications, language models and assistants available on your DIAL environment.
-* [My workspace](#my-workspace): this screen includes all applications, language models and assistants that you have selected in DIAL Marketplace. In this section, you can also add and manage your custom applications.
+* [DIAL Marketplace](#dial-marketplace): the main screen of DIAL Marketplace which includes all conversational agents available on your DIAL environment.
+* [My workspace](#my-workspace): this screen includes all conversational agents that you have selected in DIAL Marketplace. In this section, you can also add and manage your custom applications.
 
 ![](./img/dial-marketplace2.png)
 
-From both the main screen and workspace you can click **Back to Chat** to navigate to the main chat screen.
+From both marketplace and workspace you can click **Back to Chat** to navigate to the main chat screen.
 
 ![](./img/dial-marketplace3.png)
 
-Use the **Type** filters to display any or all applications, language models, and assistants, and categorize them by **Topic**. Additionally, the **Search** allows you to swiftly locate any item.
+Use the **Type** filters to display any or all conversational agent and categorize them by **Topic**. Additionally, the **Search** allows you to swiftly locate any item. **Note**, that all agents are displayed by default - use the Type filter to narrow down the scope of the displayed agents.
 
 ![](./img/dial-marketplace5.png)
 
@@ -1096,18 +1132,19 @@ Click **DIAL Marketplace** to navigate to the *home page* of DIAL Marketplace wh
 
 ##### Add to My workspace
 
-In the DIAL Marketplace main screen, you can view details of any item and add it to [My workspace](#my-workspace).
+In the DIAL Marketplace main screen, you can view details of any conversational agent and add it to [My workspace](#my-workspace).
 
 To simply add/remove an item to/from My workspace, click **Add/Remove to/from My workspace** label:
 
 ![](./img/add-to-workspace.png)
 
-You can also add an item to My workspace by initiating a conversation with it. For example, to add a model:
+You can also add a conversational agent to My workspace by initiating a conversation with it. For example, to add a model:
 
-1. Click a model to view its details.
-2. Choose its version (if available). Note, that you can add different versions in several iterations. In this case, you will be able to select a model's version in [Talk to](#talk-to) before the conversation.
-3. Click **Use** to initiate a conversation.
-4. You can find the added model in [My workspace](#my-workspace) and in [Talk to](#talk-to).
+1. In the [DIAL Marketplace](#dial-marketplace) section, you can view all the models available on your DIAL environment. There, you can select models to add them to [My workspace](#my-workspace).
+2. To display models, select just **Models** in **Types**.
+3. To select a model, click any of the available models in Marketplace or My workspace, click **Use model** to navigate back to the main screen with this model pre-selected for conversation.
+
+> Refer to [Agents](#agents) to learn how to change conversational agents prior or during a conversation. 
 
 ![](./img/marketplace-home-select.png)
 
@@ -1117,7 +1154,7 @@ You can also add an item to My workspace by initiating a conversation with it. F
 
 ### My workspace
 
-In **My workspace**, you can access all the applications, language models, and assistants that you have added in [DIAL Marketplace](#dial-marketplace). Here, you can view and select items for your conversations, as well as remove them from the list. Additionally, in My workspace, you can add [custom](#add-custom-app), [quick](#add-quick-app), and [code](#add-code-app) apps.
+In **My workspace**, you can access all conversational agents that you have added in [DIAL Marketplace](#dial-marketplace). Here, you can view and manage your agents. Additionally, in My workspace, you can add [custom](#add-custom-app), [quick](#add-quick-app), and [code](#add-code-app) apps.
 
 > Refer to [Application Types](#application-types) to learn more about DIAL applications.
 
@@ -1131,11 +1168,11 @@ If you want to add your custom application, you can do it in AI DIAL Chat or via
 
 ##### To Add Custom App
 
-![](./img/register-app.png)
-
 1. In My workspace, click **Add app** and select **Custom App**.
 2. Fill in the [Add application](#addedit-application-form) form.
 3. Your new application will appear in [My workspace](#my-workspace).
+
+![](./img/register-app.png)
 
 ##### Add/Edit application form
 
@@ -1248,20 +1285,22 @@ To modify the application source code or the application form parameters, you ne
 
 #### Converse
 
-In My workspace, you can select which application, model or assistant you want to have in [Talk To](#talk-to) and then use in your conversations.
+In My workspace, you can select which [conversational agent](#conversational-agents) you want to have a dialog with.
 
-1. In [My workspace](#my-workspace), click an app/model/assistant.
-2. Click **Use..** to start a new conversation with the selected entity. This entity will also be added in your [Talk To](#talk-to) section.
+1. In [My workspace](#my-workspace), click any conversational agent.
+2. Click **Use..** to start a new conversation with the selected agent.
 
-![](./img/select-app.png)
+![](./img/workspace-talk-model.png)
+
+> Refer to [Agents](#agents) to learn how to change conversational agents prior or during a conversation. 
 
 #### Edit App
-
-> You can also edit your custom, quick and code applications in [Talk To](#talk-to).
 
 Use Edit in the app's menu to modify your apps.
 
 > **Note**: you can edit only **your own** apps. To [Edit a Code App](#to-edit-code-app), undeploy it first.
+
+![](./img/test-code-app.png)
 
 ##### To edit application
 
@@ -1276,33 +1315,28 @@ You can publish your custom, quick and code applications to make them accessible
 
 ##### To publish application
 
-> You can also publish your custom, quick and code applications in [Talk To](#talk-to).
-
 1. In the application menu (you can also find a Publish icon in the Edit application form), click **Publish**
-
-   ![](./img/register-app3.png)
-
 2. Enter **publication request name** in the upper area.
 3. In **Publish to**, select the target destination or a folder to publish your prompt into.
 4. In **Allow access...**, specify access rules and the target audience. For example Role-Equals-Admin. **Note**: the available roles are defined in each organization individually. Contact your support to find out the rules are applicable in your organization.
 5. In **Applications** you can choose what applications you want to publish.
 6. Click **Send request** to send your publication request to the administrator.
 
-> **Note**, when your request is approved, the published application will become available in the [DIAL Marketplace](#dial-marketplace) for the target audience.
+![](./img/register-app3.png)
 
-#### Remove
+> **Note**, when your request is approved by the administrator, the published application will become available in the [DIAL Marketplace](#dial-marketplace) for the target audience.
 
-You can remove any application/model/assistant from My workspace. Use Remove in the item's menu to do this: 
+#### Remove from Workspace
+
+You can remove any conversational agent from My workspaces: 
 
 1. Navigate to the My workspace section.
-2. In the item's menu, click **Remove**.
+2. In the agent's tile, click **Remove**.
 3. Confirm your action in the dialog window.
 
 ![](./img/remove-app.png)
 
 #### Delete App
-
-> You can also delete your custom, quick and code applications in [Talk To](#talk-to).
 
 Use Delete in the app's menu to completely delete the selected application. **Note** that you can delete only your own apps.
 
