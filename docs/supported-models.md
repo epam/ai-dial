@@ -12,7 +12,7 @@ You can use [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom mod
 | Cohere| cohere.command-text-v14 |
 | Databricks| databricks-bge-large-en, databricks-llama-2-70b-chat, databricks-mixtral-8x7b-instruct, databricks-dbrx-instruct |
 | E5| e5-large-v2 |
-| Google| chat-bison@001, chat-bison-32k@002, chat-bison, codechat-bison@001, codechat-bison-32k@002, codechat-bison, gemini-pro, gemini-pro-vision, gemini-1.5-pro-preview-0409, gemini-1.5-flash-001, textembedding-gecko@001, imagegeneration@005 |
+| Google| chat-bison@001, chat-bison-32k@002, chat-bison, codechat-bison@001, codechat-bison-32k@002, codechat-bison, gemini-pro, gemini-pro-vision, gemini-1.5-pro-preview-0409, gemini-1.5-flash-001, gemini-2.0-flash-exp, gemini-exp-1206, gemini-2.0-flash-thinking-exp-1219, textembedding-gecko@001, imagegeneration@005 |
 | Meta| meta.llama3-8b-instruct-v1, meta.llama3-70b-instruct-v1, meta.llama3, meta.llama2-13b-chat-v1, meta.llama2-70b-chat-v1, meta.llama2, CodeLlama-34b-Instruct-hf, Llama-3-8B-Instruct |
 | Mistral| Mistral-7B-Instruct, Mixtral-8x7B-Instruct-v0.1, mistral-large-azure |
 | OpenAI| gpt-35-turbo-0301, gpt-35-turbo-0613, gpt-35-turbo-1106, gpt-35-turbo-0125, gpt-35-turbo, gpt-35-turbo-16k, gpt-4-0613, gpt-4, gpt-4-1106-preview, gpt-4-0125-preview, gpt-4-turbo-2024-04-09, gpt-4-turbo, gpt-4-32k-0314, gpt-4-32k-0613, gpt-4-32k, gpt-4-vision-preview, gpt-4o-2024-05-13, dall-e-3, text-embedding-ada-002, text-embedding-3-large, text-embedding-3-small |

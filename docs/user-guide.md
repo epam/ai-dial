@@ -1307,6 +1307,44 @@ Use Edit in the app's menu to modify your apps.
 1. Click **Edit** to invoke the [Edit app](#addedit-application-form)/[Edit quick app](#addedit-quick-app-form)/[Edit quick app](#addedit-code-app-form)
 2. Make changes and click **Save**
 
+#### Share App
+
+Applications (or their versions) can be shared with other users by sending a sharing link. The key distinction between sharing and publishing is that sharing allows you to grant editing access to your application. Additionally, when an application (or its specific version) is shared, any updates made become immediately available to the users with whom the application has been shared.
+
+The application can be shared with or without editing rights. When editing is permitted, users with whom the application has been shared can modify it. In this case, the changes will be propagated to all users with whom this application has been shared. 
+
+Applications shared with and without editing rights have different scope of actions available for the target user: 
+
+![](./img/share-app2.png)
+
+**Note**: It's important to note, that conflict resolution for simultaneous edits by multiple users is not supported; therefore, the changes submitted first will be applied to the application for all users immediately.
+
+**Note**: A shared application (or its version if only a specific version has been shared) is labeled with the blue arrow:
+
+![](./img/share-app3.png)
+
+Shared application is revoked from the shared usage when the original source name or version is modified by the application owner.
+
+##### To share app
+
+> Note, that you can share share only your own applications. You cannot share an application that has been shared with you.
+
+1. In My workspace, in the application menu, click **Share**.
+
+![](./img/share-app.png)
+
+2. If necessary, you can select a specific version of the application you want to share.
+2. In the pop-up dialog window, select whether you want to give editing rights with the sharing link.
+3. Confirm the action in the dialog window.
+4. Provide the sharing link to the target user with whom you want to share your app.
+
+##### To unshare app
+
+1. In the shared application's menu, click **Unshare**.
+2. Confirm the action in the dialog window.
+
+![](./img/share-app4.png)
+
 #### Publish App
 
 You can publish your custom, quick and code applications to make them accessible to the selected audience in your organization. Refer to [Publications](#publications) to learn more about this functionality and to [Tutorials](/docs/tutorials/collaboration/2.enable-publications.md) for a more extended documentation.
@@ -1348,4 +1386,9 @@ Use Delete in the app's menu to completely delete the selected application. **No
 
 ![](./img/register-app4.png)
 
+#### Application Link
+
+For applications that are available organization-wide, you can copy and share a link that directs users straight to the application's card in the DIAL Marketplace, facilitating quick and easy navigation.
+
+![](./img/app-link.png)
 
