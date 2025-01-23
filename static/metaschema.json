@@ -1,0 +1,355 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://dial.epam.com/form-flow/schema#",
+    "title": "Core meta-schema defining Ai DIAL form data",
+    "allOf": [
+      {
+        "$ref": "#/definitions/schema"
+      },
+      {
+        "$ref": "#/definitions/aiDialUiRootSchema"
+      }
+    ],
+    "definitions": {
+      "aiDialUiRootSchema": {
+        "properties": {
+          "dial:chatMessageInputDisabled": {
+            "type": "boolean",
+            "description": "Set chat message editor to be disabled"
+          }
+        }
+      },
+      "aiDialWidgetType": {
+        "$comment": "All the possible widgets for the dial:widget keyword",
+        "enum": [
+          "buttons"
+        ]
+      },
+      "aiDialWidgetSchema": {
+        "$comment": "Sub-schema defining the widget keyword - object with a single property 'dial:widget'",
+        "type": "object",
+        "properties": {
+          "dial:widget": {
+            "$ref": "#/definitions/aiDialWidgetType"
+          }
+        }
+      },
+      "aiDialButtonOptionSchema": {
+        "$comment": "Sub-schema defining the 'oneOf' members of the button",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "const": {
+            "type": "number"
+          },
+          "dial:widgetOptions": {
+            "type": "object",
+            "properties": {
+              "confirmationMessage": {
+                "type": "string"
+              },
+              "populateText": {
+                "type": "string"
+              },
+              "submit": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "const"
+        ]
+      },
+      "aiDialButtonSchema": {
+        "$comment": "Sub-schema defining the button widget",
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/definitions/aiDialWidgetSchema"
+          },
+          {
+            "if": {
+              "properties": {
+                "dial:widget": {
+                  "const": "buttons"
+                }
+              },
+              "required": [
+                "dial:widget"
+              ]
+            },
+            "then": {
+              "properties": {
+                "type": {
+                  "const": "number"
+                },
+                "oneOf": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/aiDialButtonOptionSchema"
+                  }
+                }
+              },
+              "required": [
+                "oneOf",
+                "type"
+              ]
+            }
+          }
+        ]
+      },
+      "aiDialUiSchema": {
+        "$comment": "Sub-schema defining all the extra stuff to implement the UI",
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/definitions/aiDialButtonSchema"
+          }
+        ]
+      },
+      "schema": {
+        "type": [
+          "object",
+          "boolean"
+        ],
+        "properties": {
+          "$id": {
+            "type": "string",
+            "format": "uri-reference"
+          },
+          "$schema": {
+            "type": "string",
+            "format": "uri"
+          },
+          "$ref": {
+            "type": "string",
+            "format": "uri-reference"
+          },
+          "$comment": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "default": true,
+          "readOnly": {
+            "type": "boolean",
+            "default": false
+          },
+          "writeOnly": {
+            "type": "boolean",
+            "default": false
+          },
+          "examples": {
+            "type": "array",
+            "items": true
+          },
+          "multipleOf": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "maximum": {
+            "type": "number"
+          },
+          "exclusiveMaximum": {
+            "type": "number"
+          },
+          "minimum": {
+            "type": "number"
+          },
+          "exclusiveMinimum": {
+            "type": "number"
+          },
+          "maxLength": {
+            "$ref": "#/definitions/nonNegativeInteger"
+          },
+          "minLength": {
+            "$ref": "#/definitions/nonNegativeIntegerDefault0"
+          },
+          "pattern": {
+            "type": "string",
+            "format": "regex"
+          },
+          "additionalItems": {
+            "$ref": "#/definitions/schema"
+          },
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/schema"
+              },
+              {
+                "$ref": "#/definitions/schemaArray"
+              }
+            ],
+            "default": true
+          },
+          "maxItems": {
+            "$ref": "#/definitions/nonNegativeInteger"
+          },
+          "minItems": {
+            "$ref": "#/definitions/nonNegativeIntegerDefault0"
+          },
+          "uniqueItems": {
+            "type": "boolean",
+            "default": false
+          },
+          "contains": {
+            "$ref": "#/definitions/schema"
+          },
+          "maxProperties": {
+            "$ref": "#/definitions/nonNegativeInteger"
+          },
+          "minProperties": {
+            "$ref": "#/definitions/nonNegativeIntegerDefault0"
+          },
+          "required": {
+            "$ref": "#/definitions/stringArray"
+          },
+          "additionalProperties": {
+            "$ref": "#/definitions/schema"
+          },
+          "definitions": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/schema"
+            },
+            "default": {}
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/propertySchema"
+            },
+            "default": {}
+          },
+          "patternProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/propertySchema"
+            },
+            "propertyNames": {
+              "format": "regex"
+            },
+            "default": {}
+          },
+          "dependencies": {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/schema"
+                },
+                {
+                  "$ref": "#/definitions/stringArray"
+                }
+              ]
+            }
+          },
+          "propertyNames": {
+            "$ref": "#/definitions/schema"
+          },
+          "const": true,
+          "enum": {
+            "type": "array",
+            "items": true,
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "contentMediaType": {
+            "type": "string"
+          },
+          "contentEncoding": {
+            "type": "string"
+          },
+          "if": {
+            "$ref": "#/definitions/schema"
+          },
+          "then": {
+            "$ref": "#/definitions/schema"
+          },
+          "else": {
+            "$ref": "#/definitions/schema"
+          },
+          "allOf": {
+            "$ref": "#/definitions/schemaArray"
+          },
+          "anyOf": {
+            "$ref": "#/definitions/schemaArray"
+          },
+          "oneOf": {
+            "$ref": "#/definitions/schemaArray"
+          },
+          "not": {
+            "$ref": "#/definitions/schema"
+          }
+        },
+        "default": true
+      },
+      "propertySchema": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/aiDialUiSchema"
+          },
+          {
+            "$ref": "#/definitions/schema"
+          }
+        ]
+      },
+      "schemaArray": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/aiDialUiSchema"
+            },
+            {
+              "$ref": "#/definitions/schema"
+            }
+          ]
+        }
+      },
+      "nonNegativeInteger": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "nonNegativeIntegerDefault0": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/nonNegativeInteger"
+          },
+          {
+            "default": 0
+          }
+        ]
+      },
+      "simpleTypes": {
+        "enum": [
+          "array",
+          "boolean",
+          "integer",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "stringArray": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true,
+        "default": []
+      }
+    }
+  }  
