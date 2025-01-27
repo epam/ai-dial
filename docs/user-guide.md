@@ -1120,7 +1120,13 @@ From both marketplace and workspace you can click **Back to Chat** to navigate t
 
 ![](./img/dial-marketplace3.png)
 
-Use the **Type** filters to display any or all conversational agent and categorize them by **Topic**. Additionally, the **Search** allows you to swiftly locate any item. **Note**, that all agents are displayed by default - use the Type filter to narrow down the scope of the displayed agents.
+##### Filters
+
+* Use the **Type** filters to display any or all [conversational agents](#conversational-agents). **Note**, that all agents are displayed by default - use the Type filter to narrow down the scope of the displayed agents. 
+* A conversational agent can be associated with a specific topic describing the area of its application. Use the **Topics** filter to refine the output by specific topics. 
+* Use the **Source** filter to apply additional filtering criteria related to the source of conversational agents (e.g. you can filter just the apps shared with you).
+
+Additionally, the **Search** allows you to swiftly locate any item by its name.
 
 ![](./img/dial-marketplace5.png)
 
@@ -1307,6 +1313,67 @@ Use Edit in the app's menu to modify your apps.
 1. Click **Edit** to invoke the [Edit app](#addedit-application-form)/[Edit quick app](#addedit-quick-app-form)/[Edit quick app](#addedit-code-app-form)
 2. Make changes and click **Save**
 
+#### Share App
+
+Applications (or their versions) can be shared with other users by sending a sharing link. In this section, you can learn about: 
+
+* [Sharing](#to-share-app)
+* [Unsharing](#to-unshare-app)
+* [Removing access](#to-remove-access)
+* [Editing rights](#sharing-with-editing-rights)
+
+##### To share app
+
+Use **Share** to grant other users rights to use your application. You can repeat the procedure described in this section more than once to share with different users.
+
+> **Note**, that you can share only your own applications. You cannot share an application that has been shared with you.
+
+1. In My workspace, in the application menu, click **Share**.
+
+![](./img/share-app.png)
+
+2. If necessary, you can select a specific version of the application you want to share.
+2. In the pop-up dialog window, select whether you want to give editing rights with the sharing link. **Important**: if you grant editing rights to your app, make sure you are familiar with the [main principles](#sharing-with-editing-rights) outlined in this documentation.
+3. Confirm the action in the dialog window.
+4. Provide the sharing link to the target user with whom you want to share your app.
+
+A shared application (or its version if only a specific version has been shared) is labeled with the blue arrow:
+
+![](./img/share-app3.png)
+
+##### Sharing with editing rights
+
+The key distinction between sharing and [publishing](#publish-app) is that sharing allows you to grant not only the rights to use but also editing access to your application. 
+
+**Important**: when an application (or its specific version) is shared, any updates made to the app become immediately available to the users with whom the application has been shared, but it's important to note that **conflict resolution** for simultaneous edits by multiple users is not supported, so the changes submitted first will be applied to the shared application for all users immediately.
+
+Applications shared with and without editing rights have different scope of actions available for the target user: 
+
+![](./img/share-app2.png)
+
+##### To remove access
+
+> **Note**: a shared application is revoked from the shared usage when the apps's name or version is modified by the application owner.
+
+You can revoke access for all users with whom you have share the application.
+
+1. Select the shared application for which you want to revoke access. You can identify the shared apps by the blue arrow pinned to the icon of the shared application. 
+2. Click **Share** in the applications menu.
+3. In the open dialog window, click **Remove access for all users** and confirm the unshare action in the pop-up window.
+
+![](./img/revoke.png)
+
+##### To unshare app
+
+Use **Unshare** to remove the shared with you application from your workspace. 
+
+> **TIP**: To quickly find all apps that have been shared with you, use the **Source** filter in My workspace.
+
+1. In the shared application's menu, click **Unshare**.
+2. Confirm the action in the dialog window.
+
+![](./img/share-app4.png)
+
 #### Publish App
 
 You can publish your custom, quick and code applications to make them accessible to the selected audience in your organization. Refer to [Publications](#publications) to learn more about this functionality and to [Tutorials](/docs/tutorials/collaboration/2.enable-publications.md) for a more extended documentation.
@@ -1348,4 +1415,9 @@ Use Delete in the app's menu to completely delete the selected application. **No
 
 ![](./img/register-app4.png)
 
+#### Application Link
+
+For applications that are available organization-wide, you can copy and share a link that directs users straight to the application's card in the DIAL Marketplace, facilitating quick and easy navigation.
+
+![](./img/app-link.png)
 
