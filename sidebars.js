@@ -188,6 +188,16 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/realtime-analytics',
           label: 'Analytics Realtime',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/custom-buttons',
+          label: 'Custom Buttons in Apps',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/use-databricks-model',
+          label: 'Using Databricks Models in AI DIAL',
         }
       ],
     },
