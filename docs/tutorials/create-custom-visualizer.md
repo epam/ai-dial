@@ -1,31 +1,8 @@
-# Data Visualization
-
-## Introduction
-
-AI DIAL Chat has the capability to render different types of content within a conversation. For example, it has built-in support for Markdown. If the response message from the application includes content in Markdown notation, it will automatically render it in the body of the conversation.
-
-![](img/md-render1.png)
-
-AI DIAL Chat has also a built-in support for Plotly data visualization libraries: 
-
-* [Plotly JavaScript Open Source Graphing Library](https://plotly.com/javascript/)
-* [React Plotly.js in JavaScript](https://plotly.com/javascript/react/)
-
-![](img/plotly.png)
-
-You can use the [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom applications that may need to render different types of content in the body of their response in the chat UI.
-
-This can include attachments with documents and images, stages, and other types of data compatible with the [MIME standard](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Refer to the Custom Content section to learn more.
-
-Watch a [demo video](/docs/video%20demos/1.Chat/6.animated-scatterplot.md) to see how statistical data can be visualized in AI DIAL Chat using a Plotly animated scatterplot, or view a demo video of the [Omics AI Assistant](/docs/video%20demos/dial-omics-assistant.md) to see how protein structures can be visualized with Plotly.
-
-## Visualizers
+# Create Custom Visualizer
 
 We call Visualizers special applications that are used for rendering a specific type of content in AI DIAL Chat UI. You can use [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) library to create your custom visualizers for specific types of content.
 
 Watch a [demo video](/docs/video%20demos/3.Developers/7.dial-data-viz.md) to view how a financial data can be visualized in AI DIAL Chat.
-
-## Create Custom Visualizer
 
 > Sources are located in the [DIAL Chat Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) repository.
 

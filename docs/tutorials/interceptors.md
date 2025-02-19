@@ -6,7 +6,7 @@ Interceptors can be seen as a middleware that modifies incoming or outgoing requ
 
 For example, interceptors can block requests that violate specific regulations, related to restricted domains, or potentially lead to data leaks or biased responses. Another use case is when interceptors allow applications or models to respond solely to specific subjects and anonymize Personally Identifiable Information (PII) from user requests, or cache LLM responses.
 
-> Watch a [demo video](/docs/video%20demos/demos/4.interceptors.md) to learn more about interceptors.
+> Watch a [demo video](/docs/video%20demos/3.Developers/11.interceptors.md) to learn more about interceptors.
 
 Technically speaking, interceptors in AI DIAL are components inserted into deployments (applications or model adapters) that can be called before or after [chat completion requests](https://epam-rail.com/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post).
 

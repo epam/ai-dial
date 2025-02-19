@@ -6,7 +6,7 @@ AI DIAL is an open platform designed to avoid vendor lock-in, enabling seamless 
 
 This document provides a detailed guide on how to create a MS Power Platform connector for AI DIAL. This connector can be used in MS Copilot Studio prompt flows, facilitating smooth interaction between the systems for creating comprehensive business solutions.
 
-> Watch a [demo video](/docs/video%20demos/demos/13.dial-copilot.md) to see this integration in action.
+> Watch a [demo video](/docs/video%20demos/13.dial-copilot.md) to see this integration in action.
 
 There are two authentication types available for AI DIAL:
 

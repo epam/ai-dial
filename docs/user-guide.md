@@ -4,7 +4,7 @@
 
 AI DIAL Chat is a powerful enterprise-grade application that serves as a default web interface for AI DIAL users, providing access to the full set of AI DIAL features.
 
-> * Watch a [demo video](/docs/video%20demos/demos/2.dial-ui-basics.md) with introduction to AI DIAL Chat UI.
+> * Watch a [demo video](/docs/video%20demos/1.Chat/1.dial-ui-basics.md) with introduction to AI DIAL Chat UI.
 > * Refer to [Quick Start](quick-start) to learn how to launch AI DIAL Chat in a few clicks.
 
 ### Additional Documentation
@@ -216,7 +216,7 @@ The following symbols in the conversation names are prohibited: tab, `"`, `:`, `
 
 You can share a conversation or a folder with several conversations with other users. Yo can also receive a shared conversation.
 
-> Watch [Collaboration](/docs/video%20demos/demos/5.dial-collaboration.md) demo video to learn more about sharing and other collaboration features in AI DIAL.
+> Watch [Collaboration](/docs/video%20demos/1.Chat/3.dial-collaboration.md) demo video to learn more about sharing and other collaboration features in AI DIAL.
 
 ##### To receive a shared conversation
 
@@ -372,7 +372,7 @@ Let's create a simple Travel Guide conversation, which will take a user though s
 
 You can create a parametrized conversation from any message in your chat. This scenario does not require having any pre-configured prompts.
 
-> Watch a [demo video](/docs/video%20demos/demos/7.dial-parameterized-replay.md) to see it in action.
+> Watch a [demo video](/docs/video%20demos/1.Chat/5.dial-parameterized-replay.md) to see it in action.
 
 1. Within a conversation, you can set any message as a template for subsequent replay. Use **Set message template** to invoke the **Message template** window.
 
@@ -430,7 +430,7 @@ Once you initiate a conversation in this mode, the system creates two new conver
 
 You can publish conversations to make them available for the target audience.
 
-> Watch [Publications](/docs/video%20demos/demos/6.dial-publications.md) demo video to learn more about collaboration features in AI DIAL.
+> Watch [Publications](/docs/video%20demos/1.Chat/4.dial-publications.md) demo video to learn more about collaboration features in AI DIAL.
 
 > **Note**: to publish a shared conversation, [duplicate](#duplicate) it and then publish. 
 
@@ -623,7 +623,7 @@ Click **Select** in the prompts menu. In this case, you can hover over any promp
 
 You can share a prompt or a folder with several prompts with other users.
 
-> Watch [Collaboration](/docs/video%20demos/demos/5.dial-collaboration.md) demo video to learn more about sharing and other collaboration features in AI DIAL.
+> Watch [Collaboration](/docs/video%20demos/1.Chat/3.dial-collaboration.md) demo video to learn more about sharing and other collaboration features in AI DIAL.
 
 ##### To receive a shared prompt
 
@@ -700,7 +700,7 @@ When importing a **duplicate** of an existing prompt, you will be asked to selec
 
 You can publish prompts to make them available for the target audience. 
 
-> Watch [Publications](/docs/video%20demos/demos/6.dial-publications.md) demo video to learn more about collaboration features in AI DIAL.
+> Watch [Publications](/docs/video%20demos/1.Chat/4.dial-publications.md) demo video to learn more about collaboration features in AI DIAL.
 
 > **Note**: to publish a shared prompt, [duplicate](#duplicate-1) it and then publish. 
 
@@ -923,7 +923,7 @@ Click a folder to expand it.
 
 You can publish/unpublish your applications, conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
 
-> * Watch [Publications](/docs/video%20demos/demos/6.dial-publications.md) demo video to learn more about publication and collaboration features in AI DIAL.
+> * Watch [Publications](/docs/video%20demos/1.Chat/4.dial-publications.md) demo video to learn more about publication and collaboration features in AI DIAL.
 > * Refer to [Collaboration](/docs/tutorials/collaboration/1.overview.md) to learn more about collaboration features in AI DIAL.
 
 ### Configuration
@@ -997,8 +997,8 @@ Plotly is an open-source JavaScript library that enables the creation of diverse
 ![](./img/plotly.png)
 
 > * Refer to [Plotly](https://plotly.com/) to learn more. 
-> * Watch [Animated Scatterplot](/docs/video%20demos/demos/animated-scatterplot.md) demo video to see how statistical data can be visualized in AI DIAL Chat using a Plotly animated scatterplot.
-> * Watch [Omics AI Assistant](/docs/video%20demos/demos/dial-omics-assistant.md) demo video to see how protein structures can be visualized with Plotly.
+> * Watch [Animated Scatterplot](/docs/video%20demos/1.Chat/6.animated-scatterplot.md) demo video to see how statistical data can be visualized in AI DIAL Chat using a Plotly animated scatterplot.
+> * Watch [Omics AI Assistant](/docs/video%20demos/2.Applications/7.dial-omics-assistant.md) demo video to see how protein structures can be visualized with Plotly.
 
 AI DIAL Chat integrates with Plotly, offering robust data visualization capabilities. To utilize Plotly, choose an AI DIAL application that supports this feature. These applications must be capable of querying data (either from a URL or directly from the Chat application) based on user input and returning it in a format compatible with Plotly. Chat automatically detects attachments in this format and uses Plotly to visualize the data.
 
@@ -1040,7 +1040,7 @@ AI DIAL platform serves as an **application server**, offering tools to develop,
 
 Applications can be developed (using [DIAL SDK](https://github.com/epam/ai-dial-sdk)) to execute any custom logic and can even form an [ecosystem](/docs/architecture.md#introduction) and interact with each other through the [Unified API](https://epam-rail.com/dial_api) with access to all DIAL Core features among which is connectivity to models (including multi-modal models), file storage, access control, per-request API keys and other.
 
-> Watch a [DIAL RAG](/docs/video%20demos/demos/8.dial-rag.md) and [DIAL ChatHub](/docs/video%20demos/demos/dial-chathub.md) videos as examples of what DIAL applications may look like.
+> Watch a [DIAL RAG](/docs/video%20demos/2.Applications/1.dial-rag.md) and [DIAL ChatHub](/docs/video%20demos/2.Applications/3.dial-chathub.md) videos as examples of what DIAL applications may look like.
 
 In the [DIAL Marketplace](#dial-marketplace) section, you can view all the applications available on your DIAL environment. There, you can select applications to add them to [My workspace](#my-workspace).
 
@@ -1067,14 +1067,14 @@ DIAL applications can be integrated into the DIAL Core deployment. By doing so, 
 
 DIAL Quick Apps are conceptually similar to OpenAI's GPT. Quick Apps do not contain any programming code (they include a toolset, description and instruction to the language model) and enable you to rapidly build an application right within DIAL Chat, use it, and share it with others. Quick Apps can be used to simplify a workflow or carry out a specific task. For example, you can create a Quick App with a configuration allowing it to call an external API to get a real-time weather forecast for a specific location.
 
-> * Watch a [Demo Video](/docs/video%20demos/demos/12.quick-apps.md) with an introduction to Quick Apps.
+> * Watch a [Demo Video](/docs/video%20demos/2.Applications/5.quick-apps.md) with an introduction to Quick Apps.
 > * Refer to [My workspace](#add-quick-app) to learn how to add Quick Apps.
 
 #### Code Apps
 
 DIAL Core Apps allow you to develop, deploy and run your Python applications directly in the AI DIAL Chat. It is a useful tool if you need to quickly create an application for the POC, deploy it and share with the selected audience.  
 
-> * Watch a [Demo Video](/docs/video%20demos/demos/11.code-apps.md) with an introduction to Code Apps.
+> * Watch a [Demo Video](/docs/video%20demos/2.Applications/4.code-apps.md) with an introduction to Code Apps.
 > * Refer to [My workspace](#add-code-app) to learn how to add Code Apps.
 
 ### Assistants
@@ -1099,7 +1099,7 @@ In the [DIAL Marketplace](#dial-marketplace) section, you can view all the assis
 
 ### Overview
 
-> Watch [Marketplace](/docs/video%20demos/demos/10.marketplace.md) demo video to see it in action.
+> Watch [Marketplace](/docs/video%20demos/1.Chat/2.marketplace.md) demo video to see it in action.
 
 In DIAL Marketplace where you can find all conversational agents ([applications](#applications), [language models](#available-models) and [assistants](#assistants)) available on your AI DIAL environment. Here, you can also find all applications [published](#publish-app) in your organization.
 
@@ -1120,13 +1120,7 @@ From both marketplace and workspace you can click **Back to Chat** to navigate t
 
 ![](./img/dial-marketplace3.png)
 
-##### Filters
-
-* Use the **Type** filters to display any or all [conversational agents](#conversational-agents). **Note**, that all agents are displayed by default - use the Type filter to narrow down the scope of the displayed agents. 
-* A conversational agent can be associated with a specific topic describing the area of its application. Use the **Topics** filter to refine the output by specific topics. 
-* Use the **Source** filter to apply additional filtering criteria related to the source of conversational agents (e.g. you can filter just the apps shared with you).
-
-Additionally, the **Search** allows you to swiftly locate any item by its name.
+Use the **Type** filters to display any or all conversational agent and categorize them by **Topic**. Additionally, the **Search** allows you to swiftly locate any item. **Note**, that all agents are displayed by default - use the Type filter to narrow down the scope of the displayed agents.
 
 ![](./img/dial-marketplace5.png)
 
@@ -1313,67 +1307,6 @@ Use Edit in the app's menu to modify your apps.
 1. Click **Edit** to invoke the [Edit app](#addedit-application-form)/[Edit quick app](#addedit-quick-app-form)/[Edit quick app](#addedit-code-app-form)
 2. Make changes and click **Save**
 
-#### Share App
-
-Applications (or their versions) can be shared with other users by sending a sharing link. In this section, you can learn about: 
-
-* [Sharing](#to-share-app)
-* [Unsharing](#to-unshare-app)
-* [Removing access](#to-remove-access)
-* [Editing rights](#sharing-with-editing-rights)
-
-##### To share app
-
-Use **Share** to grant other users rights to use your application. You can repeat the procedure described in this section more than once to share with different users.
-
-> **Note**, that you can share only your own applications. You cannot share an application that has been shared with you.
-
-1. In My workspace, in the application menu, click **Share**.
-
-![](./img/share-app.png)
-
-2. If necessary, you can select a specific version of the application you want to share.
-2. In the pop-up dialog window, select whether you want to give editing rights with the sharing link. **Important**: if you grant editing rights to your app, make sure you are familiar with the [main principles](#sharing-with-editing-rights) outlined in this documentation.
-3. Confirm the action in the dialog window.
-4. Provide the sharing link to the target user with whom you want to share your app.
-
-A shared application (or its version if only a specific version has been shared) is labeled with the blue arrow:
-
-![](./img/share-app3.png)
-
-##### Sharing with editing rights
-
-The key distinction between sharing and [publishing](#publish-app) is that sharing allows you to grant not only the rights to use but also editing access to your application. 
-
-**Important**: when an application (or its specific version) is shared, any updates made to the app become immediately available to the users with whom the application has been shared, but it's important to note that **conflict resolution** for simultaneous edits by multiple users is not supported, so the changes submitted first will be applied to the shared application for all users immediately.
-
-Applications shared with and without editing rights have different scope of actions available for the target user: 
-
-![](./img/share-app2.png)
-
-##### To remove access
-
-> **Note**: a shared application is revoked from the shared usage when the apps's name or version is modified by the application owner.
-
-You can revoke access for all users with whom you have share the application.
-
-1. Select the shared application for which you want to revoke access. You can identify the shared apps by the blue arrow pinned to the icon of the shared application. 
-2. Click **Share** in the applications menu.
-3. In the open dialog window, click **Remove access for all users** and confirm the unshare action in the pop-up window.
-
-![](./img/revoke.png)
-
-##### To unshare app
-
-Use **Unshare** to remove the shared with you application from your workspace. 
-
-> **TIP**: To quickly find all apps that have been shared with you, use the **Source** filter in My workspace.
-
-1. In the shared application's menu, click **Unshare**.
-2. Confirm the action in the dialog window.
-
-![](./img/share-app4.png)
-
 #### Publish App
 
 You can publish your custom, quick and code applications to make them accessible to the selected audience in your organization. Refer to [Publications](#publications) to learn more about this functionality and to [Tutorials](/docs/tutorials/collaboration/2.enable-publications.md) for a more extended documentation.
@@ -1415,9 +1348,4 @@ Use Delete in the app's menu to completely delete the selected application. **No
 
 ![](./img/register-app4.png)
 
-#### Application Link
-
-For applications that are available organization-wide, you can copy and share a link that directs users straight to the application's card in the DIAL Marketplace, facilitating quick and easy navigation.
-
-![](./img/app-link.png)
 

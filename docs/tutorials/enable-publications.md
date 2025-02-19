@@ -2,7 +2,7 @@
 
 You can publish/unpublish conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
 
-> Watch [Publications](/docs/video%20demos/demos/6.dial-publications.md) demo video to learn more about collaboration features in AI DIAL.
+> Watch [Publications](/docs/video%20demos/6.dial-publications.md) demo video to learn more about collaboration features in AI DIAL.
 
 ## DIAL API
 
