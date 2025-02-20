@@ -2,7 +2,7 @@
 
 You can publish/unpublish conversations and prompts, or even a collection of those, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that the right information is accessible to the right individuals or teams.
 
-> Watch [Publications](/docs/video%20demos/6.dial-publications.md) demo video to learn more about collaboration features in AI DIAL.
+> Watch [Publications](/docs/video%20demos/1.Chat/4.dial-publications.md) demo video to learn more about collaboration features in AI DIAL.
 
 ## DIAL API
 
@@ -35,13 +35,13 @@ The effective access rules for a folder structure can be described as follows:
 
 ## DIAL Chat
 
-Refer to [user guide](/docs/user-guide.md#flow) to learn how chat users can use publications for conversations and prompts.
+Refer to [user guide](/docs/tutorials/0.user-guide.md#flow) to learn how chat users can use publications for conversations and prompts.
 
 To enable the publication feature in AI DIAL Chat:
 
 ### Step 1: Users
 
-Create user hierarchy (including claims) in your identity service provider (IDP) and configure AI DIAL to work with it. Refer to [Web Auth](/docs/Auth/2.%20Web/1.overview.md) to view the supported IDPs and configuration guidelines.
+Create user hierarchy (including claims) in your identity service provider (IDP) and configure AI DIAL to work with it. Refer to [Authentication](docs/platform/3.core/1.auth-intro.md) to view the supported IDPs and configuration guidelines.
 
 ### Step 2: AI DIAL Core
 

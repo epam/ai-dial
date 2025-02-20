@@ -16,18 +16,39 @@ const sidebars = {
       label: 'Platform',
       items: [
         {
-          type: 'doc',
-          id: 'architecture',
-          label: 'Architecture',
+          type: 'category',
+          label: 'Architecture & Concepts',
+          items: [
+            {
+              type: 'doc',
+              id: 'platform/architecture-and-concepts/vision',
+              label: 'Our Vision',
+            },
+            {
+              type: 'doc',
+              id: 'platform/architecture-and-concepts/concepts',
+              label: 'Main Concepts',
+            },
+            {
+              type: 'doc',
+              id: 'platform/architecture-and-concepts/architecture',
+              label: 'Architecture Highlights',
+            },
+            {
+              type: 'doc',
+              id: 'platform/architecture-and-concepts/components',
+              label: 'Platform Components',
+            },
+          ],
         },
         {
           type: 'doc',
-          id: 'deployment-intro',
+          id: 'platform/deployment-intro',
           label: 'Deployment',
         },
         {
           type: 'doc',
-          id: 'supported-models',
+          id: 'platform/supported-models',
           label: 'AI Model Providers',
         },
         {
@@ -36,37 +57,37 @@ const sidebars = {
           items: [
             {
               type: 'doc',
-              id: 'about-core',
+              id: 'platform/core/about-core',
               label: 'About',
             },
             {
               type: 'doc',
-              id: 'Auth/intro',
+              id: 'platform/core/auth-intro',
               label: 'Authentication',
             },
             {
               type: 'doc',
-              id: 'Roles and Access Control/intro',
-              label: 'Roles and Access Control',
+              id: 'platform/core/access-control-intro',
+              label: 'Access & Cost Control',
             },
             {
               type: 'doc',
-              id: 'Roles and Access Control/Per Request Keys',
+              id: 'platform/core/per-request-keys',
               label: 'Per Request Keys',
             },
             {
               type: 'doc',
-              id: 'privacy',
+              id: 'platform/core/privacy',
               label: 'PII Compliance & Privacy',
             },
             {
               type: 'doc',
-              id: 'tutorials/load-balancer',
+              id: 'platform/core/load-balancer',
               label: 'Load Balancer',
             },
             {
               type: 'doc',
-              id: 'tutorials/interceptors',
+              id: 'platform/core/interceptors',
               label: 'Interceptors',
             },
           ],
@@ -77,49 +98,44 @@ const sidebars = {
           items: [
             {
               type: 'doc',
-              id: 'about-chat',
+              id: 'platform/chat/about-chat',
               label: 'About',
             },
             {
               type: 'doc',
-              id: 'marketplace',
+              id: 'platform/chat/marketplace',
               label: 'Marketplace',
             },
             {
               type: 'doc',
-              id: 'chat-design',
-              label: 'Design Structure',
-            },
-            {
-              type: 'doc',
-              id: 'tutorials/data-visualization-intro',
+              id: 'platform/chat/data-visualization-intro',
               label: 'Data Visualization',
             },
           ],
         },
         {
           type: 'doc',
-          id: 'tutorials/multimodality',
+          id: 'platform/multimodality',
           label: 'Multimodality',
         },
         {
           type: 'doc',
-          id: 'tutorials/realtime-analytics-intro',
+          id: 'platform/realtime-analytics-intro',
           label: 'Analytics',
         },
         {
           type: 'doc',
-          id: 'tutorials/collaboration/intro',
+          id: 'platform/collaboration-intro',
           label: 'Collaboration',
         },
         {
           type: 'doc',
-          id: 'Observability/Observability-intro',
+          id: 'platform/observability-intro',
           label: 'Observability',
         },
         {
           type: 'doc',
-          id: 'tutorials/high-load-performance',
+          id: 'platform/high-load-performance',
           label: 'Handling High Loads',
         },
       ],
@@ -130,7 +146,7 @@ const sidebars = {
       items: [
         {
           type: 'doc',
-          id: 'user-guide',
+          id: 'tutorials/user-guide',
           label: 'Chat User Guide',
         },
         {
@@ -139,26 +155,26 @@ const sidebars = {
           items: [
             {
               type: 'category',
-              label: 'Launching Chat',
+              label: 'Run AI DIAL Locally',
               items: [
                 {
                   type: 'doc',
-                  id: 'tutorials/quick-start-with-application',
+                  id: 'tutorials/developers/local-run/quick-start-with-application',
                   label: 'Chat with Application',
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/quick-start-model',
+                  id: 'tutorials/developers/local-run/quick-start-model',
                   label: 'Chat with OpenAI Model',
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/quick-start-with-self-hosted-model',
+                  id: 'tutorials/developers/local-run/quick-start-with-self-hosted-model',
                   label: 'Chat with a Self-Hosted Model',
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/quick-start-with-addon',
+                  id: 'tutorials/developers/local-run/quick-start-with-addon',
                   label: 'Chat with Addon',
                 },
               ],
@@ -169,17 +185,17 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'tutorials/collaboration/work-with-publications',
+                  id: 'tutorials/developers/work-with-resources/work-with-publications',
                   label: 'Publications',
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/collaboration/sharing',
+                  id: 'tutorials/developers/work-with-resources/sharing',
                   label: 'Sharing',
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/collaboration/notifications',
+                  id: 'tutorials/developers/work-with-resources/notifications',
                   label: 'Notifications',
                 },
               ],
@@ -190,18 +206,23 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'tutorials/chat-objects',
+                  id: 'tutorials/developers/chat/chat-objects',
                   label: 'Custom Content in Chat',
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/localization',
+                  id: 'tutorials/developers/chat/localization',
                   label: 'Chat Localization',
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/create-custom-visualizer',
+                  id: 'tutorials/developers/chat/create-custom-visualizer',
                   label: 'Create Visualizer',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/chat/chat-design',
+                  label: 'Design Structure',
                 },
               ],
             },
@@ -211,21 +232,21 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'tutorials/adapter-dial',
+                  id: 'tutorials/developers/apps-development/adapter-dial',
                   label: 'Local Development',
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/custom-buttons',
+                  id: 'tutorials/developers/apps-development/custom-buttons',
                   label: 'Custom Buttons in Apps',
                 },
                 {
                   type: 'category',
-                  label: 'Cookbook',
+                  label: 'Multimodality',
                   items: [
-                    'Cookbook/dial-cookbook/examples/how_to_call_text_to_text_applications',
-                    'Cookbook/dial-cookbook/examples/how_to_call_text_to_image_applications',
-                    'Cookbook/dial-cookbook/examples/how_to_call_image_to_text_applications',
+                    'tutorials/developers/apps-development/multimodality/dial-cookbook/examples/how_to_call_text_to_text_applications',
+                    'tutorials/developers/apps-development/multimodality/dial-cookbook/examples/how_to_call_text_to_image_applications',
+                    'tutorials/developers/apps-development/multimodality/dial-cookbook/examples/how_to_call_image_to_text_applications',
                   ],
                 },
               ],
@@ -236,7 +257,7 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'tutorials/copilot-to-dial',
+                  id: 'tutorials/developers/integrations/copilot-to-dial',
                   label: 'Integration with MS Copilot',
                 },
               ],
@@ -254,27 +275,6 @@ const sidebars = {
           items: [
             {
               type: 'category',
-              label: 'Configuration',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'Deployment/configuration',
-                  label: 'Configuration Guide',
-                },
-                {
-                  type: 'doc',
-                  id: 'tutorials/realtime-analytics-config',
-                  label: 'Analytics Realtime Configuration',
-                },
-                {
-                  type: 'doc',
-                  id: 'tutorials/collaboration/enable-publications-chat',
-                  label: 'Enable Publications',
-                },
-              ],
-            },
-            {
-              type: 'category',
               label: 'Deployment',
               items: [
                 {
@@ -284,22 +284,43 @@ const sidebars = {
                 },
                 {
                   type: 'doc',
-                  id: 'Deployment/custom_apps_deployment',
+                  id: 'tutorials/devops/deployment/custom_apps_deployment',
                   label: 'Custom Apps Deployment',
                 },
                 {
                   type: 'doc',
-                  id: 'Deployment/azure-secrets',
+                  id: 'tutorials/devops/deployment/azure-secrets',
                   label: 'Azure Secrets Deployment',
                 },
                 {
                   type: 'category',
                   label: 'Deployment of Models',
                   items: [
-                    'Deployment/OpenAI Model Deployment',
-                    'Deployment/Vertex Model Deployment',
-                    'Deployment/Bedrock Model Deployment',
+                    'tutorials/devops/deployment/deployment-of-models/OpenAI Model Deployment',
+                    'tutorials/devops/deployment/deployment-of-models/Vertex Model Deployment',
+                    'tutorials/devops/deployment/deployment-of-models/Bedrock Model Deployment',
                   ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Configuration',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'tutorials/devops/configuration/configuration-guide',
+                  label: 'Configuration Guide',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/devops/configuration/realtime-analytics-config',
+                  label: 'Analytics Realtime Configuration',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/devops/configuration/enable-publications-chat',
+                  label: 'Enable Publications',
                 },
               ],
             },
@@ -309,18 +330,23 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'Auth/programmatic-auth',
+                  id: 'tutorials/devops/auth-and-access-control/programmatic-auth',
                   label: 'Create API Keys',
                 },
                 {
                   type: 'doc',
-                  id: 'Roles and Access Control/API Key Roles',
+                  id: 'tutorials/devops/auth-and-access-control/API Key Roles',
                   label: 'API Keys Roles & Limits',
                 },
                 {
                   type: 'doc',
-                  id: 'Roles and Access Control/chat-users-roles',
+                  id: 'tutorials/devops/auth-and-access-control/chat-users-roles',
                   label: 'JWT Roles & Limits',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/devops/auth-and-access-control/azure-ad-configuration',
+                  label: 'Azure AD Configuration',
                 },
                 {
                   type: 'category',
@@ -328,37 +354,37 @@ const sidebars = {
                   items: [
                     {
                       type: 'doc',
-                      id: 'Auth/Web/overview',
+                      id: 'tutorials/devops/auth-and-access-control/configure-idps/overview',
                       label: 'Overview',
                     },
                     {
                       type: 'doc',
-                      id: 'Auth/Web/IDPs/auth0',
+                      id: 'tutorials/devops/auth-and-access-control/configure-idps/auth0',
                       label: 'Auth0',
                     },
                     {
                       type: 'doc',
-                      id: 'Auth/Web/IDPs/cognito',
+                      id: 'tutorials/devops/auth-and-access-control/configure-idps/cognito',
                       label: 'AWS Cognito',
                     },
                     {
                       type: 'doc',
-                      id: 'Auth/Web/IDPs/entraID',
+                      id: 'tutorials/devops/auth-and-access-control/configure-idps/entraID',
                       label: 'Microsoft Entra',
                     },
                     {
                       type: 'doc',
-                      id: 'Auth/Web/IDPs/google',
+                      id: 'tutorials/devops/auth-and-access-control/configure-idps/google',
                       label: 'Google Identity',
                     },
                     {
                       type: 'doc',
-                      id: 'Auth/Web/IDPs/keycloak',
+                      id: 'tutorials/devops/auth-and-access-control/configure-idps/keycloak',
                       label: 'Keycloak',
                     },
                     {
                       type: 'doc',
-                      id: 'Auth/Web/IDPs/okta',
+                      id: 'tutorials/devops/auth-and-access-control/configure-idps/okta',
                       label: 'Okta',
                     },
                   ],
@@ -367,8 +393,13 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'Observability/Observability-config',
+              id: 'tutorials/devops/observability-config',
               label: 'Observability',
+            },
+            {
+              type: 'doc',
+              id: 'tutorials/devops/use-databricks-model',
+              label: 'Use Databricks Models',
             },
           ],
         },

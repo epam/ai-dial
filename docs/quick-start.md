@@ -2,8 +2,8 @@
 
 Follow this tutorial to launch AI DIAL Chat with Echo application. As a result, you will be able to access Chat on http://localhost:3000/ and use Echo application to mirror your prompts.
 
-> * To learn more, watch a [demo video](/docs/video%20demos/demos-for-developers/4.deploy-ollama.md) to see how to deploy a chat application with a self-hosted model.
-> * Refer to other quick start instructions in [Tutorials](/docs/tutorials/quick-start-with-application.md).
+> * To learn more, watch a [demo video](/docs/video%20demos/3.Developers/Deployment/4.deploy-ollama.md) to see how to deploy a chat application with a self-hosted model.
+> * Refer to other quick start instructions in [Tutorials](/docs/tutorials/1.developers/0.local-run\0.quick-start-with-application.md).
 
 
 ## Prerequisites

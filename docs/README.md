@@ -6,7 +6,7 @@
 
 ## Architecture
 
-* [Architecture Overview](./architecture.md)
+* [Architecture Overview](docs/platform/0.architecture-and-concepts/2.architecture.md)
 
 ## Quick Start
 
@@ -23,23 +23,23 @@
 
 ## Configuration
 
-* Refer to [Configuration](./Deployment/configuration.md)
+* Refer to [Configuration](./tutorials/2.devops/1.configuration/0.configuration-guide.md)
 
 ## Development Guides
 
-* [A basic guide for development of applications for AI DIAL](./tutorials/quick-start-with-application.md)
+* [A basic guide for development of applications for AI DIAL](/docs/tutorials/1.developers/0.local-run/0.quick-start-with-application.md)
 * [DIAL-to-DIAL Adapter](https://github.com/epam/ai-dial-adapter-dial) - application which adapts calls from one DIAL Core to calls to another DIAL Core.
 
 ## Tutorials
 
-* [Launch AI DIAL Chat with an Azure model](./tutorials/quick-start-model.md)
-* [Launch AI DIAL Chat with a self-hosted model](./tutorials/quick-start-with-self-hosted-model.md)
-* [Launch AI DIAL Chat with a sample application](./tutorials/quick-start-with-application.md)
-* [Launch AI DIAL Chat with a sample addon](./tutorials/quick-start-with-addon.md)
+* [Launch AI DIAL Chat with an Azure model](/docs/tutorials/1.developers/0.local-run/1.quick-start-model.mdd)
+* [Launch AI DIAL Chat with a self-hosted model](/docs/tutorials/1.developers/0.local-run/3.quick-start-with-self-hosted-model.md)
+* [Launch AI DIAL Chat with a sample application](/docs/tutorials/1.developers/0.local-run/0.quick-start-with-application.md)
+* [Launch AI DIAL Chat with a sample addon](/docs/tutorials/1.developers/0.local-run/4.quick-start-with-addon.md)
 
 ## AI DIAL Chat Application User Manual
 
-* [AI DIAL Chat User Manual](./user-guide.md)
+* [AI DIAL Chat User Manual](/docs/tutorials/0.user-guide.md)
 
 ## Other AI DIAL Project Open Source Repositories
 
