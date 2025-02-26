@@ -73,7 +73,7 @@ const sidebars = {
             {
               type: 'doc',
               id: 'platform/core/per-request-keys',
-              label: 'Per Request Keys',
+              label: 'Per-Request Keys',
             },
             {
               type: 'doc',
@@ -296,9 +296,21 @@ const sidebars = {
                   type: 'category',
                   label: 'Deployment of Models',
                   items: [
-                    'tutorials/devops/deployment/deployment-of-models/OpenAI Model Deployment',
-                    'tutorials/devops/deployment/deployment-of-models/Vertex Model Deployment',
-                    'tutorials/devops/deployment/deployment-of-models/Bedrock Model Deployment',
+                    {
+                      type: 'doc',
+                      id: 'tutorials/devops/deployment/deployment-of-models/openai-model-deployment',
+                      label: 'OpenAI Model Deployment',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/devops/deployment/deployment-of-models/vertex-model-deployment',
+                      label: 'Vertex Model Deployment',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/devops/deployment/deployment-of-models/bedrock-model-deployment',
+                      label: 'Bedrock Model Deployment',
+                    },
                   ],
                 },
               ],
@@ -335,7 +347,7 @@ const sidebars = {
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/API Key Roles',
+                  id: 'tutorials/devops/auth-and-access-control/api-key-roles',
                   label: 'API Keys Roles & Limits',
                 },
                 {
