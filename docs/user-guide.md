@@ -210,6 +210,8 @@ There are several ways to initiate a dialog with a [conversational agent](#conve
 
 ![](./img/start-conv.png)
 
+**Please be aware** that new conversations will show up in the conversations panel located to the left of the main chat area. However, if you start a conversation and close it while it is still empty, it will neither be displayed on the panel nor saved in your conversations.
+
 ### Rename
 
 When you create a new conversation, it is automatically named after the first line in your first prompt. For instance, if your prompt consists of several sentences divided by a tab, the first sentence will be used as the conversation's name. Moreover, the MAX length of the conversation name is limited to 160 symbols. Everything beyond is cut off. After a conversation is created, you can rename it.
@@ -1189,7 +1191,7 @@ From both marketplace and workspace you can click **Back to Chat** to navigate t
 * A conversational agent can be associated with a specific topic describing the area of its application. Use the **Topics** filter to refine the output by specific topics. 
 * Use the **Source** filter to apply additional filtering criteria related to the source of conversational agents (e.g. you can filter just the apps shared with you).
 * The **Search** allows you to swiftly locate any item by its name.
-* Use view toggle to switch between the table and the grid view. 
+* Use view toggle to switch between the table and the card view. 
 
 ![](./img/dial-marketplace5.png)
 
@@ -1353,7 +1355,13 @@ After adding, your new Code App will appear in [My workspace](#my-workspace).
 
 You can view and download logs of the deployed Code App from the application menu.
 
+1. Click **Logs** in the deployed code app.
+
 ![](./img/logs-code-app.png)
+
+2. In the pop-up window, you can view, refresh and download file with application logs.
+
+![](./img/app-logs.png)
 
 ##### To Edit Code App
 
