@@ -1137,7 +1137,7 @@ DIAL Core Apps allow you to develop, deploy and run your Python applications dir
 
 Mindmap enables users to access information through an interactive knowledge graph and natural language. The application pulls data from various sources, including documents, URLs, and other data inputs and then presents it on UI as a interactive knowledge graph, facilitating intuitive and engaging user interactions with information.
 
-> Watch [demo video](/docs/video%20demos/demos/mindmap-studio) to see the AI DIAL Mindmap Studio in action.
+> Watch [demo video](/docs/video%20demos/demos/mindmap-studio.md) to see the AI DIAL Mindmap Studio in action.
 
 
 ### Assistants
@@ -1244,7 +1244,7 @@ The standard AI DIAL Chat UI is designed to meet the needs of typical conversati
 ![](./img/mindmap.png)
 
 > * Refer to [Extensibility](https://epam-rail.com/extension-framework) to learn more.
-> * Watch [demo video](/docs/video%20demos/demos/mindmap-studio) to see the Mindmap Studio in action.
+> * Watch [demo video](/docs/video%20demos/demos/mindmap-studio.md) to see the Mindmap Studio in action.
 
 #### Add Custom App
 
