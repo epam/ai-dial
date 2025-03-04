@@ -36,6 +36,7 @@ Follow these steps to configure AWS Cognito:
     - **App client name**: provide a relevant and descriptive name for the client.
     - **Client secret**: select the option to `Generate a client secret`
     - **Allowed callback URLs**: enter `https://<chat_url>/api/auth/callback/cognito`
+    - **Allowed sign-out URLs**: enter `https://<chat_url>/`.
     - **Authentication flows**: enable `ALLOW_CUSTOM_AUTH` `ALLOW_REFRESH_TOKEN_AUTH` and `ALLOW_USER_SRP_AUTH`.
     - **OpenID Connect scopes**: select `OpenID` `Email` `Profile`
 1. **Create Cognito Domain:** when setting up a user pool, navigate to the **Hosted authentication pages**. If the **Use the Cognito Hosted UI** option is enabled, you'll configure your domain here. Alternatively, you can access this configuration later by going to **App Integration/Domain/Actions**. Refer to [AWS documentation](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html) for details.
