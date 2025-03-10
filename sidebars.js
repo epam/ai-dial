@@ -265,7 +265,7 @@ const sidebars = {
             {
               type: 'link',
               label: 'API Reference',
-              href: 'https://epam-rail.com/dial_api',
+              href: 'https://dialx.ai/dial_api',
             },
           ],
         },
