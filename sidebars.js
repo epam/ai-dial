@@ -242,7 +242,7 @@ const sidebars = {
                 },
                 {
                   type: 'category',
-                  label: 'Multimodality',
+                  label: 'Examples',
                   items: [
                     'tutorials/developers/apps-development/multimodality/dial-cookbook/examples/how_to_call_text_to_text_applications',
                     'tutorials/developers/apps-development/multimodality/dial-cookbook/examples/how_to_call_text_to_image_applications',
@@ -261,11 +261,6 @@ const sidebars = {
                   label: 'Integration with MS Copilot',
                 },
               ],
-            },
-            {
-              type: 'link',
-              label: 'API Reference',
-              href: 'https://dialx.ai/dial_api',
             },
           ],
         },
@@ -416,6 +411,11 @@ const sidebars = {
           ],
         },
       ],
+    },
+    {
+      type: 'link',
+      label: 'API Reference',
+      href: 'https://dialx.ai/dial_api',
     },
     {
       type: 'category',
