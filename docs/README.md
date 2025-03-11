@@ -6,7 +6,7 @@
 
 ## Architecture
 
-* [Architecture Overview](docs/platform/0.architecture-and-concepts/2.architecture.md)
+* [Architecture Overview](/docs/platform/0.architecture-and-concepts/2.architecture.md)
 
 ## Quick Start
 
