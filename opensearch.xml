@@ -4,8 +4,8 @@
   <ShortName>DIAL Knowledge Base</ShortName>
   <Description>Search DIAL Knowledge Base</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://docs.epam-rail.com/img/favicon.svg</Image>
-  <Url type="text/html" method="get" template="https://docs.epam-rail.com/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://docs.epam-rail.com/opensearch.xml" />
-  <moz:SearchForm>https://docs.epam-rail.com/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://docs.dialx.ai/img/favicon.svg</Image>
+  <Url type="text/html" method="get" template="https://docs.dialx.ai/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://docs.dialx.ai/opensearch.xml" />
+  <moz:SearchForm>https://docs.dialx.ai/</moz:SearchForm>
 </OpenSearchDescription>
