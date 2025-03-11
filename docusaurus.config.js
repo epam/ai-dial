@@ -191,9 +191,9 @@ const config = {
         },
       },
       algolia: {
-        appId: '8ZBWD7ULLD',
-        apiKey: 'ac2f650541ceb44057cb625556f5e70a',
-        indexName: 'epam-rail',
+        appId: 'J29WSHFXXA',
+        apiKey: '7301647acc03a2265992a18254db34c6',
+        indexName: 'docs_dialx_ai_j29wshfxxa_pages',
         contextualSearch: true,
         algoliaOptions: {
           // facets: [ "language" ]
