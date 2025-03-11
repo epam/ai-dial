@@ -1,0 +1,445 @@
+---
+title: How to call image-to-text DIAL applications
+---
+
+
+
+
+# How to call image-to-text DIAL applications
+
+From this notebook, you will learn how to call image-to-text DIAL
+applications via [DIAL API
+chat/completions](https://dialx.ai/dial_api#/paths/~1openai~1deployments~1%7BDeployment%20Name%7D~1chat~1completions/post)
+call.
+
+https://github.com/epam/ai-dial/blob/main/dial-cookbook/examples/how_to_call_image_to_text_applications.ipynb
+
+**DIAL application** is a general term, which encompasses model adapters
+and application with any custom logic.
+
+DIAL currently supports a few image-to-text model adapters:
+
+-   [GPT4-Vision](https://github.com/epam/ai-dial-adapter-openai/)
+-   [Gemini Pro
+    Vision](https://github.com/epam/ai-dial-adapter-vertexai/)
+
+These models follow the same pattern of usage - they take the chat
+history of interactions between user and model, some of the user
+messages may contain image attachments, which the model takes into
+account when it generates the response.
+
+The typical use case is to attach an image to a message and ask the
+model to describe it in the same message.
+
+For example purposes, we are going to use a sample `image-size`
+image-to-text application which returns dimensions of an attached image.
+
+## Setup
+
+**Step 1**: install the necessary dependencies and import the libraries
+we are going to use.
+
+```python
+!pip install requests==2.32.3
+!pip install openai==1.43.0
+!pip install httpx==0.27.2
+!pip install langchain-openai==0.1.23
+```
+
+
+```python
+import requests
+import openai
+import langchain_openai
+```
+
+**Step 2**: if DIAL Core server is already configured and running, set
+env vars `DIAL_URL` and `APP_NAME` to point to the DIAL Core server and
+the image-to-text application (or model) you want to use.
+
+Otherwise, run the [docker-compose
+file](https://github.com/epam/ai-dial/blob/main/dial-cookbook/docker-compose.yml)
+in a separate terminal to start the **DIAL Core** server locally along
+with a sample **image-size** application. The DIAL Core will become
+available at `http://localhost:8080`:
+
+```sh
+docker compose up core image-size
+```
+
+**Step 3**: configure `DIAL_URL` and `APP_NAME` env vars. The default
+values are configured under the assumption that DIAL Core is running
+locally via the docker-compose file.
+
+```python
+import os
+
+dial_url = os.environ.get("DIAL_URL", "http://localhost:8080")
+os.environ["DIAL_URL"] = dial_url
+
+app_name = os.environ.get("APP_NAME", "image-size")
+os.environ["APP_NAME"] = app_name
+```
+
+**Step 4**: define helpers to read images from disk and display images
+in the notebook:
+
+```python
+import base64
+
+from IPython.display import Image as IPImage
+from IPython.display import display
+
+def display_base64_image(image_base64):
+    image_binary = base64.b64decode(image_base64)
+    display(IPImage(data=image_binary))
+
+def read_image_base64(image_path: str) -> str:
+    with open(image_path, "rb") as image_file:
+        image_base64 = base64.b64encode(image_file.read()).decode()
+    return image_base64
+```
+
+## DIAL attachments
+
+The `render-text` application returns an image in its response. The DIAL
+API allows to specify a list of attachment files for each message in the
+DIAL request as well as in the message returned in the DIAL response.
+
+The files attached to the request we call **input attachments**. They
+are saved at the path
+`messages/{message_idx}/custom_content/attachments/{attachment_idx}`.
+
+And the files attached to the response we call **output attachments**.
+They are saved at the path
+`message/custom_content/attachments/{attachment_idx}`.
+
+A single attachment *(in our case an image attachment)* may either
+contain the content of the image encoded in base64:
+
+```json
+{
+  "type": "image/png",
+  "title": "Image",
+  "data": "<base64-encoded image data>"
+}
+```
+
+or reference the attachment content via a URL:
+
+```json
+{
+  "type": "image/png",
+  "title": "Image",
+  "url": "<image URL>"
+}
+```
+
+The image URL is either 1. a publicly accessible URL or 2. a URL to an
+image uploaded to the DIAL Core server beforehand.
+
+## Uploading file to the DIAL file storage
+
+In order to upload an image to the DIAL file storage, we need first to
+retrieve the user bucket which will be used in all follow-up requests to
+the DIAL storage:
+
+```python
+bucket = requests.get(
+    f"{dial_url}/v1/bucket", headers={"Api-Key": "dial_api_key"}
+).json()["bucket"]
+print(f"Bucket: {bucket}")
+```
+
+``` text
+Bucket: FSWLtFA648cQNf6WfxHZcFzdABKNsTr7ygwQjYbiDi1n
+```
+
+Then upload the image to the bucket via multi-part upload:
+
+```python
+import json
+
+with open("./data/images/square.png", "rb") as file:
+    metadata = requests.put(
+        f"{dial_url}/v1/files/{bucket}/images/square.png",
+        headers={"Api-Key": "dial_api_key"},
+        files={'file': ('square.png', file, 'image/png')},
+    ).json()
+    print(f"Metadata: {json.dumps(metadata, indent=2)}")
+```
+
+``` text
+Metadata: {
+  "name": "square.png",
+  "parentPath": "images",
+  "bucket": "FSWLtFA648cQNf6WfxHZcFzdABKNsTr7ygwQjYbiDi1n",
+  "url": "files/FSWLtFA648cQNf6WfxHZcFzdABKNsTr7ygwQjYbiDi1n/images/square.png",
+  "nodeType": "ITEM",
+  "resourceType": "FILE",
+  "contentLength": 1082,
+  "contentType": "image/png"
+}
+```
+
+The image was uploaded to the DIAL storage and now could be accessed by
+DIAL applications via the URL:
+
+```python
+dial_image_url = metadata["url"]
+print(f"DIAL Image URL: {dial_image_url}")
+```
+
+``` text
+DIAL Image URL: files/FSWLtFA648cQNf6WfxHZcFzdABKNsTr7ygwQjYbiDi1n/images/square.png
+```
+
+The URL is relative to the DIAL Core URL. The application itself will
+resolve the URL to the full URL by prepending the DIAL Core URL to the
+relative URL.
+
+Now we demonstrate how to call the application via DIAL API using either
+DIAL storage to save the image or the base64-encoded image data.
+
+## Using Curl
+
+-   The application deployment is called `app_name`.
+-   The local DIAL Core server URL is `dial_url`.
+-   The OpenAI API version we are going to use is `2023-12-01-preview`.
+
+Therefore, the application is accessible via the URL:
+
+``` text
+${DIAL_URL}/openai/deployments/${APP_NAME}/chat/completions?api-version=2023-12-01-preview
+```
+
+### Using base64-encoded image data
+
+The curl command with a singe message with a base64-encoded image is:
+
+```python
+image_base64 = read_image_base64("./data/images/square.png")
+
+os.environ["IMAGE_BASE64"] = image_base64
+
+display_base64_image(image_base64)
+
+!curl -X POST "${DIAL_URL}/openai/deployments/${APP_NAME}/chat/completions?api-version=2023-12-01-preview" \
+  -H "Api-Key:dial_api_key" \
+  -H "Content-Type:application/json" \
+  -d '{ "messages": [ { "role": "user", "content": "", "custom_content": { "attachments": [ { "type": "image/png", "data": "'"${IMAGE_BASE64}"'" } ] } } ] }'
+```
+
+![](how_to_call_image_to_text_applications_files/figure-markdown_strict/cell-9-output-1.png)
+
+``` text
+{"choices":[{"index":0,"finish_reason":"stop","message":{"role":"assistant","content":"Size: 400x300px"}}],"usage":null,"id":"ec327e92-0393-4a8d-92a0-9f9589c48dd1","created":1707311404,"object":"chat.completion"}
+```
+
+### Using DIAL storage
+
+Now with the DIAL storage, the request is the same, but instead of
+`data` field we provide `url` field with the URL to the uploaded image:
+
+```python
+os.environ["IMAGE_URL"] = dial_image_url
+
+!curl -X POST "${DIAL_URL}/openai/deployments/${APP_NAME}/chat/completions?api-version=2023-12-01-preview" \
+  -H "Api-Key:dial_api_key" \
+  -H "Content-Type:application/json" \
+  -d '{ "messages": [ { "role": "user", "content": "", "custom_content": { "attachments": [ { "type": "image/png", "url": "'"${IMAGE_URL}"'" } ] } } ] }'
+```
+
+``` text
+{"choices":[{"index":0,"finish_reason":"stop","message":{"role":"assistant","content":"Size: 400x300px"}}],"usage":null,"id":"d3fd9bcb-0331-4e5b-8c14-7ccd7e427b45","created":1707311413,"object":"chat.completion"}
+```
+
+## Using Python library Requests
+
+Let’s make an HTTP request from Python using `requests` library.
+
+The arguments are identical to the curl command above.
+
+From now on, we will demonstrate the DIAL storage use case only. To use
+the base64-encoded image data, just replace the attachment in the
+request:
+
+``` text
+{"type": "image/png", "url": dial_image_url}
+```
+
+with this one:
+
+``` text
+{"type": "image/png", "data": image_base64}
+```
+
+Let’s call the application in the **non-streaming** mode:
+
+```python
+response = requests.post(
+    f"{dial_url}/openai/deployments/{app_name}/chat/completions?api-version=2023-12-01-preview",
+    headers={"Api-Key": "dial_api_key"},
+    json={"messages": [{"role": "user", "content": "", "custom_content": {"attachments": [{"type": "image/png", "url": dial_image_url}]}}]},
+)
+body = response.json()
+display(body)
+
+message = body["choices"][0]["message"]
+completion = message["content"]
+print(f"Completion: {completion!r}")
+assert completion == "Size: 400x300px", "Unexpected completion"
+```
+
+``` text
+{'choices': [{'index': 0,
+   'finish_reason': 'stop',
+   'message': {'role': 'assistant', 'content': 'Size: 400x300px'}}],
+ 'usage': None,
+ 'id': '1d01a4fb-93a6-49a4-902d-34d6c523d5e0',
+ 'created': 1707311423,
+ 'object': 'chat.completion'}
+```
+
+``` text
+Completion: 'Size: 400x300px'
+```
+
+When **streaming is enabled**, the chat completion returns a sequence of
+messages, each containing a chunk of a generated response:
+
+```python
+response = requests.post(
+    f"{dial_url}/openai/deployments/{app_name}/chat/completions?api-version=2023-12-01-preview",
+    headers={"Api-Key": "dial_api_key"},
+    json={"messages": [{"role": "user", "content": "", "custom_content": {"attachments": [{"type": "image/png", "url": dial_image_url}]}}], "stream": True},
+)
+for chunk in response.iter_lines():
+    print(chunk)
+```
+
+``` text
+b'data: {"choices":[{"index":0,"finish_reason":null,"delta":{"role":"assistant"}}],"usage":null,"id":"893f5f25-5138-4b9d-9fe9-588b89c70da7","created":1707311431,"object":"chat.completion.chunk"}'
+b''
+b'data: {"choices":[{"index":0,"finish_reason":null,"delta":{"content":"Size: 400x300px"}}],"usage":null,"id":"893f5f25-5138-4b9d-9fe9-588b89c70da7","created":1707311431,"object":"chat.completion.chunk"}'
+b''
+b'data: {"choices":[{"index":0,"finish_reason":"stop","delta":{}}],"usage":null,"id":"893f5f25-5138-4b9d-9fe9-588b89c70da7","created":1707311431,"object":"chat.completion.chunk"}'
+b''
+b'data: [DONE]'
+b''
+```
+
+## Using OpenAI Python SDK
+
+The DIAL deployment could be called using [OpenAI Python
+SDK](https://pypi.org/project/openai/) as well.
+
+```python
+openai_client = openai.AzureOpenAI(
+    azure_endpoint=dial_url,
+    azure_deployment=app_name,
+    api_key="dial_api_key",
+    api_version="2023-12-01-preview",
+)
+```
+
+Let’s call the application in the **non-streaming** mode:
+
+```python
+
+chat_completion = openai_client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "",
+            "custom_content": {"attachments": [{"type": "image/png", "url": dial_image_url}]}
+        }
+    ],
+    model=app_name,
+)
+print(chat_completion)
+message = chat_completion.choices[0].message
+completion = message.content
+print(f"Completion: {completion!r}")
+assert completion == "Size: 400x300px", "Unexpected completion"
+```
+
+``` text
+ChatCompletion(id='cde9f220-ec58-45de-b924-b470ecd50cef', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='Size: 400x300px', role='assistant', function_call=None, tool_calls=None))], created=1707311443, model=None, object='chat.completion', system_fingerprint=None, usage=None)
+Completion: 'Size: 400x300px'
+```
+
+Let’s call the application in the **streaming** mode:
+
+```python
+chat_completion = openai_client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "",
+            "custom_content": {"attachments": [{"type": "image/png", "url": dial_image_url}]}
+        }
+    ],
+    stream=True,
+    model=app_name,
+)
+completion = ""
+for chunk in chat_completion:
+    print(chunk)
+    content = chunk.choices[0].delta.content
+    if content:
+        completion += content
+print(f"Completion: {completion!r}")
+assert completion == "Size: 400x300px", "Unexpected completion"
+```
+
+``` text
+ChatCompletionChunk(id='29c8af34-1515-4f43-ad90-cab888f67373', choices=[Choice(delta=ChoiceDelta(content=None, function_call=None, role='assistant', tool_calls=None), finish_reason=None, index=0, logprobs=None)], created=1707311454, model=None, object='chat.completion.chunk', system_fingerprint=None, usage=None)
+ChatCompletionChunk(id='29c8af34-1515-4f43-ad90-cab888f67373', choices=[Choice(delta=ChoiceDelta(content='Size: 400x300px', function_call=None, role=None, tool_calls=None), finish_reason=None, index=0, logprobs=None)], created=1707311454, model=None, object='chat.completion.chunk', system_fingerprint=None, usage=None)
+ChatCompletionChunk(id='29c8af34-1515-4f43-ad90-cab888f67373', choices=[Choice(delta=ChoiceDelta(content=None, function_call=None, role=None, tool_calls=None), finish_reason='stop', index=0, logprobs=None)], created=1707311454, model=None, object='chat.completion.chunk', system_fingerprint=None, usage=None)
+Completion: 'Size: 400x300px'
+```
+
+## Using LangChain
+
+The [LangChain](https://pypi.org/project/langchain-openai/) library **is
+not suitable** as a client for image-to-text applications, since
+`langchain-openai` ignores additional fields attached to chat messages
+in the request.
+
+```python
+from langchain_core.messages import HumanMessage
+
+llm = langchain_openai.AzureChatOpenAI(
+    azure_endpoint=dial_url,
+    azure_deployment=app_name,
+    api_key="dial_api_key",
+    api_version="2023-12-01-preview",
+)
+```
+
+Let’s call the application in the **non-streaming** mode:
+
+```python
+extra_fields = {"custom_content": {"attachments": [{"type": "image/png", "url": dial_image_url}]}}
+
+try:
+    llm.generate(messages=[[HumanMessage(content="", additional_kwargs=extra_fields)]])
+
+    raise Exception("Generation didn't fail")
+except openai.APIError as e:
+    assert e.body["message"] == "No image attachment was found in the last message"
+```
+
+Let’s call the application in the **streaming** mode:
+
+```python
+try:
+    output = llm.stream(input=[HumanMessage(content="", additional_kwargs=extra_fields)])
+    for chunk in output:
+        print(chunk.dict())
+
+    raise Exception("Generation didn't fail")
+except openai.APIError as e:
+    assert e.body["message"] == "No image attachment was found in the last message"
+```
