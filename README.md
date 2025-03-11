@@ -6,7 +6,7 @@
 
 ## Architecture
 
-* [Architecture Overview](docs/platform/0.architecture-and-concepts/2.architecture.md)
+* [Architecture Overview](/docs/platform/0.architecture-and-concepts/2.architecture.md)
 
 ## Quick Start
 
@@ -30,7 +30,7 @@
 
 ## Configuration
 
-* Refer to [Configuration](./tutorials/2.devops/1.configuration/0.configuration-guide.md) to see configuration guidelines for AI DIAL components.
+* Refer to [Configuration](/docs/tutorials/2.devops/1.configuration/0.configuration-guide.md) to see configuration guidelines for AI DIAL components.
 
 ## AI DIAL Chat Application User Manual
 
@@ -59,7 +59,7 @@ _ [App Controller](https://github.com/epam/ai-dial-app-controller) - a Java-base
 - [Python Code Interpreter](https://github.com/epam/ai-dial-code-interpreter) - uses Jupiter Kernel to execute arbitrary python code.
 - [DIAL-to-DIAL Adapter](https://github.com/epam/ai-dial-adapter-dial) - adapter for a local development against a remote AI DIAL Core.
 - Model adapters:
-    - [DIAL Azure OpenAI Adapter](https://github.com/epam/ai-dial-adapter-openai) - plugable Azure ChatGPT adapter
-    - [DIAL GCP VertexAI Adapter](https://github.com/epam/ai-dial-adapter-vertexai) - plugable Google LLMs adapter
-    - [DIAL AWS Bedrock Adapter](https://github.com/epam/ai-dial-adapter-bedrock) - plugable Amazon LLMs adapter (Anthropic Claude 1/2 is included)
+    - [DIAL Azure OpenAI Adapter](https://github.com/epam/ai-dial-adapter-openai) - pluggable Azure ChatGPT adapter
+    - [DIAL GCP VertexAI Adapter](https://github.com/epam/ai-dial-adapter-vertexai) - pluggable Google LLMs adapter
+    - [DIAL AWS Bedrock Adapter](https://github.com/epam/ai-dial-adapter-bedrock) - pluggable Amazon LLMs adapter (Anthropic Claude 1/2 is included)
     - More LLM adapters will be released (you may contribute)
