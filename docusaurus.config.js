@@ -111,8 +111,8 @@ const config = {
         title: '', // 'EPAM DIAL',
         logo: {
           alt: 'EPAM DIAL',
-          src: 'img/dialx-logo.svg',
-          srcDark: 'img/dialx-logo.svg',
+          src: 'img/logo-dk.svg',
+          srcDark: 'img/logo-lt.svg',
         },
         items: [
           // {
