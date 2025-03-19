@@ -37,7 +37,7 @@ services:
     user: ${UID:-root}
     ports:
       - "8080:8080"
-    image: epam/ai-dial-core:0.25.0
+    image: epam/ai-dial-core:0.25.1
     environment:
       'AIDIAL_SETTINGS': '/opt/settings/settings.json'
       'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
