@@ -246,7 +246,8 @@ const sidebars = {
                   items: [
                     'tutorials/developers/apps-development/multimodality/dial-cookbook/examples/how_to_call_text_to_text_applications',
                     'tutorials/developers/apps-development/multimodality/dial-cookbook/examples/how_to_call_text_to_image_applications',
-                    'tutorials/developers/apps-development/multimodality/dial-cookbook/examples/how_to_call_image_to_text_applications','tutorials/developers/apps-development/multimodality/dial-cookbook/examples/how_to_call_dalle_3_with_configuration',
+                    'tutorials/developers/apps-development/multimodality/dial-cookbook/examples/how_to_call_image_to_text_applications',
+                    'tutorials/developers/apps-development/multimodality/dial-cookbook/examples/how_to_call_dalle_3_with_configuration',
                   ],
                 },
               ],

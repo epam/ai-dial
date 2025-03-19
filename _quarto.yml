@@ -2,4 +2,4 @@ project:
   type: docusaurus
   render:
     - dial-cookbook/examples/**/*.ipynb
-  output-dir: ./docs/Cookbook
+  output-dir: ./docs/tutorials/1.developers/4.apps-development/3.multimodality/dial-cookbook/examples
