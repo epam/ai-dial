@@ -21,7 +21,7 @@ const footerLink = (href, path) => {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'DIAL Knowledge Base',
+  title: 'DIALX Knowledge Base',
   favicon: 'img/favicon.svg',
 
   // Set the production url of your site here
@@ -108,11 +108,11 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: '', // 'EPAM DIAL',
+        title: '', // 'DIALX',
         logo: {
-          alt: 'EPAM DIAL',
-          src: 'img/logo-dk.svg',
-          srcDark: 'img/logo-lt.svg',
+          alt: 'DIALX',
+          src: 'img/logo-lt.svg',
+          srcDark: 'img/logo-dk.svg',
         },
         items: [
           // {
@@ -203,7 +203,7 @@ const config = {
         { name: 'description', content: 'AI DIAL knowledge base portal.' },
         {
           name: 'keywords',
-          content: 'AI DIAL, RAG, GenAI, AI platform, EPAM DIAL',
+          content: 'AI DIAL, DIALX, RAG, GenAI, AI platform',
         },
         {
           name: 'summary',

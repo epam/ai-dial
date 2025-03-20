@@ -289,6 +289,11 @@ const sidebars = {
                   label: 'Azure Secrets Deployment',
                 },
                 {
+                  type: 'doc',
+                  id: 'tutorials/devops/deployment/azure-deployment-guide',
+                  label: 'Azure Deployment Guide',
+                },
+                {
                   type: 'category',
                   label: 'Deployment of Models',
                   items: [
