@@ -241,6 +241,11 @@ const sidebars = {
                   label: 'Custom Buttons in Apps',
                 },
                 {
+                  type: 'doc',
+                  id: 'tutorials/developers/apps-development/auth-matrix',
+                  label: 'Auth Matrix',
+                },
+                {
                   type: 'category',
                   label: 'Examples',
                   items: [
