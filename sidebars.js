@@ -22,7 +22,7 @@ const sidebars = {
             {
               type: 'doc',
               id: 'platform/architecture-and-concepts/vision',
-              label: 'Our Vision',
+              label: 'What is DIAL',
             },
             {
               type: 'doc',
