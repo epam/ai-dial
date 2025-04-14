@@ -85,6 +85,8 @@ jobs:
         run: pip install "quarto-cli>=1.4,<2.0"
       - name: Build website
         run: npm run build
+        env:
+          BASE_URL: ${{ vars.BASE_URL }}
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
