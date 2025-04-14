@@ -28,7 +28,7 @@ const config = {
   url: 'https://docs.dialx.ai',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl:  process.env.BASE_URL ? process.env.BASE_URL : '/',
   trailingSlash: false,
 
   // GitHub pages deployment config.
