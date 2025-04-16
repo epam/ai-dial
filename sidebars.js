@@ -438,6 +438,11 @@ const sidebars = {
         },
       ],
     },
+    {
+      type: 'doc',
+      id: 'legal-and-compliance',
+      label: 'Compliance and Legal Q&A',
+    },
   ],
 };
 
