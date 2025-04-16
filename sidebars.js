@@ -22,7 +22,7 @@ const sidebars = {
             {
               type: 'doc',
               id: 'platform/architecture-and-concepts/vision',
-              label: 'Our Vision',
+              label: 'What is DIAL',
             },
             {
               type: 'doc',
@@ -38,6 +38,11 @@ const sidebars = {
               type: 'doc',
               id: 'platform/architecture-and-concepts/components',
               label: 'Platform Components',
+            },
+            {
+              type: 'doc',
+              id: 'platform/architecture-and-concepts/agentic-platform',
+              label: 'Agentic Platform',
             },
           ],
         },
@@ -437,6 +442,11 @@ const sidebars = {
           dirName: 'video demos',
         },
       ],
+    },
+    {
+      type: 'doc',
+      id: 'legal-and-compliance',
+      label: 'Compliance and Legal Q&A',
     },
   ],
 };
