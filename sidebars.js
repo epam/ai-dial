@@ -138,6 +138,11 @@ const sidebars = {
           id: 'platform/high-load-performance',
           label: 'Handling High Loads',
         },
+        {
+          type: 'doc',
+          id: 'legal-and-compliance',
+          label: 'Compliance and Legal Q&A',
+        },
       ],
     },
     {
@@ -437,11 +442,6 @@ const sidebars = {
           dirName: 'video demos',
         },
       ],
-    },
-    {
-      type: 'doc',
-      id: 'legal-and-compliance',
-      label: 'Compliance and Legal Q&A',
     },
   ],
 };
