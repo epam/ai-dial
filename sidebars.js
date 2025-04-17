@@ -143,6 +143,11 @@ const sidebars = {
           id: 'platform/high-load-performance',
           label: 'Handling High Loads',
         },
+        {
+          type: 'doc',
+          id: 'legal-and-compliance',
+          label: 'Compliance and Legal Q&A',
+        },
       ],
     },
     {
@@ -239,6 +244,11 @@ const sidebars = {
                   type: 'doc',
                   id: 'tutorials/developers/apps-development/adapter-dial',
                   label: 'Local Development',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/apps-development/register-app',
+                  label: 'Register App',
                 },
                 {
                   type: 'doc',
@@ -442,11 +452,6 @@ const sidebars = {
           dirName: 'video demos',
         },
       ],
-    },
-    {
-      type: 'doc',
-      id: 'legal-and-compliance',
-      label: 'Compliance and Legal Q&A',
     },
   ],
 };
