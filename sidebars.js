@@ -39,6 +39,11 @@ const sidebars = {
               id: 'platform/architecture-and-concepts/components',
               label: 'Platform Components',
             },
+            {
+              type: 'doc',
+              id: 'platform/architecture-and-concepts/stack',
+              label: 'DIAL Stack',
+            },
           ],
         },
         {
