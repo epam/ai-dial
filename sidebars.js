@@ -148,6 +148,11 @@ const sidebars = {
           id: 'legal-and-compliance',
           label: 'Compliance and Legal Q&A',
         },
+        {
+          type: 'doc',
+          id: 'platform/history',
+          label: 'DIAL Evolution',
+        },
       ],
     },
     {
