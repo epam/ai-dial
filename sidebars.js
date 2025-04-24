@@ -247,8 +247,8 @@ const sidebars = {
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/developers/apps-development/register-app',
-                  label: 'Register App',
+                  id: 'tutorials/developers/apps-development/enable-app',
+                  label: 'Enable Apps',
                 },
                 {
                   type: 'doc',
