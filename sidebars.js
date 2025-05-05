@@ -252,6 +252,11 @@ const sidebars = {
                 },
                 {
                   type: 'doc',
+                  id: 'tutorials/developers/apps-development/quick-app-configuration',
+                  label: 'How to Configure Quick App',
+                },
+                {
+                  type: 'doc',
                   id: 'tutorials/developers/apps-development/custom-buttons',
                   label: 'Custom Buttons in Apps',
                 },
