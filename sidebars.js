@@ -44,6 +44,11 @@ const sidebars = {
               id: 'platform/architecture-and-concepts/agentic-platform',
               label: 'Agentic Platform',
             },
+            {
+              type: 'doc',  
+              id: 'platform/architecture-and-concepts/stack',
+              label: 'DIAL Stack',
+            },
           ],
         },
         {
@@ -147,6 +152,11 @@ const sidebars = {
           type: 'doc',
           id: 'legal-and-compliance',
           label: 'Compliance and Legal Q&A',
+        },
+        {
+          type: 'doc',
+          id: 'platform/history',
+          label: 'DIAL Evolution',
         },
       ],
     },
