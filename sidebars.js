@@ -22,7 +22,7 @@ const sidebars = {
             {
               type: 'doc',
               id: 'platform/architecture-and-concepts/vision',
-              label: 'Our Vision',
+              label: 'What is DIAL',
             },
             {
               type: 'doc',
@@ -41,6 +41,11 @@ const sidebars = {
             },
             {
               type: 'doc',
+              id: 'platform/architecture-and-concepts/agentic-platform',
+              label: 'Agentic Platform',
+            },
+            {
+              type: 'doc',  
               id: 'platform/architecture-and-concepts/stack',
               label: 'DIAL Stack',
             },
@@ -249,6 +254,16 @@ const sidebars = {
                   type: 'doc',
                   id: 'tutorials/developers/apps-development/adapter-dial',
                   label: 'Local Development',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/apps-development/enable-app',
+                  label: 'Enable Apps',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/apps-development/quick-app-configuration',
+                  label: 'How to Configure Quick App',
                 },
                 {
                   type: 'doc',
