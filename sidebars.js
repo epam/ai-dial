@@ -305,6 +305,11 @@ const sidebars = {
                 },
                 {
                   type: 'doc',
+                  id: 'tutorials/devops/deployment/quick_apps_deployment',
+                  label: 'Quick Apps Installation',
+                },
+                {
+                  type: 'doc',
                   id: 'tutorials/devops/deployment/azure-secrets',
                   label: 'Azure Secrets Deployment',
                 },
