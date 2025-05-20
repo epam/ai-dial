@@ -70,4 +70,3 @@ The DIAL Platform operates solely as an orchestration layer for third-party LLM 
 ##### What degree of human oversight is required for monitoring AI-generated content, and what policies govern the review or override of DIAL Platform outputs?
 
 The requisite level of human oversight is contingent upon the criticality, sensitivity, and regulatory context of the content being generated. Policies governing content review, approval workflows, and override mechanisms are typically established by the implementing organization. Clients are advised to develop and implement comprehensive governance frameworks aligned with their specific operational requirements, risk tolerance, and applicable regulatory obligations.
-
