@@ -192,11 +192,6 @@ const sidebars = {
                   id: 'tutorials/developers/local-run/quick-start-with-self-hosted-model',
                   label: 'Chat with a Self-Hosted Model',
                 },
-                {
-                  type: 'doc',
-                  id: 'tutorials/developers/local-run/quick-start-with-addon',
-                  label: 'Chat with Addon',
-                },
               ],
             },
             {

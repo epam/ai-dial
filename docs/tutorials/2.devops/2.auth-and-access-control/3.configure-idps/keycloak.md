@@ -23,7 +23,7 @@
 
 This basic tutorial demonstrates the steps to create a REALM in [Keycloak](https://www.keycloak.org) and use it as an identity and access management solution for AI DIAL users.
 
-In AI DIAL, you can assign roles to Models, Applications, Addons, and Assistants to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
+In AI DIAL, you can assign roles to Models and Applications to restrict the number of tokens that can be transmitted in a specific time frame. These roles and their limitations can be created in external systems and then assigned in AI DIAL's configuration.
 
 ## Configuration Guidelines
 
@@ -180,7 +180,7 @@ Add the following parameters to AI DIAL Core **static** settings. Refer to [AI D
 
 #### Assignment of Roles
 
-Once all the above steps are completed, including the ones marked as **Optional**, you can assign roles to Models, Applications, Addons, and Assistants.
+Once all the above steps are completed, including the ones marked as **Optional**, you can assign roles to Models and Applications.
 
 In AI DIAL Core:
 
