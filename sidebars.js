@@ -100,6 +100,11 @@ const sidebars = {
               id: 'platform/core/interceptors',
               label: 'Interceptors',
             },
+            {
+              type: 'doc',
+              id: 'platform/core/apps',
+              label: 'DIAL-Native Apps',
+            },
           ],
         },
         {
