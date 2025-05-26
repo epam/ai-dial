@@ -180,7 +180,7 @@ const sidebars = {
           items: [
             {
               type: 'category',
-              label: 'Run AI DIAL Locally',
+              label: 'Run DIAL Locally',
               items: [
                 {
                   type: 'doc',
