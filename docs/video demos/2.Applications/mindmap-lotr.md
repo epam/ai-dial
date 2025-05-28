@@ -12,3 +12,6 @@ Key highlights:
 * Enhanced Visuals: AI-generated images enrich map elements for a more immersive experience.
 * Intuitive Exploration: Users can explore the LOTR universe through natural language queries in chat and seamless map navigation.
 * Reliable Answers: The app cites sources for all answers and allows manual customization of map elements to ensure accuracy and reliability.
+
+> * Refer to [DIAL-Native apps](/docs/platform/3.core/7.apps.md#mind-maps) to learn more about a Mind Map application type.
+> * Refer to [User Guide](/docs/tutorials/0.user-guide.md#add-mind-map) to learn how to add Mind Maps applications.
