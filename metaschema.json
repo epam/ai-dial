@@ -530,7 +530,7 @@
       ]
     },
     "dialPropertyMetaSchema": {
-      "$comment": "Sub-schema defining the meta-property with information AI Dial purposes",
+      "$comment": "Sub-schema defining the meta-property with information AI DIAL purposes",
       "type": "object",
       "properties": {
         "dial:meta": {
