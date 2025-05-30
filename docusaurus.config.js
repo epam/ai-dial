@@ -154,7 +154,7 @@ const config = {
               },
               {
                 html: footerLink(
-                  'https://www.youtube.com/@TeamDialX',
+                  'https://www.youtube.com/@TeamDIALX',
                   './static/youtube.svg',
                 ),
               },
