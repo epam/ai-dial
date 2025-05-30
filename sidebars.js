@@ -100,6 +100,11 @@ const sidebars = {
               id: 'platform/core/interceptors',
               label: 'Interceptors',
             },
+            {
+              type: 'doc',
+              id: 'platform/core/apps',
+              label: 'DIAL-Native Apps',
+            },
           ],
         },
         {
@@ -175,7 +180,7 @@ const sidebars = {
           items: [
             {
               type: 'category',
-              label: 'Run AI DIAL Locally',
+              label: 'Run DIAL Locally',
               items: [
                 {
                   type: 'doc',
