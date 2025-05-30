@@ -16,7 +16,7 @@
     - [AI DIAL Chat Settings](#ai-dial-chat-settings)
     - [AI DIAL Core Settings](#ai-dial-core-settings)
     - [Assignment of Roles](#assignment-of-roles)
-  
+
 </div>
 
 ## Introduction
@@ -47,14 +47,14 @@ Follow these steps to configure Keycloak in Admin Console:
    - Web origins: `<chat_url>`
 2.  **Collect configuration parameters:** in this step, you will collect parameters that will be required for [AI DIAL configuration](#ai-dial-chat-settings).
     - In **Clients/Client details/Settings**, record the **Client ID**.
-    - In **Clients/Client details/Credentials**, click on view **Client secret** and record it. 
+    - In **Clients/Client details/Credentials**, click on view **Client secret** and record it.
     - In **Realm settings/General**, record the **Realm ID**.
 3. **Create Users:** create necessary [Users](https://www.keycloak.org/docs/latest/server_admin/#proc-creating-user_server_administration_guide).
 4. (Optional) **Create and Assign Roles:** under the **Clients/Client details/Roles**, create necessary [Client roles](https://www.keycloak.org/docs/latest/server_admin/#con-client-roles_server_administration_guide). After that [assign roles to users](https://www.keycloak.org/docs/latest/server_admin/#proc-assigning-role-mappings_server_administration_guide).
 
 #### Configuration in Keycloak Config CLI
 
-For setting up Keycloak, which is included in the AI DIAL Helm chart, you can use [Keycloak Config CLI](https://github.com/bitnami/containers/tree/main/bitnami/keycloak-config-cli#configuration). We suggest using the following configuration, which can be passed to `keycloak.keycloakConfigCli.configuration."realm\.yaml"` in the DIAL [Helm chart](https://github.com/epam/ai-dial-helm/blob/56b41d6f3c2148b42bdd12c1dcecc9711e23fd6d/charts/dial/values.yaml#L29). 
+For setting up Keycloak, which is included in the AI DIAL Helm chart, you can use [Keycloak Config CLI](https://github.com/bitnami/containers/tree/main/bitnami/keycloak-config-cli#configuration). We suggest using the following configuration, which can be passed to `keycloak.keycloakConfigCli.configuration."realm\.yaml"` in the DIAL [Helm chart](https://github.com/epam/ai-dial-helm/blob/56b41d6f3c2148b42bdd12c1dcecc9711e23fd6d/charts/dial/values.yaml#L29).
 
 > **Note:** Replace `<fields>` before applying this configuration.
 
@@ -87,7 +87,7 @@ For setting up Keycloak, which is included in the AI DIAL Helm chart, you can us
         display.on.consent.screen: "true"
         consent.screen.text: ""
       protocolMappers:
-        - name: "Audience for Dial"
+        - name: "Audience for DIAL"
           protocol: openid-connect
           protocolMapper: oidc-audience-mapper
           consentRequired: false
@@ -153,7 +153,7 @@ To configure AI DIAL Chat and AI DIAL Core to work with Keycloak, follow these s
 #### AI DIAL Chat Settings
 
 Add the following environment variables to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to learn more.
-   
+
   ```yaml
   AUTH_KEYCLOAK_HOST: "https://<keycloak_host>/realms/<keycloak_realm_id>"
   AUTH_KEYCLOAK_CLIENT_ID: "<keycloak_client_id>"
@@ -164,16 +164,16 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
 #### AI DIAL Core Settings
 
 Add the following parameters to AI DIAL Core **static** settings. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings) for more details.
-   
+
   ```yaml
   aidial.identityProviders.keycloak.jwksUrl: "<keycloak_jwks_uri>"
   aidial.identityProviders.keycloak.rolePath: "<keycloak_role_path>"
   aidial.identityProviders.keycloak.issuerPattern: <issuerPattern>
-  aidial.identityProviders.keycloak.loggingKey: "sub" 
+  aidial.identityProviders.keycloak.loggingKey: "sub"
   aidial.identityProviders.keycloak.loggingSalt: "loggingSalt" # strong generated string
   ```
 
-> **Examples:**    
+> **Examples:**
 > - `keycloak_jwks_uri` example: `https://<keycloak_host>/realms/<keycloak_realm_id>/protocol/openid-connect/certs`
 > - `keycloak_role_path` example: `resource_access.dial-chat.roles`
 > - `issuerPattern` example: `'^https:\/\/keycloak\.example\.com.+$'`
@@ -185,7 +185,7 @@ Once all the above steps are completed, including the ones marked as **Optional*
 In AI DIAL Core:
 
 * [Static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings): as value for `aidial.identityProviders.keycloak.rolePath` provide a role path from Keycloak.
-* [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): for `userRoles` provide a specific role name(s). 
+* [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): for `userRoles` provide a specific role name(s).
 
 In this example, `"keycloak-role-name"` role from the `<keycloak_role_path>` is configured for `chat-gpt-35-turbo` model:
 
