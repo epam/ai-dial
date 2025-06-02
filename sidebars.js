@@ -397,11 +397,6 @@ const sidebars = {
                   label: 'JWT Roles & Limits',
                 },
                 {
-                  type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/azure-ad-configuration',
-                  label: 'Azure AD Configuration',
-                },
-                {
                   type: 'category',
                   label: 'Configure IDPs',
                   items: [
