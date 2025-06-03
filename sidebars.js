@@ -334,6 +334,11 @@ const sidebars = {
                   label: 'Azure Deployment Guide',
                 },
                 {
+                  type: 'doc',
+                  id: 'tutorials/devops/deployment/gcp-deployment-guide',
+                  label: 'GCP Deployment Guide',
+                },
+                {
                   type: 'category',
                   label: 'Deployment of Models',
                   items: [
