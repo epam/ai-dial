@@ -171,22 +171,6 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: 'ML OPS',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/ml-ops-mcp-servers', 
-                  label: 'MCP Servers',
-                },
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/ml-ops-mcp-instances',
-                  label: 'MCP Instances',
-                },
-              ],
-            },
-            {
-              type: 'category',
               label: 'Access Management',
               items: [
                 {

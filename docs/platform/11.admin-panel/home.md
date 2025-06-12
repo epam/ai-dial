@@ -7,7 +7,6 @@ The DIAL Admin Panel is a centralized platform that provides system administrato
 * **Entities**: Configure all language models, applications, and routes within the DIAL environment. Go to [Entities](/docs/platform/11.admin-panel/entities-models.md) to learn more.
 * **Builders**: Add and configure application types and interceptors. Go to [Builders](/docs/platform/11.admin-panel/builders-application-runners.md) to learn more.
 * **Assets**: Access, add, and manage system resources such as applications, prompts, conversations, and files. Go to [Assets](/docs/platform/11.admin-panel/assets-files.md) to learn more.
-* **ML Ops**: Configure and deploy MCP servers and instances. Go to [ML OPS](/docs/platform/11.admin-panel/ml-ops-mcp-instances.md) to learn more.
 * **Access Management**: Create and manage user groups, roles, API keys, and usage limits to implement access and cost control policy. Go to [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) to learn more.
 * **Approvals**: View and manage publication requests submitted by DIAL users for applications, conversations and prompts. Go to [Approvals](/docs/platform/11.admin-panel/approvals-file-publications.md) to learn more.
 * **Telemetry**: Monitor real-time system usage, including token consumption, system load, and other telemetry data for performance tracking. Go to [Telemetry](/docs/platform/11.admin-panel/telemetry-dashboard.md) to learn more.
@@ -31,7 +30,6 @@ The Home screen gives you a high-level overview of your environment and fast acc
 * **Entities**: Models, Applications, Routes
 * **Builders**: Application Runners, Interceptors
 * **Assets**: Prompts, Files
-* **ML OPS**: MCP servers and instances
 * **Access Management**: Roles, Keys
 * **Approvals**: Prompt Publications, File Publications
 * **Telemetry**: Dashboard
@@ -74,7 +72,6 @@ Is a visual grid of cards you can use to navigate to a corresponding DIAL Admin 
 | **Entities**          | Central hub for your AI “building blocks” - Models, Applications, Routes.                        |
 | **Builders**          | Components that allow you to add custom logic and functionality to your applications and models. |
 | **Assets**            | Store and manage shared organization level assets - Prompts and Files.                           |
-| **ML OPS**            | Create and manage MCP instances and servers.                           |
 | **Access Management** | Define User roles, API keys, and Folders Storage permissions across your team.                   |
 | **Approvals**         | Manage the publication process for Prompt and File assets.                                       |
 | **Telemetry**         | View aggregated metrics over the historical interval in the Dashboard.                           |
