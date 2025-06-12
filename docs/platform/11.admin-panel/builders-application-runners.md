@@ -44,7 +44,7 @@ Opens the **Create Application Runner** modal.
 
 In the modal, specify the following for the new runner:
 
-| Field           | Required? | Definition                                                                   |
+| Field           | Required | Definition                                                                   |
 |-----------------|-----------|------------------------------------------------------------------------------|
 | **ID**          | **Yes**   | The unique identifier for this runner—typically the base URL of the service. |
 | **Name**        | **Yes**   | Human-friendly name of the Application Runner.                               |
@@ -71,7 +71,7 @@ The Properties tab on an Application Runner lets you define its core identity an
 
 ### 1. Properties Fields
 
-| Field           | Required? | Definition                                                                                                                                                                                                           |
+| Field           | Required | Definition                                                                                                                                                                                                           |
 |-----------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **ID**          | **Yes**   | The base URL or unique identifier where this runner’s service is hosted (e.g. https://my-runner.example.com/v1/execute). DIAL Core will POST orchestration payloads to this endpoint for any Application bound here. |
 | **Name**        | **Yes**   | A human-friendly label for this runner (e.g. “Python Lambda Runner” or “NodeJS Service Worker”).                                                                                                                     |
@@ -87,7 +87,7 @@ This lets DIAL validate, document, and render input forms for any Application bo
 
 ### 1. Parameters Fields
 
-| Field                   | Required? | Definition                                                                                                                                                                                                           |
+| Field                   | Required | Definition                                                                                                                                                                                                           |
 |-------------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Completion endpoint** | **Yes**   | The base URL or unique identifier where this runner’s service is hosted (e.g. https://my-runner.example.com/v1/execute). DIAL Core will POST orchestration payloads to this endpoint for any Application bound here. |
 | **Viewer URL**          | No        | A link to a web UI where end-users can preview applications backed by this runner.                                                                                                                                   |

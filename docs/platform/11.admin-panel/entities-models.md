@@ -66,7 +66,7 @@ Opens the **Create Model** modal.
 
 In the modal, specify the following for the new model:
 
-| Field             | Required? | Definition & Guidance                                                                                                                                          |
+| Field             | Required | Definition & Guidance                                                                                                                                          |
 |-------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Deployment ID** | **Yes**   | Unique identifier used by the adapter to invoke your model backend.                                                                                            |
 | **Display Name**  | **Yes**   | User-friendly label shown across the UI (e.g. “GPT-4 Turbo”).                                                                                                 |
@@ -100,7 +100,7 @@ The **Properties** tab on a Model’s detail page lets you view and edit the cor
 
 #### Basic Identification
 
-| Field             | Required? | Description                                                                                                                                                                                      |
+| Field             | Required | Description                                                                                                                                                                                      |
 |-------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Deployment ID** | Yes       | The unique key DIAL uses under the `models` section.   Must match the upstream’s deployment or model name (e.g. `gpt-4o`, `gpt-4-turbo`).  Routes refer to this ID when selecting a model. |
 | **Display Name**  | Yes       | User-readable label shown in tables and dropdowns in DIAL client (e.g. “GPT-4o”).   Helps users pick the right model.                                                                        |
@@ -109,7 +109,7 @@ The **Properties** tab on a Model’s detail page lets you view and edit the cor
 
 #### Adapter & Endpoint
 
-| Field        | Required? | Description                                                                                                                                                           |
+| Field        | Required | Description                                                                                                                                                           |
 |--------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Adapter**  | Yes       | Selects which Adapter (connector) handles requests (e.g. **OpenAI**, **DIAL**).   Adapter defines how to authenticate, format payloads, and parse responses.       |
 | **Type**     | Yes       | Choose between **Chat** or **Embedding** API.  • **Chat** for conversational completions.  • **Embedding** for vector generation (semantic search, clustering). |
@@ -117,7 +117,7 @@ The **Properties** tab on a Model’s detail page lets you view and edit the cor
 
 #### Presentation & Attachments
 
-| Field             | Required? | Description                                                                                                                                                                                                                                                                                  |
+| Field             | Required | Description                                                                                                                                                                                                                                                                                  |
 |-------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Override Name** | No        | Custom display name for specific contexts.                                                                                                                                                                                                                                                   |
 | **Icon**          | No        | Choose a logo to visually distinguish models in the UI.                                                                                                                                                                                                                                      |
@@ -126,7 +126,7 @@ The **Properties** tab on a Model’s detail page lets you view and edit the cor
 
 #### Upstream Configuration
 
-| Field                  | Required? | Description                                                                                                                                                                                                       |
+| Field                  | Required | Description                                                                                                                                                                                                       |
 |------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Upstream Endpoints** | Yes       | One or more backend URLs to send requests to.  Enables round-robin load balancing or fallback among multiple hosts.                                                                                            |
 | **Keys**               | No        | API key, token, or credential passed to the upstream.  Stored securely and masked—click the eye icon to reveal.                                                                                                |
@@ -137,7 +137,7 @@ The **Properties** tab on a Model’s detail page lets you view and edit the cor
 
 #### Advanced Options
 
-| Field                  | Required? | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Field                  | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |------------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Tokenizer Model**    | No        | Identifies the specific model whose tokenization algorithm exactly matches that of the referenced model. This is typically the name of the earliest released model in a series of models sharing an identical tokenization algorithm. This parameter is essential for DIAL clients that reimplement tokenization algorithms on their side, instead of utilizing the tokenize Endpoint provided by the model.                                                                                                                                                                                                                           |
 | **Forward auth token** | No        | Select a downstream auth token to forward from the user’s session (for downstream multi-tenant).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -147,7 +147,7 @@ The **Properties** tab on a Model’s detail page lets you view and edit the cor
 #### Cost Configuration
 Enables real-time cost estimation and quota enforcement. Powers the **Telemetry** dashboards with per-model spend metrics.
 
-| Field                | Required? | Description                                                                                                                                                                                                                                                                                                                                    |
+| Field                | Required | Description                                                                                                                                                                                                                                                                                                                                    |
 |----------------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Cost unit**        | Yes       | Base unit for billing: • **None** - disables all cost tracking for this model. • **Tokens** - every token sent or received by the model is counted towards your cost metrics. • **Char without whitespace** - tells DIAL to count only non-whitespace characters (letters, numbers, punctuation) in each request as the billing unit. |
 | **Prompt price**     | Yes       | Cost per unit for prompt tokens.                                                                                                                                                                                                                                                                                                               |

@@ -51,7 +51,7 @@ Opens the **Create Key** modal.
 
 In the modal, specify the following for the new key:
 
-| Field               | Required? | Description & Use Cases                                                                                                                                         |
+| Field               | Required | Description & Use Cases                                                                                                                                         |
 |---------------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Name**            | **Yes**   | A human-readable identifier for the key.   Use meaningful names to tie keys back to projects, environments, or teams.                                        |
 | **Description**     | No        | Optional free-form text.   Document the key’s purpose, owner team, or usage context.                                                                         |
@@ -81,7 +81,7 @@ The Properties tab for a Key lets you view and manage all metadata and settings 
 
 ### 1. Properties Fields
 
-| Field                     | Required? | Description & Use Cases                                                                                                                       |
+| Field                     | Required | Description & Use Cases                                                                                                                       |
 | ------------------------- |----------|-----------------------------------------------------------------------------------------------------------------------------------------------|
 | **Name**                  | **Yes**  | A human-readable identifier for the key.   Use meaningful names to tie keys back to projects, environments, or teams.                      |
 | **Description**           | No       | Free-form text.   Document the key’s purpose, owner team, or usage context (e.g. “Used by QH Data Ingestion pipeline”).                    |

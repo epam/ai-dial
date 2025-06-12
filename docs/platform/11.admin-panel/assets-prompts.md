@@ -151,7 +151,7 @@ The Properties tab for a Prompt lets you view and edit its core metadata and tem
 
 ### 1. Properties Fields
 
-| Field              | Required? | Definition & Use Case                                                                                                                                               |
+| Field              | Required | Definition & Use Case                                                                                                                                               |
 |--------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Update Time**    | —         | Read-only timestamp of the last save (e.g. `04.29.2025 00:14`). Helps you track when the prompt was last modified.                                                  |
 | **Name**           | **Yes**   | Immutable key for the prompt (e.g. `customer_base_growth`).                                                                                                         |

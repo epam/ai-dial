@@ -123,7 +123,7 @@ The Properties tab within Assets → Files lets you inspect and manage an indivi
 
 ### 1. Properties Fields
 
-| Field                | Required? | Definition & Use Case                                                                                                                  |
+| Field                | Required | Definition & Use Case                                                                                                                  |
 |----------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------|
 | **Name**             | -         | The filename including extension (e.g. request.json, lookup.csv). Display-only but with a copy-to-clipboard button for easy reference. |
 | **Source/Name**      | -         | File name without extension (e.g. request). Clicking on additional actions button you can download the file.                           |

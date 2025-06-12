@@ -75,7 +75,7 @@ The Properties tab defines the core metadata and execution endpoint for an Inter
 
 ### 1. Properties Fields
 
-| Field                  | Required? | Definition & Use Case                                                                                                                                                                                                     |
+| Field                  | Required | Definition & Use Case                                                                                                                                                                                                     |
 |------------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Name**               | **Yes**   | Unique key for this interceptor (e.g. `reject-external-links`, `audit-logger`). Used when attaching to Models or Applications under their **Interceptors** tab. Keep it URL-safe and lowercase with hyphens.              |
 | **Description**        | No        | Free-text summary of the interceptor’s behavior and any configuration parameters (e.g. `BLACKLIST={"foo","bar"}`). Helps teammates understand when and why to attach it.                                                  |

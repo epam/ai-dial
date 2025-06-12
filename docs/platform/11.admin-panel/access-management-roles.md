@@ -71,7 +71,7 @@ The Properties tab for a Role lets you define its core identity and metadata. Th
 
 ### 1. Properties Fields
 
-| Field           | Required? | Description                                                                 |
+| Field           | Required | Description                                                                 |
 |-----------------|-----------|-----------------------------------------------------------------------------|
 | **Name**        | **Yes**   | The unique identifier for the role, used in ACL selectors and in API calls. |
 | **Description** | No        | Optional free-form text describing the role’s intended audience or use.     |

@@ -42,7 +42,7 @@ Opens the **Create Route** modal.
 ### 2. Define key parameters
 In the modal, specify the following for the new route:
 
-| Field           | Required?        | Definition                                                   |
+| Field           | Required        | Definition                                                   |
 |-----------------|------------------|----------------------------------------------------------------------|
 | **Name**        | **Yes**          | Human-friendly name of the Route.                                    |
 | **Description** | No               | Brief free-text summary of the Route’s purpose.                      |
@@ -68,14 +68,14 @@ The Properties tab on an Route’s detail page lets you define its core identity
 
 ### 1. Basic Identification
 
-| Field            | Required? | Definition                                                                          |
+| Field            | Required | Definition                                                                          |
 |------------------|-----------|-------------------------------------------------------------------------------------|
 | **Name**         | **Yes**   | Unique route key used in the URL and dynamic config (e.g. `chat`, `support`).       |
 | **Description**  | No        | Free‐text note about the route’s purpose (e.g. “Primary GPT-4 chat with fallback”). |                                                                      |
  
 ### 2. Request Matching: Paths & Methods
 
-| Field            | Required? | Definition                                                                                                                                                                                    |
+| Field            | Required | Definition                                                                                                                                                                                    |
 |------------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Paths**        | **Yes**   | One or more URL path patterns this route should match (e.g. `/chat`, `/support/**`). Click **+ Add paths** to register additional patterns. Click the trash icon to remove a path.      |
 | **Rewrite path** | No        | Toggle on to strip or transform the incoming path before forwarding upstream. Use when your upstream service expects a different URL structure (e.g. remove `/api/v1/routes/chat` prefix). |
@@ -94,7 +94,7 @@ Choose how the route should respond:
 
 Define where and how to forward requests when **Upstreams** mode is selected:
 
-| Field                  | Required? | Description & Use Case                                                                                                                                                                                             |
+| Field                  | Required | Description & Use Case                                                                                                                                                                                             |
 |------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Upstream Endpoints** | **Yes**   | Full URLs of the back-end service(s) to receive the routed request (e.g. `https://dial-core.example.com/v1/chat`).                                                                                                 |
 | **Keys**               | No        | API key or token to attach (via header or query) when calling the upstream. Click the eye icon to reveal a masked value.                                                                                           |
@@ -107,7 +107,7 @@ Define where and how to forward requests when **Upstreams** mode is selected:
 
 Define where and how to forward requests when **Response** mode is selected:
 
-| Field                  | Required? | What It Does                                                                                          |
+| Field                  | Required | What It Does                                                                                          |
 |------------------------|-----------|-------------------------------------------------------------------------------------------------------|
 | **Status**             | No        | The HTTP status code your route will return (e.g. `200`, `404`, `503`).                               |
 | **Body**               | No        | The exact payload to send in the response body. You can enter plain text or raw JSON.                 |

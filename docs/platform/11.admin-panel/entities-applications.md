@@ -68,7 +68,7 @@ Opens the **Create Application** modal.
 ### 2. Define key parameters
 In the modal, specify the following for the new application:
 
-| Field                  | Required?       | Definition & Guidance                                                                                                                                          |
+| Field                  | Required       | Definition & Guidance                                                                                                                                          |
 |------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Deployment ID**      | **Yes**         | A unique identifier under the applications section of DIAL Core’s dynamic config (e.g. support-bot, data-cluster).                                             |
 | **Display Name**       | **Yes**         | Human-friendly label (e.g. “Customer Support Bot”) shown throughout the Admin UI.                                                                              |
@@ -100,7 +100,7 @@ Once configured, your application is ready to orchestrate models and interceptor
 
 ### 1. Basic Identification
 
-| Field             | Required? | Description                                                                                                                               |
+| Field             | Required | Description                                                                                                                               |
 |-------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | **Deployment ID** | Yes       | Unique key under applications in DIAL Core’s dynamic config (e.g. data-clustering, support-bot).                                          |
 | **Display Name**  | Yes       | Human-friendly label shown in the UI (e.g. “Data Clustering Application”). Helps to identify this application at a glance.                |
@@ -109,14 +109,14 @@ Once configured, your application is ready to orchestrate models and interceptor
 
 ### 2. Execution  & Endpoint
 
-| Field                   | Required?   | Description                                                                                                                                                               |
+| Field                   | Required   | Description                                                                                                                                                               |
 |-------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Completion Endpoint** | (Read-only) | URL where the app is exposed. Clients use this to integrate.                                                                                                              |
 | **Application Runner**  | No          | Select the application template designed to run multiple applications simultaneously. It is defined by a set of shared properties common to all the applications it runs. |
 
 ### 3. Presentation & Attachments
 
-| Field             | Required? | Description                                                                                                                                                                                                                                                                                  |
+| Field             | Required | Description                                                                                                                                                                                                                                                                                  |
 |-------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Icon**          | No        | Choose a logo to visually distinguish apps in the UI.                                                                                                                                                                                                                                        |
 | **Topics**        | No        | Tag this app with one or more topics or categories (e.g. “finance”, “support”).                                                                                                                                                                                                              |
@@ -124,7 +124,7 @@ Once configured, your application is ready to orchestrate models and interceptor
 
 ### 4. Advanced Options
 
-| Field                  | Required? | Description                                                                                      |
+| Field                  | Required | Description                                                                                      |
 |------------------------|-----------|--------------------------------------------------------------------------------------------------|
 | **Forward auth token** | No        | Select a downstream auth token to forward from the user’s session (for multi-tenant downstream). |
 | **Max retry attempts** | No        | Number of times DIAL Core will retry a failed run (due to timeouts or 5xx errors).               |
