@@ -207,10 +207,21 @@ const sidebars = {
               ],
             },
             {
-              type: 'doc',
-              id: 'platform/admin-panel/telemetry-dashboard',
+              type: 'category',
               label: 'Telemetry',
-            },
+              items: [
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/telemetry-dashboard',
+                  label: 'Dashboard',
+                },
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/telemetry-activity-audit',
+                  label: 'Activity Audit',
+                },
+              ]
+          }
           ],
         },
         {
