@@ -2,7 +2,11 @@
 
 ## About
 
-The DIAL Admin Panel is a centralized platform that provides system administrators with the tools to configure, manage, and monitor the DIAL ecosystem via a feature-rich, intuitive, and customizable interface. Its functionality can be categorized into the following sections:
+The DIAL Admin Panel is a centralized platform that provides system [administrators](#who-is-admin) with the tools to configure, manage, and monitor the DIAL ecosystem via a feature-rich, intuitive, and customizable interface. 
+
+> Admin Panel serves as a powerful UI for administrators. System configurations can be done also by a direct modification of a [DIAL Core config](https://github.com/epam/ai-dial-core).
+
+DIAL Admin Panel functionality can be categorized into the following sections:
 
 * **Entities**: Configure all language models, applications, and routes within the DIAL environment. Go to [Entities](/docs/platform/11.admin-panel/entities-models.md) to learn more.
 * **Builders**: Add and configure application types and interceptors. Go to [Builders](/docs/platform/11.admin-panel/builders-application-runners.md) to learn more.
@@ -10,6 +14,10 @@ The DIAL Admin Panel is a centralized platform that provides system administrato
 * **Access Management**: Create and manage user groups, roles, API keys, and usage limits to implement access and cost control policy. Go to [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) to learn more.
 * **Approvals**: View and manage publication requests submitted by DIAL users for applications, conversations and prompts. Go to [Approvals](/docs/platform/11.admin-panel/approvals-file-publications.md) to learn more.
 * **Telemetry**: Monitor real-time system usage, including token consumption, system load, and other telemetry data for performance tracking. Go to [Telemetry](/docs/platform/11.admin-panel/telemetry-dashboard.md) to learn more.
+
+### Who is Admin
+
+TBD
 
 ## Home Screen
 
