@@ -22,20 +22,20 @@ On the **Models** page you can find all language models (LLMs) deployed on your 
 
 | Field                     | Definition            |
 |---------------------------|----------|
-| **Display Name**          | User-friendly label for this model (e.g. “GPT-4 Turbo”). Shown in all DIAL client UI dropdowns, tables, and logs so operators can quickly identify the model.|
-| **Version**               | Optional tag or label for this model deployment (e.g. `0613`, `v1`). Use it to distinguish between “latest,” “beta,” or date-stamped builds.|
+| **Display Name**          | User-friendly label for this model (e.g. "GPT-4 Turbo"). Shown in all DIAL client UI dropdowns, tables, and logs so operators can quickly identify the model.|
+| **Version**               | Optional tag or label for this model deployment (e.g. `0613`, `v1`). Use it to distinguish between "latest," "beta," or date-stamped builds.|
 | **Description**           | Free-text notes about this model’s purpose, training data, cost tier, or any other relevant details.     |
 | **Deployment ID**         | The unique key under the `models` section of DIAL Core’s config. Must match the upstream service’s model or deployment name (e.g. `gpt-4-0613`).              |
 | **Adapter**               | Which connector handles requests for this model (**OpenAI** or **DIAL**). The adapter provides authentication, request formatting, and response parsing for the underlying LLM API.  Refer to [LLM Adapters](https://docs.dialx.ai/platform/supported-models#llm-adapters) to learn more.  |
 | **Type**                  | Whether this entry is a **Chat** model (conversational completions) or an **Embedding** model (vector generation). DIAL Core uses this to choose the correct API endpoint and payload schema.      |
 | **Override Name**         | An optional, context-specific display label that supersedes **Display Name** in dropdowns or tables for certain routes or applications. Use it to give a model different aliases in different workflows without redefining the model.   |
-| **Topics**                | Tags or categories (e.g. “finance,” “support,” “image-capable”) you can assign for discovery, filtering, or grouping in large deployments. Helps end users and admins find the right model by use case. Topic are also used to filter models in [DIAL Marketplace](/docs/platform/4.chat/1.marketplace.md).  |
+| **Topics**                | Tags or categories (e.g. "finance," "support," "image-capable") you can assign for discovery, filtering, or grouping in large deployments. Helps end users and admins find the right model by use case. Topic are also used to filter models in [DIAL Marketplace](/docs/platform/4.chat/1.marketplace.md).  |
 | **Attachment types**      | Controls which file attachments this model can accept.|
 | **Max attachment number** | Maximum number of attachments allowed per single request. Leave blank for no limits. Prevents runaway requests with too many files.|
 | **Tokenizer model**       | Identifies the specific model whose tokenization algorithm exactly matches that of the referenced model. This is typically the name of the earliest released model in a series of models sharing an identical tokenization algorithm. This parameter is essential for DIAL clients that reimplement tokenization algorithms on their side, instead of utilizing the tokenize Endpoint provided by the model. |
 | **Forward auth token**    | Optionally select to forward Auth Token from the caller’s session into the upstream API call—enabling multi-tenant scenarios or pass-through authentication to downstream services.                |
 | **Interaction limit**     | The interaction limit parameter in models refers to the maximum number of tokens that can be transmitted in a completion request and response combined. This parameter ensures that the model does not exceed a specified token limit during interactions.                   |
-| **Prompt price**          | Cost per unit (according to **Cost unit**, typically “token” or “request”) applied to the *input* portion of each call. Used by the **Dashboard** and **Usage Logs** to estimate spend in real time.     |
+| **Prompt price**          | Cost per unit (according to **Cost unit**, typically "token" or "request") applied to the *input* portion of each call. Used by the **Dashboard** and **Usage Logs** to estimate spend in real time.     |
 | **Completion price**      | Cost per unit charged for the *output* portion of each call. Together with **Prompt price**, drives your per-model spend calculations.      |
 
 ## Create Model
@@ -50,7 +50,7 @@ Use the **Create Model** dialog to register a new LLM integration in your DIAL i
     | Field             | Required | Definition & Guidance          |
     |-------------------|-----------|---------------------|
     | **Deployment ID** | Yes   | Unique identifier used by the adapter to invoke your model backend.     |
-    | **Display Name**  | Yes   | User-friendly label shown across the UI (e.g. “GPT-4 Turbo”). |
+    | **Display Name**  | Yes   | User-friendly label shown across the UI (e.g. "GPT-4 Turbo"). |
     | **Version**       | No        | Optional version tag to track releases (e.g. `2024-07-18`, `v1`). Use when you register multiple variants of the same model.   |
     | **Description**   | No        | Free-text note about the model’s purpose or distinguishing traits.      |
     | **Adapter**       | Yes   | Select which Adapter will handle requests to this model (e.g. OpenAI, DIAL). The chosen Adapter supplies authentication, endpoint URL, and request formatting. |
@@ -73,7 +73,7 @@ You can access the model configuraton scrren by clickung any model in the models
 ##### Top Bar Controls
 
 * **Delete**: Permanently removes this model definition from DIAL Core. All Routes referencing it will ttrow an error until a replacement is created.
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw JSON view of the model’s configuration. Use JSON mode for copy-paste or advanced edits.
+* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the model’s configuration. Use JSON mode for copy-paste or advanced edits.
 
 ### Properties
 
@@ -93,7 +93,7 @@ In **Properties**, you can view and edit main definitions and runtime settings.
 | Field             | Required | Description            |
 |-------------------|-----------|---|
 | **Deployment ID** | Yes       | The unique key DIAL uses under the `models` section.   Must match the upstream’s deployment or model name (e.g. `gpt-4o`, `gpt-4-turbo`).  Routes refer to this ID when selecting a model. |
-| **Display Name**  | Yes       | User-readable label shown in tables and dropdowns in DIAL client (e.g. “GPT-4o”).   Helps users pick the right model.   |
+| **Display Name**  | Yes       | User-readable label shown in tables and dropdowns in DIAL client (e.g. "GPT-4o").   Helps users pick the right model.   |
 | **Version**       | No        | Optional tag for tracking releases (e.g. `0613`, `v1`).   Useful for A/B testing or canary rollouts.   |
 | **Description**   | No        | Free-text note on the model’s purpose, fine-tune details, or cost tier.|
 
@@ -111,7 +111,7 @@ In **Properties**, you can view and edit main definitions and runtime settings.
 |-------------------|-----------|--------|
 | **Override Name** | No        | Custom display name for specific contexts.    |
 | **Icon**          | No        | Choose a logo to visually distinguish models in the UI.  |
-| **Topics**        | No        | Tag this model with one or more topics or categories (e.g. “finance”, “support”).  |
+| **Topics**        | No        | Tag this model with one or more topics or categories (e.g. "finance", "support").  |
 | **Attachments**   | No        | Control which attachment types (images, files) this model can process.  <br />**None** – no attachments allowed.  <br />**All** – unrestricted types. Optionally specify max number of attachments. <br />**Custom** – enter specific MIME types. Optionally specify max number of attachments. |
 
 ##### Upstream Configuration
@@ -158,10 +158,10 @@ Some adapters expose specialized HTTP endpoints for tokenization, rate estimatio
 
 | Field | Description & When to Use |
 |------------------------------|------|
-| **Rate endpoint**            | URL to invoke the model’s cost‐estimation or billing API. <br /> Call an endpoint that returns token counts & credit usage. <br /> Override if your adapter supports a dedicated “rate” path. |
+| **Rate endpoint**            | URL to invoke the model’s cost‐estimation or billing API. <br /> Call an endpoint that returns token counts & credit usage. <br /> Override if your adapter supports a dedicated "rate" path. |
 | **Tokenize endpoint**        | URL to invoke a standalone tokenization service. <br /> Use when you need precise token counts before truncation or batching. <br /> Models without built-in tokenization require this.       |
 | **Truncate prompt endpoint** | URL to invoke a prompt‐truncation API. <br /> Ensures prompts are safely cut to max context length. <br /> Useful when working with very long user inputs.    |
-| **Configuration endpoint**   | URL to fetch model‐specific settings (e.g. max tokens, allowed parameters). <br /> Only enable for “configurable” deployments.    |
+| **Configuration endpoint**   | URL to fetch model‐specific settings (e.g. max tokens, allowed parameters). <br /> Only enable for "configurable" deployments.    |
 
 
 ##### Feature Flags (Toggles)
@@ -173,7 +173,7 @@ Each toggle corresponds to a capability in the [Unified Protocol](/docs/platform
 | Toggle                 | What It Does                 |
 |------------------------|-------------------|
 | **Temperature**        | Enables the `temperature` parameter in API calls. Controls randomness vs. determinism.  |
-| **System prompt**      | Allows injecting a system‐level message (the “assistant’s instructions”) at the start of every chat. Disable for models that ignore or block system prompts. |
+| **System prompt**      | Allows injecting a system‐level message (the "assistant’s instructions") at the start of every chat. Disable for models that ignore or block system prompts. |
 | **Tools**              | Enables the `tools` (a.k.a. functions) feature for safe external API calls. Switch on if you plan to use DIAL Add-ons or function calling.                   |
 | **Seed**               | Enables the `seed` parameter for deterministic output. Use in testing or reproducible workflows.   |
 | **URL Attachments**    | Allows passing URLs as attachments (images, docs) to the model. Required for image-based or file-referencing prompts.        |
@@ -196,7 +196,7 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 | Column                | Description & Guidance    |
 |-----------------------|--------------------------|
 | **Name**              | Unique role identifier.   |
-| **Description**       | User-readable explanation of the role’s purpose (e.g., “AI-DIAL Prompt Engineering Team”).     |
+| **Description**       | User-readable explanation of the role’s purpose (e.g., "AI-DIAL Prompt Engineering Team").     |
 | **Tokens per minute** | Minute tokens limit for specific role. Blank = no limits. Inherits [default value](#default-rate-limits). Can be overridden.          |
 | **Tokens per day**    | Daily tokens limit for specific role. Blank = no limits. Inherits [default value](#default-rate-limits). Can be overridden.           |
 | **Tokens per week**   | Weekly tokens limit for specific role. Blank = no limits. Inherits [default value](#default-rate-limits). Can be overridden.          |
@@ -205,11 +205,11 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 
 #### Set Rate Limits
 
-The grin on the Roles screen lists the roles that can access a specific model. Here, you can also set individual limits for selected roles. For example, you can the “Admin” role unlimited monthly tokens but throttle “Developer” to 100,000 tokens/day or allow the “External Partner” role a small trial quota (e.g., 10,000 tokens/month) before upgrade.
+The grin on the Roles screen lists the roles that can access a specific model. Here, you can also set individual limits for selected roles. For example, you can the "Admin" role unlimited monthly tokens but throttle "Developer" to 100,000 tokens/day or allow the "External Partner" role a small trial quota (e.g., 10,000 tokens/month) before upgrade.
 
 **To set or change rate limits for a role:**
 
-1. **Click** in the desired cell (e.g., **Tokens per day** for the “ADMIN”).
+1. **Click** in the desired cell (e.g., **Tokens per day** for the "ADMIN").
 2. **Enter** a numeric limit or leave blank to set no limits.
 3. Click **Reset to default limits** to restore [default settings](#default-rate-limits) for all roles.
 4. Click **Save** to apply changes.
@@ -233,7 +233,9 @@ Use **Make available to specific roles** toggle to define access to the model:
 * **Off**: Model is callable by any authenticated user. All existing roles are in the grid.
 * **On**: Model is restricted - only the roles you explicitly add to the grid below may invoke it.
 
-#### Add Role
+![img_3.png](img/69.png)
+
+#### Add
 
 Role adding is only possible if **Make available to specific roles** toggle is **On**.
 
@@ -241,7 +243,7 @@ Role adding is only possible if **Make available to specific roles** toggle is *
 2. **Select** one or more roles in the modal. The list or roles is defined in the [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) section.
 3. **Confirm** to insert them into the table.
 
-#### Remove Role
+#### Remove
 
 Role removal is only possible if **Make available to specific roles** toggle is **On**. 
 
@@ -254,53 +256,52 @@ Role removal is only possible if **Make available to specific roles** toggle is 
 
 Use the **Interceptors** tab to attach custom logic before requests go out to your LLM. Interceptors let you modify inputs, enforce policies, transform outputs, or record metrics on a per-model basis.
 
-Interceptors are lightweight plugins—defined under **Builders → Interceptors** that hook into DIAL Core’s processing pipeline. Common use cases include:
+> Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 
-* **Prompt Engineering**  Inject or rewrite user queries (e.g. add a “You are a prompt engineer” system message).
-* **Content Moderation**  Filter or block inputs/outputs based on custom rules or external services.
+Interceptors are lightweight plugins—defined under [Builders → Interceptors](/docs/platform/11.admin-panel/builders-interceptors.md) that hook into DIAL Core’s processing pipeline. Common use cases include:
+
+* **Prompt Engineering**: Inject or rewrite user queries (e.g. add a "You are a prompt engineer" system message).
+* **Content Moderation**: Filter or block inputs/outputs based on custom rules or external services.
 
 ![img_6.png](img/img_8.png)
 
-#### Interceptors Grid
+##### Interceptors Grid
 
 | Column            | Description  |
 | ----------------- |-------------|
-| **Order**         | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...).      |
+| **Order**         | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor’s in this order; for Response interceptors are invoked in reverse order.      |
 | **Name**          | The interceptor’s alias, matching the **Name** field in its definition.      |
 | **Description**   | Free-text summary from the interceptor’s definition, explaining its purpose. |
-| **<br /><br /><br />** (Actions) | Additional role-specific actions. <br /> Open interceptor in a new tab. <br /> Remove interceptor from the model |
+| **(Actions)** | Additional role-specific actions. <br /> Open interceptor in a new tab. <br /> Remove the selected interceptor from the model configuration. |
+ 
 
-> **Order Matters**:
-> A request will flow through each interceptor’s in this order; for Response interceptors are invoked in reverse order.
-
-#### Adding an Interceptor
+#### Add
 
 1. Click **+ Add** (in the upper-right of the interceptors grid).
-2. In the **Add Interceptors** modal, choose one or more from the grid of defined interceptors.
+2. In the **Add Interceptors** modal, choose one or more from the grid of [defined interceptors](/docs/platform/11.admin-panel/builders-interceptors.md).
 3. **Apply** to append them to the bottom of the list (are added in the same order as selected in the modal).
 
-> If you need a new interceptor, first create it under **Builders → Interceptors**, then revisit this tab to attach it.
+> **TIP**: If you need a new interceptor, first create it under [Builders → Interceptors](/docs/platform/11.admin-panel/builders-interceptors.md) and then revisit this tab to attach it to the model's configuration.
 
-#### Reordering Interceptors
+#### Reorder
 
 1. **Drag & Drop** the handle (⋮⋮⋮⋮) on the left of the row to reassign its **Order**.
 2. Release to reposition; order renumbers automatically.
 3. **Save** to lock in the new execution sequence.
 
-#### Removing Interceptor
+#### Remove
 
-1. Click the actions menu (<br /><br /><br />) in the interceptor's row.
+1. Click the actions menu in the interceptor's row.
 2. Choose **Remove** in the menu to detach it from this model.
 3. **Save** to lock in the interceptors list.
 
-
 ### Dashboard
 
-The **Dashboard** tab provides real-time and historical metrics for the model, so you can monitor usage patterns, enforce SLAs, optimize costs, and troubleshoot anomalies.
+In **Dashboard**, you can see real-time and historical metrics for the model. You can use it to monitor usage patterns, enforce SLAs, optimize costs, and troubleshoot anomalies.
 
 ![img.png](img/img_9.png)
 
-#### Top Bar Controls
+##### Top Bar Controls
 
 | Control                | What It Does            |
 | ---------------------- |----------|
@@ -308,19 +309,21 @@ The **Dashboard** tab provides real-time and historical metrics for the model, s
 | **+ Add filter**       | Drill into specific subsets by adding filters on Projects.   |
 | **Auto refresh**       | Set the dashboard to poll for new data (e.g. every 1 min) or turn off auto-refresh.          |
 
-#### System Usage Chart
-* **What it shows**: A time-series line chart of request throughput over your selected period.
+##### System Usage Chart
 
-* **Metrics plotted**:
-  * Requests per interval (auto-defined)
+A time-series line chart of request throughput over time. You can use it to monitor traffic peaks and valleys, correlate spikes with deployments or feature roll outs.
 
-* **Use cases**:
-  * Spot traffic peaks and valleys
-  * Correlate spikes with deployments or feature rollouts
+##### Key Metrics
 
-#### Key Metrics
+Four high-level metrics are displayed alongside the chart. All calculated for the user-selected period.
 
-Displayed alongside the chart are four high-level metrics. All calculated for the user-selected period:
+You can use them to:
+
+* Chargeback to internal teams or external customers by "Money".
+* Track adoption via "Unique Users".
+* Monitor burst traffic with "Request Count".
+* Watch token consumption to anticipate quota exhaustion.
+
 
 | Metric            | Definition|
 |-------------------|---------------------------|
@@ -329,15 +332,10 @@ Displayed alongside the chart are four high-level metrics. All calculated for th
 | **Total Tokens**  | Sum of prompt + completion tokens consumed by this model.           |
 | **Money**         | Estimated spending on this model.   |
 
-> **Use cases**:
-> * Charge back to internal teams or external customers by “Money.”
-> * Track adoption via “Unique Users.”
-> * Monitor burst traffic with “Request Count.”
-> * Watch token consumption to anticipate quota exhaustion.
 
-#### Projects Consumption Table
+##### Projects Consumption Table
 
-Below the KPIs is a breakdown table showing consumption by **Project**:
+This table shows the KPIs breakdown by **Project**. You can use it to compare consumption across multiple projects.
 
 | Column                | Description               |
 |-----------------------|-----------------|
@@ -347,19 +345,16 @@ Below the KPIs is a breakdown table showing consumption by **Project**:
 | **Completion tokens** | Total tokens returned by the model as responses.          |
 | **Money**             | Estimated cost.           |
 
->**Use cases**:
->  * Compare consumption across multiple projects.
 
-
-### Editing via JSON Editor
+### JSON Editor
 
 For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any model’s configuration page.
 
 ![img.png](img/img_10.png)
 
-#### Switching to the JSON Editor
+##### Switching to the JSON Editor
 
 1. Navigate to **Entities → Models**, then select the model you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 
-> **Tip**: You can switch between UI and JSON only if there are no unsaved changes.
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
