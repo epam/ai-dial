@@ -289,7 +289,7 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: 'Integrations',
+              label: 'Examples of Integrations',
               items: [
                 {
                   type: 'doc',
