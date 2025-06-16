@@ -17,7 +17,11 @@ DIAL Admin Panel functionality can be categorized into the following sections:
 
 ### Who is Admin
 
-TBD
+System admin(s) can be defined in [DIAL Core static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings) in the `access.admin.rules`:
+
+* Has `READ` and `WRITE` access to all system resources (conversations, prompt, files and applications).
+* Can view, approve and reject publication requests for DIAL users. 
+* Has access to all DIAL Core API endpoints.
 
 ## Home Screen
 
