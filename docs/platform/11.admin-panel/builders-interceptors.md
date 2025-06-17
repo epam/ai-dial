@@ -58,7 +58,7 @@ In the Properties tab, you can define metadata and execution endpoints for Inter
 | **Name**               | Yes   | Unique key for this interceptor (e.g. `reject-external-links`, `audit-logger`). Used when attaching to Models or Applications under their **Interceptors** tab. Keep it URL-safe and lowercase with hyphens.              |
 | **Description**        | No        | Free-text summary of the interceptor’s behavior and any configuration parameters (e.g. `BLACKLIST={"foo","bar"}`). Helps teammates understand when and why to attach it.                                                  |
 | **Endpoint**           | Yes   | The URL of the interceptor service. This URL is used to handle requests and responses for the interceptor.                                                                                                                    |
-| **Forward Auth Token** | No        | Select an Auth Token (from [Access Management → Tokens](/docs/platform/11.admin-panel/access-management-keys.md)) to forward along in the `Authorization` header when calling your interceptor endpoint. Use this when your interceptor service requires its own authentication. |
+| **Forward Auth Token** | No        | Specify whether to forward an Auth Token to your interceptor endpoint. Use this when your interceptor service requires its own authentication. |
 
 ### Entities
 
