@@ -93,7 +93,7 @@ The Entities tab on an Interceptor’s detail page shows which Models and Applic
 
 | Column            | Definition                                                                                                        |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **Display Name**  | Human-friendly name of the Application (e.g. “Data Clustering Application”).                                      |
+| **Display Name**  | User-friendly name of the Application (e.g. “Data Clustering Application”).                                      |
 | **Version**       | The Application’s version tag (e.g. `v1.0`, `2024-07-15`) as defined in **Entities → Applications → Properties**. |
 | **Description**   | Free-text summary of what the Application does.                                                                   |
 | **Deployment ID** | The unique alias used in the Application’s endpoint URL (e.g. `dca`, `support-bot`).                              |
@@ -106,5 +106,5 @@ The Entities tab on an Interceptor’s detail page shows which Models and Applic
 
 ### 3. Removing Entity
  
-1. Click the actions menu (•••) in the entity's line.
+1. Click the actions menu (<br /><br /><br />) in the entity's line.
 2. Choose **Remove** in the menu.

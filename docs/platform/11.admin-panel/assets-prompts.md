@@ -34,7 +34,7 @@ In the sidebar, expand **Assets** and click **Prompts**.
 | **Version**       | Semantic version of this prompt template (e.g. `1.0.0`).                           |
 | **Author**        | Username or system ID who created or last modified this prompt.                    |
 | **Update time**   | Timestamp of the last modification, helping you track freshness and audit changes. |
-| **••• (Actions)** | Row menu to **Duplicate**, **Move to another folder**, or **Delete** the prompt.   |
+| **<br /><br /><br /> (Actions)** | Row menu to **Duplicate**, **Move to another folder**, or **Delete** the prompt.   |
 
 **Filtering & Sorting**
 * Each column header has sort arrows; click to reorder.

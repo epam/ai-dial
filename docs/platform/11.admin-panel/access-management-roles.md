@@ -87,7 +87,7 @@ The Entities tab in a Role’s configuration lets you assign which Models or App
 
 | Column                | Definition                                                                                                            |
 | --------------------- |-----------------------------------------------------------------------------------------------------------------------|
-| **Display Name**      | Human-friendly name of the entity (Model, Application, or Route) as shown in DIAL.                                    |
+| **Display Name**      | User-friendly name of the entity (Model, Application, or Route) as shown in DIAL.                                    |
 | **Version**           | Version tag of the entity (e.g. `v1.2`, `1.0.0`).                                                                     |
 | **Description**       | Brief summary of the entity’s function.                                                                               |
 | **Deployment ID**     | The unique internal identifier used by DIAL to call the resource’s endpoint.                                          |
@@ -105,7 +105,7 @@ The Entities tab in a Role’s configuration lets you assign which Models or App
 
 ### 3. Removing Entity
  
-1. Click the actions menu (•••) in the entity's line.
+1. Click the actions menu (<br /><br /><br />) in the entity's line.
 2. Choose **Remove** in the menu.
 
 
@@ -133,5 +133,5 @@ The Keys tab lets you issue, manage, and revoke API keys scoped specifically to 
 
 ### 3. Removing Key
  
-1. Click the actions menu (•••) in the key's line.
+1. Click the actions menu (<br /><br /><br />) in the key's line.
 2. Choose **Remove** in the menu.

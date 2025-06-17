@@ -14,7 +14,7 @@ You can use the [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom
 
 On the **Models** page you can find all language models (LLMs) deployed on your DIAL instance. Here you can view, filter, and add new model definitions.
 
-> **TIP**: Click **Columns** to open the columns selector to define what colums to display.
+> **TIP**: Click **Columns** to open the columns selector to define what columns to display.
 
 ![img_5.png](img/img_3.png)
 
@@ -62,7 +62,7 @@ Use the **Create Model** dialog to register a new LLM integration in your DIAL i
 
 ## Model Configuration
 
-You can access the model configuraton scrren by clickung any model in the models grid and also when adding a new model. In this section, you can view and configure all settings for a selected language model.
+You can access the model configuration screen by clicking any model in the models grid and also when adding a new model. In this section, you can view and configure all settings for a selected language model.
 
 * [Properties](#properties): Main definitions and runtime settings.
 * [Features](#features): Optional capabilities and custom endpoints.
@@ -72,7 +72,7 @@ You can access the model configuraton scrren by clickung any model in the models
 
 ##### Top Bar Controls
 
-* **Delete**: Permanently removes this model definition from DIAL Core. All Routes referencing it will ttrow an error until a replacement is created.
+* **Delete**: Permanently removes this model definition from DIAL Core. All Routes referencing it will throw an error until a replacement is created.
 * **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the model’s configuration. Use JSON mode for copy-paste or advanced edits.
 
 ### Properties
@@ -135,6 +135,7 @@ In **Properties**, you can view and edit main definitions and runtime settings.
 | **Max retry attempts** | No        | How many times DIAL Core will retry on upstream errors (e.g. on timeouts or 5xx responses).           |
 
 ##### Cost Configuration
+
 Enables real-time cost estimation and quota enforcement. Powers the **Telemetry** dashboards with per-model spend metrics.
 
 | Field                | Required | Description|
@@ -142,7 +143,6 @@ Enables real-time cost estimation and quota enforcement. Powers the **Telemetry*
 | **Cost unit**        | Yes       | Base unit for billing. <br />**None** - disables all cost tracking for this model. <br />**Tokens** - every token sent or received by the model is counted towards your cost metrics. <br />**Char without whitespace** - tells DIAL to count only non-whitespace characters (letters, numbers, punctuation) in each request as the billing unit. |
 | **Prompt price**     | Yes       | Cost per unit for prompt tokens.     |
 | **Completion price** | Yes       | Cost per unit for completion tokens (chat responses).                |
-
 
 ### Features
 
@@ -205,7 +205,7 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 
 #### Set Rate Limits
 
-The grin on the Roles screen lists the roles that can access a specific model. Here, you can also set individual limits for selected roles. For example, you can the "Admin" role unlimited monthly tokens but throttle "Developer" to 100,000 tokens/day or allow the "External Partner" role a small trial quota (e.g., 10,000 tokens/month) before upgrade.
+The grid on the Roles screen lists the roles that can access a specific model. Here, you can also set individual limits for selected roles. For example, you can the "Admin" role unlimited monthly tokens but throttle "Developer" to 100,000 tokens/day or allow the "External Partner" role a small trial quota (e.g., 10,000 tokens/month) before upgrade.
 
 **To set or change rate limits for a role:**
 
@@ -237,7 +237,7 @@ Use **Make available to specific roles** toggle to define access to the model:
 
 #### Add
 
-Role adding is only possible if **Make available to specific roles** toggle is **On**.
+You can add a role only if **Make available to specific roles** toggle is **On**.
 
 1. Click **+ Add** (top-right of the Roles Grid).
 2. **Select** one or more roles in the modal. The list or roles is defined in the [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) section.
@@ -245,7 +245,7 @@ Role adding is only possible if **Make available to specific roles** toggle is *
 
 #### Remove
 
-Role removal is only possible if **Make available to specific roles** toggle is **On**. 
+You can remove a role only if **Make available to specific roles** toggle is **On**.
 
 1. Click the actions menu in the role's line.
 2. Choose **Remove** in the menu.
@@ -256,12 +256,14 @@ Role removal is only possible if **Make available to specific roles** toggle is 
 
 Use the **Interceptors** tab to attach custom logic before requests go out to your LLM. Interceptors let you modify inputs, enforce policies, transform outputs, or record metrics on a per-model basis.
 
-> Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
+Interceptors are lightweight plugins—defined under [Builders → Interceptors](/docs/platform/11.admin-panel/builders-interceptors.md) that hook into DIAL Core’s processing pipeline. 
 
-Interceptors are lightweight plugins—defined under [Builders → Interceptors](/docs/platform/11.admin-panel/builders-interceptors.md) that hook into DIAL Core’s processing pipeline. Common use cases include:
+Common use cases include:
 
 * **Prompt Engineering**: Inject or rewrite user queries (e.g. add a "You are a prompt engineer" system message).
 * **Content Moderation**: Filter or block inputs/outputs based on custom rules or external services.
+
+> Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 
 ![img_6.png](img/img_8.png)
 

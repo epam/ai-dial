@@ -47,7 +47,7 @@ In the modal, specify the following for the new runner:
 | Field           | Required | Definition                                                                   |
 |-----------------|-----------|------------------------------------------------------------------------------|
 | **ID**          | **Yes**   | The unique identifier for this runner—typically the base URL of the service. |
-| **Name**        | **Yes**   | Human-friendly name of the Application Runner.                               |
+| **Name**        | **Yes**   | User-friendly name of the Application Runner.                               |
 | **Description** | No        | Free-text notes about the runner’s capabilities.                             |
 
 ### 3. Click Create 
@@ -106,7 +106,7 @@ By assigning applications here, you tell DIAL Core to dispatch orchestration pay
 
 | Column            | Definition                                                                                                        |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **Display Name**  | Human-friendly name of the Application (e.g. “Data Clustering Application”).                                      |
+| **Display Name**  | User-friendly name of the Application (e.g. “Data Clustering Application”).                                      |
 | **Version**       | The Application’s version tag (e.g. `v1.0`, `2024-07-15`) as defined in **Entities → Applications → Properties**. |
 | **Description**   | Free-text summary of what the Application does.                                                                   |
 | **Deployment ID** | The unique alias used in the Application’s endpoint URL (e.g. `dca`, `support-bot`).                              |
@@ -119,5 +119,5 @@ By assigning applications here, you tell DIAL Core to dispatch orchestration pay
 
 ### 3. Removing Application
  
-1. Click the actions menu (•••) in the app's line.
+1. Click the actions menu (<br /><br /><br />) in the app's line.
 2. Choose **Remove** in the menu.

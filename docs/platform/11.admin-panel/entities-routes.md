@@ -23,7 +23,7 @@ In the sidebar, expand **Entities** and click **Routes**.
 
 | Field           | Definition                                        |
 |-----------------|---------------------------------------------------|
-| **Name**        | Human-friendly name of the Route.                 |
+| **Name**        | User-friendly name of the Route.                 |
 | **Description** | Brief free-text summary of the Route’s purpose.   |
 
 
@@ -44,7 +44,7 @@ In the modal, specify the following for the new route:
 
 | Field           | Required        | Definition                                                   |
 |-----------------|------------------|----------------------------------------------------------------------|
-| **Name**        | **Yes**          | Human-friendly name of the Route.                                    |
+| **Name**        | **Yes**          | User-friendly name of the Route.                                    |
 | **Description** | No               | Brief free-text summary of the Route’s purpose.                      |
 | **Paths**       | **Yes**          | URL path pattern this route should match (e.g. `/chat`, `/support/`). |
 
@@ -154,11 +154,11 @@ Editing Role Limits:
 | **Tokens per day**    | Daily tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.        |
 | **Tokens per week**   | Weekly tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.       |
 | **Tokens per month**  | Monthly tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.      |
-| **••• (Actions)**     | Additional role-specific actions. • Open role in a new tab. • Make all restrictions unlimited for the given role |
+| **<br /><br /><br /> (Actions)**     | Additional role-specific actions. <br /> Open role in a new tab. <br /> Make all restrictions unlimited for the given role |
 
 > **Use Cases**:
-> • Give your “Admin” role unlimited monthly tokens but throttle “Developer” to 100,000 tokens/day.
-> • Allow “External Partner” a small trial quota (e.g., 10,000 tokens/month) before upgrade.
+> <br /> Give your “Admin” role unlimited monthly tokens but throttle “Developer” to 100,000 tokens/day.
+> <br /> Allow “External Partner” a small trial quota (e.g., 10,000 tokens/month) before upgrade.
 
 ### 4. Adding Role
 
@@ -170,5 +170,5 @@ Role adding is only possible if **Make available to specific roles** toggle is *
 ### 5. Removing Role
 
 Role removal is only possible if **Make available to specific roles** toggle is **On**. 
-1. Click the actions menu (•••) in the role's line.
+1. Click the actions menu (<br /><br /><br />) in the role's line.
 2. Choose **Remove** in the menu.

@@ -30,7 +30,7 @@ In the sidebar, expand **Access Management** and click **Keys**.
 
 | Column                  | Definition                                                                                                                                  |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| **Name**                | Human-friendly identifier for the key (e.g. `analytics-service-key`). Names help you map keys to consumers or services in logs and configs. |
+| **Name**                | User-friendly identifier for the key (e.g. `analytics-service-key`). Names help you map keys to consumers or services in logs and configs. |
 | **Description**         | Optional notes explaining the key’s purpose, owner/team, or special instructions.                                                           |
 | **Key generation time** | Timestamp when the key was created. Useful for auditing and correlating key use with system changes or deployments.                         |
 | **Expiration time**     | Timestamp when the key automatically becomes invalid. Setting expirations enforces regular key rotation.                                    |
@@ -114,5 +114,5 @@ Only clients possessing this key and belonging to one of the assigned roles can 
 
 ### 3. Removing Role
  
-1. Click the actions menu (•••) in the role's line.
+1. Click the actions menu (<br /><br /><br />) in the role's line.
 2. Choose **Remove** in the menu.

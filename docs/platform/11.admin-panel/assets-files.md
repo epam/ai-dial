@@ -31,7 +31,7 @@ In the sidebar, expand **Assets** and click **Files**.
 | **Name**          | Technical key for the file (e.g. `exclusion-words`).                            |
 | **Extension**     | The original extension of the file.                                             |
 | **Author**        | Username or system ID who created or last modified this file.                 |
-| **••• (Actions)** | Row menu to **Move to another folder** or **Delete** the file.   |
+| **<br /><br /><br /> (Actions)** | Row menu to **Move to another folder** or **Delete** the file.   |
 
 **Filtering & Sorting**
 * Each column header has sort arrows; click to reorder.
