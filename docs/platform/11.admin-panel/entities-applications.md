@@ -76,7 +76,7 @@ Once configured, your application is ready to orchestrate models and interceptor
 | **Display Name**  | Yes       | User-friendly label shown in the UI (e.g. "Data Clustering Application"). Helps to identify this application at a glance.                |
 | **Version**       | No        | Version tag for rollout management (e.g. `v1.0`, `2024-07-15`). Bump this to publish a new iteration without breaking existing consumers. |
 | **Description**   | No        | Free-text summary of the Application’s purpose (e.g. tooling, supported inputs/outputs, SLAs).                   |
-| **Completion Endpoint** | (Read-only) | URL where the app is exposed. Clients use this to integrate.                     |
+| **Completion Endpoint** | Optional | URL where the app is exposed. Clients use this to integrate. Auto-populated if Application Runner is selected. Required if Application Runner is not selected.                     |
 | **Application Runner**  | No          | Application type schema. Defined in [Application Runners](/docs/platform/11.admin-panel/builders-application-runners.md). |
 | **Icon**          | No        | Choose a logo to visually distinguish apps in the UI.              |
 | **Topics**        | No        | Tag this app with one or more topics or categories (e.g. "finance", "support").             |
