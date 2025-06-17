@@ -1,40 +1,25 @@
 # Interceptors
 
-## What Is an “Interceptor” in DIAL?
+## About Interceptors
 
-it is possible to incorporate additional logic into the processing of every request and response for models and apps. 
-This is achieved through the integration of pluggable components known as Interceptors. Use SDK to develop Interceptors.
+You can add an additional logic into the processing of every request and response for models and apps, enabling PII obfuscation, guardrails, safety checks, and beyond. This is achieved through the integration of pluggable components known as Interceptors. 
 
-Interceptors implement Responsible AI approach and enforce compliance with organization policies and standards. 
-They can block requests that violate regulations, come from restricted areas, risk data leaks, or give biased responses. 
-Interceptors also enable applications to focus on certain topics, remove personal information from user requests, and cache responses from LLMs.
+> Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 
-You define each interceptor under Builders → Interceptors, then attach it to any Model or Application in the order you choose.
+## Interceptors List
 
-## Interceptors Listing
-
-The Interceptors page under Builders is your single source of truth for all the “hooks” you’ve built to extend DIAL’s request pipeline.
-Use this page to view, filter, and create new artefacts.
+In Interceptors, you can find all the "hooks" you’ve built to extend DIAL’s request pipeline. Use this page to view, filter, and create new artefacts.
 
 ![img.png](img/img_28.png)
 
-### 1. Navigate to Interceptors
+##### Interceptors Grid
 
-In the sidebar, expand **Builders** and click **Interceptors**.
-
-### 2. Interceptors Grid
-
-**Filtering & Sorting**
-* Each column header has sort arrows; click to reorder.
-* Beneath each header is a filter box - type text to narrow the list in real time.
-
-| Column          | Definition & Use Case                                                                                                                               |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Column          | Definition & Use |
+|-----------------|------------------------|
 | **Name**        | Unique identifier for the interceptor (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. |
 | **Description** | A brief summary of what this interceptor does and any parameters it uses (e.g. BLACKLIST={"foo","bar"} or Logs request/response payloads).          |
 
-
-## Create Interceptors
+## Create
 
 Use the **Create Interceptor** dialog to register an interceptor in your DIAL instance. Once added, it appears in the **Interceptors** listing.
 
@@ -42,69 +27,73 @@ Use the **Create Interceptor** dialog to register an interceptor in your DIAL in
 
 ![img_1.png](img/img_29.png)
 
-### 1. Hit **Create** button 
+##### To create a new Interceptor:
 
-Opens the **Create Interceptor** modal.
+1. Click **Create** to invoke the **Create Interceptor** modal.
+2. Define interceptor parameters:
 
-### 2. Define key parameters
+    | Column          | Definition & Use  |
+    |-----------------|-------------|
+    | **Name**        | A unique identifier of the interceptor (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. |
+    | **Description** | A brief summary of what this interceptor does and any parameters it uses (e.g. BLACKLIST={"foo","bar"} or Logs request/response payloads).          |
+3. Once all required fields are filled, click **Create**. The dialog closes and the new interceptor [configuration screen](#configuration) opened.
 
-In the modal, specify the following for the new interceptor:
+    > This entry will appear immediately in the listing once created.
 
-| Column          | Definition & Use Case                                                                                                                               |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Name**        | Unique identifier for the interceptor (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. |
-| **Description** | A brief summary of what this interceptor does and any parameters it uses (e.g. BLACKLIST={"foo","bar"} or Logs request/response payloads).          |
+## Configuration
 
-### 3. Click Create 
-Once all required fields are filled hit **Create** button. The dialog closes and the new interceptor configuration screen opened.
+##### Top Bar Controls
 
-  > This entry will appear immediately in the listing once created.
+* **Delete**: Permanently removes the selected interceptor.
+* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the interceptor’s configuration. Use JSON mode for copy-paste or advanced edits.
 
+### Properties
 
-## Interceptor Configuration - Top Bar Controls
+In the Properties tab, you can define metadata and execution endpoints for Interceptors.
 
-* **Delete**: Permanently removes this runner definition. All related Applications still bound to it will be deleted as well.
-
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw JSON view of the runner’s configuration. Use JSON mode for copy-paste or advanced edits.
-
-
-## Interceptor Configuration - Properties Tab
-
-The Properties tab defines the core metadata and execution endpoint for an Interceptor.
 ![img_2.png](img/img_30.png)
 
-### 1. Properties Fields
-
-| Field                  | Required | Definition & Use Case                                                                                                                                                                                                     |
-|------------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Name**               | **Yes**   | Unique key for this interceptor (e.g. `reject-external-links`, `audit-logger`). Used when attaching to Models or Applications under their **Interceptors** tab. Keep it URL-safe and lowercase with hyphens.              |
+| Field  | Required | Definition & Use Case    |
+|----------|-----------|--------------|
+| **Name**               | Yes   | Unique key for this interceptor (e.g. `reject-external-links`, `audit-logger`). Used when attaching to Models or Applications under their **Interceptors** tab. Keep it URL-safe and lowercase with hyphens.              |
 | **Description**        | No        | Free-text summary of the interceptor’s behavior and any configuration parameters (e.g. `BLACKLIST={"foo","bar"}`). Helps teammates understand when and why to attach it.                                                  |
-| **Endpoint**           | **Yes**   | The URL of interceptor service. This URL is used to handle requests and responses for the interceptor.                                                                                                                    |
-| **Forward Auth Token** | No        | Select an Auth Token (from **Access Management → Tokens**) to forward along in the `Authorization` header when calling your interceptor endpoint. Use this when your interceptor service requires its own authentication. |
+| **Endpoint**           | Yes   | The URL of the interceptor service. This URL is used to handle requests and responses for the interceptor.                                                                                                                    |
+| **Forward Auth Token** | No        | Select an Auth Token (from [Access Management → Tokens](/docs/platform/11.admin-panel/access-management-keys.md)) to forward along in the `Authorization` header when calling your interceptor endpoint. Use this when your interceptor service requires its own authentication. |
 
+### Entities
 
-## Interceptor Configuration - Entities Tab
-
-The Entities tab on an Interceptor’s detail page shows which Models and Applications this hook is currently attached to. By binding interceptors here, you control exactly which AI endpoints (and in what order) will invoke your custom pre- or post-processing logic.
+In the Entities tab, you can see to which Models and Applications this hook is currently attached. By binding interceptors here, you control exactly which AI endpoints (and in what order) will invoke your custom pre- or post-processing logic.
 
 ![img_3.png](img/img_31.png)
 
-### 1. Entities List
 
-| Column            | Definition                                                                                                        |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **Display Name**  | User-friendly name of the Application (e.g. “Data Clustering Application”).                                      |
-| **Version**       | The Application’s version tag (e.g. `v1.0`, `2024-07-15`) as defined in **Entities → Applications → Properties**. |
-| **Description**   | Free-text summary of what the Application does.                                                                   |
-| **Deployment ID** | The unique alias used in the Application’s endpoint URL (e.g. `dca`, `support-bot`).                              |
+| Column            | Definition|
+| ----------------- | -----------------|
+| **Display Name**  | User-friendly name of the Application/Model (e.g. "Data Clustering Application").                                      |
+| **Version**       | The Application’s/Model's version tag (e.g. `v1.0`, `2024-07-15`) as defined in **Entities → Applications/Models → Properties**. |
+| **Description**   | Free-text summary of what the Application/Model does.                                                                   |
+| **Deployment ID** | The unique alias used in the Application’s/Models' endpoint URL (e.g. `dca`, `support-bot`).                              |
 
-### 2. Adding Entity
+#### Add
 
 1. Click **+ Add** (top-right of the Entities Grid).
 2. **Select** one or more apps/models in the modal.
 3. **Confirm** to insert them into the table.
 
-### 3. Removing Entity
+#### Remove
  
-1. Click the actions menu (<br /><br /><br />) in the entity's line.
+1. Click the **actions** menu in the entity's line.
 2. Choose **Remove** in the menu.
+
+### JSON Editor
+
+For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any interceptor configuration page.
+
+![](img/71.png)
+
+##### Switching to the JSON Editor
+
+1. Navigate to **Builders → Interceptors**, then select the interceptor you want to edit.
+2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
+
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.

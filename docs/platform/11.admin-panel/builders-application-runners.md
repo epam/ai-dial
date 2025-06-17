@@ -6,7 +6,7 @@
 
 > Refer to [Schema-rich Applications](/docs/platform/3.core/7.apps.md#schema-rich-applications) to learn more.
 
-## Application Runners Listing
+## Application Runners List
 
 In Application Runners you can manage the Application Runners you have in your DIAL instance. Use this page to view, filter, and create new artefacts.
 

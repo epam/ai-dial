@@ -47,7 +47,7 @@ Use the **Create Route** dialog to register a new route in your DIAL instance. O
 ##### Top Bar Controls
 
 * **Delete**: Permanently removes this route. Any client calls to this path will return 404 until a new route is created.
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw JSON view of the route’s configuration. Use JSON mode for copy-paste or advanced edits.
+* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the route’s configuration. Use JSON mode for copy-paste or advanced edits.
 
 ### Properties
 
@@ -163,3 +163,16 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 
 1. Click the **actions** menu in the role's line.
 2. Choose **Remove** in the menu.
+
+### JSON Editor
+
+For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any route's configuration page.
+
+![](img/72.png)
+
+##### Switching to the JSON Editor
+
+1. Navigate to **Builders → Interceptors**, then select the interceptor you want to edit.
+2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
+
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
