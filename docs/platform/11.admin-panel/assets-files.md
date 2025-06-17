@@ -1,22 +1,20 @@
 # Files
 
-## What Is a stored “File” in DIAL?
+## About Files
 
-Files in DIAL are arbitrary binary or text assets—JSON, CSV, PDF, images, etc. that you upload and version under Assets → Files so your Models and Applications can reference them at runtime.
+Files in DIAL are arbitrary binary or text assets (JSON, CSV, PDF, images, etc.) your models and applications can reference at runtime.
 
-## Files Listing
+> Refer to [User Guide](/docs/tutorials/0.user-guide.md#attachments) to learn more about attachments.
 
-The Files section under Assets → Files is where you manage all binary or document assets—JSON, CSV, PDF, images, etc.
+## Files List
+
+In Files, you can manage all binary or document assets like JSON, CSV, PDF, images, etc.
 
 ![img.png](img/img_35.png)
 
-### 1. Navigate to Files
+### Grid and Folders
 
-In the sidebar, expand **Assets** and click **Files**.
-
-### 2. Files Grid and Folders
-
-**Folders Structure (Left Pane)**:
+##### Folders Structure (Left Pane)
 
 | Element                  | Behavior                                                                                |
 |--------------------------|-----------------------------------------------------------------------------------------|
@@ -24,108 +22,65 @@ In the sidebar, expand **Assets** and click **Files**.
 | **User-defined folders** | Collapsible folders you create to group files by project, team, domain, or environment. |
 | **⯈ Icons**              | Click to expand or collapse subfolders, drilling down to the set of files you need.     |
 
-**Files Grid (Right Pane)**:
+##### Files Grid (Right Pane)
 
 | Column            | Definition                                                                      |
 |-------------------|---------------------------------------------------------------------------------|
 | **Name**          | Technical key for the file (e.g. `exclusion-words`).                            |
 | **Extension**     | The original extension of the file.                                             |
 | **Author**        | Username or system ID who created or last modified this file.                 |
-| **<br /><br /><br /> (Actions)** | Row menu to **Move to another folder** or **Delete** the file.   |
+| **(Actions)** | Row menu with actions: <br /> - Move to another folder<br />- Delete  |
 
-**Filtering & Sorting**
-* Each column header has sort arrows; click to reorder.
-* Beneath each header is a filter box - type text to narrow the list in real time.
+## Export
 
-
-## Export Files
-
-The **Export** feature on the **Files** Listing page lets you package one or more stored files into a downloadable archive. 
-This is helpful for backup, sharing, or migrating supporting assets alongside your DIAL configuration.
+Use Export to package one or more stored files into a downloadable archive. This is helpful for backup, sharing, or migrating supporting assets alongside your DIAL configuration.
 
 ![img.png](img/img_49.png)
 
-### 1. Launching the Export Modal
+##### To export files
 
-1. Navigate to **Assets → Files**.
-2. Click the **Export** button at the top right.
+1. Click the **Export** button in the toolbar to launch the export modal.
+2. Select a folder from which you want to export files. Clicking a folder highlights it and lists its files in the right pane.
+3. Choose the files you want to export by checking their boxes. Alternatively, use **Select All** checkbox in the header to export every file in the chosen folder.
+4. Click **Export** to start the process. Files are downloaded as .zip archive with all selected files within it.
 
-### 2. Select Folder
+## Import
 
-* **Browse** your storage hierarchy exactly as in the main listing.
-* **Select** the folder whose contents you want to export.
-
-> Clicking a folder highlights it and lists its files in the right pane.
-
-### 3. Choose Files
-
-* **Check** the box next to each file you wish to include.
-* Alternatively, use **Select All** checkbox in the header to export every file in the chosen folder.
-
-Click **Export** to start the process.
-
-> Files are downloaded as .zip archive with all selected files within it.
-
-
-## Import Files
-
-The **Import** feature on the **Files** Listing page allows you to upload external files into DIAL’s asset storage. 
-This is useful for adding reference documents, data or other supporting assets.
+Use Import to upload external files into DIAL’s asset storage. This is useful for adding reference documents, data or other supporting assets.
 
 ![img_1.png](img/img_50.png)
 
-### 1. Launching the Import Modal
+##### To import files
 
-1. Navigate to **Assets → Files**.
-2. Click the **Import** button at the top right.
+1. Click the **Import** button in the toolbar to launch the import modal.
+2. Select the type of files you want to import. Drag & drop files or archive into the drop zone, or click **Browse** to open your local file browser.
+    * **Archive** (single ZIP file). Only 1 archive file can be imported at a time.
+    * **Separate Files** (up to 30 individual files). Each file must be ≤ 512 MB.
+3. Once files appear in the list, click **Next** to proceed.
+4. Resolve any conflicts by choosing a strategy for handling files with the same name and path:
+   * **Override**: Replace existing files with the new ones.
+   * **Skip**: Do not import conflicting files; keep existing ones unchanged.
+   * **Edit manually**: Rename incoming files one by one to avoid conflicts. Each conflicting file is flagged with red and becomes editable - update its **Name** to avoid conflict.
+5. Once all conflicts are resolved, click **Finish** to complete the import.
 
-### 2. Select File Type
+    ![img_2.png](img/img_51.png)
 
-* **Archive**:
-  * Upload a single ZIP archive containing one or more files.
-  * Only 1 archive file can be imported at a time.
+## Configuration
 
-* **Separate Files**:
-  * Upload up to 30 individual files.
-  * Each file must be ≤ 512 MB.
-  
-### 3. Select Files 
-
-* **Drag & drop** files (or archive) into the drop zone.
-* Or click **Browse** to open your local file browser.
-
-Once files appear in the list, click **Next** to proceed.
-
-### 4. Select Conflicts Resolution Strategy
-
-![img_2.png](img/img_51.png)
-
-When an incoming file’s name and path clashes with an existing file, the conflict arises. You have three conflict-resolution strategies:
-
-| Option            | Description                                                                                                                               |
-| ----------------- |-------------------------------------------------------------------------------------------------------------------------------------------|
-| **Override**      | Replace all existing files with the new ones.                                                                                             |
-| **Skip**          | Do not import the conflicting files; keep the existing files unchanged.                                                                   |
-| **Edit manually** | Rename incoming files one by one. Each conflicting file is flagged with red and becomes editable - update its **Name** to avoid conflict. |
-
-Once all conflicts are resolved, click **Finish**.
-
-
-## File Configuration - Top Bar Controls
+##### Top Bar Controls
 
 * **Delete**: Permanently removes this file from your DIAL instance.
 
-## File Configuration - Properties Tab
+### Properties
 
-The Properties tab within Assets → Files lets you inspect and manage an individual file asset’s or move it across folders.
+In the Properties tab, you can view and manage files, including moving them across folders.
 
 ![img_1.png](img/img_36.png)
 
-### 1. Properties Fields
 
-| Field                | Required | Definition & Use Case                                                                                                                  |
-|----------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Field                | Required | Definition & Use Case    |
+|----------------------|-----------|-------------------------------------|
 | **Name**             | -         | The filename including extension (e.g. request.json, lookup.csv). Display-only but with a copy-to-clipboard button for easy reference. |
-| **Source/Name**      | -         | File name without extension (e.g. request). Clicking on additional actions button you can download the file.                           |
-| **Source/Extension** | -         | file type (e.g. .json, .csv, .pdf).                                                                                                    |
-| **Storage Folder**   | **Yes**   | The actual path of the file in the folders hierarchy. Allows you to move the file across folders.                                      |  
+| **Source/Name**      | -         | The name of the file without the extension (e.g. request). To download, click on additional actions button.|
+| **Source/Extension** | -         | The file type (e.g. .json, .csv, .pdf).   |
+| **Storage Folder**   | Yes   | The actual path of the file in the folders hierarchy. Allows you to move the file across folders. |  
