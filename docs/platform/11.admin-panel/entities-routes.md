@@ -1,25 +1,16 @@
 # Routes
 
-## What Is a “Route” in DIAL?
+## About Routes
 
-Routes in DIAL are used for communication through registered endpoints in the DIAL Core. They act as a bridging mechanism between the DIAL Core and external applications, facilitating seamless interactions. Once a route with a designated endpoint is set up in DIAL Core, it allows client applications, such as DIAL Chat, to interact with this endpoint. Essentially, DIAL Core functions as an intermediary, handling authentication and authorization between the client and the external application linked to the route.
+Routes in DIAL are used for communication through registered endpoints in the [DIAL Core](/docs/platform/3.core/0.about-core.md). They act as a bridging mechanism between the DIAL Core and external applications, facilitating seamless interactions. Once a route with a designated endpoint is set up in DIAL Core, it allows client applications, such as DIAL Chat, to interact with this endpoint. Essentially, DIAL Core functions as an intermediary, handling authentication and authorization between the client and the external application linked to the route.
 
 ## Routes List
 
-The Routes page under Entities lets you manage all of your request‐routing definitions in one place. 
-Use this page to view, filter, and create new artefacts.
+In Routes, you can manage all of your request‐routing definitions in one place. Use this page to view, filter, and create new artefact.
 
 ![img.png](img/img_19.png)
 
-### 1. Navigate to Routes
-
-In the sidebar, expand **Entities** and click **Routes**.
-
-### 2. Routes Grid
-
-**Filtering & Sorting**
-* Each column header has sort arrows; click to reorder.
-* Beneath each header is a filter box - type text to narrow the list in real time.
+##### Routes grid
 
 | Field           | Definition                                        |
 |-----------------|---------------------------------------------------|
@@ -27,7 +18,7 @@ In the sidebar, expand **Entities** and click **Routes**.
 | **Description** | Brief free-text summary of the Route’s purpose.   |
 
 
-## Create Route
+## Create
 
 Use the **Create Route** dialog to register a new route in your DIAL instance. Once added, it appears in the **Route** listing.
 
@@ -35,75 +26,73 @@ Use the **Create Route** dialog to register a new route in your DIAL instance. O
 
 ![img_1.png](img/img_20.png)
 
-### 1. Hit **Create** button 
+##### To create a new route
 
-Opens the **Create Route** modal.
+1. Click **Create**to invoke the **Create Route** modal.
+2. Define rout's parameters
 
-### 2. Define key parameters
-In the modal, specify the following for the new route:
+    | Field           | Required        | Definition                                                   |
+    |-----------------|------------------|----------------------------------------------------------------------|
+    | **Name**        | Yes          | User-friendly name of the Route.                                    |
+    | **Description** | No               | Brief free-text summary of the Route’s purpose.                      |
+    | **Paths**       | Yes          | URL path pattern this route should match (e.g. `/chat`, `/support/`). |
 
-| Field           | Required        | Definition                                                   |
-|-----------------|------------------|----------------------------------------------------------------------|
-| **Name**        | **Yes**          | User-friendly name of the Route.                                    |
-| **Description** | No               | Brief free-text summary of the Route’s purpose.                      |
-| **Paths**       | **Yes**          | URL path pattern this route should match (e.g. `/chat`, `/support/`). |
+3. Once all required fields are filled click **Create**. The dialog closes and the new [route configuration](#route-configuration) screen opened.
 
-### 3. Click Create 
-Once all required fields are filled hit **Create** button. The dialog closes and the new route configuration screen opened.
-
-  > This entry will appear immediately in the listing once created.
+    > This entry will appear immediately in the listing once created.
 
 
-## Route Configuration - Top Bar Controls
+## Route Configuration
+
+##### Top Bar Controls
 
 * **Delete**: Permanently removes this route. Any client calls to this path will return 404 until a new route is created.
-
 * **JSON Editor** (Toggle): Switch between the form-based UI and raw JSON view of the route’s configuration. Use JSON mode for copy-paste or advanced edits.
 
-## Route Configuration - Properties Tab
+### Properties
 
-The Properties tab on an Route’s detail page lets you define its core identity and routing behavior. 
+In the Properties tab, you can define the identity and routing behavior. 
 
 ![img_2.png](img/img_21.png)
 
-### 1. Basic Identification
+##### Basic Identification
 
 | Field            | Required | Definition                                                                          |
 |------------------|-----------|-------------------------------------------------------------------------------------|
-| **Name**         | **Yes**   | Unique route key used in the URL and dynamic config (e.g. `chat`, `support`).       |
+| **Name**         | Yes   | Unique route key used in the URL and dynamic config (e.g. `chat`, `support`).       |
 | **Description**  | No        | Free‐text note about the route’s purpose (e.g. “Primary GPT-4 chat with fallback”). |                                                                      |
  
-### 2. Request Matching: Paths & Methods
+##### Request Matching: Paths & Methods
 
-| Field            | Required | Definition                                                                                                                                                                                    |
-|------------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Paths**        | **Yes**   | One or more URL path patterns this route should match (e.g. `/chat`, `/support/**`). Click **+ Add paths** to register additional patterns. Click the trash icon to remove a path.      |
+| Field            | Required | Definition  |
+|------------------|-----------|------------|
+| **Paths**        | Yes   | One or more URL path patterns this route should match (e.g. `/chat`, `/support/**`). Click **+ Add paths** to register additional patterns. Click the trash icon to remove a path.      |
 | **Rewrite path** | No        | Toggle on to strip or transform the incoming path before forwarding upstream. Use when your upstream service expects a different URL structure (e.g. remove `/api/v1/routes/chat` prefix). |
-| **Methods**      | No        | Select one or more HTTP verbs (GET, POST, PUT, DELETE, etc.) the route will accept.                                                                                                           |
+| **Methods**      | No        | Select one or more HTTP verbs (GET, POST, PUT, DELETE, etc.) the route will accept.            |
  
-### 3. Output Mode
+##### Output Mode
 
 Choose how the route should respond:
 
-| Option        | Definition                                                                                                    |
-|---------------|---------------------------------------------------------------------------------------------------------------|
+| Option        | Definition |
+|---------------|-------------|
 | **Upstreams** | Forwards matching requests to one or more upstream endpoints (Models or Applications).                        |
 | **Response**  | Returns a static, pre-defined payload—no upstream call is made. (Useful for health checks or mock responses.) |
 
-### 4. Upstream Configuration
+##### Upstream Configuration
 
 Define where and how to forward requests when **Upstreams** mode is selected:
 
-| Field                  | Required | Description & Use Case                                                                                                                                                                                             |
-|------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Upstream Endpoints** | **Yes**   | Full URLs of the back-end service(s) to receive the routed request (e.g. `https://dial-core.example.com/v1/chat`).                                                                                                 |
-| **Keys**               | No        | API key or token to attach (via header or query) when calling the upstream. Click the eye icon to reveal a masked value.                                                                                           |
-| **Weight**             | No        | Relative traffic weight for load balancing among multiple endpoints (higher = more traffic).                                                                                                                       |
+| Field                  | Required | Description & Use Case  |
+|------------------------|-----------|-------------------------|
+| **Upstream Endpoints** | Yes   | Full URLs of the back-end service(s) to receive the routed request (e.g. `https://dial-core.example.com/v1/chat`).  |
+| **Keys**               | No        | API key or token to attach (via header or query) when calling the upstream. Click the eye icon to reveal a masked value. |
+| **Weight**             | No        | Relative traffic weight for load balancing among multiple endpoints (higher = more traffic).                        |
 | **Tier**               | No        | Specifies an endpoint group. In a regular scenario, all requests are routed to endpoints with the lowest tier, but in case of an outage or hitting the limits, the next one in the line helps to handle the load.  |
-| **Extra Data**         | No        | Select a named JSON blob (from **Assets → Files**) to attach as metadata for the upstream adapter.                                                                                                                 |
-| **+ Add Upstream**     | —         | Append additional endpoints for failover or capacity scaling.                                                                                                                                                      |
+| **Extra Data**         | No        | Select a named JSON blob (from **Assets → Files**) to attach as metadata for the upstream adapter.                  |
+| **+ Add Upstream**     | —         | Append additional endpoints for failover or capacity scaling.                                                       |
 
-### 5. Response Configuration
+##### Response Configuration
 
 Define where and how to forward requests when **Response** mode is selected:
 
@@ -113,15 +102,38 @@ Define where and how to forward requests when **Response** mode is selected:
 | **Body**               | No        | The exact payload to send in the response body. You can enter plain text or raw JSON.                 |
 | **Max retry attempts** | No        | *(Optional)* Determines how many times DIAL will retry the static‐response logic on internal errors.  |
 
-## Route Configuration - Roles Tab
+### Roles
 
-The **Roles** tab controls which roles can invoke this route and enforces per-role rate limits. 
+In the **Roles** tab, you can define user groups that can invoke this route and define rate limits applicable to routes.
 
 ![img_4.png](img/img_22.png)
 
-### 1. Default Rate Limits
+**Roles grid columns:**
 
-Default limits are set for all the roles in the **Roles** grid by default, however can be overridden for any role.
+| Column                | Description & Guidance  |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------|
+| **Name**              | Unique role identifier. |
+| **Description**       | Human-readable explanation of the role’s purpose (e.g., “Admin, Prompt Engineer, Developer”).                          |
+| **Tokens per minute** | Minute tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.       |
+| **Tokens per day**    | Daily tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.        |
+| **Tokens per week**   | Weekly tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.       |
+| **Tokens per month**  | Monthly tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.      |
+| **(Actions)**     | Additional role-specific actions. <br /> Open role in a new tab. <br /> Make all restrictions unlimited for the given role |
+
+#### Set Rate Limits
+
+The grid on the Roles screen lists the roles that can access a specific route. Here, you can also set individual limits for selected roles. For example, you can the "Admin" role unlimited monthly tokens but throttle "Developer" to 100,000 tokens/day or allow the "External Partner" role a small trial quota (e.g., 10,000 tokens/month) before upgrade.
+
+**To set or change rate limits for a role:**
+
+1. **Click** in the desired cell (e.g., **Tokens per day** for the “ADMIN”).
+2. **Enter** a numeric limit or leave blank to set no limits.
+3. Click **Reset to default limits** to restore default settings for all roles.
+4. Click **Save** to apply changes.
+
+#### Default Rate Limits
+
+Default limits are set for all the roles in the **Roles** grid by default, however you can override them for any role.
 
 | Field                         | Description                                                                           |
 |-------------------------------|---------------------------------------------------------------------------------------|
@@ -130,45 +142,24 @@ Default limits are set for all the roles in the **Roles** grid by default, howev
 | **Default tokens per week**   | The maximum tokens any user may consume per week if no role-specific limit applies.   |
 | **Default tokens per month**  | The maximum tokens any user may consume per month if no role-specific limit applies.  |
 
-### 2. Enable Role-Specific Access
+#### Role-Specific Access
 
-* **Toggle**: **Make available to specific roles**
-  * **Off**: Route is accessible by any authenticated user. All existing roles are in the grid.
-  * **On**: Route is restricted - only the roles you explicitly add to the grid below may use it.
+Use **Make available to specific roles** toggle to define access to the application:
 
-### 3. Roles Grid
+* **Off**: Route is accessible by any authenticated user. All existing roles are in the grid.
+* **On**: Route is restricted - only the roles you explicitly add to the grid below may use it.
 
-Lists the roles having access to the specific route as well as to set individual limits for the distinct roles.
+#### Add
 
-Editing Role Limits:
-1. **Click** in the desired cell (e.g., **Tokens per day** for the “ADMIN”).
-2. **Enter** a numeric limit or leave blank to set no limits.
-3. Click **Reset to default limits** to restore default settings for all roles.
-4. Click **Save** to apply changes.
+You can add a role only if **Make available to specific roles** toggle is **On**.
 
-| Column                | Description & Guidance                                                                                                 |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------|
-| **Name**              | Unique role identifier.                                                                                                |
-| **Description**       | Human-readable explanation of the role’s purpose (e.g., “Admin, Prompt Engineer, Developer”).                          |
-| **Tokens per minute** | Minute tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.       |
-| **Tokens per day**    | Daily tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.        |
-| **Tokens per week**   | Weekly tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.       |
-| **Tokens per month**  | Monthly tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.      |
-| **<br /><br /><br /> (Actions)**     | Additional role-specific actions. <br /> Open role in a new tab. <br /> Make all restrictions unlimited for the given role |
-
-> **Use Cases**:
-> <br /> Give your “Admin” role unlimited monthly tokens but throttle “Developer” to 100,000 tokens/day.
-> <br /> Allow “External Partner” a small trial quota (e.g., 10,000 tokens/month) before upgrade.
-
-### 4. Adding Role
-
-Role adding is only possible if **Make available to specific roles** toggle is **On**.
 1. Click **+ Add** (top-right of the Roles Grid).
 2. **Select** one or more roles in the modal.
 3. **Confirm** to insert them into the table.
 
-### 5. Removing Role
+#### Remove
 
-Role removal is only possible if **Make available to specific roles** toggle is **On**. 
-1. Click the actions menu (<br /><br /><br />) in the role's line.
+You can remove a role only if **Make available to specific roles** toggle is **On**.
+
+1. Click the **actions** menu in the role's line.
 2. Choose **Remove** in the menu.

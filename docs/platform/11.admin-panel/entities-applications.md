@@ -88,7 +88,6 @@ Once configured, your application is ready to orchestrate models and interceptor
 
 In the Features tab you can control optional capabilities at the application level. 
 
-
 ##### The difference between model and application features
 
 While [Model feature flags](/docs/platform/11.admin-panel/entities-models.md#feature-flags-toggles) govern what each LLM integration can do, Application feature flags define which of those capabilities your orchestrated service exposes to clients—plus allow you to plug in custom preprocessing endpoints.
@@ -178,7 +177,7 @@ Default rate limits are set for all roles in the **Roles** grid by default, howe
 
 #### Role-Specific Access
 
-Use **Make available to specific roles** toggle to define access to the application::
+Use **Make available to specific roles** toggle to define access to the application:
 
 * **Off**: App is callable by any authenticated user. All existing roles are in the grid.
 * **On**: App is restricted - only the roles you explicitly add to the grid below may invoke it.
