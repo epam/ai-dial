@@ -60,7 +60,7 @@ Use Import to upload external files into DIAL’s asset storage. This is useful 
 4. Resolve any conflicts by choosing a strategy for handling files with the same name and path:
    * **Override**: Replace existing files with the new ones.
    * **Skip**: Do not import conflicting files; keep existing ones unchanged.
-   * **Edit manually**: Rename incoming files one by one to avoid conflicts. Each conflicting file is flagged with red and becomes editable - update its **Name** to avoid conflict.
+   * **Edit manually**: Rename incoming files one by one to avoid conflicts. Each conflicting file is flagged with red and becomes editable - update its **Name** to avoid conflicts.
 5. Once all conflicts are resolved, click **Finish** to complete the import.
 
     ![img_2.png](img/img_51.png)
