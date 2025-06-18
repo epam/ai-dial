@@ -25,7 +25,7 @@ In the sidebar, expand **Approvals** and click **Prompt Publications**.
 
 | Column         | Definition                                                                                                                        |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| **Name**       | The human-readable name of the prompt submitted for publication.                                                                  |
+| **Name**       | The user-friendly name of the prompt submitted for publication.                                                                  |
 | **Author**     | The username of the one that submitted the prompt.                                                                                |
 | **Created at** | Timestamp when the prompt was submitted for publication. Sorted ascending/descending to find newest or oldest submissions easily. |
 
@@ -56,6 +56,6 @@ The Prompt Publications – Review page lets administrators inspect a user-submi
 | **Folder Storage**     | Default target folder under **Assets → Prompts** if published.                    |
 | **Prompt Identifier**  | Header showing the prompt’s **name**.                                             |
 | **Version**            | Version string assigned by the author.                                            |
-| **Description**        | Optional human-readable summary provided by the author.                           |
+| **Description**        | Optional user-friendly summary provided by the author.                           |
 | **Content**            | The actual prompt string that will be executed in chats after publishing.         |
 | **Permissions**        | Shows the target folder's place in folders hierarchy and respective permissions.  |

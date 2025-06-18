@@ -30,7 +30,7 @@ In the sidebar, expand **Telemetry** and click **Activity Audit**.
 |---------------------|-----------|------------------------------------------------------------------------------------------------------|
 | Activity type       | Yes       | The action performed on the resource (e.g., **Create**, **Update**, **Delete**).                     |
 | Resource type       | Yes       | The category of object affected (e.g., **Model**, **Interceptor**, **Role**, **Application**, etc.). |
-| Resource identifier | Yes       | Human-readable name or deployment Id of the specific resource that was acted upon.                   |
+| Resource identifier | Yes       | User-friendly name or deployment Id of the specific resource that was acted upon.                   |
 | Time                | Yes       | Timestamp when the platform successfully committed the change.                                       |
 | Initiated           | Yes       | User who triggered the action (e-mail); may show system e-mail for automated events.                 |
 | Activity ID         | Yes       | Immutable UUID that uniquely identifies the audit event.                                             |
@@ -53,7 +53,7 @@ It lets you inspect exactly what changed in a resource, who did it, and when, wi
 |---------------------|-----------|------------------------------------------------------------------------------------------------------|
 | Activity type       | Yes       | The action performed on the resource (e.g., **Create**, **Update**, **Delete**).                     |
 | Resource type       | Yes       | The category of object affected (e.g., **Model**, **Interceptor**, **Role**, **Application**, etc.). |
-| Resource identifier | Yes       | Human-readable name or deployment Id of the specific resource that was acted upon.                   |
+| Resource identifier | Yes       | User-friendly name or deployment Id of the specific resource that was acted upon.                   |
 | Time                | Yes       | Timestamp when the platform successfully committed the change.                                       |
 | Initiated           | Yes       | User who triggered the action (e-mail); may show system e-mail for automated events.                 |
 | Activity ID         | Yes       | Immutable UUID that uniquely identifies the audit event.                                             |

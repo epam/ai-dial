@@ -42,7 +42,7 @@ Use the **Create Role** dialog to register a role in your DIAL instance. Once ad
     | **Name**        | Unique, user-friendly identifier for the role (e.g. Data Extraction Admin, Analysts, Business User).     |
     | **Description** | Free-form summary of the role’s purpose (e.g. “Business User role for the Data Extraction application”).  |
 
-3. Once all required fields are filled, click **Create**. The dialog closes and the new role configuration screen is opened.
+3. Once all required fields are filled, click **Create**. The dialog closes and the new [role configuration](#role-configuration) screen is opened.
 
     > This entry will appear immediately in the listing once created.
 
@@ -52,7 +52,7 @@ Use the **Create Role** dialog to register a role in your DIAL instance. Once ad
 #### Top Bar Controls
 
 * **Delete**: Permanently removes this role.
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw JSON view of the role's configuration. Use JSON mode for copy-paste or advanced edits.
+* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the role's configuration. Use JSON mode for copy-paste or advanced edits.
 
 ### Properties
 
@@ -120,3 +120,17 @@ In the Keys tab, you can issue, manage, and revoke API keys scoped specifically 
  
 1. Click the **actions** menu in the key's line.
 2. Choose **Remove** in the menu.
+
+### JSON Editor
+
+For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any role's configuration page.
+
+![](img/74.png)
+
+##### Switching to the JSON Editor
+
+1. Navigate to **Access Management → Roles**, then select the role you want to edit.
+2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
+
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
+

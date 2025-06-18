@@ -24,7 +24,7 @@ In the sidebar, expand **Approvals** and click **File Publications**.
 
 | Column         | Definition                                                                                                                      |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------|
-| **Name**       | The human-readable name of the file submitted for publication.                                                                  |
+| **Name**       | The user-friendly name of the file submitted for publication.                                                                  |
 | **Author**     | The username of the one that submitted the file.                                                                                |
 | **Created at** | Timestamp when the file was submitted for publication. Sorted ascending/descending to find newest or oldest submissions easily. |
 

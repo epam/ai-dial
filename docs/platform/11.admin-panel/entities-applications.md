@@ -146,7 +146,7 @@ In the **Roles** tab, you can define user groups that can use specific applicati
 | Column                | Description & Guidance        |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------|
 | **Name**              | Unique role identifier.       |
-| **Description**       | Human-readable explanation of the role’s purpose (e.g., "Admin, Prompt Engineer, Developer"). |
+| **Description**       | User-friendly explanation of the role’s purpose (e.g., "Admin, Prompt Engineer, Developer"). |
 | **Tokens per minute** | Minute tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.       |
 | **Tokens per day**    | Daily tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.        |
 | **Tokens per week**   | Weekly tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.       |
