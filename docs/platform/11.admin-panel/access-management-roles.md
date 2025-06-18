@@ -69,7 +69,7 @@ In the Properties tab, you can define the identity and metadata for the role. Th
 
 ### Entities
 
-In the Entities tab, you can assign which Models or Applications this role can access, and with what rate limits.
+In the Entities tab, you can assign which [Models](/docs/platform/11.admin-panel/entities-models.md), [Applications](/docs/platform/11.admin-panel/entities-applications.md) or [Routes](/docs/platform/11.admin-panel/entities-routes.md) this role can access, and with what rate limits.
 
 ![img_8.png](img/img_40.png)
 
@@ -79,7 +79,7 @@ In the Entities tab, you can assign which Models or Applications this role can a
 | **Version**           | Version tag of the entity (e.g. `v1.2`, `1.0.0`).                                                                     |
 | **Description**       | Brief summary of the entity’s function.                                                                               |
 | **Deployment ID**     | The unique internal identifier used by DIAL to call the resource’s endpoint.                                          |
-| **Type**              | Resource category: one of **Models**, **Applications**, or **Routes**.                                                |
+| **Type**              | Resource category: one of [Models](/docs/platform/11.admin-panel/entities-models.md), [Applications](/docs/platform/11.admin-panel/entities-applications.md) or [Routes](/docs/platform/11.admin-panel/entities-routes.md).                                                |
 | **Tokens per minute** | Maximum number of tokens this role may consume per minute when calling this resource. “Unlimited” if no limit is set. |
 | **Tokens per day**    | Maximum number of tokens this role may consume per day when calling this resource. “Unlimited” if no limit is set.    |
 | **Tokens per week**   | Maximum number of tokens this role may consume per week when calling this resource. “Unlimited” if no limit is set.   |
@@ -98,7 +98,7 @@ In the Entities tab, you can assign which Models or Applications this role can a
 
 ### Keys
 
-In the Keys tab, you can issue, manage, and revoke API keys scoped specifically to this Role.
+In the Keys tab, you can issue, manage, and revoke [API keys](/docs/platform/11.admin-panel/access-management-keys.md) scoped specifically to this Role.
 
 ![img_9.png](img/img_41.png)
 
@@ -113,7 +113,7 @@ In the Keys tab, you can issue, manage, and revoke API keys scoped specifically 
 #### Add
 
 1. Click **+ Add** (top-right of the Keys Grid).
-2. **Select** one or more keys in the modal.
+2. **Select** one or more keys in the modal. API keys are defined in the [Access Management → Keys](/docs/platform/11.admin-panel/access-management-keys.md) section.
 3. **Confirm** to insert them into the table.
 
 #### Remove

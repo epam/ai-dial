@@ -8,7 +8,7 @@ Administrators can decline or approve users-submitted prompts to become part of 
 > * Refer to [Publications](/docs/platform/7.collaboration-intro.md#publication) to learn more about publications in DIAL.
 > * Refer to [User Guide](/docs/tutorials/0.user-guide.md#prompts) to learn how to work with prompts in DIAL Chat.
 
-## Prompt Publications List
+### Prompt Publications List
 
 The Prompt Publications screen shows all prompts that end-users have submitted for publication from the DIAL Chat UI. 
 
@@ -24,7 +24,7 @@ The Prompt Publications screen shows all prompts that end-users have submitted f
 | **Created at** | Timestamp when the prompt was submitted for publication. Sorted ascending/descending to find newest or oldest submissions easily. |
 | **Folder Storage** | The location on [Assets](/docs/platform/11.admin-panel/assets-prompts.md). |
 
-## Prompt Publication Review
+### Prompt Publication Review
 
 In the Prompt Publications – Review page you can inspect prompt publication requests and decide whether to **Publish** it into the shared [Assets → Prompts](/docs/platform/11.admin-panel/assets-prompts.md) library or **Decline** it.
 

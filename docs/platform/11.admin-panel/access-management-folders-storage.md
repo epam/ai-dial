@@ -21,16 +21,6 @@ The **Folders Storage** section is where you manage all folders and their hierar
 | **User-defined folders** | Collapsible folders you create to group files by project, team, domain, or environment.   |
 | **⯈ Icons**              | Click to expand or collapse subfolders, drilling down to the set of sub-folders you need. |
 
-### Create Folder
-
-Use the **Create Folder** dialog to add a new reusable folder to your DIAL instance. Once added, it appears in the **Folders** listing.
-
-##### To create a new folder
-
-1. Before clicking **+ Create**, select the folder in the left tree which you want to be a parent folder. The new folder will be placed in that folder.
-2. Click **+ Create** button to invoke the **Create File** modal.
-3. Once all required fields are filled, click **Create**. The dialog closes and the new folder appears in the hierarchy.
-
 ### Folders Permissions
 
 When a folder is selected, the right pane displays its access-control rules. These determine who can view or add assets within that folder.
