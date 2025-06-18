@@ -1,61 +1,46 @@
 # Prompt Publications
 
-## What Are “Prompt Publications” in DIAL?
+## About Prompt Publications
 
-Prompt Publications are user-initiated requests from the DIAL chat interface to add a newly crafted prompt into the central Assets → Prompts library. 
-They let administrators decline or approve users-submitted prompts to become part of the shared organization-wide toolkit.
+Prompt Publications are user-initiated requests from the [DIAL Chat](/docs/tutorials/0.user-guide.md#publications) UI to add a newly crafted prompt into the central [Assets → Prompts](/docs/platform/11.admin-panel/assets-prompts.md) library. 
+Administrators can decline or approve users-submitted prompts to become part of the shared organization-wide collection of prompts.
 
-Related DIAL Core documentation on Prompt Publications:
+> * Refer to [Publications](/docs/platform/7.collaboration-intro.md#publication) to learn more about publications in DIAL.
+> * Refer to [User Guide](/docs/tutorials/0.user-guide.md#prompts) to learn how to work with prompts in DIAL Chat.
 
-* https://docs.dialx.ai/video%20demos/Chat/dial-publications
+## Prompt Publications List
 
-## Prompt Publications Listing
-
-The Prompt Publications screen shows all prompts that end-users have submitted for publication from the DIAL chat interface. 
+The Prompt Publications screen shows all prompts that end-users have submitted for publication from the DIAL Chat UI. 
 
 ![img.png](img/img_52.png)
 
-### 1. Navigate to Prompt Publications
+##### Prompt Publications Grid
 
-In the sidebar, expand **Approvals** and click **Prompt Publications**.
-
-### 2. Prompt Publications Grid
-
-**Columns are**:
 
 | Column         | Definition                                                                                                                        |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------|
 | **Name**       | The user-friendly name of the prompt submitted for publication.                                                                  |
 | **Author**     | The username of the one that submitted the prompt.                                                                                |
 | **Created at** | Timestamp when the prompt was submitted for publication. Sorted ascending/descending to find newest or oldest submissions easily. |
+| **Folder Storage** | The location on [Assets](/docs/platform/11.admin-panel/assets-prompts.md). |
 
-**Filtering & Sorting**
-* Each column header has sort arrows; click to reorder.
-* Beneath each header is a filter box - type text to narrow the list in real time.
+## Prompt Publication Review
 
-Clicking on any row to review the respective prompt publication request.
+In the Prompt Publications – Review page you can inspect prompt publication requests and decide whether to **Publish** it into the shared [Assets → Prompts](/docs/platform/11.admin-panel/assets-prompts.md) library or **Decline** it.
 
-## Prompt Publication - Review Page
-
-The Prompt Publications – Review page lets administrators inspect a user-submitted prompt from the DIAL Core chat interface and decide whether to Publish it into the shared Assets → Prompts library or Decline it back to the author (with feedback).
+* **Publish**: Accept the publication request. This adds the prompt into the [Assets → Prompts](/docs/platform/11.admin-panel/assets-prompts.md) folder (under the specified Folder).
+* **Decline**: Reject the publication request. Prompts you to enter a decline reason that will be sent back to the author.
 
 ![img_1.png](img/img_53.png)
 
-### Top Bar Controls
-
-* **Publish**: Accept the submission. This adds the prompt into the Assets → Prompts folder (under the specified Folder).
-* **Decline**: Reject the submission. Prompts you to enter a decline reason that will be sent back to the author for revision.
-
-### Fields
-
 | Element                | Definition                                                                        |
 |------------------------|-----------------------------------------------------------------------------------|
-| **Action**             | Suggested action. Is **Publish** when pending review).                            |
-| **Author**             | Username of the account that created the prompt publication request in DIAL Core. |
-| **Created At**         | Timestamp of when the prompt was submitted for review.                            |
-| **Folder Storage**     | Default target folder under **Assets → Prompts** if published.                    |
+| **Action**             | Suggested action. The **Publish** action button is highlighted when review is pending.                            |
+| **Author**             | Username of the account that created the prompt publication request. |
+| **Created At**         | Timestamp of when the prompt publication request  was submitted for review.                            |
+| **Folder Storage**     | Default target folder under [Assets → Prompts](/docs/platform/11.admin-panel/assets-prompts.md), if published.                    |
 | **Prompt Identifier**  | Header showing the prompt’s **name**.                                             |
 | **Version**            | Version string assigned by the author.                                            |
 | **Description**        | Optional user-friendly summary provided by the author.                           |
-| **Content**            | The actual prompt string that will be executed in chats after publishing.         |
-| **Permissions**        | Shows the target folder's place in folders hierarchy and respective permissions.  |
+| **Content**            | The actual prompt string.         |
+| **Permissions**        | Shows the target folder's place in [folders hierarchy](/docs/platform/11.admin-panel/access-management-folders-storage.md) and respective permissions.  |
