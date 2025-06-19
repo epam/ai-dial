@@ -10,9 +10,9 @@ DIAL Admin Panel functionality can be categorized into the following sections:
 
 * **Entities**: Configure all language models, applications, and routes within the DIAL environment. Go to [Entities](/docs/platform/11.admin-panel/entities-models.md) to learn more.
 * **Builders**: Add and configure application types and interceptors. Go to [Builders](/docs/platform/11.admin-panel/builders-application-runners.md) to learn more.
-* **Assets**: Access, add, and manage system resources such as applications, prompts, conversations, and files. Go to [Assets](/docs/platform/11.admin-panel/assets-files.md) to learn more.
+* **Assets**: Access, add, and manage system resources such as prompts and files. Go to [Assets](/docs/platform/11.admin-panel/assets-files.md) to learn more.
 * **Access Management**: Create and manage user groups, roles, API keys, and usage limits to implement access and cost control policy. Go to [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) to learn more.
-* **Approvals**: View and manage publication requests submitted by DIAL users for applications, conversations and prompts. Go to [Approvals](/docs/platform/11.admin-panel/approvals-file-publications.md) to learn more.
+* **Approvals**: View and manage publication requests submitted by DIAL users for files and prompts. Go to [Approvals](/docs/platform/11.admin-panel/approvals-file-publications.md) to learn more.
 * **Telemetry**: Monitor real-time system usage, including token consumption, system load, and other telemetry data for performance tracking. Go to [Telemetry](/docs/platform/11.admin-panel/telemetry-dashboard.md) to learn more.
 
 ### Who is Admin
