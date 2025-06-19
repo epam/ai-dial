@@ -17,7 +17,7 @@ Roles in DIAL are used to enable roles-based access to resources (applications, 
 
 In Roles, you can define and manage the authorization groups used throughout DIAL. 
 
-![img.png](img/img_37.png)
+![](img/img_37.png)
 
 ##### Roles Grid
 
@@ -30,7 +30,7 @@ In Roles, you can define and manage the authorization groups used throughout DIA
 
 Use the **Create Role** dialog to register a role in your DIAL instance. Once added, it appears in the **Roles** listing.
 
-![img_1.png](img/img_38.png)
+![](img/img_38.png)
 
 ##### To create a new role
 
@@ -58,7 +58,7 @@ Use the **Create Role** dialog to register a role in your DIAL instance. Once ad
 
 In the Properties tab, you can define the identity and metadata for the role. These settings determine how the role appears throughout DIAL and help administrators understand its purpose.
 
-![img_7.png](img/img_39.png)
+![](img/img_39.png)
 
 
 | Field           | Required | Description                                                                 |
@@ -100,7 +100,7 @@ In the Entities tab, you can assign which [Models](/docs/platform/11.admin-panel
 
 In the Keys tab, you can issue, manage, and revoke [API keys](/docs/platform/11.admin-panel/access-management-keys.md) scoped specifically to this Role.
 
-![img_9.png](img/img_41.png)
+![](img/img_41.png)
 
 | Column                  | Definition      |
 |-------------------------|------|

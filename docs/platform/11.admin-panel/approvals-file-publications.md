@@ -1,18 +1,17 @@
 # File Publications
 
-## What Are “File Publications” in DIAL?
+## About File Publications
 
-File Publication in DIAL is the workflow by which end-users push files from their chat sessions into the shared “Assets → Files” library—but only after an administrator has reviewed and approved them.
+DIAL offers [API](https://dialx.ai/dial_api#tag/Publications/operation/createPublication) to publish resources, including files. In File Publications, administrators can view and manage publication requests. Files from approved requests are available in [Assets → Files](/docs/platform/11.admin-panel/assets-files.md).
 
-Related DIAL Core documentation on File Publications:
-
-* https://docs.dialx.ai/video%20demos/Chat/dial-publications
+> * Refer to [Publications](/docs/platform/7.collaboration-intro.md#publication) to learn more about publications in DIAL.
+> * Refer to [User Guide](/docs/tutorials/0.user-guide.md#attachments) to learn how to work with files in DIAL Chat.
 
 ## File Publications Listing
 
 The File Publications view under Approvals is where administrators review user-submitted files that have been shared from the DIAL chat interface and decide whether to publish them into the central Assets → Files repository or to decline them.
 
-![img.png](img/img_54.png)
+![](img/img_54.png)
 
 ### 1. Navigate to File Publications
 
@@ -41,7 +40,7 @@ Click on any row to review the respective file publication request.
 When a DIAL Core user publishes a file from a chat session, it appears here for administration approval. 
 On the File Publications → Review page, you inspect each file-request and either Publish it into the central Assets store or Decline it (with feedback).
 
-![img_1.png](img/img_55.png)
+![](img/img_55.png)
 
 ### Top Bar Controls
 

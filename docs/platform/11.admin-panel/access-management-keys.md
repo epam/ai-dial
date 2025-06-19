@@ -14,7 +14,7 @@ In DIAL, API Keys play a crucial role in managing access and ensuring security:
 
 The Keys page provides a centralized view and management interface for all API keys in DIAL Admin.
 
-![img.png](img/img_42.png)
+![](img/img_42.png)
 
 ##### Keys Grid
 
