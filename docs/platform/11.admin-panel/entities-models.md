@@ -1,42 +1,44 @@
 # Models
 
-## Introduction
+## About Models
 
-In Models you can find all language models deployed in DIAL and also add new model deployments. DIAL allows you to access models from all major LLM providers, language models from the open-source community, alternative vendors, and fine-tuned micro models, as well as self-hosted models or models listed on HuggingFace or DeepSeek.
+In Models, you can find all language models deployed in DIAL and also add new model deployments. 
 
-> Refer to the [Supported Models](/docs/platform/2.supported-models.md) page for a list of all supported models and adapters.
+DIAL allows you to access models from all major LLM providers, language models from the open-source community, alternative vendors, and fine-tuned micro models, as well as self-hosted models or models listed on HuggingFace or DeepSeek.
 
 DIAL can function as an [agentic platform](/docs/platform/0.architecture-and-concepts/4.agentic-platform.md), where language models can be used as building blocks in your apps to create multi-modal and multi-agentic solutions.
 
 You can use the [DIAL SDK](https://github.com/epam/ai-dial-sdk) to create custom model adapters. Applications and model adapters implemented using this framework will be compatible with the DIAL API that was designed based on the Azure OpenAI API.
 
+> Refer to the [Supported Models](/docs/platform/2.supported-models.md) page for a list of all supported models and  model adapters.
+
 ## Models List
 
-On the **Models** page you can find all language models (LLMs) deployed on your DIAL instance. Here you can view, filter, and add new model definitions.
+On the **Models** page, you can find all language models (LLMs) deployed on your DIAL instance. Here you can view, filter, and add new model definitions.
 
 > **TIP**: Click **Columns** to open the columns selector to define what columns to display.
 
-![img_5.png](img/img_3.png)
+![](img/img_3.png)
 
 ##### Models grid
 
 | Field                     | Definition            |
 |---------------------------|----------|
-| **Display Name**          | User-friendly label for this model (e.g. "GPT-4 Turbo"). Shown in all DIAL client UI dropdowns, tables, and logs so operators can quickly identify the model.|
-| **Version**               | Optional tag or label for this model deployment (e.g. `0613`, `v1`). Use it to distinguish between "latest," "beta," or date-stamped builds.|
+| **Display Name**          | A user-friendly label for a model (e.g. "GPT-4 Turbo"). Display name is shown in all DIAL client UI dropdowns, tables, and logs so operators can quickly identify the model.|
+| **Version**               | An **optional** tag or a label for this model deployment (e.g. `0613`, `v1`). Use it to distinguish between "latest," "beta," or date-stamped builds.|
 | **Description**           | Free-text notes about this model’s purpose, training data, cost tier, or any other relevant details.     |
-| **Deployment ID**         | The unique key under the `models` section of DIAL Core’s config. Must match the upstream service’s model or deployment name (e.g. `gpt-4-0613`).              |
-| **Adapter**               | Which connector handles requests for this model (**OpenAI** or **DIAL**). The adapter provides authentication, request formatting, and response parsing for the underlying LLM API.  Refer to [LLM Adapters](https://docs.dialx.ai/platform/supported-models#llm-adapters) to learn more.  |
-| **Type**                  | Whether this entry is a **Chat** model (conversational completions) or an **Embedding** model (vector generation). DIAL Core uses this to choose the correct API endpoint and payload schema.      |
+| **Deployment ID**         | This is a unique key under the `models` section of [DIAL Core’s config](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings). Must match the upstream service’s model or deployment name (e.g. `gpt-4-0613`).              |
+| **Adapter**               | The identifier of the connector that handles requests for a model (**OpenAI** or **DIAL**). The adapter provides authentication, request formatting, and response parsing for the underlying LLM API.  Refer to [LLM Adapters](https://docs.dialx.ai/platform/supported-models#llm-adapters) to learn more.  |
+| **Type**                  | Defines **Chat** (conversational completions) and **Embedding** models (vector generation). DIAL Core uses this to choose the correct API endpoint and a payload schema.      |
 | **Override Name**         | An optional, context-specific display label that supersedes **Display Name** in dropdowns or tables for certain routes or applications. Use it to give a model different aliases in different workflows without redefining the model.   |
-| **Topics**                | Tags or categories (e.g. "finance," "support," "image-capable") you can assign for discovery, filtering, or grouping in large deployments. Helps end users and admins find the right model by use case. Topic are also used to filter models in [DIAL Marketplace](/docs/platform/4.chat/1.marketplace.md).  |
-| **Attachment types**      | Controls which file attachments this model can accept.|
-| **Max attachment number** | Maximum number of attachments allowed per single request. Leave blank for no limits. Prevents runaway requests with too many files.|
-| **Tokenizer model**       | Identifies the specific model whose tokenization algorithm exactly matches that of the referenced model. This is typically the name of the earliest released model in a series of models sharing an identical tokenization algorithm. This parameter is essential for DIAL clients that reimplement tokenization algorithms on their side, instead of utilizing the tokenize Endpoint provided by the model. |
-| **Forward auth token**    | Optionally select to forward Auth Token from the caller’s session into the upstream API call—enabling multi-tenant scenarios or pass-through authentication to downstream services.                |
+| **Topics**                | Tags or categories (e.g. "finance," "support," "image-capable") you can assign for discovery, filtering, or grouping in large deployments. Helps end users and admins find the right model by the use case. Topics are also used to filter models in [DIAL Marketplace](/docs/platform/4.chat/1.marketplace.md).  |
+| **Attachment types**      | Controls which types of attachments this model can accept.|
+| **Max attachment number** | Maximum number of attachments allowed per single request. Leave blank for an unlimited number. Prevents requests with an excessive number of files.|
+| **Tokenizer model**       | Identifies the specific model with a tokenization algorithm identical to the referenced model's. This is typically the name of the earliest released model in a series of models sharing an identical tokenization algorithm. This parameter is essential for DIAL clients that reimplement tokenization algorithms on their side, instead of utilizing the tokenize Endpoint provided by the model. |
+| **Forward auth token**    | Optionally, configure the system to forward the Auth Token from the caller's session to the upstream API call. This enables multi-tenant scenarios or pass-through authentication for downstream services.                |
 | **Interaction limit**     | The interaction limit parameter in models refers to the maximum number of tokens that can be transmitted in a completion request and response combined. This parameter ensures that the model does not exceed a specified token limit during interactions.                   |
-| **Prompt price**          | Cost per unit (according to **Cost unit**, typically "token" or "request") applied to the *input* portion of each call. Used by the **Dashboard** and **Usage Logs** to estimate spend in real time.     |
-| **Completion price**      | Cost per unit charged for the *output* portion of each call. Together with **Prompt price**, drives your per-model spend calculations.      |
+| **Prompt price**          | Cost per unit (according to **Cost unit**, typically "token" or "request") applied to the *input* portion of each call. Used by the [Dashboard and Usage Logs](/docs/platform/11.admin-panel/telemetry-dashboard.md) to estimate spending in real time.     |
+| **Completion price**      | The cost per unit is charged for the output portion of each call. Combined with the prompt price, it determines your per-model cost calculations.      |
 
 ## Create Model
 
