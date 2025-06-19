@@ -2,8 +2,8 @@
 
 ## About Prompt Publications
 
-Prompt Publications are user-initiated requests from the [DIAL Chat](/docs/tutorials/0.user-guide.md#publications) UI to add a newly crafted prompt into the central [Assets → Prompts](/docs/platform/11.admin-panel/assets-prompts.md) library. 
-Administrators can decline or approve users-submitted prompts to become part of the shared organization-wide collection of prompts.
+DIAL offers [API](https://dialx.ai/dial_api#tag/Publications/operation/createPublication) for creating publication requests for resources, including prompts.
+In Prompt Publications, administrators can view and manage publication requests. Prompts from approved requests are available in [Assets → Prompts](/docs/platform/11.admin-panel/assets-prompts.md).
 
 > * Refer to [Publications](/docs/platform/7.collaboration-intro.md#publication) to learn more about publications in DIAL.
 > * Refer to [User Guide](/docs/tutorials/0.user-guide.md#prompts) to learn how to work with prompts in DIAL Chat.
@@ -37,8 +37,8 @@ In the Prompt Publications – Review page you can inspect prompt publication re
 |------------------------|-----------------------------------------------------------------------------------|
 | **Action**             | Suggested action. The **Publish** action button is highlighted when review is pending.                            |
 | **Author**             | Username of the account that created the prompt publication request. |
-| **Created At**         | Timestamp of when the prompt publication request  was submitted for review.                            |
-| **Folder Storage**     | Default target folder under [Assets → Prompts](/docs/platform/11.admin-panel/assets-prompts.md), if published.                    |
+| **Created At**         | Timestamp of when the prompt publication request was submitted for review.                            |
+| **Folder Storage**     | The default target folder under [Assets → Prompts](/docs/platform/11.admin-panel/assets-prompts.md), if published.                    |
 | **Prompt Identifier**  | Header showing the prompt’s **name**.                                             |
 | **Version**            | Version string assigned by the author.                                            |
 | **Description**        | Optional user-friendly summary provided by the author.                           |

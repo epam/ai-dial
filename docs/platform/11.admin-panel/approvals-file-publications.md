@@ -2,59 +2,45 @@
 
 ## About File Publications
 
-DIAL offers [API](https://dialx.ai/dial_api#tag/Publications/operation/createPublication) to publish resources, including files. In File Publications, administrators can view and manage publication requests. Files from approved requests are available in [Assets → Files](/docs/platform/11.admin-panel/assets-files.md).
+DIAL offers [API](https://dialx.ai/dial_api#tag/Publications/operation/createPublication) for creating publication requests for resources, including files. In File Publications, administrators can view and manage publication requests. Files from approved requests are available in [Assets → Files](/docs/platform/11.admin-panel/assets-files.md).
 
 > * Refer to [Publications](/docs/platform/7.collaboration-intro.md#publication) to learn more about publications in DIAL.
-> * Refer to [User Guide](/docs/tutorials/0.user-guide.md#attachments) to learn how to work with files in DIAL Chat.
+> * Refer to [User Guide](/docs/tutorials/0.user-guide.md#publications) to learn how to publish resources in DIAL Chat.
 
-## File Publications Listing
+## File Publications List
 
-The File Publications view under Approvals is where administrators review user-submitted files that have been shared from the DIAL chat interface and decide whether to publish them into the central Assets → Files repository or to decline them.
+In File Publications, you can review all requests to publish files and decide whether to approve or to decline them.
 
 ![](img/img_54.png)
 
-### 1. Navigate to File Publications
 
-In the sidebar, expand **Approvals** and click **File Publications**.
-
-### 2. File Publications Grid
-
-**Columns are**:
+##### File Publications Grid
 
 | Column         | Definition                                                                                                                      |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------|
 | **Name**       | The user-friendly name of the file submitted for publication.                                                                  |
-| **Author**     | The username of the one that submitted the file.                                                                                |
-| **Created at** | Timestamp when the file was submitted for publication. Sorted ascending/descending to find newest or oldest submissions easily. |
+| **Author**     | The name of the publication request author.                                                                               |
+| **Created at** | Timestamp when the file was submitted for publication. |
 
 
-**Filtering & Sorting**
-* Each column header has sort arrows; click to reorder.
-* Beneath each header is a filter box - type text to narrow the list in real time.
+## Review Page
 
-Click on any row to review the respective file publication request.
+When a DIAL Core user submits a file publication request, it appears on the main File Publications screen. Click any request to access the review screen, where you can inspect it and either Publish it into the central Assets store or Decline it (with feedback).
 
+##### Top Bar Controls
 
-## File Publications - Review Page
-
-When a DIAL Core user publishes a file from a chat session, it appears here for administration approval. 
-On the File Publications → Review page, you inspect each file-request and either Publish it into the central Assets store or Decline it (with feedback).
+* **Publish**: Accept the publication request. This adds the file into the Assets → Prompts folder (under the specified Folder).
+* **Decline**: Reject the publication request. Prompts you to enter a decline reason that will be sent back to the publication request author.
 
 ![](img/img_55.png)
 
-### Top Bar Controls
-
-* **Publish**: Accept the submission. This adds the file into the Assets → Prompts folder (under the specified Folder).
-* **Decline**: Reject the submission. Prompts you to enter a decline reason that will be sent back to the author for revision.
-
-### Fields
 
 | Element            | Definition                                                                       |
 |--------------------|----------------------------------------------------------------------------------|
-| **Action**         | Suggested action. Is **Publish** when file publication is pending review.        |
-| **Author**         | Username of the account that created the file publication request in DIAL Core.  |
-| **Created At**     | Timestamp of when the file was submitted for review.                             |
-| **Folder Storage** | Default target folder under **Assets → Files** if published.                     |
+| **Action**         | Suggested action. The **Publish** action button is highlighted when review is pending.        |
+| **Author**         | Username of the account that created the prompt publication request.  |
+| **Created At**     | Timestamp of when the file publication request was submitted for review.                             |
+| **Folder Storage** | The default target folder under [Assets → Files](/docs/platform/11.admin-panel/assets-files.md), if published.                     |
 | **File Name**      | File display name.                                                               |
 | **File Extension** | File type/extension (e.g. .pdf, .csv, .docx).                                    |
-| **Permissions**    | Shows the target folder's place in folders hierarchy and respective permissions. |
+| **Permissions**    | Shows the target folder's place in [folders hierarchy](/docs/platform/11.admin-panel/access-management-folders-storage.md) and respective permissions. |
