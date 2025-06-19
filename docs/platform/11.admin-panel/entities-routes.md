@@ -118,7 +118,7 @@ In the **Roles** tab, you can define user groups that can invoke this route and 
 | **Tokens per day**    | Daily tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.        |
 | **Tokens per week**   | Weekly tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.       |
 | **Tokens per month**  | Monthly tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.      |
-| **(Actions)**     | Additional role-specific actions. <br /> Open role in a new tab. <br /> Make all restrictions unlimited for the given role |
+| **Actions**     | Additional role-specific actions. <br /> Open role in a new tab. <br /> Make all restrictions unlimited for the given role |
 
 #### Set Rate Limits
 

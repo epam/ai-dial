@@ -137,9 +137,15 @@ Enable or disable per-request options that your Application accepts from clients
 
 ### Roles
 
+You can create and manage roles in the [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) section.
+
 In the **Roles** tab, you can define user groups that can use specific applications and define rate limits applicable to roles.
 
-![img_2.png](img/img_15.png)
+**Important**: if roles are not specified for a specific model, the model will be available to all users
+
+> Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about roles and rate limits in DIAL.
+
+![](img/img_15.png)
 
 **Roles grid columns:**
 
@@ -151,7 +157,7 @@ In the **Roles** tab, you can define user groups that can use specific applicati
 | **Tokens per day**    | Daily tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.        |
 | **Tokens per week**   | Weekly tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.       |
 | **Tokens per month**  | Monthly tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.      |
-| **(Actions)**     | Additional role-specific actions. <br /> Open role in a new tab. <br /> Make all restrictions unlimited for the given role |
+| **Actions**     | Additional role-specific actions. <br /> Open role in a new tab. <br /> Make all restrictions unlimited for the given role |
 
 #### Set Rate Limits
 
@@ -229,7 +235,7 @@ Common use cases include use of interceptors to enforce PII policies, enrich or 
 | **Order**         | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor’s in this order; for Response interceptors are invoked in reverse order.              |
 | **Name**          | The interceptor’s alias, matching the **Name** field in its definition.             |
 | **Description**   | Free-text summary from the interceptor’s definition, explaining its purpose.        |
-| **(Actions)**  | Additional role-specific actions. <br /> Open interceptor in a new tab. <br /> Remove interceptor from the model |
+| **Actions**  | Additional role-specific actions. <br /> Open interceptor in a new tab. <br /> Remove interceptor from the model |
 
 #### Add
 

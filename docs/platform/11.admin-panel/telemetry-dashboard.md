@@ -18,7 +18,7 @@ In **Dashboard**, you can monitor system metrics. Monitoring of system metrics i
 
 ## System Usage Chart
 
-System Usage is a time-series line chart of request throughput over your selected period for projects or entities. You can use it to identify traffic peaks and valleys, correlate spikes with deployments or feature releases.
+System Usage is a time-series line chart showing the requests throughput over the selected time period for projects or entities. You can use it to identify traffic peaks and valleys, correlate spikes with deployments or feature releases.
 
 ![](img/79.png)
 

@@ -29,7 +29,7 @@ In Files, you can manage all binary or document assets like JSON, CSV, PDF, imag
 | **Name**          | Technical key for the file (e.g. `exclusion-words`).                            |
 | **Extension**     | The original extension of the file.                                             |
 | **Author**        | Username or system ID who created or last modified this file.                 |
-| **(Actions)** | Row menu with actions: <br /> - Move to another folder<br />- Delete  |
+| **Actions** | Row menu with actions: <br /> - Move to another folder<br />- Delete  |
 
 ## Export
 

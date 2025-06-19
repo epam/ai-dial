@@ -31,7 +31,7 @@ In the Prompts section, you can manage all system and user prompt templates. Her
 | **Version**       | Semantic version of this prompt template (e.g. `1.0.0`).                           |
 | **Author**        | Username or system ID who created or last modified this prompt.                    |
 | **Update time**   | Timestamp of the last modification, helping you track freshness and audit changes. |
-| **(Actions)** | Row menu with available actions: <br />- Duplicate<br />- Move to another folder<br />- Delete   |
+| **Actions** | Row menu with available actions: <br />- Duplicate<br />- Move to another folder<br />- Delete   |
 
 ## Create
 
