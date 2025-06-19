@@ -8,7 +8,7 @@
 
 In Applications, you can see, create and manage applications deployed in your instance of DIAL.
 
-![img.png](img/img_11.png)
+![](img/img_11.png)
 
 ##### Applications grid
 
@@ -16,39 +16,38 @@ In Applications, you can see, create and manage applications deployed in your in
 
 | Field                     | Definition   |
 |---------------------------|----------------|
-| **Display Name**          | User-friendly name of the Application (e.g. "Data Clustering Application").                 |
-| **Version**               | Version string or tag (e.g. v1, 2024-07-01) - bump this to publish updates without disrupting existing consumers.    |
-| **Description**           | Brief free-text summary of the Application’s purpose (e.g. "Clusters incoming text into semantic groups").           |
-| **Deployment ID**         | Unique identifier used in the DIAL [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. dca, support-bot). This is the path segment of the Application’s HTTP endpoint.|
-| **Endpoint**              | Full URL where the Application is exposed.     |
-| **Topics**                | Tags or categories (e.g. "finance," "support," "image-capable") you can assign for discovery, filtering, or grouping in large deployments. Helps end users and admins find the right application by use case. |
-| **Attachment types**      | Controls which file attachments this application can accept.        |
+| **Display Name**          | A user-friendly name of the application (e.g. "Data Clustering Application").                 |
+| **Version**               | Version string or tag (e.g. v1, 2024-07-01). You can use a higher version to publish application updates without disrupting existing users.    |
+| **Description**           | A brief free-text summary describing the application (e.g. "Clusters incoming text into semantic groups").           |
+| **Deployment ID**         | A unique identifier used in the DIAL [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. dca, support-bot). This is the path segment of the Application’s HTTP endpoint.|
+| **Endpoint**              | Full URL where the application is exposed.     |
+| **Topics**                | Tags or categories (e.g. "finance," "support," "image-capable") you can assign for discovery, filtering, or grouping in large deployments. Helps end users and admins find the right application by the use case. |
+| **Attachment types**      | An option you can use to define which file attachments this application can accept.        |
 | **Max attachment number** | Maximum number of attachments allowed per single request.           |
-| **Forward auth token**    | Whether Auth Token needs to be forwarded from the caller’s session into the upstream API call—enabling multi-tenant scenarios or pass-through authentication to downstream services. |
-
+| **Forward auth token**    | This parameter allow you to determine whether the Auth Token should be forwarded from the caller's session to the upstream API call. This enables multi-tenant scenarios or pass-through authentication for downstream services. |
 
 ## Create Application
 
-Use the **Create Application** dialog to register a new application in your DIAL instance. Once added, it appears in the **Applications** listing.
+In Applications, you can enable a new application in your DIAL instance. Once added, it appears in the **Applications** listing.
 
 > It may take some time for the changes to take effect after saving.
 
 > Refer to [Enable App](/docs/tutorials/1.developers/4.apps-development/3.enable-app.md) to learn more about enabling applications in DIAL.
 
-![img_1.png](img/img_12.png)
+![](img/img_12.png)
 
 ##### To create application 
 
-1. Click **Create** to invoke the **Create Application** modal.
+1. Click **+ Create** to invoke the **Create Application** modal.
 2. Define application's parameters
 
     | Field                  | Required       | Definition & Guidance|
     |------------------------|-----------------|------------------------------------|
-    | **Deployment ID**      | Yes         | A unique identifier under the applications section of DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. support-bot, data-cluster).                    |
-    | **Display Name**       | Yes         | User-friendly label (e.g. "Customer Support Bot") shown throughout the Admin UI.       |
-    | **Version**            | No              | Optional version tag to track releases (e.g. `2024-07-18`, `v1`).     |
-    | **Application Runner** | No              | Application type schema. Defined in [Application Runners](/docs/platform/11.admin-panel/builders-application-runners.md). |
-    | **Description**        | No              | Free-text summary of what this Application does (e.g. supported inputs, business purpose).                       |
+    | **Deployment ID**      | Yes         | A unique identifier under the `applications` section of DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. support-bot, data-cluster).                    |
+    | **Display Name**       | Yes         | A user-friendly label (e.g. "Customer Support Bot") shown throughout the Admin UI.       |
+    | **Version**            | No              | An optional version tag to track apps releases (e.g. `2024-07-18`, `v1`).     |
+    | **Application Runner** | No              | [Application type schema](/docs/platform/3.core/7.apps.md#schema-rich-applications). Defined in [Application Runners](/docs/platform/11.admin-panel/builders-application-runners.md). |
+    | **Description**        | No              | A free-text summary describing the application (e.g. supported inputs, business purpose).                       |
     | **Endpoint**           | Conditional | The full URL where this Application’s API will be exposed once created. Not needed if Application Runner is selected. Required otherwise.|
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#application-configuration) screen is opened.
@@ -64,7 +63,7 @@ Use the **Create Application** dialog to register a new application in your DIAL
 
 ### Properties
 
-In the Properties tab you can define its core identity, routing, UI metadata, and basic runtime controls. 
+In the Properties tab, you can define the application's identity, routing, UI metadata, and other basic runtime controls. 
 
 Once configured, your application is ready to orchestrate models and interceptors behind a single HTTP endpoint.
 
@@ -72,35 +71,35 @@ Once configured, your application is ready to orchestrate models and interceptor
 
 | Field             | Required | Description              |
 |-------------------|-----------|---------------|
-| **Deployment ID** | Yes       | Unique key under applications in DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. data-clustering, support-bot).                 |
-| **Display Name**  | Yes       | User-friendly label shown in the UI (e.g. "Data Clustering Application"). Helps to identify this application at a glance.                |
-| **Version**       | No        | Version tag for rollout management (e.g. `v1.0`, `2024-07-15`). Bump this to publish a new iteration without breaking existing consumers. |
-| **Description**   | No        | Free-text summary of the Application’s purpose (e.g. tooling, supported inputs/outputs, SLAs).                   |
-| **Completion Endpoint** | Optional | URL where the app is exposed. Clients use this to integrate. Auto-populated if Application Runner is selected. Required if Application Runner is not selected.                     |
+| **Deployment ID** | Yes       | A unique key under `applications` in DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. data-clustering, support-bot).                 |
+| **Display Name**  | Yes       | A user-friendly label shown on the UI (e.g. "Data Clustering Application"). Helps end user to identify and select applications.                |
+| **Version**       | No        | A version tag for rollout management (e.g. `v1.0`, `2024-07-15`). Use this to publish a new version of an application without disturbing existing users. |
+| **Description**   | No        | A free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs).                   |
+| **Completion Endpoint** | Optional | URL where the app is exposed. Clients use this to integrate. Auto-populated if Application Runner is selected. **Required** if Application Runner is not selected.                     |
 | **Application Runner**  | No          | Application type schema. Defined in [Application Runners](/docs/platform/11.admin-panel/builders-application-runners.md). |
-| **Icon**          | No        | Choose a logo to visually distinguish apps in the UI.              |
-| **Topics**        | No        | Tag this app with one or more topics or categories (e.g. "finance", "support").             |
-| **Attachments**   | No        | Control which [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can process:  <br /> **None** – no attachments allowed.  <br /> **All** – unrestricted types. Optionally specify max number of attachments. <br /> **Custom** – enter specific MIME types. Optionally specify max number of attachments. |
+| **Icon**          | No        | A logo to visually distinguish the app on the UI.              |
+| **Topics**        | No        | Tags that you can assign to apps (e.g. "finance", "support"). Helps to split apps into categories for better navigation on UI.       |
+| **Attachments**   | No        | An option you can use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **None** – attachments are not allowed.  <br /> **All** – unrestricted types. Optionally specify max number of attachments. <br /> **Custom** – enter specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Optionally specify max number of attachments. |
 | **Forward auth token** | No        | Select a downstream auth token to forward from the user’s session (for multi-tenant downstream). |
 | **Max retry attempts** | No        | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors).               |
  
 ### Features
 
-In the Features tab you can control optional capabilities at the application level. 
+In the Features tab, you can control optional capabilities of applications. 
 
 ##### The difference between model and application features
 
-While [Model feature flags](/docs/platform/11.admin-panel/entities-models.md#feature-flags-toggles) govern what each LLM integration can do, Application feature flags define which of those capabilities your orchestrated service exposes to clients—plus allow you to plug in custom preprocessing endpoints.
+While [Model feature flags](/docs/platform/11.admin-panel/entities-models.md#feature-flags-toggles) govern what each LLM integration can do, Application feature flags define which of those capabilities your orchestrated service exposes to clients. Also, you can plug in custom preprocessing endpoints.
 
 **Scope**
 
-* **Model Features** apply *per LLM*, controlling what the model endpoint itself supports (e.g. whether GPT-4 can accept system prompts or function calls).
-* **Application Features** apply *per orchestrated service*, governing what your composed workflow will accept and pass through—regardless of which models are called under the hood.
+* **Model features** apply *per LLM*, controlling what the model endpoint itself supports (e.g. whether GPT-4 can accept system prompts or function calls).
+* **Application features** apply *per orchestrated service*, governing what your composed workflow will accept and pass through—regardless of which models are called under the hood.
 
 **Override Capability**
 
-* At the **Application** level, you can disable a feature globally (even if models support it) or plug in custom endpoints that sit *above* all models.
-* At the **Model** level, toggles only reflect the true capabilities of that specific LLM integration.
+* At the **application** level, you can disable a feature globally (even if models support it) or plug in custom endpoints that apply *above* all models.
+* At the **model** level, toggles only reflect the true capabilities of that specific LLM integration.
 
 **Use Cases**
 

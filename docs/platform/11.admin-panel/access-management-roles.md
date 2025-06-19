@@ -105,7 +105,7 @@ In the Keys tab, you can issue, manage, and revoke [API keys](/docs/platform/11.
 | Column                  | Definition      |
 |-------------------------|------|
 | **Name**                | A user-friendly identifier for this API key. Typically reflects the intended consumer or purpose<br />(e.g. `mobile-sdk-key`, `data-extraction-worker`). |
-| **Description**         | Optional free-text notes about this key’s purpose or scope.     |
+| **Description**         | An optional free-text notes about this key’s purpose or scope.     |
 | **Key generation time** | Timestamp when this key was created.|
 | **Expiration time**     | Optional timestamp after which the key automatically becomes invalid. Blank means no expiration (i.e. permanent until manually revoked).             |
 | **Status**              | Current state of the key.|
