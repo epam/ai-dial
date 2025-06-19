@@ -1,76 +1,69 @@
 # Dashboard Tab
 
-The **Dashboard** tab provides real-time and historical metrics for the model, so you can monitor usage patterns, enforce SLAs, optimize costs, and troubleshoot anomalies.
+## About Dashboard
 
-Related DIAL Core documentation on Telemetry:
+In **Dashboard**, you can monitor system metrics. Monitoring of system metrics is crucial for the health and performance of the system. It helps you to identify and resolve issues before they become critical.
+ 
+> Refer to [Observability](/docs/platform/8.observability-intro.md) to learn about observability and system monitoring in DIAL.
 
-* https://docs.dialx.ai/platform/observability-intro
+![](img/78.png)
 
-![img.png](img/img_9.png)
-
-## 1. Top Bar Controls
+##### Top Bar Controls
 
 | Control                | What It Does                                                                                 |
 | ---------------------- |----------------------------------------------------------------------------------------------|
 | **Time Period**        | Choose the date range for all charts and tables (e.g. last 15 min, 2 days, 7 days, 30 days). |
-| **+ Add filter**       | Drill into specific subsets by adding filters on Projects.                                   |
+| **+ Add filter**       | Drill into specific subsets by adding filters on Projects and Entities.                                 |
 | **Auto refresh**       | Set the dashboard to poll for new data (e.g. every 1 min) or turn off auto-refresh.          |
 
-## 2. System Usage Chart
-* **What it shows**: A time-series line chart of request throughput over your selected period.
+## System Usage Chart
 
-* **Metrics plotted**:
-  * Requests per interval (auto-defined)
+System Usage is a time-series line chart of request throughput over your selected period for projects or entities. You can use it to identify traffic peaks and valleys, correlate spikes with deployments or feature releases.
 
-* **Use cases**:
-  * Spot traffic peaks and valleys
-  * Correlate spikes with deployments or feature rollouts
+![](img/79.png)
 
-## 3. Key Metrics
+## Metrics
 
-Displayed alongside the chart are four high-level metrics. All calculated for the user-selected period:
+Metrics are displayed alongside the System Usage Chart. Metrics are calculated for the selected time period for the entire system.
 
 | Metric            | Definition                                                          |
 |-------------------|---------------------------------------------------------------------|
-| **Unique Users**  | Count of distinct user IDs or API keys that have called this model. |
-| **Request Count** | Total number of chat or embedding calls routed to this model.       |
-| **Total Tokens**  | Sum of prompt + completion tokens consumed by this model.           |
-| **Money**         | Estimated spending on this model.                                   |
+| **Unique Users**  | Count of distinct user IDs or API keys. |
+| **Request Count** | Total number of chat or embedding calls.       |
+| **Total Tokens**  | The total sum prompt and completion tokens used.           |
+| **Money**         | Estimated spending amount.                                   |
 
-> **Use cases**:
-> * Charge back to internal teams or external customers by “Money.”
-> * Track adoption via “Unique Users.”
-> * Monitor burst traffic with “Request Count.”
-> * Watch token consumption to anticipate quota exhaustion.
+![](img/80.png)
 
-## 4. Entities Consumption Table
+## Entities Consumption
 
-Below the KPIs is a breakdown table showing consumption by **Entity**:
+This table shows the consumption metrics for deployments: models and applications. You can use it to compare the tokens usage of different models and applications, identify cost-inefficient deployments, and optimize your resources.
 
 | Column                | Description                                               |
 |-----------------------|-----------------------------------------------------------|
-| **Deployment Id**     | Unique identifier of the model or application.            |
-| **Request Count**     | Number of calls directed to the entity.                   |
-| **Prompt tokens**     | Total tokens submitted in the prompt portion of requests. |
-| **Completion tokens** | Total tokens returned by the model as responses.          |
-| **Money**             | Estimated cost.                                           |
-
->**Use cases**:
->  * Compare consumption across various models and applications.
->  * Spot cost-inefficient deployments that should be optimized.
+| **Deployment Id**     | A unique identifier of a model or application.            |
+| **Request Count**     | The number of calls directed to the entity.                   |
+| **Prompt tokens**     | The total number of tokens submitted in the prompt portion of requests. |
+| **Completion tokens** |The total number of tokens returned by the model/application as responses.          |
+| **Money**             | Estimated overall costs.                                           |
 
 
-## 4. Projects Consumption Table
+## Projects Consumption Table
 
-Below the KPIs is a breakdown table showing consumption by **Project**:
+This table shows the consumption metrics for projects. You can use it to compare the tokens usage of different projects, identify cost-inefficient projects, and optimize your resources.
 
 | Column                | Description                                               |
 |-----------------------|-----------------------------------------------------------|
-| **Project**           | The entity utilizing this model.                          |
-| **Request Count**     | Number of calls directed to the model.                    |
+| **Project**           | The entity utilizing this model/application.                          |
+| **Request Count**     | Number of calls directed to the model/application.                    |
 | **Prompt tokens**     | Total tokens submitted in the prompt portion of requests. |
-| **Completion tokens** | Total tokens returned by the model as responses.          |
-| **Money**             | Estimated cost.                                           |
+| **Completion tokens** | Total tokens returned by the model/application in the responses.          |
+| **Money**             | Estimated overall costs.                                           |
 
->**Use cases**:
->  * Compare consumption across multiple projects.
+## Grafana
+
+Click **Open Grafana** to access the Grafana dashboard where you can monitor other system metrics.
+
+![](img/81.png)
+
+![](img/grafana.png)
