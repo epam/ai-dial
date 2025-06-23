@@ -28,15 +28,7 @@ In Applications, you can see, create and manage applications deployed in your in
 
 ## Create Application
 
-In Applications, you can enable a new application in your DIAL instance. Once added, it appears in the **Applications** listing.
-
-> It may take some time for the changes to take effect after saving.
-
 > Refer to [Enable App](/docs/tutorials/1.developers/4.apps-development/3.enable-app.md) to learn more about enabling applications in DIAL.
-
-![](img/img_12.png)
-
-##### To create application 
 
 1. Click **+ Create** to invoke the **Create Application** modal.
 2. Define application's parameters
@@ -50,7 +42,9 @@ In Applications, you can enable a new application in your DIAL instance. Once ad
     | **Description**        | No              | A free-text summary describing the application (e.g. supported inputs, business purpose).                       |
     | **Endpoint**           | Conditional | The full URL where this Application’s API will be exposed once created. Not needed if Application Runner is selected. Required otherwise.|
 
-3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#application-configuration) screen is opened. This entry will appear immediately in the listing once created.
+3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#application-configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
+
+        ![](img/img_12.png)
 
 ## Application Configuration
 

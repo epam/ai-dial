@@ -22,12 +22,6 @@ In Application Runners, you can add and manage Application Runners you have in y
 
 ## Create
 
-You can add **Application Runners** to your DIAL instance. 
-
-![](img/img_24.png)
-
-##### To create a new Application Runner:
-
 1. Click **+ Create** to invoke the **Create Application Runner** modal.
 2. Define key parameters for the new application runner:
 
@@ -37,6 +31,8 @@ You can add **Application Runners** to your DIAL instance.
     | **Name**        | Yes   |  A user-friendly name of the Application Runner that will be displayed on UI.                              |
     | **Description** | No        | Free-text notes about the runner’s capabilities.                             |
 3. Once all required fields are filled, click **Create**. The dialog closes and the new runner [configuration screen](#configuration) is opened. A new runner will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
+
+        ![](img/img_24.png)
 
 ## Configuration
 

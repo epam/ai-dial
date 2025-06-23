@@ -42,12 +42,6 @@ On the **Models** page, you can find all language models (LLMs) deployed on your
 
 ## Create Model
 
-In Models, you can register new LLM integrations in your DIAL instance. Once added, the model appears in the **Models** listing and can be used by Routes and Applications.
-
-![](img/img_4.png)
-
-##### To register a new model
-
 1. Click **+ Create** to invoke a **Create Model** modal.
 2. Define parameters:
 
@@ -59,7 +53,9 @@ In Models, you can register new LLM integrations in your DIAL instance. Once add
     | **Description**   | No        | Free-text note about the model’s purpose or distinguishing traits.      |
     | **Adapter**       | Yes   | A model adapter that will handle requests to this model (e.g. OpenAI, DIAL). The chosen adapter supplies authentication, endpoint URL, and request formatting. |
 
-3. Click **Create** to close the dialog and open the [configuration screen](#model-configuration). When done with model configuration, click **Save**. It may take some time for the changes to take effect after saving.
+3. Click **Create** to close the dialog and open the [configuration screen](#model-configuration). When done with model configuration, click **Save**. It may take some time for the changes to take effect after saving. Once added, the model appears in the **Models** listing and can be used by Routes and Applications.
+
+        ![](img/img_4.png)
 
 ## Model Configuration
 

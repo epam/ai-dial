@@ -19,13 +19,6 @@ In Routes, you can view, filter, and create new routes.
 
 ## Create
 
-In Routes, you can add new routes to your DIAL instance.
-
-
-![](img/img_20.png)
-
-##### To create a route
-
 1. Click **+ Create** to invoke the **Create Route** modal.
 2. Define rout's parameters
 
@@ -37,6 +30,7 @@ In Routes, you can add new routes to your DIAL instance.
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new [route configuration](#route-configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
 
+        ![](img/img_20.png)
 ## Route Configuration
 
 ##### Top Bar Controls
