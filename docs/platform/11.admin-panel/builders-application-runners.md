@@ -10,7 +10,7 @@
 
 In Application Runners you can manage the Application Runners you have in your DIAL instance. Use this page to view, filter, and create new artefacts.
 
-![img.png](img/img_23.png)
+![ ](img/img_23.png)
 
 ##### Application Runners Grid
 

@@ -9,7 +9,7 @@ You define per-folder ACL rules - built on user groups, so only authorized users
 
 The **Folders Storage** section is where you manage all folders and their hierarchy.
 
-![img.png](img/img_46.png)
+![ ](img/img_46.png)
 
 ### Folders Hierarchy
 

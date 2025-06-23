@@ -12,7 +12,7 @@ In Prompt Publications, administrators can view and manage publication requests.
 
 The Prompt Publications screen shows all prompts that end-users have submitted for publication from the DIAL Chat UI. 
 
-![img.png](img/img_52.png)
+![ ](img/img_52.png)
 
 ##### Prompt Publications Grid
 

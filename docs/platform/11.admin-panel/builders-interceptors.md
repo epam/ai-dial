@@ -10,7 +10,7 @@ You can add an additional logic into the processing of every request and respons
 
 In Interceptors, you can find all the "hooks" you’ve built to extend DIAL’s request pipeline. Use this page to view, filter, and create new artefacts.
 
-![img.png](img/img_28.png)
+![ ](img/img_28.png)
 
 ##### Interceptors Grid
 

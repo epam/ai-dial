@@ -50,9 +50,7 @@ In Applications, you can enable a new application in your DIAL instance. Once ad
     | **Description**        | No              | A free-text summary describing the application (e.g. supported inputs, business purpose).                       |
     | **Endpoint**           | Conditional | The full URL where this Application’s API will be exposed once created. Not needed if Application Runner is selected. Required otherwise.|
 
-3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#application-configuration) screen is opened.
-
-    > This entry will appear immediately in the listing once created.
+3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#application-configuration) screen is opened. This entry will appear immediately in the listing once created.
 
 ## Application Configuration
 
@@ -67,7 +65,7 @@ In the Properties tab, you can define the application's identity, routing, UI me
 
 Once configured, your application is ready to orchestrate models and interceptors behind a single HTTP endpoint.
 
-![img.png](img/img_13.png)
+![ ](img/img_13.png)
 
 | Field             | Required | Description              |
 |-------------------|-----------|---------------|
@@ -106,7 +104,7 @@ While [Model feature flags](/docs/platform/11.admin-panel/entities-models.md#fea
 * **Model** toggles ensure you don’t accidentally send unsupported parameters to a given model.
 * **Application** toggles let you present a consistent API to your clients (e.g. always accept `temperature` or never allow attachments), even if different underlying models behave differently.
 
-![img_1.png](img/img_14.png)
+![](img/img_14.png)
 
 #### Endpoints
 
@@ -209,7 +207,7 @@ You can define Interceptors in the [Builders → Interceptors](/docs/platform/11
 
 > Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 
-![img_3.png](img/img_16.png)
+![](img/img_16.png)
 
 ##### The difference between model and application interceptors
 
@@ -256,7 +254,7 @@ You can define Interceptors in the [Builders → Interceptors](/docs/platform/11
 
 In the **Dashboard** tab, you can see real-time and historical metrics for the application. You can use it to monitor usage patterns, enforce SLAs, optimize costs, and troubleshoot anomalies.
 
-![img_4.png](img/img_17.png)
+![](img/img_17.png)
 
 ##### Top Bar Controls
 
@@ -305,7 +303,7 @@ This table shows the KPIs breakdown by **Project**. You can use it to compare co
 
 For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any app’s configuration page.
 
-![img_5.png](img/img_18.png)
+![](img/img_18.png)
 
 ##### Switching to the JSON Editor
 

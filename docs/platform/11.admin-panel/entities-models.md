@@ -164,7 +164,6 @@ Some models adapters expose specialized HTTP endpoints for tokenization, rate es
 | **Truncate prompt endpoint** | URL to invoke a prompt‐truncation API. <br /> Ensures prompts are safely cut to max context length. <br /> Useful when working with very long user inputs.    |
 | **Configuration endpoint**   | URL to fetch model‐specific settings (e.g. max tokens, allowed parameters). <br /> Provide **only** for "configurable" deployments.    |
 
-
 ##### Feature Flags (Toggles)
 
 Each toggle corresponds to a capability in the [Unified Protocol](/docs/platform/3.core/0.about-core.md#unified-api-features). Enable them only if your model and adapter fully support that feature.
@@ -177,7 +176,6 @@ Each toggle corresponds to a capability in the [Unified Protocol](/docs/platform
 | **Seed**               | Enables the `seed` parameter for deterministic output. Use in testing or reproducible workflows.   |
 | **URL Attachments**    | Allows passing URLs as attachments (images, docs) to the model. Can be required for image-based or file-referencing prompts.        |
 | **Folder Attachments** | Enables attaching folders (batching multiple files).                 |
-
 
 ### Roles
 
@@ -348,7 +346,7 @@ This table shows the KPIs breakdown by **Project**. You can use it to compare co
 
 For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any model’s configuration page.
 
-![img.png](img/img_10.png)
+![ ](img/img_10.png)
 
 ##### Switching to the JSON Editor
 

@@ -10,7 +10,7 @@ Files in DIAL are arbitrary binary or text assets (JSON, CSV, PDF, images, etc.)
 
 In Files, you can manage all binary or document assets like JSON, CSV, PDF, images, etc.
 
-![img.png](img/img_35.png)
+![ ](img/img_35.png)
 
 ### Grid and Folders
 
@@ -35,7 +35,7 @@ In Files, you can manage all binary or document assets like JSON, CSV, PDF, imag
 
 Use Export to package one or more stored files into a downloadable archive. This is helpful for backup, sharing, or migrating supporting assets alongside your DIAL configuration.
 
-![img.png](img/img_49.png)
+![ ](img/img_49.png)
 
 ##### To export files
 

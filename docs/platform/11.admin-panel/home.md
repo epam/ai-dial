@@ -27,7 +27,7 @@ System admin(s) can be defined in [DIAL Core static settings](https://github.com
 
 The Home screen gives you a high-level overview of your environment and fast access to the most important actions and modules.
 
-![img.png](img/img.png)
+![ ](img/img.png)
 
 * **Sidebar** is the main menu available at any page with access to every major DIAL Admin section.
 * **View our documentation** button opens the official [DIAL docs](https://docs.dialx.ai/) in a new tab. It's handy when you need an in-depth reference or look for details.

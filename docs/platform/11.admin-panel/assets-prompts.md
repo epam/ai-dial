@@ -11,7 +11,7 @@ Everything from system instructions (“You are a financial advisor…”) to fe
 
 In the Prompts section, you can manage all system and user prompt templates. Here, you can also arrange prompts into folders, version them, and then use them in applications or chats.
 
-![img.png](img/img_32.png)
+![ ](img/img_32.png)
 
 ### Grid and Folders
 
@@ -51,7 +51,7 @@ Use the Create Prompt dialog to add a new reusable prompt template to your DIAL 
     | **Version**     | Semantic version string (e.g. 1.0.0, 0.1.2) that enables safe updates. |
     | **Description** | Free-text summary of the prompt’s purpose and key placeholders.  |
 
-4. Once all required fields are filled, click **Create**. The dialog closes and the new prompt configuration screen opened.
+4. Once all required fields are filled, click **Create**. The dialog closes and the new prompt configuration screen is opened.
 
     > This entry will appear immediately in the listing once created.
 
@@ -59,7 +59,7 @@ Use the Create Prompt dialog to add a new reusable prompt template to your DIAL 
 
 Use Export to bundle selected prompts definitions and download them. This is useful for migrating prompts between environments, sharing sets of prompts with another users, or keeping a point-in-time backup.
 
-![img.png](img/img_47.png)
+![ ](img/img_47.png)
 
 ##### To export prompts:
 
@@ -72,7 +72,7 @@ Use Export to bundle selected prompts definitions and download them. This is use
 
 Use Import to upload new or update existing prompts from external JSON files or ZIP archive. This is essential for migrating, restoring, or sharing prompt assets between DIAL users.
 
-![img.png](img/img_48.png)
+![ ](img/img_48.png)
 
 ##### To import prompts:
 
