@@ -110,90 +110,87 @@ While [Model feature flags](/docs/platform/11.admin-panel/entities-models.md#fea
 
 #### Endpoints
 
-Override or extend DIAL Core’s built-in protocol calls with your own HTTP services. These endpoints can be used by [Application Runners](/docs/platform/11.admin-panel/builders-application-runners.md) (e.g. a Python or Node Runner) to perform preprocessing or policy checks before delegating to your underlying models and workflows.
+You can override or extend DIAL Core’s built-in protocol calls with your own HTTP services. Here, you can specify endpoints used by [Application Runners](/docs/platform/11.admin-panel/builders-application-runners.md) (e.g. a Python or Node Runner) to perform preprocessing or policy checks before delegating to your underlying models and workflows.
 
 | Field                        | Description & When to Use        |
 |------------------------------|------------------------------------------------|
-| **Rate endpoint**            | URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).             |
-| **Tokenize endpoint**        | URL to call a custom tokenization service. When you need precise, app-wide token counting (for mixed-model or multi-step prompts) that the model adapter can’t provide. |
-| **Truncate prompt endpoint** | URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual model call.        |
-| **Configuration endpoint**   | URL to fetch dynamic App-specific settings (e.g. per-tenant max tokens, allowed parameters). Use this to drive runtime overrides from a remote config store.            |
+| **Rate endpoint**            |  A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).             |
+| **Tokenize endpoint**        |  A URL to call a custom tokenization service. When you need precise, app-wide token counting (for mixed-model or multi-step prompts) that the model adapter can’t provide. |
+| **Truncate prompt endpoint** |  A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual model call.        |
+| **Configuration endpoint**   |  A URL to fetch dynamic app-specific settings (e.g. per-tenant max tokens, allowed parameters). Use this to drive runtime overrides from a remote config store.            |
 
 #### Feature Flags (Toggles)
 
-Enable or disable per-request options that your Application accepts from clients and forwards to the underlying models. **Toggle On/Off** any feature as needed.
+Enable or disable per-request options that your application accepts from clients and forwards to the underlying models. **Toggle On/Off** any feature as needed.
 
 > **Note**: Changes take effect immediately after saving.
 
 | Toggle                 | What It Does          |
 |------------------------|----------------------------------------------------------|
-| **Temperature**        | Enables the `temperature` parameter in API calls. Disable if you want fixed-deterministic outputs or you hard-code temperature in your workflow.            |
-| **System prompt**      | Enables an initial "system" or "assistant instruction" message injection. Useful for orchestrating multi-step assistants where you need to enforce a global policy at the App level. |
-| **Tools**              | Permits the use of `tools`/`functions` payloads in your API. Switch on if your Application invokes DIAL add-ons or external function calls (e.g. calendar lookup, database fetch).   |
-| **Seed**               | Enables the `seed` parameter for reproducible results. Great for testing or deterministic pipelines; disable to ensure randomized creativity. f             |
-| **URL Attachments**    | Accepts URL references (images, docs) as attachments in API requests. Must be enabled if your workflow downloads or processes remote assets via URL.        |
-| **Folder Attachments** | Enables support for folder-level attachments (batching multiple files).                     |
+| **Temperature**        | Enables the `temperature` parameter in API calls. Disable if you want fixed-deterministic outputs or you have the temperature hard-coded in your workflow.            |
+| **System prompt**      | Enables an initial "system" message injection. Useful for orchestrating multi-step agents where you need to enforce a global policy at the application level. |
+| **Tools**              | Enables `tools`/`functions` payloads in API calls. Switch on if your application makes external function calls (e.g. calendar lookup, database fetch).   |
+| **Seed**               | Enables the `seed` parameter for reproducible results. Great for testing or deterministic pipelines.  Disable to ensure randomized creativity.          |
+| **URL Attachments**    | Enables URL references (images, docs) as attachments in API requests. Must be enabled if your workflow downloads or processes remote assets via URLs.        |
+| **Folder Attachments** | Enables attachments of folders (batching multiple files).|
 
 ### Roles
 
-You can create and manage roles in the [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) section.
+In the Roles tab, you can create and manage roles defined in the [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) section. Here, you can define user groups that can use specific applications and define rate limits for them.
 
-In the **Roles** tab, you can define user groups that can use specific applications and define rate limits applicable to roles.
-
-**Important**: if roles are not specified for a specific model, the model will be available to all users
+**Important**: if roles are not specified for a specific application, it will be available to all users
 
 > Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about roles and rate limits in DIAL.
 
 ![](img/img_15.png)
 
-**Roles grid columns:**
+##### Roles grid
 
 | Column                | Description & Guidance        |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------|
-| **Name**              | Unique role identifier.       |
-| **Description**       | User-friendly explanation of the role’s purpose (e.g., "Admin, Prompt Engineer, Developer"). |
-| **Tokens per minute** | Minute tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.       |
-| **Tokens per day**    | Daily tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.        |
-| **Tokens per week**   | Weekly tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.       |
-| **Tokens per month**  | Monthly tokens limit for specific role. Blank = no limits. Inherits default value (see above). Can be overridden.      |
-| **Actions**     | Additional role-specific actions. <br /> Open role in a new tab. <br /> Make all restrictions unlimited for the given role |
+| **Name**              | A unique role identifier.       |
+| **Description**       | A user-friendly description of the role (e.g., "Admin, Prompt Engineer, Developer"). |
+| **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits.<br /> Inherits the [default value](#default-rate-limits).<br /> Can be overridden.       |
+| **Tokens per day**    | Daily tokens limit for a specific role. Blank = no limits. <br />Inherits the [default value](#default-rate-limits). <br />Can be overridden.        |
+| **Tokens per week**   | Weekly tokens limit for a specific role. Blank = no limits. <br />Inherits the [default value](#default-rate-limits). <br />Can be overridden.       |
+| **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits.<br /> Inherits the [default value](#default-rate-limits). <br />Can be overridden.      |
+| **Actions**     | Additional role-specific actions. <br /> Open [Roles](/docs/platform/11.admin-panel/access-management-roles.md) section in a new tab. <br /> Make all restrictions unlimited for the given role |
 
 #### Set Rate Limits
 
-The grid on the Roles screen lists the roles that can access a specific application. Here, you can also set individual limits for selected roles. For example, you can the "Admin" role unlimited monthly tokens but throttle "Developer" to 100,000 tokens/day or allow the "External Partner" role a small trial quota (e.g., 10,000 tokens/month) before upgrade.
+The grid on the Roles screen lists roles that can access a specific application. Here, you can also set individual limits for selected roles. For example, you can give "Admin" role unlimited monthly tokens but throttle "Developer" to 100,000 tokens/day or allow the "External Partner" role a small trial quota (e.g., 10,000 tokens/month) before upgrade.
 
 **To set or change rate limits for a role:**
 
 1. **Click** in the desired cell (e.g., **Tokens per day** for the "ADMIN").
-2. **Enter** a numeric limit or leave blank to set no limits.
-3. Click **Reset to default limits** to restore default settings for all roles.
-4. Click **Save** to apply changes.
+2. **Enter** a numeric limit or leave blank to set no limits. Click **Reset to default limits** to restore default settings for all roles.
+3. Click **Save** to apply changes.
 
 #### Default Rate Limits
 
-Default rate limits are set for all roles in the **Roles** grid by default, however you can override them for any role.
+Default rate limits are set for all roles in the **Roles** grid by default; however you can override them for any role.
 
-| Field| Description    |
-|-------------------------------|---------------------------------------------------------------------------------------|
-| **Default tokens per minute** | The maximum tokens any user may consume per minute if no role-specific limit applies. |
-| **Default tokens per day**    | The maximum tokens any user may consume per day if no role-specific limit applies.    |
-| **Default tokens per week**   | The maximum tokens any user may consume per week if no role-specific limit applies.   |
-| **Default tokens per month**  | The maximum tokens any user may consume per month if no role-specific limit applies.  |
+| Field  | Description      |
+|-------------------------------|---|
+| **Default tokens per minute** | The maximum tokens any user can consume per minute unless a specific limit is in place. |
+| **Default tokens per day**    | The maximum tokens any user can consume per day unless a specific limit is in place.    |
+| **Default tokens per week**   | The maximum tokens any user can consume per week unless a specific limit is in place.   |
+| **Default tokens per month**  | The maximum tokens any user may consume per month unless a specific limit is in place.  |
 
 #### Role-Specific Access
 
 Use **Make available to specific roles** toggle to define access to the application:
 
-* **Off**: App is callable by any authenticated user. All existing roles are in the grid.
-* **On**: App is restricted - only the roles you explicitly add to the grid below may invoke it.
+* **Off**: Application is callable by any authenticated user. All existing user roles are in the grid.
+* **On**: Application is restricted - only the roles you explicitly add to the grid can invoke it.
 
 #### Add
 
 You can add a role only if **Make available to specific roles** toggle is **On**.
 
 1. Click **+ Add** (top-right of the Roles Grid).
-2. **Select** one or more roles in the modal.
-3. **Confirm** to insert them into the table.
+2. **Select** one or more roles in the modal. The list or roles is defined in the [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) section.
+3. **Confirm** to add role(s) to the table.
 
 #### Remove
 
@@ -202,39 +199,38 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 1. Click the **actions** menu in the role's line.
 2. Choose **Remove** in the menu.
 
+![](img/82.png)
 
 ### Interceptors
 
-Use the **Interceptors** tab to attach reusable "hooks" that run custom logic before requests enter or after responses leave your Application’s orchestration pipeline.
+DIAL uses Interceptors to add custom logic to in/out requests for models and apps, enabling PII obfuscation, guardrails, safety checks, and beyond. 
 
-Interceptors are lightweight plugins—defined under [Builders → Interceptors](/docs/platform/11.admin-panel/builders-interceptors.md) that hook into DIAL Core’s processing pipeline. 
-
-Common use cases include use of interceptors to enforce PII policies, enrich or sanitize payloads, log data, or implement cross-cutting concerns without touching your core business code.
+You can define Interceptors in the [Builders → Interceptors](/docs/platform/11.admin-panel/builders-interceptors.md) section to add them to the processing pipeline of DIAL Core.
 
 > Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
+
+![img_3.png](img/img_16.png)
 
 ##### The difference between model and application interceptors
 
 **Scope of Invocation**
 
-* **Model** Interceptors fire around each individual model call (i.e. before/after the LLM invocation).
-* **Application** Interceptors wrap the entire orchestrated workflow—including multi-model sequences, add-ons, and branching logic.
+* **Model**: Interceptors are triggered with each request to a model (i.e. before/after the LLM invocation).
+* **Application**: Interceptors wrap the entire orchestrated workflow, including multi-model sequences and branching logic.
 
-***Use Cases**
+**Use Cases**
 
-* **Model-level** hooks are ideal for prompt "pre-processing" or response transformations specific to a single LLM.
-* **Application-level** hooks manage cross-cutting concerns across your whole Application (e.g., tenant-based routing, unified logging, end-to-end policy enforcement).
-
-![img_3.png](img/img_16.png)
+* **Model**: Ideal for prompt "pre-processing" or response transformations that are specific for each LLM.
+* **Application**: Manage cross-cutting concerns across the whole application (e.g., tenant-based routing, unified logging, end-to-end policy enforcement).
 
 ##### Interceptors Grid
 
-| Column            | Description         |
-| ----------------- |--------------------------------------------------------------------------------------------------------------|
-| **Order**         | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor’s in this order; for Response interceptors are invoked in reverse order.              |
-| **Name**          | The interceptor’s alias, matching the **Name** field in its definition.             |
-| **Description**   | Free-text summary from the interceptor’s definition, explaining its purpose.        |
-| **Actions**  | Additional role-specific actions. <br /> Open interceptor in a new tab. <br /> Remove interceptor from the model |
+| Column            | Description  |
+| ----------------- |-------------|
+| **Order**         | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor’s in this order.Response interceptors are invoked in the reversed order.      |
+| **Name**          | The interceptor’s alias, matching the **Name** field in its definition.      |
+| **Description**   | Free-text summary from the interceptor’s definition, explaining its purpose. |
+| **Actions** | Additional role-specific actions. <br /> Open interceptor in a new tab. <br /> [Remove](#remove-1) the selected interceptor from the model's configuration. |
 
 #### Add
 
@@ -242,34 +238,32 @@ Common use cases include use of interceptors to enforce PII policies, enrich or 
 2. In the **Add Interceptors** modal, choose one or more from the grid of [defined interceptors](/docs/platform/11.admin-panel/builders-interceptors.md).
 3. **Apply** to append them to the bottom of the list (are added in the same order as selected in the modal).
 
-> **TIP**: If you need a new interceptor, first create it under [Builders → Interceptors](/docs/platform/11.admin-panel/builders-interceptors.md) and then revisit this tab to attach it to the apps's configuration.
+> **TIP**: If you need a new interceptor, first create it under [Builders → Interceptors](/docs/platform/11.admin-panel/builders-interceptors.md) and then revisit this tab to attach it to the application's configuration.
 
 #### Reorder
 
-1. **Drag & Drop** the handle (⋮⋮⋮⋮) on the left of the row to reassign its **Order**.
+1. **Drag & Drop** the handle (⋮⋮⋮⋮) to reassign the order in which interceptors are triggered.
 2. Release to reposition; order renumbers automatically.
-3. **Save** to lock in the new execution sequence.
+3. **Save** to lock-in the new execution sequence.
 
 #### Remove
 
-1. Click the **actions** menu in the interceptor's row.
-2. Choose **Remove** in the menu to detach it from this app.
-3. **Save** to lock in the interceptors list.
-
+1. Click the actions menu in the interceptor's row.
+2. Choose **Remove** to detach it from this application.
+3. **Save** to lock-in the interceptors list
 
 ### Dashboard
 
-In **Dashboard**, you can see real-time and historical metrics for the application. You can use it to monitor usage patterns, enforce SLAs, optimize costs, and troubleshoot anomalies.
+In the **Dashboard** tab, you can see real-time and historical metrics for the application. You can use it to monitor usage patterns, enforce SLAs, optimize costs, and troubleshoot anomalies.
 
 ![img_4.png](img/img_17.png)
 
 ##### Top Bar Controls
 
-
 | Control                | What It Does          |
 | ---------------------- |----------------------------------------------------------------------------------------------|
-| **Time Period**        | Choose the date range for all charts and tables (e.g. last 15 min, 2 days, 7 days, 30 days). |
-| **+ Add filter**       | Drill into specific subsets by adding filters on Projects.          |
+| **Time Period**        | Use to select the date range for all charts and tables (e.g. last 15 min, 2 days, 7 days, 30 days). |
+| **+ Add filter**       | Use to drill into specific subsets by adding filters on Projects.          |
 | **Auto refresh**       | Set the dashboard to poll for new data (e.g. every 1 min) or turn off auto-refresh.          |
 
 ##### System Usage Chart
@@ -287,13 +281,12 @@ You can use them to:
 * Monitor burst traffic with "Request Count".
 * Watch token consumption to anticipate quota exhaustion.
 
-| Metric            | Definition          |
-|-------------------|-------------------------------------------------------------------|
-| **Unique Users**  | Count of distinct user IDs or API keys that have called this app. |
-| **Request Count** | Total number of chat or embedding calls routed to this app.       |
-| **Total Tokens**  | Sum of prompt + completion tokens consumed by this app.           |
-| **Money**         | Estimated spending on this app.          |
-
+| Metric            | Definition|
+|-------------------|---------------------------|
+| **Unique Users**  | Count of distinct user IDs or API keys that have called this application. |
+| **Request Count** | Total number of chat or embedding calls routed to this application.       |
+| **Total Tokens**  | Sum of `prompt + completion` tokens consumed by this application.           |
+| **Money**         | Estimated spending on this application.   |
 
 ##### Projects Consumption Table
 
@@ -301,10 +294,10 @@ This table shows the KPIs breakdown by **Project**. You can use it to compare co
 
 | Column                | Description |
 |-----------------------|-----------------------------------------------------------|
-| **Project**           | The entity utilizing this app.   |
-| **Request Count**     | Number of calls directed to the app.                      |
+| **Project**           | The entity utilizing this application.   |
+| **Request Count**     | Number of calls directed to the application.                      |
 | **Prompt tokens**     | Total tokens submitted in the prompt portion of requests. |
-| **Completion tokens** | Total tokens returned by the app as responses.            |
+| **Completion tokens** | Total tokens returned by the application as responses.            |
 | **Money**             | Estimated cost.                  |
 
 
@@ -316,7 +309,7 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 
 ##### Switching to the JSON Editor
 
-1. Navigate to **Entities → Applications**, then select the app you want to edit.
+1. Navigate to **Entities → Applications**, then select the application you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.

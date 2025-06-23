@@ -211,9 +211,8 @@ The grid on the Roles screen lists the roles that can access a specific model. H
 ##### To set or change rate limits for a role:
 
 1. **Click** in the desired cell (e.g., **Tokens per day** for the "ADMIN").
-2. **Enter** a numeric limit or leave blank to enable an unlimited access.
-3. Click **Reset to default limits** to restore [default settings](#default-rate-limits) for all roles.
-4. Click **Save** to apply changes.
+2. **Enter** a numeric limit or leave blank to enable an unlimited access. Click **Reset to default limits** to restore [default settings](#default-rate-limits) for all roles.
+3. Click **Save** to apply changes.
 
 #### Default Rate Limits
 
@@ -230,8 +229,8 @@ Default limits are set for all roles in the **Roles** grid by default; however y
 
 Use **Make available to specific roles** toggle to define access to the model:
 
-* **Off**: Model is callable by any authenticated user. All existing roles are in the grid.
-* **On**: Model is restricted - only the roles you explicitly add to the grid below may invoke it.
+* **Off**: Model is callable by any authenticated user. All existing user roles are in the grid.
+* **On**: Model is restricted - only the roles you explicitly add to the grid can invoke it.
 
 ![](img/69.png)
 
@@ -241,7 +240,7 @@ You can add a role only if **Make available to specific roles** toggle is **On**
 
 1. Click **+ Add** (top-right of the Roles Grid).
 2. **Select** one or more roles in the modal. The list or roles is defined in the [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) section.
-3. **Confirm** to insert them into the table.
+3. **Confirm** to add role(s) to the table.
 
 #### Remove
 
