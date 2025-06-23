@@ -6,7 +6,7 @@ Routes in DIAL are used for communication through registered endpoints in the [D
 
 ## Routes List
 
-In Routes, you can manage all of your request‐routing definitions in one place. Use this page to view, filter, and create new artefact.
+In Routes, you can manage all request‐routing definitions in one place. Use this page to view, filter, and create new routes.
 
 ![img.png](img/img_19.png)
 
@@ -14,13 +14,12 @@ In Routes, you can manage all of your request‐routing definitions in one place
 
 | Field           | Definition                                        |
 |-----------------|---------------------------------------------------|
-| **Name**        | User-friendly name of the Route.                 |
-| **Description** | Brief free-text summary of the Route’s purpose.   |
-
+| **Name**        | A user-friendly name of the Route.                 |
+| **Description** | A brief free-text description of the Route's purpose.   |
 
 ## Create
 
-Use the **Create Route** dialog to register a new route in your DIAL instance. Once added, it appears in the **Route** listing.
+In Routes, you can add new routes to your DIAL instance. Once added, routes appear in the **Route** listing.
 
 > It may take some time for the changes to take effect after saving.
 
@@ -28,7 +27,7 @@ Use the **Create Route** dialog to register a new route in your DIAL instance. O
 
 ##### To create a new route
 
-1. Click **Create**to invoke the **Create Route** modal.
+1. Click **+ Create** to invoke the **Create Route** modal.
 2. Define rout's parameters
 
     | Field           | Required        | Definition                                                   |
