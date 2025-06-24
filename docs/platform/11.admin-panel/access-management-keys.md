@@ -18,6 +18,8 @@ The Keys page provides a centralized view and management interface for all API k
 
 ##### Keys Grid
 
+> **TIP**: Use the **Columns** selector to customize which columns are visible in the grid.
+
 | Column | Definition |
 |-------------------------|------------|
 | **Name**     | A user-friendly identifier of a key (e.g. `analytics-service-key`). Names help you map keys to consumers or services in logs and configs. |
