@@ -1,4 +1,4 @@
-# Dashboard Tab
+# Dashboard
 
 ## About Dashboard
 
@@ -13,7 +13,7 @@ In **Dashboard**, you can monitor system metrics. Monitoring of system metrics i
 | Control                | What It Does                                                                                 |
 | ---------------------- |----------------------------------------------------------------------------------------------|
 | **Time Period**        | Choose the date range for all charts and tables (e.g. last 15 min, 2 days, 7 days, 30 days). |
-| **+ Add filter**       | Drill into specific subsets by adding filters on Projects and Entities.                                 |
+| **+ Add filter**       | Drill into specific subsets by adding filters on Projects and Entities (applications, models, routes).                                 |
 | **Auto refresh**       | Set the dashboard to poll for new data (e.g. every 1 min) or turn off auto-refresh.          |
 
 ## System Usage Chart
@@ -29,9 +29,9 @@ Metrics are displayed alongside the System Usage Chart. Metrics are calculated f
 | Metric            | Definition                                                          |
 |-------------------|---------------------------------------------------------------------|
 | **Unique Users**  | Count of distinct user IDs or API keys. |
-| **Request Count** | Total number of chat or embedding calls.       |
-| **Total Tokens**  | The total sum prompt and completion tokens used.           |
-| **Money**         | Estimated spending amount.                                   |
+| **Request Count** | The total number of chat or embedding calls.       |
+| **Total Tokens**  | The total sum of prompt and completion tokens used.           |
+| **Money**         | The estimated spending amount.                                   |
 
 ![](img/80.png)
 
@@ -48,7 +48,7 @@ This table shows the consumption metrics for deployments: models and application
 | **Money**             | Estimated overall costs.                                           |
 
 
-## Projects Consumption Table
+## Projects Consumption
 
 This table shows the consumption metrics for projects. You can use it to compare the tokens usage of different projects, identify cost-inefficient projects, and optimize your resources.
 
