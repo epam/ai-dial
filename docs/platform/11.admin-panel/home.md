@@ -6,6 +6,8 @@ The DIAL Admin Panel provides system [administrators](#who-is-admin) tools to co
 
 > Admin Panel serves as a powerful UI for administrators. System configurations can be done also by a direct modification of a [DIAL Core config](https://github.com/epam/ai-dial-core).
 
+> Watch a [video demo](https://www.linkedin.com/feed/update/urn:li:activity:7331009748303044608).
+
 ##### Admin Panel Sections
 
 * **Entities**: In this section, you can configure all language models, applications, and routes within the DIAL environment. Go to [Entities](/docs/platform/11.admin-panel/entities-models.md) to learn more.
