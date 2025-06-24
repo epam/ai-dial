@@ -10,28 +10,30 @@ In Prompt Publications, administrators can view and manage publication requests.
 
 ### Prompt Publications List
 
-The Prompt Publications screen shows all prompts that end-users have submitted for publication from the DIAL Chat UI. 
+The Prompt Publications screen shows all prompts that end-users have submitted for publication using the DIAL API. 
 
 ![ ](img/img_52.png)
 
 ##### Prompt Publications Grid
 
 
-| Column         | Definition                                                                                                                        |
-|----------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| **Name**       | The user-friendly name of the prompt submitted for publication.                                                                  |
-| **Author**     | The username of the one that submitted the prompt.                                                                                |
-| **Created at** | Timestamp when the prompt was submitted for publication. Sorted ascending/descending to find newest or oldest submissions easily. |
-| **Folder Storage** | The location on [Assets](/docs/platform/11.admin-panel/assets-prompts.md). |
+| Column         | Definition|
+|----------------|-----------|
+| **Name**       | A user-friendly name of the prompt submitted for publication.|
+| **Author**     | A username of the publication request author.|
+| **Created at** | A timestamp when the prompt was submitted for publication. Sorted ascending/descending to find newest or oldest submissions easily. |
+| **Folder Storage** | The location of the prompt in [Assets](/docs/platform/11.admin-panel/assets-prompts.md). |
 
 ### Prompt Publication Review
 
-In the Prompt Publications – Review page you can inspect prompt publication requests and decide whether to **Publish** it into the shared [Assets → Prompts](/docs/platform/11.admin-panel/assets-prompts.md) library or **Decline** it.
+In the Prompt Publications – Review page, you can inspect prompt publication requests and decide whether to **Publish** them into the shared [Assets → Prompts](/docs/platform/11.admin-panel/assets-prompts.md) library or **Decline**.
+
+##### Top Bar Controls
 
 * **Publish**: Accept the publication request. This adds the prompt into the [Assets → Prompts](/docs/platform/11.admin-panel/assets-prompts.md) folder (under the specified Folder).
-* **Decline**: Reject the publication request. Prompts you to enter a decline reason that will be sent back to the author.
+* **Decline**: Reject the publication request. Prompts you to enter a decline reason that will be sent back to the publication request author.
 
-![img_1.png](img/img_53.png)
+![](img/img_53.png)
 
 | Element                | Definition                                                                        |
 |------------------------|-----------------------------------------------------------------------------------|

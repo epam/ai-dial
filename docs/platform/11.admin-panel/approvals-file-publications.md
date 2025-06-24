@@ -18,7 +18,7 @@ In File Publications, you can review all requests to publish files and decide wh
 
 | Column         | Definition                                                                                                                      |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------|
-| **Name**       | The user-friendly name of the file submitted for publication.                                                                  |
+| **Name**       | A user-friendly name of the file submitted for publication.                                                                  |
 | **Author**     | The name of the publication request author.                                                                               |
 | **Created at** | Timestamp when the file was submitted for publication. |
 
@@ -37,9 +37,9 @@ When a DIAL Core user submits a file publication request, it appears on the main
 
 | Element            | Definition                                                                       |
 |--------------------|----------------------------------------------------------------------------------|
-| **Action**         | Suggested action. The **Publish** action button is highlighted when review is pending.        |
-| **Author**         | Username of the account that created the prompt publication request.  |
-| **Created At**     | Timestamp of when the file publication request was submitted for review.                             |
+| **Action**         | A suggested action. The **Publish** action button is highlighted when review is pending.        |
+| **Author**         | A username of the account that created the file publication request.  |
+| **Created At**     | A timestamp of when the file publication request was submitted for review.                             |
 | **Folder Storage** | The default target folder under [Assets → Files](/docs/platform/11.admin-panel/assets-files.md), if published.                     |
 | **File Name**      | File display name.                                                               |
 | **File Extension** | File type/extension (e.g. .pdf, .csv, .docx).                                    |
