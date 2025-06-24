@@ -78,7 +78,7 @@ const config = {
           priority: 0.5,
         },
         gtag: {
-          trackingID: 'G-GVY5VWYV1E',
+          trackingID: 'GTM-NQKQWGFJ',
         },
       }),
     ],
