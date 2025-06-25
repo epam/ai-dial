@@ -104,6 +104,14 @@ const config = {
   //         },
   //       ],
 
+  scripts: [
+    {
+      src:'https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on',
+      type: "text/javascript",
+    }
+  ],
+
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
