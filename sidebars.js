@@ -406,12 +406,17 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: 'Integrations',
+              label: 'Examples of Integrations',
               items: [
                 {
                   type: 'doc',
                   id: 'tutorials/developers/integrations/copilot-to-dial',
                   label: 'Integration with MS Copilot',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/integrations/ms-excel-addin',
+                  label: 'Integration with MS Excel',
                 },
               ],
             },
