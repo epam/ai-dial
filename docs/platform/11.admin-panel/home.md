@@ -8,6 +8,11 @@ The DIAL Admin Panel provides system [administrators](#who-is-admin) tools to co
 
 > Watch a [video demo](https://youtu.be/iLUb3I6xuBA?si=oq0LBV6rvnMot1aj).
 
+##### DIAL Admin GitHub Repositories
+
+* [Frontend](https://github.com/epam/ai-dial-admin-frontend)
+* [Backend](https://github.com/epam/ai-dial-admin-backend)
+  
 ##### Admin Panel Sections
 
 * **Entities**: In this section, you can configure all language models, applications, and routes within the DIAL environment. Go to [Entities](/docs/platform/11.admin-panel/entities-models.md) to learn more.
