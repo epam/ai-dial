@@ -420,6 +420,11 @@ const sidebars = {
                 },
               ],
             },
+            {
+              type: 'doc',
+              id: 'tutorials/developers/context-caching',
+              label: 'Context Caching',
+            },
           ],
         },
         {
