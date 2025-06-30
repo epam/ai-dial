@@ -45,7 +45,7 @@ const sidebars = {
               label: 'Agentic Platform',
             },
             {
-              type: 'doc',  
+              type: 'doc',
               id: 'platform/architecture-and-concepts/stack',
               label: 'DIAL Stack',
             },
@@ -196,7 +196,7 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'platform/admin-panel/approvals-prompt-publications', 
+                  id: 'platform/admin-panel/approvals-prompt-publications',
                   label: 'Prompt Publications',
                 },
                 {
@@ -422,8 +422,8 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'tutorials/developers/context-caching',
-              label: 'Context Caching',
+              id: 'tutorials/developers/prompt-caching',
+              label: 'Prompt Caching',
             },
           ],
         },
