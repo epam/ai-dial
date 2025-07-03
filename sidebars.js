@@ -45,7 +45,7 @@ const sidebars = {
               label: 'Agentic Platform',
             },
             {
-              type: 'doc',  
+              type: 'doc',
               id: 'platform/architecture-and-concepts/stack',
               label: 'DIAL Stack',
             },
@@ -105,6 +105,123 @@ const sidebars = {
               id: 'platform/core/apps',
               label: 'DIAL-Native Apps',
             },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Admin Panel',
+          items: [
+            {
+              type: 'doc',
+              id: 'platform/admin-panel/home',
+              label: 'Introduction',
+            },
+            {
+              type: 'category',
+              label: 'Entities',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/entities-models',
+                  label: 'Models',
+                },
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/entities-applications',
+                  label: 'Applications',
+                },
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/entities-routes',
+                  label: 'Routes',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Builders',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/builders-application-runners',
+                  label: 'Application Runners',
+                },
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/builders-interceptors',
+                  label: 'Interceptors',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Assets',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/assets-prompts',
+                  label: 'Prompts',
+                },
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/assets-files',
+                  label: 'Files',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Access Management',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/access-management-roles',
+                  label: 'Roles',
+                },
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/access-management-keys',
+                  label: 'Keys',
+                },
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/access-management-folders-storage',
+                  label: 'Folders Storage',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Approvals',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/approvals-prompt-publications',
+                  label: 'Prompt Publications',
+                },
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/approvals-file-publications',
+                  label: 'File Publications',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Telemetry',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/telemetry-dashboard',
+                  label: 'Dashboard',
+                },
+                {
+                  type: 'doc',
+                  id: 'platform/admin-panel/telemetry-activity-audit',
+                  label: 'Activity Audit',
+                },
+              ]
+          }
           ],
         },
         {
@@ -307,6 +424,11 @@ const sidebars = {
                   label: 'Integration with Continue',
                 },
               ],
+            },
+            {
+              type: 'doc',
+              id: 'tutorials/developers/prompt-caching',
+              label: 'Prompt Caching',
             },
           ],
         },
