@@ -418,6 +418,11 @@ const sidebars = {
                   id: 'tutorials/developers/integrations/ms-excel-addin',
                   label: 'Integration with MS Excel',
                 },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/integrations/vscode-extension',
+                  label: 'Integration with Continue',
+                },
               ],
             },
             {
