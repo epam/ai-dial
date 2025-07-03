@@ -478,121 +478,127 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Admin',
+          label: 'Admins',
           items: [
             {
-              type: 'doc',
-              id: 'tutorials/admin/home',
-              label: 'Introduction',
-            },
-            {
               type: 'category',
-              label: 'Entities',
+              label: 'Admin Panel User Guide',
               items: [
                 {
                   type: 'doc',
-                  id: 'tutorials/admin/entities-models',
-                  label: 'Models',
+                  id: 'tutorials/admin/home',
+                  label: 'Introduction',
                 },
                 {
-                  type: 'doc',
-                  id: 'tutorials/admin/entities-applications',
-                  label: 'Applications',
+                  type: 'category',
+                  label: 'Entities',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/entities-models',
+                      label: 'Models',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/entities-applications',
+                      label: 'Applications',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/entities-routes',
+                      label: 'Routes',
+                    },
+                  ]
                 },
                 {
-                  type: 'doc',
-                  id: 'tutorials/admin/entities-routes',
-                  label: 'Routes',
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Builders',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'tutorials/admin/builders-application-runners',
-                  label: 'Application Runners',
-                },
-                {
-                  type: 'doc',
-                  id: 'tutorials/admin/builders-interceptors',
-                  label: 'Interceptors',
-                },
-              ]
-            },
-            {
-              type: 'category',
-              label: 'Assets',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'tutorials/admin/assets-prompts',
-                  label: 'Prompts',
+                  type: 'category',
+                  label: 'Builders',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/builders-application-runners',
+                      label: 'Application Runners',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/builders-interceptors',
+                      label: 'Interceptors',
+                    },
+                  ]
                 },
                 {
-                  type: 'doc',
-                  id: 'tutorials/admin/assets-files',
-                  label: 'Files',
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Access Management',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'tutorials/admin/access-management-roles',
-                  label: 'Roles',
-                },
-                {
-                  type: 'doc',
-                  id: 'tutorials/admin/access-management-keys',
-                  label: 'Keys',
+                  type: 'category',
+                  label: 'Assets',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/assets-prompts',
+                      label: 'Prompts',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/assets-files',
+                      label: 'Files',
+                    },
+                  ]
                 },
                 {
-                  type: 'doc',
-                  id: 'tutorials/admin/access-management-folders-storage',
-                  label: 'Folders Storage',
+                  type: 'category',
+                  label: 'Access Management',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/access-management-roles',
+                      label: 'Roles',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/access-management-keys',
+                      label: 'Keys',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/access-management-folders-storage',
+                      label: 'Folders Storage',
+                    },
+                  ]
+                },
+                {
+                  type: 'category',
+                  label: 'Approvals',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/approvals-prompt-publications',
+                      label: 'Prompt Publications',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/approvals-file-publications',
+                      label: 'File Publications',
+                    },
+                  ]
+                },
+                {
+                  type: 'category',
+                  label: 'Telemetry',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/telemetry-dashboard',
+                      label: 'Dashboard',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/telemetry-activity-audit',
+                      label: 'Activity Audit',
+                    },
+                  ]
                 }
               ],
-            },
-            {
-              type: 'category',
-              label: 'Approvals',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'tutorials/admin/approvals-prompt-publications',
-                  label: 'Prompt Publications',
-                },
-                {
-                  type: 'doc',
-                  id: 'tutorials/admin/approvals-file-publications',
-                  label: 'File Publications',
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Telemetry',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'tutorials/admin/telemetry-dashboard',
-                  label: 'Dashboard',
-                },
-                {
-                  type: 'doc',
-                  id: 'tutorials/admin/telemetry-activity-audit',
-                  label: 'Activity Audit',
-                },
-              ],
             }
-          ],
-        },
+          ]
+        }
       ],
     },
     {

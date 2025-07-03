@@ -6,7 +6,7 @@ The DIAL Admin Panel provides system [administrators](#who-is-admin) tools to co
 
 > Admin Panel serves as a powerful UI for administrators. System configurations can be done also by a direct modification of a [DIAL Core config](https://github.com/epam/ai-dial-core).
 
-> Watch a [video demo](https://youtu.be/iLUb3I6xuBA?si=oq0LBV6rvnMot1aj).
+> Watch a [video demo](/docs/video%20demos/4.dial-admin-panel.md).
 
 ### GitHub Repositories
 
