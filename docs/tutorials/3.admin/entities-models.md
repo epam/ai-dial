@@ -37,7 +37,7 @@ On the **Models** page, you can find all language models (LLMs) deployed on your
 | **Tokenizer model**       | Identifies the specific model with a tokenization algorithm identical to the referenced model's. This is typically the name of the earliest released model in a series of models sharing an identical tokenization algorithm. This parameter is essential for DIAL clients that reimplement tokenization algorithms on their side, instead of utilizing the tokenize Endpoint provided by the model. |
 | **Forward auth token**    | Optionally, configure the system to forward the Auth Token from the caller's session to the upstream API call. This enables multi-tenant scenarios or pass-through authentication for downstream services.                |
 | **Interaction limit**     | The interaction limit parameter in models refers to the maximum number of tokens that can be transmitted in a completion request and response combined. This parameter ensures that the model does not exceed a specified token limit during interactions.                   |
-| **Prompt price**          | Cost per unit (according to **Cost unit**, typically "token" or "request") applied to the *input* portion of each call. Used by the [Dashboard and Usage Logs](/docs/platform/11.admin-panel/telemetry-dashboard.md) to estimate spending in real time.     |
+| **Prompt price**          | Cost per unit (according to **Cost unit**, typically "token" or "request") applied to the *input* portion of each call. Used by the [Dashboard and Usage Logs](/docs/tutorials/3.admin/telemetry-dashboard.md) to estimate spending in real time.     |
 | **Completion price**      | The cost per unit is charged for the output portion of each call. Combined with the prompt price, it determines your per-model cost calculations.      |
 
 ## Create Model
@@ -133,7 +133,7 @@ In the **Properties** tab, you can view and edit main definitions and runtime se
 
 ##### Cost Configuration
 
-Enables real-time cost estimation and quota enforcement. Powers the [telemetry dashboard](/docs/platform/11.admin-panel/telemetry-dashboard.md) with per-model spending metrics.
+Enables real-time cost estimation and quota enforcement. Powers the [telemetry dashboard](/docs/tutorials/3.admin/telemetry-dashboard.md) with per-model spending metrics.
 
 | Field                | Required | Description|
 |----------------------|-----------|---|
@@ -175,7 +175,7 @@ Each toggle corresponds to a capability in the [Unified Protocol](/docs/platform
 
 ### Roles
 
-You can create and manage roles in the [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) section.
+You can create and manage roles in the [Access Management](/docs/tutorials/3.admin/access-management-roles.md) section.
 
 In the **Roles** tab, you can define user groups that are authorized to use a specific model and enforce per-role rate limits. 
 This is essential for multi-tenant governance, quota enforcement, and cost control across teams or customers, preventing runaway costs by enforcing a hard ceiling.
@@ -196,7 +196,7 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 | **Tokens per day**    | Daily tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.           |
 | **Tokens per week**   | Weekly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.          |
 | **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.         |
-| **Actions**     | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/platform/11.admin-panel/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/platform/11.admin-panel/access-management-roles.md) section in a new tab, set **no limits** or  [remove](#remove-role) the role from the list.|
+| **Actions**     | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **no limits** or  [remove](#remove-role) the role from the list.|
 
 #### Set Rate Limits
 
@@ -233,7 +233,7 @@ Use **Make available to specific roles** toggle to define access to the model:
 You can add a role only if **Make available to specific roles** toggle is **On**.
 
 1. Click **+ Add** (top-right of the Roles Grid).
-2. **Select** one or more roles in the modal. The list or roles is defined in the [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) section.
+2. **Select** one or more roles in the modal. The list or roles is defined in the [Access Management](/docs/tutorials/3.admin/access-management-roles.md) section.
 3. **Confirm** to add role(s) to the table.
 
 #### Remove
@@ -249,7 +249,7 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 
 DIAL uses Interceptors to add custom logic to in/out requests for models and apps, enabling PII obfuscation, guardrails, safety checks, and beyond. 
 
-You can define Interceptors in the [Builders → Interceptors](/docs/platform/11.admin-panel/builders-interceptors.md) section to add them to the processing pipeline of DIAL Core.
+You can define Interceptors in the [Builders → Interceptors](/docs/tutorials/3.admin/builders-interceptors.md) section to add them to the processing pipeline of DIAL Core.
 
 > Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 
@@ -268,10 +268,10 @@ You can define Interceptors in the [Builders → Interceptors](/docs/platform/11
 #### Add
 
 1. Click **+ Add** (in the upper-right of the interceptors grid).
-2. In the **Add Interceptors** modal, choose one or more from the grid of [defined interceptors](/docs/platform/11.admin-panel/builders-interceptors.md).
+2. In the **Add Interceptors** modal, choose one or more from the grid of [defined interceptors](/docs/tutorials/3.admin/builders-interceptors.md).
 3. **Apply** to append them to the bottom of the list (are added in the same order as selected in the modal).
 
-> **TIP**: If you need a new interceptor, first create it under [Builders → Interceptors](/docs/platform/11.admin-panel/builders-interceptors.md) and then revisit this tab to attach it to the model's configuration.
+> **TIP**: If you need a new interceptor, first create it under [Builders → Interceptors](/docs/tutorials/3.admin/builders-interceptors.md) and then revisit this tab to attach it to the model's configuration.
 
 #### Reorder
 
@@ -287,7 +287,7 @@ You can define Interceptors in the [Builders → Interceptors](/docs/platform/11
 
 ### Dashboard
 
-> **TIP**: You can monitor the entire system's metrics in [Telemetry](/docs/platform/11.admin-panel/telemetry-dashboard.md).
+> **TIP**: You can monitor the entire system's metrics in [Telemetry](/docs/tutorials/3.admin/telemetry-dashboard.md).
 
 In the **Dashboard** tab, you can monitor real-time and historical metrics for the model. You can use it to monitor usage patterns, enforce SLAs, optimize costs, and troubleshoot anomalies.
 

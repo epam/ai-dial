@@ -8,20 +8,15 @@ The DIAL Admin Panel provides system [administrators](#who-is-admin) tools to co
 
 > Watch a [video demo](https://youtu.be/iLUb3I6xuBA?si=oq0LBV6rvnMot1aj).
 
-##### DIAL Admin GitHub Repositories
+### GitHub Repositories
+
+Admin Panel is licensed under the Apache License 2.0. 
+
+It is developed in two separate repositories for frontend and backend components:
 
 * [Frontend](https://github.com/epam/ai-dial-admin-frontend)
 * [Backend](https://github.com/epam/ai-dial-admin-backend)
   
-##### Admin Panel Sections
-
-* **Entities**: In this section, you can configure all language models, applications, and routes within the DIAL environment. Go to [Entities](/docs/platform/11.admin-panel/entities-models.md) to learn more.
-* **Builders**: In this section, you can add and configure application types and interceptors. Go to [Builders](/docs/platform/11.admin-panel/builders-application-runners.md) to learn more.
-* **Assets**: In this section, you can view, add, and manage system resources such as prompts and files. Go to [Assets](/docs/platform/11.admin-panel/assets-files.md) to learn more.
-* **Access Management**: In this section, you can create and manage user groups, roles, API keys, and usage limits to implement access and cost control policy. Go to [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) to learn more.
-* **Approvals**: In this section, you can view and manage publication requests submitted by DIAL users for files and prompts. Go to [Approvals](/docs/platform/11.admin-panel/approvals-file-publications.md) to learn more.
-* **Telemetry**: In this section, you can monitor real-time system usage, including token consumption, system load, and other telemetry data for performance tracking. Go to [Telemetry](/docs/platform/11.admin-panel/telemetry-dashboard.md) to learn more.
-
 ### Who is Admin
 
 System admin(s) can be defined in [DIAL Core static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings) in the `access.admin.rules`. Admin has the following privileges:
@@ -29,6 +24,15 @@ System admin(s) can be defined in [DIAL Core static settings](https://github.com
 * Has `READ` and `WRITE` access to all system resources (conversations, prompt, files and applications).
 * Can view, approve and reject publication requests from DIAL users. 
 * Has access to all DIAL Core API endpoints.
+
+## Admin Panel Sections
+
+* **Entities**: In this section, you can configure all language models, applications, and routes within the DIAL environment. Go to [Entities](/docs/tutorials/3.admin/entities-models.md) to learn more.
+* **Builders**: In this section, you can add and configure application types and interceptors. Go to [Builders](/docs/tutorials/3.admin/builders-application-runners.md) to learn more.
+* **Assets**: In this section, you can view, add, and manage system resources such as prompts and files. Go to [Assets](/docs/tutorials/3.admin/assets-files.md) to learn more.
+* **Access Management**: In this section, you can create and manage user groups, roles, API keys, and usage limits to implement access and cost control policy. Go to [Access Management](/docs/tutorials/3.admin/access-management-roles.md) to learn more.
+* **Approvals**: In this section, you can view and manage publication requests submitted by DIAL users for files and prompts. Go to [Approvals](/docs/tutorials/3.admin/approvals-file-publications.md) to learn more.
+* **Telemetry**: In this section, you can monitor real-time system usage, including token consumption, system load, and other telemetry data for performance tracking. Go to [Telemetry](/docs/tutorials/3.admin/telemetry-dashboard.md) to learn more.
 
 ## Home Screen
 
@@ -61,7 +65,6 @@ The Home screen gives you a high-level overview of your environment and fast acc
 * Either Core (_.json_) or Admin (_.zip_) format can be selected.
 * Config can be exported partially (user choice) or in full.
 * The dependencies can be included or ignored for Entities, Roles, Keys, Application Runners and Interceptors. 
-
 
 ### User Settings
 

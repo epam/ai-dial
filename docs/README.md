@@ -16,7 +16,7 @@
 
 ## DIAL Admin
 
-* [User Guide](/docs/platform/11.admin-panel/home.md)
+* [User Guide](/docs/platform/11.admin-panel.md)
 
 ## Run DIAL Locally
 
