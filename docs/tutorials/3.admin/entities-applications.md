@@ -38,7 +38,7 @@ In Applications, you can see, create and manage applications deployed in your in
     | **Deployment ID**      | Yes         | A unique identifier under the `applications` section of DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. support-bot, data-cluster).                    |
     | **Display Name**       | Yes         | A user-friendly label (e.g. "Customer Support Bot") shown throughout the Admin UI.       |
     | **Version**            | No              | An optional version tag to track apps releases (e.g. `2024-07-18`, `v1`).     |
-    | **Application Runner** | No              | [Application type schema](/docs/platform/3.core/7.apps.md#schema-rich-applications). Defined in [Application Runners](/docs/platform/11.admin-panel/builders-application-runners.md). |
+    | **Application Runner** | No              | [Application type schema](/docs/platform/3.core/7.apps.md#schema-rich-applications). Defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md). |
     | **Description**        | No              | A free-text summary describing the application (e.g. supported inputs, business purpose).                       |
     | **Endpoint**           | Conditional | The full URL where this Application’s API will be exposed once created. Not needed if Application Runner is selected. Required otherwise.|
 
@@ -68,7 +68,7 @@ Once configured, your application is ready to orchestrate models and interceptor
 | **Version**       | No        | A version tag for rollout management (e.g. `v1.0`, `2024-07-15`). Use this to publish a new version of an application without disturbing existing users. |
 | **Description**   | No        | A free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs).                   |
 | **Completion Endpoint** | Optional | URL where the app is exposed. Clients use this to integrate. Auto-populated if Application Runner is selected. **Required** if Application Runner is not selected.                     |
-| **Application Runner**  | No          | Application type schema. Defined in [Application Runners](/docs/platform/11.admin-panel/builders-application-runners.md). |
+| **Application Runner**  | No          | Application type schema. Defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md). |
 | **Icon**          | No        | A logo to visually distinguish the app on the UI.              |
 | **Topics**        | No        | Tags that you can assign to apps (e.g. "finance", "support"). Helps to split apps into categories for better navigation on UI.       |
 | **Attachments**   | No        | An option you can use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **None** – attachments are not allowed.  <br /> **All** – unrestricted types. Optionally specify max number of attachments. <br /> **Custom** – enter specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Optionally specify max number of attachments. |
@@ -81,7 +81,7 @@ In the Features tab, you can control optional capabilities of applications.
 
 ##### The difference between model and application features
 
-While [Model feature flags](/docs/platform/11.admin-panel/entities-models.md#feature-flags-toggles) govern what each LLM integration can do, Application feature flags define which of those capabilities your orchestrated service exposes to clients. Also, you can plug in custom preprocessing endpoints.
+While [Model feature flags](/docs/tutorials/3.admin/entities-models.md#feature-flags-toggles) govern what each LLM integration can do, Application feature flags define which of those capabilities your orchestrated service exposes to clients. Also, you can plug in custom preprocessing endpoints.
 
 **Scope**
 
@@ -102,7 +102,7 @@ While [Model feature flags](/docs/platform/11.admin-panel/entities-models.md#fea
 
 #### Endpoints
 
-You can override or extend DIAL Core’s built-in protocol calls with your own HTTP services. Here, you can specify endpoints used by [Application Runners](/docs/platform/11.admin-panel/builders-application-runners.md) (e.g. a Python or Node Runner) to perform preprocessing or policy checks before delegating to your underlying models and workflows.
+You can override or extend DIAL Core’s built-in protocol calls with your own HTTP services. Here, you can specify endpoints used by [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) (e.g. a Python or Node Runner) to perform preprocessing or policy checks before delegating to your underlying models and workflows.
 
 | Field                        | Description & When to Use        |
 |------------------------------|------------------------------------------------|
@@ -128,7 +128,7 @@ Enable or disable per-request options that your application accepts from clients
 
 ### Roles
 
-In the Roles tab, you can create and manage roles defined in the [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) section. Here, you can define user groups that can use specific applications and define rate limits for them.
+In the Roles tab, you can create and manage roles defined in the [Access Management](/docs/tutorials/3.admin/access-management-roles.md) section. Here, you can define user groups that can use specific applications and define rate limits for them.
 
 **Important**: if roles are not specified for a specific application, it will be available to all users
 
@@ -146,7 +146,7 @@ In the Roles tab, you can create and manage roles defined in the [Access Managem
 | **Tokens per day**    | Daily tokens limit for a specific role. Blank = no limits. <br />Inherits the [default value](#default-rate-limits). <br />Can be overridden.        |
 | **Tokens per week**   | Weekly tokens limit for a specific role. Blank = no limits. <br />Inherits the [default value](#default-rate-limits). <br />Can be overridden.       |
 | **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits.<br /> Inherits the [default value](#default-rate-limits). <br />Can be overridden.      |
-| **Actions**     | Additional role-specific actions. <br /> Open [Roles](/docs/platform/11.admin-panel/access-management-roles.md) section in a new tab. <br /> Make all restrictions unlimited for the given role |
+| **Actions**     | Additional role-specific actions. <br /> Open [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> Make all restrictions unlimited for the given role |
 
 #### Set Rate Limits
 
@@ -181,7 +181,7 @@ Use **Make available to specific roles** toggle to define access to the applicat
 You can add a role only if **Make available to specific roles** toggle is **On**.
 
 1. Click **+ Add** (top-right of the Roles Grid).
-2. **Select** one or more roles in the modal. The list or roles is defined in the [Access Management](/docs/platform/11.admin-panel/access-management-roles.md) section.
+2. **Select** one or more roles in the modal. The list or roles is defined in the [Access Management](/docs/tutorials/3.admin/access-management-roles.md) section.
 3. **Confirm** to add role(s) to the table.
 
 #### Remove
@@ -197,7 +197,7 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 
 DIAL uses Interceptors to add custom logic to in/out requests for models and apps, enabling PII obfuscation, guardrails, safety checks, and beyond. 
 
-You can define Interceptors in the [Builders → Interceptors](/docs/platform/11.admin-panel/builders-interceptors.md) section to add them to the processing pipeline of DIAL Core.
+You can define Interceptors in the [Builders → Interceptors](/docs/tutorials/3.admin/builders-interceptors.md) section to add them to the processing pipeline of DIAL Core.
 
 > Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 
@@ -227,10 +227,10 @@ You can define Interceptors in the [Builders → Interceptors](/docs/platform/11
 #### Add
 
 1. Click **+ Add** (in the upper-right of the interceptors grid).
-2. In the **Add Interceptors** modal, choose one or more from the grid of [defined interceptors](/docs/platform/11.admin-panel/builders-interceptors.md).
+2. In the **Add Interceptors** modal, choose one or more from the grid of [defined interceptors](/docs/tutorials/3.admin/builders-interceptors.md).
 3. **Apply** to append them to the bottom of the list (are added in the same order as selected in the modal).
 
-> **TIP**: If you need a new interceptor, first create it under [Builders → Interceptors](/docs/platform/11.admin-panel/builders-interceptors.md) and then revisit this tab to attach it to the application's configuration.
+> **TIP**: If you need a new interceptor, first create it under [Builders → Interceptors](/docs/tutorials/3.admin/builders-interceptors.md) and then revisit this tab to attach it to the application's configuration.
 
 #### Reorder
 

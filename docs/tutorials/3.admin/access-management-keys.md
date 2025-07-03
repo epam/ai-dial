@@ -85,7 +85,7 @@ In the Properties tab, you can view and manage all metadata and settings for a s
 
 ### Roles
 
-In the Roles tab, you can grant or revoke access to DIAL resources for API keys by associating them with [roles](/docs/platform/11.admin-panel/access-management-roles.md). Only clients possessing this key and belonging to one of the assigned roles can invoke protected Models or Applications.
+In the Roles tab, you can grant or revoke access to DIAL resources for API keys by associating them with [roles](/docs/tutorials/3.admin/access-management-roles.md). Only clients possessing this key and belonging to one of the assigned roles can invoke protected Models or Applications.
 
 ![](img/img_45.png)
 
@@ -97,12 +97,12 @@ In the Roles tab, you can grant or revoke access to DIAL resources for API keys 
 #### Add
 
 1. Click **+ Add** (top-right of the Roles Grid).
-2. **Select** one or more role in the modal window. Roles are defined in the [Access Management → Roles](/docs/platform/11.admin-panel/access-management-roles.md) section.
+2. **Select** one or more role in the modal window. Roles are defined in the [Access Management → Roles](/docs/tutorials/3.admin/access-management-roles.md) section.
 3. **Confirm** to insert them into the table.
 
 #### Remove
 
-Use to stop associating API keys with roles. To delete a role, go to the [Access Management → Roles](/docs/platform/11.admin-panel/access-management-roles.md) section.
+Use to stop associating API keys with roles. To delete a role, go to the [Access Management → Roles](/docs/tutorials/3.admin/access-management-roles.md) section.
  
 1. Click the **actions** menu in the role's line.
 2. Choose **Remove** in the menu.

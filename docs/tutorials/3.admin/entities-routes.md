@@ -78,7 +78,7 @@ Define where and how to forward requests when the **Upstreams** [output mode](#o
 | **Keys**               | No        | API key or token to attach (via header or query) when calling the upstream. Click the eye icon to reveal a masked value. |
 | **Weight**             | No        | Relative traffic weight for [load balancing](/docs/platform/3.core/5.load-balancer.md) among multiple endpoints (higher = more traffic).                        |
 | **Tier**               | No        | Specifies an endpoint group. In a regular scenario, all requests are routed to endpoints with the lowest tier, but in case of an outage or hitting the limits, the next one in the line helps to handle the load. Refer to [load balancing](/docs/platform/3.core/5.load-balancer.md) to learn more. |
-| **Extra Data**         | No        | Select a JSON BLOB from [Assets → Files](/docs/platform/11.admin-panel/assets-files.md) to attach as metadata for the upstream adapter.|
+| **Extra Data**         | No        | Select a JSON BLOB from [Assets → Files](/docs/tutorials/3.admin/assets-files.md) to attach as metadata for the upstream adapter.|
 | **+ Add Upstream**     | —         | Append additional endpoints for failover or capacity scaling.|
 
 ##### Response Configuration
@@ -107,7 +107,7 @@ In the **Roles** tab, you can define user groups that can invoke this route and 
 | **Tokens per day**    | Daily tokens limit for a specific role. Blank = no limits. <br />Inherits the [default value](#default-rate-limits). <br />Can be overridden.        |
 | **Tokens per week**   | Weekly tokens limit for a specific role. Blank = no limits. <br />Inherits the [default value](#default-rate-limits). <br />Can be overridden.       |
 | **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits.<br /> Inherits the [default value](#default-rate-limits). <br />Can be overridden.      |
-| **Actions**     | Additional role-specific actions. <br /> Open [Roles](/docs/platform/11.admin-panel/access-management-roles.md) section in a new tab. <br /> Make all restrictions unlimited for the given role |
+| **Actions**     | Additional role-specific actions. <br /> Open [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> Make all restrictions unlimited for the given role |
 
 #### Set Rate Limits
 

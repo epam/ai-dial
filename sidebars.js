@@ -109,123 +109,6 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Admin Panel',
-          items: [
-            {
-              type: 'doc',
-              id: 'platform/admin-panel/home',
-              label: 'Introduction',
-            },
-            {
-              type: 'category',
-              label: 'Entities',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/entities-models',
-                  label: 'Models',
-                },
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/entities-applications',
-                  label: 'Applications',
-                },
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/entities-routes',
-                  label: 'Routes',
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Builders',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/builders-application-runners',
-                  label: 'Application Runners',
-                },
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/builders-interceptors',
-                  label: 'Interceptors',
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Assets',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/assets-prompts',
-                  label: 'Prompts',
-                },
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/assets-files',
-                  label: 'Files',
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Access Management',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/access-management-roles',
-                  label: 'Roles',
-                },
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/access-management-keys',
-                  label: 'Keys',
-                },
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/access-management-folders-storage',
-                  label: 'Folders Storage',
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Approvals',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/approvals-prompt-publications',
-                  label: 'Prompt Publications',
-                },
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/approvals-file-publications',
-                  label: 'File Publications',
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Telemetry',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/telemetry-dashboard',
-                  label: 'Dashboard',
-                },
-                {
-                  type: 'doc',
-                  id: 'platform/admin-panel/telemetry-activity-audit',
-                  label: 'Activity Audit',
-                },
-              ]
-          }
-          ],
-        },
-        {
-          type: 'category',
           label: 'Chat',
           items: [
             {
@@ -244,6 +127,11 @@ const sidebars = {
               label: 'Data Visualization',
             },
           ],
+        },
+        {
+          type: 'doc',
+          id: 'platform/admin-panel',
+          label: 'Admin Panel',
         },
         {
           type: 'doc',
@@ -588,6 +476,129 @@ const sidebars = {
             },
           ],
         },
+        {
+          type: 'category',
+          label: 'Admins',
+          items: [
+            {
+              type: 'category',
+              label: 'Admin Panel User Guide',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/home',
+                  label: 'Introduction',
+                },
+                {
+                  type: 'category',
+                  label: 'Entities',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/entities-models',
+                      label: 'Models',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/entities-applications',
+                      label: 'Applications',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/entities-routes',
+                      label: 'Routes',
+                    },
+                  ]
+                },
+                {
+                  type: 'category',
+                  label: 'Builders',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/builders-application-runners',
+                      label: 'Application Runners',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/builders-interceptors',
+                      label: 'Interceptors',
+                    },
+                  ]
+                },
+                {
+                  type: 'category',
+                  label: 'Assets',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/assets-prompts',
+                      label: 'Prompts',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/assets-files',
+                      label: 'Files',
+                    },
+                  ]
+                },
+                {
+                  type: 'category',
+                  label: 'Access Management',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/access-management-roles',
+                      label: 'Roles',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/access-management-keys',
+                      label: 'Keys',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/access-management-folders-storage',
+                      label: 'Folders Storage',
+                    },
+                  ]
+                },
+                {
+                  type: 'category',
+                  label: 'Approvals',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/approvals-prompt-publications',
+                      label: 'Prompt Publications',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/approvals-file-publications',
+                      label: 'File Publications',
+                    },
+                  ]
+                },
+                {
+                  type: 'category',
+                  label: 'Telemetry',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/telemetry-dashboard',
+                      label: 'Dashboard',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/telemetry-activity-audit',
+                      label: 'Activity Audit',
+                    },
+                  ]
+                }
+              ],
+            }
+          ]
+        }
       ],
     },
     {
