@@ -63,7 +63,7 @@ In the Properties tab, you can define the identity and metadata for the role. Th
 
 ### Entities
 
-In the Entities tab, you can assign which [Models](/docs/platform/11.admin-panel/entities-models.md), [Applications](/docs/platform/11.admin-panel/entities-applications.md) or [Routes](/docs/platform/11.admin-panel/entities-routes.md) this role can access, and within which rate limits.
+In the Entities tab, you can assign which [Models](/docs/tutorials/3.admin/entities-models.md), [Applications](/docs/tutorials/3.admin/entities-applications.md) or [Routes](/docs/tutorials/3.admin/entities-routes.md) this role can access, and within which rate limits.
 
 ![img_8.png](img/img_40.png)
 
@@ -73,7 +73,7 @@ In the Entities tab, you can assign which [Models](/docs/platform/11.admin-panel
 | **Version**           | Version tag of the resource (e.g. `v1.2`, `1.0.0`).                                                                     |
 | **Description**       | A brief description of the resource.                                                                             |
 | **Deployment ID**     | A unique internal identifier used by DIAL to call the resource's endpoint.                                          |
-| **Type**              | Resource category: one of [Models](/docs/platform/11.admin-panel/entities-models.md), [Applications](/docs/platform/11.admin-panel/entities-applications.md) or [Routes](/docs/platform/11.admin-panel/entities-routes.md).                                                |
+| **Type**              | Resource category: one of [Models](/docs/tutorials/3.admin/entities-models.md), [Applications](/docs/tutorials/3.admin/entities-applications.md) or [Routes](/docs/tutorials/3.admin/entities-routes.md).                                                |
 | **Tokens per minute** | Maximum number of tokens this role may consume per minute when calling this resource. <br />"Unlimited" if no limit is set. |
 | **Tokens per day**    | Maximum number of tokens this role may consume per day when calling this resource. <br />"Unlimited" if no limit is set.    |
 | **Tokens per week**   | Maximum number of tokens this role may consume per week when calling this resource. <br />"Unlimited" if no limit is set.   |
@@ -92,7 +92,7 @@ In the Entities tab, you can assign which [Models](/docs/platform/11.admin-panel
 
 ### Keys
 
-In the Keys tab, you can assign [API keys](/docs/platform/11.admin-panel/access-management-keys.md) for roles. API keys are defined in the [Access Management → Keys](/docs/platform/11.admin-panel/access-management-keys.md) section.
+In the Keys tab, you can assign [API keys](/docs/tutorials/3.admin/access-management-keys.md) for roles. API keys are defined in the [Access Management → Keys](/docs/tutorials/3.admin/access-management-keys.md) section.
 
 ![](img/img_41.png)
 
@@ -107,12 +107,12 @@ In the Keys tab, you can assign [API keys](/docs/platform/11.admin-panel/access-
 #### Add
 
 1. Click **+ Add** (top-right of the Keys Grid).
-2. **Select** one or more keys in the modal. Available API keys are defined in the [Access Management → Keys](/docs/platform/11.admin-panel/access-management-keys.md) section.
+2. **Select** one or more keys in the modal. Available API keys are defined in the [Access Management → Keys](/docs/tutorials/3.admin/access-management-keys.md) section.
 3. **Confirm** to insert them into the table.
 
 #### Remove
 
-Use to revoke an assigned API key. To delete API key, go to [Access Management → Keys](/docs/platform/11.admin-panel/access-management-keys.md) section.
+Use to revoke an assigned API key. To delete API key, go to [Access Management → Keys](/docs/tutorials/3.admin/access-management-keys.md) section.
  
 1. Click the **actions** menu in the key's line.
 2. Choose **Remove** in the menu.

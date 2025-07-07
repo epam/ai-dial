@@ -2,7 +2,7 @@
 
 ## About Folders Storage
 
-The Folders Storage section of DIAL Admin lets you control which users or roles can browse and access different directories in the [Assets (Prompts & Files) area](/docs/platform/11.admin-panel/assets-files.md). On this screen, you can define per-folder Access Control Lists (ACLs) rules.
+The Folders Storage section of DIAL Admin lets you control which users or roles can browse and access different directories in the [Assets (Prompts & Files) area](/docs/tutorials/3.admin/assets-files.md). On this screen, you can define per-folder Access Control Lists (ACLs) rules.
 
 ## Folders List
 

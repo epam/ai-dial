@@ -47,7 +47,7 @@ In the Properties tab, you can define identity and metadata of application runne
 
 | Field           | Required | Definition  |
 |-----------------|-----------|------------|
-| **ID**          | Yes   | The base URL or a unique identifier of the runner's service hosting (e.g. https://my-runner.example.com/v1/execute). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
+| **ID**          | Yes   | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
 | **Name**        | Yes   | A user-friendly label for this runner (e.g. "Python Lambda Runner" or "NodeJS Service Worker").                      |
 | **Description** | No        | Free-text notes about the runner: its environment (staging vs. prod), resource profile (2 vCPU, 8 GB RAM), or any special instructions.                                                                             |                                                                      |
 | **Topics**        | No        | Use tags to associate runner with specific topics or categories (e.g. "finance", "support") for identification and filtering on UI.             |
@@ -60,7 +60,7 @@ In the Parameters tab, you can configure how DIAL Core interacts with your runne
 
 | Field                   | Required | Definition |
 |-------------------------|-----------|---------------|
-| **Completion endpoint** | Yes   | The base URL or a unique identifier of the runner's service hosting (e.g. https://my-runner.example.com/v1/execute). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
+| **Completion endpoint** | Yes   | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
 | **Viewer URL**          | No        | A URL of a custom UI form end users used by this runner.|
 | **Editor URL**          | No        | A URL of a custom application builder UI. |
 | **Scheme**              | Yes       | A JSON Schema document that defines the Parameters object your runner expects in its payload—under the `properties`, `applications`, and `optional` sections.|
