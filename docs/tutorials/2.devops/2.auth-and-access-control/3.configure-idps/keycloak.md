@@ -137,6 +137,7 @@ For setting up Keycloak, which is included in the AI DIAL Helm chart, you can us
         - roles
         - email
         - dial
+        - basic
       optionalClientScopes:
         - address
         - phone
