@@ -12,7 +12,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.01fe9471.css">
-<script src="/assets/js/runtime~main.38a2697a.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.332a142b.js" defer="defer"></script>
 <script src="/assets/js/main.bdf99663.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -114,6 +114,7 @@
 <p>Refer to <a href="/platform/core/access-control-intro">Access &amp; Cost Control</a> to learn how access control to system resources is implemented in DIAL.</p>
 </blockquote>
 <p>Applications, similarly to other DIAL resources such as conversations, prompts and files, can be made available to other users and applications. Access to applications can be controlled by explicitly defining user roles in the DIAL Core configuration or using DIAL Chat UI/DIAL API to publish or share applications.</p>
+<p>When application is available to a specific role, it can be accessed via API using its endpoint and in <a href="/platform/chat/marketplace">DIAL Marketplace</a>.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="dial-core-configuration">DIAL Core Configuration<a href="#dial-core-configuration" class="hash-link" aria-label="Direct link to DIAL Core Configuration" title="Direct link to DIAL Core Configuration">​</a></h3>
 <p>If you enable your application by directly modifying the <a href="https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings" target="_blank" rel="noopener noreferrer">DIAL Core configuration</a>, you can add <a href="https://docs.dialx.ai/platform/core/access-control-intro#about-roles" target="_blank" rel="noopener noreferrer">user roles</a> to the JSON object with the configuration of the application. This allows you to define access permissions for other users as well as impose usage limits.</p>
 <p><strong>Important</strong>: if <code>userRoles</code> is not specified, the application will be available to all users.</p>

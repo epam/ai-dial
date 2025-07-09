@@ -12,7 +12,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.01fe9471.css">
-<script src="/assets/js/runtime~main.38a2697a.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.332a142b.js" defer="defer"></script>
 <script src="/assets/js/main.bdf99663.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -22,29 +22,35 @@
 <p>In DIAL, we use the concept of <a href="/platform/architecture-and-concepts/concepts">resources</a>: refers to conversations, prompts, files, and applications.</p>
 <ul>
 <li>Publication: you can publish resources making them accessible to the selected audience in your organization.</li>
-<li>Sharing: you can share your resources with a specific person.</li>
+<li>Sharing: you can share your resources with a specific user with or without <a href="/tutorials/developers/work-with-resources/sharing#re-sharing">re-share permissions</a>.</li>
 <li>Notifications: you can receive notifications when specific events occur. For example, your publication request has been approved.</li>
 </ul>
 <blockquote>
 <p>Watch a <a href="/video demos/Chat/dial-collaboration">demo video</a> to see collaboration features in action.</p>
 </blockquote>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="publication">Publication<a href="#publication" class="hash-link" aria-label="Direct link to Publication" title="Direct link to Publication">​</a></h2>
-<p>You can publish/unpublish conversations, prompts (or even a collection of those) and applications, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that a particular resource is accessible to the authorized individuals or teams.</p>
+<p>You can use <a href="/tutorials/user-guide#publications">DIAL UI</a> and <a href="https://dialx.ai/dial_api#tag/Publications" target="_blank" rel="noopener noreferrer">API</a> to publish/unpublish conversations, prompts (or even a collection of those) and applications, making them accessible within your organization. Additionally, you can manage access to the published resources, ensuring that a particular resource is accessible to the authorized individuals or teams.</p>
+<p>When a resource is published, it becomes available in DIAL Chat and <a href="/platform/chat/marketplace">DIAL Marketplace</a>, where users (with user roles that have access) can discover and utilize it.</p>
 <blockquote>
 <ul>
-<li>Refer to <a href="/tutorials/devops/configuration/enable-publications-chat">Enable Publications</a> to learn how to enable and configured publications in DIAL Chat.</li>
+<li>Refer to <a href="/tutorials/devops/configuration/enable-publications-chat">Enable Publications</a> to learn how to enable and configure publications in DIAL Chat.</li>
 <li>Refer to <a href="/tutorials/developers/work-with-resources/work-with-publications">Publications</a> to see development tutorials.</li>
+<li>Refer to <a href="https://dialx.ai/dial_api#tag/Publications" target="_blank" rel="noopener noreferrer">Publication API</a> to see publication endpoints.</li>
 <li>Refer to <a href="/tutorials/user-guide#publications">User Guide</a> to learn about this feature and how to use it in DIAL Chat.</li>
-<li>Refer to <a href="https://dialx.ai/dial_api#tag/Publications" target="_blank" rel="noopener noreferrer">Publication API</a>.</li>
 </ul>
 </blockquote>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="sharing">Sharing<a href="#sharing" class="hash-link" aria-label="Direct link to Sharing" title="Direct link to Sharing">​</a></h2>
-<p>In DIAL, when a resource is created or uploaded from an external source, it is stored in a dedicated <a href="/platform/architecture-and-concepts/concepts#persistent-layer">storage bucket</a>. You can share these resources with other users or applications. The sharing functionality is available through both the DIAL API and the DIAL Chat UI. Collaborate in real time by sharing access to your applications, with options to grant editing rights or use-only permissions.</p>
+<p>In DIAL, when a resource is created or uploaded from an external source, it is stored in a dedicated <a href="/platform/architecture-and-concepts/concepts#persistent-layer">storage bucket</a>.</p>
+<p>You can use <a href="/tutorials/user-guide#share-app">DIAL UI</a> and <a href="https://dialx.ai/dial_api#tag/Sharing" target="_blank" rel="noopener noreferrer">API</a> to share these resources with other users or applications. A shared resource becomes available for a recipient(s) in DIAL Chat, <a href="/platform/chat/marketplace">DIAL Marketplace</a> and via API.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="read-and-write-permissions">READ and WRITE Permissions<a href="#read-and-write-permissions" class="hash-link" aria-label="Direct link to READ and WRITE Permissions" title="Direct link to READ and WRITE Permissions">​</a></h5>
+<p>Use READ permission to allow a recipient to view/use the shared resource. You can use sharing to collaborate in real time by giving WRITE access to your resources.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="share-permissions">SHARE Permissions<a href="#share-permissions" class="hash-link" aria-label="Direct link to SHARE Permissions" title="Direct link to SHARE Permissions">​</a></h5>
+<p>You can share a resource with <a href="/tutorials/developers/work-with-resources/sharing#re-sharing">re-share permissions</a>, allowing a recipient to share a resource with other users.</p>
 <blockquote>
 <ul>
+<li>Refer to <a href="/tutorials/user-guide#share">Conversations</a>, <a href="/tutorials/user-guide#share-1">Prompts</a>, <a href="/tutorials/user-guide#share-app">Applications</a> to see how DIAL Chat users can work with sharing.</li>
 <li>Refer to <a href="/tutorials/developers/work-with-resources/sharing">Sharing</a> to see development tutorials.</li>
-<li>Refer to <a href="/tutorials/user-guide#share">Conversations</a>, <a href="/tutorials/user-guide#share-1">Prompts</a>, <a href="/tutorials/user-guide#share-app">Applications</a> to see user can share resources in DIAL Chat UI.</li>
-<li>Refer to <a href="https://dialx.ai/dial_api#tag/Sharing" target="_blank" rel="noopener noreferrer">Sharing API</a>.</li>
+<li>Refer to <a href="https://dialx.ai/dial_api#tag/Sharing" target="_blank" rel="noopener noreferrer">Sharing API</a> to see sharing endpoints.</li>
 </ul>
 </blockquote>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="notification">Notification<a href="#notification" class="hash-link" aria-label="Direct link to Notification" title="Direct link to Notification">​</a></h2>
