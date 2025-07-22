@@ -12,7 +12,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.01fe9471.css">
-<script src="/assets/js/runtime~main.f465b7db.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.6e0a565f.js" defer="defer"></script>
 <script src="/assets/js/main.f1c3cd25.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -56,7 +56,7 @@
 <p>AI DIAL Core generates a <code>.log</code> file containing chat completion logs. A log collector tool then transfers this file to AI DIAL Analytics Realtime for analysis. The insights derived from the analysis are stored in InfluxDB and can subsequently be visualized using Grafana.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-1-ai-dial-core">Step 1: AI DIAL Core<a href="#step-1-ai-dial-core" class="hash-link" aria-label="Direct link to Step 1: AI DIAL Core" title="Direct link to Step 1: AI DIAL Core">​</a></h3>
 <p>AI DIAL Core can be configured to write chat completion logs into a specific <code>.log</code> file.</p>
-<p>Use the default AI DIAL Core <a href="https://github.com/epam/ai-dial-core/blob/development/src/main/resources/gflog.xml" target="_blank" rel="noopener noreferrer">Configuration</a> as reference. Refer to <a href="https://github.com/epam/gflog/blob/main/README.md" target="_blank" rel="noopener noreferrer">GFLog</a> to learn more about the logging framework used in DIAL Core.</p>
+<p>Use the default AI DIAL Core <a href="https://github.com/epam/gflog/blob/main/gflog-core/src/main/resources/gflog.xsd" target="_blank" rel="noopener noreferrer">Configuration</a> as reference. Refer to <a href="https://github.com/epam/gflog/blob/main/README.md" target="_blank" rel="noopener noreferrer">GFLog</a> to learn more about the logging framework used in DIAL Core.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-2-influx-db">Step 2: Influx DB<a href="#step-2-influx-db" class="hash-link" aria-label="Direct link to Step 2: Influx DB" title="Direct link to Step 2: Influx DB">​</a></h3>
 <p>Analytics Realtime uses InfluxDB to store the analytics of chat completion logs. Refer to InfluxDB documentation to learn how to <a href="https://docs.influxdata.com/influxdb/v2/install/" target="_blank" rel="noopener noreferrer">install</a> it and how to <a href="https://docs.influxdata.com/influxdb/v2/admin/tokens/create-token/" target="_blank" rel="noopener noreferrer">create tokens</a> to read from a bucket.</p>
 <blockquote>
