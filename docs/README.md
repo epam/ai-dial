@@ -18,6 +18,7 @@
 
 * [About DIAL Admin](/docs/platform/11.admin-panel.md)
 * [User Guide](/docs/tutorials/3.admin/home.md)
+* [Helm chart for DIAL Admin](https://github.com/epam/ai-dial-helm/tree/main/charts/dial-admin)
 
 ## Run DIAL Locally
 
