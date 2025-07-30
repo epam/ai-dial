@@ -61,19 +61,20 @@ Once configured, your application is ready to orchestrate models and interceptor
 
 ![ ](img/img_13.png)
 
-| Field             | Required | Description              |
-|-------------------|-----------|---------------|
-| **Deployment ID** | Yes       | A unique key under `applications` in DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. data-clustering, support-bot).                 |
-| **Display Name**  | Yes       | A user-friendly label shown on the UI (e.g. "Data Clustering Application"). Helps end user to identify and select applications.                |
-| **Version**       | No        | A version tag for rollout management (e.g. `v1.0`, `2024-07-15`). Use this to publish a new version of an application without disturbing existing users. |
-| **Description**   | No        | A free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs).                   |
-| **Completion Endpoint** | Optional | URL where the app is exposed. Clients use this to integrate. Auto-populated if Application Runner is selected. **Required** if Application Runner is not selected.                     |
-| **Application Runner**  | No          | Application type schema. Defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md). |
-| **Icon**          | No        | A logo to visually distinguish the app on the UI.              |
-| **Topics**        | No        | Tags that you can assign to apps (e.g. "finance", "support"). Helps to split apps into categories for better navigation on UI.       |
-| **Attachments**   | No        | An option you can use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **None** – attachments are not allowed.  <br /> **All** – unrestricted types. Optionally specify max number of attachments. <br /> **Custom** – enter specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Optionally specify max number of attachments. |
-| **Forward auth token** | No        | Select a downstream auth token to forward from the user’s session (for multi-tenant downstream). |
-| **Max retry attempts** | No        | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors).               |
+| Field                   | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|-------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Deployment ID**       | Yes      | A unique key under `applications` in DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. data-clustering, support-bot).                                                                                                                                                                                                                                                                                                                                   |
+| **Display Name**        | Yes      | A user-friendly label shown on the UI (e.g. "Data Clustering Application"). Helps end user to identify and select applications.                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Version**             | No       | A version tag for rollout management (e.g. `v1.0`, `2024-07-15`). Use this to publish a new version of an application without disturbing existing users.                                                                                                                                                                                                                                                                                                                                                             |
+| **Application Runner**  | No       | Application type schema. Defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md).                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **Description**         | No       | A free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs).                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Maintainer**          | No       | Field used to specify the responsible person or team overseeing the app’s configuration.                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Completion Endpoint** | Optional | URL where the app is exposed. Clients use this to integrate. Auto-populated if Application Runner is selected. **Required** if Application Runner is not selected.                                                                                                                                                                                                                                                                                                                                                   |
+| **Icon**                | No       | A logo to visually distinguish the app on the UI.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **Topics**              | No       | Tags that you can assign to apps (e.g. "finance", "support"). Helps to split apps into categories for better navigation on UI.                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Attachments**         | No       | An option you can use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **None** – attachments are not allowed.  <br /> **All** – unrestricted types. Optionally specify max number of attachments. <br /> **Custom** – enter specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Optionally specify max number of attachments. |
+| **Forward auth token**  | No       | Select a downstream auth token to forward from the user’s session (for multi-tenant downstream).                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **Max retry attempts**  | No       | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors).                                                                                                                                                                                                                                                                                                                                                                             |
  
 ### Features
 
@@ -117,14 +118,27 @@ Enable or disable per-request options that your application accepts from clients
 
 > **Note**: Changes take effect immediately after saving.
 
-| Toggle                 | What It Does          |
-|------------------------|----------------------------------------------------------|
-| **Temperature**        | Enables the `temperature` parameter in API calls. Disable if you want fixed-deterministic outputs or you have the temperature hard-coded in your workflow.            |
-| **System prompt**      | Enables an initial "system" message injection. Useful for orchestrating multi-step agents where you need to enforce a global policy at the application level. |
-| **Tools**              | Enables `tools`/`functions` payloads in API calls. Switch on if your application makes external function calls (e.g. calendar lookup, database fetch).   |
-| **Seed**               | Enables the `seed` parameter for reproducible results. Great for testing or deterministic pipelines.  Disable to ensure randomized creativity.          |
-| **URL Attachments**    | Enables URL references (images, docs) as attachments in API requests. Must be enabled if your workflow downloads or processes remote assets via URLs.        |
-| **Folder Attachments** | Enables attachments of folders (batching multiple files).|
+| Toggle                        | What It Does                                                                                                                                                  |
+|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **System prompt**             | Enables an initial "system" message injection. Useful for orchestrating multi-step agents where you need to enforce a global policy at the application level. |
+| **Tools**                     | Enables `tools`/`functions` payloads in API calls. Switch on if your application makes external function calls (e.g. calendar lookup, database fetch).        |
+| **Seed**                      | Enables the `seed` parameter for reproducible results. Great for testing or deterministic pipelines.  Disable to ensure randomized creativity.                |
+| **URL Attachments**           | Enables URL references (images, docs) as attachments in API requests. Must be enabled if your workflow downloads or processes remote assets via URLs.         |
+| **Folder Attachments**        | Enables attachments of folders (batching multiple files).                                                                                                     |
+| **Accessible by request key** | Indicates whether the deployment is accessible using a [per-request API key](/docs/platform/3.core/3.per-request-keys.md).                                    |
+| **Content parts**             | Indicates whether the deployment supports requests with content parts or not.                                                                                 |
+| **Consent required**          | indicates whether the application requires user consent before use.                                                                                           |
+
+### Parameters
+The Parameters tab within an application’s configuration allows administrators to manage application-specific parameters that influence its behavior:
+* Displays a list of key–value pairs defined for the selected application.
+* Parameters can be used to pass custom configurations or flags.
+* Parameters values are controlled by the admin.
+
+For example, in a data extraction application, admins can use this tab to:
+1. Manage specific fields that need to be extracted.
+2. Link prompt templates from the Assets → Prompts Library to each field.
+
 
 ### Roles
 
@@ -244,7 +258,9 @@ You can define Interceptors in the [Builders → Interceptors](/docs/tutorials/3
 2. Choose **Remove** to detach it from this application.
 3. **Save** to lock-in the interceptors list
 
-### Dashboard
+### Audit
+
+#### Dashboard
 
 In the **Dashboard** tab, you can see real-time and historical metrics for the application. You can use it to monitor usage patterns, enforce SLAs, optimize costs, and troubleshoot anomalies.
 
@@ -291,6 +307,40 @@ This table shows the KPIs breakdown by **Project**. You can use it to compare co
 | **Prompt tokens**     | Total tokens submitted in the prompt portion of requests. |
 | **Completion tokens** | Total tokens returned by the application as responses.            |
 | **Money**             | Estimated cost.                  |
+
+#### Activities
+
+The Activities section under the Audit tab of a specific application provides detailed visibility into all changes made to that app.
+
+This section mimics the functionality available in the global Audit → Activities menu, but is scoped specifically to the selected app.
+
+![](img/87.png)
+
+##### Activities List Table
+
+| **Field**         | **Definition**                                                               |
+| ----------------- |------------------------------------------------------------------------------|
+| **Activity type** | The type of action performed on the app (e.g., Create, Update, Delete).      |
+| **Time**          | Timestamp indicating when the activity occurred.                             |
+| **Initiated**     | Email address of the user who performed the activity.                        |
+| **Activity ID**   | A unique identifier for the logged activity, used for tracking and auditing. |
+
+##### Activity Details
+
+The Activity Details view provides a detailed snapshot of a specific change made to an app.
+
+![](img/88.png)
+
+To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
+
+| **Element/Section** | **Description**                                                                                                                                         |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Activity type**   | Type of the change performed (e.g., Update, Create, Delete).                                                                                            |
+| **Time**            | Timestamp of the change.                                                                                                                                |
+| **Initiated**       | Identifier of the user who made the change.                                                                                                             |
+| **Activity ID**     | Unique identifier for the specific activity tracking.                                                                                                   |
+| **View**            | Dropdown to switch between showing all parameter or changed only.                                                                                       |
+| **Parameters Diff** | Side-by-side comparison of app fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
 
 
 ### JSON Editor
