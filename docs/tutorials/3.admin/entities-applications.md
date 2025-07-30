@@ -314,7 +314,7 @@ The Activities section under the Audit tab of a specific application provides de
 
 This section mimics the functionality available in the global Audit → Activities menu, but is scoped specifically to the selected app.
 
-![85.png](img/87.png)
+![](img/87.png)
 
 ##### Activities List Table
 
@@ -329,7 +329,7 @@ This section mimics the functionality available in the global Audit → Activiti
 
 The Activity Details view provides a detailed snapshot of a specific change made to an app.
 
-![86.png](img/88.png)
+![](img/88.png)
 
 To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
 
