@@ -125,7 +125,7 @@ Enable or disable per-request options that your application accepts from clients
 | **Seed**                      | Enables the `seed` parameter for reproducible results. Great for testing or deterministic pipelines.  Disable to ensure randomized creativity.                |
 | **URL Attachments**           | Enables URL references (images, docs) as attachments in API requests. Must be enabled if your workflow downloads or processes remote assets via URLs.         |
 | **Folder Attachments**        | Enables attachments of folders (batching multiple files).                                                                                                     |
-| **Accessible by request key** | Indicates whether the deployment is accessible using a per-request API key.                                                                                   |
+| **Accessible by request key** | Indicates whether the deployment is accessible using a [per-request API key](/docs/platform/3.core/3.per-request-keys.md).                                    |
 | **Content parts**             | Indicates whether the deployment supports requests with content parts or not.                                                                                 |
 | **Consent required**          | indicates whether the application requires user consent before use.                                                                                           |
 
