@@ -30,7 +30,7 @@ In Interceptors, you can find, manage and add interceptors.
     | **Description** | A brief summary of what this interceptor does and any parameters it uses (e.g. BLACKLIST={"foo","bar"} or Logs request/response payloads).          |
 3. Once all required fields are filled, click **Create**. The dialog closes and the new interceptor [configuration screen](#configuration) is opened. Once added, a new entry appears in the **Interceptors** listing. It may take some time for the changes to take effect after saving.
 
-        ![](img/img_29.png)
+![](img/img_29.png)
 
 ## Configuration
 
@@ -45,12 +45,13 @@ In the Properties tab, you can define metadata and execution endpoints for Inter
 
 ![](img/img_30.png)
 
-| Field  | Required | Definition & Use Case    |
-|----------|-----------|--------------|
-| **Name**               | Yes   | A unique key for this interceptor (e.g. `reject-external-links`, `audit-logger`). Used when attaching to Models or Applications under their **Interceptors** tab. Keep it URL-safe and lowercase with hyphens.              |
-| **Description**        | No        | A free-text summary of the interceptor’s behavior and any configuration parameters (e.g. `BLACKLIST={"foo","bar"}`). Helps to identify the interceptor and its purpose.                                                  |
-| **Endpoint**           | Yes   | The URL of the interceptor service. This URL is used to handle requests and responses for the interceptor.                                                                                                                    |
-| **Forward Auth Token** | No        | Specify whether to forward an Auth Token to your interceptor's endpoint. Use this when your interceptor service requires its own authentication. |
+| Field                  | Required | Definition & Use Case                                                                                                                                                                                          |
+|------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Name**               | Yes      | A unique key for this interceptor (e.g. `reject-external-links`, `audit-logger`). Used when attaching to Models or Applications under their **Interceptors** tab. Keep it URL-safe and lowercase with hyphens. |
+| **Description**        | No       | A free-text summary of the interceptor’s behavior and any configuration parameters (e.g. `BLACKLIST={"foo","bar"}`). Helps to identify the interceptor and its purpose.                                        |
+| **Endpoint**           | Yes      | The URL of the interceptor service. This URL is used to handle requests and responses for the interceptor.                                                                                                     |
+| **Maintainer**         | No       | Field used to specify the responsible person or team overseeing the interceptor and its configuration.                                                                                                         |
+| **Forward Auth Token** | No       | Specify whether to forward an Auth Token to your interceptor's endpoint. Use this when your interceptor service requires its own authentication.                                                               |
 
 ### Entities
 
@@ -59,12 +60,13 @@ In the Entities tab, you can see to which Models and Applications this intercept
 ![](img/img_31.png)
 
 
-| Column            | Definition|
-| ----------------- | -----------------|
-| **Display Name**  | A user-friendly name of the Application/Model (e.g. "Data Clustering Application").                                      |
+| Column            | Definition                                                                                                                       |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| **Display Name**  | A user-friendly name of the Application/Model (e.g. "Data Clustering Application").                                              |
 | **Version**       | The Application’s/Model's version tag (e.g. `v1.0`, `2024-07-15`) as defined in **Entities → Applications/Models → Properties**. |
-| **Description**   | Free-text summary of what the Application/Model does.                                                                   |
-| **Deployment ID** | A unique alias used in the Application’s/Models' endpoint URL (e.g. `dca`, `support-bot`).                              |
+| **Description**   | Free-text summary of what the Application/Model does.                                                                            |
+| **Deployment ID** | A unique alias used in the Application’s/Models' endpoint URL (e.g. `dca`, `support-bot`).                                       |
+| **Type**          | A type of the entity using the given interceptor: Model, Application.                                                            |
 
 #### Add
 
@@ -85,7 +87,7 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 
 ##### Switching to the JSON Editor
 
-1. Navigate to **Builders → Interceptors**, then select the interceptor you want to edit.
+1. Navigate to **Entities → Interceptors**, then select the interceptor you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.

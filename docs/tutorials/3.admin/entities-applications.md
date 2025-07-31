@@ -211,7 +211,7 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 
 DIAL uses Interceptors to add custom logic to in/out requests for models and apps, enabling PII obfuscation, guardrails, safety checks, and beyond. 
 
-You can define Interceptors in the [Builders → Interceptors](/docs/tutorials/3.admin/builders-interceptors.md) section to add them to the processing pipeline of DIAL Core.
+You can define Interceptors in the [Entities → Interceptors](/docs/tutorials/3.admin/entities-interceptors.md) section to add them to the processing pipeline of DIAL Core.
 
 > Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 
@@ -241,10 +241,10 @@ You can define Interceptors in the [Builders → Interceptors](/docs/tutorials/3
 #### Add
 
 1. Click **+ Add** (in the upper-right of the interceptors grid).
-2. In the **Add Interceptors** modal, choose one or more from the grid of [defined interceptors](/docs/tutorials/3.admin/builders-interceptors.md).
+2. In the **Add Interceptors** modal, choose one or more from the grid of [defined interceptors](/docs/tutorials/3.admin/entities-interceptors.md).
 3. **Apply** to append them to the bottom of the list (are added in the same order as selected in the modal).
 
-> **TIP**: If you need a new interceptor, first create it under [Builders → Interceptors](/docs/tutorials/3.admin/builders-interceptors.md) and then revisit this tab to attach it to the application's configuration.
+> **TIP**: If you need a new interceptor, first create it under [Entities → Interceptors](/docs/tutorials/3.admin/entities-interceptors.md) and then revisit this tab to attach it to the application's configuration.
 
 #### Reorder
 

@@ -505,6 +505,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/entities-interceptors',
+                      label: 'Interceptors',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/entities-routes',
                       label: 'Routes',
                     },
@@ -518,11 +523,6 @@ const sidebars = {
                       type: 'doc',
                       id: 'tutorials/admin/builders-application-runners',
                       label: 'Application Runners',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'tutorials/admin/builders-interceptors',
-                      label: 'Interceptors',
                     },
                   ]
                 },
