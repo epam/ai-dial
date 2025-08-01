@@ -524,6 +524,11 @@ const sidebars = {
                       id: 'tutorials/admin/builders-application-runners',
                       label: 'Application Runners',
                     },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/builders-adapters',
+                      label: 'Adapters',
+                    },
                   ]
                 },
                 {
