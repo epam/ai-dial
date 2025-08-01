@@ -30,7 +30,8 @@ In Routes, you can view, filter, and create new routes.
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new [route configuration](#route-configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
 
-        ![](img/img_20.png)
+![](img/img_20.png)
+
 ## Route Configuration
 
 ##### Top Bar Controls
