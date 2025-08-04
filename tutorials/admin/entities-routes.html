@@ -12,7 +12,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.01fe9471.css">
-<script src="/assets/js/runtime~main.bf888a0b.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.2bca7bc8.js" defer="defer"></script>
 <script src="/assets/js/main.2d52dbe3.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -21,7 +21,7 @@
 <p>Routes in DIAL are used for communication through registered endpoints in the <a href="/platform/core/about-core">DIAL Core</a>. They act as a bridging mechanism between the DIAL Core and external applications, facilitating seamless interactions. Once a route with a designated endpoint is set up in DIAL Core, it allows client applications, such as DIAL Chat, to interact with this endpoint. Essentially, DIAL Core functions as an intermediary, handling authentication and authorization between the client and the external application linked to the route.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="routes-list">Routes List<a href="#routes-list" class="hash-link" aria-label="Direct link to Routes List" title="Direct link to Routes List">​</a></h2>
 <p>In Routes, you can view, filter, and create new routes.</p>
-<p><img loading="lazy" src="/assets/images/img_19-6b60cbe99503d1dba991bf711c7e0204.png" width="1913" height="902" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_19-25e11fbc4a114c00646b861632d43f5d.png" width="1910" height="899" class="img_ev3q"></p>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="routes-grid">Routes grid<a href="#routes-grid" class="hash-link" aria-label="Direct link to Routes grid" title="Direct link to Routes grid">​</a></h5>
 <table><thead><tr><th>Field</th><th>Definition</th></tr></thead><tbody><tr><td><strong>Name</strong></td><td>A user-friendly name of the Route.</td></tr><tr><td><strong>Description</strong></td><td>A brief free-text description of the Route&#x27;s purpose.</td></tr></tbody></table>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="create">Create<a href="#create" class="hash-link" aria-label="Direct link to Create" title="Direct link to Create">​</a></h2>
@@ -35,9 +35,9 @@
 </li>
 <li>
 <p>Once all required fields are filled, click <strong>Create</strong>. The dialog closes and the new <a href="#route-configuration">route configuration</a> screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.</p>
-<p><img loading="lazy" src="/assets/images/img_20-c1728768cec21bf5d0d1f6e4bb4e192c.png" width="1907" height="890" class="img_ev3q"></p>
 </li>
 </ol>
+<p><img loading="lazy" src="/assets/images/img_20-be7403bb655edb3c97318d4c74715d51.png" width="1914" height="895" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="route-configuration">Route Configuration<a href="#route-configuration" class="hash-link" aria-label="Direct link to Route Configuration" title="Direct link to Route Configuration">​</a></h2>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="top-bar-controls">Top Bar Controls<a href="#top-bar-controls" class="hash-link" aria-label="Direct link to Top Bar Controls" title="Direct link to Top Bar Controls">​</a></h5>
 <ul>
@@ -46,7 +46,7 @@
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="properties">Properties<a href="#properties" class="hash-link" aria-label="Direct link to Properties" title="Direct link to Properties">​</a></h3>
 <p>In the Properties tab, you can define the identity and routing behavior.</p>
-<p><img loading="lazy" src="/assets/images/img_21-d167f54f2713f0c39399ad8c9086f429.png" width="1907" height="1050" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_21-f50c8267e5ef3cabb18daaf47e0923a8.png" width="1910" height="1121" class="img_ev3q"></p>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="basic-identification">Basic Identification<a href="#basic-identification" class="hash-link" aria-label="Direct link to Basic Identification" title="Direct link to Basic Identification">​</a></h5>
 <table><thead><tr><th>Field</th><th>Required</th><th>Definition</th></tr></thead><tbody><tr><td><strong>Name</strong></td><td>Yes</td><td>A unique route key used in the URL and <a href="https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings" target="_blank" rel="noopener noreferrer">dynamic settings of DIAL Core</a> (e.g. <code>chat</code>, <code>support</code>).</td></tr><tr><td><strong>Description</strong></td><td>No</td><td>Free‐text note about the route’s purpose (e.g. “Primary GPT-4 chat with fallback”).</td></tr></tbody></table>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="request-matching-paths--methods">Request Matching: Paths &amp; Methods<a href="#request-matching-paths--methods" class="hash-link" aria-label="Direct link to Request Matching: Paths &amp; Methods" title="Direct link to Request Matching: Paths &amp; Methods">​</a></h5>
@@ -62,7 +62,7 @@
 <table><thead><tr><th>Field</th><th>Required</th><th>What It Does</th></tr></thead><tbody><tr><td><strong>Status</strong></td><td>No</td><td>The HTTP status code your route will return (e.g. <code>200</code>, <code>404</code>, <code>503</code>).</td></tr><tr><td><strong>Body</strong></td><td>No</td><td>The exact payload to send in the response body. You can enter plain text or raw JSON.</td></tr><tr><td><strong>Max retry attempts</strong></td><td>No</td><td><em>(Optional)</em> Determines how many times DIAL will retry the static‐response logic on internal errors.</td></tr></tbody></table>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="roles">Roles<a href="#roles" class="hash-link" aria-label="Direct link to Roles" title="Direct link to Roles">​</a></h3>
 <p>In the <strong>Roles</strong> tab, you can define user groups that can invoke this route and define rate limits for them.</p>
-<p><img loading="lazy" src="/assets/images/img_22-24f644a7b0cfda2e4f01efda69deba4a.png" width="1905" height="931" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_22-91d5b509b2563694b1163adf65d2710d.png" width="1908" height="901" class="img_ev3q"></p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="roles-grid-columns">Roles grid columns:<a href="#roles-grid-columns" class="hash-link" aria-label="Direct link to Roles grid columns:" title="Direct link to Roles grid columns:">​</a></h4>
 <table><thead><tr><th>Column</th><th>Description &amp; Guidance</th></tr></thead><tbody><tr><td><strong>Name</strong></td><td>A unique role identifier.</td></tr><tr><td><strong>Description</strong></td><td>A user-friendly description of the role (e.g., &quot;Admin, Prompt Engineer, Developer&quot;).</td></tr><tr><td><strong>Tokens per minute</strong></td><td>Per Minute tokens limit for a specific role. Blank = no limits.<br> Inherits the <a href="#default-rate-limits">default value</a>.<br> Can be overridden.</td></tr><tr><td><strong>Tokens per day</strong></td><td>Daily tokens limit for a specific role. Blank = no limits. <br>Inherits the <a href="#default-rate-limits">default value</a>. <br>Can be overridden.</td></tr><tr><td><strong>Tokens per week</strong></td><td>Weekly tokens limit for a specific role. Blank = no limits. <br>Inherits the <a href="#default-rate-limits">default value</a>. <br>Can be overridden.</td></tr><tr><td><strong>Tokens per month</strong></td><td>Monthly tokens limit for a specific role. Blank = no limits.<br> Inherits the <a href="#default-rate-limits">default value</a>. <br>Can be overridden.</td></tr><tr><td><strong>Actions</strong></td><td>Additional role-specific actions. <br> Open <a href="/tutorials/admin/access-management-roles">Roles</a> section in a new tab. <br> Make all restrictions unlimited for the given role</td></tr></tbody></table>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="set-rate-limits">Set Rate Limits<a href="#set-rate-limits" class="hash-link" aria-label="Direct link to Set Rate Limits" title="Direct link to Set Rate Limits">​</a></h4>
@@ -97,7 +97,7 @@
 </ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="json-editor">JSON Editor<a href="#json-editor" class="hash-link" aria-label="Direct link to JSON Editor" title="Direct link to JSON Editor">​</a></h3>
 <p>For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the <strong>JSON Editor</strong> in any route&#x27;s configuration page.</p>
-<p><img loading="lazy" src="/assets/images/72-556daa32b1a5345335736f4f24ebd52f.png" width="1906" height="405" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/72-e01e27d2d7792cd6b4cc934a66818100.png" width="1635" height="385" class="img_ev3q"></p>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="switching-to-the-json-editor">Switching to the JSON Editor<a href="#switching-to-the-json-editor" class="hash-link" aria-label="Direct link to Switching to the JSON Editor" title="Direct link to Switching to the JSON Editor">​</a></h5>
 <ol>
 <li>Navigate to <strong>Entities → Routes</strong>, then select the Route you want to edit.</li>
