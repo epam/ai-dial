@@ -574,6 +574,11 @@ const sidebars = {
                   items: [
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/approvals-application-publications',
+                      label: 'Application Publications',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/approvals-prompt-publications',
                       label: 'Prompt Publications',
                     },
