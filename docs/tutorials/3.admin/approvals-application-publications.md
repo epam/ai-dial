@@ -68,19 +68,6 @@ The Parameters tab within the Application Publications detail view provides admi
 
 The content of this tab may vary depending on the app's type and configuration.
 
-## Prompts Tab
-
-The Prompts tab under the Application Publications section allows administrators to view and assess the prompts related to the published application. 
-
-The tab is optional and present only if at least one prompt exists in the application being published.
-
-| Field               | Definition                                                                                      |
-|---------------------|-------------------------------------------------------------------------------------------------|
-| **Prompt name**     | Identifier for the prompt.                                                                      |
-| **Version**         | Version of the prompt.                                                                          |
-| **Description**     | Summary of what the prompt is meant to do.                                                      |
-| **Prompt content**  | The instruction text. Use **View more** to expand and inspect full content in the modal window. |
-
 
 ## Files Tab
 
