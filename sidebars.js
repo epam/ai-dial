@@ -311,6 +311,11 @@ const sidebars = {
                   id: 'tutorials/developers/integrations/vscode-extension',
                   label: 'Integration with Continue',
                 },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/integrations/n8n-integration',
+                  label: 'Integration with n8n',
+                },
               ],
             },
             {
