@@ -12,7 +12,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.01fe9471.css">
-<script src="/assets/js/runtime~main.d1d50391.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.3ae8a72e.js" defer="defer"></script>
 <script src="/assets/js/main.f73d4c99.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -27,7 +27,7 @@
 <p>DIAL-native applications can be categorized as either schema-rich or apps without schemas:</p>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="schema-rich-applications">Schema-rich applications<a href="#schema-rich-applications" class="hash-link" aria-label="Direct link to Schema-rich applications" title="Direct link to Schema-rich applications">​</a></h5>
 <p><a href="#enable-schema-rich-applications">Schema-rich applications</a> enable users to create instances of applications with different properties via <a href="https://dialx.ai/dial_api#tag/Applications/operation/saveCustomApplication" target="_blank" rel="noopener noreferrer">DIAL Core API</a>. Unlike apps without schemas, where business logic properties are embedded in the application code or container environment and are difficult to change, schema-rich applications provide greater flexibility.</p>
-<p>Schema-rich applications are defined by a JSON schema that conforms to the main <a href="https://github.com/epam/ai-dial-core/blob/development/config/src/main/resources/custom-application-schemas/schema" target="_blank" rel="noopener noreferrer">meta schema</a>. JSON schema describes the application&#x27;s structure, including properties and endpoints (completion, configuration, and other), URLs for application editor (enabling a wizard in the UI for creating/editing applications) and custom application UI to replace the standard chat UI, <a href="/tutorials/developers/apps-development/custom-buttons">custom buttons</a>.</p>
+<p>Schema-rich applications are defined by a JSON schema that conforms to the main <a href="https://github.com/epam/ai-dial-core/blob/development/config/src/main/resources/custom-application-schemas/schema.json" target="_blank" rel="noopener noreferrer">meta schema</a>. JSON schema describes the application&#x27;s structure, including properties and endpoints (completion, configuration, and other), URLs for application editor (enabling a wizard in the UI for creating/editing applications) and custom application UI to replace the standard chat UI, <a href="/tutorials/developers/apps-development/custom-buttons">custom buttons</a>.</p>
 <p>There is a method in <a href="https://github.com/epam/ai-dial-sdk" target="_blank" rel="noopener noreferrer">DIAL SDK</a> (<code>application_properties = await request.request_dial_application_properties()</code>) that returns application properties with a configuration request to DIAL Core.</p>
 <p>Schema-rich applications are usually associated with a specific <strong>Application Type</strong> - a template for creating applications of that type.</p>
 <p><img loading="lazy" src="/assets/images/schema-rich-apps-3d533113ef759e0ee74553d7fb53fd55.svg" width="1352" height="282" class="img_ev3q"></p>
