@@ -316,6 +316,11 @@ const sidebars = {
                   id: 'tutorials/developers/integrations/vscode-extension',
                   label: 'Integration with Continue',
                 },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/integrations/n8n-integration',
+                  label: 'Integration with n8n',
+                },
               ],
             },
             {
@@ -510,6 +515,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/entities-interceptors',
+                      label: 'Interceptors',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/entities-routes',
                       label: 'Routes',
                     },
@@ -526,8 +536,8 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
-                      id: 'tutorials/admin/builders-interceptors',
-                      label: 'Interceptors',
+                      id: 'tutorials/admin/builders-adapters',
+                      label: 'Adapters',
                     },
                   ]
                 },
@@ -572,6 +582,11 @@ const sidebars = {
                   type: 'category',
                   label: 'Approvals',
                   items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/approvals-application-publications',
+                      label: 'Application Publications',
+                    },
                     {
                       type: 'doc',
                       id: 'tutorials/admin/approvals-prompt-publications',
