@@ -1,6 +1,6 @@
 
 <!-- omit from toc -->
-# How to Set Microsoft Entra as Identity Provider
+# How to Set Microsoft Entra ID as Identity Provider
 
 <div class="docusaurus-ignore">
 
@@ -14,7 +14,7 @@
     - [AI DIAL Chat Settings](#ai-dial-chat-settings)
     - [AI DIAL Core Settings](#ai-dial-core-settings)
     - [Assignment of Roles](#assignment-of-roles)
-  
+
 </div>
 
 ## Introduction
@@ -53,7 +53,7 @@ To configure AI DIAL Chat and AI DIAL Core to work with Microsoft Entra ID, foll
 > **Note:** The application **scope** is required to validate signature of the access token. Refer to [Microsoft Portal](https://learn.microsoft.com/en-us/answers/questions/318741/graphapi-cannot-validate-access-token-signature) to read more about this case.
 
 Add the following environment variables to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) for more details.
-   
+
   ```yaml
   AUTH_AZURE_AD_CLIENT_ID: "<azure_client_id>"
   AUTH_AZURE_AD_TENANT_ID: "<azure_tenant_id>"
@@ -64,7 +64,7 @@ Add the following environment variables to AI DIAL Chat configuration. Refer to 
 #### AI DIAL Core Settings
 
 Add the following parameters to AI DIAL Core **static** settings. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings) for more details.
-   
+
   ```yaml
   aidial.identityProviders.azure.jwksUrl: "https://login.microsoftonline.com/<azure_tenant_id>/discovery/v2.0/keys"
   aidial.identityProviders.azure.rolePath: "groups"
@@ -79,8 +79,8 @@ Once all the above steps are completed, including the ones marked as **Optional*
 
 In AI DIAL Core:
 
-* [Static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings): as value for `aidial.identityProviders.azure.rolePath` provide a claim from Microsoft Entra.
-* [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): for `userRoles` provide a specific group name as a claim value. 
+* [Static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings): as value for `aidial.identityProviders.azure.rolePath` provide a claim from Microsoft Entra ID.
+* [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): for `userRoles` provide a specific group name as a claim value.
 
 In this example, `"azure-group-name"` role from the `"groups"` claim is configured for `chat-gpt-35-turbo` model:
 
