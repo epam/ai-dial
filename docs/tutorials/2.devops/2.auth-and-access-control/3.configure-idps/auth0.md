@@ -14,7 +14,7 @@
     - [AI DIAL Chat Settings](#ai-dial-chat-settings)
     - [AI DIAL Core Settings](#ai-dial-core-settings)
     - [Assignment of Roles](#assignment-of-roles)
-  
+
 </div>
 
 ## Introduction
@@ -31,28 +31,33 @@ In AI DIAL, you can assign roles to Models and Applications to restrict the numb
 
 Follow these steps to configure Auth0:
 
-1. **Create Tenant:** create a new tenant and save its name. Refer to [Auth0 documentation](https://auth0.com/docs/get-started/auth0-overview/create-tenants) to learn how to do it.
-2. **Create Application:** create an [Application](https://auth0.com/docs/get-started/auth0-overview/create-applications). Set a name and choose `Regular Web Applications`.
-3. **Configure Application Settings:** in the [**Applications/Settings**](https://auth0.com/docs/get-started/applications/application-settings) section, set the following parameters:
-    - Obtain and save **Domain**,**Client ID** and **Client secrets** generated for your application.
-    - Allowed Callback URLs: `https://<chat_url>/api/auth/callback/auth0`
-4. **Create API:** in the **Applications/APIs** section, configure a new [**API**](https://auth0.com/docs/get-started/apis/api-settings).
-5. **Create Users:** in the **User Management/Users** section, create necessary [Users](https://auth0.com/docs/manage-users/user-accounts/create-users).
-6. (Optional) **Create and Assign Roles:** in the **User Management/Roles** section, create necessary [Roles](https://auth0.com/docs/manage-users/access-control/configure-core-rbac/roles/create-roles).
-7. (Optional) **Create Action:** in the **Actions/Library** section, create a necessary [Action](https://auth0.com/docs/customize/actions/write-your-first-action#create-an-action) and [Deploy](https://auth0.com/docs/customize/actions/write-your-first-action#deploy-the-action) it. Action parameters:
+1. **Create Tenant:** create a new tenant. Refer to [Auth0 documentation](https://auth0.com/docs/get-started/auth0-overview/create-tenants) to learn how to do it.
+2. **Create Application:** create an [Application](https://auth0.com/docs/get-started/auth0-overview/create-applications):
+    - Set a **Name**, e.g. `ai-dial-chat`
+    - Set `Regular Web Applications` **Application type**
+3. **Configure Application Settings:** on the [**Settings**](https://auth0.com/docs/get-started/applications/application-settings) tab of newly-created application:
+    - Save **Domain** (`<auth0_domain>`),**Client ID** (`<auth0_client_id>`) and **Client secret** (`<auth0_client_secret>`) generated for your application
+    - Set **Allowed Callback URLs**: `<chat_url>/api/auth/callback/auth0`
+4. **Create API:** in the **Applications/APIs** section, create a new [**API**](https://auth0.com/docs/get-started/apis/api-settings).
+5. **Create Users:** in the **User Management/Users** section, create [Users](https://auth0.com/docs/manage-users/user-accounts/create-users).
+6. (Optional, RBAC) **Create and Assign Roles:** in the **User Management/Roles** section, create [Roles](https://auth0.com/docs/manage-users/access-control/configure-core-rbac/roles/create-roles) and assign them to the created users. These roles can be used to restrict access to DIAL resources later.
+7. (Optional, RBAC) **Create Action:** in the **Actions/Library** section, [Create Custom Action](https://auth0.com/docs/customize/actions/write-your-first-action#create-an-action):
    - Name: `DIAL role`
    - Trigger: `Login/Post Login`
-   - Runtime: `Node 18`
-   - Add the following code in the Actions Code Editor:
+   - Runtime: `Node 22`
+   - Use the following code in the Actions Code Editor:
+
      ```js
      exports.onExecutePostLogin = async (event, api) => {
-       if (event.authorization) { 
+       if (event.authorization) {
          api.accessToken.setCustomClaim("dial_roles", event.authorization.roles);
          api.accessToken.setCustomClaim('email', event.user.email);
        }
      };
-     ```   
-8. (Optional) **Configure the Login Flow:** in the **Actions/Flows** section, choose `Login`, add a custom action `DIAL role` to `Flow` and apply the change. Refer to [Auth0](https://auth0.com/docs/customize/actions/flows-and-triggers) documentation to learn more.
+     ```
+
+   - [Deploy](https://auth0.com/docs/customize/actions/write-your-first-action#deploy-the-action) it
+   - In the **Actions/Triggers** section, choose `post-login`, place `DIAL role` action after **Start** step and apply the change. Refer to [Auth0](https://auth0.com/docs/customize/actions/flows-and-triggers) documentation to learn more.
 
 ### Configure AI DIAL
 
@@ -60,22 +65,26 @@ By configuring both AI DIAL Chat and AI DIAL Core with the necessary environment
 
 #### AI DIAL Chat Settings
 
-Add the following environment variables to AI DIAL Chat configuration. Refer to [AI DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) for more details.
-   
+Add the following environment variables to AI DIAL Chat [configuration](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables):
+
   ```yaml
-  AUTH_AUTH0_HOST: "<auth0_domain>"
+  AUTH_AUTH0_HOST: "https://<auth0_domain>"
   AUTH_AUTH0_CLIENT_ID: "<auth0_client_id>"
   AUTH_AUTH0_SECRET: "<auth0_client_secret>"
-  AUTH_AUTH0_AUDIENCE: "<auth0_api_audience>" 
+  AUTH_AUTH0_AUDIENCE: "<auth0_api_audience>"
   ```
 
 #### AI DIAL Core Settings
 
-Add the following parameters to AI DIAL Core **static** settings. Refer to [AI DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings) for more details.
-      
+Add the following parameters to AI DIAL Core [**static** settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings):
+
+  > **Note:** `<auth0_domain_regex>` is `<auth0_domain>` with dots escaped, e.g. `example\.eu\.auth0\.com`
+  >
+  > **Note:** generate some random sting for `loggingSalt` parameter, e.g. using `pwgen -s 32 1`
+
   ```yaml
-  aidial.identityProviders.auth0.jwksUrl: "https:///<auth0_domain>/.well-known/jwks.json"
-  aidial.identityProviders.auth0.issuerPattern: '^https:\/\/${auth0_domain_name}\.eu\.auth0\.com.*$'
+  aidial.identityProviders.auth0.jwksUrl: "https://<auth0_domain>/.well-known/jwks.json"
+  aidial.identityProviders.auth0.issuerPattern: '^https:\/\/<auth0_domain_regex>.*$'
   aidial.identityProviders.auth0.loggingKey: "sub"
   aidial.identityProviders.auth0.loggingSalt: "loggingSalt"
   aidial.identityProviders.auth0.rolePath: "dial_roles"
@@ -83,25 +92,28 @@ Add the following parameters to AI DIAL Core **static** settings. Refer to [AI D
 
 #### Assignment of Roles
 
-Once all the above steps are completed, including the ones marked as **Optional**, you can assign roles to Models and Applications.
+> **Warning**: RBAC-related steps from [Configure Auth0](#configure-auth0) must be completed before proceeding with this section.
 
-In AI DIAL Core:
+To limit access to AI DIAL resources based on Auth0 roles, configure the AI DIAL Core by adjusting the [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): set the `userRoles` parameter to align with the desired Auth0 role names.
 
-* [Static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings): as value for `aidial.identityProviders.auth0.rolePath` provide a claim from Auth0.
-* [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): for `userRoles` provide a specific claim value. 
+In the provided example, users assigned the `auth0-role-name` role will have access to the `chat-gpt-35-turbo` model.
 
-In this example, `auth0-role-name` role from the `"dial_roles"` claim is configured for `chat-gpt-35-turbo` model:
-
-  ```yaml
-  # Dynamic settings of AI DIAL Core
+```json
+{
   "models": {
-      "chat-gpt-35-turbo": {
-        "type": "chat",
-        "endpoint" : "http://localhost:7001/v1/openai/deployments/gpt-35-turbo/chat/completions",
-        "upstreams": [
-          {"endpoint": "http://localhost:7001", "key": "modelKey1"}
-        ],
-        "userRoles": ["auth0-role-name"]
-      }
+    "gpt-35-turbo": {
+      "type": "chat",
+      "endpoint": "http://localhost:5000/v1/openai/deployments/gpt-35-turbo/chat/completions",
+      "upstreams": [
+        {
+          "endpoint": "https://[REDACTED].openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions",
+          "key": "[REDACTED]"
+        }
+      ],
+      "userRoles": [
+        "auth0-role-name"
+      ]
+    }
   }
-  ```
+}
+```
