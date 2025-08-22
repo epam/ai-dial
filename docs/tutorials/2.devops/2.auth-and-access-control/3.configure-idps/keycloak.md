@@ -50,7 +50,7 @@ Follow these steps to configure Keycloak in Admin Console:
 1. **Gather facts**: to proceed with DIAL configuration, collect information related to Keycloak:
     - **Keycloak host URL** (`<keycloak_host>`), e.g. `https://keycloak.example.com`
     - In **Realm settings/General**, save the **Realm name** (`<keycloak_realm_id>`)
-    - In **Realm settings/General/OpenID Endpoint Configuration**, save the `jwks_uri` value (`<keycloak_jwks_uri>`).
+    - In **Realm settings/General**, open **OpenID Endpoint Configuration** and save the **jwks_uri** (`<keycloak_jwks_uri>`) value from JSON response.
     - In **Clients/Client name/Settings**, save the **Client ID** (`<keycloak_client_id>`)
     - In **Clients/Client name/Credentials**, save the **Client secret** (`<keycloak_client_secret>`).
 1. **Create Users**: create [Users](https://www.keycloak.org/docs/latest/server_admin/#proc-creating-user_server_administration_guide).
