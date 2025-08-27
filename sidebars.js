@@ -453,7 +453,7 @@ const sidebars = {
                     {
                       type: 'doc',
                       id: 'tutorials/devops/auth-and-access-control/configure-idps/entraID',
-                      label: 'Microsoft Entra',
+                      label: 'Microsoft Entra ID',
                     },
                     {
                       type: 'doc',
