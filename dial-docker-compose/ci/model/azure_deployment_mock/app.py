@@ -23,7 +23,7 @@ async def process_completion(model: str, request: Request):
     if api_key != API_KEY:
         raise HTTPException(status_code=403, detail="Invalid API key")
 
-    if model not in ["gpt-35-turbo", "gpt-4"]:
+    if model not in ["gpt-4o", "gpt-4o-mini"]:
         raise HTTPException(status_code=404, detail="Model not found")
 
     body = await request.json()

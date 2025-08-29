@@ -1,0 +1,58 @@
+include:
+  - path: ./common-keycloak.yml
+
+services:
+
+  admin-backend:
+    image: epam/ai-dial-admin-backend:0.6.1
+    user: root
+    environment:
+      CONFIG_EXPORT_OUTPUTFILE_PATH: /app/config/config.json
+      CONFIG_REST_SECURITY_MODE: "oidc"
+      CORE_CLIENT_URL: "http://core:8080"
+      DEBUG_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006"
+      DISABLE_SWAGGER_AUTHORIZATION: true
+      DIAL_ADMIN_CLIENT_ID: "dial-admin-console"
+      H2_DATASOURCE_ENCRYPTED_FILE_KEY: ${H2_DATASOURCE_ENCRYPTED_FILE_KEY}
+      H2_DATASOURCE_MASTER_KEY: ${H2_DATASOURCE_MASTER_KEY}
+      H2_DATASOURCE_PASSWORD: ${H2_DATASOURCE_PASSWORD}
+      H2_FILE: ./data/testdb
+      METRICS_ENABLED: "false"
+      SECURITY_ALLOWED_ROLES: 'ConfigAdmin,admin'
+      SECURITY_JWT_ACCEPTED_AUDIENCES: '*'
+      SECURITY_JWT_ACCEPTED_ISSUERS: "http://${COMMON_HOST}:${KC_PORT}/realms/dial"
+      SECURITY_JWT_JWKS_URI: "http://keycloak:${KC_PORT}/realms/dial/protocol/openid-connect/certs"
+      SECURITY_ROLES_CLAIM: roles
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI: "http://keycloak:${KC_PORT}/realms/dial"
+    volumes:
+      - ${DIAL_DIR:-.}/admin/data:/app/data
+      - ${DIAL_DIR:-.}/core:/app/config
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:8080/api/v1/health || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 6
+    depends_on:
+      core:
+        condition: service_started
+    restart: always
+
+  admin-frontend:
+    image: epam/ai-dial-admin-frontend:0.6.0
+    environment:     	
+      DIAL_ADMIN_API_URL: "http://admin-backend:8080/"
+      NEXTAUTH_URL: "http://${COMMON_HOST}:${DIAL_ADMIN_FRONTEND_HOST_PORT}"
+      NEXTAUTH_SECRET: "${NEXTAUTH_SECRET}"
+      NEXTAUTH_COOKIE_PREFIX: "admin"
+      AUTH_KEYCLOAK_HOST: "http://keycloak:${KC_PORT}/realms/dial/"
+      AUTH_KEYCLOAK_CLIENT_ID: "dial-admin-console"
+      AUTH_KEYCLOAK_SECRET: "${AUTH_KEYCLOAK_SECRET}"
+      ADMIN_ROLE_NAMES: 'ConfigAdmin,admin'
+    ports:
+      - "${DIAL_ADMIN_FRONTEND_HOST_PORT}:3000"
+    depends_on:
+      keycloak:
+        condition: service_healthy
+      admin-backend:
+        condition: service_healthy
+    restart: always

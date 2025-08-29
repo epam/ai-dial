@@ -3,10 +3,10 @@ include:
     env_file: ./.env
 
 services:
-  azure_deployment_host:
+  azure_or_dial_deployment_host:
     build: azure_deployment_mock
     environment:
-      API_KEY: AZURE_MODEL_API_KEY
+      API_KEY: AZURE_MODEL_OR_DIAL_API_KEY
 
   test:
     build: test
@@ -17,7 +17,7 @@ services:
     depends_on:
       adapter-openai:
         condition: service_started
-      azure_deployment_host:
+      azure_or_dial_deployment_host:
         condition: service_started
       core:
         condition: service_healthy
