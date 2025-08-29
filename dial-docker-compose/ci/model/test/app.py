@@ -48,8 +48,8 @@ async def test_model(deployment_id: str):
 
 
 async def tests():
-    await test_model("gpt-35-turbo")
-    await test_model("gpt-4")
+    await test_model("gpt-4o")
+    await test_model("gpt-4o-mini")
 
 
 if __name__ == "__main__":
