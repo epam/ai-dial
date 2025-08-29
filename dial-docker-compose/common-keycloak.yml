@@ -1,0 +1,103 @@
+services:
+
+  themes:
+    image: epam/ai-dial-chat-themes:0.10.0
+    ports:
+      - "3001:8080"
+
+  redis:
+    image: redis:7.2.4-alpine3.19
+    restart: always
+    ports:
+      - "6379:6379"
+    command: >
+      redis-server
+      --maxmemory 2000mb
+      --maxmemory-policy volatile-lfu
+      --save ""
+      --appendonly no
+      --loglevel warning
+    mem_limit: 2200M
+
+  chat:
+    image: epam/ai-dial-chat:0.36.0
+    environment:
+      AUTH_KEYCLOAK_CLIENT_ID: "dial-chat"
+      AUTH_KEYCLOAK_DIAL_ROLES_FIELD: "resource_access.dial-chat.roles"
+      AUTH_KEYCLOAK_HOST: "http://keycloak:${KC_PORT}/realms/dial/"
+      AUTH_KEYCLOAK_SECRET: "${AUTH_KEYCLOAK_SECRET}"
+      DIAL_API_HOST: "http://core:8080"
+      ENABLED_FEATURES: "conversations-section,prompts-section,top-settings,top-clear-conversation,top-chat-info,top-chat-model-settings,empty-chat-settings,header,footer,request-api-key,report-an-issue,likes,conversations-sharing,input-files,attachments-manager,prompts-sharing,prompts-publishing,conversations-publishing,custom-logo,input-links,custom-applications,message-templates,marketplace,quick-apps,code-apps,applications-sharing,marketplace-table-view"
+      KEEP_ALIVE_TIMEOUT: ${CHAT_KEEP_ALIVE_TIMEOUT:-20000}
+      NEXTAUTH_SECRET: "${NEXTAUTH_SECRET}"
+      THEMES_CONFIG_HOST: "http://themes:8080"
+    ports:
+      - "${DIAL_CHAT_HOST_PORT}:3000"
+    depends_on:
+      themes:
+        condition: service_started
+      core:
+        condition: service_started
+      keycloak:
+        condition: service_healthy
+    restart: always
+
+  core:
+    image: epam/ai-dial-core:0.34.0
+    environment:
+      'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
+      'proxy.config.files': '["/app/config/config.json"]'
+      'aidial.identityProviders.keycloak.jwksUrl': 'http://keycloak:${KC_PORT}/realms/dial/protocol/openid-connect/certs'
+      'aidial.identityProviders.keycloak.rolePath': 'resource_access.dial-chat.roles'
+      'aidail.access.admin.rules': '[{"source": "roles", "function": "EQUAL", "targets": ["admin"]}]'
+      'aidial.identityProviders.keycloak.loggingKey': 'email'
+      'aidial.identityProviders.keycloak.loggingSalt': 'loggingSalt'
+      'aidial.encryption.secret': '${DIAL_CORE_ENCRYPTION_SECRET}'
+      'aidial.encryption.key': '${DIAL_CORE_ENCRYPTION_KEY}'
+      'aidial.redis.singleServerConfig.address': 'redis://redis:6379'
+      'aidial.storage.provider': 'filesystem'
+      'aidial.storage.prefix': 'core'
+      'aidial.storage.bucket': 'dial'
+      'aidial.storage.createBucket': 'true'
+      'aidial.storage.overrides': '{"jclouds.filesystem.basedir": "data"}'
+    ports:
+      - "${DIAL_CORE_HOST_PORT}:8080"
+    volumes:
+      - ${DIAL_DIR:-.}/core:/app/config
+      - ${DIAL_DIR:-.}/core-logs:/app/log
+      - ${DIAL_DIR:-.}/core-data:/app/data
+      - ./settings:/opt/settings
+    depends_on:
+      - redis
+    restart: always
+
+  keycloak:
+    image: keycloak/keycloak:26.3
+    user: root
+    command: ["start-dev", "--import-realm", "--http-port=${KC_PORT}", "--hostname-backchannel-dynamic=true"]
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_ADMIN_PASSWORD}
+      KC_HOSTNAME: http://localhost:${KC_PORT}
+      KC_HOSTNAME_STRICT: false
+      KC_HOSTNAME_STRICT_HTTPS: false
+      KC_HTTP_ENABLED: true
+      KC_PROXY: edge
+      QUARKUS_HTTP_LIMITS_MAX_HEADER_SIZE: 64k
+      KC_INITIALIZE_EMPTY: 'true'
+      KC_FEATURE_CACHE_STACK: 'true'
+    ports:
+      - "${KC_PORT}:${KC_PORT}"
+    volumes:
+      - ./keycloak/data:/opt/keycloak/data
+      - ./keycloak/import/realm-config.json:/opt/keycloak/data/import/realm-config.json
+    healthcheck:
+      test: [
+        "CMD-SHELL",
+        'exec 3<>/dev/tcp/localhost/${KC_PORT}; echo -e "GET /health/ready HTTP/1.1\nhost: localhost:${KC_PORT}\n" >&3; timeout --preserve-status 1 cat <&3 | grep -m 1 status | grep -m 1 UP; ERROR=$?; exec 3<&-; exec 3>&-; exit $ERROR'
+      ]
+      interval: 5s
+      timeout: 3s
+      retries: 6
+      start_period: 60s
+    restart: always
