@@ -531,6 +531,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/builders-interceptor-templates',
+                      label: 'Interceptor Templates',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/builders-adapters',
                       label: 'Adapters',
                     },
