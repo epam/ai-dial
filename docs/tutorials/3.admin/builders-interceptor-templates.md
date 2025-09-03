@@ -2,7 +2,7 @@
 
 ## About Interceptor Templates
 
-An **interceptor template** is a reusable blueprint for creating interceptors in DIAL. It allows to save time on similar interceptors configuration, providing Completion and Configuration endpoints.
+An **interceptor template** is a reusable blueprint for creating interceptors in DIAL. It allows to save time on similar interceptors configuration.
 
 > Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 
@@ -40,7 +40,8 @@ In Interceptor Templates, you can add and manage Interceptor Templates you have 
 
 ##### Top Bar Controls
 
-* **Delete**: Permanently removes the selected template. All related interceptors still bound to it will be deleted as well.
+**Delete**: Permanently removes the selected interceptor template. 
+> **IMPORTANT:** All related interceptors still bound to it will be deleted as well.
 
 ### Properties tab
 
@@ -56,12 +57,12 @@ Header (non-editable):
 
 Fields: 
 
-| Field                      | Required | Definition                                                                                                                                                          |
-|----------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Display name**           | No       | A user-friendly label for the interceptor template (e.g. “PII Obfuscator”, "Words Blacklist", etc.). Helps you pick the right one when configuring an interceptor.  |
-| **Description**            | No       | Free-text notes about the interceptor template and how it can be used.                                                                                              |
-| **Completion endpoint**    | No       | This is the endpoint used by DIAL Core to manage chat completion requests from interceptors.                                                                        |
-| **Configuration endpoint** | No       | This endpoint is used to request application configuration parameters as a JSON schema.                                                                             |
+| Field                      | Required | Definition                                                                                                                                                         |
+|----------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Display name**           | No       | A user-friendly label for the interceptor template (e.g. “PII Obfuscator”, "Words Blacklist", etc.). Helps you pick the right one when configuring an interceptor. |
+| **Description**            | No       | Free-text notes about the interceptor template and how it can be used.                                                                                             |
+| **Completion endpoint**    | No       | This is the endpoint used by DIAL Core to manage chat completion requests from interceptors.                                                                       |
+| **Configuration endpoint** | No       | This endpoint is used to request interceptor's configuration parameters as a JSON schema.                                                                          |
 
 ![99.png](img/99.png)
 
@@ -84,7 +85,7 @@ A **read-only** grid showing all interceptor **instances** created from this tem
 
 The Activities section under the Audit tab of a specific interceptor template provides detailed visibility into all changes made to it.
 
-This section mimics the functionality available in the global Audit → Activities menu, but is scoped specifically to the selected template.
+This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected template.
 
 
 ##### Activities List Table
@@ -109,6 +110,6 @@ To open Activity Details, click on the three-dot menu (⋮) at the end of a row 
 | **Initiated**       | Identifier of the user who made the change.                                                                                                             |
 | **Activity ID**     | Unique identifier for the specific activity tracking.                                                                                                   |
 | **View**            | Dropdown to switch between showing all parameter or changed only.                                                                                       |
-| **Parameters Diff** | Side-by-side comparison of app fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
+| **Parameters Diff** | Side-by-side comparison of the fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
 
 ![100.png](img/100.png)
