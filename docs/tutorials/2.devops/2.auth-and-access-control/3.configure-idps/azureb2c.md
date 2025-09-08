@@ -31,20 +31,21 @@ In DIAL, you can assign roles to Models and Applications to restrict the number 
 
 Follow these steps to configure Azure AD B2C:
 
-1. **Register Application**: refer to [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app) for detailed instructions on how to register an application:
-    - **Name**: e.g. `ai-dial-chat`
-    - **Supported account types**: e.g. `Accounts in this organizational directory only (Single tenant)`
-    - **Redirect URI**: `Web` + `<chat_url>/api/auth/callback/azure-ad`
-1. **Create Client secret**: in the **Certificates & secrets/Client secrets** section, create **New client secret** and save its value. Refer to [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-credentials?tabs=client-secret).
-1. **Gather facts**: to proceed with DIAL configuration, collect information related to Azure AD B2C:
-    - In **App registrations/App registration name/Overview**, save **Application (client) ID** (`<azure_client_id>`), **Directory (tenant) ID** (`<azure_tenant_id>`).
-    - In **App registrations/App registration name/Certificates & secrets**, save **Client secret** value (`<azure_client_secret>`).
-1. (Optional, RBAC) **Create a Group and add members**: once the application integration is set up, create groups and add members to them. Refer to [Microsoft documentation](https://learn.microsoft.com/en-us/entra/fundamentals/how-to-manage-groups).
-1. (Optional, RBAC): **Add Groups to application**: in the **Enterprise applications/Application name/Users and groups** section, add the created groups to the application. If free tier is used, you can assign only users, not groups, which is fine too.
-1. (Optional, RBAC) **Configure ID Token**: in the **App registrations/App registration name/Token Configuration** section, select **Add groups claim** and [customize which groups](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims) you want to include, e.g.:
-    - **Select group types to include in Access, ID, and SAML tokens**: `Groups assigned to the application`
-    - **Customize token properties by type**: `Group ID`
-    > **Note**: There're [important caveats](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#important-caveats-for-this-functionality) to be aware of when using group claims in Azure AD B2C.
+0. Create a **B2C Tenant** if you do not have one: Refer to [Azure tutorials](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-tenant) to learn how to do this. Save the **tenant id** (`<azure_b2c_tenant_id>`) - you will need it to configure DIAL Chat `AUTH_AZURE_B2C_TENANT_ID` environment variable.
+1. Register an enterprise **Web Application**: Refer to [Azure tutorials](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-register-applications) for detailed instructions on how to register a Web application. Upon the registration, make sure to get the following details - you will need them to configure DIAL:
+    - Application ID: The application ID assigned to your app in the Azure portal (`<azure_b2c_app_id>`)
+    - Redirect URI: A URI where authentication responses are sent and received by your app. Follow this format - `<chat_url>/api/auth/callback/azure-ad-b2c`
+
+![](../../img/b2c-register-web-app.png)
+
+2. Create a **Client secret**: Refer to [Azure tutorials](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-register-applications#create-a-client-secret) to learn how to do this. Save a client secret `<azure_b2c_client_secret>` and a `<azure_b2c_client_id>` - you will need it to configure DIAL CHAT `AUTH_AZURE_B2C_SECRET` environment variable.
+3. Create a **Scope**: Scopes are used to manage permissions to protected resources. In the section **Manage/Expose an API**, add a custom scope `Chat.Login` (`<chat_url>/<azure_b2c_client_id>/Chat.Login`).  You will need them to configure DIAL Chat `AUTH_AZURE_B2C_SCOPE` environment variable. Refer to Azure tutorials to learn [how to configure scopes](https://learn.microsoft.com/en-us/azure/active-directory-b2c/configure-authentication-sample-spa-app?tabs=app-reg-ga#step-22-configure-scopes). 
+4. Configure **API Permissions**: To call a protected web API from an application, you need to grant your application permissions to the API. In **App registrations/App registration name/Manage/API Permissions** section, add a Delegated permission type for [OpenID scopes](https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc#openid-connect-scopes) you will need include: `openid`, `profile`, `email`, and `offline_access`. Refer to [Azure documentation](https://learn.microsoft.com/en-us/azure/active-directory-b2c/add-web-api-application#grant-permissions) for more details.
+
+![](../../img/b2c-api-permissions.png)
+
+5. Create a **User Flow**:  A business logic that users follow to gain access to your application. Refer to [Azure tutorials](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-user-flow) to learn how to do this. Save the **user flow name**. You will need it to configure DIAL Chat `AUTH_AZURE_B2C_USER_FLOW` environment variable.
+
 
 ### Configure DIAL
 
@@ -54,14 +55,28 @@ By configuring both DIAL Chat and DIAL Core with the necessary environment varia
 
 Add the following environment variables to DIAL Chat configuration. Refer to [DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) for more details.
 
+Authentication variables:
+
 ```yaml
-AUTH_AZURE_AD_CLIENT_ID: "<azure_client_id>"
-AUTH_AZURE_AD_TENANT_ID: "<azure_tenant_id>"
-AUTH_AZURE_AD_SECRET: "<azure_client_secret>"
-AUTH_AZURE_AD_SCOPE: "openid profile <azure_client_id>/.default email offline_access"
+AUTH_AZURE_B2C_ADMIN_ROLE_NAMES : admin #claim value from user flow
+AUTH_AZURE_B2C_AUD : <azure_b2c_app_id>
+AUTH_AZURE_B2C_CLIENT_ID : <azure_b2c_client_id>
+AUTH_AZURE_B2C_CLIENT_SECRET : <azure_b2c_client_secret>
+AUTH_AZURE_B2C_DIAL_ROLES_FIELD : roles #claim from user flow
+AUTH_AZURE_B2C_NAME : Azure B2C
+AUTH_AZURE_B2C_SCOPE : openid profile email offline_access <chat_url>/<azure_b2c_client_id>/Chat.Login
+AUTH_AZURE_B2C_TENANT_ID : <azure_b2c_tenant_id>
+AUTH_AZURE_B2C_USER_FLOW : USER_FLOW_NAME
 ```
 
 > **Tip**: The application **scope** added above [is required to validate signature](https://learn.microsoft.com/en-us/answers/questions/318741/graphapi-cannot-validate-access-token-signature) of the access token.
+
+
+Additional variables: 
+
+```yaml
+FEDERATED_LOGOUT_PROVIDERS : azure-ad-b2c #define value as azure-ad-b2c to enable logout
+```
 
 #### DIAL Core Settings
 
@@ -70,20 +85,22 @@ Add the following parameters to DIAL Core [**static** settings](https://github.c
 > **Note**: generate some random sting for `loggingSalt` parameter, e.g. using `pwgen -s 32 1`
 
 ```yaml
-aidial.identityProviders.azure.jwksUrl: "https://login.microsoftonline.com/<azure_tenant_id>/discovery/v2.0/keys"
-aidial.identityProviders.azure.issuerPattern: '^https:\/\/sts\.windows\.net.+$'
-aidial.identityProviders.azure.loggingKey: "sub"
-aidial.identityProviders.azure.loggingSalt: "loggingSalt"
-aidial.identityProviders.azure.rolePath: "groups"
+aidial.identityProviders.azureb2c.issuerPattern : ^https:\/\/<azure_b2c_tenant_id>\.b2clogin\.com.+$ #describes an issuer in a token
+aidial.identityProviders.azureb2c.jwksUrl : <azure_b2c_tenant_id>.b2clogin.com/<azure_b2c_tenant_id>.onmicrosoft.com/<USER_FLOW_NAME>/discovery/v2.0/keys #used to validate a token
+aidial.identityProviders.azureb2c.loggingKey : sub
+aidial.identityProviders.azureb2c.loggingSalt : your-logging-salt
+aidial.identityProviders.azureb2c.projectPath : aud
+aidial.identityProviders.azureb2c.rolePath : roles #claim from a user flow
+aidial.identityProviders.azureb2c.userDisplayName : name #claim from a user flow
 ```
 
 #### Assignment of Roles
 
-> **Warning**: RBAC-related steps from [Configure Azure AD B2C](#configure-microsoft-entra-id) must be completed before proceeding with this section.
+> **Warning**: User Flow-related must be configured to proceed with this section.
 
-To limit access to DIAL resources based on Azure AD B2C Groups, configure the DIAL Core by adjusting the [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): set the `userRoles` parameter to align with the desired Azure AD B2C group names.
+To limit access to DIAL resources based on Use Flow, configure the DIAL Core by adjusting the [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): set the `userRoles` parameter to align with the desired claims.
 
-In the provided example, users assigned the `azure-group-name` group will have access to the `chat-gpt-35-turbo` model.
+In the provided example, users assigned the `user-group-name` group will have access to the `chat-gpt-35-turbo` model.
 
 ```json
 {
@@ -98,7 +115,7 @@ In the provided example, users assigned the `azure-group-name` group will have a
         }
       ],
       "userRoles": [
-        "azure-group-name"
+        "user-group-name" //A specific claim value defined in the User Flow
       ]
     }
   }
