@@ -46,6 +46,11 @@ const sidebars = {
             },
             {
               type: 'doc',
+              id: 'platform/architecture-and-concepts/app-server',
+              label: 'Application Server',
+            },
+            {
+              type: 'doc',
               id: 'platform/architecture-and-concepts/stack',
               label: 'DIAL Stack',
             },
