@@ -12,7 +12,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.01fe9471.css">
-<script src="/assets/js/runtime~main.ee42c3a5.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.365ffdc5.js" defer="defer"></script>
 <script src="/assets/js/main.41187add.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -24,7 +24,7 @@
 </blockquote>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="interceptors-list">Interceptors List<a href="#interceptors-list" class="hash-link" aria-label="Direct link to Interceptors List" title="Direct link to Interceptors List">​</a></h2>
 <p>In Interceptors, you can find, manage and add interceptors.</p>
-<p><img loading="lazy" alt=" " src="/assets/images/img_28-e9092ddf7c3b2b7470a2be9993bfb2a2.png" width="1907" height="897" class="img_ev3q"></p>
+<p><img loading="lazy" alt=" " src="/assets/images/img_28-618dec9c572064eebdbd99cc062964a2.png" width="1907" height="897" class="img_ev3q"></p>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="interceptors-grid">Interceptors Grid<a href="#interceptors-grid" class="hash-link" aria-label="Direct link to Interceptors Grid" title="Direct link to Interceptors Grid">​</a></h5>
 <table><thead><tr><th>Column</th><th>Definition &amp; Use</th></tr></thead><tbody><tr><td><strong>Name</strong></td><td>A unique identifier for the interceptor (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application.</td></tr><tr><td><strong>Description</strong></td><td>A brief summary of what this interceptor does and any parameters it uses (e.g. BLACKLIST=<!-- -->bar<!-- --> or Logs request/response payloads).</td></tr></tbody></table>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="create">Create<a href="#create" class="hash-link" aria-label="Direct link to Create" title="Direct link to Create">​</a></h2>
@@ -40,7 +40,7 @@
 <p>Once all required fields are filled, click <strong>Create</strong>. The dialog closes and the new interceptor <a href="#configuration">configuration screen</a> is opened. Once added, a new entry appears in the <strong>Interceptors</strong> listing. It may take some time for the changes to take effect after saving.</p>
 </li>
 </ol>
-<p><img loading="lazy" src="/assets/images/img_29-c677a35a992abe8824664bed090065b7.png" width="1905" height="900" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_29-032c128801e74112801c4d0c4de840a0.png" width="1905" height="900" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="configuration">Configuration<a href="#configuration" class="hash-link" aria-label="Direct link to Configuration" title="Direct link to Configuration">​</a></h2>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="top-bar-controls">Top Bar Controls<a href="#top-bar-controls" class="hash-link" aria-label="Direct link to Top Bar Controls" title="Direct link to Top Bar Controls">​</a></h5>
 <ul>
@@ -49,11 +49,11 @@
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="properties">Properties<a href="#properties" class="hash-link" aria-label="Direct link to Properties" title="Direct link to Properties">​</a></h3>
 <p>In the Properties tab, you can define metadata and execution endpoints for Interceptors.</p>
-<p><img loading="lazy" src="/assets/images/img_30-94d00aee0f90a2436b6e6cb97a1cf81c.png" width="1910" height="901" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_30-2c1543c6ac08896da4dd3927d8a1a205.png" width="1910" height="901" class="img_ev3q"></p>
 <table><thead><tr><th>Field</th><th>Required</th><th>Definition &amp; Use Case</th></tr></thead><tbody><tr><td><strong>Name</strong></td><td>Yes</td><td>A unique key for this interceptor (e.g. <code>reject-external-links</code>, <code>audit-logger</code>). Used when attaching to Models or Applications under their <strong>Interceptors</strong> tab. Keep it URL-safe and lowercase with hyphens.</td></tr><tr><td><strong>Description</strong></td><td>No</td><td>A free-text summary of the interceptor’s behavior and any configuration parameters (e.g. <code>BLACKLIST={&quot;foo&quot;,&quot;bar&quot;}</code>). Helps to identify the interceptor and its purpose.</td></tr><tr><td><strong>Endpoint</strong></td><td>Yes</td><td>The URL of the interceptor service. This URL is used to handle requests and responses for the interceptor.</td></tr><tr><td><strong>Maintainer</strong></td><td>No</td><td>Field used to specify the responsible person or team overseeing the interceptor and its configuration.</td></tr><tr><td><strong>Forward Auth Token</strong></td><td>No</td><td>Specify whether to forward an Auth Token to your interceptor&#x27;s endpoint. Use this when your interceptor service requires its own authentication.</td></tr></tbody></table>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="entities">Entities<a href="#entities" class="hash-link" aria-label="Direct link to Entities" title="Direct link to Entities">​</a></h3>
 <p>In the Entities tab, you can see to which Models and Applications this interceptor is currently attached. By binding interceptors here, you control exactly which AI endpoints (and in what order) will invoke your custom pre- or post-processing logic.</p>
-<p><img loading="lazy" src="/assets/images/img_31-ad26bdb4f97a52744180e716c0e4ed48.png" width="1910" height="901" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_31-8ff443d9b655990f2fe2031caea47e3a.png" width="1910" height="901" class="img_ev3q"></p>
 <table><thead><tr><th>Column</th><th>Definition</th></tr></thead><tbody><tr><td><strong>Display Name</strong></td><td>A user-friendly name of the Application/Model (e.g. &quot;Data Clustering Application&quot;).</td></tr><tr><td><strong>Version</strong></td><td>The Application’s/Model&#x27;s version tag (e.g. <code>v1.0</code>, <code>2024-07-15</code>) as defined in <strong>Entities → Applications/Models → Properties</strong>.</td></tr><tr><td><strong>Description</strong></td><td>Free-text summary of what the Application/Model does.</td></tr><tr><td><strong>Deployment ID</strong></td><td>A unique alias used in the Application’s/Models&#x27; endpoint URL (e.g. <code>dca</code>, <code>support-bot</code>).</td></tr><tr><td><strong>Type</strong></td><td>A type of the entity using the given interceptor: Model, Application.</td></tr></tbody></table>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="add">Add<a href="#add" class="hash-link" aria-label="Direct link to Add" title="Direct link to Add">​</a></h4>
 <ol>

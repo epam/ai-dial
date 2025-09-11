@@ -12,7 +12,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.01fe9471.css">
-<script src="/assets/js/runtime~main.ee42c3a5.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.365ffdc5.js" defer="defer"></script>
 <script src="/assets/js/main.41187add.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -35,7 +35,7 @@
 </blockquote>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="roles-list">Roles List<a href="#roles-list" class="hash-link" aria-label="Direct link to Roles List" title="Direct link to Roles List">​</a></h2>
 <p>In Roles, you can define and manage roles in DIAL.</p>
-<p><img loading="lazy" src="/assets/images/img_37-64f37be4056ac873a8a0e9fb7e247cef.png" width="1911" height="424" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_37-fd8f64605ccb1519ba79b78e014820ea.png" width="1911" height="424" class="img_ev3q"></p>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="roles-grid">Roles Grid<a href="#roles-grid" class="hash-link" aria-label="Direct link to Roles Grid" title="Direct link to Roles Grid">​</a></h5>
 <table><thead><tr><th>Column</th><th>Definition &amp; Use Case</th></tr></thead><tbody><tr><td><strong>Name</strong></td><td>A unique, user-friendly identifier of a role (e.g. Data Extraction Admin, Analysts, Business User).</td></tr><tr><td><strong>Description</strong></td><td>A free-form description of a role (e.g. &quot;Business User role for the Data Extraction application&quot;).</td></tr></tbody></table>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="create-role">Create Role<a href="#create-role" class="hash-link" aria-label="Direct link to Create Role" title="Direct link to Create Role">​</a></h2>
@@ -49,7 +49,7 @@
 </li>
 <li>
 <p>Once all required fields are filled, click <strong>Create</strong>. The dialog closes and the new <a href="#role-configuration">role configuration</a> screen is opened. A new role entry will appear immediately in the listing once created.</p>
-<p><img loading="lazy" src="/assets/images/img_38-d3dcca2a875073ed86f4f2aa58dcbdfc.png" width="1911" height="660" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_38-d5f44ed61cd577beb3532380ef5bbbe7.png" width="1911" height="660" class="img_ev3q"></p>
 </li>
 </ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="role-configuration">Role Configuration<a href="#role-configuration" class="hash-link" aria-label="Direct link to Role Configuration" title="Direct link to Role Configuration">​</a></h2>
@@ -60,11 +60,11 @@
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="properties">Properties<a href="#properties" class="hash-link" aria-label="Direct link to Properties" title="Direct link to Properties">​</a></h3>
 <p>In the Properties tab, you can define the identity and metadata for the role. These settings determine how the role appears throughout DIAL and help administrators understand its purpose.</p>
-<p><img loading="lazy" src="/assets/images/img_39-88b52143fcebcb7364e9cacdfd4f7eb7.png" width="1907" height="442" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_39-55c646b02f67caa1e2d35d42be7866e8.png" width="1907" height="442" class="img_ev3q"></p>
 <table><thead><tr><th>Field</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><strong>Name</strong></td><td>Yes</td><td>A unique identifier of the role, used in ACL selectors and in API calls.</td></tr><tr><td><strong>Description</strong></td><td>No</td><td>Optional free-form text describing the role’s intended audience or use.</td></tr></tbody></table>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="entities">Entities<a href="#entities" class="hash-link" aria-label="Direct link to Entities" title="Direct link to Entities">​</a></h3>
 <p>In the Entities tab, you can assign which <a href="/tutorials/admin/entities-models">Models</a>, <a href="/tutorials/admin/entities-applications">Applications</a> or <a href="/tutorials/admin/entities-routes">Routes</a> this role can access, and within which rate limits.</p>
-<p><img loading="lazy" alt="img_8.png" src="/assets/images/img_40-5bc6a033e5fe554644a94c10845d4153.png" width="1903" height="898" class="img_ev3q"></p>
+<p><img loading="lazy" alt="img_8.png" src="/assets/images/img_40-d1c4be41c3b154b7346c24f1d664b9fa.png" width="1903" height="898" class="img_ev3q"></p>
 <table><thead><tr><th>Column</th><th>Definition</th></tr></thead><tbody><tr><td><strong>Display Name</strong></td><td>A user-friendly name of the resource (Model, Application, or Route) as shown in DIAL.</td></tr><tr><td><strong>Version</strong></td><td>Version tag of the resource (e.g. <code>v1.2</code>, <code>1.0.0</code>).</td></tr><tr><td><strong>Description</strong></td><td>A brief description of the resource.</td></tr><tr><td><strong>Deployment ID</strong></td><td>A unique internal identifier used by DIAL to call the resource&#x27;s endpoint.</td></tr><tr><td><strong>Type</strong></td><td>Resource category: one of <a href="/tutorials/admin/entities-models">Models</a>, <a href="/tutorials/admin/entities-applications">Applications</a> or <a href="/tutorials/admin/entities-routes">Routes</a>.</td></tr><tr><td><strong>Tokens per minute</strong></td><td>Maximum number of tokens this role may consume per minute when calling this resource. <br>&quot;Unlimited&quot; if no limit is set.</td></tr><tr><td><strong>Tokens per day</strong></td><td>Maximum number of tokens this role may consume per day when calling this resource. <br>&quot;Unlimited&quot; if no limit is set.</td></tr><tr><td><strong>Tokens per week</strong></td><td>Maximum number of tokens this role may consume per week when calling this resource. <br>&quot;Unlimited&quot; if no limit is set.</td></tr><tr><td><strong>Tokens per month</strong></td><td>Maximum number of tokens this role may consume per month when calling this resource. <br>&quot;Unlimited&quot; if no limit is set.</td></tr></tbody></table>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="add">Add<a href="#add" class="hash-link" aria-label="Direct link to Add" title="Direct link to Add">​</a></h4>
 <ol>
@@ -79,7 +79,7 @@
 </ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="keys">Keys<a href="#keys" class="hash-link" aria-label="Direct link to Keys" title="Direct link to Keys">​</a></h3>
 <p>In the Keys tab, you can assign <a href="/tutorials/admin/access-management-keys">API keys</a> for roles. API keys are defined in the <a href="/tutorials/admin/access-management-keys">Access Management → Keys</a> section.</p>
-<p><img loading="lazy" src="/assets/images/img_41-87de46d705da8864b514d50d4c03f1b3.png" width="1910" height="412" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_41-735bc877b6436315906c47de6d0324d3.png" width="1910" height="412" class="img_ev3q"></p>
 <table><thead><tr><th>Column</th><th>Definition</th></tr></thead><tbody><tr><td><strong>Name</strong></td><td>A user-friendly identifier for an API key. Typically, reflects the intended consumer or purpose<br>(e.g. <code>mobile-sdk-key</code>, <code>data-extraction-worker</code>).</td></tr><tr><td><strong>Description</strong></td><td>An optional free-text notes about this key’s purpose or scope.</td></tr><tr><td><strong>Key generation time</strong></td><td>A key&#x27;s creation timestamp.</td></tr><tr><td><strong>Expiration time</strong></td><td>A key&#x27;s expiration timestamp. Blank means no expiration (i.e. permanent until manually revoked).</td></tr><tr><td><strong>Status</strong></td><td>The current state of the key.</td></tr></tbody></table>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="add-1">Add<a href="#add-1" class="hash-link" aria-label="Direct link to Add" title="Direct link to Add">​</a></h4>
 <ol>
@@ -95,7 +95,7 @@
 </ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="json-editor">JSON Editor<a href="#json-editor" class="hash-link" aria-label="Direct link to JSON Editor" title="Direct link to JSON Editor">​</a></h3>
 <p>For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the <strong>JSON Editor</strong> in any role&#x27;s configuration page.</p>
-<p><img loading="lazy" src="/assets/images/74-1497973768f39bca81387435360e6cd3.png" width="1904" height="450" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/74-b3d314239f8cac84615cbd597c6127c5.png" width="1904" height="450" class="img_ev3q"></p>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="switching-to-the-json-editor">Switching to the JSON Editor<a href="#switching-to-the-json-editor" class="hash-link" aria-label="Direct link to Switching to the JSON Editor" title="Direct link to Switching to the JSON Editor">​</a></h5>
 <ol>
 <li>Navigate to <strong>Access Management → Roles</strong>, then select the role you want to edit.</li>

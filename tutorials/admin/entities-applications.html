@@ -12,7 +12,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.01fe9471.css">
-<script src="/assets/js/runtime~main.ee42c3a5.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.365ffdc5.js" defer="defer"></script>
 <script src="/assets/js/main.41187add.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -23,7 +23,7 @@
 </blockquote>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="applications-list">Applications List<a href="#applications-list" class="hash-link" aria-label="Direct link to Applications List" title="Direct link to Applications List">​</a></h2>
 <p>In Applications, you can see, create and manage applications deployed in your instance of DIAL.</p>
-<p><img loading="lazy" src="/assets/images/img_11-8339b8c7d769cd1b707f1f6a70c10058.png" width="1909" height="898" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_11-1acf74fb75c81228edf1b5414a46517b.png" width="1909" height="898" class="img_ev3q"></p>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="applications-grid">Applications grid<a href="#applications-grid" class="hash-link" aria-label="Direct link to Applications grid" title="Direct link to Applications grid">​</a></h5>
 <blockquote>
 <p><strong>TIP</strong>: Use the <strong>Columns</strong> selector to customize which columns are visible in the grid.</p>
@@ -43,7 +43,7 @@
 </li>
 <li>
 <p>Once all required fields are filled click <strong>Create</strong>. The dialog closes and the new <a href="#application-configuration">application configuration</a> screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.</p>
-<p><img loading="lazy" src="/assets/images/img_12-c6ac86c4ec006fe98387088f4f592137.png" width="1912" height="896" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_12-318688757229243d1ebc49555b10084c.png" width="1912" height="896" class="img_ev3q"></p>
 </li>
 </ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="application-configuration">Application Configuration<a href="#application-configuration" class="hash-link" aria-label="Direct link to Application Configuration" title="Direct link to Application Configuration">​</a></h2>
@@ -55,7 +55,7 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="properties">Properties<a href="#properties" class="hash-link" aria-label="Direct link to Properties" title="Direct link to Properties">​</a></h3>
 <p>In the Properties tab, you can define the application&#x27;s identity, routing, UI metadata, and other basic runtime controls.</p>
 <p>Once configured, your application is ready to orchestrate models and interceptors behind a single HTTP endpoint.</p>
-<p><img loading="lazy" alt=" " src="/assets/images/img_13-7a002bc1f40734ac752e86c6d832c574.png" width="1910" height="1585" class="img_ev3q"></p>
+<p><img loading="lazy" alt=" " src="/assets/images/img_13-ceae6534686362e7316fa277ef0c214f.png" width="1910" height="1585" class="img_ev3q"></p>
 <table><thead><tr><th>Field</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><strong>Deployment ID</strong></td><td>Yes</td><td>A unique key under <code>applications</code> in DIAL Core’s <a href="https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings" target="_blank" rel="noopener noreferrer">dynamic settings</a> (e.g. data-clustering, support-bot).</td></tr><tr><td><strong>Display Name</strong></td><td>Yes</td><td>A user-friendly label shown on the UI (e.g. &quot;Data Clustering Application&quot;). Helps end user to identify and select applications.</td></tr><tr><td><strong>Version</strong></td><td>No</td><td>A version tag for rollout management (e.g. <code>v1.0</code>, <code>2024-07-15</code>). Use this to publish a new version of an application without disturbing existing users.</td></tr><tr><td><strong>Application Runner</strong></td><td>No</td><td>Application type schema. Defined in <a href="/tutorials/admin/builders-application-runners">Application Runners</a>.</td></tr><tr><td><strong>Description</strong></td><td>No</td><td>A free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs).</td></tr><tr><td><strong>Maintainer</strong></td><td>No</td><td>Field used to specify the responsible person or team overseeing the app’s configuration.</td></tr><tr><td><strong>Completion Endpoint</strong></td><td>Optional</td><td>URL where the app is exposed. Clients use this to integrate. Auto-populated if Application Runner is selected. <strong>Required</strong> if Application Runner is not selected.</td></tr><tr><td><strong>Icon</strong></td><td>No</td><td>A logo to visually distinguish the app on the UI.</td></tr><tr><td><strong>Topics</strong></td><td>No</td><td>Tags that you can assign to apps (e.g. &quot;finance&quot;, &quot;support&quot;). Helps to split apps into categories for better navigation on UI.</td></tr><tr><td><strong>Attachments</strong></td><td>No</td><td>An option you can use to define the <a href="/tutorials/developers/chat/chat-objects#attachments">attachment types</a> (images, files) this app can have:  <br><strong>Available values</strong>:<br> <strong>None</strong> – attachments are not allowed.  <br> <strong>All</strong> – unrestricted types. Optionally specify max number of attachments. <br> <strong>Custom</strong> – enter specific <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types" target="_blank" rel="noopener noreferrer">MIME types</a>. Optionally specify max number of attachments.</td></tr><tr><td><strong>Forward auth token</strong></td><td>No</td><td>Select a downstream auth token to forward from the user’s session (for multi-tenant downstream).</td></tr><tr><td><strong>Max retry attempts</strong></td><td>No</td><td>Number of times DIAL Core will <a href="/platform/core/load-balancer#fallbacks">retry</a> a failed run (due to timeouts or 5xx errors).</td></tr></tbody></table>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features<a href="#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features">​</a></h3>
 <p>In the Features tab, you can control optional capabilities of applications.</p>
@@ -76,7 +76,7 @@
 <li><strong>Model</strong> toggles ensure you don’t accidentally send unsupported parameters to a given model.</li>
 <li><strong>Application</strong> toggles let you present a consistent API to your clients (e.g. always accept <code>temperature</code> or never allow attachments), even if different underlying models behave differently.</li>
 </ul>
-<p><img loading="lazy" src="/assets/images/img_14-465ebe13493656803616df45eb4cc08a.png" width="1910" height="1169" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_14-42c7b889074a77d72b9a8e9629da9596.png" width="1910" height="1169" class="img_ev3q"></p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="endpoints">Endpoints<a href="#endpoints" class="hash-link" aria-label="Direct link to Endpoints" title="Direct link to Endpoints">​</a></h4>
 <p>You can override or extend DIAL Core’s built-in protocol calls with your own HTTP services. Here, you can specify endpoints used by <a href="/tutorials/admin/builders-application-runners">Application Runners</a> (e.g. a Python or Node Runner) to perform preprocessing or policy checks before delegating to your underlying models and workflows.</p>
 <table><thead><tr><th>Field</th><th>Description &amp; When to Use</th></tr></thead><tbody><tr><td><strong>Rate endpoint</strong></td><td>A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).</td></tr><tr><td><strong>Tokenize endpoint</strong></td><td>A URL to call a custom tokenization service. When you need precise, app-wide token counting (for mixed-model or multi-step prompts) that the model adapter can’t provide.</td></tr><tr><td><strong>Truncate prompt endpoint</strong></td><td>A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual application call.</td></tr><tr><td><strong>Configuration endpoint</strong></td><td>A URL to fetch dynamic app-specific settings (e.g. per-tenant max tokens, allowed parameters). Use this to drive runtime overrides from a remote config store.</td></tr></tbody></table>
@@ -104,7 +104,7 @@
 <blockquote>
 <p>Refer to <a href="/platform/core/access-control-intro">Access &amp; Cost Control</a> to learn more about roles and rate limits in DIAL.</p>
 </blockquote>
-<p><img loading="lazy" src="/assets/images/img_15-40a7ac67649a78864c476a16e59102a5.png" width="1910" height="898" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_15-f880566cdbec1c9d19c7c3b5b3c91c6e.png" width="1910" height="898" class="img_ev3q"></p>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="roles-grid">Roles grid<a href="#roles-grid" class="hash-link" aria-label="Direct link to Roles grid" title="Direct link to Roles grid">​</a></h5>
 <table><thead><tr><th>Column</th><th>Description &amp; Guidance</th></tr></thead><tbody><tr><td><strong>Name</strong></td><td>A unique role identifier.</td></tr><tr><td><strong>Description</strong></td><td>A user-friendly description of the role (e.g., &quot;Admin, Prompt Engineer, Developer&quot;).</td></tr><tr><td><strong>Tokens per minute</strong></td><td>Per Minute tokens limit for a specific role. Blank = no limits.<br> Inherits the <a href="#default-rate-limits">default value</a>.<br> Can be overridden.</td></tr><tr><td><strong>Tokens per day</strong></td><td>Daily tokens limit for a specific role. Blank = no limits. <br>Inherits the <a href="#default-rate-limits">default value</a>. <br>Can be overridden.</td></tr><tr><td><strong>Tokens per week</strong></td><td>Weekly tokens limit for a specific role. Blank = no limits. <br>Inherits the <a href="#default-rate-limits">default value</a>. <br>Can be overridden.</td></tr><tr><td><strong>Tokens per month</strong></td><td>Monthly tokens limit for a specific role. Blank = no limits.<br> Inherits the <a href="#default-rate-limits">default value</a>. <br>Can be overridden.</td></tr><tr><td><strong>Actions</strong></td><td>Additional role-specific actions. <br> Open <a href="/tutorials/admin/access-management-roles">Roles</a> section in a new tab. <br> Make all restrictions unlimited for the given role</td></tr></tbody></table>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="set-rate-limits">Set Rate Limits<a href="#set-rate-limits" class="hash-link" aria-label="Direct link to Set Rate Limits" title="Direct link to Set Rate Limits">​</a></h4>
@@ -144,7 +144,7 @@
 <blockquote>
 <p>Refer to <a href="/platform/core/interceptors">Interceptors</a> to learn more.</p>
 </blockquote>
-<p><img loading="lazy" src="/assets/images/img_16-37d78ef15df858e4adf8383642565023.png" width="1904" height="891" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_16-71274dd0827e14134f429f39bfb26a3d.png" width="1904" height="891" class="img_ev3q"></p>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="the-difference-between-model-and-application-interceptors">The difference between model and application interceptors<a href="#the-difference-between-model-and-application-interceptors" class="hash-link" aria-label="Direct link to The difference between model and application interceptors" title="Direct link to The difference between model and application interceptors">​</a></h5>
 <p><strong>Scope of Invocation</strong></p>
 <ul>
