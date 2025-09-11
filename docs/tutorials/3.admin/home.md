@@ -56,6 +56,10 @@ The Home screen gives you a high-level overview of your environment and fast acc
   * **Override**: During the import process, any artifact in the archive that matches an existing artifact in DIAL by the identifier will **override** the existing artifact.
   * **Skip**: Any artifact in the archive that matches an existing artifact in DIAL by the identifier will be **ignored**, and the existing artifact will remain unchanged.
 
+Click Next to preview the configuration to be imported and then click Import button:
+
+![](img/img_56_1.png)
+
 ### Export Config
 
 **Export Config** allows you to download the configuration of the current instance as an archived *.json* file. Great for backups, audit snapshots, or sharing with teammates.

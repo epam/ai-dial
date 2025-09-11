@@ -258,6 +258,58 @@ You can define Interceptors in the [Entities → Interceptors](/docs/tutorials/3
 2. Choose **Remove** to detach it from this application.
 3. **Save** to lock-in the interceptors list
 
+### Dependencies
+This tab lists other entities Models or Applications that the current Application depends on. Administrators can manually add new dependencies (by selecting from available Models and Applications) or remove the existing ones.
+
+![](img/102.png)
+
+| Column           | Description                                                                                 |
+|------------------|---------------------------------------------------------------------------------------------|
+| **Entity Type**  | Indication whether dependent object is an Application or a Model.                           |
+| **ID**           | Identifier of the respective model or application.                                          |
+| **Display Name** | Descriptive name of the dependent model or application.                                     |
+| **Version**      | Version of the dependent model or application.                                              |
+| **Description**  | Additional textual details about the dependent model or application.                        |
+| **Actions**      | Allows to open the dependent object in new tab or remove it from the list of dependencies.  |
+
+
+#### Add
+
+1. Click **+ Add** (in the upper-right of the dependencies grid).
+2. Select the type of object to add: Application or Model.
+3. In the modal window, choose model or application existing in DIAL from the grid.
+4. **Add** to append them to the dependencies grid.
+
+![](img/101.png)
+
+### App Routes
+
+App Routes tab is introduced to manage application-specific routes. The tab includes a left-hand pane listing all app-related routes. 
+If the application is endpoints-based, tab allows creating, viewing, editing, and deleting routes.
+If the application is app runner-based, tab allows only viewing routes inherited from the app runner.
+
+#### Properties
+
+Properties sub-tab allows to configure route identity and requests handling behavior.
+
+> Configuration of this tab is similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
+
+![103.png](img/103.png)
+
+#### Attachments
+
+Attachments sub-tab enables to configure attachment paths for both requests and responses.
+
+![104.png](img/104.png)
+
+#### Roles
+
+Sub-tab enables route-specific role assignments, allowing administrators to control access to each individual route.
+
+> Configuration of this tab is similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
+
+![105.png](img/105.png)
+
 ### Audit
 
 #### Dashboard

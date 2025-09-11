@@ -73,7 +73,7 @@ Use the output mode to define the response of a Route.
 
 Define where and how to forward requests when the **Upstreams** [output mode](#output-mode) is selected.
 
-| Field                  | Required | Description & Use Case  |
+| Field                  | Required | Definition  |
 |------------------------|-----------|-------------------------|
 | **Upstream Endpoints** | Yes   | Full URL(s) of the back-end service(s) to receive the routed request (e.g. `https://dial-core.example.com/v1/chat`).  |
 | **Keys**               | No        | API key or token to attach (via header or query) when calling the upstream. Click the eye icon to reveal a masked value. |
@@ -86,11 +86,17 @@ Define where and how to forward requests when the **Upstreams** [output mode](#o
 
 Define where and how to forward requests when **Response** mode is selected:
 
-| Field                  | Required | What It Does                                                                                          |
+| Field                  | Required | Definition                                                                                          |
 |------------------------|-----------|-------------------------------------------------------------------------------------------------------|
 | **Status**             | No        | The HTTP status code your route will return (e.g. `200`, `404`, `503`).                               |
 | **Body**               | No        | The exact payload to send in the response body. You can enter plain text or raw JSON.                 |
 | **Max retry attempts** | No        | *(Optional)* Determines how many times DIAL will retry the static‐response logic on internal errors.  |
+
+##### Additional Parameters
+
+| Field     | Required | Definition                                                                                                                                                                            |
+|-----------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Order** | No       | The value of this parameter determines the order within the global routes. The lower value means the higher priority. The value can't be negative integer. The default one is 2^31-1. |
 
 ### Roles
 
