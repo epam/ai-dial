@@ -42,7 +42,7 @@ It lets you inspect exactly what changed in a resource, who did it, and when, wi
 
 #### Review Changes
 
-* **Comparison** drop-down on the top allows to choose whether to compare state of the artefact before and after the audit record. Or to compare state before the audit record and current state of the artefact.
+* **Comparison** dropdown at the top lets you compare the artefact’s state **before vs. after** the selected audit record, or **before** that record vs. the current **state**.
 * **View** drop-down on the top allows to choose whether to show all parameters or only ones having changes between compared artefact states.
 * **Categories** (e.g., *Features*, *Roles*, *Interceptors*). Groups all changes that belong to one logical section of the respective resource (Model, Application, etc.). Click to expand/collapse. A numeric badge shows the number of distinct changes.
 * **Before/After columns**. Side-by-side diff that shows the previous and resulting values for every field in the section. Each row is color-coded to signal the type of operation performed:

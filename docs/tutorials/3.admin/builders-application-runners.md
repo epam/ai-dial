@@ -101,7 +101,7 @@ By assigning applications here, you tell DIAL Core to dispatch orchestration pay
 
 ### App Routes
 
-App Routes tab is introduced to manage application-specific routes. The tab includes a left-hand pane listing all app runner-related routes. 
+App Routes tab is introduced to manage application runner-specific routes. The tab includes a left-hand pane listing all app runner-related routes. 
 Tab allows creating, viewing, editing, and deleting routes.
 
 #### Properties

@@ -94,9 +94,9 @@ Define where and how to forward requests when **Response** mode is selected:
 
 ##### Additional Parameters
 
-| Field     | Required | Definition                                                                                                                                                                            |
-|-----------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Order** | No       | The value of this parameter determines the order within the global routes. The lower value means the higher priority. The value can't be negative integer. The default one is 2^31-1. |
+| Field     | Required | Definition                                                                                                                                                                             |
+|-----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Order** | No       | The value of this parameter determines the order within the global routes. The lower value means the higher priority. The value can't be negative integer. The default one is 2\^31-1. |
 
 ### Roles
 

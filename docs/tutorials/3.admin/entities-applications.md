@@ -285,8 +285,8 @@ This tab lists other entities Models or Applications that the current Applicatio
 ### App Routes
 
 App Routes tab is introduced to manage application-specific routes. The tab includes a left-hand pane listing all app-related routes. 
-If the application is endpoints-based, tab allows creating, viewing, editing, and deleting routes.
-If the application is app runner-based, tab allows only viewing routes inherited from the app runner.
+If the application is created based on a specific application runner, tab allows only viewing routes inherited from the app runner. 
+Otherwise, it allows creating, viewing, editing, and deleting routes.
 
 #### Properties
 
