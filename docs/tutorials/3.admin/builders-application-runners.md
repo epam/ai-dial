@@ -99,6 +99,36 @@ By assigning applications here, you tell DIAL Core to dispatch orchestration pay
 1. Click the **actions** menu in the application’s line.
 2. Choose **Remove** in the menu.
 
+### App Routes
+
+App Routes tab is introduced to manage application runner-specific routes. The tab includes a left-hand pane listing all app runner-related routes. 
+Tab allows creating, viewing, editing, and deleting routes.
+
+#### Properties
+
+Properties sub-tab allows to configure route identity and requests handling behavior.
+
+> Configuration of this tab is similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
+
+![106.png](img/106.png)
+
+#### Attachments
+
+Attachments sub-tab enables to configure attachment paths for both requests and responses.
+
+![107.png](img/107.png)
+
+#### Roles
+
+Sub-tab enables route-specific role assignments, allowing administrators to control access to each individual route.
+
+> Configuration of this tab is mostly similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
+
+Inherit Application Roles option allows to use the roles assigned to application which is built on a given runner.
+
+![108.png](img/108.png)
+
+
 ### JSON Editor
 
 For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any application runners configuration page.

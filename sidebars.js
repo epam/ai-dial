@@ -606,7 +606,7 @@ const sidebars = {
                 },
                 {
                   type: 'category',
-                  label: 'Telemetry',
+                  label: 'Audit',
                   items: [
                     {
                       type: 'doc',
@@ -616,7 +616,7 @@ const sidebars = {
                     {
                       type: 'doc',
                       id: 'tutorials/admin/telemetry-activity-audit',
-                      label: 'Activity Audit',
+                      label: 'Activities',
                     },
                   ]
                 }
