@@ -664,7 +664,7 @@
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
-      "secret": "quoiyahCha7ool5l",
+      "secret": "keycloak_secret",
       "redirectUris": [
         "http://localhost:3000/*"
       ],
@@ -755,7 +755,7 @@
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
-      "secret": "quoiyahCha7ool5l",
+      "secret": "keycloak_secret",
       "redirectUris": [
         "http://localhost:3002/*"
       ],

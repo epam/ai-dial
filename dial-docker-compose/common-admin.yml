@@ -4,7 +4,7 @@ include:
 services:
 
   admin-backend:
-    image: epam/ai-dial-admin-backend:0.6.1
+    image: epam/ai-dial-admin-backend:0.7.1
     user: root
     environment:
       CONFIG_EXPORT_OUTPUTFILE_PATH: /app/config/config.json
@@ -13,6 +13,7 @@ services:
       DEBUG_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006"
       DISABLE_SWAGGER_AUTHORIZATION: true
       DIAL_ADMIN_CLIENT_ID: "dial-admin-console"
+      ENABLE_CONFIG_AUTO_IMPORT_ON_BOOTSTRAP: "true"
       H2_DATASOURCE_ENCRYPTED_FILE_KEY: ${H2_DATASOURCE_ENCRYPTED_FILE_KEY}
       H2_DATASOURCE_MASTER_KEY: ${H2_DATASOURCE_MASTER_KEY}
       H2_DATASOURCE_PASSWORD: ${H2_DATASOURCE_PASSWORD}
