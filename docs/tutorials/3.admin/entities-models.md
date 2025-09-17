@@ -27,8 +27,10 @@ On the **Models** page, you can find all language models (LLMs) deployed on your
 | **Display Name**          | A user-friendly label for a model (e.g. "GPT-4 Turbo"). Display name is shown in all DIAL client UI dropdowns, tables, and logs so operators can quickly identify the model.                                                                                                                                                                                                                         |
 | **Version**               | An **optional** tag or a label for this model deployment (e.g. `0613`, `v1`). Use it to distinguish between "latest," "beta," or date-stamped builds.                                                                                                                                                                                                                                                |
 | **Description**           | Free-text notes about this model’s purpose, training data, cost tier, or any other relevant details.                                                                                                                                                                                                                                                                                                 |
-| **Deployment ID**         | This is a unique key under the `models` section of [DIAL Core’s config](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings). Must match the upstream service’s model or deployment name (e.g. `gpt-4-0613`).                                                                                                                                                                   |
-| **Adapter**               | The identifier of the connector that handles requests for a model (**OpenAI** or **DIAL**). The adapter provides authentication, request formatting, and response parsing for the underlying LLM API.  Refer to [LLM Adapters](/docs/platform/2.supported-models.md#llm-adapters) to learn more.                                                                                                     |
+| **ID**                    | This is a unique key under the `models` section of [DIAL Core’s config](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings). Must match the upstream service’s model or deployment name (e.g. `gpt-4-0613`).                                                                                                                                                                   |
+| **Source Type**           | Can be one of the following options: Adapter, Model Container, External Endpoint.                                                                                                                                                                                                                                                                                                                    |
+| **Source**                | Exact Adapter Id, Model deployment Id or Endpoint of the model.                                                                                                                                                                                                                                                                                                                                      |
+| **Author**                | Contains e-mail of model's author.                                                                                                                                                                                                                                                                                                                                                                   |
 | **Type**                  | Defines **Chat** (conversational completions) and **Embedding** models (vector generation). DIAL Core uses this to choose the correct API endpoint and a payload schema.                                                                                                                                                                                                                             |
 | **Override Name**         | An optional, context-specific display label that supersedes **Display Name** in dropdowns or tables for certain routes or applications. Use it to give a model different aliases in different workflows without redefining the model.                                                                                                                                                                |
 | **Topics**                | Tags or categories (e.g. "finance," "support," "image-capable") you can assign for discovery, filtering, or grouping in large deployments. Helps end users and admins find the right model by the use case. Topics are also used to filter models in [DIAL Marketplace](/docs/platform/4.chat/1.marketplace.md).                                                                                     |
@@ -45,17 +47,20 @@ On the **Models** page, you can find all language models (LLMs) deployed on your
 1. Click **+ Create** to invoke a **Create Model** modal.
 2. Define parameters:
 
-    | Field             | Required | Definition & Guidance          |
-    |-------------------|-----------|---------------------|
-    | **Deployment ID** | Yes   | A unique identifier used by the model adapter to invoke the model's backend.     |
-    | **Display Name**  | Yes   | A user-friendly label shown across the UI (e.g. "GPT-4 Turbo"). |
-    | **Version**       | No        | Version is an optional tag to track releases when you register multiple variants of the same model. (e.g. `2024-07-18`, `v1`)   |
-    | **Description**   | No        | Free-text note about the model’s purpose or distinguishing traits.      |
-    | **Adapter**       | Yes   | A model adapter that will handle requests to this model (e.g. OpenAI, DIAL). The chosen adapter supplies authentication, endpoint URL, and request formatting. |
+| Field            | Required     | Definition & Guidance                                                                                                                                                                                |
+|------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ID**           | Yes          | A unique identifier used by the model adapter to invoke the model's backend.                                                                                                                         |
+| **Display Name** | Yes          | A user-friendly label shown across the UI (e.g. "GPT-4 Turbo").                                                                                                                                      |
+| **Version**      | No           | Version is an optional tag to track releases when you register multiple variants of the same model. (e.g. `2024-07-18`, `v1`)                                                                        |
+| **Description**  | No           | Free-text note about the model’s purpose or distinguishing traits.                                                                                                                                   |
+| **Source Type**  | Yes          | Allows to select one of the following options: Adapter, Model Container, External Endpoint.                                                                                                          |
+| **Adapter**      | Conditional  | Required if Source Type is 'Adapter'. A model adapter that will handle requests to this model (e.g. OpenAI, DIAL). The chosen adapter supplies authentication, endpoint URL, and request formatting. |
+| **Container**    | Conditional  | Required if Source Type is 'Model Container'. Allows to select one of Model deployments in DIAL instance (must be in Running state).                                                                 |
+| **Endpoint**     | Conditional  | Required if Source Type is 'External Endpoint'. URL that DIAL Core will invoke for this model.                                                                                                       |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#model-configuration). When done with model configuration, click **Save**. It may take some time for the changes to take effect after saving. Once added, the model appears in the **Models** listing and can be used by Routes and Applications.
 
-        ![](img/img_4.png)
+![](img/img_4.png)
 
 ## Model Configuration
 
@@ -76,7 +81,7 @@ You can access the model configuration screen by clicking any model in the model
 
 In the **Properties** tab, you can view and edit main definitions and runtime settings for model deployment. 
 
-* [Basic identification](#basic-identification): Deployment ID, Display Name, Version, Description.
+* [Basic identification](#basic-identification): ID, Display Name, Version, Description.
 * [Adapter & Endpoint](#adapter--endpoint): Select the Adapter, API Type (Chat or Embedding), and read-only Endpoint URL.
 * [Presentation & Attachments](#presentation--attachments): Override name, icon, topics, and attachment types.
 * [Upstream Configuration](#upstream-configuration): Define upstream endpoints, authentication keys, weights, and extra data.
@@ -85,23 +90,46 @@ In the **Properties** tab, you can view and edit main definitions and runtime se
 
 ![](img/img_5.png)
 
-##### Basic Identification
+##### Basic Identification and Information
 
-| Field             | Required | Description                                                                                                                                                                              |
-|-------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Deployment ID** | Yes      | A unique key DIAL Core uses in the `models` section. Must match the upstream’s deployment or model name (e.g. `gpt-4o`, `gpt-4-turbo`).  Routes refer to this ID when selecting a model. |
-| **Display Name**  | Yes      | User-friendly label shown in tables and dropdowns in DIAL clients (e.g. "GPT-4o").   Helps users identify and select models on UI.                                                       |
-| **Version**       | No       | An optional version tag for tracking releases (e.g. `0613`, `v1`).   Useful for A/B testing or canary rollouts.                                                                          |
-| **Description**   | No       | Free-text note describing the model’s purpose, fine-tune details, or its cost tier.                                                                                                      |
-| **Maintainer**    | No       | Field used to specify the responsible person or team overseeing the model’s configuration.                                                                                               |
+| Field             | Required | Description                                                                                                                                                                   |
+|-------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ID**            | -        | A unique key DIAL Core uses in the `models` section. Must match the upstream’s deployment or model name (e.g. `gpt-4o`, `gpt-4-turbo`). Non-editable after the model created. |
+| **Updated Time**  | -        | Date and time when the model's configuration was last updated.                                                                                                                |
+| **Creation Time** | -        | Date and time when the model's configuration was created.                                                                                                                     |
+| **Display Name**  | Yes      | User-friendly label shown in tables and dropdowns in DIAL clients (e.g. "GPT-4o").   Helps users identify and select models on UI.                                            |
+| **Version**       | No       | An optional version tag for tracking releases (e.g. `0613`, `v1`).   Useful for A/B testing or canary rollouts.                                                               |
+| **Description**   | No       | Free-text note describing the model’s purpose, fine-tune details, or its cost tier.                                                                                           |
+| **Maintainer**    | No       | Field used to specify the responsible person or team overseeing the model’s configuration.                                                                                    |
+| **Source Type**   | Yes      | Allows to select one of the following options: Adapter, Model Container, External Endpoint.                                                                                   |
 
-##### Adapter & Endpoint
+##### Adapter
+
+The following properties need to be specified if selected Source Type is Adapter:
 
 | Field        | Required | Description                                                                                                                                                                                                                                                                     |
 |--------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Adapter**  | Yes      | An option to select a [model adapter](/docs/platform/0.architecture-and-concepts/3.components.md#llm-adapters) (connector)to  handle requests to this model deployment (e.g. **OpenAI**, **DIAL**).  Adapter defines how to authenticate, format payloads, and parse responses. |
 | **Type**     | Yes      | A choice between **Chat** or **Embedding** API.  <br />**Chat** - for conversational chat completions.  <br />**Embedding** - for vector generation (semantic search, clustering).                                                                                              |
 | **Endpoint** | Yes      | URL that DIAL Core will invoke for this model/type. The base URL is determined by the selected adapter, while the path can be partially customized.                                                                                                                             |
+
+##### Model Container
+
+The following properties need to be specified if selected Source Type is Model Container:
+
+| Field          | Required | Description                                                                            |
+|----------------|----------|----------------------------------------------------------------------------------------|
+| **Container**  | Yes      | Allows to select one of Model deployments in DIAL instance (must be in Running state). |
+
+##### External Endpoint
+
+The following properties need to be specified if selected Source Type is External Endpoint:
+
+| Field        | Required | Description                                                                                                                                                                        |
+|--------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Type**     | Yes      | A choice between **Chat** or **Embedding** API.  <br />**Chat** - for conversational chat completions.  <br />**Embedding** - for vector generation (semantic search, clustering). |
+| **Endpoint** | Yes      | URL that DIAL Core will invoke for this model.                                                                                                                                     |
+
 
 ##### Presentation & Attachments
 
@@ -182,7 +210,7 @@ Each toggle corresponds to a capability in the [Unified Protocol](/docs/platform
 
 You can create and manage roles in the [Access Management](/docs/tutorials/3.admin/access-management-roles.md) section.
 
-In the **Roles** tab, you can define user groups that are authorized to use a specific model and enforce per-role rate limits. 
+In the **Roles** tab, you can define user groups that are authorized to use a specific model, enforce per-role rate limits and configure invitation settings. 
 This is essential for multi-tenant governance, quota enforcement, and cost control across teams or customers, preventing runaway costs by enforcing a hard ceiling.
 
 **Important**: if roles are not specified for a specific model, the model will be available to all users.
@@ -193,15 +221,17 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 
 ##### Roles grid
 
-| Column                | Description & Guidance    |
-|-----------------------|--------------------------|
-| **Name**              | A unique role's identifier.   |
-| **Description**       | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team").     |
-| **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.          |
-| **Tokens per day**    | Daily tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.           |
-| **Tokens per week**   | Weekly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.          |
-| **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.         |
-| **Actions**     | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **no limits** or  [remove](#remove-role) the role from the list.|
+| Column                | Description & Guidance                                                                                                                                                                                                                                                                                                                                                                                                                |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Name**              | A unique role's identifier.                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Description**       | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team").                                                                                                                                                                                                                                                                                                                                             |
+| **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                                                                                                                                                                                                                                                                                |
+| **Tokens per day**    | Daily tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                                                                                                                                                                                                                                                                                     |
+| **Tokens per week**   | Weekly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                                                                                                                                                                                                                                                                                    |
+| **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                                                                                                                                                                                                                                                                                   |
+| **Expiration time**   | The maximum number of users who can accept a shared resource.                                                                                                                                                                                                                                                                                                                                                                         |
+| **Max users**         | TTL (Time To Live) of the invitation link to a shared resource.                                                                                                                                                                                                                                                                                                                                                                       |
+| **Actions**           | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **no limits** or  [remove](#remove-role) the role from the list. |
 
 #### Set Rate Limits
 
@@ -217,12 +247,15 @@ The grid on the Roles screen lists the roles that can access a specific model. H
 
 Default limits are set for all roles in the **Roles** grid by default; however you can override them as needed.
 
-| Field  | Description      |
-|-------------------------------|---|
+| Field                         | Description                                                                             |
+|-------------------------------|-----------------------------------------------------------------------------------------|
 | **Default tokens per minute** | The maximum tokens any user can consume per minute unless a specific limit is in place. |
 | **Default tokens per day**    | The maximum tokens any user can consume per day unless a specific limit is in place.    |
 | **Default tokens per week**   | The maximum tokens any user can consume per week unless a specific limit is in place.   |
 | **Default tokens per month**  | The maximum tokens any user may consume per month unless a specific limit is in place.  |
+| **Expiration time**           | The default maximum number of users who can accept a shared resource.                   |
+| **Max users**                 | The default TTL (Time To Live) of the invitation link to a shared resource.             |
+
 
 #### Role-Specific Access
 
