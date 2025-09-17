@@ -46,6 +46,11 @@ const sidebars = {
             },
             {
               type: 'doc',
+              id: 'platform/architecture-and-concepts/app-server',
+              label: 'Application Server',
+            },
+            {
+              type: 'doc',
               id: 'platform/architecture-and-concepts/stack',
               label: 'DIAL Stack',
             },
@@ -536,6 +541,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/builders-interceptor-templates',
+                      label: 'Interceptor Templates',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/builders-adapters',
                       label: 'Adapters',
                     },
@@ -601,7 +611,7 @@ const sidebars = {
                 },
                 {
                   type: 'category',
-                  label: 'Telemetry',
+                  label: 'Audit',
                   items: [
                     {
                       type: 'doc',
@@ -611,7 +621,7 @@ const sidebars = {
                     {
                       type: 'doc',
                       id: 'tutorials/admin/telemetry-activity-audit',
-                      label: 'Activity Audit',
+                      label: 'Activities',
                     },
                   ]
                 }
