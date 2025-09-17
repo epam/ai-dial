@@ -28,19 +28,23 @@ This basic tutorial demonstrates how to configure [Azure AD B2C](https://learn.m
 Follow these steps to configure Azure AD B2C:
 
 1. Create a **B2C Tenant** if you do not have one: Refer to [Azure tutorials](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-tenant) to learn how to do this. Save the **tenant id** (`<azure_b2c_tenant_id>`) - you will need it to configure DIAL Chat `AUTH_AZURE_B2C_TENANT_ID` environment variable.
-2. Register an enterprise **Web Application**: Refer to [Azure tutorials](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-register-applications) for detailed instructions on how to register a Web application. Upon the registration, make sure to get the following details - you will need them to configure DIAL:
-    - Application ID: The application ID assigned to your app in the Azure portal (`<azure_b2c_app_id>`)
-    - Redirect URI: A URI where authentication responses are sent and received by your app. Follow this format - `<chat_url>/api/auth/callback/azure-ad-b2c`. Replace `<chat_url>` with the actual address of your DIAL Chat application.
-
+2. Register an enterprise **Web Application**: Refer to [Azure tutorials](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-register-applications) for detailed instructions on how to register a Web application. 
 ![](../../img/b2c-register-web-app.png)
 
+    Upon the registration, make sure to get the following details - you will need them to configure DIAL:
+        - Application ID: Identifier associated with your application in the Azure portal (`<azure_b2c_app_id>`)
+        - Redirect URI: A URI where authentication responses are sent and received by your app. Follow this format - `<chat_url>/api/auth/callback/azure-ad-b2c`. Replace `<chat_url>` with the actual address of your DIAL Chat application.
 3. Create a **Client secret**: Refer to [Azure tutorials](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-register-applications#create-a-client-secret) to learn how to do this. Save a client secret `<azure_b2c_client_secret>` and a `<azure_b2c_client_id>` - you will need them to configure DIAL CHAT `AUTH_AZURE_B2C_SECRET` and `AUTH_AZURE_B2C_CLIENT_ID` environment variables.
 4. Create a **Scope**: Scopes are used to manage permissions to protected resources. In the section **Manage/Expose an API**, add a custom scope `Chat.Login` (`<azure_b2c_tenant_id>.onmicrosoft.com/<azure_b2c_app_id>/Chat.Login`).  You will need it to configure DIAL Chat `AUTH_AZURE_B2C_SCOPE` environment variable. Refer to Azure tutorials to learn [how to configure scopes](https://learn.microsoft.com/en-us/azure/active-directory-b2c/configure-authentication-sample-spa-app?tabs=app-reg-ga#step-22-configure-scopes). 
 5. Configure **API Permissions**: To call a protected web API from an application, you need to grant your application permissions to the API. In **App registrations/App registration name/Manage/API Permissions** section, add a Delegated permission type for the custom scope you have created in the previous step and [OpenID scopes](https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc#openid-connect-scopes) `openid`, `profile`, `email`, and `offline_access`. Refer to [Azure documentation](https://learn.microsoft.com/en-us/azure/active-directory-b2c/add-web-api-application#grant-permissions) for more details.
 
-![](../../img/b2c-api-permissions.png)
+    ![](../../img/b2c-api-permissions.png)
 
 6. Create a **User Flow**:  A business logic that users follow to gain access to your application. Refer to [Azure tutorials](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-user-flow) to learn how to do this. Save the `USER_FLOW_NAME`. You will need it to configure DIAL Chat `AUTH_AZURE_B2C_USER_FLOW` environment variable.
+
+    DIAL Chat application uses [NextAuth.js](https://next-auth.js.org/) for authentication, which requires claims `sub`, `name` and `emails` to be a part of JWT to authenticate users. **Important**: Make sure the identity provider in your User Flow includes these claims in JWT. 
+
+    To enable role-based access to applications, models and toolsets in DIAL, JWT must include specific claims that will be used in [userRoles](#assignment-of-roles), [DIAL Core static settings](#dial-core-settings) for `rolePath`, and in `AUTH_AZURE_B2C_ADMIN_ROLE_NAMES` and `AUTH_AZURE_B2C_DIAL_ROLES_FIELD` DIAL Chat environment variables. 
 
 
 ### Configure DIAL
@@ -96,7 +100,7 @@ aidial.identityProviders.azureb2c.userDisplayName : name #claim from a user flow
 
 To limit access to DIAL resources (applications, models, toolsets) based on Use Flow, configure the DIAL Core by adjusting the [Dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings): set the `userRoles` parameter to align with the desired claims.
 
-In the provided example, users assigned the `user-group-name` group will have access to the `chat-gpt-35-turbo` model.
+In the provided example, users assigned the role in `userRoles` will have access to the `chat-gpt-35-turbo` model.
 
 ```json
 {
@@ -111,7 +115,7 @@ In the provided example, users assigned the `user-group-name` group will have ac
         }
       ],
       "userRoles": [
-        "user-group-name" //A specific claim value defined in the User Flow
+        "roles" //A specific claim value from JWT as per identity provider in the User Flow
       ]
     }
   }
