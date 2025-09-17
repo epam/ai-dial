@@ -9,11 +9,10 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 # Table of Contents
 - [Prerequisites](#prerequisites)
 - [Step 1: Configuring the AI Model](#step-1-configuring-the-ai-model)
-  - [Request Access to Models](#request-access-to-models)
   - [Create a Model Deployment](#create-a-model-deployment)
 - [Step 2: Get Access to AI Model](#step-2-get-access-to-ai-model)
-    - [Configure Azure OpenAI Model and Get API Key](#configure-azure-openai-model-and-get-api-key)
-    - [Configure Kubernetes Service Account](#configure-kubernetes-service-account)
+  - [Configure Azure OpenAI Model and Get API Key](#configure-azure-openai-model-and-get-api-key)
+  - [Configure Kubernetes Service Account](#configure-kubernetes-service-account)
 - [Step 3: Add Model to AI DIAL](#step-3-add-model-to-ai-dial)
   - [Add Model to AI DIAL Core Config](#add-model-to-ai-dial-core-config)
   - [Configure AI DIAL Adapter](#configure-ai-dial-adapter)
@@ -28,27 +27,21 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
 ## Step 1: Configuring the AI Model
 
-### Request Access to Models
-
 1. Login to the MS Azure portal (https://portal.azure.com/) with your credentials. Create an account if you do not have one.
 2. Navigate to Azure OpenAI and click **Create**.
-3. Follow [this link](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNTZBNzRKNlVQSFhZMU9aV09EVzYxWFdORCQlQCN0PWcu) in the notification message to request access.
-
-![](../img/step5.jpg)
-
-> **Important**: you can proceed with model creation only upon receiving the confirmation email.
+3. Fill in all the details and click **Create**.
 
 ### Create a Model Deployment
 
-1. Use the search bar to look up **Azure OpenAI** and click it to navigate to the **Azure AI Services|Azure OpenAI** page.
+1. Use the search bar to look up **Azure OpenAI** and click it to navigate to the **AI Foundry|Azure OpenAI** page.
    
    ![](../img/step2.jpg)
    
-2. You can now find your OpenAI model in the **Azure AI services** section. Click it to open and then click **Go to Azure OpenAI Studio** in the top bar.
+2. You can now find your OpenAI model in the **Azure OpenAI** section. Click it to open and then click **Go to Azure AI Foundry portal** in the top bar.
    
    ![](../img/step8.jpg)
    
-3. In Azure OpenAI Studio, click **Deployment** in the navigation menu and click **Create new deployment**. Fill in the required fields and click **Create** to create a model.
+3. In Azure AI Foundry, click **Model catalog** in the navigation menu. Search for needed model, open it and click **Use this model**. Fill in the required fields and click **Deploy** to deploy a model.
    
    ![](../img/step9.jpg)
 
@@ -56,20 +49,20 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
 ## Step 2: Get Access to AI Model
 
-#### Configure Azure OpenAI Model and Get API Key
+### Configure Azure OpenAI Model and Get API Key
 
-1. Go back to your model page and click **Keys and Endpoint**. In this section, you can find your key and endpoint that you will need to provide in AI DIAL configuration file.
+1. In Azure AI Foundry, click **Deployments** in the navigation menu, and open the model you deployed. In the **Endpoint** section you can find your Target URI and Key that you will need to provide in AI DIAL configuration file.
    
     ![](../img/step13.jpg)
 
-2. You can restrict access to your accounts based on a specific subset of networks by configuring network rules, only applications that access data through the designated set of networks are permitted to access the account. You can manage default network access rules for Azure AI services resources in **Resource Management/Networking**.
+2. You can restrict access to your accounts based on a specific subset of networks by configuring network rules, only applications that access data through the designated set of networks are permitted to access the account. You can manage default network access rules for your Azure OpenAI resources in **Resource Management/Networking**.
 
    > Refer to [Microsoft Documentation](https://learn.microsoft.com/en-us/azure/ai-services/cognitive-services-virtual-networks?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext&tabs=portal#manage-default-network-access-rules) to learn more.
    > Refer to [Microsoft Data Privacy Policy](https://learn.microsoft.com/en-us/legal/cognitive-services/openai/data-privacy) to learn how data provided by you to the Azure OpenAI service is processed, used, and stored.
 
    ![](../img/whitelisting.png)
 
-#### Configure Kubernetes Service Account
+### Configure Kubernetes Service Account
 
 In case your cluster is located at Azure, the best practice for using Azure OpenAI is to assign an Azure user-assigned managed identity to Kubernetes Service Account. You can do this using Microsoft Entra Workload ID with Azure Kubernetes Service.
 
@@ -85,7 +78,7 @@ To deploy a model to AI DIAL, it is necessary to add it to config and configure 
 
 Add your model with its parameters in the `models` section. 
 
-> Refer to [AI DIAL Core Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
+> Refer to [AI DIAL Core Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L183) to view an example.
 
 > Refer to [Configure core config](/docs/tutorials/2.devops/1.configuration/0.configuration-guide.md#core-parameters) to view the configuration of AI DIAL core parameters in the helm-based installation.
 
@@ -97,7 +90,7 @@ To work with models, we use applications called Adapters. You can configure Open
 
 #### Use Adapter with Azure OpenAI API Key
 
-In this scenario, it's enough to enable the adapter. Azure Open AI keys are located in the configuration file of AI DIAL Core. Any other configuration of the adapter is not required.
+In this scenario, it's enough to enable the adapter. Azure OpenAI keys are located in the configuration file of AI DIAL Core. Any other configuration of the adapter is not required.
 
 ```yaml
 openai:
