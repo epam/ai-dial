@@ -27,6 +27,8 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
 ## Step 1: Configuring the AI Model
 
+### Create Azure OpenAI resource
+
 1. Login to the MS Azure portal (https://portal.azure.com/) with your credentials. Create an account if you do not have one.
 2. Navigate to Azure OpenAI and click **Create**.
 3. Fill in all the details and click **Create**.
