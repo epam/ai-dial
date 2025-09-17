@@ -9,6 +9,7 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 # Table of Contents
 - [Prerequisites](#prerequisites)
 - [Step 1: Configuring the AI Model](#step-1-configuring-the-ai-model)
+  - [Create Azure OpenAI resource](#create-azure-openai-resource)
   - [Create a Model Deployment](#create-a-model-deployment)
 - [Step 2: Get Access to AI Model](#step-2-get-access-to-ai-model)
   - [Configure Azure OpenAI Model and Get API Key](#configure-azure-openai-model-and-get-api-key)
