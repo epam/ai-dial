@@ -1,0 +1,74 @@
+{
+  "routes": {},
+  "applications": {
+      "dial-rag" : {
+          "displayName": "Dial RAG",
+          "description": "RAG (Retrieval Augmented Generation)",
+          "endpoint": "http://dial-rag:5000/openai/deployments/dial-rag/chat/completions",
+          "inputAttachmentTypes": [
+              "*/*"
+          ]
+      }
+  },
+  "models": {
+     "gpt-4o": {
+         "type": "chat",
+         "displayName": "GPT-4o",
+         "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-4o/chat/completions",
+         "upstreams": [
+             {
+                 "endpoint": "http://azure_or_dial_deployment_host/openai/deployments/gpt-4o/chat/completions",
+                 "key": "AZURE_MODEL_OR_DIAL_API_KEY"
+             }
+         ],
+         "inputAttachmentTypes": [ "*/*" ]
+     },
+     "gpt-4o-mini": {
+         "type": "chat",
+         "displayName": "GPT-4o (mini)",
+         "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-4o-mini/chat/completions",
+         "upstreams": [
+             {
+                 "endpoint": "http://azure_or_dial_deployment_host/openai/deployments/gpt-4o-mini/chat/completions",
+                 "key": "AZURE_MODEL_OR_DIAL_API_KEY"
+             }
+         ],
+         "inputAttachmentTypes": [ "*/*" ]
+     },
+     "dall-e-3": {
+         "type": "chat",
+         "displayName": "DALL-E 3",
+         "features": {
+             "systemPromptSupported": false
+         },
+         "pricing": {
+             "unit": "token",
+             "prompt": "0",
+             "completion": "0.04"
+         },
+         "endpoint": "http://adapter-openai:5000/openai/deployments/dall-e-3/chat/completions",
+         "upstreams": [
+             {
+                 "endpoint": "http://azure_or_dial_deployment_host/openai/deployments/dall-e-3/images/generations",
+                 "key": "AZURE_MODEL_OR_DIAL_API_KEY"
+             }
+         ]
+     }
+  },
+  "keys": {
+    "dial_api_key": {
+      "project": "TEST-PROJECT",
+      "role": "default"
+    }
+  },
+  "roles": {
+    "default": {
+      "limits": {
+        "gpt-4o": {},
+        "gpt-4o-mini": {},
+        "dall-e-3": {},
+        "dial-rag": {}
+      }
+    }
+  }
+}
