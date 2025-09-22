@@ -87,6 +87,11 @@ const sidebars = {
             },
             {
               type: 'doc',
+              id: 'platform/core/token-limits-and-cost-control',
+              label: 'Token Limits and Cost Control',
+            },
+            {
+              type: 'doc',
               id: 'platform/core/per-request-keys',
               label: 'Per-Request Keys',
             },
