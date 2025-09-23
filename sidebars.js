@@ -515,6 +515,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/entities-toolsets',
+                      label: 'Toolsets',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/entities-interceptors',
                       label: 'Interceptors',
                     },
@@ -617,6 +622,11 @@ const sidebars = {
                       type: 'doc',
                       id: 'tutorials/admin/telemetry-activity-audit',
                       label: 'Activities',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/telemetry-usage-log',
+                      label: 'Usage Log',
                     },
                   ]
                 }
