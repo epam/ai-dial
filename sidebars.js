@@ -452,6 +452,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/devops/auth-and-access-control/configure-idps/azureb2c',
+                      label: 'Azure AD B2C',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/devops/auth-and-access-control/configure-idps/entraID',
                       label: 'Microsoft Entra ID',
                     },
