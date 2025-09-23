@@ -5,7 +5,7 @@
 Toolsets allow your apps to interact with external services to perform specific actions. 
 This feature enables your QuickApps to call external functions and services, enhancing their capabilities and enabling more complex workflows.
 
-> Refer to the [QuickApps](/docs/tutorials/0.user-guide.md#quick-apps) page for more details on apps configuration.
+> Refer to the [QuickApps Configuration](/docs/tutorials/1.developers/4.apps-development/5.quick-app-configuration.md) page for more details on apps configuration.
 
 ## Toolsets List
 
@@ -29,12 +29,12 @@ On the **Toolsets** page, you can find all toolsets existing in your DIAL instan
 1. Click **+ Create** to invoke a **Create Toolset** modal.
 2. Define parameters:
 
-| Field             | Required | Definition & Guidance                                                                         |
-|-------------------|----------|-----------------------------------------------------------------------------------------------|
-| **ID**            | Yes      | This is a unique key under the toolsets section of DIAL Admin.                                |
-| **Display Name**  | No       | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).                         |
-| **Description**   | No       | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details. |
-| **Base Endpoint** | Yes      | Root endpoint used to discover tools.                                                         |
+| Field             | Required | Definition & Guidance                                                                                                 |
+|-------------------|----------|-----------------------------------------------------------------------------------------------------------------------|
+| **ID**            | Yes      | This is a unique key under the toolsets section of DIAL Admin.                                                        |
+| **Display Name**  | No       | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).                                                 |
+| **Description**   | No       | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details.                         |
+| **Base Endpoint** | Yes      | Root endpoint of the toolset. This allows applications and LLMs to interact with its tools by invoking this endpoint. |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#toolset-configuration). When done with toolset configuration, click **Save**. It may take some time for the changes to take effect after saving.
 
@@ -72,12 +72,16 @@ In the **Properties** tab, you can view and edit main definitions and settings f
 | **Maintainer**          | No       | Field used to specify the responsible person overseeing the toolset’s configuration.                                                      |
 | **Icon**                | No       | A logo to visually distinguish toolsets in the UI.                                                                                        |
 | **Topics**              | No       | A tag that associates a toolsets with one or more topics or categories (e.g. "finance", "support").                                       |
-| **External Endpoint**   | Yes      | Root endpoint used to discover tools.                                                                                                     |
+| **External Endpoint**   | Yes      | Root endpoint of the toolset. This allows applications and LLMs to interact with its tools by invoking this endpoint.                     |
 | **Transport**           | Yes      | Default HTTP; choose SSE for server-sent events when supported.                                                                           |
 | **Max retry attempts**  | Yes      | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors). |
 
 
 ### Tools Overview
+
+Tools in toolsets are functionalities that can be used to extend the capabilities of your DIAL Quick Apps. 
+Tools can include applications or models deployed in DIAL, external services, and web APIs.
+E.g., allowing to fetch the weather forecast from external API, or to get the geocode by address in Google Maps. 
 
 The Tools Overview tab is where you define which tools belong to a toolset and can be used.
 
@@ -121,8 +125,8 @@ In the **Roles** tab, you can define user groups that are authorized to use a sp
 | **Tokens per day**    | Daily tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                                                                                                                                                                                                                                                                                     |
 | **Tokens per week**   | Weekly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                                                                                                                                                                                                                                                                                    |
 | **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                                                                                                                                                                                                                                                                                   |
-| **Expiration time**   | The maximum number of users who can accept a shared resource.                                                                                                                                                                                                                                                                                                                                                                         |
-| **Max users**         | TTL (Time To Live) of the invitation link to a shared resource.                                                                                                                                                                                                                                                                                                                                                                       |
+| **Expiration time**   | TTL (Time To Live) of the invitation link to a shared resource.                                                                                                                                                                                                                                                                                                                                                                       |
+| **Max users**         | The maximum number of users who can accept a shared resource.                                                                                                                                                                                                                                                                                                                                                                         |
 | **Actions**           | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **no limits** or  [remove](#remove-role) the role from the list. |
 
 #### Set Rate Limits
@@ -145,8 +149,8 @@ Default limits are set for all roles in the **Roles** grid by default; however y
 | **Default tokens per day**    | The maximum tokens any user can consume per day unless a specific limit is in place.    |
 | **Default tokens per week**   | The maximum tokens any user can consume per week unless a specific limit is in place.   |
 | **Default tokens per month**  | The maximum tokens any user may consume per month unless a specific limit is in place.  |
-| **Expiration time**           | The default maximum number of users who can accept a shared resource.                   |
-| **Max users**                 | The default TTL (Time To Live) of the invitation link to a shared resource.             |
+| **Expiration time**           | The default TTL (Time To Live) of the invitation link to a shared resource.             |
+| **Max users**                 | The default maximum number of users who can accept a shared resource.                   |
 
 
 #### Role-Specific Access
@@ -181,7 +185,7 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 
 The Activities section under the Audit tab of a specific toolset provides detailed visibility into all changes made to that toolset.
 
-This section mimics the functionality available in the global Audit → Activities menu, but is scoped specifically to the selected toolset.
+This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected toolset.
 
 ![](img/116.png)
 
@@ -214,7 +218,7 @@ To open Activity Details, click on the three-dot menu (⋮) at the end of a row 
 
 ### JSON Editor
 
-For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any toolset’s configuration page.
+For advanced scenarios like copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any toolset’s configuration page.
 
 ![ ](img/118.png)
 

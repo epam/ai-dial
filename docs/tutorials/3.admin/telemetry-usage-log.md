@@ -2,8 +2,8 @@
 
 ## About Usage Log
 
-The Usage Log captures individual Traces, each representing a single end-to-end interaction of a DIAL entity with an underlying model. 
-Also, it captures conversations which group individual traces into end‑to‑end user sessions, letting administrators see details and aggregated metrics per conversation.
+The Usage Log records Traces—each one a single end-to-end interaction between a user and a DIAL entity (application or model). 
+It also records Conversations, which group related traces into complete user sessions so administrators can review details and see aggregated metrics at the conversation level.
 
 ##### Top Bar Controls
 
@@ -30,8 +30,8 @@ Tab shows individual Traces. Each entry represents a single end-to-end interacti
 | Number of request messages | Number of discrete request messages that were included in the trace.                         |
 | Deployment ID              | Identifier of the DIAL deployment used to serve this trace.                                  |
 | Parent Deployment ID       | Identifier of the parent deployment (e.g., application that was using the underlying model). |
-| Model                      | Identifier of the underlying model used to carry out the trace the trace.                    |
-| Project                    | Project to which this trace is attributed in DIAL.                                           |
+| Model                      | Identifier of the underlying model used to carry out the trace.                              |
+| Project                    | Project to which this trace associated in DIAL.                                              |
 | Upstream                   | The upstream endpoint (e.g., completions endpoint of the model).                             |
 | Execution path             | The execution path of the trace.                                                             |
 | User                       | Identifier of the end user who initiated the trace.                                          |
@@ -61,7 +61,7 @@ Tab groups individual traces into end‑to‑end user sessions, showing details 
 | Total price                | Aggregated cost for the conversation.                                                          |
 | Number of request messages | Total number of discrete request messages included in the conversation.                        |
 | Deployment ID              | Identifier of the deployment associated with the conversation.                                 |
-| Project                    | Project to which the conversation is attributed.                                               |
+| Project                    | Project to which the conversation associated in DIAL.                                          |
 | User                       | Identifier of the end user who initiated the conversation.                                     |
 | User title                 | Name of the user (if available).                                                               |
 | Language                   | Detected language for the conversation (e.g., `en`).                                           |
