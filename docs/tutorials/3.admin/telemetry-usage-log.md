@@ -2,8 +2,9 @@
 
 ## About Usage Log
 
-The Usage Log records Traces—each one a single end-to-end interaction between a user and a DIAL entity (application or model). 
-It also records Conversations, which group related traces into complete user sessions so administrators can review details and see aggregated metrics at the conversation level.
+The Usage Log captures traces.
+Each trace is a separate end-to-end interaction between a user and a DIAL entity (application or model).
+In Usage Log, you can also see traces grouped into conversation sessions, so you can review details and see aggregated metrics at the conversation level
 
 ##### Top Bar Controls
 
