@@ -457,6 +457,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/devops/auth-and-access-control/configure-idps/azureb2c',
+                      label: 'Azure AD B2C',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/devops/auth-and-access-control/configure-idps/entraID',
                       label: 'Microsoft Entra ID',
                     },
@@ -517,6 +522,11 @@ const sidebars = {
                       type: 'doc',
                       id: 'tutorials/admin/entities-applications',
                       label: 'Applications',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/entities-toolsets',
+                      label: 'Toolsets',
                     },
                     {
                       type: 'doc',
@@ -622,6 +632,11 @@ const sidebars = {
                       type: 'doc',
                       id: 'tutorials/admin/telemetry-activity-audit',
                       label: 'Activities',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/telemetry-usage-log',
+                      label: 'Usage Log',
                     },
                   ]
                 }
