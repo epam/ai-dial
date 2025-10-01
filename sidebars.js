@@ -318,6 +318,11 @@ const sidebars = {
                 },
                 {
                   type: 'doc',
+                  id: 'tutorials/developers/integrations/msteams-bot',
+                  label: 'Integration with MS Teams',
+                },
+                {
+                  type: 'doc',
                   id: 'tutorials/developers/integrations/vscode-extension',
                   label: 'Integration with Continue',
                 },
