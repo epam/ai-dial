@@ -323,15 +323,31 @@ const sidebars = {
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/developers/integrations/vscode-extension',
-                  label: 'Integration with Continue',
-                },
-                {
-                  type: 'doc',
                   id: 'tutorials/developers/integrations/n8n-integration',
                   label: 'Integration with n8n',
                 },
-              ],
+                {
+                  type: 'category',
+                  label: 'Integrations with Code Assistants',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/integrations/vscode-extension',
+                      label: 'Integration with Continue',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/integrations/cline',
+                      label: 'Integration with Cline',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/integrations/roocode',
+                      label: 'Integration with Roo Code',
+                    },
+                  ],
+                },
+              ]
             },
             {
               type: 'doc',
