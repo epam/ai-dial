@@ -87,6 +87,11 @@ const sidebars = {
             },
             {
               type: 'doc',
+              id: 'platform/core/token-limits-and-cost-control',
+              label: 'Token Limits and Cost Control',
+            },
+            {
+              type: 'doc',
               id: 'platform/core/per-request-keys',
               label: 'Per-Request Keys',
             },
@@ -310,6 +315,11 @@ const sidebars = {
                   type: 'doc',
                   id: 'tutorials/developers/integrations/ms-excel-addin',
                   label: 'Integration with MS Excel',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/integrations/msteams-bot',
+                  label: 'Integration with MS Teams',
                 },
                 {
                   type: 'doc',
