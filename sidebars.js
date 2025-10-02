@@ -36,6 +36,16 @@ const sidebars = {
             },
             {
               type: 'doc',
+              id: 'platform/core/auth-intro',
+              label: 'Authentication',
+            },
+            {
+              type: 'doc',
+              id: 'platform/architecture-and-concepts/access-control',
+              label: 'Access Control Overview',
+            },
+            {
+              type: 'doc',
               id: 'platform/architecture-and-concepts/components',
               label: 'Platform Components',
             },
@@ -69,11 +79,6 @@ const sidebars = {
               type: 'doc',
               id: 'platform/core/about-core',
               label: 'About',
-            },
-            {
-              type: 'doc',
-              id: 'platform/core/auth-intro',
-              label: 'Authentication',
             },
             {
               type: 'doc',
