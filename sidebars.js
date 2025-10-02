@@ -78,7 +78,7 @@ const sidebars = {
             {
               type: 'doc',
               id: 'platform/core/access-control-intro',
-              label: 'Access & Cost Control',
+              label: 'Access Control',
             },
             {
               type: 'doc',
