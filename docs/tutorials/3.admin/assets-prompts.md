@@ -17,20 +17,30 @@ In the Prompts section, you can manage all system and user prompt templates. Her
 
 ##### Folders Structure (Left Pane)
 
-| Element                     | Behavior                                                                                  |
-|-----------------------------|-------------------------------------------------------------------------------------------|
-| **Root folder**           | A root folder with all shared prompts. It is visible to all users.                     |
-| **Sub-folders**    | Collapsible folders you create to group prompts by project, team, domain, or environment. |
+| Element                | Behavior                                                                                                                                    |
+|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| **Root folder**        | A root folder with all shared prompts. It is visible to all users.                                                                          |
+| **Sub-folders**        | Collapsible folders you create to group prompts by project, team, domain, or environment.                                                   |
+| **Collapse All**       | Allows to collapse all expanded folders in the folders tree.                                                                                |
+| **Context actions**    | Hover the folder to see additional actions.                                                                                                 |
+| **+ (Create)**         | Allows to create new child or sibling folder and import the prompts into it. Same flow as [Import](#import), but also requires folder name. |
+| **Rename**             | Allows to rename the folder. Requires folder name to be provided.                                                                           |
+| **Move to**            | Allows moving the folder to another place in the folders tree.                                                                              |
+| **Manage permissions** | Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.                 |
+| **Delete**             | Deletes the folder and all its prompts. Requires confirmation.                                                                              |
+
+
+![ ](img/img_32_1.png)
 
 ##### Prompts Grid (Right Pane)
 
-| Column            | Definition                                                                         |
-|-------------------|------------------------------------------------------------------------------------|
-| **Name**          | A technical key for the prompt (e.g. `customer_onboarding_intro`).                   |
-| **Version**       | Semantic version of this prompt template (e.g. `1.0.0`).                           |
-| **Author**        | A username or system ID of the prompt author/editor.                    |
-| **Update time**   | The timestamp of the last modification of the prompt. Use to track changes. |
-| **Actions** | Row menu with available actions: <br />- [Duplicate](/docs/tutorials/0.user-guide.md#duplicate-1)<br />- Move to another folder<br />- Delete   |
+| Column           | Definition                                                                                                                                                                                                                                   |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Display Name** | A technical key for the prompt (e.g. `customer_onboarding_intro`).                                                                                                                                                                           |
+| **Version**      | Semantic version of this prompt template (e.g. `1.0.0`).                                                                                                                                                                                     |
+| **Author**       | A username or system ID of the prompt author/editor.                                                                                                                                                                                         |
+| **Update time**  | The timestamp of the last modification of the prompt. Use to track changes.                                                                                                                                                                  |
+| **Actions**      | Row menu with available actions: <br />- [Duplicate](/docs/tutorials/0.user-guide.md#duplicate-1)<br />- Move to another folder<br />- Delete. Alternatively you can use Bulk Actions in the header to remove multiple prompts and versions. |
 
 ## Create
 
@@ -38,15 +48,15 @@ In the Prompts section, you can manage all system and user prompt templates. Her
 2. Click **Create** to invoke the **Create Prompt** modal.
 3. Define prompt's parameters
 
-    | Column          | Definition |
-    |-----------------|-----------------------|
-    | **Name**        | A unique identifier for a prompt (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. |
-    | **Version**     | Semantic version string (e.g. 1.0.0, 0.1.2) that enables safe updates. |
-    | **Description** | Free-text summary of the prompt’s purpose and key placeholders.  |
+    | Column           | Definition                                                                                                                                     |
+    |------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Display Name** | A unique identifier for a prompt (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. |
+    | **Version**      | Semantic version string (e.g. 1.0.0, 0.1.2) that enables safe updates.                                                                         |
+    | **Description**  | Free-text summary of the prompt’s purpose and key placeholders.                                                                                |
 
 4. Once all required fields are filled, click **Create**. The dialog closes and the new prompt [configuration screen](#configuration) is opened. This entry will appear immediately in the listing once created.
 
-        ![](img/img_33.png)
+![](img/img_33.png)
 
 ## Export
 
@@ -56,10 +66,13 @@ Use Export to bulk download prompts. This is useful for migrating prompts betwee
 
 ##### To export prompts:
 
-1. Click **Export** in the toolbar to launch the export modal 
-2. Select the source folder containing prompts you want to export. You can export prompts from multiple folders at once.
-3. You can **Select** prompts by checking the boxes in each row. You can also select the version you want to export. You can mix and match versions (e.g. export `prompt_A` v1.0.0 alongside `prompt_B` v0.1.2).
-4. Click **Export** to start.
+1. Click **Bulk Actions** button.
+2. Select prompts by checking the boxes in each row. You can also select the version you want to export. 
+3. Click **Export** in the bottom to launch the export modal. 
+4. In the modal window select the export format: Archive or JSON.
+5. Click **Export** to generate export file and start downloading.
+
+![ ](img/img_47_1.png)
 
 ## Import
 
@@ -76,7 +89,8 @@ Use Import to upload new or update existing prompts from external JSON files or 
 3. Select a Conflict resolution Strategy. It allows you to decide how to handle existing prompts with the same name and version in your workspace:
    * **Skip**: Leave existing prompts untouched, only new ones will be added.
    * **Override**: Replace prompts with the same name and version with the imported ones.
-4. Click **Import** to start.
+   * **Edit manually**: Resolve conflicts manually one by one.
+4. Click **Finish** to start.
 
 ## Configuration
 
@@ -100,14 +114,19 @@ In the Properties tab, you can view and edit metadata and the template content o
 ![img_2.png](img/img_34.png)
 
 
-| Field| Required | Definition & Use Case |
-|--------------------|-----------|--------|
-| **Update Time**    | —         | Read-only timestamp of the last save (e.g. `04.29.2025 00:14`). Helps you track when the prompt was last modified.|
-| **Name**           | Yes   | Immutable key for the prompt (e.g. `customer_base_growth`).|
-| **Version**        | Yes   | Select the semantic version of this prompt (e.g. `1.0.0`, `0.1.2`). Use **+ Create** button in the dropdown with versions to create a new version.|
-| **Description**    | No        | Free-form summary of the prompt’s intent, variables, or context requirements (e.g. "Extracts customer base growth; variables: `{{growth}}`"). |
-| **Content**        | Yes   | The actual prompt template text. Supports:<br />- **Plain text** with Markdown formatting. <br />- **Mustache-style variables** `{{variableName}}` for dynamic substitution. |  
-| **Storage Folder** | Yes   | The actual path in the folders hierarchy. |  
+| Field              | Required | Definition & Use Case                                                                                                                                                                                        |
+|--------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Display Name**   | -        | Immutable key for the prompt (e.g. `customer_base_growth`). Non-editable after the prompt created.                                                                                                           |
+| **Update Time**    | -        | Read-only timestamp of the last save (e.g. `04.29.2025 00:14`). Helps you track when the prompt was last modified.                                                                                           |
+| **Version**        | Yes      | Select the semantic version of this prompt (e.g. `1.0.0`, `0.1.2`). Use **+ Create** button in the dropdown with versions to create a new version.                                                           |
+| **Description**    | No       | Free-form summary of the prompt’s intent, variables, or context requirements (e.g. "Extracts customer base growth; variables: `{{growth}}`").                                                                |
+| **Content**        | Yes      | The actual prompt text. Markdown editor with preview capability. Supports:<br />- **Plain text** with Markdown formatting. <br />- **Mustache-style variables** `{{variableName}}` for dynamic substitution. |  
+| **Storage Folder** | Yes      | The actual path to the prompt in the folders hierarchy.                                                                                                                                                      |  
+
+#### Compare Versions
+Tool allows comparing the prompt text across its versions. Provides ability to select exact versions to compare. Highlights add and remove changes.
+
+![](img/img_34_2.png)
 
 
 ### JSON Editor

@@ -16,19 +16,29 @@ In Files, you can manage all binary or document assets like JSON, CSV, PDF, imag
 
 ##### Folders Structure (Left Pane)
 
-| Element                  | Behavior                                                                                |
-|--------------------------|-----------------------------------------------------------------------------------------|
-| **Public folder**        | A root folder with hared files accessible to all users.                              |
-| **User-defined folders** | Collapsible folders you create to group files by project, team, domain, or environment. |
+
+| Element                | Behavior                                                                                                                                    |
+|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| **Root folder**        | A root folder with the assets and sub-folders. It is visible to all users.                                                                  |
+| **Sub-folders**        | Collapsible folders you create to group assets by application, project, team, domain, or environment.                                       |
+| **Collapse All**       | Button in the bottom of pane. Allows to collapse all expanded folders in the folders tree.                                                  |
+| **Context actions**    | Hover the folder to see additional actions.                                                                                                 |
+| **+ (Create)**         | Allows to create new child or sibling folder and import DIAL assets into it. Same flow as [Import](#import), but also requires folder name. |
+| **Rename**             | Allows to rename the folder. Requires folder name to be provided.                                                                           |
+| **Move to**            | Allows moving the folder to another place in the folders tree.                                                                              |
+| **Manage permissions** | Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.                 |
+| **Delete**             | Deletes the folder and all its assets. Requires confirmation.                                                                               |
+
+![ ](img/img_35_1.png)
 
 ##### Files Grid (Right Pane)
 
-| Column            | Definition                                                                      |
-|-------------------|---------------------------------------------------------------------------------|
-| **Name**          | A technical key for the file (e.g. `exclusion-words`).                            |
-| **Extension**     | The original extension of the file.                                             |
-| **Author**        | A username or system ID of the user who created or last modified this file.                 |
-| **Actions** | Row menu with actions: <br /> - Move to another folder<br />- Delete  |
+| Column           | Definition                                                                                          |
+|------------------|-----------------------------------------------------------------------------------------------------|
+| **Display Name** | A technical key for the file (e.g. `exclusion-words`).                                              |
+| **Extension**    | The original extension of the file.                                                                 |
+| **Author**       | A username or system ID of the user who created or last modified this file.                         |
+| **Actions**      | Row menu with actions: <br /> - Open asset in new tab <br /> - Move to another folder<br />- Delete |
 
 ## Export
 
@@ -38,10 +48,9 @@ Use Export to bulk download files. This is helpful for backup, sharing, or migra
 
 ##### To export files:
 
-1. Click **Export** in the toolbar to launch the export modal.
-2. Select a folder from which you want to export files. Clicking a folder highlights it and lists its files in the right pane.
-3. Choose the files you want to export by checking their boxes. Alternatively, use **Select All** checkbox in the header to export every file in the selected folder.
-4. Click **Export** to start the process. Files are downloaded as .zip archive.
+1. Click Bulk Actions button.
+2. Select files by checking the boxes in each row.
+3. Click Export in the bottom. Files are downloaded as .zip archive.
 
 ## Import
 
@@ -77,9 +86,9 @@ In the Properties tab, you can view and manage files, including moving them acro
 ![](img/img_36.png)
 
 
-| Field                | Required | Definition & Use Case    |
-|----------------------|-----------|-------------------------------------|
-| **Name**             | -         | The filename including extension (e.g. request.json, lookup.csv). Display-only but with a copy-to-clipboard button for easy reference. |
-| **Source/Name**      | -         | The name of the file without the extension (e.g. request). To download, click on additional actions button.|
-| **Source/Extension** | -         | The file type (e.g. .json, .csv, .pdf).   |
-| **Storage Folder**   | Yes   | The actual path of the file in the folders hierarchy. Allows you to move the file across folders. |  
+| Field                | Required | Definition & Use Case                                                                                                                  |
+|----------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------|
+| **Display Name**     | -        | The filename including extension (e.g. request.json, lookup.csv). Display-only but with a copy-to-clipboard button for easy reference. |
+| **Source/Name**      | -        | The name of the file without the extension (e.g. request). To download, click on additional actions button.                            |
+| **Source/Extension** | -        | The file type (e.g. .json, .csv, .pdf).                                                                                                |
+| **Storage Folder**   | Yes      | The actual path of the file in the folders hierarchy. Allows you to move the file across folders.                                      |  
