@@ -395,6 +395,11 @@ const sidebars = {
                   label: 'GCP Deployment Guide',
                 },
                 {
+                  type: 'doc',
+                  id: 'tutorials/devops/deployment/aws-deployment-guide',
+                  label: 'AWS Deployment Guide',
+                },
+                {
                   type: 'category',
                   label: 'Deployment of Models',
                   items: [
