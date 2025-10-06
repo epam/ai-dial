@@ -60,6 +60,7 @@ services:
       'aidial.storage.bucket': 'dial'
       'aidial.storage.createBucket': 'true'
       'aidial.storage.overrides': '{"jclouds.filesystem.basedir": "data"}'
+      'aidial.applications.includeCustomApps': 'true'
     ports:
       - "${DIAL_CORE_HOST_PORT}:8080"
     volumes:
@@ -166,3 +167,4 @@ services:
       admin-backend:
         condition: service_healthy
     restart: always
+
