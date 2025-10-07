@@ -81,6 +81,7 @@ In the Features tab, you can control optional capabilities of application.
 
 Use these fields to plug in optional service endpoints that extend the app’s runtime behavior. 
 By providing URLs for rating, tokenization, prompt truncation, and dynamic configuration, the application can delegate cost/quota calculations, precise token counting, context-window management, and JSON-schema–driven settings to external services.
+Specifying endpoints here allows to override endpoints in [Application Runner](/docs/tutorials/3.admin/builders-application-runners.md#properties).
 
 | Field                        | Description & When to Use                     |
 |------------------------------|-----------------------------------------------|
