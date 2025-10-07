@@ -21,8 +21,8 @@ In the Prompts section, you can manage all system and user prompt templates. Her
 |------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | **Root folder**        | A root folder with all shared prompts. It is visible to all users.                                                                          |
 | **Sub-folders**        | Collapsible folders you create to group prompts by project, team, domain, or environment.                                                   |
-| **Collapse All**       | Allows to collapse all expanded folders in the folders tree.                                                                                |
-| **Context actions**    | Hover the folder to see additional actions.                                                                                                 |
+| **Collapse All**       | Allows collapsing all expanded folders in the folders tree.                                                                                 |
+| **Context actions**    | Hover over the folder to view additional actions.                                                                                           |
 | **+ (Create)**         | Allows to create new child or sibling folder and import the prompts into it. Same flow as [Import](#import), but also requires folder name. |
 | **Rename**             | Allows to rename the folder. Requires folder name to be provided.                                                                           |
 | **Move to**            | Allows moving the folder to another place in the folders tree.                                                                              |
@@ -38,7 +38,7 @@ In the Prompts section, you can manage all system and user prompt templates. Her
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Display Name** | A technical key for the prompt (e.g. `customer_onboarding_intro`).                                                                                                                                                                           |
 | **Version**      | Semantic version of this prompt template (e.g. `1.0.0`).                                                                                                                                                                                     |
-| **Author**       | A username or system ID of the prompt author/editor.                                                                                                                                                                                         |
+| **Author**       | The username or system ID associated with the user who created or last updated this application.                                                                                                                                             |
 | **Update time**  | The timestamp of the last modification of the prompt. Use to track changes.                                                                                                                                                                  |
 | **Actions**      | Row menu with available actions: <br />- [Duplicate](/docs/tutorials/0.user-guide.md#duplicate-1)<br />- Move to another folder<br />- Delete. Alternatively you can use Bulk Actions in the header to remove multiple prompts and versions. |
 
@@ -116,7 +116,7 @@ In the Properties tab, you can view and edit metadata and the template content o
 
 | Field              | Required | Definition & Use Case                                                                                                                                                                                        |
 |--------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Display Name**   | -        | Immutable key for the prompt (e.g. `customer_base_growth`). Non-editable after the prompt created.                                                                                                           |
+| **Display Name**   | -        | Immutable key for the prompt (e.g. `customer_base_growth`). It cannot be edited after the prompt is created.                                                                                                 |
 | **Update Time**    | -        | Read-only timestamp of the last save (e.g. `04.29.2025 00:14`). Helps you track when the prompt was last modified.                                                                                           |
 | **Version**        | Yes      | Select the semantic version of this prompt (e.g. `1.0.0`, `0.1.2`). Use **+ Create** button in the dropdown with versions to create a new version.                                                           |
 | **Description**    | No       | Free-form summary of the prompt’s intent, variables, or context requirements (e.g. "Extracts customer base growth; variables: `{{growth}}`").                                                                |
