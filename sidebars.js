@@ -56,6 +56,11 @@ const sidebars = {
             },
             {
               type: 'doc',
+              id: 'platform/architecture-and-concepts/app-server',
+              label: 'Application Server',
+            },
+            {
+              type: 'doc',
               id: 'platform/architecture-and-concepts/stack',
               label: 'DIAL Stack',
             },
@@ -84,6 +89,11 @@ const sidebars = {
               type: 'doc',
               id: 'platform/core/access-control-intro',
               label: 'Access Control',
+            },
+            {
+              type: 'doc',
+              id: 'platform/core/token-limits-and-cost-control',
+              label: 'Token Limits and Cost Control',
             },
             {
               type: 'doc',
@@ -313,10 +323,36 @@ const sidebars = {
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/developers/integrations/vscode-extension',
-                  label: 'Integration with Continue',
+                  id: 'tutorials/developers/integrations/msteams-bot',
+                  label: 'Integration with MS Teams',
                 },
-              ],
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/integrations/n8n-integration',
+                  label: 'Integration with n8n',
+                },
+                {
+                  type: 'category',
+                  label: 'Integrations with Code Assistants',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/integrations/vscode-extension',
+                      label: 'Integration with Continue',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/integrations/cline',
+                      label: 'Integration with Cline',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/integrations/roocode',
+                      label: 'Integration with Roo Code',
+                    },
+                  ],
+                },
+              ]
             },
             {
               type: 'doc',
@@ -362,6 +398,11 @@ const sidebars = {
                   type: 'doc',
                   id: 'tutorials/devops/deployment/gcp-deployment-guide',
                   label: 'GCP Deployment Guide',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/devops/deployment/aws-deployment-guide',
+                  label: 'AWS Deployment Guide',
                 },
                 {
                   type: 'category',
@@ -447,8 +488,13 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/devops/auth-and-access-control/configure-idps/azureb2c',
+                      label: 'Azure AD B2C',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/devops/auth-and-access-control/configure-idps/entraID',
-                      label: 'Microsoft Entra',
+                      label: 'Microsoft Entra ID',
                     },
                     {
                       type: 'doc',
@@ -510,6 +556,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/entities-toolsets',
+                      label: 'Toolsets',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/entities-interceptors',
                       label: 'Interceptors',
                     },
@@ -528,6 +579,16 @@ const sidebars = {
                       type: 'doc',
                       id: 'tutorials/admin/builders-application-runners',
                       label: 'Application Runners',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/builders-interceptor-templates',
+                      label: 'Interceptor Templates',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/builders-adapters',
+                      label: 'Adapters',
                     },
                   ]
                 },
@@ -574,6 +635,11 @@ const sidebars = {
                   items: [
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/approvals-application-publications',
+                      label: 'Application Publications',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/approvals-prompt-publications',
                       label: 'Prompt Publications',
                     },
@@ -586,7 +652,7 @@ const sidebars = {
                 },
                 {
                   type: 'category',
-                  label: 'Telemetry',
+                  label: 'Audit',
                   items: [
                     {
                       type: 'doc',
@@ -596,7 +662,12 @@ const sidebars = {
                     {
                       type: 'doc',
                       id: 'tutorials/admin/telemetry-activity-audit',
-                      label: 'Activity Audit',
+                      label: 'Activities',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/telemetry-usage-log',
+                      label: 'Usage Log',
                     },
                   ]
                 }

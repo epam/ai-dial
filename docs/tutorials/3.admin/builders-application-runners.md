@@ -32,7 +32,7 @@ In Application Runners, you can add and manage Application Runners you have in y
     | **Description** | No        | Free-text notes about the runner’s capabilities.                             |
 3. Once all required fields are filled, click **Create**. The dialog closes and the new runner [configuration screen](#configuration) is opened. A new runner will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
 
-        ![](img/img_24.png)
+![](img/img_24.png)
 
 ## Configuration
 
@@ -45,12 +45,20 @@ In Application Runners, you can add and manage Application Runners you have in y
 
 In the Properties tab, you can define identity and metadata of application runners - so DIAL Core knows where to send orchestration payloads and how to present this runner on the UI.
 
-| Field           | Required | Definition  |
-|-----------------|-----------|------------|
-| **ID**          | Yes   | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
-| **Name**        | Yes   | A user-friendly label for this runner (e.g. "Python Lambda Runner" or "NodeJS Service Worker").                      |
-| **Description** | No        | Free-text notes about the runner: its environment (staging vs. prod), resource profile (2 vCPU, 8 GB RAM), or any special instructions.                                                                             |                                                                      |
-| **Topics**        | No        | Use tags to associate runner with specific topics or categories (e.g. "finance", "support") for identification and filtering on UI.             |
+| Field                             | Required | Definition                                                                                                                                                                                                                   |
+|-----------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ID**                            | Yes      | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
+| **Name**                          | Yes      | A user-friendly label for this runner (e.g. "Python Lambda Runner" or "NodeJS Service Worker").                                                                                                                              |
+| **Description**                   | No       | Free-text notes about the runner: its environment (staging vs. prod), resource profile (2 vCPU, 8 GB RAM), or any special instructions.                                                                                      |                                                                      |
+| **Topics**                        | No       | Use tags to associate runner with specific topics or categories (e.g. "finance", "support") for identification and filtering on UI.                                                                                          |
+| **Completion endpoint**           | Yes      | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
+| **Configuration endpoint**        | No       | A URL to fetch dynamic app-specific settings. Use this to drive runtime overrides from a remote config store.                                                                                                                |
+| **Rate endpoint**                 | No       | A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).                                                                |
+| **Truncate prompt endpoint**      | No       | A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual application call.                                                     |
+| **Tokenize endpoint**             | No       | A URL to call a custom tokenization service.                                                                                                                                                                                 |
+| **Viewer URL**                    | No       | A URL of a custom UI form end users used by this runner.                                                                                                                                                                     |
+| **Editor URL**                    | No       | A URL of a custom application builder UI.                                                                                                                                                                                    |
+| **Application properties header** | No       | Setting determines how the apps configuration is handled during a chat completion request. If true, DIAL will append the apps configuration to the chat completion request headers.                                          |
 
 ![ ](img/img_26.png)
 
@@ -60,9 +68,6 @@ In the Parameters tab, you can configure how DIAL Core interacts with your runne
 
 | Field                   | Required | Definition |
 |-------------------------|-----------|---------------|
-| **Completion endpoint** | Yes   | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
-| **Viewer URL**          | No        | A URL of a custom UI form end users used by this runner.|
-| **Editor URL**          | No        | A URL of a custom application builder UI. |
 | **Scheme**              | Yes       | A JSON Schema document that defines the Parameters object your runner expects in its payload—under the `properties`, `applications`, and `optional` sections.|
 
 ![ ](img/img_25.png)
@@ -93,6 +98,36 @@ By assigning applications here, you tell DIAL Core to dispatch orchestration pay
  
 1. Click the **actions** menu in the application’s line.
 2. Choose **Remove** in the menu.
+
+### App Routes
+
+App Routes tab is introduced to manage application runner-specific routes. The tab includes a left-hand pane listing all app runner-related routes. 
+Tab allows creating, viewing, editing, and deleting routes.
+
+#### Properties
+
+Properties sub-tab allows to configure route identity and requests handling behavior.
+
+> Configuration of this tab is similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
+
+![106.png](img/106.png)
+
+#### Attachments
+
+Attachments sub-tab enables to configure attachment paths for both requests and responses.
+
+![107.png](img/107.png)
+
+#### Roles
+
+Sub-tab enables route-specific role assignments, allowing administrators to control access to each individual route.
+
+> Configuration of this tab is mostly similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
+
+Inherit Application Roles option allows to use the roles assigned to application which is built on a given runner.
+
+![108.png](img/108.png)
+
 
 ### JSON Editor
 

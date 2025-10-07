@@ -85,6 +85,14 @@ Use Import to upload new or update existing prompts from external JSON files or 
 * **Delete**: Permanently removes this prompt (or the selected versions) from your workspace. Any applications that reference it will break until you reattach a valid prompt.
 * **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the prompt’s configuration. Use JSON mode for copy-paste or advanced edits.
 
+Once the prompt edited, top bar allows to:
+* **Discard** changes made since last save.
+* **Save** changes to the current version of prompt.
+* **Save as new version**. Automatically creates new version. Keeps current version untouched:
+
+![](img/img_34_1.png)
+
+
 ### Properties
 
 In the Properties tab, you can view and edit metadata and the template content of prompts.
