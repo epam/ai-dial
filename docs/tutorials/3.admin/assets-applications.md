@@ -5,7 +5,7 @@
 DIAL-native applications adhere to the unified protocol of DIAL, a single protocol for all applications and models deployed in a specific DIAL instance. 
 DIAL-native apps can be enabled in DIAL and used directly (via API or UI) or as building blocks in other apps.
 
-> Refer to [User Guide](/docs/tutorials/0.user-guide.md#applications) to learn more about applications.
+> Refer to [User Guide](https://docs.dialx.ai/platform/core/apps) to learn more about applications.
 
 ## Applications List
 
@@ -79,7 +79,8 @@ In the Features tab, you can control optional capabilities of application.
 
 #### Endpoints
 
-Here, you can specify endpoints used by [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) to perform preprocessing or policy checks before delegating to your underlying models and workflows.
+Use these fields to plug in optional service endpoints that extend the app’s runtime behavior. 
+By providing URLs for rating, tokenization, prompt truncation, and dynamic configuration, the application can delegate cost/quota calculations, precise token counting, context-window management, and JSON-schema–driven settings to external services.
 
 | Field                        | Description & When to Use                     |
 |------------------------------|-----------------------------------------------|
