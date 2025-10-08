@@ -4,8 +4,7 @@ services:
     image: epam/ai-dial-chat-themes:0.10.0
     platform: linux/amd64
     ports:
-      - "3001:8080"
-
+      - "3101:8080"
 
   redis:
     image: redis:7.2.4-alpine3.19
