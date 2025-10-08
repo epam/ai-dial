@@ -21,9 +21,9 @@ Choose one of the Compose files depending on your needs:
 
 |URL|Description|
 |---|---|
-|http://localhost:3000|DIAL Chat|
-|http://localhost:3002|DIAL Admin|
-|http://localhost:8800|Keycloak|
+|http://localhost:3100|DIAL Chat|
+|http://localhost:3102|DIAL Admin|
+|http://localhost:8900|Keycloak|
 
 There are three default DIAL users pre-defined in Keycloak:
 
