@@ -46,6 +46,11 @@ const sidebars = {
             },
             {
               type: 'doc',
+              id: 'platform/core/token-limits-and-cost-control',
+              label: 'Usage Limits and Cost Control',
+            },
+            {
+              type: 'doc',
               id: 'platform/architecture-and-concepts/components',
               label: 'Platform Components',
             },
@@ -89,11 +94,6 @@ const sidebars = {
               type: 'doc',
               id: 'platform/core/access-control-intro',
               label: 'Access Control',
-            },
-            {
-              type: 'doc',
-              id: 'platform/core/token-limits-and-cost-control',
-              label: 'Token Limits and Cost Control',
             },
             {
               type: 'doc',
