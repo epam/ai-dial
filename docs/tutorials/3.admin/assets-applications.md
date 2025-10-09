@@ -37,7 +37,7 @@ Click on any folder to display applications in the applications grid.
 | **Version**      | Version of the application.|
 | **Author**       | The username or system ID associated with the user who created or last updated this application.          |
 | **Updated time** | The timestamp of the last modification of the application. Use to track changes.           |
-| **Actions**      | Actions you can perform on the selected application: <br /> - **Open application in new tab**: Opens a new tab with application's properties, features and parameters.  <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the application.<br />- **Delete**: Use to delete the application. |
+| **Actions**      | Actions you can perform on the selected application: <br /> - **Open in new tab**: Opens a new tab with application's properties, features and parameters.  <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the application.<br />- **Delete**: Use to delete the application. |
 
 
 ## Configuration Screen

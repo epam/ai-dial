@@ -4,45 +4,39 @@
 
 Files in DIAL are arbitrary binary or text assets (JSON, CSV, PDF, images, etc.) your models and applications can reference at runtime.
 
-> Refer to [User Guide](/docs/tutorials/0.user-guide.md#attachments) to learn more about attachments.
+## Files Main Screen
 
-## Files List
+In Files, you can manage all files in the Public folder.
 
-In Files, you can manage all binary or document assets like JSON, CSV, PDF, images, etc.
+> Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to lean more about Private and Public logical spaces for objects storage in DIAL. 
 
 ![ ](img/img_35.png)
 
-### Grid and Folders
-
-##### Folders Structure (Left Pane)
+### Folders Structure
 
 
-| Element                | Behavior                                                                                                                                      |
-|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| **Root folder**        | A root folder with assets and subfolders. It is visible to all users.                                                                         |
-| **Sub-folders**        | Collapsible folders you create to group assets by application, project, team, domain, or environment.                                         |
-| **Collapse All**       | Button in the bottom of Files pane. Allows collapsing all expanded folders in the folders tree.                                               |
-| **Context actions**    | Hover over the folder to view additional actions.                                                                                             |
-| **+ (Create)**         | Allows to create new child or sibling folder and import DIAL assets into it. Same flow as [Import](#import), but also requires a folder name. |
-| **Rename**             | Allows to rename the folder. Requires folder name to be provided.                                                                             |
-| **Move to**            | Allows moving the folder to another place in the folders tree.                                                                                |
-| **Manage permissions** | Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.                   |
-| **Delete**             | Deletes the folder and all its assets. Requires confirmation.                                                                                 |
+| Element | Description          |
+|------------------------|--------------------------------------------|
+| **Root folder**        | A root folder. Contains the sub-folders and files. It is visible to all users.  |
+| **Sub-folders**        | Files can be placed in a specific sub-folder for logical organization purposes.          |
+| **Actions**    | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with files inside it.|
 
 ![ ](img/img_35_1.png)
 
-##### Files Grid (Right Pane)
+### Files Grid
 
 | Column           | Definition                                                                                          |
-|------------------|-----------------------------------------------------------------------------------------------------|
+|------------------|-------------------|
 | **Display Name** | A technical key for the file (e.g. `exclusion-words`).                                              |
-| **Extension**    | The original extension of the file.                                                                 |
-| **Author**       | The username or system ID associated with the user who created or last updated this application.    |
-| **Actions**      | Row menu with actions: <br /> - Open asset in new tab <br /> - Move to another folder<br />- Delete |
+| **Extension**    | The extension of the file.                                                                 |
+| **Author**       | The username or system ID associated with the user who created or last updated this file.    |
+| **Actions**      | Row menu with actions: <br /> - **Open in new tab**: Opens a new tab with file's properties.  <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the file.<br />- **Delete**: Use to delete the file.  |
+
+![ ](img/files-actions.png)
 
 ## Export
 
-Use Export to bulk download files. This is helpful for backup, sharing, or migrating supporting assets alongside your DIAL configuration.
+Use **Bulk Actions** in the toolbar to export files. This is helpful for backup, sharing, or migrating supporting assets alongside your DIAL configuration.
 
 ![ ](img/img_49.png)
 
@@ -54,7 +48,7 @@ Use Export to bulk download files. This is helpful for backup, sharing, or migra
 
 ## Import
 
-Use Import to upload external files into DIAL’s assets storage. This is useful for adding reference documents, data or other supporting assets.
+Use **Import** in the toolbar to upload external files into DIAL’s assets storage. This is useful for adding reference documents, data or other supporting assets.
 
 ![](img/img_50.png)
 
@@ -75,20 +69,23 @@ Use Import to upload external files into DIAL’s assets storage. This is useful
 
 ## Configuration
 
+Click any file to open the configuration screen.
+
 ##### Top Bar Controls
 
 * **Delete**: Permanently removes the selected file from your DIAL instance.
 
 ### Properties
 
-In the Properties tab, you can view and manage files, including moving them across folders.
+In the Properties tab, you can view and manage the selected file, including moving them across folders.
 
 ![](img/img_36.png)
 
 
-| Field                | Required | Definition & Use Case                                                                                                                  |
-|----------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------|
-| **Display Name**     | -        | The filename including extension (e.g. request.json, lookup.csv). Display-only but with a copy-to-clipboard button for easy reference. |
-| **Source/Name**      | -        | The name of the file without the extension (e.g. request). To download, click on the Additional Actions button.                        |
-| **Source/Extension** | -        | The file type (e.g. .json, .csv, .pdf).                                                                                                |
-| **Storage Folder**   | Yes      | The actual path of the file in the folders hierarchy. Use for moving files between folders.                                            |  
+| Field | Definition & Use Case                                                                                                                  |
+|--------------------|------------------------------------------------------|
+| **Display Name**   | The filename including extension (e.g. request.json, lookup.csv). Display-only but with a copy-to-clipboard button for easy reference. |
+| **Source/Display Name**    | The name of the file without the extension (e.g. request).   |
+| **Source/Extension**  | The file type (e.g. .json, .csv, .pdf). |
+|**Source/Actions** |Click the context menu icon to open additional actions:<br />- **Preview**: Click to preview a file.<br />- **Download**: Click to download a file.|
+| **Storage Folder**   | The path to the file's location in the hierarchy of folders. Use for moving files between folders.                                            |  
