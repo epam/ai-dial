@@ -598,6 +598,11 @@ const sidebars = {
                   items: [
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/assets-applications',
+                      label: 'Applications',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/assets-prompts',
                       label: 'Prompts',
                     },
