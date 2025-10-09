@@ -2,49 +2,47 @@
 
 ## About Applications
 
-DIAL-native applications adhere to the unified protocol of DIAL, a single protocol for all applications and models deployed in a specific DIAL instance. 
-DIAL-native apps can be enabled in DIAL and used directly (via API or UI) or as building blocks in other apps.
+DIAL-native applications adhere to the [unified protocol](/docs/platform/3.core/0.about-core.md#unified-api) of DIAL, a single protocol for all applications and models deployed in a specific DIAL instance. 
 
-> Refer to [User Guide](https://docs.dialx.ai/platform/core/apps) to learn more about applications.
+> Refer to [DIAL Core](/docs/platform/3.core/7.apps.md) to learn more about applications in DIAL.
 
-## Applications List
+## Applications Main Screen
 
-In the list you can see all the Applications added by DIAL users.
+The main screen displays all the applications available in Public folder in DIAL. Applications, when added via DIAL Core configuration files or published by users are placed within this hierarchy.
+
+> Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to lean more about Private and Public logical spaces for objects storage in DIAL. 
 
 ![ ](img/121.png)
 
-### Grid and Folders
+### Folders Structure
 
-##### Folders Structure (Left Pane)
+Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. On this part of the screen, you can see the hierarchical structure of folders in the Public space. 
 
 
-| Element                | Behavior                                                                                                                    |
-|------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| **Root folder**        | A root folder. Contains the sub-folders and applications. It is visible to all users.                                       |
-| **Sub-folders**        | Collapsible folders that organize applications into hierarchical structure.                                                 |
-| **Collapse All**       | Button in the bottom of Applications pane. Allows collapsing all expanded folders in the folders tree.                      |
-| **Context actions**    | Hover over the folder to view additional actions.                                                                           |
-| **Rename**             | Allows to rename the folder. Requires folder name to be provided.                                                           |
-| **Move to**            | Allows moving the folder to another place in the folders tree.                                                              |
-| **Manage permissions** | Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder. |
-| **Delete**             | Deletes the folder and all its applications. Requires confirmation from the admin user.                                     |
+| Element | Description          |
+|------------------------|--------------------------------------------|
+| **Root folder**        | A root folder. Contains the sub-folders and applications. It is visible to all users. Applications when added via the DIAL Core configuration file, are automatically placed in the root folder.   |
+| **Sub-folders**        | Applications can be placed in a specific sub-folder for logical organization purposes.          |
+| **Actions**    | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with applications inside it.|
 
 ![ ](img/122.png)
 
-##### Applications Grid (Right Pane)
+### Applications Grid
 
-| Column           | Definition                                                                                                |
-|------------------|-----------------------------------------------------------------------------------------------------------|
-| **Display Name** | Along with the version, it makes up the application’s unique key.                                         |
-| **Version**      | Version of the application.                                                                               |
+Click on any folder to display applications in the applications grid.
+
+| Column           | Definition          |
+|------------------|-------------------------|
+| **Display Name** | Along with the version, it makes up the application’s unique key.      |
+| **Version**      | Version of the application.|
 | **Author**       | The username or system ID associated with the user who created or last updated this application.          |
-| **Updated time** | The timestamp of the last modification of the application. Use to track changes.                          |
-| **Actions**      | Row menu with actions: <br /> - Open application in new tab <br /> - Move to another folder<br />- Delete |
+| **Updated time** | The timestamp of the last modification of the application. Use to track changes.           |
+| **Actions**      | Actions you can perform on the selected application: <br /> - **Open application in new tab**: Opens a new tab with application's properties, features and parameters.  <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the application.<br />- **Delete**: Use to delete the application. |
 
 
-## Configuration
+## Configuration Screen
 
-Allows you to configure or revise the app’s information fields.
+Click any application to open a screen with information about the selected application and its configuration details.
 
 ##### Top Bar Controls
 
@@ -53,54 +51,54 @@ Allows you to configure or revise the app’s information fields.
 
 ### Properties
 
-In the Properties tab, you can define the application's parameters.
+In the Properties tab, you can see all and define selected application's basic properties.
 
 ![](img/123.png)
 
-| Field              | Required | Definition & Use Case                                                                                                                                                                                                                                        |
-|--------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Display Name**   | -        | The name of the application assigned by the author. It is display-only but includes a copy-to-clipboard button for easy reference.                                                                                                                           |
-| **Runner**         | -        | Application Runners (known as ApplicationTypeSchemas in [DIAL Core dynamic settings]((https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings))) are predefined templates used for creating custom implementations of applications in DIAL. |
-| **Author**         | -        | The username or system ID associated with the user who created or last updated this application.                                                                                                                                                             |
-| **Creation time**  | -        | The timestamp of when the application was created.                                                                                                                                                                                                           |
-| **Updated Time**   | -        | Date and time when the app's configuration was last updated.                                                                                                                                                                                                 |
-| **Version**        | -        | Version of the application. Can be selected from the dropdown.                                                                                                                                                                                               |
-| **Description**    | No       | A free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs).                                                                                                                                                               |
-| **Icon**           | No       | A logo to visually distinguish the app on the UI.                                                                                                                                                                                                            |
-| **Topics**         | No       | Tags that you can assign to apps (e.g. "finance", "support"). Helps to assign categories for better navigation on UI.                                                                                                                                        |
-| **Storage Folder** | Yes      | The actual path of the application in the folder hierarchy. It allows you to move the application between folders.                                                                                                                                           |  
+| Field    | Definition & Use Case |
+|----------|--------------------------|
+| **Display Name**  | The name of the application assigned by the author. It is read-only but includes a copy-to-clipboard button for easy reference.    |
+| **Runner**   | [Application Runner](/docs/tutorials/3.admin/builders-application-runners.md) the application is based upon. |
+| **Author**  | The username or system ID associated with the user who created or last updated this application.      |
+| **Creation Time** | The timestamp of when the application was created.   |
+| **Updated Time** | Date and time when the app's configuration was last updated.             |
+| **Version**  | Version of the application. Can be selected from the dropdown to display information for different versions.           |
+| **Description**   | A free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs).  |
+| **Icon**  | A logo to visually distinguish the app on the UI. Maximum size: 512 MB. Supported types: .jpeg, .jpg, .jpe, .png, .gif, .apng, .webp, .avif, .svg, .svgz, .bmp, .ico. Up to 1 files.|
+| **Topics**  | Tags that you can assign to apps (e.g. "finance", "support"). Helps to assign categories for better navigation on UI.  |
+| **Storage Folder**  | The path to the application's location in the hierarchy of folders. It allows you to move the application between folders.|  
 
 
 ### Features
 
-In the Features tab, you can control optional capabilities of application. 
+In the Features tab, you can control optional capabilities of the selected application. 
 
 ![](img/124.png)
 
 #### Endpoints
 
-Use these fields to plug in optional service endpoints that extend the app’s runtime behavior. 
+Use these fields to apply optional service endpoints that extend the app’s runtime behavior. 
 By providing URLs for rating, tokenization, prompt truncation, and dynamic configuration, the application can delegate cost/quota calculations, precise token counting, context-window management, and JSON-schema–driven settings to external services.
 Endpoints specified here override endpoints in [Application Runner](/docs/tutorials/3.admin/builders-application-runners.md#properties).
 
-| Field                        | Description & When to Use                     |
+| Field         | Description    |
 |------------------------------|-----------------------------------------------|
-| **Rate endpoint**            | A URL to call a custom rate-estimation API.   |
-| **Tokenize endpoint**        | A URL to call a custom tokenization service.  |
-| **Truncate prompt endpoint** | A URL to call your own prompt-truncation API. |
-| **Configuration endpoint**   | A URL to fetch dynamic app-specific settings. |
+| **Rate endpoint**            | A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).   |
+| **Tokenize endpoint**        | A URL to call a custom tokenization service. When you need precise, app-wide token counting (for mixed-model or multi-step prompts) that the model adapter can’t provide.   |
+| **Truncate prompt endpoint** | A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual app call. |
+| **Configuration endpoint**   | A URL to fetch dynamic app-specific settings. Use this to drive runtime overrides from a remote config store. Use to request application configuration parameters as JSON schema.  |
 
 #### Feature Flags (Toggles)
 
 Enable or disable per-request options that your application accepts from clients and forwards to the underlying models. **Toggle On/Off** any feature as needed.
 
-| Toggle                        | What It Does                                                                                                                                                  |
-|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Toggle         | What It Does            |
+|-------------------------------|-----------------------------------------------------------------------------|
 | **System prompt**             | Enables an initial "system" message injection. Useful for orchestrating multi-step agents where you need to enforce a global policy at the application level. |
-| **Tools**                     | Enables `tools`/`functions` payloads in API calls. Switch on if your application makes external function calls (e.g. calendar lookup, database fetch).        |
-| **Seed**                      | Enables the `seed` parameter for reproducible results. Great for testing or deterministic pipelines.  Disable to ensure randomized creativity.                |
+| **Tools**      | Enables `tools`/`functions` payloads in API calls. Switch on if your application makes external function calls (e.g. calendar lookup, database fetch).        |
+| **Seed**       | Enables the `seed` parameter for reproducible results. Great for testing or deterministic pipelines.  Disable to ensure randomized creativity. |
 | **URL Attachments**           | Enables URL references (images, docs) as attachments in API requests. Must be enabled if your workflow downloads or processes remote assets via URLs.         |
-| **Folder Attachments**        | Enables attachments of folders (batching multiple files).                                                                                                     |
-| **Accessible by request key** | Indicates whether the deployment is accessible using a [per-request API key](/docs/platform/3.core/3.per-request-keys.md).                                    |
-| **Content parts**             | Indicates whether the deployment supports requests with content parts or not.                                                                                 |
-| **Consent required**          | indicates whether the application requires user consent before use.                                                                                           |
+| **Folder Attachments**        | Enables attachments of folders (batching multiple files).    |
+| **Accessible by request key** | Indicates whether the deployment is accessible using a [per-request API key](/docs/platform/3.core/3.per-request-keys.md). |
+| **Content parts**             | Indicates whether the deployment supports requests with content parts or not.  |
+| **Consent required**          | Indicates whether the application requires [user consent](https://dialx.ai/dial_api#tag/User-Consent) before use.     |
