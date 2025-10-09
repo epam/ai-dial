@@ -657,19 +657,19 @@
       "clientId": "dial-chat",
       "name": "dial-chat",
       "description": "AI DIAL chat client",
-      "rootUrl": "http://localhost:3000/",
-      "adminUrl": "http://localhost:3000/",
-      "baseUrl": "http://localhost:3000/",
+      "rootUrl": "http://localhost:3100/",
+      "adminUrl": "http://localhost:3100/",
+      "baseUrl": "http://localhost:3100/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "secret": "keycloak_secret",
       "redirectUris": [
-        "http://localhost:3000/*"
+        "http://localhost:3100/*"
       ],
       "webOrigins": [
-        "http://localhost:3000/"
+        "http://localhost:3100/"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -748,19 +748,19 @@
       "clientId": "dial-admin-console",
       "name": "dial-admin-console",
       "description": "AI DIAL WebConsole admin",
-      "rootUrl": "http://localhost:3002/",
-      "adminUrl": "http://localhost:3002/",
-      "baseUrl": "http://localhost:3002/",
+      "rootUrl": "http://localhost:3102/",
+      "adminUrl": "http://localhost:3102/",
+      "baseUrl": "http://localhost:3102/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "secret": "keycloak_secret",
       "redirectUris": [
-        "http://localhost:3002/*"
+        "http://localhost:3102/*"
       ],
       "webOrigins": [
-        "http://localhost:3002/"
+        "http://localhost:3102/"
       ],
       "notBefore": 0,
       "bearerOnly": false,

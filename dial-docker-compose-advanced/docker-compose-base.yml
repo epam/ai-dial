@@ -2,14 +2,15 @@ services:
 
   themes:
     image: epam/ai-dial-chat-themes:0.10.0
+    platform: linux/amd64
     ports:
-      - "3001:8080"
+      - "3101:8080"
 
   redis:
     image: redis:7.2.4-alpine3.19
     restart: always
     ports:
-      - "6379:6379"
+      - "6600:6379"
     command: >
       redis-server
       --maxmemory 2000mb
@@ -21,6 +22,7 @@ services:
 
   chat:
     image: epam/ai-dial-chat:0.36.0
+    platform: linux/amd64
     environment:
       AUTH_KEYCLOAK_CLIENT_ID: "dial-chat"
       AUTH_KEYCLOAK_DIAL_ROLES_FIELD: "resource_access.dial-chat.roles"
@@ -31,6 +33,8 @@ services:
       KEEP_ALIVE_TIMEOUT: ${CHAT_KEEP_ALIVE_TIMEOUT:-20000}
       NEXTAUTH_SECRET: "${NEXTAUTH_SECRET}"
       THEMES_CONFIG_HOST: "http://themes:8080"
+      NEXTAUTH_URL: "http://localhost:${DIAL_CHAT_HOST_PORT}"
+      NEXTAUTH_URL_INTERNAL: "http://chat:3000"
     ports:
       - "${DIAL_CHAT_HOST_PORT}:3000"
     depends_on:
@@ -44,6 +48,7 @@ services:
 
   core:
     image: epam/ai-dial-core:0.34.0
+    platform: linux/amd64
     environment:
       'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
       'proxy.config.files': '["/app/config/config.json"]'
@@ -74,6 +79,7 @@ services:
 
   adapter-openai:
     image: epam/ai-dial-adapter-openai:0.31.0
+    platform: linux/amd64
     environment:
       DALLE3_DEPLOYMENTS: "dall-e-3"
       DIAL_USE_FILE_STORAGE: "true"
@@ -115,6 +121,7 @@ services:
 
   admin-backend:
     image: epam/ai-dial-admin-backend:0.7.1
+    platform: linux/amd64
     user: root
     environment:
       CONFIG_EXPORT_OUTPUTFILE_PATH: /app/config/config.json
@@ -150,6 +157,7 @@ services:
 
   admin-frontend:
     image: epam/ai-dial-admin-frontend:0.6.0
+    platform: linux/amd64
     environment:     	
       DIAL_ADMIN_API_URL: "http://admin-backend:8080/"
       NEXTAUTH_URL: "http://${COMMON_HOST}:${DIAL_ADMIN_FRONTEND_HOST_PORT}"
