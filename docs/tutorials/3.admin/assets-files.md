@@ -19,6 +19,7 @@ In Files, you can manage all files in the Public folder.
 |------------------------|--------------------------------------------|
 | **Root folder**        | A root folder. Contains the sub-folders and files. It is visible to all users.  |
 | **Sub-folders**        | Files can be placed in a specific sub-folder for logical organization purposes.          |
+| **+ (Create)**         | Hover over any folder to display this action. Allows creating new child or sibling folder and import the files into it. Same flow as [Import](#import), but also requires to provide a folder name. |
 | **Actions**    | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with files inside it.|
 
 ![ ](img/img_35_1.png)
@@ -30,7 +31,7 @@ In Files, you can manage all files in the Public folder.
 | **Display Name** | A technical key for the file (e.g. `exclusion-words`).                                              |
 | **Extension**    | The extension of the file.                                                                 |
 | **Author**       | The username or system ID associated with the user who created or last updated this file.    |
-| **Actions**      | Row menu with actions: <br /> - **Open in new tab**: Opens a new tab with file's properties.  <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the file.<br />- **Delete**: Use to delete the file.  |
+| **Actions**      | Actions you can perform on the selected file: <br /> - **Open in new tab**: Opens a new tab with file's properties.  <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the file.<br />- **Delete**: Use to delete the file.  |
 
 ![ ](img/files-actions.png)
 
