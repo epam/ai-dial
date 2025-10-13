@@ -58,7 +58,7 @@ In the Properties tab, you can see all and define selected application's basic p
 | Field    | Definition & Use Case |
 |----------|--------------------------|
 | **Display Name**  | The name of the application assigned by the author. It is read-only but includes a copy-to-clipboard button for easy reference.    |
-| **Runner**   | [Application Runner](/docs/tutorials/3.admin/builders-application-runners.md) the application is based upon. |
+| **Runner**   | [Application Runner](/docs/tutorials/3.admin/builders-application-runners.md) the application is based upon. NULL if the application was not created based on a runner. |
 | **Author**  | The username or system ID associated with the user who created or last updated this application.      |
 | **Creation Time** | The timestamp of when the application was created.   |
 | **Updated Time** | Date and time when the app's configuration was last updated.             |
