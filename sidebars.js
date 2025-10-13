@@ -36,6 +36,21 @@ const sidebars = {
             },
             {
               type: 'doc',
+              id: 'platform/core/auth-intro',
+              label: 'Authentication',
+            },
+            {
+              type: 'doc',
+              id: 'platform/architecture-and-concepts/access-control',
+              label: 'Access Control Overview',
+            },
+            {
+              type: 'doc',
+              id: 'platform/core/token-limits-and-cost-control',
+              label: 'Usage Limits and Cost Control',
+            },
+            {
+              type: 'doc',
               id: 'platform/architecture-and-concepts/components',
               label: 'Platform Components',
             },
@@ -77,18 +92,8 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'platform/core/auth-intro',
-              label: 'Authentication',
-            },
-            {
-              type: 'doc',
               id: 'platform/core/access-control-intro',
-              label: 'Access & Cost Control',
-            },
-            {
-              type: 'doc',
-              id: 'platform/core/token-limits-and-cost-control',
-              label: 'Token Limits and Cost Control',
+              label: 'Access Control',
             },
             {
               type: 'doc',
@@ -393,6 +398,11 @@ const sidebars = {
                   type: 'doc',
                   id: 'tutorials/devops/deployment/gcp-deployment-guide',
                   label: 'GCP Deployment Guide',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/devops/deployment/aws-deployment-guide',
+                  label: 'AWS Deployment Guide',
                 },
                 {
                   type: 'category',
