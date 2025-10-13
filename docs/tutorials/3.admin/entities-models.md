@@ -31,7 +31,7 @@ The grid with models displays the main properties of models which include:
 | **Override Name**         | An **optional**, context-specific display label that overrides the Display Name in UI components. Use it to give a model different aliases in different workflows without redefining the model.             |
 | **Topics**                | Tags or categories you can assign for discovery, filtering, or grouping in large deployments (e.g. "finance," "support," "image-capable"). Helps end users and admins find the right model by the use case. Topics are also used to filter models in [DIAL Marketplace](/docs/platform/4.chat/1.marketplace.md).|
 | **Attachment types**      | Controls which types of attachments this model can accept according to [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types).       |
-| **Max attachment number** | Maximum number of attachments allowed per single request. Leave blank for an unlimited number. Prevents requests with an excessive number of files.   |
+| **Max attachment number** | Maximum number of attachments allowed in a single request. Leave blank for an unlimited number. Prevents requests with an excessive number of files.   |
 | **Tokenizer model**       | Identifies the specific model with a tokenization algorithm identical to the referenced model's. This is typically the name of the earliest released model in a series of models sharing an identical tokenization algorithm. This parameter is essential for DIAL clients that reimplement tokenization algorithms on their side, instead of utilizing the tokenize Endpoint provided by the model. |
 | **Forward auth token**    | Optionally, configure the system to forward the Auth Token from the caller's session to the upstream API call. This enables multi-tenant scenarios or pass-through authentication for downstream services.    |
 | **Interaction limit**     | The interaction limit parameter in models refers to the maximum number of tokens that can be transmitted in a completion request and response combined. This parameter ensures that the model does not exceed a specified token limit during interactions.     |
@@ -415,7 +415,7 @@ In this tab, you can see individual traces, each representing a single end-to-en
 
 > **TIP**: You can monitor all usage sessions in [Usage Log](/docs/tutorials/3.admin/telemetry-usage-log.md).
 
-In Conversations, you can see individual traces grouped into end‑to‑end user sessions, showing details and aggregated metrics per conversation.
+In Conversations, you can see individual traces grouped into end‑to‑end conversation sessions.
 
 ![](img/model-conversations.png)
 
