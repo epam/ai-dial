@@ -50,10 +50,7 @@ On the main screen you can add new application deployments.
 
 ## Application Configuration
 
-##### Top Bar Controls
-
-* **Delete**: Permanently removes this application. All clients calling its endpoint will receive errors until a replacement is published.
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the application’s configuration. Use JSON mode for copy-paste or advanced edits.
+Click any application on the main screen to open the configuration section.
 
 ### Properties
 
@@ -114,7 +111,7 @@ While [Model feature flags](/docs/tutorials/3.admin/entities-models.md#feature-f
 You can override or extend DIAL Core’s built-in protocol calls with your own HTTP services. Here, you can specify endpoints used by [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) (e.g. a Python or Node Runner) to perform preprocessing or policy checks before delegating to your underlying models and workflows.
 
 | Field                        | Description & When to Use                           |
-|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------------------|--------------------------|
 | **Rate endpoint**            | A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).             |
 | **Tokenize endpoint**        | A URL to call a custom tokenization service. When you need precise, app-wide token counting (for mixed-model or multi-step prompts) that the model adapter can’t provide. |
 | **Truncate prompt endpoint** | A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual application call.  |
@@ -127,7 +124,7 @@ Enable or disable per-request options that your application accepts from clients
 > **Note**: Changes take effect immediately after saving.
 
 | Toggle                        | What It Does|
-|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------------------------|------------|
 | **System prompt**             | Enables an initial "system" message injection. Useful for orchestrating multi-step agents where you need to enforce a global policy at the application level. |
 | **Tools**                     | Enables `tools`/`functions` payloads in API calls. Switch on if your application makes external function calls (e.g. calendar lookup, database fetch).        |
 | **Seed**                      | Enables the `seed` parameter for reproducible results. Great for testing or deterministic pipelines.  Disable to ensure randomized creativity.                |
@@ -433,7 +430,7 @@ In Conversations, you can see individual traces grouped into end‑to‑end conv
 
 The Activities section under the Audit tab of a specific application provides detailed visibility into all changes made to that app.
 
-This section mimics the functionality available in the global Audit → Activities menu, but is scoped specifically to the selected app.
+This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected app.
 
 ![](img/87.png)
 
@@ -445,6 +442,8 @@ This section mimics the functionality available in the global Audit → Activiti
 | **Time**          | Timestamp indicating when the activity occurred.                             |
 | **Initiated**     | Email address of the user who performed the activity.                        |
 | **Activity ID**   | A unique identifier for the logged activity, used for tracking and auditing. |
+|**Actions**|Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details.  |
+
 
 ##### Activity Details
 
@@ -460,13 +459,18 @@ To open Activity Details, click on the three-dot menu (⋮) at the end of a row 
 | **Time**            | Timestamp of the change.          |
 | **Initiated**       | Identifier of the user who made the change.                                                                                                             |
 | **Activity ID**     | Unique identifier for the specific activity tracking.                                                                                                   |
-| **View**            | Dropdown to switch between showing all parameter or changed only.                                                                                       |
+| **Comparison**      | Dropdown to switch between showing all parameter or changed only.|
+| **View**            | Dropdown to switch for selection between Before/After and Before/Current state.|
 | **Parameters Diff** | Side-by-side comparison of app fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
+
+##### Resource Rollback
+
+Use Resource Rollback to restore the previous version of the selected activity. A rollback leads to generation of a new entry on the audit activity screen.
 
 
 ### JSON Editor
 
-For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any app’s configuration page.
+Use the**JSON Editor** toggle to switch between the form-based UI and raw JSON view of the application’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any interceptor configuration page.
 
 ![](img/img_18.png)
 
@@ -476,4 +480,8 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
+
+### Delete
+
+Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected application.
 

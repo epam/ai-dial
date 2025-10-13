@@ -70,11 +70,6 @@ You can access the model configuration screen by clicking any model in the model
 * [Interceptors](#interceptors): Custom logic to modify requests or responses.
 * [Audit](#audit): Provides aggregated audit metrics and detailed logs of individual configuration changes.
 
-##### Top Bar Controls
-
-* **Delete**: Permanently removes the selected model's definition from DIAL Core. All Routes referencing it will throw an error until a replacement is created.
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the model’s configuration. Use JSON mode for copy-paste or advanced edits.
-
 ### Properties
 
 In the **Properties** tab, you can view and edit main definitions and runtime settings for model deployment. 
@@ -451,6 +446,7 @@ This section mimics the functionality available in the global [Audit → Activit
 | **Time**          | Timestamp indicating when the activity occurred.        |
 | **Initiated**     | Email address of the user who performed the activity.   |
 | **Activity ID**   | A unique identifier for the logged activity, used for tracking and auditing. |
+|**Actions**|Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details.  |
 
 ##### Activity Details
 
@@ -461,17 +457,23 @@ The Activity Details view provides a detailed snapshot of a specific change made
 To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
 
 | **Element/Section** | **Description**     |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+|---------------------|--------|
 | **Activity type**   | Type of the change performed (e.g., Update, Create, Delete).         |
 | **Time**            | Timestamp of the change.           |
 | **Initiated**       | Identifier of the user who made the change.             |
 | **Activity ID**     | Unique identifier for the specific activity tracking.   |
-| **View**            | Dropdown to switch between showing all parameter or changed only.    |
+| **Comparison**      | Dropdown to switch between showing all parameter or changed only.|
+| **View**            | Dropdown to switch for selection between Before/After and Before/Current state.|
 | **Parameters Diff** | Side-by-side comparison of model fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
+
+##### Resource Rollback
+
+Use Resource Rollback to restore the previous version of the selected activity. A rollback leads to generation of a new entry on the audit activity screen.
+
 
 ### JSON Editor
 
-For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any model’s configuration page.
+Use the**JSON Editor** toggle to switch between the form-based UI and raw JSON view of the language model’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any interceptor configuration page.
 
 ![ ](img/img_10.png)
 
@@ -481,3 +483,8 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
+
+
+### Delete
+
+Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected language model.
