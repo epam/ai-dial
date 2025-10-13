@@ -87,44 +87,49 @@ Use **Import** in the toolbar to upload new or update existing prompts from exte
 
 ## Configuration
 
+Click any prompt to open the configuration screen where you can see the prompt's details and edit prompt.
+
 ##### Top Bar Controls
 
 * **Delete**: Permanently removes this prompt (or the selected versions) from your workspace. Any applications that reference it will break until you reattach a valid prompt.
 * **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the prompt’s configuration. Use JSON mode for copy-paste or advanced edits.
 
-Once the prompt edited, top bar allows to:
-* **Discard** changes made since last save.
-* **Save** changes to the current version of prompt.
-* **Save as new version**. Automatically creates new version. Keeps current version untouched:
-
-![](img/img_34_1.png)
-
-
 ### Properties
 
-In the Properties tab, you can view and edit metadata and the template content of prompts.
+In the Properties tab, you can view and edit the metadata and the content of the selected prompt.
 
 ![img_2.png](img/img_34.png)
 
+| Field| Definition & Use Case                                                                   |
+|-------|-----------------------------------------------------------------------------------------------|
+| **Display Name**   | Immutable key for the prompt (e.g. `customer_base_growth`). It cannot be edited after the prompt is created.                   |
+| **Update Time**       | Read-only timestamp of the last save (e.g. `04.29.2025 00:14`). Helps you track when the prompt was last modified.             |
+| **Version**        | Select the semantic version of this prompt (e.g. `1.0.0`, `0.1.2`). Use **+ Create** button in the dropdown with versions to create a new version.                                                           |
+| **Description**     | Free-form summary of the prompt’s intent, variables, or context requirements (e.g. "Extracts customer base growth; variables: `{{growth}}`").                                                                |
+| **Content**         | A markdown editor with the prompt's text which supports:<br />- **Plain text** with Markdown formatting. <br />- **Mustache-style variables** `{{variableName}}` for dynamic substitution. |  
+| **Storage Folder**     | The path to the prompt's location in the folders hierarchy.                                 |  
 
-| Field              | Required | Definition & Use Case                                                                   |
-|--------------------|----------|-----------------------------------------------------------------------------------------------|
-| **Display Name**   | -        | Immutable key for the prompt (e.g. `customer_base_growth`). It cannot be edited after the prompt is created.                   |
-| **Update Time**    | -        | Read-only timestamp of the last save (e.g. `04.29.2025 00:14`). Helps you track when the prompt was last modified.             |
-| **Version**        | Yes      | Select the semantic version of this prompt (e.g. `1.0.0`, `0.1.2`). Use **+ Create** button in the dropdown with versions to create a new version.                                                           |
-| **Description**    | No       | Free-form summary of the prompt’s intent, variables, or context requirements (e.g. "Extracts customer base growth; variables: `{{growth}}`").                                                                |
-| **Content**        | Yes      | The actual prompt text. Markdown editor with preview capability. Supports:<br />- **Plain text** with Markdown formatting. <br />- **Mustache-style variables** `{{variableName}}` for dynamic substitution. |  
-| **Storage Folder** | Yes      | The actual path to the prompt in the folders hierarchy.                                 |  
 
-#### Compare Versions
-Tool allows comparing the prompt text across its versions. Provides ability to select exact versions to compare. Highlights add and remove changes.
+### Edit Prompt
+
+In the Properties tab, you can edit selected information. Once the prompt edited, top bar allows to:
+
+* **Discard**: Use to discard changes made since last save.
+* **Save**: Use to save changes to the current version of prompt.
+* **Save as new version**: Save changes in a new version keeping the current version intact.
+
+![](img/img_34_1.png)
+
+### Compare Versions
+
+Use **compare versions** to compare the prompt's text across its versions. You can select versions you want to compare to see the changes highlighted.
 
 ![](img/img_34_2.png)
 
 
 ### JSON Editor
 
-For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any prompt's configuration page.
+For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor**.
 
 ![](img/73.png)
 

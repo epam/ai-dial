@@ -47,7 +47,7 @@ Click any application to open a screen with information about the selected appli
 ##### Top Bar Controls
 
 * **Delete**: Permanently removes the selected application from your DIAL instance.
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw JSON view of the application’s configuration. Use JSON mode for configuration copy-pastes.
+* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the application’s configuration. Use JSON mode for configuration copy-pastes.
 
 ### Properties
 
@@ -102,3 +102,17 @@ Enable or disable per-request options that your application accepts from clients
 | **Accessible by request key** | Indicates whether the deployment is accessible using a [per-request API key](/docs/platform/3.core/3.per-request-keys.md). |
 | **Content parts**             | Indicates whether the deployment supports requests with content parts or not.  |
 | **Consent required**          | Indicates whether the application requires [user consent](https://dialx.ai/dial_api#tag/User-Consent) before use.     |
+
+### JSON Editor
+
+For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor**.
+
+![](img/json-editor-apps.png)
+
+##### Switching to the JSON Editor
+
+1. Navigate to **Assets → Applications**, then select the application you want to edit.
+2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
+
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
+
