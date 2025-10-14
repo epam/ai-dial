@@ -36,6 +36,21 @@ const sidebars = {
             },
             {
               type: 'doc',
+              id: 'platform/core/auth-intro',
+              label: 'Authentication',
+            },
+            {
+              type: 'doc',
+              id: 'platform/architecture-and-concepts/access-control',
+              label: 'Access Control Overview',
+            },
+            {
+              type: 'doc',
+              id: 'platform/core/token-limits-and-cost-control',
+              label: 'Usage Limits and Cost Control',
+            },
+            {
+              type: 'doc',
               id: 'platform/architecture-and-concepts/components',
               label: 'Platform Components',
             },
@@ -45,7 +60,12 @@ const sidebars = {
               label: 'Agentic Platform',
             },
             {
-              type: 'doc',  
+              type: 'doc',
+              id: 'platform/architecture-and-concepts/app-server',
+              label: 'Application Server',
+            },
+            {
+              type: 'doc',
               id: 'platform/architecture-and-concepts/stack',
               label: 'DIAL Stack',
             },
@@ -72,13 +92,8 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'platform/core/auth-intro',
-              label: 'Authentication',
-            },
-            {
-              type: 'doc',
               id: 'platform/core/access-control-intro',
-              label: 'Access & Cost Control',
+              label: 'Access Control',
             },
             {
               type: 'doc',
@@ -127,6 +142,11 @@ const sidebars = {
               label: 'Data Visualization',
             },
           ],
+        },
+        {
+          type: 'doc',
+          id: 'platform/admin-panel',
+          label: 'Admin Panel',
         },
         {
           type: 'doc',
@@ -289,14 +309,55 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: 'Integrations',
+              label: 'Examples of Integrations',
               items: [
                 {
                   type: 'doc',
                   id: 'tutorials/developers/integrations/copilot-to-dial',
                   label: 'Integration with MS Copilot',
                 },
-              ],
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/integrations/ms-excel-addin',
+                  label: 'Integration with MS Excel',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/integrations/msteams-bot',
+                  label: 'Integration with MS Teams',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/integrations/n8n-integration',
+                  label: 'Integration with n8n',
+                },
+                {
+                  type: 'category',
+                  label: 'Integrations with Code Assistants',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/integrations/vscode-extension',
+                      label: 'Integration with Continue',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/integrations/cline',
+                      label: 'Integration with Cline',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/integrations/roocode',
+                      label: 'Integration with Roo Code',
+                    },
+                  ],
+                },
+              ]
+            },
+            {
+              type: 'doc',
+              id: 'tutorials/developers/prompt-caching',
+              label: 'Prompt Caching',
             },
           ],
         },
@@ -337,6 +398,11 @@ const sidebars = {
                   type: 'doc',
                   id: 'tutorials/devops/deployment/gcp-deployment-guide',
                   label: 'GCP Deployment Guide',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/devops/deployment/aws-deployment-guide',
+                  label: 'AWS Deployment Guide',
                 },
                 {
                   type: 'category',
@@ -422,8 +488,13 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/devops/auth-and-access-control/configure-idps/azureb2c',
+                      label: 'Azure AD B2C',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/devops/auth-and-access-control/configure-idps/entraID',
-                      label: 'Microsoft Entra',
+                      label: 'Microsoft Entra ID',
                     },
                     {
                       type: 'doc',
@@ -456,6 +527,159 @@ const sidebars = {
             },
           ],
         },
+        {
+          type: 'category',
+          label: 'Admins',
+          items: [
+            {
+              type: 'category',
+              label: 'Admin Panel User Guide',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/home',
+                  label: 'Introduction',
+                },
+                {
+                  type: 'category',
+                  label: 'Entities',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/entities-models',
+                      label: 'Models',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/entities-applications',
+                      label: 'Applications',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/entities-toolsets',
+                      label: 'Toolsets',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/entities-interceptors',
+                      label: 'Interceptors',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/entities-routes',
+                      label: 'Routes',
+                    },
+                  ]
+                },
+                {
+                  type: 'category',
+                  label: 'Builders',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/builders-application-runners',
+                      label: 'Application Runners',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/builders-interceptor-templates',
+                      label: 'Interceptor Templates',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/builders-adapters',
+                      label: 'Adapters',
+                    },
+                  ]
+                },
+                {
+                  type: 'category',
+                  label: 'Assets',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/assets-applications',
+                      label: 'Applications',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/assets-prompts',
+                      label: 'Prompts',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/assets-files',
+                      label: 'Files',
+                    },
+                  ]
+                },
+                {
+                  type: 'category',
+                  label: 'Access Management',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/access-management-roles',
+                      label: 'Roles',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/access-management-keys',
+                      label: 'Keys',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/access-management-folders-storage',
+                      label: 'Folders Storage',
+                    },
+                  ]
+                },
+                {
+                  type: 'category',
+                  label: 'Approvals',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/approvals-application-publications',
+                      label: 'Application Publications',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/approvals-prompt-publications',
+                      label: 'Prompt Publications',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/approvals-file-publications',
+                      label: 'File Publications',
+                    },
+                  ]
+                },
+                {
+                  type: 'category',
+                  label: 'Audit',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/telemetry-dashboard',
+                      label: 'Dashboard',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/telemetry-activity-audit',
+                      label: 'Activities',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/telemetry-usage-log',
+                      label: 'Usage Log',
+                    },
+                  ]
+                }
+              ],
+            }
+          ]
+        }
       ],
     },
     {
