@@ -2,43 +2,47 @@
 
 ## About Toolsets
 
-Toolsets allow your apps to interact with external services to perform specific actions. 
-This feature enables your QuickApps to call external functions and services, enhancing their capabilities and enabling more complex workflows.
+Toolsets allow applications to interact with external services (such as MCP servers and REST APIs) to perform specific actions. 
 
-> Refer to the [QuickApps Configuration](/docs/tutorials/1.developers/4.apps-development/5.quick-app-configuration.md) page for more details on apps configuration.
+> Refer to the [QuickApps Configuration](/docs/tutorials/1.developers/4.apps-development/5.quick-app-configuration.md) page for more details on Quick Apps configuration and available toolsets.
 
-## Toolsets List
+## Toolsets Main Screen
 
-On the **Toolsets** page, you can find all toolsets existing in your DIAL instance. Here you can view, filter, and add new toolset definitions.
-
+On the **Toolsets** main screen, you can find all toolsets existing in your DIAL instance. Here you can view, filter, and add new toolset definitions.
 
 ![](img/109.png)
 
 ##### Toolsets grid
 
-| Field                     | Definition                                                                                                                                               |
-|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **ID**                    | This is a unique key under the toolsets section of DIAL Admin.                                                                                           |
-| **Display Name**          | A user-friendly label for a toolset (e.g. GitHub, Google Maps).                                                                                          |
-| **Description**           | Free-text notes about this toolset’s purpose, capabilities, or any other relevant details.                                                               |
-| **Author**                | Contains the tools author's name.                                                                                                                        |
+| Field                     | Definition|
+|---------------------------|-------|
+| **ID**                    | This is a unique key under the toolsets section of DIAL Admin.                                          |
+| **Display Name**          | A user-friendly label for a toolset (e.g. GitHub, Google Maps).                                         |
+| **Description**           | Free-text notes about this toolset’s purpose, capabilities, or any other relevant details.              |
+|**Source Type**|A source type of the toolset: either MCP deployment or Endpoint.|
+|**Source**|For MCP source Type, enter a container ID. For Endpoint - enter a URL of the external endpoint.|
+| **Author**                | Contains the tools author's name.                      |
 | **Topics**                | Tags or categories (e.g. "finance," "support") you can assign for discovery, filtering, or grouping. Helps end users and admins find the right toolset.  |
 
 ## Create Toolset
 
+Follow these steps to add a new toolset:
+
 1. Click **+ Create** to invoke a **Create Toolset** modal.
 2. Define parameters:
 
-| Field             | Required | Definition & Guidance                                                                                                 |
-|-------------------|----------|-----------------------------------------------------------------------------------------------------------------------|
-| **ID**            | Yes      | This is a unique key under the toolsets section of DIAL Admin.                                                        |
-| **Display Name**  | No       | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).                                                 |
-| **Description**   | No       | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details.                         |
-| **Base Endpoint** | Yes      | Root endpoint of the toolset. This allows applications and LLMs to interact with its tools by invoking this endpoint. |
+    | Field | Required | Definition & Guidance  |
+    |-------------------|----------|--------------|
+    | **ID**            | Yes      | This is a unique key under the toolsets section of DIAL Admin.       |
+    | **Display Name**  | No       | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).|
+    | **Description**   | No       | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details.                         |
+    |**Source Type**|Yes|Choose between MCP and External Endpoint.|
+    | **External Endpoint** | Conditional      | External endpoint of the REST API. Applies for External Endpoint source types. |
+    | **Container** | Conditional      | MCP server container ID. Applies for MCP deployment source types. |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#toolset-configuration). When done with toolset configuration, click **Save**. It may take some time for the changes to take effect after saving.
 
-![](img/110.png)
+    ![](img/110.png)
 
 ## Toolset Configuration
 
@@ -49,11 +53,6 @@ You can access the toolset configuration screen by clicking any toolset in the t
 * [Roles](#roles): User groups that can use this toolset and their rate limits.
 * [Audit](#audit): Provides detailed logs of individual configuration changes.
 
-##### Top Bar Controls
-
-* **Delete**: Permanently removes the selected toolset from DIAL.
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the toolset’s configuration. Use JSON mode for copy-paste or advanced edits.
-
 ### Properties
 
 In the **Properties** tab, you can view and edit main definitions and settings for toolset. 
@@ -62,18 +61,20 @@ In the **Properties** tab, you can view and edit main definitions and settings f
 
 ##### Basic Identification and Information
 
-| Field                   | Required | Description                                                                                                                               |
+| Field                   | Required | Description                             |
 |-------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| **ID**                  | -        | This is a unique key under the toolsets section of DIAL Admin.                                                                            |
-| **Updated Time**        | -        | Date and time when the toolset's configuration was last updated.                                                                          |
-| **Creation Time**       | -        | Date and time when the toolset's configuration was created.                                                                               |
-| **Display Name**        | No       | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).                                                                     |
+| **ID**                  | -        | This is a unique key under the toolsets section of DIAL Admin.                           |
+| **Updated Time**        | -        | Date and time when the toolset's configuration was last updated.                         |
+| **Creation Time**       | -        | Date and time when the toolset's configuration was created.                              |
+| **Display Name**        | No       | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).                    |
 | **Description**         | No       | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details.                                             |
-| **Maintainer**          | No       | Field used to specify the responsible person overseeing the toolset’s configuration.                                                      |
-| **Icon**                | No       | A logo to visually distinguish toolsets in the UI.                                                                                        |
+| **Maintainer**          | No       | Field used to specify the responsible person overseeing the toolset’s configuration.     |
+| **Icon**                | No       | A logo to visually distinguish toolsets in the UI.                                       |
 | **Topics**              | No       | A tag that associates a toolsets with one or more topics or categories (e.g. "finance", "support").                                       |
-| **External Endpoint**   | Yes      | Root endpoint of the toolset. This allows applications and LLMs to interact with its tools by invoking this endpoint.                     |
-| **Transport**           | Yes      | Default HTTP; choose SSE for server-sent events when supported.                                                                           |
+|**Source Type**|Yes|The source type of the selected toolset: MCP or External Endpoint.|
+| **External Endpoint**   | Conditional      | Root endpoint of the toolset. This allows applications and LLMs to interact with its tools by invoking this endpoint.                     |
+|**Container**|Conditional|MCP server container ID. Applies for MCP deployment source types.|
+| **Transport**           | Yes      | Default HTTP; choose SSE for server-sent events when supported.                          |
 | **Max retry attempts**  | Yes      | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors). |
 
 
@@ -116,17 +117,17 @@ In the **Roles** tab, you can define user groups that are authorized to use a sp
 
 ##### Roles grid
 
-| Column                | Description & Guidance                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Column                | Description & Guidance        |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **ID**                | A unique role's identifier                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **Display Name**      | A role's name.                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **Description**       | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team").                                                                                                                                                                                                                                                                                                                                             |
-| **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                                                                                                                                                                                                                                                                                |
-| **Tokens per day**    | Daily tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                                                                                                                                                                                                                                                                                     |
-| **Tokens per week**   | Weekly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                                                                                                                                                                                                                                                                                    |
-| **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                                                                                                                                                                                                                                                                                   |
-| **Expiration time**   | TTL (Time To Live) of the invitation link to a shared resource.                                                                                                                                                                                                                                                                                                                                                                       |
-| **Max users**         | The maximum number of users who can accept a shared resource.                                                                                                                                                                                                                                                                                                                                                                         |
+| **ID**                | A unique role's identifier    |
+| **Display Name**      | A role's name.                |
+| **Description**       | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team").                                       |
+| **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                           |
+| **Tokens per day**    | Daily tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                                |
+| **Tokens per week**   | Weekly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                               |
+| **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                              |
+| **Expiration time**   | TTL (Time To Live) of the invitation link to a shared resource.                |
+| **Max users**         | The maximum number of users who can accept a shared resource.                  |
 | **Actions**           | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **no limits** or  [remove](#remove-role) the role from the list. |
 
 #### Set Rate Limits
@@ -143,7 +144,7 @@ The grid on the Roles screen lists the roles that can access a specific toolset.
 
 Default limits are set for all roles in the **Roles** grid by default; however you can override them as needed.
 
-| Field                         | Description                                                                             |
+| Field                         | Description                            |
 |-------------------------------|-----------------------------------------------------------------------------------------|
 | **Default tokens per minute** | The maximum tokens any user can consume per minute unless a specific limit is in place. |
 | **Default tokens per day**    | The maximum tokens any user can consume per day unless a specific limit is in place.    |
@@ -191,12 +192,13 @@ This section mimics the functionality available in the global [Audit → Activit
 
 ##### Activities List Table
 
-| **Field**         | **Definition**                                                               |
+| **Field**         | **Definition**              |
 | ----------------- |------------------------------------------------------------------------------|
 | **Activity type** | The type of action performed  (e.g., Create, Update, Delete).                |
 | **Time**          | Timestamp indicating when the activity occurred.                             |
 | **Initiated**     | Email address of the user who performed the activity.                        |
 | **Activity ID**   | A unique identifier for the logged activity, used for tracking and auditing. |
+|**Actions**|Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details.  |
 
 ##### Activity Details
 
@@ -206,19 +208,24 @@ The Activity Details view provides a detailed snapshot of a specific change made
 
 To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
 
-| **Element/Section** | **Description**                                                                                                                                             |
+| **Element/Section** | **Description**                                           |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Activity type**   | Type of the change performed (e.g., Update, Create, Delete).                                                                                                |
-| **Time**            | Timestamp of the change.                                                                                                                                    |
-| **Initiated**       | Identifier of the user who made the change.                                                                                                                 |
-| **Activity ID**     | Unique identifier for the specific activity tracking.                                                                                                       |
-| **View**            | Dropdown to switch between showing all parameter or changed only.                                                                                           |
+| **Activity type**   | Type of the change performed (e.g., Update, Create, Delete).                                               |
+| **Time**            | Timestamp of the change.                                  |
+| **Initiated**       | Identifier of the user who made the change.               |
+| **Activity ID**     | Unique identifier for the specific activity tracking.     |
+| **Comparison**      | Dropdown to switch between showing all parameter or changed only.|
+| **View**            | Dropdown to switch for selection between Before/After and Before/Current state.|
 | **Parameters Diff** | Side-by-side comparison of toolset fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
+
+##### Resource Rollback
+
+Use Resource Rollback to restore the previous version of the selected activity. A rollback leads to generation of a new entry on the audit activity screen.
 
 
 ### JSON Editor
 
-For advanced scenarios like copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any toolset’s configuration page.
+Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the toolset’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any toolset configuration page.
 
 ![ ](img/118.png)
 
@@ -228,3 +235,8 @@ For advanced scenarios like copy/paste between environments, or tweaking setting
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
+
+
+### Delete
+
+Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected toolset.

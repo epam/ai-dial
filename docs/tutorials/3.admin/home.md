@@ -2,7 +2,7 @@
 
 ## About
 
-The DIAL Admin Panel provides system [administrators](#who-is-admin) tools to configure, manage, and monitor the DIAL ecosystem via a feature-rich, intuitive, and customizable interface. 
+The DIAL Admin Panel provides system [administrators](#who-is-admin) a feature-rich, intuitive, and customizable UI to configure, manage, and monitor the DIAL ecosystem. 
 
 > Admin Panel serves as a powerful UI for administrators. System configurations can be done also by a direct modification of a [DIAL Core config](https://github.com/epam/ai-dial-core).
 
@@ -21,18 +21,20 @@ It is developed in two separate repositories for frontend and backend components
 
 System admin(s) can be defined in [DIAL Core static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings) in the `access.admin.rules`. Admin has the following privileges:
 
-* Has `READ` and `WRITE` access to all system resources (conversations, prompt, files and applications).
+* Has `READ` and `WRITE` access to all public system resources (conversations, prompt, files, toolsets and applications).
 * Can view, approve and reject publication requests from DIAL users. 
 * Has access to all DIAL Core API endpoints.
 
+> Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL and the role of a system administrator.
+
 ## Admin Panel Sections
 
-* **Entities**: In this section, you can configure all language models, applications, and routes within the DIAL environment. Go to [Entities](/docs/tutorials/3.admin/entities-models.md) to learn more.
-* **Builders**: In this section, you can add and configure application types and interceptors. Go to [Builders](/docs/tutorials/3.admin/builders-application-runners.md) to learn more.
-* **Assets**: In this section, you can view, add, and manage system resources such as prompts and files. Go to [Assets](/docs/tutorials/3.admin/assets-files.md) to learn more.
+* **Entities**: In this section, you can configure all language models, applications, toolsets, interceptors and routes within the DIAL environment. Go to [Entities](/docs/tutorials/3.admin/entities-models.md) to learn more.
+* **Builders**: In this section, you can add and configure application runners, model adapters and interceptors. Go to [Builders](/docs/tutorials/3.admin/builders-application-runners.md) to learn more.
+* **Assets**: In this section, you can view, add, and manage public system resources such as applications, prompts and files. Go to [Assets](/docs/tutorials/3.admin/assets-files.md) to learn more.
 * **Access Management**: In this section, you can create and manage user groups, roles, API keys, and usage limits to implement access and cost control policy. Go to [Access Management](/docs/tutorials/3.admin/access-management-roles.md) to learn more.
-* **Approvals**: In this section, you can view and manage publication requests submitted by DIAL users for files and prompts. Go to [Approvals](/docs/tutorials/3.admin/approvals-file-publications.md) to learn more.
-* **Telemetry**: In this section, you can monitor real-time system usage, including token consumption, system load, and other telemetry data for performance tracking. Go to [Telemetry](/docs/tutorials/3.admin/telemetry-dashboard.md) to learn more.
+* **Approvals**: In this section, you can view and manage publication requests submitted by DIAL users for applications, files and prompts. Go to [Approvals](/docs/tutorials/3.admin/approvals-file-publications.md) to learn more.
+* **Audit**: In this section, you can monitor real-time system usage, including token consumption, system load, and other telemetry data for performance tracking. Go to [Dashboard](/docs/tutorials/3.admin/telemetry-dashboard.md) to learn more.
 
 ## Home Screen
 
@@ -43,11 +45,11 @@ The Home screen gives you a high-level overview of your environment and fast acc
 * **Sidebar** is the main menu available at any page with access to every major DIAL Admin section.
 * **View our documentation** button opens the official [DIAL docs](https://docs.dialx.ai/) in a new tab. It's handy when you need an in-depth reference or look for details.
 * **Open DIAL** button opens https://chat.dialx.ai/ in a new tab, where you can try your apps , prompts, and models live.
-* **Site Map** is a visual grid of cards you can use to navigate to a corresponding DIAL Admin section.
+* **Site map** is a visual grid of cards you can use to navigate to a corresponding DIAL Admin section.
 
 ### Import Config
 
-**Import Config** button uploads a DIAL configuration file to provision or restore your instance. It is useful for migrating between environments or restoring backups.
+Use the **Import Config** button to upload a DIAL Core configuration file. Can be used for migrating between environments or restoring backups.
 
 ![](img/img_56.png)
 
@@ -72,7 +74,7 @@ Click Next to preview the configuration to be imported and then click Import but
 
 ### User Settings
 
-Click your avatar (or name) to reveal the profile menu in the top-right corner of the header. Here, you can personalize your DIAL Admin experience and manage your session.
+Click your avatar (or name) in the top-right corner of the header to reveal the profile menu. Here, you can personalize your DIAL Admin experience and manage your session.
 
 ![](img/img_1.png)
 
