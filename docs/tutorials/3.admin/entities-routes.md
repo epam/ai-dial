@@ -19,6 +19,8 @@ In Routes, you can view, filter, and create new routes.
 
 ## Create
 
+Follow these steps to add a new route:
+
 1. Click **+ Create** to invoke the **Create Route** modal.
 2. Define rout's parameters
 
@@ -201,7 +203,7 @@ Use Resource Rollback to restore the previous version of the selected activity. 
 
 ### JSON Editor
 
-Use the**JSON Editor** toggle to switch between the form-based UI and raw JSON view of the route’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any interceptor configuration page.
+Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the route’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any route configuration page.
 ![](img/72.png)
 
 ##### Switching to the JSON Editor

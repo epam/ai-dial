@@ -2,8 +2,6 @@
 
 ## About Models
 
-In Models, you can find all language models deployed in your instance of DIAL and also add new model deployments. 
-
 > Refer to the [Supported Models](/docs/platform/2.supported-models.md) page for a list of all supported models and  model adapters.
 
 ## Models Main Screen
@@ -40,7 +38,7 @@ The grid with models displays the main properties of models which include:
 
 ## Create Model
 
-On this screen you can add new language models to your DIAL instance.
+Follow these steps to add new language models to your DIAL instance:
 
 1. Click **+ Create** to invoke a **Create Model** modal.
 2. Define parameters for a new model:
@@ -318,6 +316,8 @@ In the **Interceptors** tab, you can define interceptors that will be triggered 
 
 ### Audit
 
+In the **Audit** tab, you can monitor key metrics, activities and traces related to the selected language model. 
+
 #### Dashboard
 
 > **TIP**: You can monitor the entire system's metrics in [Telemetry](/docs/tutorials/3.admin/telemetry-dashboard.md).
@@ -432,9 +432,7 @@ In Conversations, you can see individual traces grouped into end‑to‑end conv
 
 #### Activities
 
-The Activities section under the Audit tab of a specific model provides detailed visibility into all changes made to that model.
-
-This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected model.
+The Activities section provides detailed visibility into all changes made to the selected model. This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected model.
 
 ![85.png](img/85.png)
 
@@ -473,7 +471,7 @@ Use Resource Rollback to restore the previous version of the selected activity. 
 
 ### JSON Editor
 
-Use the**JSON Editor** toggle to switch between the form-based UI and raw JSON view of the language model’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any interceptor configuration page.
+Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the language model’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any model configuration page.
 
 ![ ](img/img_10.png)
 

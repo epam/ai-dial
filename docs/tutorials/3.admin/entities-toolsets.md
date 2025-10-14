@@ -2,7 +2,7 @@
 
 ## About Toolsets
 
-Toolsets allow applications to interact with external services (such MCP servers and REST APIs) to perform specific actions. 
+Toolsets allow applications to interact with external services (such as MCP servers and REST APIs) to perform specific actions. 
 
 > Refer to the [QuickApps Configuration](/docs/tutorials/1.developers/4.apps-development/5.quick-app-configuration.md) page for more details on Quick Apps configuration and available toolsets.
 
@@ -25,6 +25,8 @@ On the **Toolsets** main screen, you can find all toolsets existing in your DIAL
 | **Topics**                | Tags or categories (e.g. "finance," "support") you can assign for discovery, filtering, or grouping. Helps end users and admins find the right toolset.  |
 
 ## Create Toolset
+
+Follow these steps to add a new toolset:
 
 1. Click **+ Create** to invoke a **Create Toolset** modal.
 2. Define parameters:
@@ -223,7 +225,7 @@ Use Resource Rollback to restore the previous version of the selected activity. 
 
 ### JSON Editor
 
-Use the**JSON Editor** toggle to switch between the form-based UI and raw JSON view of the toolset’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any interceptor configuration page.
+Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the toolset’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any toolset configuration page.
 
 ![ ](img/118.png)
 

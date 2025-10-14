@@ -26,7 +26,7 @@ In Interceptors, you can find, manage and add interceptors to your DIAL environm
 
 ## Create
 
-On this screen, you can add new interceptors definitions.
+Follow these steps to add a new definition of an interceptor:
 
 1. Click **+ Create** to invoke the **Create Interceptor** modal.
 2. Define interceptor's parameters:
@@ -144,7 +144,7 @@ To open Activity Details, click on the three-dot menu (⋮) at the end of a row 
 
 ### JSON Editor
 
-Use the**JSON Editor** toggle to switch between the form-based UI and raw JSON view of the interceptor’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any interceptor configuration page.
+Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the interceptor’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any interceptor configuration page.
 
 ![](img/71.png)
 

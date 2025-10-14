@@ -8,7 +8,7 @@ DIAL-native applications adhere to the [unified protocol](/docs/platform/3.core/
 
 ## Applications Main Screen
 
-The main screen displays all the applications available in Public folder in DIAL. Applications, when added via DIAL Core configuration files or published by users are placed within this hierarchy.
+Applications, when added via DIAL Core configuration files or published by users are placed in the Public folder. The main screen displays all the applications available in Public folder in DIAL. 
 
 > Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to lean more about Private and Public logical spaces for objects storage in DIAL. 
 
@@ -16,7 +16,7 @@ The main screen displays all the applications available in Public folder in DIAL
 
 ### Folders Structure
 
-Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. On this part of the screen, you can see the hierarchical structure of folders in the Public space. 
+Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public space. 
 
 
 | Element | Description          |
@@ -43,11 +43,6 @@ Click on any folder to display applications in the applications grid.
 ## Configuration Screen
 
 Click any application to open a screen with information about the selected application and its configuration details.
-
-##### Top Bar Controls
-
-* **Delete**: Permanently removes the selected application from your DIAL instance.
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the application’s configuration. Use JSON mode for configuration copy-pastes.
 
 ### Properties
 
@@ -86,7 +81,7 @@ Endpoints specified here override endpoints in [Application Runner](/docs/tutori
 | **Rate endpoint**            | A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).   |
 | **Tokenize endpoint**        | A URL to call a custom tokenization service. When you need precise, app-wide token counting (for mixed-model or multi-step prompts) that the model adapter can’t provide.   |
 | **Truncate prompt endpoint** | A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual app call. |
-| **Configuration endpoint**   | A URL to fetch dynamic app-specific settings. Use this to drive runtime overrides from a remote config store. Use to request application configuration parameters as JSON schema.  |
+| **Configuration endpoint**   | A URL to fetch JSON Schema describing settings of the DIAL application. DIAL Core exposes this endpoint to DIAL clients as `GET v1/deployments/<deployment name>/configuration`. DIAL client must provide a JSON value corresponding to the configuration JSON Schema in a chat completion request in the `custom_fields.configuration` field.  |
 
 #### Feature Flags (Toggles)
 
@@ -116,3 +111,8 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
+## Delete
+
+Click **Delete** in the toolbar on the Configuration screen to permanently remove the selected application from your DIAL instance.
+
+You can also delete an application using the Delete option in the application context menu or by deleting the related folder.

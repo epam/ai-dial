@@ -32,6 +32,8 @@ On the main screen you can add new application deployments.
 
 > Refer to [Enable App](/docs/tutorials/1.developers/4.apps-development/3.enable-app.md) to learn more about enabling applications in DIAL.
 
+Follow these steps to add a new application deployment: 
+
 1. Click **+ Create** to invoke the **Create Application** modal.
 2. Define application's parameters
 
@@ -115,7 +117,7 @@ You can override or extend DIAL Core’s built-in protocol calls with your own H
 | **Rate endpoint**            | A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).             |
 | **Tokenize endpoint**        | A URL to call a custom tokenization service. When you need precise, app-wide token counting (for mixed-model or multi-step prompts) that the model adapter can’t provide. |
 | **Truncate prompt endpoint** | A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual application call.  |
-| **Configuration endpoint**   | A URL to fetch dynamic app-specific settings (e.g. per-tenant max tokens, allowed parameters). Use this to drive runtime overrides from a remote config store.            |
+| **Configuration endpoint**   | A URL to fetch JSON Schema describing settings of the DIAL application. DIAL Core exposes this endpoint to DIAL clients as `GET v1/deployments/<deployment name>/configuration`. DIAL client must provide a JSON value corresponding to the configuration JSON Schema in a chat completion request in the `custom_fields.configuration` field.       |
 
 #### Feature Flags (Toggles)
 
@@ -321,6 +323,8 @@ Sub-tab enables route-specific role assignments, allowing administrators to cont
 
 ### Audit
 
+In the **Audit** tab, you can monitor key metrics, activities and traces related to the selected application. 
+
 #### Dashboard
 
 In the **Dashboard** tab, you can see real-time and historical metrics for the application. You can use it to monitor usage patterns, enforce SLAs, optimize costs, and troubleshoot anomalies.
@@ -428,9 +432,7 @@ In Conversations, you can see individual traces grouped into end‑to‑end conv
 
 #### Activities
 
-The Activities section under the Audit tab of a specific application provides detailed visibility into all changes made to that app.
-
-This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected app.
+The Activities section provides detailed visibility into all changes made to the selected application. This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected app.
 
 ![](img/87.png)
 
@@ -470,7 +472,7 @@ Use Resource Rollback to restore the previous version of the selected activity. 
 
 ### JSON Editor
 
-Use the**JSON Editor** toggle to switch between the form-based UI and raw JSON view of the application’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any interceptor configuration page.
+Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the application’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any application configuration page.
 
 ![](img/img_18.png)
 

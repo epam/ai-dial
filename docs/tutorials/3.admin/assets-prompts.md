@@ -8,7 +8,7 @@ A prompt is an instruction, a question, or a message that a user provides to a l
 
 ## Prompts Main Screen
 
-In the Prompts section, you can manage all system and user prompt templates available in the Public folder. Here, you can also arrange prompts into folders, version them, and then use them in applications or chats.
+All prompts published by users get into the Public folder. In the Prompts section, you can manage all system and user prompt templates available in the Public folder. All  Here, you can also arrange prompts into folders, version them, and then use them in applications or chats.
 
 > Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to lean more about Private and Public logical spaces for objects storage in DIAL. 
 
@@ -16,16 +16,20 @@ In the Prompts section, you can manage all system and user prompt templates avai
 
 ### Folders Structure
 
+Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public space. 
+
 | Element | Description          |
 |------------------------|--------------------------------------------|
 | **Root folder**        | A root folder. Contains the sub-folders and prompts. It is visible to all users.  |
 | **Sub-folders**        | Prompts can be placed in a specific sub-folder for logical organization purposes.          |
-| **+ (Create)**         | Hover over any folder to display this action. Allows creating new child or sibling folder and import the prompts into it. Same flow as [Import](#import), but also requires to provide a folder name. |
+| **+ (Create)**         | Hover over any folder to display this action. Use it to import prompts into a new folder. The logic is similar to [Import](#import), but requires providing a new target folder name. |
 | **Actions**    | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with prompts inside it.|
 
 ![ ](img/img_32_1.png)
 
 ### Prompts Grid
+
+Click any folder in the hierarchy to display prompts stored in it.
 
 | Column           | Definition                                |
 |------------------|----------------|
@@ -36,6 +40,8 @@ In the Prompts section, you can manage all system and user prompt templates avai
 | **Actions**      | Actions you can perform on the selected prompt: <br /> - **Open in new tab**: Opens a new tab with prompt's properties.   <br />- [Duplicate](/docs/tutorials/0.user-guide.md#duplicate-1): Click to duplicate a prompt.<br />- **Move to another folder**: Use to select the target folder in the hierarchy to move the file.<br />- **Delete**: Use to delete a prompt. Alternatively you can use **Bulk Actions** in the header to remove multiple prompts. |
 
 ## Create
+
+Follow these steps to add a new prompt:
 
 1. Select a folder for a new prompt (e.g. public/marketing, private/project-x).
 2. Click **Create** in the toolbar to invoke the **Create Prompt** modal.
@@ -49,7 +55,7 @@ In the Prompts section, you can manage all system and user prompt templates avai
 
 4. Once all required fields are filled, click **Create**. The dialog closes and the new prompt [configuration screen](#configuration) is opened. This entry will appear immediately in the listing once created.
 
-![](img/img_33.png)
+   ![](img/img_33.png)
 
 ## Export
 
@@ -87,12 +93,7 @@ Use **Import** in the toolbar to upload new or update existing prompts from exte
 
 ## Configuration
 
-Click any prompt to open the configuration screen where you can see the prompt's details and edit prompt.
-
-##### Top Bar Controls
-
-* **Delete**: Permanently removes this prompt (or the selected versions) from your workspace. Any applications that reference it will break until you reattach a valid prompt.
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the prompt’s configuration. Use JSON mode for copy-paste or advanced edits.
+Click any prompt to open the configuration screen where you can see it's details and edit the selected properties.
 
 ### Properties
 
@@ -116,7 +117,7 @@ In the Properties tab, you can edit selected information. Once the prompt edited
 
 * **Discard**: Use to discard changes made since last save.
 * **Save**: Use to save changes to the current version of prompt.
-* **Save as new version**: Save changes in a new version keeping the current version intact.
+* **Save as new version**: Use to save changes in a new version keeping the current version intact.
 
 ![](img/img_34_1.png)
 
@@ -140,6 +141,13 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
+## Delete
+
+Click **Delete** in the toolbar on the Configuration screen to permanently remove the selected prompt (or the selected versions) from your workspace. Any applications that reference it will break until you reattach a valid prompt.
+
+You can also remove a prompt using the Delete option in the prompt context menu.
+
+To remove multiple prompts at once, use **Bulk Actions** in the toolbar on the Main Screen.
 
 
 

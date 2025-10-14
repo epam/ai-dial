@@ -14,6 +14,7 @@ In Files, you can manage all files in the Public folder.
 
 ### Folders Structure
 
+Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public space. 
 
 | Element | Description          |
 |------------------------|--------------------------------------------|
@@ -25,6 +26,8 @@ In Files, you can manage all files in the Public folder.
 ![ ](img/img_35_1.png)
 
 ### Files Grid
+
+Click any folder in the hierarchy to display files stored in it.
 
 | Column           | Definition                                                                                          |
 |------------------|-------------------|
@@ -72,13 +75,9 @@ Use **Import** in the toolbar to upload external files into DIAL’s assets stor
 
 Click any file to open the configuration screen.
 
-##### Top Bar Controls
-
-* **Delete**: Permanently removes the selected file from your DIAL instance.
-
 ### Properties
 
-In the Properties tab, you can view and manage the selected file, including moving them across folders.
+In the Properties tab, you can view and manage the selected file, including moving it across folders.
 
 ![](img/img_36.png)
 
@@ -90,3 +89,9 @@ In the Properties tab, you can view and manage the selected file, including movi
 | **Source/Extension**  | The file type (e.g. .json, .csv, .pdf). |
 |**Source/Actions** |Click the context menu icon to open additional actions:<br />- **Preview**: Click to preview a file.<br />- **Download**: Click to download a file.|
 | **Storage Folder**   | The path to the file's location in the hierarchy of folders. Use for moving files between folders.                                            |  
+
+## Delete
+
+Click **Delete** in the toolbar on the Properties screen to permanently remove the selected file from your workspace. Any models or applications that reference it will break until you reattach a valid file.
+
+You can also delete a file using the Delete option in the file context menu or by deleting the related folder.
