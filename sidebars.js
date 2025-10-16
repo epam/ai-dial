@@ -459,8 +459,8 @@ const sidebars = {
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/chat-users-roles',
-                  label: 'JWT Roles & Limits',
+                  id: 'tutorials/devops/auth-and-access-control/jwt',
+                  label: 'JWT',
                 },
                 {
                   type: 'category',
