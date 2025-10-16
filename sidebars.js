@@ -454,13 +454,8 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/programmatic-auth',
-                  label: 'Create API Keys',
-                },
-                {
-                  type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/api-key-roles',
-                  label: 'API Keys Roles & Limits',
+                  id: 'tutorials/devops/auth-and-access-control/api-keys',
+                  label: 'API Keys',
                 },
                 {
                   type: 'doc',
