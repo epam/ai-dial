@@ -486,3 +486,5 @@ Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON 
 ### Delete
 
 Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected language model.
+
+![ ](img/125.png)

@@ -53,24 +53,46 @@ Use the **Import Config** button to upload a DIAL Core configuration file. Can b
 
 ![](img/img_56.png)
 
-* **File type**: Either DIAL Core (_.json_) or Admin (_.zip_) format can be selected.
-* **Conflict resolution**: You can chose between two conflict resolution options:
+1. **File type**: Either DIAL Core (_.json_) or Admin (_.zip_) format can be selected.
+2. **Conflict resolution**: You can choose between two conflict resolution options:
   * **Override**: During the import process, any artifact in the archive that matches an existing artifact in DIAL by the identifier will **override** the existing artifact.
   * **Skip**: Any artifact in the archive that matches an existing artifact in DIAL by the identifier will be **ignored**, and the existing artifact will remain unchanged.
 
-Click Next to preview the configuration to be imported and then click Import button:
+3. Click Next to preview the configuration to be imported:
 
 ![](img/img_56_1.png)
 
+4. Click Compare changes in the artefact row to view the differences between the artefact already in DIAL and the one being imported:
+
+![](img/img_56_2.png)
+
+5. Click Import to start the import process.
+
+
+
 ### Export Config
 
-**Export Config** allows you to download the configuration of the current instance as an archived *.json* file. Great for backups, audit snapshots, or sharing with teammates.
+**Export Config** allows you to download the configuration of the current instance as a file. Great for backups, audit snapshots, or sharing with teammates.
 
 ![](img/img_57.png)
 
-* Either Core (_.json_) or Admin (_.zip_) format can be selected.
-* Config can be exported partially (user choice) or in full.
-* The dependencies can be included or ignored for Entities, Roles, Keys, Application Runners and Interceptors. 
+1. One of the following export formats can be selected:
+   * **DIAL Admin Archive** — `.zip` archive with the configuration stored as a single `.json` file. Includes secrets if the **Include secrets** option is selected.
+   * **DIAL Core JSON File** — a single `.json` file compatible with DIAL Core. Includes secrets if the **Include secrets** option is selected.
+   * **Active Config** — `.zip` archive with configuration files and secrets stored separately. Secrets are always included.
+2. Config can be exported partially (user-selected artefacts) or in full.
+   * For a partial export, select the specific artefacts to include.
+3. Dependencies can be included or ignored for **Models**, **Applications**, **Roles**, and **Keys**.
+   * **Include dependencies** adds all referenced items required by the selected artefacts.
+   * **Ignore dependencies** exports only the items you explicitly select.
+
+![](img/126.png)
+
+4. After the **Export** button is clicked, a preview of the artefacts to be exported is shown:
+* The list reflects your selections and any included dependencies.
+* Review the artefacts and confirm the export.
+
+![](img/127.png)
 
 ### User Settings
 

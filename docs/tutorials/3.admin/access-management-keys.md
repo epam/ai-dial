@@ -20,16 +20,15 @@ The Keys page provides a centralized view and management interface for all API k
 
 > **TIP**: Use the **Columns** selector to customize which columns are visible in the grid.
 
-| Column | Definition |
-|-------------------------|------------|
-| **Name**     | A user-friendly identifier of a key (e.g. `analytics-service-key`). Names help you map keys to consumers or services in logs and configs. |
-| **Description**   | Optional notes explaining the key’s purpose, owner/team, or special instructions.   |
-| **Key generation time** | A key's creation timestamp. Useful for auditing and correlating the key's usage with system changes or deployments.|
-| **Expiration time**     | A key's expiration timestamp. Setting expirations enforces regular key rotation. |
-| **Status**   | The current state of the key.|
-| **Project**   | The name of the project the key is associated with.|
-| **Project Contact Point**   | The contact person on a project.|
-| **Secured**   | A flag that identifies [secured API keys](/docs/platform/3.core/4.privacy.md#applications-audit-logs).|
+| Column                    | Definition                                                                                                          |
+|---------------------------|---------------------------------------------------------------------------------------------------------------------|
+| **ID**                    | A unique key under the Keys section of DIAL Admin.                                                                  |
+| **Display Name**          | A user-friendly name of the Key.                                                                                    |
+| **Description**           | Optional notes explaining the key’s purpose, owner/team, or special instructions.                                   |
+| **Key generation time**   | A key's creation timestamp. Useful for auditing and correlating the key's usage with system changes or deployments. |
+| **Expiration time**       | A key's expiration timestamp. Setting expirations enforces regular key rotation.                                    |
+| **Status**                | The current state of the key.                                                                                       |
+| **Project**               | The name of the project the key is associated with.                                                                 |
 
 
 ## Create Keys
@@ -37,17 +36,18 @@ The Keys page provides a centralized view and management interface for all API k
 1. Click **Create** to invoke the **Create Key** modal.
 2. In the modal, specify the following parameters for the new key:
 
-    | Field    | Required | Description & Use Cases|
-    |---------------------|-----------|--------------|
-    | **Name** | Yes   | A user-friendly identifier for the key.<br />Use meaningful names to associate keys with projects, environments, or teams.     |
-    | **Description**     | No  | An optional free-form text.<br />Use to document the key’s purpose, owner team, or usage context.   |
-    | **Project**   | Yes   | Logical project or department grouping (e.g. "AnalyticsTeam").<br />Helps organize keys and apply cost/usage reporting by project.     |
-    | **Key value** | Yes   | The actual secret string used for authentication.<br />Initially hidden; click **👁️** to reveal.<br />Press **Generate** to have its value automatically generated. |
-    | **Validity Period** | Yes   | A key's expiration time period. Use to enforce credential rotation and retirement.  |
+    | Field               | Required | Description & Use Cases                                                                                                                                                             |
+    |---------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **ID**              | Yes      | A unique key under the Keys section of DIAL Admin. Click Generate to automatically create unique GUID.                                                                              |
+    | **Display Name**    | Yes      | A user-friendly name of the Key.                                                                                                                                                    |
+    | **Description**     | No       | An optional free-form text.<br />Use to document the key’s purpose, owner team, or usage context.                                                                                   |
+    | **Project**         | Yes      | Logical project or department grouping (e.g. "AnalyticsTeam").<br />Helps organize keys and apply cost/usage reporting by project.                                                  |
+    | **Key value**       | Yes      | The actual secret string used for authentication.<br />Initially hidden; click **👁️** to reveal.<br />Press **Generate** to have its value automatically generated in GUID format. |
+    | **Validity Period** | Yes      | A key's expiration time period. Use to enforce credential rotation and retirement.                                                                                                  |
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new [key configuration](#key-configuration) screen is opened. A new key entry will appear immediately in the listing once created.
 
-        ![](img/img_43.png)
+![](img/img_43.png)
 
 
 ## Key Configuration
@@ -73,14 +73,19 @@ In the Properties tab, you can view and manage all metadata and settings for a s
 
 ![](img/img_44.png)
 
-| Field| Required | Description & Use Cases |
-| -----|----------|--------------------|
-| **Name** | Yes  | A user-friendly identifier of a key.<br />Use meaningful names to tie keys back to projects, environments, or teams. |
-| **Description**| No | A free-form text.<br />Use to document the key’s purpose, owner team, or usage context (e.g. "Used by QH Data Ingestion pipeline").   |
-| **Project**    | Yes  | Logical project or department grouping (e.g. "QH", "AnalyticsTeam").<br />Helps organize keys and apply cost/usage reporting by project.|
-| **Project contact point** | No | Email of the responsible person or group.     |
-| **Key value**  | Yes  | The actual secret string used for authentication.<br />Initially hidden - click **👁️** to reveal.<br />Press **Copy** to copy it to clipboard. |
-| **Secured**    | Yes  | Toggle to make the key a [secured API key](/docs/platform/3.core/4.privacy.md#applications-audit-logs). |
+| Field                     | Required | Description & Use Cases                                                                                                                         |
+|---------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ID**                    | -        | A unique key under the Keys section of DIAL Admin.                                                                                              |
+| **Creation Time**         | -        | Date and time when the key artefact was created in DIAL.                                                                                        |
+| **Key Generation Time**   | -        | Date and time when the actual key value was last modified.                                                                                      |
+| **Expiration Time**       | -        | Date and time when the key is expiring.                                                                                                         |
+| **Status**                | -        | Indicates whether the key is valid or not.                                                                                                      |
+| **Display Name**          | Yes      | A user-friendly identifier of a key.<br />Use meaningful names to tie keys back to projects, environments, or teams.                            |
+| **Description**           | No       | A free-form text.<br />Use to document the key’s purpose, owner team, or usage context (e.g. "Used by QH Data Ingestion pipeline").             |
+| **Project**               | Yes      | Logical project or department grouping (e.g. "QH", "AnalyticsTeam").<br />Helps organize keys and apply cost/usage reporting by project.        |
+| **Project contact point** | No       | Email of the responsible person or group.                                                                                                       |
+| **Key value**             | Yes      | The actual secret string used for authentication.<br />Initially hidden - click **👁️** to reveal.<br />Press **Copy** to copy it to clipboard. |
+| **Secured**               | Yes      | Toggle to make the key a [secured API key](/docs/platform/3.core/4.privacy.md#applications-audit-logs).                                         |
 
 
 ### Roles
