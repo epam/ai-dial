@@ -454,18 +454,13 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/programmatic-auth',
-                  label: 'Create API Keys',
+                  id: 'tutorials/devops/auth-and-access-control/api-keys',
+                  label: 'API Keys',
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/api-key-roles',
-                  label: 'API Keys Roles & Limits',
-                },
-                {
-                  type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/chat-users-roles',
-                  label: 'JWT Roles & Limits',
+                  id: 'tutorials/devops/auth-and-access-control/jwt',
+                  label: 'JWT',
                 },
                 {
                   type: 'category',
