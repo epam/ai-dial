@@ -4,7 +4,8 @@
 
 DIAL Core uses API keys to manage access of external applications for resources in DIAL.
 
-> Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
+> * Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
+> * Refer to [Tutorials](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md) to learn how to configure access and usage control for API keys.
 
 ## Keys Main Screen
 
