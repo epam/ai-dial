@@ -75,10 +75,8 @@ In the **Properties** tab, you can view and edit main definitions and settings f
 | **External Endpoint**  | Conditional | Root endpoint of the toolset. This allows applications and LLMs to interact with its tools by invoking this endpoint.                                                                                                                                                                                                                                                    |
 | **Container**          | Conditional | MCP server container ID. Applies for MCP deployment source types.                                                                                                                                                                                                                                                                                                        |
 | **Transport**          | Yes         | Default HTTP; choose SSE for server-sent events when supported.                                                                                                                                                                                                                                                                                                          |
-| **Authentication**     | Yes         | The following authentication options are available: <br/> 1. **OAuth** - authenticate via OAuth 2.0 with an external identity provider. Supports **With login** and **With login & configuration** options. <br/> 2. **API Key** - authenticate requests using a key. <br/> 3. **Without authentication** — no authentication enforced, endpoint is publicly accessible. |
+| **Authentication**     | Yes         | The following toolset authentication options are available: <br/> 1. **OAuth** - authenticate via OAuth 2.0 with an external identity provider. Supports **With login** and **With login & configuration** options. <br/> 2. **API Key** - authenticate requests using a key. <br/> 3. **Without authentication** — no authentication enforced, endpoint is publicly accessible.<br/>Refer to [Authentication](/docs/platform/3.core/1.auth-intro.md) to learn more about authentication in DIAL. |
 | **Max retry attempts** | Yes         | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors).                                                                                                                                                                                                                                |
-
-
 ### Tools Overview
 
 Tools in toolsets are functionalities that can be used to extend the capabilities of your DIAL Quick Apps. 
@@ -112,7 +110,7 @@ You can create and manage roles in the [Access Management](/docs/tutorials/3.adm
 
 In the **Roles** tab, you can define user groups that are authorized to use a specific toolset. 
 
-> Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about roles in DIAL.
+> Refer to [Access Control](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to learn more about roles in DIAL.
 
 ![](img/114.png)
 
@@ -123,7 +121,7 @@ In the **Roles** tab, you can define user groups that are authorized to use a sp
 | **ID**           | A unique role's identifier.                                                                                                                                                                                                                                                                                                                                                                                       |
 | **Display Name** | A role's name.                                                                                                                                                                                                                                                                                                                                                                                                    |
 | **Description**  | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team").                                                                                                                                                                                                                                                                                                                         |
-| **Actions**      | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab or [remove](#remove-role) the role from the list. |
+| **Actions**      | Additional role-specific actions: <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab or [remove](#remove-role) the role from the list. |
 
 
 #### Role-Specific Access
