@@ -55,20 +55,18 @@ Use the **Import Config** button to upload a DIAL Core configuration file. Can b
 
 1. **File type**: Either DIAL Core (_.json_) or Admin (_.zip_) format can be selected.
 2. **Conflict resolution**: You can choose between two conflict resolution options:
-  * **Override**: During the import process, any artifact in the archive that matches an existing artifact in DIAL by the identifier will **override** the existing artifact.
-  * **Skip**: Any artifact in the archive that matches an existing artifact in DIAL by the identifier will be **ignored**, and the existing artifact will remain unchanged.
+   * **Override**: During the import process, any artifact in the archive that matches an existing artifact in DIAL by the identifier will **override** the existing artifact.
+   * **Skip**: Any artifact in the archive that matches an existing artifact in DIAL by the identifier will be **ignored**, and the existing artifact will remain unchanged.
 
-3. Click Next to preview the configuration to be imported:
+3. Click **Next** to preview the configuration to be imported:
 
-![](img/img_56_1.png)
+   ![](img/img_56_1.png)
 
-4. Click Compare changes in the artefact row to view the differences between the artefact already in DIAL and the one being imported:
+4. Click **Compare changes** in the artefact row to view the differences between the artefact already in DIAL and the one being imported:
 
-![](img/img_56_2.png)
+   ![](img/img_56_2.png)
 
-5. Click Import to start the import process.
-
-
+5. Click **Import** to start the import process.
 
 ### Export Config
 
@@ -82,17 +80,18 @@ Use the **Import Config** button to upload a DIAL Core configuration file. Can b
    * **Active Config** — `.zip` archive with configuration files and secrets stored separately. Secrets are always included.
 2. Config can be exported partially (user-selected artefacts) or in full.
    * For a partial export, select the specific artefacts to include.
-3. Dependencies can be included or ignored for **Models**, **Applications**, **Roles**, and **Keys**.
+3. Dependencies can be included or ignored for Models, Applications, Roles, and Keys.
    * **Include dependencies** adds all referenced items required by the selected artefacts.
    * **Ignore dependencies** exports only the items you explicitly select.
 
-![](img/126.png)
+   ![](img/126.png)
 
-4. After the **Export** button is clicked, a preview of the artefacts to be exported is shown:
-* The list reflects your selections and any included dependencies.
-* Review the artefacts and confirm the export.
+4. Click  **Export** to open up the Export File Preview screen, where you can:
 
-![](img/127.png)
+   * Preview your selections and any included dependencies.
+   * Review the artefacts and confirm the export.
+
+   ![](img/127.png)
 
 ### User Settings
 
