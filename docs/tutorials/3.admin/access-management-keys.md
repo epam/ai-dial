@@ -2,17 +2,13 @@
 
 ## About API Keys
 
-In DIAL, API Keys play a crucial role in managing access and ensuring security:
+DIAL Core uses API keys to manage access of external applications for resources in DIAL.
 
-* API keys are used for authentication and access control.
-* They can be configured to be secured and can have specific roles and limits assigned to them.
-* API keys are essential for external applications accessing language models and applications deployed in DIAL.
+> Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
 
-> Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md#api-keys) to learn more. 
+## Keys Main Screen
 
-## Keys List
-
-The Keys page provides a centralized view and management interface for all API keys in DIAL.
+On the main screen you can see all existing API keys with their details.
 
 ![](img/img_42.png)
 
@@ -33,6 +29,8 @@ The Keys page provides a centralized view and management interface for all API k
 
 ## Create Keys
 
+Follow these steps to create a new API key:
+
 1. Click **Create** to invoke the **Create Key** modal.
 2. In the modal, specify the following parameters for the new key:
 
@@ -47,15 +45,12 @@ The Keys page provides a centralized view and management interface for all API k
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new [key configuration](#key-configuration) screen is opened. A new key entry will appear immediately in the listing once created.
 
-![](img/img_43.png)
+    ![](img/img_43.png)
 
 
 ## Key Configuration
 
-##### Top Bar Controls
-
-* **Delete**: Permanently removes the selected key. All related entities (applications, models, routes) bound to it may fail.
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the key’s configuration. Use JSON mode for copy-paste or advanced edits.
+Click any API key to display the configuration screen.
 
 ### Keys Rotation
 
@@ -69,7 +64,7 @@ Use **Rotation** to refresh an existing API key.
 
 ### Properties
 
-In the Properties tab, you can view and manage all metadata and settings for a specific API key. 
+In the Properties tab, you can view metadata and manage the selected settings for a specific API key. 
 
 ![](img/img_44.png)
 
@@ -90,7 +85,9 @@ In the Properties tab, you can view and manage all metadata and settings for a s
 
 ### Roles
 
-In the Roles tab, you can grant or revoke access to DIAL resources for API keys by associating them with [roles](/docs/tutorials/3.admin/access-management-roles.md). Only clients possessing this key and belonging to one of the assigned roles can invoke protected Models or Applications.
+API keys must be associated with a specific role in DIAL Core to be valid. Roles give access to specific DIAL resources and can impose usage and cost limits.
+
+In the Roles tab, you can associate the selected API key with existing [roles](/docs/tutorials/3.admin/access-management-roles.md).
 
 ![](img/img_45.png)
 
@@ -101,18 +98,22 @@ In the Roles tab, you can grant or revoke access to DIAL resources for API keys 
 
 #### Add
 
+To associate one or more roles with the selected API key:
+
 1. Click **+ Add** (top-right of the Roles Grid).
-2. **Select** one or more role in the modal window. Roles are defined in the [Access Management → Roles](/docs/tutorials/3.admin/access-management-roles.md) section.
+2. **Select** one or more roles in the modal window. Roles are defined in the [Access Management → Roles](/docs/tutorials/3.admin/access-management-roles.md) section.
 3. **Confirm** to insert them into the table.
 
 #### Remove
 
-Use to stop associating API keys with roles. To delete a role, go to the [Access Management → Roles](/docs/tutorials/3.admin/access-management-roles.md) section.
+Use to stop associating API keys with roles. 
  
 1. Click the **actions** menu in the role's line.
 2. Choose **Remove** in the menu.
 
-![](img/83.png)
+    ![](img/83.png)
+
+> To delete a role, go to the [Access Management → Roles](/docs/tutorials/3.admin/access-management-roles.md) section.
 
 ### JSON Editor
 
@@ -127,3 +128,9 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
+
+## Delete
+
+Click **Delete** on the main screen to permanently remove the selected key. 
+
+> **Note**: All related entities (applications, models, routes) bound to the deleted API key will fail.

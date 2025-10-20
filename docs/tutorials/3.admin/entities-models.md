@@ -206,14 +206,14 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 
 **Important**: if roles are not specified for a specific model, the model will be available to all users.
 
-> Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about roles and rate limits in DIAL.
+> Refer to [Access Control](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to learn more about roles in DIAL.
 
 ![](img/img_7.png)
 
 ##### Roles grid
 
 | Column                | Description & Guidance              |
-|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------------|------------------------|
 | **Name**              | A unique role's identifier.         |
 | **Description**       | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team").         |
 | **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.|
