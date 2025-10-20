@@ -12,25 +12,26 @@ In Routes, you can view, filter, and create new routes.
 
 ##### Routes grid
 
-| Field           | Definition                                        |
-|-----------------|---------------------------------------------------|
-| **Name**        | A user-friendly name of the Route.                 |
-| **Description** | A brief free-text description of the Route's purpose.   |
+| Field            | Definition                                                   |
+|------------------|--------------------------------------------------------------|
+| **ID**           | This is a unique key under the Routes section of DIAL Admin. |
+| **Display Name** | A user-friendly name of the Route.                           |
+| **Description**  | A brief free-text description of the Route's purpose.        |
 
 ## Create
 
 Follow these steps to add a new route:
 
-1. Click **+ Create** to invoke the **Create Route** modal.
-2. Define rout's parameters
+1. Click **+ Create** to invoke the **Create Route** modal, where you can define rout's parameters:
 
-    | Field           | Required        | Definition                                                   |
-    |-----------------|------------------|----------------------------------------------------------------------|
-    | **Name**        | Yes          | A user-friendly name of the Route.                                    |
-    | **Description** | No               | A brief free-text description of the Route’s purpose.                      |
-    | **Paths**       | Yes          | URL path(s) pattern this route should match (e.g. `/chat`, `/support/`). |
+    | Field            | Required | Definition                                                               |
+    |------------------|----------|--------------------------------------------------------------------------|
+    | **ID**           | Yes      | This is a unique key under the Routes section of DIAL Admin.             |
+    | **Display Name** | Yes      | A user-friendly name of the Route.                                       |
+    | **Description**  | No       | A brief free-text description of the Route’s purpose.                    |
+    | **Paths**        | Yes      | URL path(s) pattern this route should match (e.g. `/chat`, `/support/`). |
 
-3. Once all required fields are filled, click **Create**. The dialog closes and the new [route configuration](#route-configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
+2. Once all required fields are filled, click **Create**. The dialog closes and the new [route configuration](#route-configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
 
     ![](img/img_20.png)
 
@@ -46,10 +47,13 @@ In the Properties tab, you can define the identity and routing behavior.
 
 ##### Basic Identification
 
-| Field            | Required | Definition                                                                          |
-|------------------|-----------|-------------------------------------------------------------------------------------|
-| **Name**         | Yes   | A unique route key used in the URL and [dynamic settings of DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. `chat`, `support`).       |
-| **Description**  | No        | Free‐text note about the route’s purpose (e.g. “Primary GPT-4 chat with fallback”). |                                                                      |
+| Field             | Required | Definition                                                                                                                                                                 |
+|-------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ID**            | -        | This is a unique key under the Routes section of DIAL Admin and [dynamic settings of DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings). |
+| **Updated Time**  | -        | Date and time when the route's configuration was last updated.                                                                                                             |
+| **Creation Time** | -        | Date and time when the route's configuration was created.                                                                                                                  |
+| **Display Name**  | Yes      | A user-friendly name of the Route.                                                                                                                                         |
+| **Description**   | No       | Free‐text note about the route’s purpose (e.g. “Primary GPT-4 chat with fallback”).                                                                                        |                                                                      |
  
 ##### Request Matching: Paths & Methods
 

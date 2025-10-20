@@ -206,6 +206,8 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 
 **Important**: if roles are not specified for a specific model, the model will be available to all users.
 
+
+> Refer to [Access Control](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to learn more about roles in DIAL.
 > * Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
 > * Refer to [Roles](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to lean more about roles in DIAL.
 > * Refer to tutorials to learn how to configure access and limits for [JWT](/docs/tutorials/2.devops/2.auth-and-access-control/1.jwt.md) and [API keys](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md)
@@ -215,7 +217,7 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 ##### Roles grid
 
 | Column                | Description & Guidance              |
-|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------------|------------------------|
 | **Name**              | A unique role's identifier.         |
 | **Description**       | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team").         |
 | **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.|
@@ -488,3 +490,5 @@ Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON 
 ### Delete
 
 Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected language model.
+
+![ ](img/125.png)
