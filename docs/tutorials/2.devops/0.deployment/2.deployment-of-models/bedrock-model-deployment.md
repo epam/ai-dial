@@ -59,6 +59,29 @@ When using a custom policy, we recommend assigning permissions below to limit th
 * bedrock:InvokeModel
 * bedrock:InvokeModelWithResponseStream
 
+#### Additional Permissions for AWS Marketplace Models
+
+Some serverless models on Amazon Bedrock are offered through AWS Marketplace and require a subscription before use. If you're using these marketplace models, add the following statement to your IAM policy:
+
+```json
+{
+  "Sid": "MarketplaceOperationsFromBedrockFor3pModels",
+  "Effect": "Allow",
+  "Action": [
+    "aws-marketplace:Subscribe",
+    "aws-marketplace:ViewSubscriptions"
+  ],
+  "Resource": "*",
+  "Condition": {
+    "StringEquals": {
+      "aws:CalledViaLast": "bedrock.amazonaws.com"
+    }
+  }
+}
+```
+
+> Refer to [AWS Documentation](https://aws.amazon.com/ru/blogs/security/simplified-amazon-bedrock-model-access/) for details.
+
 ### Assign IAM Policy
 
 You can assign an IAM Policy to a specific [user](#assign-to-user), role or to the entire [AWS Service Account](#assign-to-service-account). 
