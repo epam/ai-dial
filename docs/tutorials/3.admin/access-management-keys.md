@@ -26,6 +26,10 @@ On the main screen you can see all existing API keys with their details.
 | **Expiration time**       | A key's expiration timestamp. Setting expirations enforces regular key rotation.                                    |
 | **Status**                | The current state of the key.                                                                                       |
 | **Project**               | The name of the project the key is associated with.                                                                 |
+| **Updated time**          | Timestamp of the latest change.                                                                                     |
+| **Creation time**         | Date and time when the key artefact was created in DIAL.                                                            |
+| **Project contact point** | Email of the responsible person or group.                                                                           |
+| **Secured**               | Indication if it is secured API key.                                                                                |
 
 
 ## Create Keys
