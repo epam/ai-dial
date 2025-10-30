@@ -10,9 +10,9 @@ Roles in DIAL are used to enable roles-based access to resources (applications, 
 * **System Feature Access**: Roles manage access to system-level features, ensuring only authorized users have access. For example, only users with the "admin" role might be able to access the administration console.
 
 > * Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about how roles are used in DIAL.
-> * Refer to [Tutorials](/docs/tutorials/2.devops/2.auth-and-access-control/1.api-key-roles.md) to learn how to configure roles for API keys.
-> * Refer to [Tutorials](/docs/tutorials/2.devops/2.auth-and-access-control/2.chat-users-roles.md) to learn how to configure roles for JWT.
-> * Refer to [IDP Configurations](/docs/tutorials/2.devops/2.auth-and-access-control/3.configure-idps/0.overview.md) to learn about the supported identity service providers and how to configure them.
+> * Refer to [Tutorials](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md) to learn how to configure roles for API keys.
+> * Refer to [Tutorials](/docs/tutorials/2.devops/2.auth-and-access-control/1.jwt.md) to learn how to configure roles for JWT.
+> * Refer to [IDP Configurations](/docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md) to learn about the supported identity service providers and how to configure them.
 
 ## Roles List
 
