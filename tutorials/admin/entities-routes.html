@@ -12,7 +12,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.01fe9471.css">
-<script src="/assets/js/runtime~main.76b51916.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.04989e49.js" defer="defer"></script>
 <script src="/assets/js/main.ee68fdfe.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -21,31 +21,28 @@
 <p>Routes in DIAL are used for communication through registered endpoints in the <a href="/platform/core/about-core">DIAL Core</a>. They act as a bridging mechanism between the DIAL Core and external applications, facilitating seamless interactions. Once a route with a designated endpoint is set up in DIAL Core, it allows client applications, such as DIAL Chat, to interact with this endpoint. Essentially, DIAL Core functions as an intermediary, handling authentication and authorization between the client and the external application linked to the route.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="routes-main-screen">Routes Main Screen<a href="#routes-main-screen" class="hash-link" aria-label="Direct link to Routes Main Screen" title="Direct link to Routes Main Screen">​</a></h2>
 <p>In Routes, you can view, filter, and create new routes.</p>
-<p><img loading="lazy" src="/assets/images/img_19-ac4551f52c449791ce481bd7a5b12298.png" width="1910" height="899" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_19-c1c8e80d5f995a449eca3db2358d2b05.png" width="1909" height="899" class="img_ev3q"></p>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="routes-grid">Routes grid<a href="#routes-grid" class="hash-link" aria-label="Direct link to Routes grid" title="Direct link to Routes grid">​</a></h5>
-<table><thead><tr><th>Field</th><th>Definition</th></tr></thead><tbody><tr><td><strong>Name</strong></td><td>A user-friendly name of the Route.</td></tr><tr><td><strong>Description</strong></td><td>A brief free-text description of the Route&#x27;s purpose.</td></tr></tbody></table>
+<table><thead><tr><th>Field</th><th>Definition</th></tr></thead><tbody><tr><td><strong>ID</strong></td><td>This is a unique key under the Routes section of DIAL Admin.</td></tr><tr><td><strong>Display Name</strong></td><td>A user-friendly name of the Route.</td></tr><tr><td><strong>Description</strong></td><td>A brief free-text description of the Route&#x27;s purpose.</td></tr></tbody></table>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="create">Create<a href="#create" class="hash-link" aria-label="Direct link to Create" title="Direct link to Create">​</a></h2>
 <p>Follow these steps to add a new route:</p>
 <ol>
 <li>
-<p>Click <strong>+ Create</strong> to invoke the <strong>Create Route</strong> modal.</p>
-</li>
-<li>
-<p>Define rout&#x27;s parameters</p>
-<table><thead><tr><th>Field</th><th>Required</th><th>Definition</th></tr></thead><tbody><tr><td><strong>Name</strong></td><td>Yes</td><td>A user-friendly name of the Route.</td></tr><tr><td><strong>Description</strong></td><td>No</td><td>A brief free-text description of the Route’s purpose.</td></tr><tr><td><strong>Paths</strong></td><td>Yes</td><td>URL path(s) pattern this route should match (e.g. <code>/chat</code>, <code>/support/</code>).</td></tr></tbody></table>
+<p>Click <strong>+ Create</strong> to invoke the <strong>Create Route</strong> modal, where you can define rout&#x27;s parameters:</p>
+<table><thead><tr><th>Field</th><th>Required</th><th>Definition</th></tr></thead><tbody><tr><td><strong>ID</strong></td><td>Yes</td><td>This is a unique key under the Routes section of DIAL Admin.</td></tr><tr><td><strong>Display Name</strong></td><td>Yes</td><td>A user-friendly name of the Route.</td></tr><tr><td><strong>Description</strong></td><td>No</td><td>A brief free-text description of the Route’s purpose.</td></tr><tr><td><strong>Paths</strong></td><td>Yes</td><td>URL path(s) pattern this route should match (e.g. <code>/chat</code>, <code>/support/</code>).</td></tr></tbody></table>
 </li>
 <li>
 <p>Once all required fields are filled, click <strong>Create</strong>. The dialog closes and the new <a href="#route-configuration">route configuration</a> screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.</p>
-<p><img loading="lazy" src="/assets/images/img_20-e655b69745c43df51c8916c365d5201c.png" width="1914" height="895" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_20-9eea93da0564037bc47a13876ae62d44.png" width="1906" height="898" class="img_ev3q"></p>
 </li>
 </ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="route-configuration">Route Configuration<a href="#route-configuration" class="hash-link" aria-label="Direct link to Route Configuration" title="Direct link to Route Configuration">​</a></h2>
 <p>Click any route on the main screen to open the configuration section.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="properties">Properties<a href="#properties" class="hash-link" aria-label="Direct link to Properties" title="Direct link to Properties">​</a></h3>
 <p>In the Properties tab, you can define the identity and routing behavior.</p>
-<p><img loading="lazy" src="/assets/images/img_21-51f6ab046198cbf1d4c7313ec7a1fdbf.png" width="1910" height="1364" class="img_ev3q"></p>
+<p><img loading="lazy" src="/assets/images/img_21-8f1c4d51cf371e511900d414dc74d530.png" width="1910" height="1364" class="img_ev3q"></p>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="basic-identification">Basic Identification<a href="#basic-identification" class="hash-link" aria-label="Direct link to Basic Identification" title="Direct link to Basic Identification">​</a></h5>
-<table><thead><tr><th>Field</th><th>Required</th><th>Definition</th></tr></thead><tbody><tr><td><strong>Name</strong></td><td>Yes</td><td>A unique route key used in the URL and <a href="https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings" target="_blank" rel="noopener noreferrer">dynamic settings of DIAL Core</a> (e.g. <code>chat</code>, <code>support</code>).</td></tr><tr><td><strong>Description</strong></td><td>No</td><td>Free‐text note about the route’s purpose (e.g. “Primary GPT-4 chat with fallback”).</td></tr></tbody></table>
+<table><thead><tr><th>Field</th><th>Required</th><th>Definition</th></tr></thead><tbody><tr><td><strong>ID</strong></td><td>-</td><td>This is a unique key under the Routes section of DIAL Admin and <a href="https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings" target="_blank" rel="noopener noreferrer">dynamic settings of DIAL Core</a>.</td></tr><tr><td><strong>Updated Time</strong></td><td>-</td><td>Date and time when the route&#x27;s configuration was last updated.</td></tr><tr><td><strong>Creation Time</strong></td><td>-</td><td>Date and time when the route&#x27;s configuration was created.</td></tr><tr><td><strong>Display Name</strong></td><td>Yes</td><td>A user-friendly name of the Route.</td></tr><tr><td><strong>Description</strong></td><td>No</td><td>Free‐text note about the route’s purpose (e.g. “Primary GPT-4 chat with fallback”).</td></tr></tbody></table>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="request-matching-paths--methods">Request Matching: Paths &amp; Methods<a href="#request-matching-paths--methods" class="hash-link" aria-label="Direct link to Request Matching: Paths &amp; Methods" title="Direct link to Request Matching: Paths &amp; Methods">​</a></h5>
 <table><thead><tr><th>Field</th><th>Required</th><th>Definition</th></tr></thead><tbody><tr><td><strong>Paths</strong></td><td>Yes</td><td>One or more URL path patterns this route should match (e.g. <code>/chat</code>, <code>/support/**</code>). Click <strong>+ Add paths</strong> to register additional patterns. Click the trash icon to remove a path.</td></tr><tr><td><strong>Rewrite path</strong></td><td>No</td><td>Toggle on to strip or transform the incoming path before forwarding upstream. Use when your upstream service expects a different URL structure (e.g. remove <code>/api/v1/routes/chat</code> prefix).</td></tr><tr><td><strong>Methods</strong></td><td>No</td><td>Select one or more HTTP methods (GET, POST, PUT, DELETE, etc.) the route can accept.</td></tr></tbody></table>
 <h5 class="anchor anchorWithStickyNavbar_LWe7" id="output-mode">Output Mode<a href="#output-mode" class="hash-link" aria-label="Direct link to Output Mode" title="Direct link to Output Mode">​</a></h5>

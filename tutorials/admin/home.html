@@ -12,7 +12,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.01fe9471.css">
-<script src="/assets/js/runtime~main.76b51916.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.04989e49.js" defer="defer"></script>
 <script src="/assets/js/main.ee68fdfe.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -63,25 +63,64 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="import-config">Import Config<a href="#import-config" class="hash-link" aria-label="Direct link to Import Config" title="Direct link to Import Config">​</a></h3>
 <p>Use the <strong>Import Config</strong> button to upload a DIAL Core configuration file. Can be used for migrating between environments or restoring backups.</p>
 <p><img loading="lazy" src="/assets/images/img_56-c4236bc0aec4c3bed2c27e0a28fc386a.png" width="1908" height="897" class="img_ev3q"></p>
-<ul>
-<li><strong>File type</strong>: Either DIAL Core (<em>.json</em>) or Admin (<em>.zip</em>) format can be selected.</li>
-<li><strong>Conflict resolution</strong>: You can chose between two conflict resolution options:<!-- -->
+<ol>
+<li>
+<p><strong>File type</strong>: Either DIAL Core (<em>.json</em>) or Admin (<em>.zip</em>) format can be selected.</p>
+</li>
+<li>
+<p><strong>Conflict resolution</strong>: You can choose between two conflict resolution options:</p>
 <ul>
 <li><strong>Override</strong>: During the import process, any artifact in the archive that matches an existing artifact in DIAL by the identifier will <strong>override</strong> the existing artifact.</li>
 <li><strong>Skip</strong>: Any artifact in the archive that matches an existing artifact in DIAL by the identifier will be <strong>ignored</strong>, and the existing artifact will remain unchanged.</li>
 </ul>
 </li>
-</ul>
-<p>Click Next to preview the configuration to be imported and then click Import button:</p>
-<p><img loading="lazy" src="/assets/images/img_56_1-693e9de6f709bb9e9480a1c6d804c02f.png" width="1906" height="898" class="img_ev3q"></p>
+<li>
+<p>Click <strong>Next</strong> to preview the configuration to be imported:</p>
+<p><img loading="lazy" src="/assets/images/img_56_1-80bcc54b6f6fa925989240944ba0ebe2.png" width="1912" height="899" class="img_ev3q"></p>
+</li>
+<li>
+<p>Click <strong>Compare changes</strong> in the artefact row to view the differences between the artefact already in DIAL and the one being imported:</p>
+<p><img loading="lazy" src="/assets/images/img_56_2-476a77a52d5e63dc266b94f68189c186.png" width="1908" height="899" class="img_ev3q"></p>
+</li>
+<li>
+<p>Click <strong>Import</strong> to start the import process.</p>
+</li>
+</ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="export-config">Export Config<a href="#export-config" class="hash-link" aria-label="Direct link to Export Config" title="Direct link to Export Config">​</a></h3>
-<p><strong>Export Config</strong> allows you to download the configuration of the current instance as an archived <em>.json</em> file. Great for backups, audit snapshots, or sharing with teammates.</p>
+<p><strong>Export Config</strong> allows you to download the configuration of the current instance as a file. Great for backups, audit snapshots, or sharing with teammates.</p>
 <p><img loading="lazy" src="/assets/images/img_57-92a6b73b740cfd6edd94b65a27d29c63.png" width="1914" height="899" class="img_ev3q"></p>
+<ol>
+<li>
+<p>One of the following export formats can be selected:</p>
 <ul>
-<li>Either Core (<em>.json</em>) or Admin (<em>.zip</em>) format can be selected.</li>
-<li>Config can be exported partially (user choice) or in full.</li>
-<li>The dependencies can be included or ignored for Entities, Roles, Keys, Application Runners and Interceptors.</li>
+<li><strong>DIAL Admin Archive</strong> — <code>.zip</code> archive with the configuration stored as a single <code>.json</code> file. Includes secrets if the <strong>Include secrets</strong> option is selected.</li>
+<li><strong>DIAL Core JSON File</strong> — a single <code>.json</code> file compatible with DIAL Core. Includes secrets if the <strong>Include secrets</strong> option is selected.</li>
+<li><strong>Active Config</strong> — <code>.zip</code> archive with configuration files and secrets stored separately. Secrets are always included.</li>
 </ul>
+</li>
+<li>
+<p>Config can be exported partially (user-selected artefacts) or in full.</p>
+<ul>
+<li>For a partial export, select the specific artefacts to include.</li>
+</ul>
+</li>
+<li>
+<p>Dependencies can be included or ignored for Models, Applications, Roles, and Keys.</p>
+<ul>
+<li><strong>Include dependencies</strong> adds all referenced items required by the selected artefacts.</li>
+<li><strong>Ignore dependencies</strong> exports only the items you explicitly select.</li>
+</ul>
+<p><img loading="lazy" src="/assets/images/126-12b5b522752a5a4a677cd74e466bddd8.png" width="1908" height="894" class="img_ev3q"></p>
+</li>
+<li>
+<p>Click  <strong>Export</strong> to open up the Export File Preview screen, where you can:</p>
+<ul>
+<li>Preview your selections and any included dependencies.</li>
+<li>Review the artefacts and confirm the export.</li>
+</ul>
+<p><img loading="lazy" src="/assets/images/127-4fe658b7223975605182fba59debb033.png" width="1909" height="895" class="img_ev3q"></p>
+</li>
+</ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="user-settings">User Settings<a href="#user-settings" class="hash-link" aria-label="Direct link to User Settings" title="Direct link to User Settings">​</a></h3>
 <p>Click your avatar (or name) in the top-right corner of the header to reveal the profile menu. Here, you can personalize your DIAL Admin experience and manage your session.</p>
 <p><img loading="lazy" src="/assets/images/img_1-9dc1902d316ec5b104e070c531cf0f2f.png" width="1911" height="935" class="img_ev3q"></p>
