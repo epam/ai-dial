@@ -34,13 +34,15 @@ In this instruction, you will learn how to create Bedrock model in AWS and use i
 
 ### Request Access to Models
 
-1. In your AWS account, navigate to **Services/Amazon Bedrock**.
-2. In Amazon Bedrock, navigate to **Model access** and click the **Manage model access** button.
-3. In Base models, select models and click **Save changes** to request access to them. **Note**, it may take a few moment for an access to be granted. You may need to refresh the page to view the updated status.
+Starting from October 2025 Amazon Bedrock has simplified how you access foundation models, streamlining the integration of AI capabilities into your applications.
 
-![](../img/aws1.jpg)
+Amazon Bedrock now provides automatic access to the serverless models in your AWS Region, eliminating the previous requirement for manual enablement of each individual model.
 
-> To use Bedrock, it is necessary to seek permission to access Bedrock's foundation models. To accomplish this, ensuring the correct IAM Policies is crucial. You can find instructions on how to create IAM Policies in the [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html). Additionally, for specific models, you may be required to provide details about your use case before being able to request access. For more information, please refer to the [Providers](https://eu-central-1.console.aws.amazon.com/bedrock/home#/providers) section on the Bedrock homepage.
+This change brings Amazon Bedrock in line with other AWS services by relying on standard AWS access controls rather than requiring customers to enable each model through a model access dashboard. 
+
+> This simplification effort has retired the Model Access page along with the `PutFoundationModelEntitlement` AWS Identity and Access Management (IAM) permission and its corresponding API call. IAM statements with the `PutFoundationModelEntitlement` permission no longer have an effect.
+
+> While you can start using serverless foundation models from most providers instantly, Anthropic models, although enabled by default, still require you to submit a one-time usage form before first use. You can complete this form through either the Amazon Bedrock playground (in AWS Bedrock console) or through direct API submission using [PutUserCaseForModelAccess API](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html).
 
 ## Step 2: Get Access to AI Model
 
@@ -58,6 +60,25 @@ When using a custom policy, we recommend assigning permissions below to limit th
 * bedrock:ListFoundationModels
 * bedrock:InvokeModel
 * bedrock:InvokeModelWithResponseStream
+
+> A subset of serverless models on Amazon Bedrock are offered through AWS Marketplace and therefore require a subscription before use. The following is a sample for IAM policy with “just-in-time” subscription automatically created on the 1st call:
+
+```json
+    {
+      "Sid" : "MarketplaceOperationsFromBedrockFor3pModels",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:Subscribe",
+        "aws-marketplace:ViewSubscriptions"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:CalledViaLast" : "bedrock.amazonaws.com"
+        }
+      }
+    }
+```
 
 ### Assign IAM Policy
 
