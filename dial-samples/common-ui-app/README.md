@@ -85,7 +85,7 @@ All environment variables that can be used to configure settings and behavior of
 
 | Variable                | Required | Description                                                                                      | Available Values | Default values |
 | ----------------------- | :------: | ------------------------------------------------------------------------------------------------ | ---------------- | -------------- |
-| `API_URL`               |   Yes    | Dial Core url. Used to proxy to Image Generator Backend API.                                     | Any string       |                |
+| `API_URL`               |   Yes    | Dial Core URL. Used to proxy to Custom Application Backend API.                                     | Any string       |                |
 | `DIAL_URL`         |   Yes    | The host URL for a dial chat.                                                                    | Any string       |                |
 | `DIAL_APPLICATION_NAME` |   Yes    | Should match name in dial config ("dial:applicationTypeDisplayName" from applicationTypeSchemas) | Any string       |                |
 | `THEMES_CONFIG_URL`     |    No    | The host URL for a custom themes configuration.<br />Can lead to public and private resource.    | Any string       |                |

@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import '@/custom-app-ui/client/src/app/[lang]/global.scss';
 
 export const metadata = {
-  title: 'Image Generator Client',
+  title: 'Custom Application Client',
 };
 
 const inter = Inter({
