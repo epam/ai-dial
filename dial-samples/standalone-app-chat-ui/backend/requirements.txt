@@ -1,6 +1,5 @@
 uvicorn[standard]
 fastapi
 requests
-aidial-sdk
 aidial-sdk[httpx]
 pydantic

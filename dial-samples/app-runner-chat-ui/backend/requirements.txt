@@ -1,3 +1,2 @@
-aidial-sdk
 aidial-sdk[httpx]
 pydantic
