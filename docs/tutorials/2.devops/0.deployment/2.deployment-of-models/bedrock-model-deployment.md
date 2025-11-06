@@ -34,7 +34,7 @@ In this instruction, you will learn how to configure and access Bedrock models i
 
 ### Request Access to Models
 
-Starting from October 2025 Amazon Bedrock has simplified how you access foundation models, streamlining the integration of AI capabilities into your applications.
+Starting from October 2025 [Amazon Bedrock has simplified how you access foundation models](https://aws.amazon.com/ru/blogs/security/simplified-amazon-bedrock-model-access/#), streamlining the integration of AI capabilities into your applications.
 
 Amazon Bedrock now provides automatic access to serverless models in your AWS Region, eliminating the previous requirement for manual enablement of each individual model.
 
@@ -96,8 +96,7 @@ IAM (Identity and Access Management) users in AWS (Amazon Web Services) are enti
 ![](../img/aws5.jpg)
 
 3. On the Step 2 (Set Permissions), you can attach a Policy to the user.
-4. When the user is created, click your new user and navigate to the **Security credentials** tab where you can click **Create access key** to create a key pair for your user.
-5. For a new key pair, click **Show** to view and download a CSV file. **Note**, that once shown, the key pair will no longer be available for preview. Make sure to save a CSV file for future use. 
+4. When the user is created, click your new user and navigate to the **Security credentials** tab where you can click **Create access key** to create a key pair for your user. Refer to [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-keys-admin-managed.html#admin-create-access-key) for detailed instructions.
 
 #### Assign to Service Account
 
