@@ -16,7 +16,7 @@ class CustomApplication(ChatCompletion):
         self, request: Request, response: Response
     ) -> None:
         properties = await request.request_dial_application_properties()
-        count = properties.get("count", 1)
+        count = SettingsRequest.parse_obj(properties).count
 
         last_user_message = request.messages[-1]
         text = last_user_message.content or ""
