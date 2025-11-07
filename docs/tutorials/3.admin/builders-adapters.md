@@ -46,6 +46,7 @@ The configuration view has a top bar and two tabs.
 
 ##### Top Bar
 
+* **Create Model** - creates a model using the current adapter, directly from this page.
 * **Delete** – removes the adapter. Modal shows all models utilizing the adapter. After confirmation - the adapter and all related models are deleted.
 * **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the adapter's configuration. Use JSON mode for copy-paste or advanced edits.
 

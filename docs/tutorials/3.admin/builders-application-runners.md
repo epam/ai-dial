@@ -38,6 +38,7 @@ In Application Runners, you can add and manage Application Runners you have in y
 
 ##### Top Bar Controls
 
+* **Create**: Create an application in DIAL Admin or DIAL Core (native) with the current app runner, right from this page.
 * **Delete**: Permanently removes the selected runner. All related Applications still bound to it will be deleted as well.
 * **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the runner’s configuration. Use JSON mode for copy-paste or advanced edits.
 
