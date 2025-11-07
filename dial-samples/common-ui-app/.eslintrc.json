@@ -1,0 +1,66 @@
+{
+  "root": true,
+  "extends": ["eslint:recommended", "prettier", "next"],
+  "ignorePatterns": [
+    "node_modules",
+    "**.config.js",
+    "jest.config.ts",
+    "**.spec.ts"
+  ],
+  "plugins": ["@nx"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["tsconfig.*?.json"]
+  },
+  "env": {
+    "node": true
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@next/next/no-html-link-for-pages": "off",
+        "@nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allowCircularSelfDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
+          }
+        ],
+        "no-empty": "warn",
+        "no-console": ["error", { "allow": ["warn", "error", "info"] }],
+        "no-constant-condition": "off",
+        "no-multiple-empty-lines": ["warn", { "max": 1, "maxBOF": 0 }]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "plugin:@nx/typescript",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/stylistic",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          { "argsIgnorePattern": "^_", "varsIgnorePattern": "^__" }
+        ],
+        "@typescript-eslint/no-explicit-any": "warn",
+        "prettier/prettier": "error"
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nx/javascript"],
+      "rules": {}
+    }
+  ]
+}
