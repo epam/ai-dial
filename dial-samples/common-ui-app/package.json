@@ -1,7 +1,7 @@
 {
   "name": "@dial-custom-app-ui/source",
   "version": "0.0.0",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
     "start:client": "nx serve dial-custom-ui-client --port=5500",
     "start:admin": "nx serve dial-custom-ui-admin --port=5600",
