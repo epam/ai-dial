@@ -305,6 +305,27 @@ const sidebars = {
                     'tutorials/developers/apps-development/multimodality/dial-cookbook/examples/how_to_call_dalle_3_with_configuration',
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Develop Custom Apps',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/apps-development/develop-custom-apps-overview',
+                      label: 'Overview',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/apps-development/develop-single-app',
+                      label: 'Develop Single App',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/apps-development/develop-app-runner',
+                      label: 'Develop App Runner',
+                    },
+                  ],
+                }
               ],
             },
             {
