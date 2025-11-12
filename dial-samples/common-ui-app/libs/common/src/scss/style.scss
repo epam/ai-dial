@@ -1,0 +1,16 @@
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+@use 'tailwindcss/utilities';
+
+@use 'scroll.scss';
+@use 'fonts.scss';
+@use 'buttons.scss';
+@use 'input.scss';
+@use 'input-radio.scss';
+@use 'textarea.scss';
+@use 'input-range.scss';
+
+html,
+body {
+  @apply h-full w-full bg-layer-1 text-primary body;
+}

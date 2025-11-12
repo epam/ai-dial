@@ -1,0 +1,47 @@
+@layer components {
+  .input {
+    @apply border border-solid border-primary rounded outline-0;
+    @apply bg-transparent small truncate;
+    @apply px-3 py-2 w-full;
+
+    &:not(:placeholder-shown) {
+      @apply text-primary;
+    }
+
+    &:hover {
+      @apply cursor-pointer border-hover;
+    }
+
+    &:focus {
+      @apply border-accent-primary;
+    }
+
+    &:disabled {
+      @apply input-disable;
+    }
+  }
+
+  .input-error {
+    @apply border-error;
+  }
+
+  .input-disable {
+    @apply pointer-events-none;
+    @apply bg-layer-3 text-secondary;
+  }
+
+  .input-field {
+    @apply h-[38px];
+  }
+}
+
+input {
+  @apply input;
+  -moz-appearance: textfield; /* Firefox */
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
