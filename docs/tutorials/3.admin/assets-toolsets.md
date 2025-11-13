@@ -6,7 +6,7 @@ Toolsets are MCP servers that you can use as tools in [Quick Apps 2.0](/docs/vid
 
 ## Toolsets Main Screen
 
-On the main screen, you can find all publicly-available Toolsets. 
+On the main screen, you can find all publicly-available Toolsets that have either been published by DIAL users or added via a direct modification to [DIAL Core's dynamic settings](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolsets.md). 
 
 > Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to lean more about Private and Public logical spaces for objects storage in DIAL. 
 
@@ -46,12 +46,12 @@ Follow these steps to add a new toolset:
 2. Define toolset's parameters
 
     | Field     | Required    | Definition & Guidance    |
-    |-----------------------|-------------|--------------------------------------|
+    |-----------------------|-------------|--------------|
     | **ID**    | Yes         | A unique identifier of the toolset.  |
     | **Display Name**      | Yes         | A user-friendly label shown throughout the Admin UI and in DIAL Core. |
     | **Version**           | Yes         | Semantic identifier (e.g., 1.2.0) of a toolset's version. |
     | **Description**       | No          | A free-text summary describing the toolset (e.g. purpose and data being fetched). |
-    | **External Endpoint** | Conditional | The endpoint that a Quick App can call to fetch external data.        |
+    | **External Endpoint** | Yes | Toolset API for MCP calls. The endpoint that a Quick App can call to fetch external data.        |
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [toolset configuration](#configuration-screen) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
 
@@ -59,7 +59,7 @@ Follow these steps to add a new toolset:
 
 ## Configuration Screen
 
-Click any toolset to open a screen with information about the selected toolset and its configuration details.
+Click any toolset on the main screen to open a screen with information about the selected toolset and its configuration details.
 
 ### Properties
 
@@ -68,29 +68,27 @@ In the Properties tab, you can see and define selected toolset's basic propertie
 ![](img/134.png)
 
 | Field        | Definition & Use Case     |
-|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------------------|------------------------|
 | **Id**       | A unique identifier of the toolset.   |
 | **Author**   | The username or system ID associated with the user who created or last updated this toolset.   |
 | **Creation Time**        | The timestamp of when the toolset was created.    |
 | **Updated Time**         | Date and time when the toolset's configuration was last updated.       |
-| **Authentication**       | Current authentication status.        |
+| **Authentication**       | Current authentication status of the selected toolset.        |
+| **Folder Storage**       | The path to the toolset's location in the hierarchy of the public folder.| 
 | **Display Name**         | The name of the toolset assigned by the author.   |
 | **Version**  | Version of the toolset. Can be selected from the dropdown to display information for different versions.|
 | **Description**          | A free-text summary describing the toolset.       |
 | **Icon**     | A logo to visually distinguish the toolset on the UI. Maximum size: 512 MB. Supported types: .jpeg, .jpg, .jpe, .png, .gif, .apng, .webp, .avif, .svg, .svgz, .bmp, .ico. Up to 1 files. |
-| **Topics**   | Tags that you can assign to toolset. Helps to assign categories for better navigation on UI.   |
-| **Storage Folder**       | The path to the toolset's location in the hierarchy of folders. It allows you to move the toolset between folders.  |  
-| **External Endpoint**    | The endpoint that a Quick App can call to fetch external data.         |
-| **Transport**| Default HTTP; choose SSE for server-sent events when supported.        |
+| **Topics**   | Tags that you can assign to toolset. Helps to assign categories for better navigation on UI.   | 
+| **Storage folder**       | The path to the toolset's location in the hierarchy of folders. It allows you to move the toolset between folders.  | 
+| **External Endpoint**    | The MCP endpoint that a Quick App can call to fetch external data.         |
+| **Transport**|  A transport supported by MCP server. The available options are: HTTP or SSE. Default: HTTP. Choose SSE for server-sent events when supported.        |
+|**Authentication**|Authentication settings for the Toolset. Supported OAUTH, API_KEY, or NONE. Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolset_credentials_api.md) to learn more about toolset authentication.|
 | **Max retry attempts**   | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors).   |
 
 ### Tools Overview
 
-Tools in toolsets are functionalities that extend the capabilities of your DIAL Quick Apps. 
-Tools can include applications or models deployed in DIAL, external services, and web APIs.
-E.g., allowing to fetch the weather forecast from external API, or to get the geocode by address in Google Maps. 
-
-The Tools Overview tab is where you define which tools belong to a toolset and can be used.
+Tools in toolsets are functionalities supported by a corresponding MCP server that can be used to extend the capabilities of your toolset. In this tab, you can find all tools included in the toolset and add more tools.
 
 ![](img/135.png)
 
@@ -125,7 +123,6 @@ Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON 
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
-
 ### Delete
 
-Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected toolset.
+Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected toolset. To remove several toolsets, use the **Bulk Actions** option on the main screen.

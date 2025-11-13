@@ -2,9 +2,7 @@
 
 ## About Toolsets
 
-Toolsets allow applications to interact with external services (such as MCP servers and REST APIs) to perform specific actions. 
-
-> Refer to the [QuickApps Configuration](/docs/tutorials/1.developers/4.apps-development/5.quick-app-configuration.md) page for more details on Quick Apps configuration and available toolsets.
+Toolsets allow applications to interact with external services (such as MCP servers) to perform specific actions. 
 
 ## Toolsets Main Screen
 
@@ -16,11 +14,11 @@ On the **Toolsets** main screen, you can find all toolsets existing in your DIAL
 
 | Field                     | Definition|
 |---------------------------|-------|
-| **ID**                    | This is a unique key under the toolsets section of DIAL Admin.                                          |
-| **Display Name**          | A user-friendly label for a toolset (e.g. GitHub, Google Maps).                                         |
+| **ID**                    | This is a unique key under the toolsets section of DIAL Admin.               |
+| **Display Name**          | A user-friendly label for a toolset (e.g. GitHub, Google Maps).              |
 | **Description**           | Free-text notes about this toolset’s purpose, capabilities, or any other relevant details.              |
-|**Source Type**|A source type of the toolset: either MCP deployment or Endpoint.|
-|**Source**|For MCP source Type, enter a container ID. For Endpoint - enter a URL of the external endpoint.|
+|**Source Type**            |A source type of the toolset: either DIAL MCP Container or External Endpoint.|
+|**Source**                 |For the MCP Container source type, enter a container ID. For External Endpoint - enter a URL of the external endpoint.|
 | **Author**                | Contains the tools author's name.                      |
 | **Topics**                | Tags or categories (e.g. "finance," "support") you can assign for discovery, filtering, or grouping. Helps end users and admins find the right toolset.  |
 
@@ -34,11 +32,11 @@ Follow these steps to add a new toolset:
     | Field | Required | Definition & Guidance  |
     |-------------------|----------|--------------|
     | **ID**            | Yes      | This is a unique key under the toolsets section of DIAL Admin.       |
-    | **Display Name**  | No       | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).|
+    | **Display Name**  | Yes       | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).|
     | **Description**   | No       | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details.                         |
-    |**Source Type**|Yes|Choose between MCP and External Endpoint.|
-    | **External Endpoint** | Conditional      | External endpoint of the REST API. Applies for External Endpoint source types. |
-    | **Container** | Conditional      | MCP server container ID. Applies for MCP deployment source types. |
+    |**Source Type**|Yes|Choose between MCP Container and External Endpoint.|
+    | **External Endpoint** | Conditional      | Toolset API for MCP calls. The endpoint that a Quick App can call to fetch external data. Applies for External Endpoint source types. |
+    | **Container** | Conditional      | MCP server container ID. Applies for MCP Container source types. |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#toolset-configuration). When done with toolset configuration, click **Save**. It may take some time for the changes to take effect after saving.
 
@@ -61,30 +59,26 @@ In the **Properties** tab, you can view and edit main definitions and settings f
 
 ##### Basic Identification and Information
 
-| Field                  | Required    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **ID**                 | -           | This is a unique key under the toolsets section of DIAL Admin.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Updated Time**       | -           | Date and time when the toolset's configuration was last updated.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **Creation Time**      | -           | Date and time when the toolset's configuration was created.                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **Display Name**       | No          | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **Description**        | No          | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details.                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **Maintainer**         | No          | Field used to specify the responsible person overseeing the toolset’s configuration.                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Icon**               | No          | A logo to visually distinguish toolsets in the UI.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **Topics**             | No          | A tag that associates a toolsets with one or more topics or categories (e.g. "finance", "support").                                                                                                                                                                                                                                                                                                                                                                                               |
-| **Source Type**        | Yes         | The source type of the selected toolset: MCP or External Endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| **External Endpoint**  | Conditional | Root endpoint of the toolset. This allows applications and LLMs to interact with its tools by invoking this endpoint.                                                                                                                                                                                                                                                                                                                                                                             |
-| **Container**          | Conditional | MCP server container ID. Applies for MCP deployment source types.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **Transport**          | Yes         | Default HTTP; choose SSE for server-sent events when supported. Adds postfix to the endpoint: /mcp for HTTP; /sse for SSE.                                                                                                                                                                                                                                                                                                                                                                        |
+| Field                  | Required    | Description    |
+|------------------------|-------------|-------------------------------|
+| **ID**                 | -           | This is a unique key under the toolsets section of DIAL Admin.      |
+| **Updated Time**       | -           | Date and time when the toolset's configuration was last updated.    |
+| **Creation Time**      | -           | Date and time when the toolset's configuration was created.|
+| **Display Name**       | No          | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).  |
+| **Description**        | No          | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details.|
+| **Maintainer**         | No          | Field used to specify the responsible person overseeing the toolset’s configuration.|
+| **Icon**               | No          | A logo to visually distinguish toolsets in the UI.                  |
+| **Topics**             | No          | A tag that associates a toolsets with one or more topics or categories (e.g. "finance", "support").    |
+| **Source Type**        | Yes         | The source type of the selected toolset: MCP or External Endpoint.  |
+| **External Endpoint**  | Conditional | The MCP endpoint that a Quick App can call to fetch external data. Applies for External Endpoint deployment source type.|
+| **Container**          | Conditional | MCP server container ID. Applies for MCP Container deployment source type.   |
+| **Transport**          | Yes         |  A transport supported by MCP server. The available options are: HTTP or SSE. Default: HTTP. Choose SSE for server-sent events when supported. |
 | **Authentication**     | Yes         | The following toolset authentication options are available: <br/> 1. **OAuth** - authenticate via OAuth 2.0 with an external identity provider. Supports **With login** and **With login & configuration** options. <br/> 2. **API Key** - authenticate requests using a key. <br/> 3. **Without authentication** — no authentication enforced, endpoint is publicly accessible.<br/>Refer to [Authentication](/docs/platform/3.core/1.auth-intro.md) to learn more about authentication in DIAL. |
-| **Max retry attempts** | Yes         | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors).                                                                                                                                                                                                                                                                                                                                                         |
+| **Max retry attempts** | Yes         | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors).|
 
 ### Tools Overview
 
-Tools in toolsets are functionalities that can be used to extend the capabilities of your DIAL Quick Apps. 
-Tools can include applications or models deployed in DIAL, external services, and web APIs.
-E.g., allowing to fetch the weather forecast from external API, or to get the geocode by address in Google Maps. 
-
-The Tools Overview tab is where you define which tools belong to a toolset and can be used.
+Tools in toolsets are functionalities supported by a corresponding MCP server that can be used to extend the capabilities of your toolset. On this screen, you can find all tools included in the toolset and add more tools.
 
 ![](img/112.png)
 
@@ -120,11 +114,11 @@ In the **Roles** tab, you can define user groups that are authorized to use a sp
 
 ##### Roles grid
 
-| Column           | Description & Guidance                                                                                                                                                                                                                                                                                                                                                                                            |
+| Column           | Description & Guidance |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **ID**           | A unique role's identifier.                                                                                                                                                                                                                                                                                                                                                                                       |
-| **Display Name** | A role's name.                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Description**  | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team").                                                                                                                                                                                                                                                                                                                         |
+| **ID**           | A unique role's identifier.                |
+| **Display Name** | A role's name.         |
+| **Description**  | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team").                |
 | **Actions**      | Additional role-specific actions: <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab or [remove](#remove-role) the role from the list. |
 
 
@@ -169,7 +163,7 @@ This section mimics the functionality available in the global [Audit → Activit
 | **Field**         | **Definition**              |
 | ----------------- |------------------------------------------------------------------------------|
 | **Activity type** | The type of action performed  (e.g., Create, Update, Delete).                |
-| **Time**          | Timestamp indicating when the activity occurred.                             |
+| **Time**          | Timestamp indicating when the activity occurred.  |
 | **Initiated**     | Email address of the user who performed the activity.                        |
 | **Activity ID**   | A unique identifier for the logged activity, used for tracking and auditing. |
 |**Actions**|Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details.  |
@@ -182,10 +176,10 @@ The Activity Details view provides a detailed snapshot of a specific change made
 
 To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
 
-| **Element/Section** | **Description**                                           |
+| **Element/Section** | **Description**                |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Activity type**   | Type of the change performed (e.g., Update, Create, Delete).                                               |
-| **Time**            | Timestamp of the change.                                  |
+| **Activity type**   | Type of the change performed (e.g., Update, Create, Delete).                    |
+| **Time**            | Timestamp of the change.       |
 | **Initiated**       | Identifier of the user who made the change.               |
 | **Activity ID**     | Unique identifier for the specific activity tracking.     |
 | **Comparison**      | Dropdown to switch between showing all parameter or changed only.|
