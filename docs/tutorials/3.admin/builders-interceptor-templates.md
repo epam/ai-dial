@@ -14,7 +14,7 @@ In Interceptor Templates, you can add and manage Interceptor Templates you have 
 ### Interceptor Templates Grid
 
 | Field            | Definition                                                                                                                                                         |
-|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------|------------------------------------------------------------|
 | **Display name** | A user-friendly label for the interceptor template (e.g. “PII Obfuscator”, "Words Blacklist", etc.). Helps you pick the right one when configuring an interceptor. |
 | **ID**           | The unique identifier used internally.                                                                                                                             |
 | **Description**  | Free-text notes about the interceptor template and how it can be used.                                                                                             |
@@ -27,7 +27,7 @@ In Interceptor Templates, you can add and manage Interceptor Templates you have 
 2. Define key parameters for the new interceptor template:
 
 | Field            | Required | Definition                                                                                                                                                          |
-|------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------|----------|--------------------------------|
 | **ID**           | **Yes**  | The unique identifier used internally.                                                                                                                              |
 | **Display name** | No       | A user-friendly label for the interceptor template (e.g. “PII Obfuscator”, "Words Blacklist", etc.). Helps you pick the right one when configuring an interceptor.  |
 | **Description**  | No       | Free-text notes about the interceptor template and how it can be used.                                                                                              |
@@ -43,7 +43,7 @@ In Interceptor Templates, you can add and manage Interceptor Templates you have 
 **Delete**: Permanently removes the selected interceptor template. 
 > **IMPORTANT:** All related interceptors still bound to it will be deleted as well.
 
-### Properties tab
+### Properties
 
 In the Properties tab, you can define identity, metadata and endpoints of interceptor template.
 
@@ -58,7 +58,7 @@ Header (non-editable):
 Fields: 
 
 | Field                      | Required | Definition                                                                                                                                                         |
-|----------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------|----------|-----------------------------------------------------|
 | **Display name**           | No       | A user-friendly label for the interceptor template (e.g. “PII Obfuscator”, "Words Blacklist", etc.). Helps you pick the right one when configuring an interceptor. |
 | **Description**            | No       | Free-text notes about the interceptor template and how it can be used.                                                                                             |
 | **Completion endpoint**    | No       | This is the endpoint used by DIAL Core to manage chat completion requests from interceptors.                                                                       |
@@ -66,7 +66,7 @@ Fields:
 
 ![99.png](img/99.png)
 
-### Interceptors tab
+### Interceptors
 
 A **read-only** grid showing all interceptor **instances** created from this template. Use it to assess potential impact before template edits or deletion.
 
