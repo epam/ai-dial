@@ -2,7 +2,7 @@
 
 ## About Toolset Publications
 
-DIAL users can publish their created toolsets to make them available to other users and applications. Published toolsets become available in the public folder (you can access published toolsets in [Assets/Toolsets](/docs/tutorials/3.admin/assets-toolsets.md) section) and can be accessible to users and applications based on the publication rules defined during the publication process. Published toolsets can be unpublished by DIAL admin or other DIAL users.
+DIAL users can publish their created toolsets to make them available to other users and applications. Published toolsets become available in the public folder and can be accessible to users and applications based on the access rules defined during the publication process. You can access published toolsets in [Assets/Toolsets](/docs/tutorials/3.admin/assets-toolsets.md) section. Published toolsets can be unpublished by DIAL admin or other DIAL users.
 
 Toolsets can be published using DIAL Core [API](https://dialx.ai/dial_api#tag/Publications/operation/createPublication) or in [DIAL Chat](/docs/tutorials/0.user-guide.md#publications).
 
@@ -20,16 +20,16 @@ The Toolset Publications main screen displays all publish/unpublish requests sub
 ##### Toolset Publications Grid
 
 | Field             | Definition|
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------|
+|-------------------|----------|
 | **Name**          | The title of the submitted publication request (not the toolset).         |
 | **Author**        | The user who has submitted the publication request. Can be used to follow up with the creator if something needs clarification. |
 | **Creation Time** | Submission's timestamp.              |
 
-## Toolset Publication Review Page
+## Review Page
 
-Click any publication request on the main screen to access the review page. On the Toolset Publications Review page, you can inspect toolset publication request and decide whether to **Publish**, **Unpublish** or **Decline** it.
+Click any publication request on the main screen to access the review page. On this page, you can inspect the selected request and decide whether to **Publish**, **Unpublish** or **Decline** it.
 
-##### Publication Controls
+##### Publication Request Controls
 
 On the top bar, you can find the following controls:
 
@@ -45,7 +45,6 @@ On the top bar, you can find the following controls:
 |---------------------|-----------------------------------------------------------------------------------------------------|
 | **Creation Time**     | The publication request's submission timestamp.          |
 | **Folder Storage**  | The path to the file storage folder where the toolset assets will be saved in case it is published. |
-
 
 ### Properties Tab
 

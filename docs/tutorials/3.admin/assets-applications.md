@@ -31,34 +31,34 @@ Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) a
 
 Click on any folder to display applications in the applications grid.
 
-| Column           | Definition                                                                                                                                                                                                                                                                                                                                                                                                             |
-|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Display Name** | Along with the version, it makes up the application’s unique key.                                                                                                                                                                                                                                                                                                                                                      |
-| **Version**      | Version of the application.                                                                                                                                                                                                                                                                                                                                                                                            |
-| **Author**       | The username or system ID associated with the user who created or last updated this application.                                                                                                                                                                                                                                                                                                                       |
-| **Updated time** | The timestamp of the last modification of the application. Use to track changes.                                                                                                                                                                                                                                                                                                                                       |
+| Column           | Definition                    |
+|------------------|----------------------------|
+| **Display Name** | Along with the version, it makes up the application’s unique key.      |
+| **Version**      | Version of the application.              |
+| **Author**       | The username or system ID associated with the user who created or last updated this application.     |
+| **Updated time** | The timestamp of the last modification of the application. Use to track changes.                     |
 | **Actions**      | Actions you can perform on the selected application: <br /> - **Open in new tab**: Opens a new tab with application's properties, features and parameters.  <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the application.<br />- **Delete**: Use to delete the application. Alternatively you can use **Bulk Actions** in the header to remove multiple applications. |
 
 ## Create Application Asset
 
-On the main screen you can add new DIAL native application asset.
+On the main screen you can manually add new DIAL application to the public folder.
 
 > Refer to [DIAL-Native Applications](/docs/tutorials/1.developers/4.apps-development/3.enable-app.md#dial-native-applications) to learn more about native applications in DIAL.
 
 Follow these steps to add a new application: 
 
-1. Click **+ Create** to invoke the **Create Application** modal.
+1. Select a folder where you want to add a new application and click **+ Create** to invoke the **Create Application** modal.
 2. Define application's parameters
 
-    | Field                    | Required    | Definition & Guidance                                                                                                                                                                                                              |
-    |--------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **ID**                   | Yes         | A unique identifier under the `applications` section of DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. support-bot, data-cluster).                                 |
-    | **Display Name**         | Yes         | A user-friendly label (e.g. "Customer Support Bot") shown throughout the Admin UI.                                                                                                                                                 |
-    | **Version**              | Yes         | Semantic identifier (e.g., 1.2.0) of an application's version.                                                                                                                                                                     |
-    | **Description**          | No          | A free-text summary describing the application (e.g. supported inputs, business purpose).                                                                                                                                          |
-    | **Source Type**          | Yes         | Can be one of the following options: Endpoints, Application Runner.                                                                                                                                                                |
-    | **Endpoint**             | Conditional | Required if Source Type is 'Endpoints'. The application’s completion endpoint.                                                                                                                                                     |
-    | **Application Runner**   | Conditional | Required if Source Type is 'Application Runner'. [Application type schema](/docs/platform/3.core/7.apps.md#schema-rich-applications) as defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md). |
+    | Field                    | Required    | Definition & Guidance|
+    |--------------------------|-------------|----------------------|
+    | **ID**                   | Yes         | A unique identifier under the `applications` section of DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. support-bot, data-cluster).   |
+    | **Display Name**         | Yes         | A user-friendly label (e.g. "Customer Support Bot") shown throughout the Admin UI.     |
+    | **Version**              | Yes         | Semantic identifier (e.g., 1.2.0) of an application's version.   |
+    | **Description**          | No          | A free-text summary describing the application (e.g. supported inputs, business purpose). |
+    | **Source Type**          | Yes         | Can be one of the following options: Endpoints, Application Runner.                    |
+    | **Endpoint**             | Conditional | Required if Source Type is **Endpoints**. The application’s completion endpoint.         |
+    | **Application Runner**   | Conditional | Required if Source Type is **Application Runner**. [Application type JSON schema](/docs/platform/3.core/7.apps.md#schema-rich-applications) as defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md). |
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#configuration-screen) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
 
