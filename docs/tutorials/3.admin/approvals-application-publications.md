@@ -2,13 +2,14 @@
 
 ## About Application Publications
 
-DIAL offers [API](https://dialx.ai/dial_api#tag/Publications/operation/createPublication) for creating publication requests for resources, including applications.
+DIAL users can publish their created apps to make them available to other users. Published apps become available in the public folder and can be accessible to users based on the publication rules defined during the publication process.
 
-In this section, an admin can review application properties, configuration and related files prior the approval of the publication request.
+Apps can be published using DIAL Core [API](https://dialx.ai/dial_api#tag/Publications/operation/createPublication) or in [DIAL Chat](/docs/tutorials/0.user-guide.md#publications).
+
+In this section of the DIAL Admin panel, admins can access and approve or decline apps publication requests.
 
 > * Refer to [Publications](/docs/platform/7.collaboration-intro.md#publication) to learn more about publications in DIAL.
-> * Refer to [Publications](/docs/tutorials/0.user-guide.md#publications) in Chat user guide to learn more about end-to-end flow.
-
+> * Refer to [DIAL Chat User Guide](/docs/tutorials/0.user-guide.md#publications) to learn about the publication process from the perspective of a DIAL Chat end-user.
 
 ## Application Publications List
 
