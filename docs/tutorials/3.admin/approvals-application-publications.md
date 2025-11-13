@@ -2,9 +2,9 @@
 
 ## About Application Publications
 
-DIAL users can publish their created apps to make them available to other users. Published apps become available in the public folder and can be accessible to users based on the access rules defined during the publication process. You can access published apps in [Assets/Applications](/docs/tutorials/3.admin/assets-applications.md) section. Published apps can be unpublished by DIAL admin or other DIAL users.
+DIAL users can publish their created apps to make them available to other users. Published apps become available in the public folder and can be accessible to users based on the access rules defined in the publication request. You can access published apps in [Assets/Applications](/docs/tutorials/3.admin/assets-applications.md) section. Published apps can be unpublished by DIAL admin or other DIAL users.
 
-Apps can be published using DIAL Core [API](https://dialx.ai/dial_api#tag/Publications/operation/createPublication) or in [DIAL Chat](/docs/tutorials/0.user-guide.md#publications).
+Apps can be published/unpublished using DIAL Core [API](https://dialx.ai/dial_api#tag/Publications/operation/createPublication) or in [DIAL Chat](/docs/tutorials/0.user-guide.md#publications).
 
 In this section of the DIAL Admin panel, admins can access and approve or decline apps publication requests.
 
@@ -23,7 +23,7 @@ The Application Publications screen shows all publish/unpublish requests submitt
 |------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | **Name**         | The title of the submitted publication request (not the application).           |
 | **Author**       | The user who has submitted the publication request. Can be used to follow up with the creator if something needs clarification. |
-| **Created at**   | Submission's timestamp.         |
+| **Created at**   | Publication request submission's timestamp.         |
 
 
 ## Review Page
@@ -32,18 +32,17 @@ Click any publication request on the main screen to access the review page. On t
 
 ##### Publication Request Controls
 
-* **Publish**: Click **Publish** to approve the publication request and add application to the [DIAL Marketplace](/docs/tutorials/0.user-guide.md#dial-marketplace-home-page), where other users can access it based on the publication rules specified in the publication request.
-* **Unpublish**: Click **Unpublish** to remove the published application from the public folder and make it inaccessible to other users.
+* **Publish**: Applies to publish requests. Use to approve the request.
+* **Unpublish**: Applies to unpublish requests. Use to approve the request and remove the published application from the public folder and make it inaccessible to other users.
 * **Decline**: Reject the publish/unpublish request. Prompts you to enter a decline reason that will be sent back to the request author.
 
 ![](img/publish-toolset.png)
 
 ![](img/unpublish-toolset.png)
 
-| Field               | Definition               |
-|---------------------|----------------------------------------------------------------------------------------------------------|
+| Field               | Definition   |
+|---------------------|--------------|
 | **Runner**          | The application runner that is used by this app (shown as a URL).        |
-| **Author**          | Username of the account that created the app publication request.        |
 | **Create Time**     | The publication request's submission timestamp.          |
 | **Folder Storage**  | The path to the file storage folder where the application assets will be saved in case it is published.  |
 
@@ -54,18 +53,14 @@ Click any publication request on the main screen to access the review page. On t
 
 The Properties tab shows the basic information about the app and related access rules. 
 
-| Field            | Definition               |
-|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Name**         | The name of the application that will be rendered in [DIAL Marketplace](/docs/tutorials/0.user-guide.md#dial-marketplace-home-page). It must be clear and policy-safe.   |
+| Field            | Definition |
+|------------------|-----------|
+| **Display Name**         | The name of the application that will be rendered in [DIAL Marketplace](/docs/tutorials/0.user-guide.md#dial-marketplace-home-page). It must be clear and policy-safe.   |
 | **Version**      | Semantic version of the application (e.g., `0.0.1`) set on the DIAL chat side.           |
 | **Description**  | Summary of app's purpose and capabilities specified by the submitting user. Helps assess app's fit and scope.            |
 | **Icon**         | The application's icon that will be rendered on UI.      |
 | **Topics**       | Tags/categories (e.g., “Text Generation”, “Informational”) used for the app discovery in [DIAL Marketplace](/docs/tutorials/0.user-guide.md#dial-marketplace-home-page). |
-| **Permissions**  | The proposed access rules to the application (e.g., based on user group). Ensure the audience matches intended reach.    |
-
-**Controls:**
-* **Review structure** opens a modal showing the storage folders tree and apps' folder position in the hierarchy.
-* **Compare changes** side-by-side diff of **current vs proposed** permission rules to the app's folder. Use to verify and validate changes in access rules before approving the publication request.
+| **Permissions**  | The proposed access rules to the published application (e.g., based on user group). Ensure the audience matches intended reach. If rules are not defined, the published resources will be available to all users. <br /> Available Controls:<br /> - **Review structure** opens a modal showing the storage folders tree and apps' folder position in the hierarchy.<br />- **Compare changes** side-by-side diff of **current vs proposed** permission rules to the app's folder. Use to verify and validate changes in access rules before approving the publication request.  |
 
 ![](img/95.png)
 
@@ -75,10 +70,9 @@ The Parameters tab provides administrators with technical metadata and runtime c
 
 The content of this tab may vary depending on the app's type and configuration.
 
-
 ### Files Tab
 
-The Files tab you can find a list of application-related assets. This section is empty if the application does not include any files.
+In this tab you can find a list of application-related assets. This section is empty if the application does not include any files.
 
 | Field         | Definition       |
 |---------------|----------------------------------------------------------------------------------|

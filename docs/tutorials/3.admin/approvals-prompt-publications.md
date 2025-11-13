@@ -35,21 +35,23 @@ Click any publication request on the main screen to access the review page. On t
 
 On the top bar, you can find the following controls:
 
-* **Publish**: Click **Publish** to approve the prompt publication request.
-* **Unpublish**: Click **Unpublish** to remove the published prompts from the public folder and make it inaccessible to other users.
+* **Publish**: Applies to publish requests. Use to approve the request.
+* **Unpublish**: Applies to unpublish requests. Use to approve the request and remove the published prompts(s) from the public folder and make it inaccessible to other users.
 * **Decline**: Reject the publish/unpublish request. Prompts you to enter a decline reason that will be sent back to the request author.
 
 ![](img/publish-toolset.png)
 
 ![](img/unpublish-toolset.png)
 
-| Element                | Definition                                                                        |
-|------------------------|-----------------------------------------------------------------------------------|
+| Element                | Definition  |
+|------------------------|-------------|
 | **Author**             | Username of the account that created the prompt publication request. |
-| **Created At**         | Timestamp of when the prompt publication request was submitted for review.                            |
+| **Creation Time**         | Timestamp of when the prompt publication request was submitted for review. |
 | **Folder Storage**     | The default target folder under [Assets → Prompts](/docs/tutorials/3.admin/assets-prompts.md), if published.                    |
-| **Prompt Identifier**  | Header showing the prompt’s **name**.                                             |
-| **Version**            | Version string assigned by the author.                                            |
-| **Description**        | Optional user-friendly summary provided by the author.                           |
+| **Prompt Identifier**  | Header showing the prompt’s **name**.                  |
+| **Version**            | Version string assigned by the author.                 |
+| **Description**        | Optional user-friendly summary provided by the author.|
 | **Content**            | The actual prompt string.         |
-| **Permissions**        | Shows the target folder's place in [folders hierarchy](/docs/tutorials/3.admin/access-management-folders-storage.md) and respective permissions.  |
+| **Permissions**        | The proposed access rules to the published prompt (e.g., based on user group). Ensure the audience matches intended reach. If rules are not defined, the published resources will be available to all users. <br /> Available Controls:<br /> - **Review structure** opens a modal showing the storage folders tree and prompt's folder position in the hierarchy.<br />- **Compare changes** side-by-side diff of **current vs proposed** permission rules to the prompt's folder. Use to verify and validate changes in access rules before approving the publication request. |
+
+![](img/publish-prompt.png)

@@ -33,8 +33,8 @@ Click any publication request on the main screen to access the review page. On t
 
 On the top bar, you can find the following controls:
 
-* **Publish**: Click **Publish** to approve the publication request.
-* **Unpublish**: Click **Unpublish** to accept the unpublish request.
+* **Publish**: Applies to publish requests. Use to approve the request.
+* **Unpublish**: Applies to unpublish requests. Use to approve the request and remove the resource from the public folder and make it inaccessible to other users.
 * **Decline**: Reject the publish/unpublish request. Prompts you to enter a decline reason that will be sent back to the request author.
 
 ![](img/publish-toolset.png)
@@ -45,8 +45,10 @@ On the top bar, you can find the following controls:
 | Element            | Definition     |
 |--------------------|-----------------|
 | **Author**         | A username of the account that created the file publication request.  |
-| **Created At**     | A timestamp of when the file publication request was submitted for review.       |
+| **Creation Time**     | A timestamp of when the file publication request was submitted for review.       |
 | **Folder Storage** | The default target folder under [Assets → Files](/docs/tutorials/3.admin/assets-files.md), if published.                     |
-| **File Name**      | File display name.                   |
-| **File Extension** | File type/extension (e.g. .pdf, .csv, .docx).              |
-| **Permissions**    | Shows the target folder's place in [folders hierarchy](/docs/tutorials/3.admin/access-management-folders-storage.md) and respective permissions. |
+| **Display Name**      | File display name.                   |
+| **Extension** | File type/extension (e.g. .pdf, .csv, .docx).              |
+| **Permissions**    | The proposed access rules to the published file (e.g., based on user group). Ensure the audience matches intended reach. If rules are not defined, the published resources will be available to all users. <br /> Available Controls:<br /> - **Review structure** opens a modal showing the storage folders tree and file's folder position in the hierarchy.<br />- **Compare changes** side-by-side diff of **current vs proposed** permission rules to the file's folder. Use to verify and validate changes in access rules before approving the publication request.  |
+
+![](img/publish-file.png)
