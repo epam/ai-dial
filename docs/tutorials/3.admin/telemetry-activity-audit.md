@@ -52,6 +52,11 @@ It lets you inspect exactly what changed in a resource, who did it, and when, wi
 
 ![](img/img_67.png)
 
+Use the JSON toggle to switch between the form-based UI and raw JSON view.
+
+![](img/img_67_1.png)
+
+
 #### Resource Rollback
 
 Use Resource Rollback to restore the previous version of the related resource. A rollback leads to generation of a new entry on the audit activity screen.

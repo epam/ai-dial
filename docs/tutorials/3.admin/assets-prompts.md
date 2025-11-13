@@ -59,7 +59,7 @@ Follow these steps to add a new prompt:
 
 ## Export
 
-Use **Export** in the toolbar to bulk download prompts. This is useful for migrating prompts between environments, sharing sets of prompts with another users, or keeping a point-in-time backup.
+Use **Bulk Actions** in the toolbar to bulk download prompts. This is useful for migrating prompts between environments, sharing sets of prompts with another users, or keeping a point-in-time backup.
 
 ![ ](img/img_47.png)
 
