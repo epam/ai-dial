@@ -71,4 +71,4 @@ _ [App Controller](https://github.com/epam/ai-dial-app-controller) - a Java-base
   - [DIAL Azure OpenAI Adapter](https://github.com/epam/ai-dial-adapter-openai) - pluggable Azure ChatGPT adapter
   - [DIAL GCP VertexAI Adapter](https://github.com/epam/ai-dial-adapter-vertexai) - pluggable Google LLMs adapter
   - [DIAL AWS Bedrock Adapter](https://github.com/epam/ai-dial-adapter-bedrock) - pluggable Amazon LLMs adapter (Anthropic Claude 1/2 is included)
-  - More LLM adapters will be released (you may contribute)
+  - More model adapters will be released (you may contribute)
