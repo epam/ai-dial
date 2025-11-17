@@ -16,10 +16,10 @@ On the main screen, you can find all publicly-available Toolsets that have eithe
 
 Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public space. 
 
-| Element         | Description  |
-|-----------------|--------------|
-| **Root folder** | A root folder. Contains the sub-folders and toolsets. It is visible to all users. Toolsets when added via the DIAL Core, are automatically placed in the same folder as the Quick App that use it.|
-| **Sub-folders** | Toolsets can be placed in a specific sub-folder for logical organization purposes.   |
+| Element         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Root folder** | A root folder. Contains the sub-folders and toolsets. It is visible to all users.                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Sub-folders** | Toolsets can be placed in a specific sub-folder for logical organization purposes.                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | **Actions**     | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with Toolsets inside it. |
 
 ![ ](img/133.png)
@@ -56,6 +56,24 @@ Follow these steps to add a new toolset:
 3. Once all required fields are filled click **Create**. The dialog closes and the new [toolset configuration](#configuration-screen) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
 
     ![](img/132.png)
+
+## Import
+
+Use **Import** in the toolbar to upload new or update existing toolsets from ZIP archive. This is essential for migrating, restoring, or sharing toolsets assets between DIAL users.
+
+##### To import toolsets:
+
+1. Click **Import** in the toolbar to launch the import modal.
+2. **Drag & Drop** your DIAL Admin archive into the files area or click **Browse** to open a file picker.
+
+![ ](img/140.png)
+
+3. Select a Conflict resolution strategy. It allows you to decide how to handle existing toolsets with the same identifier and version:
+   * **Skip**: Leave existing toolsets untouched, only new ones will be added.
+   * **Override**: Replace toolsets having the same name and version with the imported ones.
+4. Click **Finish** to start.
+
+![ ](img/141.png)
 
 ## Configuration Screen
 

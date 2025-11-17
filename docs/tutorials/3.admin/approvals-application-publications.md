@@ -40,11 +40,12 @@ Click any publication request on the main screen to access the review page. On t
 
 ![](img/unpublish-toolset.png)
 
-| Field               | Definition   |
-|---------------------|--------------|
-| **Runner**          | The application runner that is used by this app (shown as a URL).        |
-| **Create Time**     | The publication request's submission timestamp.          |
-| **Folder Storage**  | The path to the file storage folder where the application assets will be saved in case it is published.  |
+| Field              | Definition   |
+|--------------------|--------------|
+| **Runner**         | The application runner that is used by this app (shown as a URL).        |
+| **Author**         | The user who has submitted the publication request. Can be used to follow up with the creator if something needs clarification. |
+| **Create Time**    | The publication request's submission timestamp.          |
+| **Folder Storage** | The path to the file storage folder where the application assets will be saved in case it is published.  |
 
 ![](img/94.png)
 

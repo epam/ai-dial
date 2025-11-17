@@ -70,13 +70,12 @@ In the Properties tab, you can view and define identity and metadata of adapters
 
 Manage the **models** this adapter exposes.
 
-| Column            | Description |
-|-------------------|------------|
-|**ID**             |Model's identifier.|
-| **Display Name**  | A user-friendly name of the model that will be displayed on UI.   |
-| **Version**       | The model’s version (e.g. `v1.0`) as defined in the given model in **Entities → Models**. |
-| **Description**   | A free-text description of the model|
-| **Deployment ID** | The unique identifier of the model. |
+| Column            | Description                                                                               |
+|-------------------|-------------------------------------------------------------------------------------------|
+| **ID**            | Model's identifier.                                                                       |
+| **Display Name**  | A user-friendly name of the model that will be displayed on UI.                           |
+| **Description**   | A free-text description of the model                                                      |
+| **Deployment ID** | The unique identifier of the model.                                                       |
 
 ![](img/92.png)
 
@@ -94,6 +93,15 @@ You can remove models processed by the adapter.
  
 1. Click the **actions** menu in the model’s line.
 2. Choose **Remove** in the menu.
+
+### Audit
+
+In the **Audit** tab, you can monitor activities related to the selected adapter.
+
+#### Activities
+
+The Activities section provides detailed visibility into all changes made to the selected adapter. This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected adapter.
+
 
 ### JSON Editor
 

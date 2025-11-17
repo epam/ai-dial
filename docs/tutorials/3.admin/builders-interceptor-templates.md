@@ -40,7 +40,8 @@ In Interceptor Templates, you can add and manage Interceptor Templates you have 
 
 ##### Top Bar Controls
 
-**Delete**: Permanently removes the selected interceptor template. 
+* **Create Interceptor**: Creates an interceptor with the current interceptor template. Created interceptor can be found in [Entities -> Interceptors](/docs/tutorials/3.admin/entities-interceptors.md).
+* **Delete**: Permanently removes the selected interceptor template. 
 > **IMPORTANT:** All related interceptors still bound to it will be deleted as well.
 
 ### Properties

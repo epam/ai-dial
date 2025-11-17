@@ -41,10 +41,11 @@ On the top bar, you can find the following controls:
 
 ![](img/unpublish-toolset.png)
 
-| Field               | Definition         |
-|---------------------|-----------------------------------------------------------------------------------------------------|
-| **Creation Time**     | The publication request's submission timestamp.          |
-| **Folder Storage**  | The path to the file storage folder where the toolset assets will be saved in case it is published. |
+| Field              | Definition         |
+|--------------------|-----------------------------------------------------------------------------------------------------|
+| **Author**         | The user who has submitted the publication request. Can be used to follow up with the creator if something needs clarification. |
+| **Creation Time**  | The publication request's submission timestamp.          |
+| **Folder Storage** | The path to the file storage folder where the toolset assets will be saved in case it is published. |
 
 ### Properties Tab
 

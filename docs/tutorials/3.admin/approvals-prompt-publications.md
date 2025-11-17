@@ -25,7 +25,6 @@ The Prompt Publications screen shows all publish/unpublish requests submitted by
 | **Name**       | A user-friendly name of the prompt submitted for publication.|
 | **Author**     | A username of the publication request author.|
 | **Created at** | A timestamp when the prompt was submitted for publication. Sorted ascending/descending to find newest or oldest submissions easily. |
-| **Folder Storage** | The location of the prompt in [Assets](/docs/tutorials/3.admin/assets-prompts.md). |
 
 ## Review Page
 
