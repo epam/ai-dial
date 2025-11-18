@@ -10,10 +10,7 @@
       "type": "chat",
       "displayName": "Self-hosted vision model",
       "endpoint": "http://adapter-openai:5000/openai/deployments/vision-model/chat/completions",
-      "inputAttachmentTypes": [
-        "image/png",
-        "image/jpeg"
-      ],
+      "inputAttachmentTypes": ["image/png", "image/jpeg"],
       "upstreams": [
         {
           "endpoint": "http://ollama:11434/v1/chat/completions",

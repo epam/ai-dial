@@ -10,9 +10,9 @@ It breaks down the provided data into logical and hierarchical structure, connec
 
 Key benefits:
 
-* Scientists can quickly navigate the ever-growing universe of scientific articles using knowledge graphs enriched with logical connections, summaries and references to sources.
-* Researchers can quickly grasp complicated topics (in our case it is the protein quality control and its connection to diseases such as neurodegeneration).
-* Presenting information in a simplified visual format accelerates the process of identifying key insights and actionable solutions (in our case it is potential targets for treating cellular health disorders).
+- Scientists can quickly navigate the ever-growing universe of scientific articles using knowledge graphs enriched with logical connections, summaries and references to sources.
+- Researchers can quickly grasp complicated topics (in our case it is the protein quality control and its connection to diseases such as neurodegeneration).
+- Presenting information in a simplified visual format accelerates the process of identifying key insights and actionable solutions (in our case it is potential targets for treating cellular health disorders).
 
-> * Refer to [DIAL-Native apps](/docs/platform/3.core/7.apps.md#mind-maps) to learn more about a Mind Map application type.
-> * Refer to [User Guide](/docs/tutorials/0.user-guide.md#add-mind-map) to learn how to add Mind Maps applications.
+> - Refer to [DIAL-Native apps](/docs/platform/3.core/7.apps.md#mind-maps) to learn more about a Mind Map application type.
+> - Refer to [User Guide](/docs/tutorials/0.user-guide.md#add-mind-map) to learn how to add Mind Maps applications.

@@ -5,9 +5,7 @@
       "displayName": "Echo Application",
       "description": "Simple application that repeats user's message and attachments.",
       "endpoint": "http://echo:5000/openai/deployments/echo/chat/completions",
-      "inputAttachmentTypes": [
-        "*/*"
-      ]
+      "inputAttachmentTypes": ["*/*"]
     }
   },
   "models": {
@@ -22,9 +20,7 @@
       "endpoint": "http://image-size:5000/openai/deployments/image-size/chat/completions",
       "description": "Proxy for an image-to-text model. Returns dimensions of an attached image.",
       "displayName": "Image Size Application",
-      "inputAttachmentTypes": [
-        "image/jpeg", "image/png"
-      ]
+      "inputAttachmentTypes": ["image/jpeg", "image/png"]
     }
   },
   "keys": {

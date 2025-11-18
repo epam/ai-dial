@@ -5,7 +5,7 @@ import { JWT } from 'next-auth/jwt';
 
 export class ApplicationApi extends BaseApi {
     private applicationUrl: string;
-    
+
     constructor(options: BaseApiConfig) {
       super(options);
       this.applicationUrl = `/v1/`;
@@ -17,7 +17,7 @@ export class ApplicationApi extends BaseApi {
       }
 
       const applicationResponse = await this.getAction<any>(this.applicationUrl + applicationId, token);
-      return { 
+      return {
         success: applicationResponse.success,
         errorHeader: applicationResponse.errorHeader,
         errorMessage: applicationResponse.errorMessage,
@@ -27,7 +27,7 @@ export class ApplicationApi extends BaseApi {
         }
       };
     }
-    
+
     async updateApplication(config: Config, applicationId: string | null, token: JWT | null): Promise<ServerActionResponse> {
       if (!applicationId) {
         throw Error("Application identifier is null");
@@ -35,10 +35,10 @@ export class ApplicationApi extends BaseApi {
 
       const application = await this.getAction<any>(this.applicationUrl + applicationId, token);
 
-      var result = await this.putAction(this.applicationUrl + applicationId, 
-        { 
-            ...application.response, 
-            application_properties: { count: config.count } 
+      var result = await this.putAction(this.applicationUrl + applicationId,
+        {
+            ...application.response,
+            application_properties: { count: config.count }
         }, token);
 
       return result;

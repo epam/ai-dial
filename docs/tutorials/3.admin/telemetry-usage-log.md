@@ -8,8 +8,8 @@ In Usage Log, you can also see traces grouped into conversation sessions, so you
 
 ##### Top Bar Controls
 
-* **Time Period** filter: A dropdown control that scopes the table to a custom period range.
-* **Refresh** button: Manually refreshes the entries on the page honoring all active filters and the selected **Time Period** to pull the latest audit events
+- **Time Period** filter: A dropdown control that scopes the table to a custom period range.
+- **Refresh** button: Manually refreshes the entries on the page honoring all active filters and the selected **Time Period** to pull the latest audit events
 
 ## Traces Tab
 
@@ -18,7 +18,7 @@ Tab shows individual Traces. Each entry represents a single end-to-end interacti
 ![](img/119.png)
 
 | Column                     | Definition                                                                                   |
-|----------------------------|----------------------------------------------------------------------------------------------|
+| -------------------------- | -------------------------------------------------------------------------------------------- |
 | Completion Time            | Timestamp when the trace finished processing (end-to-end interaction).                       |
 | Trace ID                   | Unique identifier of the trace (one end-to-end interaction).                                 |
 | Topic                      | Auto-generated subject/title summarizing the trace.                                          |
@@ -44,7 +44,6 @@ Tab shows individual Traces. Each entry represents a single end-to-end interacti
 | Code span ID               | Identifier of a specific code execution span associated with the trace (if any).             |
 | Code span parent ID        | Identifier of the parent span for a code execution span (if any).                            |
 
-
 ## Conversations Tab
 
 Tab groups individual traces into end‑to‑end user sessions, showing details and aggregated metrics per conversation.
@@ -52,7 +51,7 @@ Tab groups individual traces into end‑to‑end user sessions, showing details 
 ![](img/120.png)
 
 | Column                     | Definition                                                                                     |
-|----------------------------|------------------------------------------------------------------------------------------------|
+| -------------------------- | ---------------------------------------------------------------------------------------------- |
 | Last activity              | Timestamp of the most recent trace within the conversation.                                    |
 | Conversation ID            | Unique identifier of the user session that groups related traces.                              |
 | Topic                      | Auto-generated subject summarizing the conversation.                                           |

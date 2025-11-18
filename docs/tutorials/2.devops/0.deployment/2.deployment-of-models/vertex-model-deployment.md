@@ -1,4 +1,5 @@
 <!-- omit from toc -->
+
 # Vertex Model Deployment
 
 In this instruction, you will learn how to create VertexAI model in Google Cloud Platform and use it in AI DIAL config.
@@ -6,7 +7,9 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
 <div class="docusaurus-ignore">
 
 <!-- omit from toc -->
+
 # Table of Contents
+
 - [Prerequisites](#prerequisites)
 - [Step 1: Configuring the AI Model](#step-1-configuring-the-ai-model)
   - [Request Access to Models](#request-access-to-models)
@@ -24,8 +27,8 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
 
 ## Prerequisites
 
-* Active Google Cloud project
-* Enabled billing for the project
+- Active Google Cloud project
+- Enabled billing for the project
 
 > Refer to [Google Cloud Documentation](https://cloud.google.com/vertex-ai/docs/featurestore/setup) to learn how to create an account and enable billing.
 
@@ -33,16 +36,16 @@ In this instruction, you will learn how to create VertexAI model in Google Cloud
 
 ### Request Access to Models
 
-1.	Log into your Google Cloud account.
-2.	In the navigation panel on the left, in **APIs & Services**, select **Enable APIs and Services**.
+1. Log into your Google Cloud account.
+2. In the navigation panel on the left, in **APIs & Services**, select **Enable APIs and Services**.
 
-  	![](../img/gcp9.png)
-  	
+   ![](../img/gcp9.png)
+
 3. In **APIs and Services** click **+ Enable APIs and Services** to access the API library.
 4. In the search bar, type **Vertex AI API** and select the **Vertex AI API** panel when it appears in search results.
 5. Click **Enable** to turn on the Vertex AI API for your Google Cloud project.
-      ![](../img/gcp11.png)
-   
+   ![](../img/gcp11.png)
+
 ## Step 2: Get Access to AI Model
 
 ### Create a Service Account
@@ -55,25 +58,25 @@ To communicate with VertexAI models, it is necessary to have a service account.
 
 1. In your Google Cloud account, in the main navigation menu find **IAM & Admin** and navigate to **Service Accounts**.
 
-	![](../img/gcp1.png)
+   ![](../img/gcp1.png)
 
 2. To create a new service account, click **+ Create Service Account** and fill in the details for your new service account:
-	  
-	![](../img/gcp2-1.png)
 
-    	
-	* Fill in the **Service account details**.
-	* In the next step **Grant this service account access to project**, add **Vertex AI Custom Code Service Agent** role. Refer to [GCP Documentation](https://cloud.google.com/vertex-ai/docs/general/access-control#grant_service_agents_access_to_other_resources) to learn more.
+   ![](../img/gcp2-1.png)
 
-	![](../img/gcp12.png)
+   - Fill in the **Service account details**.
+   - In the next step **Grant this service account access to project**, add **Vertex AI Custom Code Service Agent** role. Refer to [GCP Documentation](https://cloud.google.com/vertex-ai/docs/general/access-control#grant_service_agents_access_to_other_resources) to learn more.
 
-	* Click **Done** to complete.
+   ![](../img/gcp12.png)
+
+   - Click **Done** to complete.
 
 3. The new service account appears on the Service Account page. Click it to view the details:
-    * **In KEYS**, create a key for this service account and download it in JSON format.
-    
-   	 ![](../img/gcp6.png)
-  
+
+   - **In KEYS**, create a key for this service account and download it in JSON format.
+
+   ![](../img/gcp6.png)
+
 #### Configure Kubernetes Service Account
 
 In case your cluster is located at GCP, the best practice for using VertexAI is to assign a GCP IAM service account to Kubernetes Service Account. You can do this via Workload Identity Federation for GKE.
@@ -86,7 +89,7 @@ In case your cluster is located at GCP, the best practice for using VertexAI is 
 
 To deploy a model to AI DIAL, it is necessary to add it to config and configure an adapter for it.
 
-Add your model with its parameters in the `models` section. 
+Add your model with its parameters in the `models` section.
 
 > Refer to [AI DIAL Core Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
 
@@ -109,9 +112,9 @@ vertexai:
   enabled: true
 
   env:
-    DEFAULT_REGION: "your-region"
-    GOOGLE_APPLICATION_CREDENTIALS: "/mnt/secrets-store/gcp-ai-key"
-    GCP_PROJECT_ID: "your-project-id"
+    DEFAULT_REGION: 'your-region'
+    GOOGLE_APPLICATION_CREDENTIALS: '/mnt/secrets-store/gcp-ai-key'
+    GCP_PROJECT_ID: 'your-project-id'
 
   secrets:
     gcp-ai-key: |
@@ -131,9 +134,8 @@ vertexai:
 
   extraVolumeMounts:
     - name: key-file
-      mountPath: "/mnt/secrets-store"
+      mountPath: '/mnt/secrets-store'
       readOnly: true
-
 ```
 
 #### Use GCP Service Account with Workload Identity Federation for GKE
@@ -152,8 +154,7 @@ vertexai:
       iam.gke.io/gcp-service-account: your-sa-id@your-project-id.iam.gserviceaccount.com
 
   env:
-    DIAL_URL: "http://dial-core"
-    GCP_PROJECT_ID: "your-project-id"
-    DEFAULT_REGION: "your-region"
-
+    DIAL_URL: 'http://dial-core'
+    GCP_PROJECT_ID: 'your-project-id'
+    DEFAULT_REGION: 'your-region'
 ```

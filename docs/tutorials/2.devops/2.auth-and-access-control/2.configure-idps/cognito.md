@@ -1,10 +1,11 @@
-
 <!-- omit from toc -->
+
 # How to Set AWS Cognito as Identity Provider
 
 <div class="docusaurus-ignore">
 
 <!-- omit from toc -->
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -32,21 +33,21 @@ In AI DIAL, you can assign roles to Models and Applications to restrict the numb
 Follow these steps to configure AWS Cognito:
 
 1. **Create User Pool**: refer to [AWS documentation](https://docs.aws.amazon.com/cognito/latest/developerguide/tutorial-create-user-pool.html) for detailed instructions on how to create a User Pool:
-    - **Application type**: `Traditional web application`
-    - **Name your application**: e.g. `ai-dial-chat`
-    - **Options for sign-in identifiers**: `Username`
-    - **Required attributes for sign-up**: `email`
-    - **Return URL**: `<chat_url>/api/auth/callback/cognito`
+   - **Application type**: `Traditional web application`
+   - **Name your application**: e.g. `ai-dial-chat`
+   - **Options for sign-in identifiers**: `Username`
+   - **Required attributes for sign-up**: `email`
+   - **Return URL**: `<chat_url>/api/auth/callback/cognito`
 1. **Configure Application Client**: after user pool creation succeeded, navigate to **Applications/App clients/App client name** and edit [app client information](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html):
-    - **Authentication flows**: `ALLOW_CUSTOM_AUTH`, `ALLOW_REFRESH_TOKEN_AUTH`, `ALLOW_USER_SRP_AUTH`
+   - **Authentication flows**: `ALLOW_CUSTOM_AUTH`, `ALLOW_REFRESH_TOKEN_AUTH`, `ALLOW_USER_SRP_AUTH`
 1. **Configure managed login pages**: navigate to **Applications/App clients/App client name/Login pages** and edit [login pages](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-login-pages.html):
-    - **Allowed sign-out URLs**: `<chat_url>`
-    - **OpenID Connect scopes**: `OpenID` `Email` `Profile`
+   - **Allowed sign-out URLs**: `<chat_url>`
+   - **OpenID Connect scopes**: `OpenID` `Email` `Profile`
 1. **Create Users**: in **User management/Users** section, create [Users](https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-create-user-accounts.html#creating-a-new-user-using-the-console).
 1. **Gather facts**: to proceed with DIAL configuration, collect information related to Cognito:
-    - In **Amazon Cognito/User pools/Pool name/Overview**, save **User pool ID** (`<cognito_user_pool_id>`) and **Token signing key URL** (`<cognito_jwks_uri>`).
-    - In **Applications/App clients/App client name**, save **Client ID** (`<cognito_client_id>`) and **Client secret** (`<cognito_client_secret>`).
-    - AWS region, where Cognito user pool is created (`<cognito_region>`).
+   - In **Amazon Cognito/User pools/Pool name/Overview**, save **User pool ID** (`<cognito_user_pool_id>`) and **Token signing key URL** (`<cognito_jwks_uri>`).
+   - In **Applications/App clients/App client name**, save **Client ID** (`<cognito_client_id>`) and **Client secret** (`<cognito_client_secret>`).
+   - AWS region, where Cognito user pool is created (`<cognito_region>`).
 1. (Optional, RBAC) **Create and Assign Groups**: in **User management/Groups** section, create [Groups](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html#creating-a-new-group-using-the-console) and assign them created users. These groups can be used to restrict access to DIAL resources later.
 
 ### Configure AI DIAL
@@ -58,9 +59,9 @@ By configuring both AI DIAL Chat and AI DIAL Core with the necessary environment
 Add the following environment variables to AI DIAL Chat [configuration](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables):
 
 ```yaml
-AUTH_COGNITO_HOST: "https://cognito-idp.<cognito_region>.amazonaws.com/<cognito_user_pool_id>"
-AUTH_COGNITO_CLIENT_ID: "<cognito_client_id>"
-AUTH_COGNITO_SECRET: "<cognito_client_secret>"
+AUTH_COGNITO_HOST: 'https://cognito-idp.<cognito_region>.amazonaws.com/<cognito_user_pool_id>'
+AUTH_COGNITO_CLIENT_ID: '<cognito_client_id>'
+AUTH_COGNITO_SECRET: '<cognito_client_secret>'
 ```
 
 #### AI DIAL Core Settings
@@ -70,11 +71,11 @@ Add the following parameters to AI DIAL Core [**static** settings](https://githu
 > **Note**: generate some random sting for `loggingSalt` parameter, e.g. using `pwgen -s 32 1`
 
 ```yaml
-aidial.identityProviders.cognito.jwksUrl: "<cognito_jwks_uri>"
+aidial.identityProviders.cognito.jwksUrl: '<cognito_jwks_uri>'
 aidial.identityProviders.cognito.issuerPattern: '^https:\/\/cognito-idp\.<cognito_region>\.amazonaws\.com\/<cognito_user_pool_id>$'
-aidial.identityProviders.cognito.loggingKey: "sub"
-aidial.identityProviders.cognito.loggingSalt: "loggingSalt"
-aidial.identityProviders.cognito.rolePath: "cognito:groups"
+aidial.identityProviders.cognito.loggingKey: 'sub'
+aidial.identityProviders.cognito.loggingSalt: 'loggingSalt'
+aidial.identityProviders.cognito.rolePath: 'cognito:groups'
 ```
 
 #### Assignment of Roles
@@ -97,9 +98,7 @@ In the provided example, users assigned the `cognito-group-name` group will have
           "key": "[REDACTED]"
         }
       ],
-      "userRoles": [
-        "cognito-group-name"
-      ]
+      "userRoles": ["cognito-group-name"]
     }
   }
 }

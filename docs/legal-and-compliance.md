@@ -28,34 +28,36 @@ As an orchestration layer, the DIAL Platform does not independently evaluate con
 
 While specific compliance implementation remains the responsibility of the deploying organization, the DIAL Platform implements several compliance-oriented features:
 
-1.	Configurable option to disable collection of conversation logs
-2.	Configurable data retention policies on cloud data storage level that can automatically purge conversation logs and sensitive files after a predetermined interval (e.g., 30 days)
-3.	An Interceptor framework that examines communications bidirectionally (both user prompts and LLM responses)
-4.	Capability to implement custom validation logic for detecting and handling sensitive information or personally identifiable information (PII)
-5.	Options to modify or block requests containing prohibited content
+1. Configurable option to disable collection of conversation logs
+2. Configurable data retention policies on cloud data storage level that can automatically purge conversation logs and sensitive files after a predetermined interval (e.g., 30 days)
+3. An Interceptor framework that examines communications bidirectionally (both user prompts and LLM responses)
+4. Capability to implement custom validation logic for detecting and handling sensitive information or personally identifiable information (PII)
+5. Options to modify or block requests containing prohibited content
 
 These capabilities help to minimize and control lifetime of PII within DIAL, helping to build it into organization’s ecosystem, compliant with data privacy regulations.
 
 ##### How will the DIAL Platform comply with the EU AI Act concerning general-purpose AI systems?
 
 While specific compliance implementation remains the responsibility of the deploying organization, the DIAL Platform provides technical capabilities that facilitate compliance with the EU AI Act, including:
-1.	Comprehensive conversation logging for audit and investigative purposes
-2.	Transparent AI-generated content labeling mechanisms
-3.	User feedback collection functionality for quality assessment and improvement
-Collected conversations and feedback help deploying organization to perform analysis and make corrections to how DIAL is used and add necessary guardrails to ensure compliance.
+
+1. Comprehensive conversation logging for audit and investigative purposes
+2. Transparent AI-generated content labeling mechanisms
+3. User feedback collection functionality for quality assessment and improvement
+   Collected conversations and feedback help deploying organization to perform analysis and make corrections to how DIAL is used and add necessary guardrails to ensure compliance.
 
 ## Security and Data Protection
 
 ##### What security measures protect sensitive or confidential information processed through the DIAL Platform?
 
 The DIAL Platform incorporates a multi-layered security architecture including:
-1.	In-transit and at-rest protection of sensitive information, using TLS protocol for all exposed connections and built-in encryption mechanisms of cloud storage services.
-2.	Attack surface minimization through reverse proxy implementation and API management
-3.	Network isolation of cloud resources via firewalls and private connectivity
-4.	Mandatory token-based authentication utilizing JWT standards
-5.	Integration with OpenID Connect-compliant Identity Providers
-6.	Centralized role-based access control (RBAC) with granular permission management
-7.	Group-based access controls for precise resource authorization
+
+1. In-transit and at-rest protection of sensitive information, using TLS protocol for all exposed connections and built-in encryption mechanisms of cloud storage services.
+2. Attack surface minimization through reverse proxy implementation and API management
+3. Network isolation of cloud resources via firewalls and private connectivity
+4. Mandatory token-based authentication utilizing JWT standards
+5. Integration with OpenID Connect-compliant Identity Providers
+6. Centralized role-based access control (RBAC) with granular permission management
+7. Group-based access controls for precise resource authorization
 
 ## Intellectual Property and Liability
 

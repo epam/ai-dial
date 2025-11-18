@@ -352,7 +352,7 @@ const sidebars = {
                     },
                   ],
                 },
-              ]
+              ],
             },
             {
               type: 'doc',
@@ -564,7 +564,7 @@ const sidebars = {
                       id: 'tutorials/admin/entities-routes',
                       label: 'Routes',
                     },
-                  ]
+                  ],
                 },
                 {
                   type: 'category',
@@ -585,7 +585,7 @@ const sidebars = {
                       id: 'tutorials/admin/builders-adapters',
                       label: 'Adapters',
                     },
-                  ]
+                  ],
                 },
                 {
                   type: 'category',
@@ -606,7 +606,7 @@ const sidebars = {
                       id: 'tutorials/admin/assets-files',
                       label: 'Files',
                     },
-                  ]
+                  ],
                 },
                 {
                   type: 'category',
@@ -627,7 +627,7 @@ const sidebars = {
                       id: 'tutorials/admin/access-management-folders-storage',
                       label: 'Folders Storage',
                     },
-                  ]
+                  ],
                 },
                 {
                   type: 'category',
@@ -648,7 +648,7 @@ const sidebars = {
                       id: 'tutorials/admin/approvals-file-publications',
                       label: 'File Publications',
                     },
-                  ]
+                  ],
                 },
                 {
                   type: 'category',
@@ -669,12 +669,12 @@ const sidebars = {
                       id: 'tutorials/admin/telemetry-usage-log',
                       label: 'Usage Log',
                     },
-                  ]
-                }
+                  ],
+                },
               ],
-            }
-          ]
-        }
+            },
+          ],
+        },
       ],
     },
     {

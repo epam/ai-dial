@@ -28,7 +28,7 @@ const config = {
   url: 'https://docs.dialx.ai',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl:  process.env.BASE_URL ? process.env.BASE_URL : '/',
+  baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '/',
   trailingSlash: false,
 
   // GitHub pages deployment config.
@@ -41,7 +41,7 @@ const config = {
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'throw',
-    }
+    },
   },
   onDuplicateRoutes: 'throw',
   // Even if you don't use internationalization, you can use this field to set
@@ -110,11 +110,10 @@ const config = {
 
   scripts: [
     {
-      src:'https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on',
-      type: "text/javascript",
-    }
+      src: 'https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on',
+      type: 'text/javascript',
+    },
   ],
-
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */

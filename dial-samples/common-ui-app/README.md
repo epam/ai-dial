@@ -20,7 +20,7 @@ Once you have Node.js and yarn installed, follow these steps to set up your deve
 1. Clone the AI DIAL Custom App UI repository:
 
    ```bash
-   git clone 
+   git clone
    ```
 
 2. Install project dependencies:
@@ -62,7 +62,7 @@ Once you have Node.js and yarn installed, follow these steps to set up your deve
 To create an optimized build of your application, run the following command:
 
 ```bash
-yarn build 
+yarn build
 ```
 
 After running the command, you will see a `.dist` folder created in your project directory with the optimized output.

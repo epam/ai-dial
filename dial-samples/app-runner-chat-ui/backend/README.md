@@ -1,5 +1,6 @@
 # Custom application runner backend for a chat-based end-user interface
-A sample backend application to demonstrate how a custom backend can be developed for a *DIAL application runner* with the standard chat-based end-user interface.
+
+A sample backend application to demonstrate how a custom backend can be developed for a _DIAL application runner_ with the standard chat-based end-user interface.
 
 This sample code uses the standard DIAL SDK mechanism to read the configuration of the application instance that invokes the chat completion endpoint (see `request.request_dial_application_properties()`). It retrieves the `Count` property and repeats the request text in the response as many times as specified by this property.
 

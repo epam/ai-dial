@@ -1,5 +1,4 @@
 services:
-
   themes:
     image: epam/ai-dial-chat-themes:0.10.0
     platform: linux/amd64
@@ -50,22 +49,22 @@ services:
     image: epam/ai-dial-core:0.37.0
     platform: linux/amd64
     environment:
-      'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
-      'proxy.config.files': '["/app/config/config.json"]'
-      'aidial.identityProviders.keycloak.jwksUrl': 'http://keycloak:${KC_PORT}/realms/dial/protocol/openid-connect/certs'
-      'aidial.identityProviders.keycloak.rolePath': 'resource_access.dial-chat.roles'
-      'aidail.access.admin.rules': '[{"source": "roles", "function": "EQUAL", "targets": ["admin"]}]'
-      'aidial.identityProviders.keycloak.loggingKey': 'email'
-      'aidial.identityProviders.keycloak.loggingSalt': 'loggingSalt'
-      'aidial.encryption.secret': '${DIAL_CORE_ENCRYPTION_SECRET}'
-      'aidial.encryption.key': '${DIAL_CORE_ENCRYPTION_KEY}'
-      'aidial.redis.singleServerConfig.address': 'redis://redis:6379'
-      'aidial.storage.provider': 'filesystem'
-      'aidial.storage.prefix': 'core'
-      'aidial.storage.bucket': 'dial'
-      'aidial.storage.createBucket': 'true'
-      'aidial.storage.overrides': '{"jclouds.filesystem.basedir": "data"}'
-      'aidial.applications.includeCustomApps': 'true'
+      "JAVA_OPTS": "-Dgflog.config=/opt/settings/gflog.xml"
+      "proxy.config.files": '["/app/config/config.json"]'
+      "aidial.identityProviders.keycloak.jwksUrl": "http://keycloak:${KC_PORT}/realms/dial/protocol/openid-connect/certs"
+      "aidial.identityProviders.keycloak.rolePath": "resource_access.dial-chat.roles"
+      "aidail.access.admin.rules": '[{"source": "roles", "function": "EQUAL", "targets": ["admin"]}]'
+      "aidial.identityProviders.keycloak.loggingKey": "email"
+      "aidial.identityProviders.keycloak.loggingSalt": "loggingSalt"
+      "aidial.encryption.secret": "${DIAL_CORE_ENCRYPTION_SECRET}"
+      "aidial.encryption.key": "${DIAL_CORE_ENCRYPTION_KEY}"
+      "aidial.redis.singleServerConfig.address": "redis://redis:6379"
+      "aidial.storage.provider": "filesystem"
+      "aidial.storage.prefix": "core"
+      "aidial.storage.bucket": "dial"
+      "aidial.storage.createBucket": "true"
+      "aidial.storage.overrides": '{"jclouds.filesystem.basedir": "data"}'
+      "aidial.applications.includeCustomApps": "true"
     ports:
       - "${DIAL_CORE_HOST_PORT}:8080"
     volumes:
@@ -91,7 +90,13 @@ services:
   keycloak:
     image: keycloak/keycloak:26.3
     user: root
-    command: ["start-dev", "--import-realm", "--http-port=${KC_PORT}", "--hostname-backchannel-dynamic=true"]
+    command:
+      [
+        "start-dev",
+        "--import-realm",
+        "--http-port=${KC_PORT}",
+        "--hostname-backchannel-dynamic=true",
+      ]
     environment:
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_ADMIN_PASSWORD}
@@ -101,18 +106,19 @@ services:
       KC_HTTP_ENABLED: true
       KC_PROXY: edge
       QUARKUS_HTTP_LIMITS_MAX_HEADER_SIZE: 64k
-      KC_INITIALIZE_EMPTY: 'true'
-      KC_FEATURE_CACHE_STACK: 'true'
+      KC_INITIALIZE_EMPTY: "true"
+      KC_FEATURE_CACHE_STACK: "true"
     ports:
       - "${KC_PORT}:${KC_PORT}"
     volumes:
       - ./keycloak/data:/opt/keycloak/data
       - ./keycloak/import/realm-config.json:/opt/keycloak/data/import/realm-config.json
     healthcheck:
-      test: [
-        "CMD-SHELL",
-        'exec 3<>/dev/tcp/localhost/${KC_PORT}; echo -e "GET /health/ready HTTP/1.1\nhost: localhost:${KC_PORT}\n" >&3; timeout --preserve-status 1 cat <&3 | grep -m 1 status | grep -m 1 UP; ERROR=$?; exec 3<&-; exec 3>&-; exit $ERROR'
-      ]
+      test:
+        [
+          "CMD-SHELL",
+          'exec 3<>/dev/tcp/localhost/${KC_PORT}; echo -e "GET /health/ready HTTP/1.1\nhost: localhost:${KC_PORT}\n" >&3; timeout --preserve-status 1 cat <&3 | grep -m 1 status | grep -m 1 UP; ERROR=$?; exec 3<&-; exec 3>&-; exit $ERROR',
+        ]
       interval: 5s
       timeout: 3s
       retries: 6
@@ -136,8 +142,8 @@ services:
       H2_DATASOURCE_PASSWORD: ${H2_DATASOURCE_PASSWORD}
       H2_FILE: ./data/testdb
       METRICS_ENABLED: "false"
-      SECURITY_ALLOWED_ROLES: 'ConfigAdmin,admin'
-      SECURITY_JWT_ACCEPTED_AUDIENCES: '*'
+      SECURITY_ALLOWED_ROLES: "ConfigAdmin,admin"
+      SECURITY_JWT_ACCEPTED_AUDIENCES: "*"
       SECURITY_JWT_ACCEPTED_ISSUERS: "http://${COMMON_HOST}:${KC_PORT}/realms/dial"
       SECURITY_JWT_JWKS_URI: "http://keycloak:${KC_PORT}/realms/dial/protocol/openid-connect/certs"
       SECURITY_ROLES_CLAIM: roles
@@ -146,7 +152,11 @@ services:
       - ${DIAL_DIR:-.}/admin/data:/app/data
       - ${DIAL_DIR:-.}/core:/app/config
     healthcheck:
-      test: ["CMD-SHELL", "wget -q --spider http://localhost:8080/api/v1/health || exit 1"]
+      test:
+        [
+          "CMD-SHELL",
+          "wget -q --spider http://localhost:8080/api/v1/health || exit 1",
+        ]
       interval: 5s
       timeout: 3s
       retries: 6
@@ -159,7 +169,7 @@ services:
   admin-frontend:
     image: epam/ai-dial-admin-frontend:0.10.0
     platform: linux/amd64
-    environment:     	
+    environment:
       DIAL_ADMIN_API_URL: "http://admin-backend:8080/"
       NEXTAUTH_URL: "http://${COMMON_HOST}:${DIAL_ADMIN_FRONTEND_HOST_PORT}"
       NEXTAUTH_SECRET: "${NEXTAUTH_SECRET}"
@@ -167,7 +177,7 @@ services:
       AUTH_KEYCLOAK_HOST: "http://keycloak:${KC_PORT}/realms/dial/"
       AUTH_KEYCLOAK_CLIENT_ID: "dial-admin-console"
       AUTH_KEYCLOAK_SECRET: "${AUTH_KEYCLOAK_SECRET}"
-      ADMIN_ROLE_NAMES: 'ConfigAdmin,admin'
+      ADMIN_ROLE_NAMES: "ConfigAdmin,admin"
     ports:
       - "${DIAL_ADMIN_FRONTEND_HOST_PORT}:3000"
     depends_on:
@@ -176,4 +186,3 @@ services:
       admin-backend:
         condition: service_healthy
     restart: always
-

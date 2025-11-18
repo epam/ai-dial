@@ -9,7 +9,7 @@ import { ServerActionResponse } from '@/custom-app-ui/common/src/models/server-a
 
 export async function getConfig(applicationId: string | null): Promise<ServerActionResponse<Config>> {
   const token = await getUserToken(getIsEnableAuthToggle(), headers(), cookies());
-  
+
   //Use the following line for a custom standalone application sample
   //return await configApi.getConfig(token);
 

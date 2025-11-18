@@ -2,28 +2,28 @@ services:
   themes:
     image: epam/ai-dial-chat-themes:0.9.1
     ports:
-      - "3001:8080"
+      - '3001:8080'
 
   chat:
     ports:
-      - "3000:3000"
+      - '3000:3000'
     image: epam/ai-dial-chat:0.26.0
     depends_on:
       - themes
       - core
     environment:
-      NEXTAUTH_SECRET: "secret"
-      THEMES_CONFIG_HOST: "http://themes:8080"
-      DIAL_API_HOST: "http://core:8080"
-      DIAL_API_KEY: "dial_api_key"
-      ENABLED_FEATURES: "conversations-section,prompts-section,top-settings,top-clear-conversation,top-chat-info,top-chat-model-settings,empty-chat-settings,header,footer,request-api-key,report-an-issue,likes,conversations-sharing,input-files,attachments-manager,prompts-sharing,prompts-publishing,conversations-publishing,custom-logo,input-links,custom-applications,message-templates,marketplace,quick-apps,code-apps,applications-sharing,marketplace-table-view"
+      NEXTAUTH_SECRET: 'secret'
+      THEMES_CONFIG_HOST: 'http://themes:8080'
+      DIAL_API_HOST: 'http://core:8080'
+      DIAL_API_KEY: 'dial_api_key'
+      ENABLED_FEATURES: 'conversations-section,prompts-section,top-settings,top-clear-conversation,top-chat-info,top-chat-model-settings,empty-chat-settings,header,footer,request-api-key,report-an-issue,likes,conversations-sharing,input-files,attachments-manager,prompts-sharing,prompts-publishing,conversations-publishing,custom-logo,input-links,custom-applications,message-templates,marketplace,quick-apps,code-apps,applications-sharing,marketplace-table-view'
       KEEP_ALIVE_TIMEOUT: ${CHAT_KEEP_ALIVE_TIMEOUT:-20000}
 
   redis:
     image: redis:7.2.4-alpine3.19
     restart: always
     ports:
-      - "6379:6379"
+      - '6379:6379'
     command: >
       redis-server
       --maxmemory 2000mb
@@ -36,7 +36,7 @@ services:
   core:
     user: ${UID:-root}
     ports:
-      - "8080:8080"
+      - '8080:8080'
     image: epam/ai-dial-core:0.25.1
     environment:
       'AIDIAL_SETTINGS': '/opt/settings/settings.json'

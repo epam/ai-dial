@@ -1,6 +1,6 @@
 # Custom standalone application backend for a chat-based end-user interface
 
-A sample backend application to demonstrate how a custom backend can be developed for a *DIAL standalone application* with the standard chat-based end-user interface.
+A sample backend application to demonstrate how a custom backend can be developed for a _DIAL standalone application_ with the standard chat-based end-user interface.
 
 The application exposes a custom API for centralized configuration management (`GET /config`, `PUT /config`) and a chat completion endpoint.
 

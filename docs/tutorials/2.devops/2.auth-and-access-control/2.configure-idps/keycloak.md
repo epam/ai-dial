@@ -1,10 +1,11 @@
-
 <!-- omit from toc -->
+
 # How to Set Keycloak as Identity Provider
 
 <div class="docusaurus-ignore">
 
 <!-- omit from toc -->
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -48,15 +49,15 @@ Follow these steps to configure Keycloak in Admin Console:
    - Home URL: `<chat_url>`
    - Web origins: `<chat_url>`
 1. **Gather facts**: to proceed with DIAL configuration, collect information related to Keycloak:
-    - **Keycloak host URL** (`<keycloak_host>`), e.g. `https://keycloak.example.com`
-    - In **Realm settings/General**, save the **Realm name** (`<keycloak_realm_id>`)
-    - In **Realm settings/General**, open **OpenID Endpoint Configuration** and save the **jwks_uri** (`<keycloak_jwks_uri>`) value from JSON response.
-    - In **Clients/Client name/Settings**, save the **Client ID** (`<keycloak_client_id>`)
-    - In **Clients/Client name/Credentials**, save the **Client secret** (`<keycloak_client_secret>`).
+   - **Keycloak host URL** (`<keycloak_host>`), e.g. `https://keycloak.example.com`
+   - In **Realm settings/General**, save the **Realm name** (`<keycloak_realm_id>`)
+   - In **Realm settings/General**, open **OpenID Endpoint Configuration** and save the **jwks_uri** (`<keycloak_jwks_uri>`) value from JSON response.
+   - In **Clients/Client name/Settings**, save the **Client ID** (`<keycloak_client_id>`)
+   - In **Clients/Client name/Credentials**, save the **Client secret** (`<keycloak_client_secret>`).
 1. **Create Users**: create [Users](https://www.keycloak.org/docs/latest/server_admin/#proc-creating-user_server_administration_guide).
 1. (Optional, RBAC) **Create and Assign Roles**: the best way to sustainably manage user authentication is creating user groups and assigning client roles to that groups:
-    - In **Clients/Client name/Roles**, [Create roles](https://www.keycloak.org/docs/latest/server_admin/#con-client-roles_server_administration_guide).
-    - In **Groups**, [Create groups](https://www.keycloak.org/docs/latest/server_admin/#proc-managing-groups_server_administration_guide). Add users in **Members** tab, client roles in **Role Mappings** tab.
+   - In **Clients/Client name/Roles**, [Create roles](https://www.keycloak.org/docs/latest/server_admin/#con-client-roles_server_administration_guide).
+   - In **Groups**, [Create groups](https://www.keycloak.org/docs/latest/server_admin/#proc-managing-groups_server_administration_guide). Add users in **Members** tab, client roles in **Role Mappings** tab.
 
 #### Configuration in Keycloak Config CLI
 
@@ -65,8 +66,8 @@ For setting up Keycloak, which is included in the AI DIAL Helm chart, you can us
 > **Note**: Replace `<chat_url>`, `<keycloak_client_secret>` with real values before applying this configuration.
 
 ```yaml
-realm: "dial"
-displayName: "dial"
+realm: 'dial'
+displayName: 'dial'
 enabled: true
 accessTokenLifespan: 86400
 ssoSessionIdleTimeout: 86400
@@ -75,25 +76,25 @@ roles:
   client:
     dial-chat:
       - name: admin
-        description: "AI DIAL chat admin role"
+        description: 'AI DIAL chat admin role'
         composite: false
         clientRole: true
 groups:
   - name: DIAL
     subGroups:
-      - name: "admin"
+      - name: 'admin'
         clientRoles:
-          dial-chat: ["admin"]
+          dial-chat: ['admin']
 clientScopes:
   - name: dial
-    description: "dial scope"
+    description: 'dial scope'
     protocol: openid-connect
     attributes:
-      include.in.token.scope: "true"
-      display.on.consent.screen: "true"
-      consent.screen.text: ""
+      include.in.token.scope: 'true'
+      display.on.consent.screen: 'true'
+      consent.screen.text: ''
     protocolMappers:
-      - name: "Audience for DIAL"
+      - name: 'Audience for DIAL'
         protocol: openid-connect
         protocolMapper: oidc-audience-mapper
         consentRequired: false
@@ -127,12 +128,12 @@ clients:
     frontchannelLogout: true
     protocol: openid-connect
     attributes:
-      oidc.ciba.grant.enabled: "false"
-      client.secret.creation.time: "1691398764"
-      backchannel.logout.session.required: "true"
-      display.on.consent.screen: "false"
-      oauth2.device.authorization.grant.enabled: "false"
-      backchannel.logout.revoke.offline.tokens: "false"
+      oidc.ciba.grant.enabled: 'false'
+      client.secret.creation.time: '1691398764'
+      backchannel.logout.session.required: 'true'
+      display.on.consent.screen: 'false'
+      oauth2.device.authorization.grant.enabled: 'false'
+      backchannel.logout.revoke.offline.tokens: 'false'
     authenticationFlowBindingOverrides: {}
     fullScopeAllowed: true
     nodeReRegistrationTimeout: -1
@@ -160,9 +161,9 @@ By configuring both AI DIAL Chat and AI DIAL Core with the necessary environment
 Add the following environment variables to AI DIAL Chat [configuration](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables):
 
 ```yaml
-AUTH_KEYCLOAK_HOST: "https://<keycloak_host>/realms/<keycloak_realm_id>"
-AUTH_KEYCLOAK_CLIENT_ID: "<keycloak_client_id>"
-AUTH_KEYCLOAK_SECRET: "<keycloak_client_secret>"
+AUTH_KEYCLOAK_HOST: 'https://<keycloak_host>/realms/<keycloak_realm_id>'
+AUTH_KEYCLOAK_CLIENT_ID: '<keycloak_client_id>'
+AUTH_KEYCLOAK_SECRET: '<keycloak_client_secret>'
 ```
 
 #### AI DIAL Core Settings
@@ -174,11 +175,11 @@ Add the following parameters to AI DIAL Core [**static** settings](https://githu
 > **Note**: generate some random sting for `loggingSalt` parameter, e.g. using `pwgen -s 32 1`
 
 ```yaml
-aidial.identityProviders.keycloak.jwksUrl: "<keycloak_jwks_uri>"
+aidial.identityProviders.keycloak.jwksUrl: '<keycloak_jwks_uri>'
 aidial.identityProviders.keycloak.issuerPattern: '^https:\/\/<keycloak_host_regex>.*$'
-aidial.identityProviders.keycloak.loggingKey: "sub"
-aidial.identityProviders.keycloak.loggingSalt: "loggingSalt"
-aidial.identityProviders.keycloak.rolePath: "resource_access.<keycloak_client_id>.roles"
+aidial.identityProviders.keycloak.loggingKey: 'sub'
+aidial.identityProviders.keycloak.loggingSalt: 'loggingSalt'
+aidial.identityProviders.keycloak.rolePath: 'resource_access.<keycloak_client_id>.roles'
 ```
 
 #### Assignment of Roles
@@ -201,9 +202,7 @@ In the provided example, users assigned the `keycloak-group-name` group will hav
           "key": "[REDACTED]"
         }
       ],
-      "userRoles": [
-        "keycloak-client-role-name"
-      ]
+      "userRoles": ["keycloak-client-role-name"]
     }
   }
 }

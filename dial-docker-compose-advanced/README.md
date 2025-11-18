@@ -12,25 +12,25 @@ docker compose -f <filename> up
 
 Choose one of the Compose files depending on your needs:
 
-|File|Description|
-|---|---|
-|docker-compose-base.yml|Runs Core, Chat, Admin, Keycloak and required underlying services|
-|docker-compose-full.yml|Runs RAG in addition to the base services from above|
+| File                    | Description                                                       |
+| ----------------------- | ----------------------------------------------------------------- |
+| docker-compose-base.yml | Runs Core, Chat, Admin, Keycloak and required underlying services |
+| docker-compose-full.yml | Runs RAG in addition to the base services from above              |
 
 3. Start using DIAL
 
-|URL|Description|
-|---|---|
-|http://localhost:3100|DIAL Chat|
-|http://localhost:3102|DIAL Admin|
-|http://localhost:8900|Keycloak|
+| URL                   | Description |
+| --------------------- | ----------- |
+| http://localhost:3100 | DIAL Chat   |
+| http://localhost:3102 | DIAL Admin  |
+| http://localhost:8900 | Keycloak    |
 
 There are three default DIAL users pre-defined in Keycloak:
 
-|Username|Password|Description|
-|---|---|---|
-|user|dial|Has only basic access to DIAL Chat|
-|dial|dial|Has admin access to DIAL Chat|
-|dial-admin|dial|Has access to DIAL Admin console|
+| Username   | Password | Description                        |
+| ---------- | -------- | ---------------------------------- |
+| user       | dial     | Has only basic access to DIAL Chat |
+| dial       | dial     | Has admin access to DIAL Chat      |
+| dial-admin | dial     | Has access to DIAL Admin console   |
 
 Use `admin` as a user and a password to login to Keycloak as administrator.

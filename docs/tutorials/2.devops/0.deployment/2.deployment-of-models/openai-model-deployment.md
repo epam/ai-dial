@@ -1,4 +1,5 @@
 <!-- omit from toc -->
+
 # OpenAI Model Deployment
 
 From this instruction, you will learn how to create an Azure OpenAI model GPT-3.5-turbo/GPT-4 and use it in AI DIAL config.
@@ -6,7 +7,9 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 <div class="docusaurus-ignore">
 
 <!-- omit from toc -->
+
 # Table of Contents
+
 - [Prerequisites](#prerequisites)
 - [Step 1: Configuring the AI Model](#step-1-configuring-the-ai-model)
   - [Create Azure OpenAI resource](#create-azure-openai-resource)
@@ -24,7 +27,7 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 
 ## Prerequisites
 
-* Active Azure account
+- Active Azure account
 
 ## Step 1: Configuring the AI Model
 
@@ -33,32 +36,32 @@ From this instruction, you will learn how to create an Azure OpenAI model GPT-3.
 1. Login to the MS Azure portal (https://portal.azure.com/) with your credentials. Create an account if you do not have one.
 2. Navigate to Azure OpenAI and click **Create**.
 3. Fill in all the details and click **Create**.
-   
+
    ![](../img/step1.jpg)
 
 ### Create a Model Deployment
 
 1. Use the search bar to look up **Azure OpenAI** and click it to navigate to the **AI Foundry | Azure OpenAI** page.
-   
+
    ![](../img/step2.jpg)
-   
+
 2. You can now find your OpenAI resource in the **Azure OpenAI** section. Click it to open and then click **Go to Azure AI Foundry portal** in the top bar.
-   
+
    ![](../img/step8.jpg)
-   
+
 3. In Azure AI Foundry, click **Model catalog** in the navigation menu. Search for needed model, open it and click **Use this model**. Fill in the required fields and click **Deploy** to deploy a model.
-   
+
    ![](../img/step9.jpg)
 
-    > It is important to note that certain models may not be accessible for deployment in a particular region. If you need a particular model, you will have to submit a separate request or relocate Azure OpenAI to a different region.
+   > It is important to note that certain models may not be accessible for deployment in a particular region. If you need a particular model, you will have to submit a separate request or relocate Azure OpenAI to a different region.
 
 ## Step 2: Get Access to AI Model
 
 ### Configure Azure OpenAI Model and Get API Key
 
 1. In Azure AI Foundry, click **Deployments** in the navigation menu, and open the model you deployed. In the **Endpoint** section you can find your Target URI and Key that you will need to provide in AI DIAL configuration file.
-   
-    ![](../img/step13.jpg)
+
+   ![](../img/step13.jpg)
 
 2. You can restrict access to your accounts based on a specific subset of networks by configuring network rules, only applications that access data through the designated set of networks are permitted to access the account. You can manage default network access rules for your Azure OpenAI resources in **Resource Management/Networking**.
 
@@ -81,7 +84,7 @@ To deploy a model to AI DIAL, it is necessary to add it to config and configure 
 
 ### Add Model to AI DIAL Core Config
 
-Add your model with its parameters in the `models` section. 
+Add your model with its parameters in the `models` section.
 
 > Refer to [AI DIAL Core Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L183) to view an example.
 
@@ -100,7 +103,6 @@ In this scenario, it's enough to enable the adapter. Azure OpenAI keys are locat
 ```yaml
 openai:
   enabled: true
-
 ```
 
 #### Use Kubernetes Service Account Assigned to Azure user-assigned Managed Identity
@@ -114,10 +116,10 @@ openai:
   enabled: true
 
   podLabels:
-    azure.workload.identity/use: "true"
-  
+    azure.workload.identity/use: 'true'
+
 serviceAccount:
   create: true
   annotations:
-    azure.workload.identity/client-id: "client-id"
+    azure.workload.identity/client-id: 'client-id'
 ```

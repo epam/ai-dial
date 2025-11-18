@@ -1,4 +1,5 @@
 <!-- omit from toc -->
+
 # Bedrock Model Deployment
 
 In this instruction, you will learn how to configure and access Bedrock models in AWS and use them in DIAL Core config.
@@ -8,7 +9,9 @@ In this instruction, you will learn how to configure and access Bedrock models i
 <div class="docusaurus-ignore">
 
 <!-- omit from toc -->
+
 # Table of Contents
+
 - [Prerequisites](#prerequisites)
 - [Step 1: Configuring the AI Model](#step-1-configuring-the-ai-model)
   - [Request Access to Models](#request-access-to-models)
@@ -27,8 +30,8 @@ In this instruction, you will learn how to configure and access Bedrock models i
 
 ## Prerequisites
 
-* Active AWS account
-* Admin role at the account
+- Active AWS account
+- Admin role at the account
 
 ## Step 1: Configuring the AI Model
 
@@ -38,7 +41,7 @@ Starting from October 2025 [Amazon Bedrock has simplified how you access foundat
 
 Amazon Bedrock now provides automatic access to serverless models in your AWS Region, eliminating the previous requirement for manual enablement of each individual model.
 
-This change brings Amazon Bedrock in line with other AWS services by relying on standard AWS access controls rather than requiring customers to enable each model through a model access dashboard. 
+This change brings Amazon Bedrock in line with other AWS services by relying on standard AWS access controls rather than requiring customers to enable each model through a model access dashboard.
 
 > This simplification effort has retired the Model Access page along with the `PutFoundationModelEntitlement` AWS Identity and Access Management (IAM) permission with the corresponding API call. IAM statements with the `PutFoundationModelEntitlement` permission no longer have an effect.
 
@@ -54,35 +57,32 @@ IAM (Identity and Access Management) policies in AWS (Amazon Web Services) are a
 
 You can create your own IAM policy or use AWS-managed IAM policy **AmazonBedrockFullAccess**, which grants full access to the Bedrock service.
 
-When using a custom policy, we recommend assigning permissions below to limit the scope of allowed interactions with models: 
+When using a custom policy, we recommend assigning permissions below to limit the scope of allowed interactions with models:
 
-* bedrock:GetFoundationModel
-* bedrock:ListFoundationModels
-* bedrock:InvokeModel
-* bedrock:InvokeModelWithResponseStream
+- bedrock:GetFoundationModel
+- bedrock:ListFoundationModels
+- bedrock:InvokeModel
+- bedrock:InvokeModelWithResponseStream
 
 > A subset of serverless models on Amazon Bedrock is offered through AWS Marketplace and therefore requires a subscription before use. The following is a sample of IAM policy with “just-in-time” subscription automatically created on the first call:
 
 ```json
-    {
-      "Sid" : "MarketplaceOperationsFromBedrockFor3pModels",
-      "Effect" : "Allow",
-      "Action" : [
-        "aws-marketplace:Subscribe",
-        "aws-marketplace:ViewSubscriptions"
-      ],
-      "Resource" : "*",
-      "Condition" : {
-        "StringEquals" : {
-          "aws:CalledViaLast" : "bedrock.amazonaws.com"
-        }
-      }
+{
+  "Sid": "MarketplaceOperationsFromBedrockFor3pModels",
+  "Effect": "Allow",
+  "Action": ["aws-marketplace:Subscribe", "aws-marketplace:ViewSubscriptions"],
+  "Resource": "*",
+  "Condition": {
+    "StringEquals": {
+      "aws:CalledViaLast": "bedrock.amazonaws.com"
     }
+  }
+}
 ```
 
 ### Assign IAM Policy
 
-You can assign an IAM Policy to a specific [user](#assign-to-user), role or to the entire [AWS Service Account](#assign-to-service-account). 
+You can assign an IAM Policy to a specific [user](#assign-to-user), role or to the entire [AWS Service Account](#assign-to-service-account).
 
 #### Assign to User
 
@@ -110,10 +110,10 @@ To deploy a model to DIAL, it is necessary to add it to DIAL Core config and con
 
 ### Add Model to AI DIAL Core Config
 
-Add your model with its parameters in the `models` section in the DIAL Core config. 
+Add your model with its parameters in the `models` section in the DIAL Core config.
 
-> * Refer to [DIAL Core Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
-> * Refer to [Configuration Guide](/docs/tutorials/2.devops/1.configuration/0.configuration-guide.md#core-parameters) to view the configuration of DIAL Core parameters in the helm-based installation.
+> - Refer to [DIAL Core Configuration](https://github.com/epam/ai-dial-core/blob/development/sample/aidial.config.json#L30) to view an example.
+> - Refer to [Configuration Guide](/docs/tutorials/2.devops/1.configuration/0.configuration-guide.md#core-parameters) to view the configuration of DIAL Core parameters in the helm-based installation.
 
 ### Configure AI DIAL Adapter
 
@@ -123,7 +123,7 @@ To work with models, DIAL uses applications called Adapters. You can configure B
 
 #### Use IAM User
 
-In this scenario, provide the access key of your user via environment variables: 
+In this scenario, provide the access key of your user via environment variables:
 
 ```yaml
 ### examples of basic configurations of adapters ###
@@ -134,30 +134,30 @@ bedrock:
   enabled: true
 
   env:
-    DEFAULT_REGION: "us-east-1"
+    DEFAULT_REGION: 'us-east-1'
 
   secrets:
-    AWS_ACCESS_KEY_ID: "AKIAIOSFODNN7EXAMPLE"
-    AWS_SECRET_ACCESS_KEY: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+    AWS_ACCESS_KEY_ID: 'AKIAIOSFODNN7EXAMPLE'
+    AWS_SECRET_ACCESS_KEY: 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
 ```
 
 #### Use AWS Service Account
 
 > Before taking this step, configure [IAM roles for service accounts](#assign-to-service-account).
 
-In this scenario, provide the IAM Role that you have assigned to your AWS Service Account: 
+In this scenario, provide the IAM Role that you have assigned to your AWS Service Account:
 
- ```yaml
+```yaml
 # --example of AI DIAL configuration for service account
 bedrock:
   # -- Enable/disable ai-dial-adapter-bedrock
   enabled: true
 
   env:
-    DEFAULT_REGION: "us-east-1"
-  
+    DEFAULT_REGION: 'us-east-1'
+
   serviceAccount:
     create: true
     annotations:
-      eks.amazonaws.com/role-arn: "arn:aws:iam::000001206603:role/role_name"
- ```
+      eks.amazonaws.com/role-arn: 'arn:aws:iam::000001206603:role/role_name'
+```

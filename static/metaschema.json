@@ -97,15 +97,10 @@
                 "const": true
               }
             },
-            "required": [
-              "dial:file"
-            ]
+            "required": ["dial:file"]
           },
           "then": {
-            "required": [
-              "format",
-              "type"
-            ],
+            "required": ["format", "type"],
             "properties": {
               "format": {
                 "const": "dial-file-encoded"
@@ -124,10 +119,7 @@
           "$ref": "#/definitions/dialFileFormatAndTypeSchema"
         },
         {
-          "type": [
-            "object",
-            "boolean"
-          ],
+          "type": ["object", "boolean"],
           "properties": {
             "$id": {
               "type": "string",
@@ -313,10 +305,7 @@
           "$ref": "#/definitions/dialFileFormatAndTypeSchema"
         },
         {
-          "type": [
-            "object",
-            "boolean"
-          ],
+          "type": ["object", "boolean"],
           "properties": {
             "$id": {
               "type": "string",
@@ -514,9 +503,7 @@
         {
           "propertyNames": {
             "not": {
-              "enum": [
-                "dial:meta"
-              ]
+              "enum": ["dial:meta"]
             }
           }
         }
@@ -524,19 +511,14 @@
     },
     "dialPropertyKind": {
       "$comment": "Enum defining the property to be available to the clients or to be server-side only",
-      "enum": [
-        "server",
-        "client"
-      ]
+      "enum": ["server", "client"]
     },
     "dialPropertyMetaSchema": {
       "$comment": "Sub-schema defining the meta-property with information AI DIAL purposes",
       "type": "object",
       "properties": {
         "dial:meta": {
-          "type": [
-            "object"
-          ],
+          "type": ["object"],
           "properties": {
             "dial:propertyOrder": {
               "type": "number",
@@ -547,15 +529,10 @@
               "$ref": "#/definitions/dialPropertyKind"
             }
           },
-          "required": [
-            "dial:propertyOrder",
-            "dial:propertyKind"
-          ]
+          "required": ["dial:propertyOrder", "dial:propertyKind"]
         }
       },
-      "required": [
-        "dial:meta"
-      ]
+      "required": ["dial:meta"]
     },
     "topLevelSchemaArray": {
       "type": "array",

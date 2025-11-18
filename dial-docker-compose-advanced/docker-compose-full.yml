@@ -2,7 +2,6 @@ include:
   - path: ./docker-compose-base.yml
 
 services:
-
   dial-rag:
     image: ghcr.io/epam/ai-dial-rag:0.32.0
     platform: linux/amd64
@@ -13,5 +12,4 @@ services:
       DIAL_RAG__REQUEST__INDEXING__DESCRIPTION_INDEX__LLM__DEPLOYMENT_NAME: "gpt-4o-mini"
       DIAL_RAG__REQUEST__QA_CHAIN__CHAT_CHAIN__LLM__DEPLOYMENT_NAME: "gpt-4o"
     restart: always
-
 #TODO: add other DIAL services and/or observability

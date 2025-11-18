@@ -1,10 +1,11 @@
-
 <!-- omit from toc -->
+
 # How to Set Auth0 as Identity Provider
 
 <div class="docusaurus-ignore">
 
 <!-- omit from toc -->
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -33,15 +34,16 @@ Follow these steps to configure Auth0:
 
 1. **Create Tenant**: create a new tenant. Refer to [Auth0 documentation](https://auth0.com/docs/get-started/auth0-overview/create-tenants) for detailed instructions.
 1. **Create Application**: create an [Application](https://auth0.com/docs/get-started/auth0-overview/create-applications):
-    - Set a **Name**, e.g. `ai-dial-chat`
-    - Set `Regular Web Applications` **Application type**
+   - Set a **Name**, e.g. `ai-dial-chat`
+   - Set `Regular Web Applications` **Application type**
 1. **Configure Application Settings**: on the [**Settings**](https://auth0.com/docs/get-started/applications/application-settings) tab of newly-created application:
-    - Save **Domain** (`<auth0_domain>`),**Client ID** (`<auth0_client_id>`) and **Client secret** (`<auth0_client_secret>`) generated for your application
-    - Set **Allowed Callback URLs**: `<chat_url>/api/auth/callback/auth0`
+   - Save **Domain** (`<auth0_domain>`),**Client ID** (`<auth0_client_id>`) and **Client secret** (`<auth0_client_secret>`) generated for your application
+   - Set **Allowed Callback URLs**: `<chat_url>/api/auth/callback/auth0`
 1. **Create API**: in the **Applications/APIs** section, create a new [**API**](https://auth0.com/docs/get-started/apis/api-settings).
 1. **Create Users**: in the **User Management/Users** section, create [Users](https://auth0.com/docs/manage-users/user-accounts/create-users).
 1. (Optional, RBAC) **Create and Assign Roles**: in the **User Management/Roles** section, create [Roles](https://auth0.com/docs/manage-users/access-control/configure-core-rbac/roles/create-roles) and assign them to created users. These roles can be used to restrict access to DIAL resources later.
 1. (Optional, RBAC) **Create Action**: in the **Actions/Library** section, [Create Custom Action](https://auth0.com/docs/customize/actions/write-your-first-action#create-an-action):
+
    - Name: `DIAL role`
    - Trigger: `Login/Post Login`
    - Runtime: `Node 22`
@@ -50,7 +52,10 @@ Follow these steps to configure Auth0:
      ```js
      exports.onExecutePostLogin = async (event, api) => {
        if (event.authorization) {
-         api.accessToken.setCustomClaim("dial_roles", event.authorization.roles);
+         api.accessToken.setCustomClaim(
+           'dial_roles',
+           event.authorization.roles,
+         );
          api.accessToken.setCustomClaim('email', event.user.email);
        }
      };
@@ -68,10 +73,10 @@ By configuring both AI DIAL Chat and AI DIAL Core with the necessary environment
 Add the following environment variables to AI DIAL Chat [configuration](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables):
 
 ```yaml
-AUTH_AUTH0_HOST: "https://<auth0_domain>"
-AUTH_AUTH0_CLIENT_ID: "<auth0_client_id>"
-AUTH_AUTH0_SECRET: "<auth0_client_secret>"
-AUTH_AUTH0_AUDIENCE: "<auth0_api_audience>"
+AUTH_AUTH0_HOST: 'https://<auth0_domain>'
+AUTH_AUTH0_CLIENT_ID: '<auth0_client_id>'
+AUTH_AUTH0_SECRET: '<auth0_client_secret>'
+AUTH_AUTH0_AUDIENCE: '<auth0_api_audience>'
 ```
 
 #### AI DIAL Core Settings
@@ -83,11 +88,11 @@ Add the following parameters to AI DIAL Core [**static** settings](https://githu
 > **Note**: generate some random sting for `loggingSalt` parameter, e.g. using `pwgen -s 32 1`
 
 ```yaml
-aidial.identityProviders.auth0.jwksUrl: "https://<auth0_domain>/.well-known/jwks.json"
+aidial.identityProviders.auth0.jwksUrl: 'https://<auth0_domain>/.well-known/jwks.json'
 aidial.identityProviders.auth0.issuerPattern: '^https:\/\/<auth0_domain_regex>.*$'
-aidial.identityProviders.auth0.loggingKey: "sub"
-aidial.identityProviders.auth0.loggingSalt: "loggingSalt"
-aidial.identityProviders.auth0.rolePath: "dial_roles"
+aidial.identityProviders.auth0.loggingKey: 'sub'
+aidial.identityProviders.auth0.loggingSalt: 'loggingSalt'
+aidial.identityProviders.auth0.rolePath: 'dial_roles'
 ```
 
 #### Assignment of Roles
@@ -110,9 +115,7 @@ In the provided example, users assigned the `auth0-role-name` role will have acc
           "key": "[REDACTED]"
         }
       ],
-      "userRoles": [
-        "auth0-role-name"
-      ]
+      "userRoles": ["auth0-role-name"]
     }
   }
 }

@@ -12,9 +12,7 @@
     "assistants": {
       "todo-assistant": {
         "prompt": "You are assistant that helps to manage TODO list for the user. You can add, remove and view your TODOs.",
-        "addons": [
-          "addon-todo"
-        ],
+        "addons": ["addon-todo"],
         "displayName": "TODO Assistant",
         "description": "The assistant that manages your TODO list. It can add, remove and view your TODOs."
       }

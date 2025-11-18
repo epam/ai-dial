@@ -1,24 +1,23 @@
 services:
-
   custom-app-admin:
     build:
       context: ../common-ui-app
       dockerfile: Admin-Dockerfile
     container_name: dial-custom-admin-ui-app
-    ports: 
+    ports:
       - "3301:3003"
     environment:
       #COOKIE_PREFIX: "custom-admin"
-      #Is used only for local testing because all localhost cookies are sent regardless of the originating application port. 
+      #Is used only for local testing because all localhost cookies are sent regardless of the originating application port.
       #Do not increase the header size limit on production
       NODE_OPTIONS: "--max-http-header-size=65536"
       #Root URL for the application-specific routes, which will be used to route client app calls to the backend's custom API
       API_URL: "http://${COMMON_HOST}:${DIAL_CORE_HOST_PORT}/v1/deployments/custom-app/route/"
       #DIAL Admin URL (host application), because in case of a standalone application, the DIAL Admin hosts the Editor UI
       DIAL_URL: "http://localhost:3102"
-      #Must be equal to the application identifier, whose Editor UI points this service. 
-      #DIAL Admin uses this value for comparison when handling cross-frame application readiness events 
-      #to make sure that the event came from the right application 
+      #Must be equal to the application identifier, whose Editor UI points this service.
+      #DIAL Admin uses this value for comparison when handling cross-frame application readiness events
+      #to make sure that the event came from the right application
       DIAL_APPLICATION_NAME: "custom-app"
       NEXTAUTH_URL: "http://localhost:3301"
       NEXTAUTH_SECRET: "${NEXTAUTH_SECRET}"
@@ -38,5 +37,5 @@ services:
       dockerfile: Dockerfile
     container_name: dial-custom-standalone-app-chat-ui
     environment:
-       #DIAL Core URL
-       DIAL_URL: "http://${COMMON_HOST}:${DIAL_CORE_HOST_PORT}"
+      #DIAL Core URL
+      DIAL_URL: "http://${COMMON_HOST}:${DIAL_CORE_HOST_PORT}"

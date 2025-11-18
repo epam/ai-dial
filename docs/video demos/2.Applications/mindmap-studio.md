@@ -8,5 +8,5 @@ https://youtu.be/PpCEatAM_ak
 
 Discover the power of DIAL Mind Map Studio, a no-code feature-rich editor, allowing creating, customizing, testing and publishing Mind Maps in a few clicks.
 
-> * Refer to [DIAL-Native apps](/docs/platform/3.core/7.apps.md#mind-maps) to learn more about a Mind Map application type.
-> * Refer to [User Guide](/docs/tutorials/0.user-guide.md#add-mind-map) to learn how to add Mind Maps applications.
+> - Refer to [DIAL-Native apps](/docs/platform/3.core/7.apps.md#mind-maps) to learn more about a Mind Map application type.
+> - Refer to [User Guide](/docs/tutorials/0.user-guide.md#add-mind-map) to learn how to add Mind Maps applications.

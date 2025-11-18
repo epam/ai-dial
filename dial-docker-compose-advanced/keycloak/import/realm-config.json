@@ -56,13 +56,9 @@
         }
       ],
       "clientRoles": {
-        "dial-chat": [
-          "admin"
-        ]
+        "dial-chat": ["admin"]
       },
-      "realmRoles": [
-        "offline_access"
-      ]
+      "realmRoles": ["offline_access"]
     },
     {
       "username": "user",
@@ -79,13 +75,9 @@
         }
       ],
       "clientRoles": {
-        "dial-chat": [
-          "user"
-        ]
+        "dial-chat": ["user"]
       },
-      "realmRoles": [
-        "offline_access"
-      ]
+      "realmRoles": ["offline_access"]
     },
     {
       "username": "dial-admin",
@@ -102,14 +94,9 @@
         }
       ],
       "clientRoles": {
-        "dial-admin-console": [
-          "ConfigAdmin",
-          "admin"
-        ]
+        "dial-admin-console": ["ConfigAdmin", "admin"]
       },
-      "realmRoles": [
-        "offline_access"
-      ]
+      "realmRoles": ["offline_access"]
     }
   ],
   "clientScopes": [
@@ -665,12 +652,8 @@
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "secret": "keycloak_secret",
-      "redirectUris": [
-        "http://localhost:3100/*"
-      ],
-      "webOrigins": [
-        "http://localhost:3100/"
-      ],
+      "redirectUris": ["http://localhost:3100/*"],
+      "webOrigins": ["http://localhost:3100/"],
       "notBefore": 0,
       "bearerOnly": false,
       "consentRequired": false,
@@ -756,12 +739,8 @@
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "secret": "keycloak_secret",
-      "redirectUris": [
-        "http://localhost:3102/*"
-      ],
-      "webOrigins": [
-        "http://localhost:3102/"
-      ],
+      "redirectUris": ["http://localhost:3102/*"],
+      "webOrigins": ["http://localhost:3102/"],
       "notBefore": 0,
       "bearerOnly": false,
       "consentRequired": false,

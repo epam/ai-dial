@@ -1,1 +1,1 @@
-function OptanonWrapper() { }
+function OptanonWrapper() {}

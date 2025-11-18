@@ -4,8 +4,8 @@
 
 DIAL Core uses API keys to manage access of external applications for resources in DIAL.
 
-> * Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
-> * Refer to [Tutorials](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md) to learn how to configure access and usage control for API keys.
+> - Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
+> - Refer to [Tutorials](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md) to learn how to configure access and usage control for API keys.
 
 ## Keys Main Screen
 
@@ -18,7 +18,7 @@ On the main screen you can see all existing API keys with their details.
 > **TIP**: Use the **Columns** selector to customize which columns are visible in the grid.
 
 | Column                    | Definition                                                                                                          |
-|---------------------------|---------------------------------------------------------------------------------------------------------------------|
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | **ID**                    | A unique key under the Keys section of DIAL Admin.                                                                  |
 | **Display Name**          | A user-friendly name of the Key.                                                                                    |
 | **Description**           | Optional notes explaining the key’s purpose, owner/team, or special instructions.                                   |
@@ -31,7 +31,6 @@ On the main screen you can see all existing API keys with their details.
 | **Project contact point** | Email of the responsible person or group.                                                                           |
 | **Secured**               | Indication if it is secured API key.                                                                                |
 
-
 ## Create Keys
 
 Follow these steps to create a new API key:
@@ -39,19 +38,18 @@ Follow these steps to create a new API key:
 1. Click **Create** to invoke the **Create Key** modal.
 2. In the modal, specify the following parameters for the new key:
 
-    | Field               | Required | Description & Use Cases                                                                                                                                                             |
-    |---------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **ID**              | Yes      | A unique key under the Keys section of DIAL Admin. Click Generate to automatically create unique GUID.                                                                              |
-    | **Display Name**    | Yes      | A user-friendly name of the Key.                                                                                                                                                    |
-    | **Description**     | No       | An optional free-form text.<br />Use to document the key’s purpose, owner team, or usage context.                                                                                   |
-    | **Project**         | Yes      | Logical project or department grouping (e.g. "AnalyticsTeam").<br />Helps organize keys and apply cost/usage reporting by project.                                                  |
-    | **Key value**       | Yes      | The actual secret string used for authentication.<br />Initially hidden; click **👁️** to reveal.<br />Press **Generate** to have its value automatically generated in GUID format. |
-    | **Validity Period** | Yes      | A key's expiration time period. Use to enforce credential rotation and retirement.                                                                                                  |
+   | Field               | Required | Description & Use Cases                                                                                                                                                            |
+   | ------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | **ID**              | Yes      | A unique key under the Keys section of DIAL Admin. Click Generate to automatically create unique GUID.                                                                             |
+   | **Display Name**    | Yes      | A user-friendly name of the Key.                                                                                                                                                   |
+   | **Description**     | No       | An optional free-form text.<br />Use to document the key’s purpose, owner team, or usage context.                                                                                  |
+   | **Project**         | Yes      | Logical project or department grouping (e.g. "AnalyticsTeam").<br />Helps organize keys and apply cost/usage reporting by project.                                                 |
+   | **Key value**       | Yes      | The actual secret string used for authentication.<br />Initially hidden; click **👁️** to reveal.<br />Press **Generate** to have its value automatically generated in GUID format. |
+   | **Validity Period** | Yes      | A key's expiration time period. Use to enforce credential rotation and retirement.                                                                                                 |
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new [key configuration](#key-configuration) screen is opened. A new key entry will appear immediately in the listing once created.
 
-    ![](img/img_43.png)
-
+   ![](img/img_43.png)
 
 ## Key Configuration
 
@@ -69,24 +67,23 @@ Use **Rotation** to refresh an existing API key.
 
 ### Properties
 
-In the Properties tab, you can view metadata and manage the selected settings for a specific API key. 
+In the Properties tab, you can view metadata and manage the selected settings for a specific API key.
 
 ![](img/img_44.png)
 
-| Field                     | Required | Description & Use Cases                                                                                                                         |
-|---------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| **ID**                    | -        | A unique key under the Keys section of DIAL Admin.                                                                                              |
-| **Creation Time**         | -        | Date and time when the key artefact was created in DIAL.                                                                                        |
-| **Key Generation Time**   | -        | Date and time when the actual key value was last modified.                                                                                      |
-| **Expiration Time**       | -        | Date and time when the key is expiring.                                                                                                         |
-| **Status**                | -        | Indicates whether the key is valid or not.                                                                                                      |
-| **Display Name**          | Yes      | A user-friendly identifier of a key.<br />Use meaningful names to tie keys back to projects, environments, or teams.                            |
-| **Description**           | No       | A free-form text.<br />Use to document the key’s purpose, owner team, or usage context (e.g. "Used by QH Data Ingestion pipeline").             |
-| **Project**               | Yes      | Logical project or department grouping (e.g. "QH", "AnalyticsTeam").<br />Helps organize keys and apply cost/usage reporting by project.        |
-| **Project contact point** | No       | Email of the responsible person or group.                                                                                                       |
+| Field                     | Required | Description & Use Cases                                                                                                                        |
+| ------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ID**                    | -        | A unique key under the Keys section of DIAL Admin.                                                                                             |
+| **Creation Time**         | -        | Date and time when the key artefact was created in DIAL.                                                                                       |
+| **Key Generation Time**   | -        | Date and time when the actual key value was last modified.                                                                                     |
+| **Expiration Time**       | -        | Date and time when the key is expiring.                                                                                                        |
+| **Status**                | -        | Indicates whether the key is valid or not.                                                                                                     |
+| **Display Name**          | Yes      | A user-friendly identifier of a key.<br />Use meaningful names to tie keys back to projects, environments, or teams.                           |
+| **Description**           | No       | A free-form text.<br />Use to document the key’s purpose, owner team, or usage context (e.g. "Used by QH Data Ingestion pipeline").            |
+| **Project**               | Yes      | Logical project or department grouping (e.g. "QH", "AnalyticsTeam").<br />Helps organize keys and apply cost/usage reporting by project.       |
+| **Project contact point** | No       | Email of the responsible person or group.                                                                                                      |
 | **Key value**             | Yes      | The actual secret string used for authentication.<br />Initially hidden - click **👁️** to reveal.<br />Press **Copy** to copy it to clipboard. |
-| **Secured**               | Yes      | Toggle to make the key a [secured API key](/docs/platform/3.core/4.privacy.md#applications-audit-logs).                                         |
-
+| **Secured**               | Yes      | Toggle to make the key a [secured API key](/docs/platform/3.core/4.privacy.md#applications-audit-logs).                                        |
 
 ### Roles
 
@@ -96,9 +93,9 @@ In the Roles tab, you can associate the selected API key with existing [roles](/
 
 ![](img/img_45.png)
 
-| Column    | Description|
-| --------------- |-----------------------------------------------|
-| **Name**  | A unique identifier of the role.     |
+| Column          | Description                                  |
+| --------------- | -------------------------------------------- |
+| **Name**        | A unique identifier of the role.             |
 | **Description** | User-friendly summary of the Role’s purpose. |
 
 #### Add
@@ -111,12 +108,12 @@ To associate one or more roles with the selected API key:
 
 #### Remove
 
-Use to stop associating API keys with roles. 
- 
+Use to stop associating API keys with roles.
+
 1. Click the **actions** menu in the role's line.
 2. Choose **Remove** in the menu.
 
-    ![](img/83.png)
+   ![](img/83.png)
 
 > To delete a role, go to the [Access Management → Roles](/docs/tutorials/3.admin/access-management-roles.md) section.
 
@@ -133,9 +130,8 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
-
 ## Delete
 
-Click **Delete** on the main screen to permanently remove the selected key. 
+Click **Delete** on the main screen to permanently remove the selected key.
 
 > **Note**: All related entities (applications, models, routes) bound to the deleted API key will fail.
