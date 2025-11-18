@@ -78,7 +78,7 @@ const config = {
           priority: 0.5,
         },
         gtag: {
-          trackingID: 'G-GVY5VWYV1E',
+          trackingID: 'GTM-NQKQWGFJ',
         },
       }),
     ],
@@ -103,6 +103,14 @@ const config = {
   //           type: 'text/javascript',
   //         },
   //       ],
+
+  scripts: [
+    {
+      src:'https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on',
+      type: "text/javascript",
+    }
+  ],
+
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
