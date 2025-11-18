@@ -1,0 +1,47 @@
+@layer components {
+  .input-radio {
+    @apply relative cursor-pointer border rounded-full p-0;
+    @apply border-hover bg-transparent w-[18px] h-[18px];
+
+    appearance: none;
+    color: currentColor;
+    font: inherit;
+
+    &:checked {
+      @apply border-accent-primary;
+      &:after {
+        @apply absolute inline-block bg-accent-primary w-[10px] h-[10px];
+        content: '';
+        border-radius: 18px;
+        top: calc(50% - 5px);
+        left: calc(50% - 5px);
+      }
+    }
+
+    &:hover,
+    &:focus {
+      @apply border bg-transparent border-accent-primary;
+    }
+
+    &:disabled {
+      @apply pointer-events-none cursor-default border-disabled bg-layer-4;
+
+      &:hover,
+      &:focus {
+        @apply bg-layer-4 border-disabled;
+      }
+
+      &:checked {
+        @apply border-disabled;
+
+        &:after {
+          @apply bg-controls-disable;
+        }
+      }
+    }
+  }
+}
+
+input[type='radio'] {
+  @apply input-radio;
+}
