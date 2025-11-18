@@ -124,23 +124,23 @@ Tab allows creating, viewing, editing, and deleting routes.
 
 #### Properties
 
-Properties sub-tab allows to configure route identity and requests handling behavior.
+In the **Properties** sub-tab you can configure route's identity and requests-handling behavior.
 
-> Configuration of this tab is similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
+> **TIP**: Configuration of this tab is similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
 
 ![106.png](img/106.png)
 
 #### Attachments
 
-Attachments sub-tab enables to configure attachment paths for both requests and responses.
+In the **Attachments** sub-tab you can configure attachment paths for both requests and responses.
 
 ![107.png](img/107.png)
 
 #### Roles
 
-Sub-tab enables route-specific role assignments, allowing administrators to control access to each individual route.
+In the **Roles** sub-tab you can define route-specific role assignments, allowing administrators to control access to each individual route.
 
-> Configuration of this tab is mostly similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
+> **TIP**: Configuration of this tab is mostly similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
 
 Inherit Application Roles option allows to use the roles assigned to application which is built on a given runner.
 

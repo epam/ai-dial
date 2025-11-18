@@ -66,14 +66,14 @@ Use **Import** in the toolbar to upload new or update existing toolsets from ZIP
 1. Click **Import** in the toolbar to launch the import modal.
 2. **Drag & Drop** your DIAL Admin archive into the files area or click **Browse** to open a file picker.
 
-![ ](img/140.png)
+    ![ ](img/140.png)
 
 3. Select a Conflict resolution strategy. It allows you to decide how to handle existing toolsets with the same identifier and version:
    * **Skip**: Leave existing toolsets untouched, only new ones will be added.
    * **Override**: Replace toolsets having the same name and version with the imported ones.
 4. Click **Finish** to start.
 
-![ ](img/141.png)
+    ![ ](img/141.png)
 
 ## Configuration Screen
 
@@ -126,6 +126,8 @@ You can remove a tool only if **Use all available tools** toggle is **Off**.
 
 1. Hover the tool by the pointer to see Delete button.
 2. Click **Delete** to remove a tool.
+
+![](img/remove-tool.png)
 
 
 ### JSON Editor

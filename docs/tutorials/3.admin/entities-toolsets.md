@@ -99,6 +99,8 @@ You can remove a tool only if **Use all available tools** toggle is **Off**.
 1. Hover the tool by the pointer to see Delete button.
 2. Click **Delete** to remove a tool.
 
+![](img/remove-tool.png)
+
 ### Roles
 
 You can create and manage roles in the [Access Management](/docs/tutorials/3.admin/access-management-roles.md) section.

@@ -27,19 +27,21 @@ The page lists all registered adapters in your DIAL instance.
 
 ## Create
 
+You can add new adapters to your instance of DIAL:
+
 1. Click **+ Create** to invoke the **Create Adapter** modal.
 2. Define key parameters for the new adapter:
 
-| Field                 | Required | Definition                    |
-|-----------------------|----------|-------------------|
-| **Name**              | Yes      | A unique identifier for this adapter.                    |
-| **Display name**      | No       | A user-friendly name of the adapter.                     |
-| **Description**       | No       | Free-text notes about what this adapter is for.          |
-| **Base endpoint**     | Yes      | The base URL of the adapter service that implements the Unified Protocol. Is the base URL part of the model completion endpoint if one created based on the adapter. |
+    | Field                 | Required | Definition                    |
+    |-----------------------|----------|-------------------|
+    | **Name**              | Yes      | A unique identifier for this adapter.                    |
+    | **Display name**      | No       | A user-friendly name of the adapter.                     |
+    | **Description**       | No       | Free-text notes about what this adapter is for.          |
+    | **Base endpoint**     | Yes      | The base URL of the adapter service that implements the Unified Protocol. Is the base URL part of the model completion endpoint if one created based on the adapter. |
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new adapter's configuration screen is opened. A new adapter will appear immediately in the listing once created.
 
-![](img/90.png)
+    ![](img/90.png)
 
 ## Configuration
 
@@ -47,7 +49,7 @@ The configuration view has a top bar and two tabs.
 
 ##### Top Bar
 
-* **Create Model**: Use to create a model deployment using the selected model adapter.
+* **Create Model**: Use to create a model deployment using the selected model adapter. Created models will be available in the [Entities → Models](/docs/tutorials/3.admin/entities-models.md) section.
 * **Delete**: Use to remove the adapter itself and all models utilizing it. After confirmation - the adapter and all related models are deleted.
 * **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the adapter's configuration. Use JSON mode for copy-paste or advanced edits.
 
@@ -75,16 +77,15 @@ Manage the **models** this adapter exposes.
 | **ID**            | Model's identifier.                                                                       |
 | **Display Name**  | A user-friendly name of the model that will be displayed on UI.                           |
 | **Description**   | A free-text description of the model                                                      |
-| **Deployment ID** | The unique identifier of the model.                                                       |
 
 ![](img/92.png)
 
 #### Add
 
-You can add models to the adapter.
+You can add new models that will be processed by the selected adapter. 
 
-1. Click **+ Add** (top-right of the Models Grid).
-2. **Select** one or more available models in the modal window.
+1. Click **+ Add**.
+2. **Select** one or more available models in the modal window. You can check all the available models in the [Entities → Models](/docs/tutorials/3.admin/entities-models.md) section. You can also use **+ Create Model** button [on this screen](#top-bar) to create a new model on the fly.
 3. **Confirm** to insert them into the table.
 
 #### Remove
