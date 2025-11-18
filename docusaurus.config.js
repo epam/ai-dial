@@ -38,7 +38,11 @@ const config = {
   deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw', //'throw', for exceptions
-  onBrokenMarkdownLinks: 'throw',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    }
+  },
   onDuplicateRoutes: 'throw',
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
