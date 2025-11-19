@@ -72,8 +72,8 @@ You can access the model configuration screen by clicking any model in the model
 
 In the **Properties** tab, you can view and edit main definitions and runtime settings for model deployment.
 
-- [Basic identification](#basic-identification): ID, Display Name, Version, Description.
-- [Adapter & Endpoint](#adapter--endpoint): Select the Adapter, API Type (Chat or Embedding), and read-only Endpoint URL.
+- [Basic identification](#basic-identification-and-information): ID, Display Name, Version, Description.
+- [Adapter & Endpoint](#adapter): Select the Adapter, API Type (Chat or Embedding), and read-only Endpoint URL.
 - [Presentation & Attachments](#presentation--attachments): Override name, icon, topics, and attachment types.
 - [Upstream Configuration](#upstream-configuration): Define upstream endpoints, authentication keys, weights, and extra data.
 - [Advanced Options](#advanced-options): Tokenizer model, forward auth token, interaction limits, retry attempts.
@@ -225,7 +225,7 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 | **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.                                                                                                                                                                                                                                                                                                  |
 | **Expiration time**   | The maximum number of users who can accept a shared resource.                                                                                                                                                                                                                                                                                                                                                                        |
 | **Max users**         | TTL (Time To Live) of the invitation link to a shared resource.                                                                                                                                                                                                                                                                                                                                                                      |
-| **Actions**           | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **no limits** or [remove](#remove-role) the role from the list. |
+| **Actions**           | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **no limits** or [remove](#remove) the role from the list. |
 
 #### Set Rate Limits
 
