@@ -10,7 +10,7 @@
 
 ## Quick Start
 
-- [Quick Start Guide](./quick-start.md)
+- [Quick Start Guide](docs/quick-start.md)
 
 > Refer to [DIAL Chat Repository](https://github.com/epam/ai-dial-chat#overview) to learn how to launch DIAL Chat with default configurations.
 
