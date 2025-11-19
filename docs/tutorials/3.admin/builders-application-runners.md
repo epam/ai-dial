@@ -46,11 +46,11 @@ In Application Runners, you can add and manage Application Runners you have in y
 
 In the Properties tab, you can define identity and metadata of application runners - so DIAL Core knows where to send orchestration payloads and how to present this runner on the UI.
 
-| Field                             | Required | Definition                                                                                                                                                                                                                   |
-| --------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| Field                             | Required | Definition               |
+| --------------------------------- | -------- | -------------------------------- | 
 | **ID**                            | Yes      | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
 | **Name**                          | Yes      | A user-friendly label for this runner (e.g. "Python Lambda Runner" or "NodeJS Service Worker").                                                                                                                              |
-| **Description**                   | No       | Free-text notes about the runner: its environment (staging vs. prod), resource profile (2 vCPU, 8 GB RAM), or any special instructions.                                                                                      |     |
+| **Description**                   | No       | Free-text notes about the runner: its environment (staging vs. prod), resource profile (2 vCPU, 8 GB RAM), or any special instructions.|  
 | **Topics**                        | No       | Use tags to associate runner with specific topics or categories (e.g. "finance", "support") for identification and filtering on UI.                                                                                          |
 | **Completion endpoint**           | Yes      | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
 | **Configuration endpoint**        | No       | A URL to fetch dynamic app-specific settings. Use this to drive runtime overrides from a remote config store.                                                                                                                |
