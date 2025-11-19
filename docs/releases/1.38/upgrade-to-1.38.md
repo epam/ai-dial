@@ -65,30 +65,23 @@ TBD
 
 
 ## Admin Backend changes table       
+1. 
 
-| Previous Variable Name | New Variable Name | Description |
+| Previous Variable Name                   | New Variable Name                                 | Description                                                                                           |
+|------------------------------------------|---------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| SECURITY_ALLOWED_ROLES                   | providers.<your_provider_name>.allowed-roles      | Comma-separated list of roles with access permissions for the provider.                               |
+| SECURITY_JWT_JWKS_URI                    | providers.<your_provider_name>.jwk-set-uri        | URI for JSON Web Key Set for the provider.                                                            |
+| SECURITY_JWT_ACCEPTED_ISSUERS            | providers.<your_provider_name>.issuer             | List of accepted JWT token issuers for the provider.                                                  |
+| SECURITY_JWT_ACCEPTED_ISSUERS_ALIAS      | providers.azure.aliases                           | Aliases for accepted JWT token issuers (only applicable for Azure provider).                          |
+| DIAL_ADMIN_CLIENT_ID                     | Removed                                           | Previously used as a unique identifier for the DIAL Admin backend application.                        |
+| SECURITY_JWT_ACCEPTED_AUDIENCES          | providers.azure.audiences                         | Unique identifier assigned to DIAL Admin backend application by the authentication provider.           |
+| SECURITY_ROLES_CLAIM                     | providers.<your_provider_name>.role-claims        | JWT claim name for user roles for the provider.                                                       |
 
-| SECURITY\\\_ALLOWED\\\_ROLES | providers.<your\\\_provider\\\_name>.allowed-roles | Comma-separated list of roles with access permissions for the provider. |
-
-| SECURITY\\\_JWT\\\_JWKS\\\_URI | providers.<your\\\_provider\\\_name>.jwk-set-uri | URI for JSON Web Key Set for the provider. |
-
-| SECURITY\\\_JWT\\\_ACCEPTED\\\_ISSUERS | providers.<your\\\_provider\\\_name>.issuer | List of accepted JWT token issuers for the provider. |
-
-| SECURITY\\\_JWT\\\_ACCEPTED\\\_ISSUERS\\\_ALIAS | providers.azure.aliases | Aliases for accepted JWT token issuers (only applicable for Azure provider).|
-
-| DIAL\\\_ADMIN\\\_CLIENT\\\_ID | Removed | Previously used as a unique identifier for the DIAL Admin backend application.|
-
-| SECURITY\\\_JWT\\\_ACCEPTED\\\_AUDIENCES | providers.azure.audiences | Unique identifier assigned to DIAL Admin backend application by the authentication provider.|
-
-| SECURITY\\\_ROLES\\\_CLAIM | providers.<your\\\_provider\\\_name>.role-claims | JWT claim name for user roles for the provider. |
-
-## Support for Multiple Providers
+2. Support for Multiple Providers
 
 The DIAL Admin application now supports the use of multiple authentication providers, allowing for greater flexibility and integration with various identity services. Below is an example configuration demonstrating how to set up multiple providers:
 
-### Example Configuration
-
-#### Multiple Provider
+Example Configuration for multiple providers:
 
 
 envs:
