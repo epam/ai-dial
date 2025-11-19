@@ -60,7 +60,11 @@ TBD
     - **admin-frontend**
        - Removed env variable - THEMES_CONFIG_IMAGES      
     - **admin-backend**
-       - Below is a table listing the updated environment variables, highlighting the changes in naming conventions:
+       - In additional attachments to release you can find the table listing the updated environment variables, highlighting the changes in naming conventions.
+
+
+
+## Admin Backend changes table       
 
 | Previous Variable Name | New Variable Name | Description |
 
