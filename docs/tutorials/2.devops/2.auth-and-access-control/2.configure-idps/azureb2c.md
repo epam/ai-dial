@@ -9,7 +9,7 @@
 
 - [Introduction](#introduction)
 - [Configuration Guidelines](#configuration-guidelines)
-  - [Configure Azure AD B2C](#configure-microsoft-entra-id)
+  - [Configure Azure AD B2C](#configure-azure-ad-b2c)
   - [Configure DIAL](#configure-dial)
     - [DIAL Chat Settings](#dial-chat-settings)
     - [DIAL Core Settings](#dial-core-settings)
