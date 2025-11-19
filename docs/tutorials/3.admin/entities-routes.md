@@ -48,12 +48,12 @@ In the Properties tab, you can define the identity and routing behavior.
 ##### Basic Identification
 
 | Field             | Required | Definition                                                                                                                                                                 |
-| ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
 | **ID**            | -        | This is a unique key under the Routes section of DIAL Admin and [dynamic settings of DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings). |
 | **Updated Time**  | -        | Date and time when the route's configuration was last updated.                                                                                                             |
 | **Creation Time** | -        | Date and time when the route's configuration was created.                                                                                                                  |
 | **Display Name**  | Yes      | A user-friendly name of the Route.                                                                                                                                         |
-| **Description**   | No       | Free‐text note about the route’s purpose (e.g. “Primary GPT-4 chat with fallback”).                                                                                        |     |
+| **Description**   | No       | Free‐text note about the route’s purpose (e.g. “Primary GPT-4 chat with fallback”).                                                                                        |     
 
 ##### Request Matching: Paths & Methods
 
