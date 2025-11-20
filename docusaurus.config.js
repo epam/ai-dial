@@ -36,13 +36,11 @@ const config = {
   organizationName: 'epam', // Usually your GitHub org/user name.
   projectName: 'ai-dial', // Usually your repo name.
   deploymentBranch: 'gh-pages',
-  customFields: {
-    onBrokenLinks: 'throw', //'throw', for exceptions
-    onBrokenAnchors: 'throw',
-    markdown: {
-      hooks: {
-        onBrokenMarkdownLinks: 'throw',
-      },
+  onBrokenLinks: 'throw', //'throw', for exceptions
+  onBrokenAnchors: 'throw',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
     },
   },
   onDuplicateRoutes: 'throw',
