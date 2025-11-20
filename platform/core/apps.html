@@ -13,8 +13,8 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.872e663b.css">
-<script src="/assets/js/runtime~main.a149a9e4.js" defer="defer"></script>
-<script src="/assets/js/main.71d5e187.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.2c39191c.js" defer="defer"></script>
+<script src="/assets/js/main.5d0bdf25.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -37,7 +37,7 @@
 <p><img decoding="async" loading="lazy" src="/assets/images/schema-rich-apps-3d533113ef759e0ee74553d7fb53fd55.svg" width="1352" height="282" class="img_ev3q"></p>
 <p>One of the main advantages of application types, is that they allow adding <a class="" href="/tutorials/user-guide#application-builder">application wizards</a> on UI for end-users to create/edit apps in a low and no-code manner.</p>
 <p>☁️<!-- --> DIAL SaaS edition includes application types such as Quick app, Code app and Mind Map. Users of DIAL Chat can use UI wizards to create apps of these types.</p>
-<p>💾<!-- --> In self-hosted deployments of DIAL, you can add new application types, featuring custom application UI (<code>applicationTypeViewerUrl</code>) and wizards (<code>applicationTypeEditorUrl</code>) and enabling end-users to create applications of that type. Refer to <a class="" href="/platform/architecture-and-concepts/agentic-platform#application-types">Agentic Platform</a> to learn more about available application types.</p>
+<p>💾<!-- --> In self-hosted deployments of DIAL, you can add new application types, featuring custom application UI (<code>applicationTypeViewerUrl</code>) and wizards (<code>applicationTypeEditorUrl</code>) and enabling end-users to create applications of that type.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="quick-apps">Quick Apps<a href="#quick-apps" class="hash-link" aria-label="Direct link to Quick Apps" title="Direct link to Quick Apps" translate="no">​</a></h4>
 <p>Quick Apps is a no-code orchestrator conceptually similar to OpenAI&#x27;s GPTs that simplifies the creation of multi-agent workflows. In Quick Apps, you can use AI agents, MCP toolsets, REST APIs, language models and other tools available in the DIAL ecosystem as building blocks to create applications. For example, you can create an app with a toolset allowing it to call an external API to get a real-time weather forecast for a specific location. Another example is a RAG-like application that can generate responses based on predefined sources.</p>
 <blockquote>
@@ -81,7 +81,7 @@
 </ul>
 </blockquote>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="applications-without-schemas">Applications without Schemas<a href="#applications-without-schemas" class="hash-link" aria-label="Direct link to Applications without Schemas" title="Direct link to Applications without Schemas" translate="no">​</a></h2>
-<p>Applications without schemas are not tied to any specific application type. When enabling such an app, you must explicitly specify (in the <a href="#using-api-1" class="">API PUT request</a>) standard parameters of the application and available endpoints the application offers. Properties that define the logic and behavior of the application are part of the application code and the container it runs in, meaning they cannot be modified through the DIAL Core API, contrary to <a href="#schema-rich-applications" class="">schema-rich applications</a>. For example, to enable two apps without schemas, you may need to launch two containers, whereas for schema-rich apps, you can make just two API calls.</p>
+<p>Applications without schemas are not tied to any specific application type. When enabling such an app, you must explicitly specify (in the <a class="" href="/tutorials/developers/apps-development/enable-app#using-api-1">API PUT request</a> standard parameters of the application and available endpoints the application offers. Properties that define the logic and behavior of the application are part of the application code and the container it runs in, meaning they cannot be modified through the DIAL Core API, contrary to <a href="#schema-rich-applications" class="">schema-rich applications</a>. For example, to enable two apps without schemas, you may need to launch two containers, whereas for schema-rich apps, you can make just two API calls.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="create-applications">Create Applications<a href="#create-applications" class="hash-link" aria-label="Direct link to Create Applications" title="Direct link to Create Applications" translate="no">​</a></h2>
 <p>You can create DIAL-native applications programmatically or using UI wizards.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="development">Development<a href="#development" class="hash-link" aria-label="Direct link to Development" title="Direct link to Development" translate="no">​</a></h3>
