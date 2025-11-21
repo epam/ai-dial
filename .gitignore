@@ -35,3 +35,4 @@ docs/tutorials/1.developers/4.apps-development/3.multimodality/dial-cookbook/exa
 
 # Local dev files
 ~*
+**/*.quarto_ipynb
