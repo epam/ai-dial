@@ -12,25 +12,25 @@ On the main screen, you can find all publicly-available Toolsets that have eithe
 
 ![ ](img/131.png)
 
-### Folders Structure
+##### Folders Structure
 
 Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public space. 
 
-| Element         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Root folder** | A root folder. Contains the sub-folders and toolsets. It is visible to all users.                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Sub-folders** | Toolsets can be placed in a specific sub-folder for logical organization purposes.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Element         | Description    |
+|-----------------|----------------|
+| **Root folder** | A root public folder. Contains the sub-folders and toolsets. It is visible to all users.   |
+| **Sub-folders** | Toolsets can be placed in a specific sub-folder for logical organization purposes.      |
 | **Actions**     | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with Toolsets inside it. |
 
 ![ ](img/133.png)
 
-### Toolsets Grid
+##### Toolsets Grid
 
 Click on any folder to display toolsets in the toolsets grid.
 
 | Column           | Definition       |
 |------------------|---------------------------|
-| **Id**           | The toolset’s unique key.    |
+| **ID**           | The toolset’s unique key.    |
 | **Version**      | Version of the toolset.      |
 | **Author**       | The username or system ID associated with the user who created or last updated this toolset. |
 | **Updated time** | The timestamp of the last modification of the toolset. Use to track changes.     |
@@ -81,7 +81,7 @@ Click any toolset on the main screen to open a screen with information about the
 
 ### Properties
 
-In the Properties tab, you can see and define selected toolset's basic properties.
+In the **Properties** tab, you can preview and modify selected toolset's basic properties.
 
 ![](img/134.png)
 
