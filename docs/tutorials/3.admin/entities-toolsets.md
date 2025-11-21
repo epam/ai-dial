@@ -118,10 +118,10 @@ In the **Roles** tab, you can define user groups that are authorized to use a sp
 
 | Column           | Description & Guidance |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **ID**           | A unique role's identifier.                |
-| **Display Name** | A role's name.         |
-| **Description**  | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team").                |
-| **Actions**      | Additional role-specific actions: <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab or [remove](#remove-role) the role from the list. |
+| **ID**           | A unique role's identifier.                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Display Name** | A role's name.                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **Description**  | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team").                                                                                                                                                                                                                                                                                                                         |
+| **Actions**      | Additional role-specific actions: <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab or [remove](#remove-1) the role from the list. |
 
 
 #### Role-Specific Access
