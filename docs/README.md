@@ -60,7 +60,7 @@ Here is the current list of repositories where you can find more details.
 - [DIAL CI](https://github.com/epam/ai-dial-ci) - GitHub CI commons
 - [DIAL Analytics Realtime](https://github.com/epam/ai-dial-analytics-realtime) - simple real-time usage analytics. That transforms logs into InfluxDB metrics
 - [DIAL Auth Helper](https://github.com/epam/ai-dial-auth-helper) - AuthProxy is a proxy service that implements OpenID-compatible Web API endpoints to avoid direct interaction with the AuthProviders' APIs, such as the KeyCloak API.
-_ [App Controller](https://github.com/epam/ai-dial-app-controller) - a Java-based web service application that orchestrates the building and deployment of Python applications in Kubernetes.
+- [App Controller](https://github.com/epam/ai-dial-app-controller) - a Java-based web service application that orchestrates the building and deployment of Python applications in Kubernetes.
 - [App Builder](https://github.com/epam/ai-dial-app-builder-python) - a Python-based application designed to download source code from DIAL file storage and prepare files to build a container image.
 - [DIAL RAG](https://github.com/epam/ai-dial-rag) - the DAL RAG project repository.
 - [DIAL RAG Eval](https://github.com/epam/ai-dial-rag-eval) - library designed for RAG (Retrieval-Augmented Generation) evaluation, where retrieval and generation metrics are calculated.
