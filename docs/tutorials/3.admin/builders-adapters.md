@@ -9,9 +9,9 @@ In DIAL, **model adapters** unify provider-specific model APIs with the **Unifie
 
 > Refer to [Adapters documentation](/docs/platform/0.architecture-and-concepts/3.components.md#llm-adapters) to learn more.
 
-## Adapters List
+## Adapters Main Screen
 
-The page lists all registered adapters in your DIAL instance.
+The main screen displays all registered adapters in your DIAL instance.
 
 ![](img/89.png)
 
@@ -24,30 +24,29 @@ The page lists all registered adapters in your DIAL instance.
 | **Description**   | Free-text notes about the adapter’s purpose (e.g., “Adapter for OpenAI models”).                   |
 |**Updated time**|Timestamp of the last update to this adapter's configuration. Useful to track recent changes. |
 
-
 ## Create
 
-You can add new adapters to your instance of DIAL:
+On the main scree, you can add new adapters to your instance of DIAL:
 
-1. Click **+ Create** to invoke the **Create Adapter** modal.
+1. Click **+ Create** to invoke the **Adapter** modal.
 2. Define key parameters for the new adapter:
 
     | Field                 | Required | Definition                    |
     |-----------------------|----------|-------------------|
-    | **Name**              | Yes      | A unique identifier for this adapter.                    |
+    | **ID**              | Yes      | A unique identifier for this adapter.                    |
     | **Display name**      | No       | A user-friendly name of the adapter.                     |
     | **Description**       | No       | Free-text notes about what this adapter is for.          |
     | **Base endpoint**     | Yes      | The base URL of the adapter service that implements the Unified Protocol. Is the base URL part of the model completion endpoint if one created based on the adapter. |
 
-3. Once all required fields are filled, click **Create**. The dialog closes and the new adapter's configuration screen is opened. A new adapter will appear immediately in the listing once created.
+3. Once all required fields are filled, click **Create**. The dialog closes and the new adapter's configuration screen is opened. A new adapter will appear immediately on the main screen once it is created.
 
     ![](img/90.png)
 
 ## Configuration
 
-The configuration view has a top bar and two tabs.
+Click any adapter on the main screen to open its configuration page.
 
-##### Top Bar
+##### Top Bar Controls
 
 * **Create Model**: Use to create a model deployment using the selected model adapter. Created models will be available in the [Entities → Models](/docs/tutorials/3.admin/entities-models.md) section.
 * **Delete**: Use to remove the adapter itself and all models utilizing it. After confirmation - the adapter and all related models are deleted.
@@ -55,22 +54,22 @@ The configuration view has a top bar and two tabs.
 
 ### Properties
 
-Select any adapter from the list to open its configuration page.
+In the Properties tab, you can view and define identity and metadata of the selected adapter.
 
-In the Properties tab, you can view and define identity and metadata of adapters.
-
-| Field                 | Required | Definition                |
-|-----------------------|----------|------------------|
-| **ID**              | Yes      | A unique identifier for this adapter.                |
-| **Display name**      | Yes       | A user-friendly name of the adapter.                 |
-| **Description**       | No       | Free-text notes about what this adapter is for.      |
-| **Base endpoint**     | Yes      | The base URL of the adapter service that implements the Unified Protocol. Is the base URL part of the model completion endpoint if created based on the adapter. |
+| Field                 | Required | Editable|Definition                |
+|-----------------------|----------|------|------------|
+| **ID**              | -      | No|A unique identifier for this adapter.                |
+|**Updated Time**|-|No|Timestamp of the last update to this adapter's configuration. Useful to track recent changes. |
+|**Creation Time**|-|No|Adapter creation timestamp.|
+| **Display name**      | Yes       | Yes |A user-friendly name of the adapter.                 |
+| **Description**       | No       | Yes |Free-text notes about what this adapter is for.      |
+| **Base endpoint**     | Yes      | Yes |The base URL of the adapter service that implements the Unified Protocol. Is the base URL part of the model completion endpoint if created based on the adapter. |
 
 ![](img/91.png)
 
 ### Models
 
-Manage the **models** this adapter exposes.
+In the **Models** tab, you can manage all models this adapter exposes.
 
 | Column            | Description                                                                               |
 |-------------------|-------------------------------------------------------------------------------------------|
@@ -103,7 +102,6 @@ In the **Audit** tab, you can monitor activities related to the selected adapter
 
 The Activities section provides detailed visibility into all changes made to the selected adapter. This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected adapter.
 
-
 ### JSON Editor
 
 For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any adapter's configuration page.
@@ -113,4 +111,4 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 1. Navigate to **Builders → Adapters**, then select the adapter you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 
-> TIP: Switching modes is disabled if there are any unsaved changes.
+> **TIP**: Switching modes is disabled if there are any unsaved changes.
