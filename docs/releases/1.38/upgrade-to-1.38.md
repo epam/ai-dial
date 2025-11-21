@@ -102,8 +102,8 @@ Changes in [DIAL Admin Backend](https://github.com/epam/ai-dial-admin-backend) c
 | `SECURITY_JWT_JWKS_URI` | `providers.<your_provider_name>.jwk-set-uri`   | URI for JSON Web Key Set for the provider.         |
 | `SECURITY_JWT_ACCEPTED_ISSUERS`       | `providers.<your_provider_name>.issuer`        | List of accepted JWT token issuers for the provider.             |
 | `SECURITY_JWT_ACCEPTED_ISSUERS_ALIAS` | `providers.azure.aliases`        | Aliases for accepted JWT token issuers (only applicable for Azure provider).   |
-| `DIAL_ADMIN_CLIENT_ID`  | **Removed**          | Previously used as a unique identifier for the DIAL Admin backend application. |
-| `SECURITY_JWT_ACCEPTED_AUDIENCES`     | `providers.azure.audiences`      | Unique identifier assigned to DIAL Admin backend application by the authentication provider. |
+| `DIAL_ADMIN_CLIENT_ID`  | `providers.<your_provider_name>.audiences`          | Previously used as a unique identifier for the DIAL Admin backend application. This env defined the same property as SECURITY_JWT_ACCEPTED_AUDIENCES and was removed. |
+| `SECURITY_JWT_ACCEPTED_AUDIENCES`     | `providers.<your_provider_name>.audiences`      | Unique identifier assigned to DIAL Admin backend application by the authentication provider. |
 | `SECURITY_ROLES_CLAIM`  | `providers.<your_provider_name>.role-claims`   | JWT claim name for user roles for the provider.    |
 
 #### Added support for multiple identity providers
@@ -132,3 +132,4 @@ providers.azure.allowed-roles: "example-role-id"
 ## Release Notes
 
 TBD
+
