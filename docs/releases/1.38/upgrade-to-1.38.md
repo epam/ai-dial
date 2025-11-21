@@ -58,8 +58,8 @@ Changes in [DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/app
 
 |Parameter|Required|Description|
 |---|---|---|
-|`CodeInterpreter`|No|Include this feature in [`ENABLED_FEATURES`](https://github.com/epam/ai-dial-chat/blob/development/libs/shared/src/types/features.ts) [environment variable](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to enable code interpreter on the current setup.|
-|`DislikeComment`|No|Include this feature in [`ENABLED_FEATURES`](https://github.com/epam/ai-dial-chat/blob/development/libs/shared/src/types/features.ts) [environment variable](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to enable sending a comment in addition to a dislike in the chat message.|
+|`code-interpreter`|No|Include this feature in [`ENABLED_FEATURES`](https://github.com/epam/ai-dial-chat/blob/development/libs/shared/src/types/features.ts) [environment variable](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to enable code interpreter on the current setup.|
+|`dislike-comment`|No|Include this feature in [`ENABLED_FEATURES`](https://github.com/epam/ai-dial-chat/blob/development/libs/shared/src/types/features.ts) [environment variable](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to enable sending a comment in addition to a dislike in the chat message.|
 
 ### ai-dial-chat-themes
 
