@@ -21,6 +21,7 @@ On the **Toolsets** main screen, you can find all toolsets existing in your DIAL
 |**Source**                 |For the MCP Container source type, enter a container ID. For External Endpoint - enter a URL of the external endpoint.|
 | **Author**                | Contains the tools author's name.                      |
 | **Topics**                | Tags or categories (e.g. "finance," "support") you can assign for discovery, filtering, or grouping. Helps end users and admins find the right toolset.  |
+|**Updated Time**          |Date and time when the toolset's configuration was last updated.              |
 
 ## Create Toolset
 
@@ -73,7 +74,7 @@ In the **Properties** tab, you can view and edit main definitions and settings f
 | **External Endpoint**  | Conditional | The MCP endpoint that a Quick App can call to fetch external data. Applies for External Endpoint deployment source type.|
 | **Container**          | Conditional | MCP server container ID. Applies for MCP Container deployment source type.   |
 | **Transport**          | Yes         |  A transport supported by MCP server. The available options are: HTTP or SSE. Default: HTTP. Choose SSE for server-sent events when supported. |
-| **Authentication**     | Yes         | The following toolset authentication options are available: <br/> 1. **OAuth** - authenticate via OAuth 2.0 with an external identity provider. Supports **With login** and **With login & configuration** options. <br/> 2. **API Key** - authenticate requests using a key. <br/> 3. **Without authentication** — no authentication enforced, endpoint is publicly accessible.<br/>Refer to [Authentication](/docs/platform/3.core/1.auth-intro.md) to learn more about authentication in DIAL. |
+| **Authentication**     | Yes         | The following toolset authentication options are available: <br/> 1. **OAuth** - authenticate via OAuth 2.0 with an external identity provider. Supports **With login** and **With login & configuration** options. <br/> 2. **API Key** - authenticate requests using a key. <br/> 3. **Without authentication** — no authentication enforced, endpoint is publicly accessible.<br/>Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolset_credentials_api.md) to learn more about toolset authentication. |
 | **Max retry attempts** | Yes         | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors).|
 
 ### Tools Overview
