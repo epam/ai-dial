@@ -20,9 +20,9 @@ The File Publications List screen shows all publish/unpublish requests submitted
 
 | Column         | Definition        |
 |----------------|--------------------|
-| **Name**       | A user-friendly name of the file submitted for publication.|
-| **Author**     | The name of the publication request author.             |
-| **Created at** | Timestamp when the file was submitted for publication. |
+| **Name**       | The title of the request.|
+| **Author**     | The username of the request author.             |
+| **Created at** | Timestamp when the request was submitted. |
 
 
 ## Review Page

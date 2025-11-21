@@ -71,6 +71,8 @@ The Parameters tab provides administrators with technical metadata and runtime c
 
 The content of this tab may vary depending on the app's type and configuration.
 
+![](img/publish-app-params.png)
+
 ### Files Tab
 
 In this tab you can find a list of application-related assets. This section is empty if the application does not include any files.

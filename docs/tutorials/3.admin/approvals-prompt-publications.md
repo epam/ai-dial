@@ -22,13 +22,13 @@ The Prompt Publications screen shows all publish/unpublish requests submitted by
 
 | Column         | Definition|
 |----------------|-----------|
-| **Name**       | A user-friendly name of the prompt submitted for publication.|
-| **Author**     | A username of the publication request author.|
-| **Created at** | A timestamp when the prompt was submitted for publication. Sorted ascending/descending to find newest or oldest submissions easily. |
+| **Name**       | The title of the request.|
+| **Author**     | A username of the request author.|
+| **Created at** | A timestamp when the request was submitted. |
 
 ## Review Page
 
-Click any publication request on the main screen to access the review page. On this page, you can inspect the selected request and decide whether to **Publish**, **Unpublish** or **Decline** it.
+Click any request on the main screen to access the review page. On this page, you can inspect the selected request and decide whether to **Publish**, **Unpublish** or **Decline** it.
 
 ##### Publication Request Controls
 
