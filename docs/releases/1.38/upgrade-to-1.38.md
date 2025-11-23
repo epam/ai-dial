@@ -31,6 +31,8 @@
    - mindmap-frontend: `0.8.13`
    - admin-backend : `0.11.0`
    - admin-frontend `0.11.0`
+   - ai-dial-admin-mcp-manager-backend: `0.2.2`
+   - ai-dial-admin-mcp-manager-backend: `0.2.1`
 
 ## Upgrade
 
@@ -133,5 +135,6 @@ providers.azure.allowed-roles: "example-role-id"
 ## Release Notes
 
 TBD
+
 
 
