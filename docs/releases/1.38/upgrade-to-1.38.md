@@ -135,17 +135,18 @@ providers.azure.allowed-roles: "example-role-id"
 #### Detect dial-core versions changes
 
 1. **Mandatory CORE_CONFIG_VERSION**:
-   - The `CORE_CONFIG_VERSION` variable is now required to be set in all configurations.
-   - This requirement applies even if `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT` is set to `true`.
+   - The `CORE_CONFIG_VERSION` variable is now required to be set in case of ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT is set to `false`.
+   - It is recommended to apply this variable even if `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT` is set to `true` in case of breaking json config changes like property deletion .
 
-2. **Handling of Elder Configurations**:
-   - If an older configuration JSON, which is not compatible with the dial-core, dial-core application will be restarted.
-   - During the restart, if the Dial-Admin cannot connect to the Core application due to the elder configuration, it will retry the connection.
-   - If the connection to the Core application cannot be established, the application will apply the configuration version specified in `CORE_CONFIG_VERSION`.
+2. **Handling of breaking changes in configuration**:
+   - If an non-compatible configuration JSON is used with dial-core, the application won't be able to start.
+   - In this case the dial-admin appplication can't connect to the dial-core application in order to retrieve core config version.
+   - If the connection to the dial-core application can't be established, the dial-admin application will apply the configuration version specified in `CORE_CONFIG_VERSION`.
 
 ## Release Notes
 
 TBD
+
 
 
 
