@@ -109,6 +109,7 @@ Changes in [DIAL Admin Backend](https://github.com/epam/ai-dial-admin-backend) c
 | `SECURITY_JWT_ACCEPTED_AUDIENCES`     | `providers.<your_provider_name>.audiences`      | List of accepted JWT token audiences. Defines the intended recipients of the claim aud in JWT. |
 | `SECURITY_ROLES_CLAIM`  | `providers.<your_provider_name>.role-claims`   | JWT claim name for user roles for the provider.    |
 
+
 #### Added support for multiple identity providers
 
 The DIAL Admin application now supports the use of multiple authentication providers, allowing for greater flexibility and integration with various identity services. Below is an example configuration demonstrating how to set up multiple providers:
@@ -131,10 +132,21 @@ providers.azure.audiences: "example-audience-id"
 providers.azure.aliases: "login.microsoftonline.com, login.windows.net, login.microsoft.com, sts.windows.net, login.partner.microsoftonline.cn, login.chinacloudapi.cn, login.microsoftonline.de, login.microsoftonline.us, login.usgovcloudapi.net, login-us.microsoftonline.com"
 providers.azure.allowed-roles: "example-role-id"
 ```
+#### Detect dial-core versions changes
+
+1. **Mandatory CORE_CONFIG_VERSION**:
+   - The `CORE_CONFIG_VERSION` variable is now required to be set in all configurations.
+   - This requirement applies even if `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT` is set to `true`.
+
+2. **Handling of Elder Configurations**:
+   - If an older configuration JSON, which is not compatible with the dial-core, dial-core application will be restarted.
+   - During the restart, if the Dial-Admin cannot connect to the Core application due to the elder configuration, it will retry the connection.
+   - If the connection to the Core application cannot be established, the application will apply the configuration version specified in `CORE_CONFIG_VERSION`.
 
 ## Release Notes
 
 TBD
+
 
 
 
