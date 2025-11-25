@@ -31,7 +31,7 @@ In the Application Publications Review page, you can inspect application publica
 
 ##### Top Bar
 
-* **Publish**: Click Publish to approve the publication request and add application to the [DIAL Marketplace](/docs/tutorials/0.user-guide.md#dial-marketplace-home-page), where other users can access it based on the publication rules specified in the publication request.
+* **Publish**: Click Publish to approve the publication request and add application to the [DIAL Marketplace](/docs/tutorials/0.user-guide.md#marketplace), where other users can access it based on the publication rules specified in the publication request.
 * **Decline**: Reject the publication request. Prompts you to enter a decline reason that will be sent back to the publication request author.
 
 | Field               | Definition                                                                                               |
@@ -50,11 +50,11 @@ The Properties tab shows the basic information about the app and related access 
 
 | Field            | Definition                                                                                                                                                               |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Name**         | The name of the application that will be rendered in [DIAL Marketplace](/docs/tutorials/0.user-guide.md#dial-marketplace-home-page). It must be clear and policy-safe.   |
+| **Name**         | The name of the application that will be rendered in [DIAL Marketplace](/docs/tutorials/0.user-guide.md#marketplace). It must be clear and policy-safe.   |
 | **Version**      | Semantic version of the application (e.g., `0.0.1`) set on the DIAL chat side.                                                                                           |
 | **Description**  | Summary of app's purpose and capabilities specified by the submitting user. Helps assess app's fit and scope.                                                            |
 | **Icon**         | The application's icon that will be rendered on UI.                                                                                                                      |
-| **Topics**       | Tags/categories (e.g., “Text Generation”, “Informational”) used for the app discovery in [DIAL Marketplace](/docs/tutorials/0.user-guide.md#dial-marketplace-home-page). |
+| **Topics**       | Tags/categories (e.g., “Text Generation”, “Informational”) used for the app discovery in [DIAL Marketplace](/docs/tutorials/0.user-guide.md#marketplace). |
 | **Permissions**  | The proposed access rules to the application (e.g., based on user group). Ensure the audience matches intended reach.                                                    |
 
 **Controls:**
