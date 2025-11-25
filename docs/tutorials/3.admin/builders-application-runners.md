@@ -83,9 +83,9 @@ In the **Properties** tab, you can define identity and metadata of application r
 
 ### Parameters
 
-In the Parameters tab, you can configure how DIAL Core interacts with your runner's service (its endpoints) and specify which parameters from the `ApplicationTypeSchema` it should handle. This configuration allows DIAL to validate inputs, document, and render input forms for any application linked to this runner.
+By editing the JSON configuration in the Parameters tab, you define the input parameters that must be completed to successfully create a new Application from this Runner.
 
-The content of this tab is auto-generated based on the `ApplicationTypeSchema` defined for this runner and differs between runners.
+> Refer to [Schema-rich Applications](/docs/platform/3.core/7.apps.md#schema-rich-applications) to learn more.
 
 ![ ](img/img_25.png)
 
