@@ -195,6 +195,11 @@ const sidebars = {
           label: 'Chat User Guide',
         },
         {
+          type: 'doc',
+          id: 'tutorials/mind-map',
+          label: 'Mind Map Studio',
+        },
+        {
           type: 'category',
           label: 'Developers',
           items: [

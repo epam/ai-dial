@@ -7,7 +7,7 @@ In DIAL, **model adapters** unify provider-specific model APIs with the **Unifie
 * **Coded implementation** that talks to the AI model and implements the Unified Protocol.
 * **Metadata object** that you manage in **Builders → Adapters**, which establishes the relationship to the **models**.
 
-> Refer to [Adapters documentation](/docs/platform/0.architecture-and-concepts/3.components.md#llm-adapters) to learn more.
+> Refer to [Adapters documentation](/docs/platform/0.architecture-and-concepts/3.components.md#model-adapters) to learn more.
 
 ## Adapters Main Screen
 
