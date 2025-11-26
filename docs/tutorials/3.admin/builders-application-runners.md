@@ -67,7 +67,7 @@ In the **Properties** tab, you can define identity and metadata of application r
 | **Icon**    | No| An optional icon representing the runner visually in the UI. Select from predefined icons.  |
 | **Title**   | No| Optional title of the application runner.|
 | **Type**    | Yes      | The Parameters object app runner expects in its payload.|
-| **Bucket copy**| Yes      | If this option is enabled, files are copied from source to destination of the application's bucket|
+| **Bucket copy**| Yes      | Determines whether files stored in the application's bucket should be copied when the application is copied, moved, or published.|
 | **Topics**  | No| Use tags to associate runner with specific topics or categories (e.g. "finance", "support") for identification and filtering on UI.    |
 | **Completion endpoint**    | Yes      | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
 | **Configuration endpoint** | No| A URL to fetch dynamic app-specific settings. Use this to drive runtime overrides from a remote config store. |

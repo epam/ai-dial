@@ -84,7 +84,7 @@ In the **Models** tab, you can manage all models this adapter exposes.
 You can add new models that will be processed by the selected adapter. 
 
 1. Click **+ Add**.
-2. **Select** one or more available models in the modal window. You can check all the available models in the [Entities → Models](/docs/tutorials/3.admin/entities-models.md) section. You can also use **+ Create Model** button [on this screen](#top-bar) to create a new model on the fly.
+2. **Select** one or more available models in the modal window. You can check all the available models in the [Entities → Models](/docs/tutorials/3.admin/entities-models.md) section. You can also use **+ Create Model** button [on this screen](#top-bar-controls) to create a new model on the fly.
 3. **Confirm** to insert them into the table.
 
 #### Remove

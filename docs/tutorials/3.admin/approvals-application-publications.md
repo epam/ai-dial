@@ -56,11 +56,11 @@ The Properties tab shows the basic information about the app and related access 
 
 | Field            | Definition |
 |------------------|-----------|
-| **Display Name**         | The name of the application that will be rendered in [DIAL Marketplace](/docs/tutorials/0.user-guide.md#dial-marketplace-home-page). It must be clear and policy-safe.   |
+| **Display Name**         | The name of the application that will be rendered in [DIAL Marketplace](/docs/tutorials/0.user-guide.md#marketplace). It must be clear and policy-safe.   |
 | **Version**      | Semantic version of the application (e.g., `0.0.1`) set on the DIAL chat side.           |
 | **Description**  | Summary of app's purpose and capabilities specified by the submitting user. Helps assess app's fit and scope.            |
 | **Icon**         | The application's icon that will be rendered on UI.      |
-| **Topics**       | Tags/categories (e.g., “Text Generation”, “Informational”) used for the app discovery in [DIAL Marketplace](/docs/tutorials/0.user-guide.md#dial-marketplace-home-page). |
+| **Topics**       | Tags/categories (e.g., “Text Generation”, “Informational”) used for the app discovery in [DIAL Marketplace](/docs/tutorials/0.user-guide.md#marketplace). |
 | **Permissions**  | The proposed access rules to the published application (e.g., based on user group). Ensure the audience matches intended reach. If rules are not defined, the published resources will be available to all users. <br /> Available Controls:<br /> - **Review structure** opens a modal showing the storage folders tree and apps' folder position in the hierarchy.<br />- **Compare changes** side-by-side diff of **current vs proposed** permission rules to the app's folder. Use to verify and validate changes in access rules before approving the publication request.  |
 
 ![](img/95.png)

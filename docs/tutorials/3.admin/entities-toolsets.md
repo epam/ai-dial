@@ -35,7 +35,7 @@ Follow these steps to add a new toolset:
     | **ID**            | Yes      | This is a unique key under the toolsets section of DIAL Admin.       |
     | **Display Name**  | Yes       | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).|
     | **Description**   | No       | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details.                         |
-    |**Source Type**|Yes|Choose between MCP Container and External Endpoint.|
+    |**Source Type**|Yes|Choose between the available source types of toolset: DIAL MCP Container and External Endpoint.|
     | **External Endpoint** | Conditional      | Toolset API for MCP calls. The endpoint that a Quick App can call to fetch external data. Applies for External Endpoint source types. |
     | **Container** | Conditional      | MCP server container ID. Applies for MCP Container source types. |
 
@@ -70,7 +70,7 @@ In the **Properties** tab, you can view and edit main definitions and settings f
 | **Maintainer**         | No          | Field used to specify the responsible person overseeing the toolset’s configuration.|
 | **Icon**               | No          | A logo to visually distinguish toolsets in the UI.                  |
 | **Topics**             | No          | A tag that associates a toolsets with one or more topics or categories (e.g. "finance", "support").    |
-| **Source Type**        | Yes         | The source type of the selected toolset: MCP or External Endpoint.  |
+| **Source Type**        | Yes         | The source type of the selected toolset: MCP Container or External Endpoint.  |
 | **External Endpoint**  | Conditional | The MCP endpoint that a Quick App can call to fetch external data. Applies for External Endpoint deployment source type.|
 | **Container**          | Conditional | MCP server container ID. Applies for MCP Container deployment source type.   |
 | **Transport**          | Yes         |  A transport supported by MCP server. The available options are: HTTP or SSE. Default: HTTP. Choose SSE for server-sent events when supported. |
