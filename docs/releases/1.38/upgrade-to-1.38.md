@@ -29,7 +29,7 @@
    - quick-apps-2.0: `0.2.0`
    - mindmap-backend: `0.11.6`
    - mindmap-frontend: `0.8.13`
-   - admin-backend : `0.11.1`
+   - admin-backend : `0.11.2`
    - admin-frontend `0.11.2`
    - ai-dial-admin-mcp-manager-backend: `0.2.2`
    - ai-dial-admin-mcp-manager-backend: `0.2.1`
@@ -146,6 +146,7 @@ providers.azure.allowed-roles: "example-role-id"
 ## Release Notes
 
 TBD
+
 
 
 
