@@ -603,6 +603,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/assets-toolsets',
+                      label: 'Toolsets',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/assets-prompts',
                       label: 'Prompts',
                     },
@@ -642,6 +647,11 @@ const sidebars = {
                       type: 'doc',
                       id: 'tutorials/admin/approvals-application-publications',
                       label: 'Application Publications',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/approvals-toolset-publications',
+                      label: 'Toolset Publications',
                     },
                     {
                       type: 'doc',
