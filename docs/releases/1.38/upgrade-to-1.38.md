@@ -32,7 +32,7 @@
    - admin-backend : `0.11.2`
    - admin-frontend `0.11.2`
    - ai-dial-admin-mcp-manager-backend: `0.2.2`
-   - ai-dial-admin-mcp-manager-backend: `0.2.1`
+   - ai-dial-admin-mcp-manager-frontend: `0.2.1`
 
 ## Upgrade
 
@@ -146,6 +146,7 @@ providers.azure.allowed-roles: "example-role-id"
 ## Release Notes
 
 TBD
+
 
 
 
