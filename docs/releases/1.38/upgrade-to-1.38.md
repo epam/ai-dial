@@ -6,10 +6,10 @@
 
 1. ETA downtime: TBD
 2. Helm chart versions:
-   - dial TBD
-   - dial-core TBD
-   - dial-extension TBD
-   - dial-admin TBD
+   - dial:`5.18.0`
+   - dial-core:`4.3.1`
+   - dial-extension:`1.3.3`
+   - dial-admin:`0.6.0`
 3. Main components versions:
    - ai-dial-adapter-bedrock:`0.35.0`
    - ai-dial-adapter-openai:`0.34.0`
@@ -18,7 +18,7 @@
    - ai-dial-auth-helper:`0.4.0`
    - ai-dial-chat-themes:`0.12.0`
    - ai-dial-chat:`0.40.1`
-   - ai-dial-core:`0.38.0`\
+   - ai-dial-core:`0.38.0`
    - ai-dial-analytics-realtime:`0.19.4`
    - ai-dial-rag:`0.36.0`
    - ai-dial-log-parser:`0.2.0`
