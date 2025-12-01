@@ -48,11 +48,15 @@ TBD
 
 Changes in [DIAL Core](https://github.com/epam/ai-dial-core) configuration:
 
-|Parameter|Required|Description|
-|---|---|---|
-|`supportCommentInRateResponse`|No|When enabled, allows users to include a text comment along with their like/dislike feedback for this deployment. The comment is sent in the `comment` field of the rate response payload.|
-|`globalInterceptors`|No|A list of [interceptors](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md#local-interceptors) applicable for any deployment on setup.|
-|`dial:applicationTypeInterceptors`|No|A field that can be added to the application's JSON schema. This field can include a list of [interceptors](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md#application-type-interceptors) that will apply to all applications created based on this schema.|
+| Parameter                               |Required| Description                                                                                                                                                                                                                                                                                              |
+|-----------------------------------------|---|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `supportCommentInRateResponse`          |No| When enabled, allows users to include a text comment along with their like/dislike feedback for this deployment. The comment is sent in the `comment` field of the rate response payload.                                                                                                                |
+| `globalInterceptors`                    |No| A list of [interceptors](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md#local-interceptors) applicable for any deployment on setup.                                                                                                                         |
+| `dial:applicationTypeInterceptors`      |No| A field that can be added to the application's JSON schema. This field can include a list of [interceptors](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md#application-type-interceptors) that will apply to all applications created based on this schema. |
+| `applications.features.addonsSupported` |No| The flag `addonsSupported` is removed from application's feaures                                                                                                                                                                                                                                         |
+| `models.features.addonsSupported`       |No| The flag `addonsSupported` is removed from model's feaures                                                                                                                                                                                                                                               |
+| `addons`                                |No| The section is removed from DIAL config                                                                                                                                                                                                                                                                  |
+| `assistant`                                |No| The section is removed from DIAL config                                                                                                                                                                                                                                                                  |
 
 ### ai-dial-chat
 
