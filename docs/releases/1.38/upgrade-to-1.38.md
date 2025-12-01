@@ -1,46 +1,50 @@
 # Instructions
 
-## Before environment upgrade
+## Versions
 
-**Please notice**:
-
-1. ETA downtime: TBD
-2. Helm chart versions:
-   - dial:`5.18.0`
-   - dial-core:`4.3.1`
-   - dial-extension:`1.3.3`
-   - dial-admin:`0.6.0`
-3. Main components versions:
-   - ai-dial-adapter-bedrock:`0.35.0`
-   - ai-dial-adapter-openai:`0.34.0`
-   - ai-dial-adapter-vertexai:`0.29.0`
-   - ai-dial-adapter-dial:`0.10.0`
-   - ai-dial-auth-helper:`0.4.0`
-   - ai-dial-chat-themes:`0.12.0`
-   - ai-dial-chat:`0.40.1`
-   - ai-dial-core:`0.38.0`
-   - ai-dial-analytics-realtime:`0.19.4`
-   - ai-dial-rag:`0.36.0`
-   - ai-dial-log-parser:`0.2.0`
-   - ai-dial-code-interpreter:`0.2.0`
-   - ai-dial-app-controller:`0.3.0`
-   - ai-dial-app-builder-python:`0.1.0`
+1. Helm chart versions:
+   - dial: `5.18.0`
+   - dial-core: `4.3.1`
+   - dial-extension: `1.3.3`
+   - dial-admin: `0.6.0`
+2. Main components versions:
+   - ai-dial-adapter-bedrock: `0.35.0`
+   - ai-dial-adapter-openai: `0.34.0`
+   - ai-dial-adapter-vertexai: `0.29.0`
+   - ai-dial-adapter-dial: `0.10.0`
+   - ai-dial-auth-helper: `0.4.0`
+   - ai-dial-chat-themes: `0.12.0`
+   - ai-dial-chat: `0.40.1`
+   - ai-dial-core: `0.38.0`
+   - ai-dial-analytics-realtime: `0.19.4`
+   - ai-dial-rag: `0.36.0`
+   - ai-dial-log-parser: `0.2.0`
+   - ai-dial-code-interpreter: `0.2.0`
+   - ai-dial-app-controller: `0.3.0`
+   - ai-dial-app-builder-python: `0.1.0`
    - quick-apps: `0.8.2`
    - quick-apps-2.0: `0.2.0`
    - mindmap-backend: `0.11.6`
    - mindmap-frontend: `0.8.13`
    - admin-backend : `0.11.2`
-   - admin-frontend `0.11.2`
+   - admin-frontend: `0.11.2`
    - ai-dial-admin-mcp-manager-backend: `0.2.2`
    - ai-dial-admin-mcp-manager-frontend: `0.2.1`
 
-## Upgrade
+## Before upgrade
 
-TBD
+### General notes
 
-## After environment upgrade
+- Please review the [Config changes](#config-changes) chapter carefully for each component that is used in your DIAL installation. Changes in component configuration might be required.
+- Please check if any image tag overrides `image.tag` are present and remove them if they are not required anymore.
+- Please check and add image.repository to change image location for `redis`, `postgresql`, `keycloak` and `keycloakConfigCli` components to start using alternative Docker registries (e.g. Amazon ECR Public Gallery) if required.
 
-TBD
+### Release specific notes
+
+If DIAL Admin Panel is used for managing DIAL Core configuration, please consider the following order of updating DIAL components:
+- Update DIAL Admin Panel using `dial-admin` Helm chart with the following parameters being set: disable `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT`, set `CORE_CONFIG_VERSION` to the version of DIAL Core you are going to make up update (`0.38.0` for example).
+- Update DIAL using `dial` Helm chart.
+- Enable `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT` and disable `CORE_CONFIG_VERSION` parameters of DIAL Admin Panel.
 
 ## Config changes
 
