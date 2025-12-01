@@ -42,7 +42,7 @@
 ### Release specific notes
 
 If DIAL Admin Panel is used for managing DIAL Core configuration, please consider the following order of updating DIAL components:
-- Update DIAL Admin Panel using `dial-admin` Helm chart with the following parameters being set: disable `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT`, set `CORE_CONFIG_VERSION` to the version of DIAL Core you are going to make up update (`0.38.0` for example).
+- Update DIAL Admin Panel using `dial-admin` Helm chart with the following parameters being set: disable `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT`, set `CORE_CONFIG_VERSION` to the version of DIAL Core you are going to update to (`0.38.0` for example).
 - Update DIAL using `dial` Helm chart.
 - Enable `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT` and disable `CORE_CONFIG_VERSION` parameters of DIAL Admin Panel.
 
@@ -52,22 +52,22 @@ If DIAL Admin Panel is used for managing DIAL Core configuration, please conside
 
 Changes in [DIAL Core](https://github.com/epam/ai-dial-core) configuration:
 
-| Parameter                               |Required| Description                                                                                                                                                                                                                                                                                              |
-|-----------------------------------------|---|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `supportCommentInRateResponse`          |No| When enabled, allows users to include a text comment along with their like/dislike feedback for this deployment. The comment is sent in the `comment` field of the rate response payload.                                                                                                                |
-| `globalInterceptors`                    |No| A list of [interceptors](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md#local-interceptors) applicable for any deployment on setup.                                                                                                                         |
-| `dial:applicationTypeInterceptors`      |No| A field that can be added to the application's JSON schema. This field can include a list of [interceptors](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md#application-type-interceptors) that will apply to all applications created based on this schema. |
-| `applications.features.addonsSupported` |No| The flag `addonsSupported` is removed from application's feaures                                                                                                                                                                                                                                         |
-| `models.features.addonsSupported`       |No| The flag `addonsSupported` is removed from model's feaures                                                                                                                                                                                                                                               |
-| `addons`                                |No| The section is removed from DIAL config                                                                                                                                                                                                                                                                  |
-| `assistant`                                |No| The section is removed from DIAL config                                                                                                                                                                                                                                                                  |
+|Parameter|Required|Description|
+|-|-|-|
+|`supportCommentInRateResponse`|No|When enabled, allows users to include a text comment along with their like/dislike feedback for this deployment. The comment is sent in the `comment` field of the rate response payload.|
+|`globalInterceptors`|No|A list of [interceptors](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md#local-interceptors) applicable for any deployment on setup.|
+|`dial:applicationTypeInterceptors`|No|A field that can be added to the application's JSON schema. This field can include a list of [interceptors](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md#application-type-interceptors) that will apply to all applications created based on this schema.|
+|`applications.features.addonsSupported`|No|The flag `addonsSupported` is removed from application's features|
+|`models.features.addonsSupported`|No|The flag `addonsSupported` is removed from model's features|
+|`addons`|No|The section is removed from DIAL config|
+|`assistant`|No|The section is removed from DIAL config|
 
 ### ai-dial-chat
 
 Changes in [DIAL Chat](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md) configuration:
 
 |Parameter|Required|Description|
-|---|---|---|
+|-|-|-|
 |`code-interpreter`|No|Include this feature in [`ENABLED_FEATURES`](https://github.com/epam/ai-dial-chat/blob/development/libs/shared/src/types/features.ts) [environment variable](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to enable code interpreter on the current setup.|
 |`dislike-comment`|No|Include this feature in [`ENABLED_FEATURES`](https://github.com/epam/ai-dial-chat/blob/development/libs/shared/src/types/features.ts) [environment variable](https://github.com/epam/ai-dial-chat/blob/development/apps/chat/README.md#environment-variables) to enable sending a comment in addition to a dislike in the chat message.|
 
@@ -77,14 +77,14 @@ Changes in [DIAL Chat Themes](https://github.com/epam/ai-dial-chat-themes) confi
 
 - Icons were added for RAG (RAG_files_search.svg) and Echo (Echo.svg).
 - The default icon was added for Toolset (default-toolset.svg).
-- The default icon for Addon (Addon_Wolfram.svg) was  removed.
+- The default icon for Addon (Addon_Wolfram.svg) was removed.
 
 ### ai-dial-adapter-openai
 
 Changes in [DIAL OpenAI Adapter](https://github.com/epam/ai-dial-adapter-openai) configuration:
 
 |Variable|Required|Default|Description|
-|---|---|---|--|
+|-|-|-|-|
 |`AUDIO_AZURE_API_VERSION`|No|`2025-03-01-preview`|Include this [environment variable](https://github.com/epam/ai-dial-adapter-openai?tab=readme-ov-file#environment-variables) to specify the API version for requests to the [Azure Audio API](https://github.com/epam/ai-dial-adapter-openai?tab=readme-ov-file#azure-audio-api) endpoints.|
 
 ### ai-dial-adapter-bedrock
@@ -92,14 +92,14 @@ Changes in [DIAL OpenAI Adapter](https://github.com/epam/ai-dial-adapter-openai)
 Changes in [DIAL Bedrock Adapter](https://github.com/epam/ai-dial-adapter-bedrock) configuration:
 
 |Variable|Required|Description|
-|---|---|---|
+|-|-|-|
 |`AWS_SESSION_TOKEN`|No|Include this [environment variable](https://github.com/epam/ai-dial-adapter-bedrock?tab=readme-ov-file#environment-variables) to add an alternative way to specify access credentials for the Bedrock service.|
 
 ### admin-frontend
 
 Changes in [DIAL Admin Frontend](https://github.com/epam/ai-dial-admin-frontend) configuration:
 
-- The [environment variable](https://github.com/epam/ai-dial-admin-frontend?tab=readme-ov-file#environment-variables) `THEMES_CONFIG_IMAGES` was removed.   
+- The [environment variable](https://github.com/epam/ai-dial-admin-frontend?tab=readme-ov-file#environment-variables) `THEMES_CONFIG_IMAGES` was removed.
 
 ### admin-backend
 
@@ -107,16 +107,15 @@ Changes in [DIAL Admin Backend](https://github.com/epam/ai-dial-admin-backend) c
 
 #### Changes made to environment variables
 
-| Previous Variable Name| New Variable Name| Description|
-|-----------------------|------------------|------------|
-| `SECURITY_ALLOWED_ROLES`| `providers.<your_provider_name>.allowed-roles` | Comma-separated list of roles with access permissions for the provider.        |
-| `SECURITY_JWT_JWKS_URI` | `providers.<your_provider_name>.jwk-set-uri`   | URI for JSON Web Key Set for the provider.         |
-| `SECURITY_JWT_ACCEPTED_ISSUERS`       | `providers.<your_provider_name>.issuer`        | List of accepted JWT token issuers for the provider.             |
-| `SECURITY_JWT_ACCEPTED_ISSUERS_ALIAS` | `providers.azure.aliases`        | Aliases for accepted JWT token issuers (only applicable for Azure provider).   |
-| `DIAL_ADMIN_CLIENT_ID`  | `providers.<your_provider_name>.audiences`          | Previously used as a unique identifier for the DIAL Admin backend application. This env defined the same property as SECURITY_JWT_ACCEPTED_AUDIENCES and was removed. |
-| `SECURITY_JWT_ACCEPTED_AUDIENCES`     | `providers.<your_provider_name>.audiences`      | List of accepted JWT token audiences. Defines the intended recipients of the claim aud in JWT. |
-| `SECURITY_ROLES_CLAIM`  | `providers.<your_provider_name>.role-claims`   | JWT claim name for user roles for the provider.    |
-
+|Previous Variable Name|New Variable Name|Description|
+|-|-|-|
+|`SECURITY_ALLOWED_ROLES`|`providers.<your_provider_name>.allowed-roles`|Comma-separated list of roles with access permissions for the provider.|
+|`SECURITY_JWT_JWKS_URI`|`providers.<your_provider_name>.jwk-set-uri`|URI for JSON Web Key Set for the provider.|
+|`SECURITY_JWT_ACCEPTED_ISSUERS`|`providers.<your_provider_name>.issuer`|List of accepted JWT token issuers for the provider.|
+|`SECURITY_JWT_ACCEPTED_ISSUERS_ALIAS`|`providers.azure.aliases`|Aliases for accepted JWT token issuers (only applicable for Azure provider).|
+|`DIAL_ADMIN_CLIENT_ID`|`providers.<your_provider_name>.audiences`|Previously used as a unique identifier for the DIAL Admin backend application. This env defined the same property as SECURITY_JWT_ACCEPTED_AUDIENCES and was removed.|
+|`SECURITY_JWT_ACCEPTED_AUDIENCES`|`providers.<your_provider_name>.audiences`|List of accepted JWT token audiences. Defines the intended recipients of the claim aud in JWT.|
+|`SECURITY_ROLES_CLAIM`|`providers.<your_provider_name>.role-claims`|JWT claim name for user roles for the provider.|
 
 #### Added support for multiple identity providers
 
@@ -127,15 +126,15 @@ Example configuration for multiple providers:
 ```properties
 providers.auth0.jwk-set-uri: "https://example-auth0.com/.well-known/jwks.json"
 providers.auth0.issuer: "https://example-auth0.com"
-providers.auth0.role-claims: "example\\\_roles"
+providers.auth0.role-claims: "example_roles"
 providers.auth0.audiences: "example-audience-id"
 providers.keycloak.jwk-set-uri: "https://example-keycloak.com/realms/Example/protocol/openid-connect/certs"
 providers.keycloak.issuer: "https://example-keycloak.com/realms/Example"
-providers.keycloak.role-claims: "example\\\_roles"
+providers.keycloak.role-claims: "example_roles"
 providers.keycloak.audiences: "example-ui, example-admin"
 providers.azure.jwk-set-uri: "https://example.microsoft.com/common/discovery/v2.0/keys"
 providers.azure.issuer: "example-issuer-id"
-providers.azure.role-claims: "example\\\_groups"
+providers.azure.role-claims: "example_groups"
 providers.azure.audiences: "example-audience-id"
 providers.azure.aliases: "login.microsoftonline.com, login.windows.net, login.microsoft.com, sts.windows.net, login.partner.microsoftonline.cn, login.chinacloudapi.cn, login.microsoftonline.de, login.microsoftonline.us, login.usgovcloudapi.net, login-us.microsoftonline.com"
 providers.azure.allowed-roles: "example-role-id"
@@ -143,23 +142,14 @@ providers.azure.allowed-roles: "example-role-id"
 #### Detect dial-core versions changes
 
 1. **Mandatory CORE_CONFIG_VERSION**:
-   - The `CORE_CONFIG_VERSION` variable is now required to be set in case of ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT is set to `false`.
-   - It is recommended to apply this variable even if `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT` is set to `true` in case of breaking json config changes like property deletion .
+   - The `CORE_CONFIG_VERSION` variable is now required to be set in case ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT is set to `false`.
+   - It is recommended to apply this variable even if `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT` is set to `true` in case of breaking json config changes like property deletion.
 
 2. **Handling of breaking changes in configuration**:
-   - If an non-compatible configuration JSON is used with dial-core, the application won't be able to start.
-   - In this case the dial-admin appplication can't connect to the dial-core application in order to retrieve core config version.
+   - If a non-compatible configuration JSON is used with dial-core, the application won't be able to start.
+   - In this case the dial-admin application can't connect to the dial-core application in order to retrieve core config version.
    - If the connection to the dial-core application can't be established, the dial-admin application will apply the configuration version specified in `CORE_CONFIG_VERSION`.
 
 ## Release Notes
 
 TBD
-
-
-
-
-
-
-
-
-
