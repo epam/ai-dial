@@ -98,6 +98,10 @@ Changes in [DIAL Bedrock Adapter](https://github.com/epam/ai-dial-adapter-bedroc
 
 - [Removed support](https://github.com/epam/ai-dial-adapter-bedrock/pull/335) of retired AI21 and Stability AI models. These models **MUST** be deleted from the adapter configuration before upgrade.
 
+### ai-dial-adapter-vertexai
+
+- Removed support ([#309](https://github.com/epam/ai-dial-adapter-vertexai/pull/309), [#315](https://github.com/epam/ai-dial-adapter-vertexai/pull/315)) of retired Gemini 1.5 models. These models **MUST** be deleted from the adapter configuration before upgrade.
+
 ### admin-frontend
 
 Changes in [DIAL Admin Frontend](https://github.com/epam/ai-dial-admin-frontend) configuration:
