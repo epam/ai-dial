@@ -38,6 +38,7 @@
 - Please review the [Config changes](#config-changes) chapter carefully for each component that is used in your DIAL installation. Changes in component configuration might be required.
 - Please check if any image tag overrides `image.tag` are present and remove them if they are not required anymore.
 - Please check and add image.repository to change image location for `redis`, `postgresql`, `keycloak` and `keycloakConfigCli` components to start using alternative Docker registries (e.g. Amazon ECR Public Gallery) if required.
+- Verify `COMPATIBILITY_MAPPING` parameter of DIAL Adapters which are used in your DIAL installation and remove mappings for the models that are natively supported by the adapters.
 
 ### Release specific notes
 
@@ -95,6 +96,8 @@ Changes in [DIAL Bedrock Adapter](https://github.com/epam/ai-dial-adapter-bedroc
 |-|-|-|
 |`AWS_SESSION_TOKEN`|No|Include this [environment variable](https://github.com/epam/ai-dial-adapter-bedrock?tab=readme-ov-file#environment-variables) to add an alternative way to specify access credentials for the Bedrock service.|
 
+- [Removed support](https://github.com/epam/ai-dial-adapter-bedrock/pull/335) of retired AI21 and Stability AI models. These models **MUST** be deleted from the adapter configuration before upgrade.
+
 ### admin-frontend
 
 Changes in [DIAL Admin Frontend](https://github.com/epam/ai-dial-admin-frontend) configuration:
@@ -149,7 +152,3 @@ providers.azure.allowed-roles: "example-role-id"
    - If a non-compatible configuration JSON is used with dial-core, the application won't be able to start.
    - In this case the dial-admin application can't connect to the dial-core application in order to retrieve core config version.
    - If the connection to the dial-core application can't be established, the dial-admin application will apply the configuration version specified in `CORE_CONFIG_VERSION`.
-
-## Release Notes
-
-TBD
