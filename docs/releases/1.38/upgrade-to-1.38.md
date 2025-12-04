@@ -45,8 +45,8 @@
 If DIAL Admin Panel is used for managing the DIAL Core configuration, please consider the following order of updating the DIAL components:
 
 1. Update DIAL Admin Panel using `dial-admin` Helm chart with the following parameters being set:
-  1. Disable `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT`.
-  2. Set `CORE_CONFIG_VERSION` to the version of DIAL Core you are going to update to (e.g. `0.38.0`).
+    1. Disable `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT`.
+    2. Set `CORE_CONFIG_VERSION` to the version of DIAL Core you are going to update to (e.g. `0.38.0`).
 2. Update DIAL using `dial` Helm chart.
 3. Enable `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT` and disable `CORE_CONFIG_VERSION` parameters of DIAL Admin Panel.
 
@@ -63,8 +63,8 @@ Changes in [DIAL Core](https://github.com/epam/ai-dial-core) configuration:
 |`dial:applicationTypeInterceptors`|No|A field that can be added to the application's JSON schema. This field can include a list of [interceptors](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md#application-type-interceptors) that will apply to all applications created based on this schema.|
 |`applications.features.addonsSupported`|No|The flag `addonsSupported` is removed from application's features.|
 |`models.features.addonsSupported`|No|The flag `addonsSupported` is removed from model's features.|
-|`addons`|No|The section is removed from the DIAL config.|
-|`assistant`|No|The section is removed from the DIAL config.|
+|`addons`|No|The section is removed from the DIAL Core config.|
+|`assistant`|No|The section is removed from the DIAL Core config.|
 
 ### ai-dial-chat
 
@@ -156,4 +156,5 @@ The `CORE_CONFIG_VERSION` environment variable is now **required** to be set in 
 2. **Handling of breaking changes in DIAL Core configuration**:
 
 If a non-compatible JSON configuration is used with dial-core, the dial-admin application will not be able to start and connect with it to retrieve its config version. If the connection to the dial-core application cannot be established, the dial-admin application will apply the configuration version specified in the `CORE_CONFIG_VERSION` environment variable.
+
 
