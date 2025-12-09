@@ -1,0 +1,71 @@
+@layer components {
+  .base-button {
+    @apply flex flex-row items-center px-3 py-2;
+    @apply rounded border border-solid border-transparent;
+    @apply small-medium;
+
+    min-width: 38px;
+    min-height: 38px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .base-button-disable {
+    @apply pointer-events-none text-controls-disable bg-controls-disable;
+  }
+
+  .primary {
+    @apply base-button bg-controls-accent text-controls-primary;
+
+    &:hover,
+    &:focus {
+      @apply bg-controls-accent-hover;
+    }
+
+    &:focus {
+      @apply border-hover;
+    }
+
+    &:disabled {
+      @apply base-button-disable;
+    }
+  }
+
+  .secondary {
+    @apply base-button bg-transparent text-primary;
+    @apply border-primary;
+
+    &:hover,
+    &:focus {
+      @apply bg-layer-4;
+    }
+
+    &:focus {
+      @apply border-hover;
+    }
+
+    &:disabled {
+      @apply base-button-disable;
+    }
+  }
+
+  .tertiary {
+    @apply base-button text-accent-primary bg-transparent;
+
+    &:hover,
+    &:focus {
+      @apply bg-controls-accent-alpha;
+    }
+
+    &:focus {
+      @apply border-accent-primary;
+    }
+
+    &:disabled {
+      @apply base-button-disable;
+    }
+  }
+}

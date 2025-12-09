@@ -2,51 +2,50 @@
 
 ## About Roles
 
-Roles in DIAL are used to enable roles-based access to resources (applications, models, files, conversations, and prompts) and also for cost control. Here are the key aspects of roles in DIAL:
+Roles are used to enable roles-based access to resources in DIAL.
 
-* **Resource Access Control**: Roles determine who can use specific resources like AI models or applications. For instance, you can grant "operator" users access to the "chat-gpt-35-turbo" model.
-* **Usage Limits**: Roles can enforce limits on resource usage, preventing overuse and abuse. You can set daily, weekly, or monthly token limits for specific roles using a model.
-* **Custom Application Logic**: Developers can leverage roles within their applications to create custom behaviors. By accessing role information from user tokens, applications can tailor responses or restrict access to internal assets.
-* **System Feature Access**: Roles manage access to system-level features, ensuring only authorized users have access. For example, only users with the "admin" role might be able to access the administration console.
+> * Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
+> * Refer to [Roles](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to lean more about roles in DIAL.
+> * Refer to [Tutorials](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md) to learn how to configure roles for API keys.
+> * Refer to [Tutorials](/docs/tutorials/2.devops/2.auth-and-access-control/1.jwt.md) to learn how to configure roles for JWT.
+> * Refer to [IDP Configurations](/docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md) to learn about the supported identity service providers and how to configure them.
 
-> * Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about how roles are used in DIAL.
-> * Refer to [Tutorials](/docs/tutorials/2.devops/2.auth-and-access-control/1.api-key-roles.md) to learn how to configure roles for API keys.
-> * Refer to [Tutorials](/docs/tutorials/2.devops/2.auth-and-access-control/2.chat-users-roles.md) to learn how to configure roles for JWT.
-> * Refer to [IDP Configurations](/docs/tutorials/2.devops/2.auth-and-access-control/3.configure-idps/0.overview.md) to learn about the supported identity service providers and how to configure them.
-
-## Roles List
+## Roles Main Screen
 
 In Roles, you can define and manage roles in DIAL. 
+
+> Roles can also be defined directly in [DIAL Core configuration](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/roles.md).
 
 ![](img/img_37.png)
 
 ##### Roles Grid
 
-| Column          | Definition & Use Case|
-|-----------------|-----------------------------------------------------------------------------------------------------------|
-| **Name**        | A unique, user-friendly identifier of a role (e.g. Data Extraction Admin, Analysts, Business User).     |
-| **Description** | A free-form description of a role (e.g. "Business User role for the Data Extraction application").  |
+| Column           | Definition & Use Case                                                                              |
+|------------------|----------------------------------------------------------------------------------------------------|
+| **ID**           | This is a unique key under the Roles section of DIAL Admin.                                        |
+| **Display Name** | A user-friendly name of a role (e.g. Data Extraction Admin, Analysts, Business User).              |
+| **Description**  | A free-form description of a role (e.g. "Business User role for the Data Extraction application"). |
 
 ## Create Role
+
+Follow these steps to create a new role:
 
 1. Click **Create** to invoke the **Create Role** modal.
 2. Define role's parameters:
 
-    | Column          | Definition & Use Case|
-    |-----------------|-----------------------------------------------------------------------------------------------------------|
-    | **Name**        | A unique, user-friendly identifier of a role (e.g. Data Extraction Admin, Analysts, Business User).     |
-    | **Description** | A free-form description of a role (e.g. "Business User role for the Data Extraction application").  |
+    | Column           | Required | Definition & Use Case                                                                              |
+    |------------------|----------|----------------------------------------------------------------------------------------------------|
+    | **ID**           | Yes      | This is a unique key under the Roles section of DIAL Admin.                                        |
+    | **Display Name** | Yes      | A user-friendly name of a role (e.g. Data Extraction Admin, Analysts, Business User).              |
+    | **Description**  | No       | A free-form description of a role (e.g. "Business User role for the Data Extraction application"). |
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new [role configuration](#role-configuration) screen is opened. A new role entry will appear immediately in the listing once created.
 
-        ![](img/img_38.png)
+    ![](img/img_38.png)
 
 ## Role Configuration
 
-##### Top Bar Controls
-
-* **Delete**: Permanently removes the selected role.
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the role's configuration. Use JSON mode for copy-paste or advanced edits.
+Click any role to display the configuration screen.
 
 ### Properties
 
@@ -55,37 +54,45 @@ In the Properties tab, you can define the identity and metadata for the role. Th
 ![](img/img_39.png)
 
 
-| Field           | Required | Description                                                                 |
-|-----------------|-----------|-----------------------------------------------------------------------------|
-| **Name**        | Yes   | A unique identifier of the role, used in ACL selectors and in API calls. |
-| **Description** | No        | Optional free-form text describing the role’s intended audience or use.     |
+| Field               | Required | Description                                                                                                                                                                                                                                                         |
+|---------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ID**              | -        | This is a unique key under the Roles section of DIAL Admin.                                                                                                                                                                                                         |
+| **Updated Time**    | -        | Date and time when the role's configuration was last updated.                                                                                                                                                                                                       |
+| **Creation Time**   | -        | Date and time when the role's configuration was created.                                                                                                                                                                                                            |
+| **Display Name**    | Yes      | A unique identifier of the role, used in ACL selectors and in API calls.                                                                                                                                                                                            |
+| **Description**     | No       | Optional free-form text describing the role’s intended audience or use.                                                                                                                                                                                             |
+| **Set cost limits** | No       | Use to enable [token usage limitations](/docs/platform/3.core/8.token-limits-and-cost-control.md#token-rate-limiting).<br />**Available values**: Tokens per minute, Tokens per day, Tokens per week, Tokens per month.<br />In case limitations for a specific role are not set, the limitations configured for the **default** role apply. In case limitations for the **default** role are not set, the value is unlimited.<br />Refer to [DIAL Core documentation](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/roles.md) to learn more about available usage and cost limitations for roles.                                                       |
+| **Sharing**         | No       | Use to set the [sharing limits](/docs/tutorials/1.developers/1.work-with-resources/1.sharing.md) that apply for specific types of resources in DIAL.<br />**Expiration time** refers to TTL of the invitation link. Default: 72 (hrs).<br />**Max users** refers to the maximum number of users who can accept an invitation link for a resource being shared. The limit is applied to the shared resource. Default: 10 for APPLICATION and UNLIMITED for other resource types.<br />Refer to [DIAL Core documentation](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/roles.md#rolesrole_nameshare) to learn more about sharing limitations.  |
 
 
 ### Entities
 
-In the Entities tab, you can assign which [Models](/docs/tutorials/3.admin/entities-models.md), [Applications](/docs/tutorials/3.admin/entities-applications.md) or [Routes](/docs/tutorials/3.admin/entities-routes.md) this role can access, and within which rate limits.
+In the Entities tab, you can assign which [Models](/docs/tutorials/3.admin/entities-models.md), [Applications](/docs/tutorials/3.admin/entities-applications.md), [Toolsets](/docs/tutorials/3.admin/entities-toolsets.md) or [Routes](/docs/tutorials/3.admin/entities-routes.md) this role can access, and within which rate limits.
 
 ![img_8.png](img/img_40.png)
 
-| Column                | Definition                       |
-| --------------------- |-----------------------------------------------------------------------------------------------------------------------|
-| **Display Name**      | A user-friendly name of the resource (Model, Application, or Route) as shown in DIAL.                                    |
-| **Version**           | Version tag of the resource (e.g. `v1.2`, `1.0.0`).                                                                     |
-| **Description**       | A brief description of the resource.                                                                             |
-| **Deployment ID**     | A unique internal identifier used by DIAL to call the resource's endpoint.                                          |
-| **Type**              | Resource category: one of [Models](/docs/tutorials/3.admin/entities-models.md), [Applications](/docs/tutorials/3.admin/entities-applications.md) or [Routes](/docs/tutorials/3.admin/entities-routes.md).                                                |
-| **Tokens per minute** | Maximum number of tokens this role may consume per minute when calling this resource. <br />"Unlimited" if no limit is set. |
-| **Tokens per day**    | Maximum number of tokens this role may consume per day when calling this resource. <br />"Unlimited" if no limit is set.    |
-| **Tokens per week**   | Maximum number of tokens this role may consume per week when calling this resource. <br />"Unlimited" if no limit is set.   |
-| **Tokens per month**  | Maximum number of tokens this role may consume per month when calling this resource. <br />"Unlimited" if no limit is set.  |
+| Column                | Definition                                                                                                                                                                                                |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ID**                | This is a unique key under of the Entity (e.g., Model, Application).                                                                                                                                      |
+| **Display Name**      | A user-friendly name of the resource (Model, Application, or Route) as shown in DIAL.                                                                                                                     |
+| **Description**       | A brief description of the resource.                                                                                                                                                                      |
+| **Type**              | Resource category: one of [Models](/docs/tutorials/3.admin/entities-models.md), [Applications](/docs/tutorials/3.admin/entities-applications.md), [Toolsets](/docs/tutorials/3.admin/entities-toolsets.md) or [Routes](/docs/tutorials/3.admin/entities-routes.md). |
+| **Tokens per minute** | Maximum number of tokens this role may consume per minute when calling this resource.                                                                                |
+| **Tokens per day**    | Maximum number of tokens this role may consume per day when calling this resource.        |
+| **Tokens per week**   | Maximum number of tokens this role may consume per week when calling this resource. |
+| **Tokens per month**  | Maximum number of tokens this role may consume per month when calling this resource.   |
 
 #### Add
+
+Follow these steps to assign one or more entities to the selected role:
 
 1. Click **+ Add** (top-right of the Entities Grid).
 2. **Select** one or more applications/models in the modal window.
 3. **Confirm** to insert them into the table.
 
 #### Remove
+
+Follow these steps to revoke an assigned entity from the selected role:
  
 1. Click the **actions** menu in the entity's line.
 2. Choose **Remove** in the menu.
@@ -96,15 +103,19 @@ In the Keys tab, you can assign [API keys](/docs/tutorials/3.admin/access-manage
 
 ![](img/img_41.png)
 
-| Column                  | Definition      |
-|-------------------------|------|
-| **Name**                | A user-friendly identifier for an API key. Typically, reflects the intended consumer or purpose<br />(e.g. `mobile-sdk-key`, `data-extraction-worker`). |
-| **Description**         | An optional free-text notes about this key’s purpose or scope.     |
-| **Key generation time** | A key's creation timestamp.|
-| **Expiration time**     | A key's expiration timestamp. Blank means no expiration (i.e. permanent until manually revoked).             |
-| **Status**              | The current state of the key.|
+| Column                  | Definition                                                                                       |
+|-------------------------|--------------------------------------------------------------------------------------------------|
+| **ID**                  | A unique key under the Keys section of DIAL Admin.                                               |
+| **Display Name**        | A user-friendly name of the Key.                                                                 |
+| **Description**         | Additional key’s details, e.g., purpose  or usage context.                                       |
+| **Key generation time** | A key's creation timestamp.                                                                      |
+| **Expiration time**     | A key's expiration timestamp. Blank means no expiration (i.e. permanent until manually revoked). |
+| **Status**              | The current state of the key.                                                                    |
+| **Project**             | Project associated with the key for the costs tracking purpose.                                  |
 
 #### Add
+
+Follow these steps to assign one or more API keys to the selected role:
 
 1. Click **+ Add** (top-right of the Keys Grid).
 2. **Select** one or more keys in the modal. Available API keys are defined in the [Access Management → Keys](/docs/tutorials/3.admin/access-management-keys.md) section.
@@ -112,10 +123,51 @@ In the Keys tab, you can assign [API keys](/docs/tutorials/3.admin/access-manage
 
 #### Remove
 
-Use to revoke an assigned API key. To delete API key, go to [Access Management → Keys](/docs/tutorials/3.admin/access-management-keys.md) section.
- 
+Follow these steps to revoke an assigned API key from the selected role:
+
 1. Click the **actions** menu in the key's line.
 2. Choose **Remove** in the menu.
+
+> To delete API key, go to [Access Management → Keys](/docs/tutorials/3.admin/access-management-keys.md) section.
+
+### Audit
+
+In the **Audit** tab, you can monitor activities related to the selected role. 
+
+#### Activities
+
+The Activities section provides detailed visibility into all changes made to the selected role. This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected role.
+
+![](img/128.png)
+
+##### Activities List Table
+
+| **Field**         | **Definition**                                                                                                                                                                                                                                                                               |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Activity type** | The type of action performed on the role (e.g., Create, Update, Delete).                                                                                                                                                                                                                     |
+| **Time**          | Timestamp indicating when the activity occurred.                                                                                                                                                                                                                                             |
+| **Initiated**     | Email address of the user who performed the activity.                                                                                                                                                                                                                                        |
+| **Activity ID**   | A unique identifier for the logged activity, used for tracking and auditing.                                                                                                                                                                                                                 |
+| **Actions**       | Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: Use Resource Rollback to restore the previous version of the related resource. A rollback leads to generation of a new entry on the audit activity screen. |
+
+##### Activity Details
+
+The Activity Details view provides a detailed snapshot of a specific change made to a role.
+
+![](img/129.png)
+
+To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
+
+| **Element/Section**  | **Description**                                                                                                                                          |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Activity type**    | Type of the change performed (e.g., Update, Create, Delete).                                                                                             |
+| **Time**             | Timestamp of the change.                                                                                                                                 |
+| **Initiated**        | Identifier of the user who made the change.                                                                                                              |
+| **Activity ID**      | Unique identifier for the specific activity tracking.                                                                                                    |
+| **Comparison**       | A dropdown to switch between comparison modes:<br />- **Before/After**<br />- **Before/Current state**.                                                                                        |
+| **View**             | A dropdown to switch between view modes:<br />- **All parameters**: select to view  all parameters.<br />- **Changes only**: select to view just the parameters that have been changed.                                                                          |
+| **Parameters Diff**  | Side-by-side comparison of role fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
+
 
 ### JSON Editor
 
@@ -130,3 +182,6 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
+## Delete
+
+Click **Delete** on the main screen to permanently remove the selected role.

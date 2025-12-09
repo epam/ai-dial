@@ -18,6 +18,7 @@
 
 * [About DIAL Admin](/docs/platform/11.admin-panel.md)
 * [User Guide](/docs/tutorials/3.admin/home.md)
+* [Helm chart for DIAL Admin](https://github.com/epam/ai-dial-helm/tree/main/charts/dial-admin)
 
 ## Run DIAL Locally
 
@@ -57,10 +58,9 @@ Here is the current list of repositories where you can find more details.
 - [DIAL Chat Themes](https://github.com/epam/ai-dial-chat-themes) - static content and UI customizations for default UI
 - [Visualizer Connector](https://github.com/epam/ai-dial-chat/blob/development/libs/chat-visualizer-connector/README.md) - a library for connecting custom visualizers
 - [DIAL CI](https://github.com/epam/ai-dial-ci) - GitHub CI commons
-- [DIAL Assistant](https://github.com/epam/ai-dial-assistant) - model agnostic assistant/addon implementation for DIAL. It allows to use self-hosted OpenAI plugins as DIAL addons.
 - [DIAL Analytics Realtime](https://github.com/epam/ai-dial-analytics-realtime) - simple real-time usage analytics. That transforms logs into InfluxDB metrics
 - [DIAL Auth Helper](https://github.com/epam/ai-dial-auth-helper) - AuthProxy is a proxy service that implements OpenID-compatible Web API endpoints to avoid direct interaction with the AuthProviders' APIs, such as the KeyCloak API.
-_ [App Controller](https://github.com/epam/ai-dial-app-controller) - a Java-based web service application that orchestrates the building and deployment of Python applications in Kubernetes.
+- [App Controller](https://github.com/epam/ai-dial-app-controller) - a Java-based web service application that orchestrates the building and deployment of Python applications in Kubernetes.
 - [App Builder](https://github.com/epam/ai-dial-app-builder-python) - a Python-based application designed to download source code from DIAL file storage and prepare files to build a container image.
 - [DIAL RAG](https://github.com/epam/ai-dial-rag) - the DAL RAG project repository.
 - [DIAL RAG Eval](https://github.com/epam/ai-dial-rag-eval) - library designed for RAG (Retrieval-Augmented Generation) evaluation, where retrieval and generation metrics are calculated.
@@ -71,4 +71,4 @@ _ [App Controller](https://github.com/epam/ai-dial-app-controller) - a Java-base
     - [DIAL Azure OpenAI Adapter](https://github.com/epam/ai-dial-adapter-openai) - pluggable Azure ChatGPT adapter
     - [DIAL GCP VertexAI Adapter](https://github.com/epam/ai-dial-adapter-vertexai) - pluggable Google LLMs adapter
     - [DIAL AWS Bedrock Adapter](https://github.com/epam/ai-dial-adapter-bedrock) - pluggable Amazon LLMs adapter (Anthropic Claude 1/2 is included)
-    - More LLM adapters will be released (you may contribute)
+    - More model adapters will be released (you may contribute)

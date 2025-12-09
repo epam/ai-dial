@@ -42,6 +42,8 @@ It lets you inspect exactly what changed in a resource, who did it, and when, wi
 
 #### Review Changes
 
+* **Comparison** dropdown at the top lets you compare the artefact’s state **before vs. after** the selected audit record, or **before** that record vs. the current **state**.
+* **View** drop-down on the top allows to choose whether to show all parameters or only ones having changes between compared artefact states.
 * **Categories** (e.g., *Features*, *Roles*, *Interceptors*). Groups all changes that belong to one logical section of the respective resource (Model, Application, etc.). Click to expand/collapse. A numeric badge shows the number of distinct changes.
 * **Before/After columns**. Side-by-side diff that shows the previous and resulting values for every field in the section. Each row is color-coded to signal the type of operation performed:
     * **Green** (`Create`). A field was **added** in the *After* state and did not exist before.
@@ -50,8 +52,25 @@ It lets you inspect exactly what changed in a resource, who did it, and when, wi
 
 ![](img/img_67.png)
 
+Use the JSON toggle to switch between the form-based UI and raw JSON view.
+
+![](img/img_67_1.png)
+
+
 #### Resource Rollback
 
 Use Resource Rollback to restore the previous version of the related resource. A rollback leads to generation of a new entry on the audit activity screen.
 
 ![](img/84.png)
+
+#### System Rollback
+
+Use System Rollback to restore all resources modified during the specified period to the previous state.
+
+![](img/84_1.png)
+
+For each artefact its possible to see and compare current and previous configuration state:
+
+![](img/84_2.png)
+
+> **Note:** Use View drop-down on the top to select whether to show all parameters or only ones having changes between compared states. 
