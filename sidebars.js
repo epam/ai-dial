@@ -195,6 +195,11 @@ const sidebars = {
           label: 'Chat User Guide',
         },
         {
+          type: 'doc',
+          id: 'tutorials/mind-map',
+          label: 'Mind Map Studio',
+        },
+        {
           type: 'category',
           label: 'Developers',
           items: [
@@ -454,18 +459,13 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/programmatic-auth',
-                  label: 'Create API Keys',
+                  id: 'tutorials/devops/auth-and-access-control/api-keys',
+                  label: 'API Keys',
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/api-key-roles',
-                  label: 'API Keys Roles & Limits',
-                },
-                {
-                  type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/chat-users-roles',
-                  label: 'JWT Roles & Limits',
+                  id: 'tutorials/devops/auth-and-access-control/jwt',
+                  label: 'JWT',
                 },
                 {
                   type: 'category',
@@ -603,6 +603,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/assets-toolsets',
+                      label: 'Toolsets',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/assets-prompts',
                       label: 'Prompts',
                     },
@@ -642,6 +647,11 @@ const sidebars = {
                       type: 'doc',
                       id: 'tutorials/admin/approvals-application-publications',
                       label: 'Application Publications',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/approvals-toolset-publications',
+                      label: 'Toolset Publications',
                     },
                     {
                       type: 'doc',

@@ -1,0 +1,14 @@
+@layer components {
+  input[type='range'] {
+    @apply rounded !border-primary !bg-layer-1 overflow-visible;
+    height: 12px !important;
+  }
+  input[type='range']::-webkit-slider-thumb {
+    appearance: none;
+    @apply bg-layer-3 rounded-[50%] cursor-pointer w-[32px] h-[32px];
+  }
+}
+
+input[type='range'] {
+  @apply input-radio;
+}

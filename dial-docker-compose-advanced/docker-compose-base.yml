@@ -21,7 +21,7 @@ services:
     mem_limit: 2200M
 
   chat:
-    image: epam/ai-dial-chat:0.36.0
+    image: epam/ai-dial-chat:0.39.0
     platform: linux/amd64
     environment:
       AUTH_KEYCLOAK_CLIENT_ID: "dial-chat"
@@ -47,7 +47,7 @@ services:
     restart: always
 
   core:
-    image: epam/ai-dial-core:0.34.0
+    image: epam/ai-dial-core:0.37.0
     platform: linux/amd64
     environment:
       'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
@@ -78,7 +78,7 @@ services:
     restart: always
 
   adapter-openai:
-    image: epam/ai-dial-adapter-openai:0.31.0
+    image: epam/ai-dial-adapter-openai:0.33.0
     platform: linux/amd64
     environment:
       DALLE3_DEPLOYMENTS: "dall-e-3"
@@ -120,7 +120,7 @@ services:
     restart: always
 
   admin-backend:
-    image: epam/ai-dial-admin-backend:0.7.1
+    image: epam/ai-dial-admin-backend:0.10.0
     platform: linux/amd64
     user: root
     environment:
@@ -150,13 +150,14 @@ services:
       interval: 5s
       timeout: 3s
       retries: 6
+      start_period: 60s
     depends_on:
       core:
         condition: service_started
     restart: always
 
   admin-frontend:
-    image: epam/ai-dial-admin-frontend:0.6.0
+    image: epam/ai-dial-admin-frontend:0.10.0
     platform: linux/amd64
     environment:     	
       DIAL_ADMIN_API_URL: "http://admin-backend:8080/"

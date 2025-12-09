@@ -70,10 +70,10 @@ You can access the model configuration screen by clicking any model in the model
 
 ### Properties
 
-In the **Properties** tab, you can view and edit main definitions and runtime settings for model deployment. 
+In the **Properties** tab, you can view and edit main definitions and runtime settings for model deployment.
 
-* [Basic identification](#basic-identification): ID, Display Name, Version, Description.
-* [Adapter & Endpoint](#adapter--endpoint): Select the Adapter, API Type (Chat or Embedding), and read-only Endpoint URL.
+* [Basic identification](#basic-identification-and-information): ID, Display Name, Version, Description.
+* [Adapter & Endpoint](#adapter): Select the Adapter, API Type (Chat or Embedding), and read-only Endpoint URL.
 * [Presentation & Attachments](#presentation--attachments): Override name, icon, topics, and attachment types.
 * [Upstream Configuration](#upstream-configuration): Define upstream endpoints, authentication keys, weights, and extra data.
 * [Advanced Options](#advanced-options): Tokenizer model, forward auth token, interaction limits, retry attempts.
@@ -100,7 +100,7 @@ The following properties need to be specified if selected Source Type is Adapter
 
 | Field        | Required | Description |
 |--------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Adapter**  | Yes      | An option to select a [model adapter](/docs/platform/0.architecture-and-concepts/3.components.md#llm-adapters) (connector) to  handle requests to this model deployment (e.g. **OpenAI**, **DIAL**).  Adapter defines how to authenticate, format payloads, and parse responses. |
+| **Adapter**  | Yes      | An option to select a [model adapter](/docs/platform/0.architecture-and-concepts/3.components.md#model-adapters) (connector) to  handle requests to this model deployment (e.g. **OpenAI**, **DIAL**).  Adapter defines how to authenticate, format payloads, and parse responses. |
 | **Type**     | Yes      | A choice between **Chat** or **Embedding** API.  <br />**Chat** - for conversational chat completions.  <br />**Embedding** - for vector generation (semantic search, clustering).         |
 | **Endpoint** | Yes      | URL that DIAL Core will invoke for this model/type. The base URL is determined by the selected adapter, while the path can be partially customized.      |
 
@@ -120,7 +120,6 @@ The following properties need to be specified if selected Source Type is Externa
 |--------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Type**     | Yes      | A choice between **Chat** or **Embedding** API.  <br />**Chat** - for conversational chat completions.  <br />**Embedding** - for vector generation (semantic search, clustering). |
 | **Endpoint** | Yes      | URL that DIAL Core will invoke for this model.              |
-
 
 ##### Presentation & Attachments
 
@@ -195,25 +194,29 @@ Each toggle corresponds to a capability in the [Unified Protocol](/docs/platform
 | **Content parts**             | Indicates whether the deployment supports requests with content parts or not.      |
 | **Cache**| Whether the deployment supports [LLM caching](/docs/tutorials/1.developers/6.prompt-caching.md).        |
 | **Auto caching**              | Indicates whether the deployment supports [automatic caching](/docs/tutorials/1.developers/6.prompt-caching.md), where it's possible.                    |
-| **Parallel tool calls**       | Indicates whether the deployment supports _parallel_tool_calls parameter_ in a chat completion request. |
+| **Parallel tool calls**       | Indicates whether the deployment supports *parallel_tool_calls parameter* in a chat completion request. |
 
 ### Roles
 
 You can create and manage roles in the [Access Management](/docs/tutorials/3.admin/access-management-roles.md) section.
 
-In the **Roles** tab, you can define user groups that are authorized to use a specific model, enforce per-role rate limits and configure invitation settings. 
+In the **Roles** tab, you can define user groups that are authorized to use a specific model, enforce per-role rate limits and configure invitation settings.
 This is essential for multi-tenant governance, quota enforcement, and cost control across teams or customers, preventing runaway costs by enforcing a hard ceiling.
 
 **Important**: if roles are not specified for a specific model, the model will be available to all users.
 
-> Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about roles and rate limits in DIAL.
+> Refer to [Access Control](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to learn more about roles in DIAL.
+>
+> * Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
+> * Refer to [Roles](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to lean more about roles in DIAL.
+> * Refer to tutorials to learn how to configure access and limits for [JWT](/docs/tutorials/2.devops/2.auth-and-access-control/1.jwt.md) and [API keys](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md)
 
 ![](img/img_7.png)
 
 ##### Roles grid
 
 | Column                | Description & Guidance              |
-|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-----------------------|------------------------|
 | **Name**              | A unique role's identifier.         |
 | **Description**       | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team").         |
 | **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.|
@@ -222,13 +225,13 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 | **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.   |
 | **Expiration time**   | The maximum number of users who can accept a shared resource.   |
 | **Max users**         | TTL (Time To Live) of the invitation link to a shared resource. |
-| **Actions**           | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **no limits** or  [remove](#remove-role) the role from the list. |
+| **Actions**           | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **no limits** or  [remove](#remove) the role from the list. |
 
 #### Set Rate Limits
 
 The grid on the Roles screen lists the roles that can access a specific model. Here, you can also set individual limits for selected roles. For example, you can give "Admin" role unlimited monthly tokens but throttle "Developer" to 100,000 tokens/day or allow the "External Partner" role a small trial quota (e.g., 10,000 tokens/month) before upgrade.
 
-##### To set or change rate limits for a role:
+##### To set or change rate limits for a role
 
 1. **Click** in the desired cell (e.g., **Tokens per day** for the "ADMIN").
 2. **Enter** a numeric limit or leave blank to enable an unlimited access. Click **Reset to default limits** to restore [default settings](#default-rate-limits) for all roles.
@@ -246,7 +249,6 @@ Default limits are set for all roles in the **Roles** grid by default; however y
 | **Default tokens per month**  | The maximum tokens any user may consume per month unless a specific limit is in place.  |
 | **Expiration time**           | The default maximum number of users who can accept a shared resource.                   |
 | **Max users**                 | The default TTL (Time To Live) of the invitation link to a shared resource.             |
-
 
 #### Role-Specific Access
 
@@ -276,7 +278,7 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 
 ### Interceptors
 
-DIAL uses Interceptors to add custom logic to in/out requests for models and apps, enabling PII obfuscation, guardrails, safety checks, and beyond. 
+DIAL uses Interceptors to add custom logic to in/out requests for models and apps, enabling PII obfuscation, guardrails, safety checks, and beyond.
 
 > Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 
@@ -292,7 +294,6 @@ In the **Interceptors** tab, you can define interceptors that will be triggered 
 | **Name**          | The interceptor’s alias, matching the **Name** field in its definition.      |
 | **Description**   | Free-text summary from the interceptor’s definition, explaining its purpose. |
 | **Actions** | Additional role-specific actions. <br /> Open interceptor in a new tab. <br /> [Remove](#remove-1) the selected interceptor from the model's configuration. |
- 
 
 #### Add
 
@@ -316,7 +317,7 @@ In the **Interceptors** tab, you can define interceptors that will be triggered 
 
 ### Audit
 
-In the **Audit** tab, you can monitor key metrics, activities and traces related to the selected language model. 
+In the **Audit** tab, you can monitor key metrics, activities and traces related to the selected language model.
 
 #### Dashboard
 
@@ -349,14 +350,12 @@ You can use them to:
 * Monitor burst traffic with "Request Count".
 * Watch token consumption to anticipate quota exhaustion.
 
-
 | Metric            | Definition|
 |-------------------|---------------------------|
 | **Unique Users**  | Count of distinct user IDs or API keys that have called this model. |
 | **Request Count** | Total number of chat or embedding calls routed to this model.       |
 | **Total Tokens**  | Sum of `prompt + completion` tokens consumed by this model.           |
 | **Money**         | Estimated spending on this model.   |
-
 
 ##### Projects Consumption Table
 
@@ -404,7 +403,6 @@ In this tab, you can see individual traces, each representing a single end-to-en
 | Conversation ID            | Identifier of the conversation/session this trace belongs to.                                |
 | Code span ID               | Identifier of a specific code execution span associated with the trace (if any).             |
 | Code span parent ID        | Identifier of the parent span for a code execution span (if any).                            |
-
 
 #### Conversations
 
@@ -468,7 +466,6 @@ To open Activity Details, click on the three-dot menu (⋮) at the end of a row 
 
 Use Resource Rollback to restore the previous version of the selected activity. A rollback leads to generation of a new entry on the audit activity screen.
 
-
 ### JSON Editor
 
 Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the language model’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any model configuration page.
@@ -482,7 +479,8 @@ Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON 
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
-
 ### Delete
 
 Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected language model.
+
+![ ](img/125.png)
