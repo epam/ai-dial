@@ -16,10 +16,11 @@ RUN pip install jupyter==1.1.1
 
 # NOTE: for some reason jupyter doesn't run pip-installs inside the notebooks,
 # so we have to repeat them here.
-RUN pip install requests==2.31.0
-RUN pip install openai==1.9.0
-RUN pip install httpx==0.27.2
-RUN pip install langchain-openai==0.0.3
+RUN pip install requests==2.32.3
+RUN pip install openai==1.83.0
+RUN pip install httpx==0.28.1
+RUN pip install aidial-integration-langchain==0.1.0
+RUN pip install langchain-openai==0.3.19
 
 WORKDIR /app
 COPY . /app
