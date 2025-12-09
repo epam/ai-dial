@@ -100,7 +100,7 @@ The following properties need to be specified if selected Source Type is Adapter
 
 | Field        | Required | Description |
 |--------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Adapter**  | Yes      | An option to select a [model adapter](/docs/platform/0.architecture-and-concepts/3.components.md#llm-adapters) (connector) to  handle requests to this model deployment (e.g. **OpenAI**, **DIAL**).  Adapter defines how to authenticate, format payloads, and parse responses. |
+| **Adapter**  | Yes      | An option to select a [model adapter](/docs/platform/0.architecture-and-concepts/3.components.md#model-adapters) (connector) to  handle requests to this model deployment (e.g. **OpenAI**, **DIAL**).  Adapter defines how to authenticate, format payloads, and parse responses. |
 | **Type**     | Yes      | A choice between **Chat** or **Embedding** API.  <br />**Chat** - for conversational chat completions.  <br />**Embedding** - for vector generation (semantic search, clustering).         |
 | **Endpoint** | Yes      | URL that DIAL Core will invoke for this model/type. The base URL is determined by the selected adapter, while the path can be partially customized.      |
 
