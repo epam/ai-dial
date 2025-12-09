@@ -12,7 +12,8 @@
   "private": true,
   "resolutions": {
     "@babel/runtime": "^7.26.10",
-    "@babel/helpers ": "^7.26.10"
+    "@babel/helpers ": "^7.26.10",
+    "koa": "2.16.2"
   },
   "dependencies": {
     "@babel/helpers": "^7.27.3",
