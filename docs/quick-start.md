@@ -12,12 +12,12 @@ Follow this tutorial to launch DIAL Chat locally with Echo application. As a res
 
 ## Step 1: Get DIAL
 
-[Download](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/application/) DIAL.
+[Download](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/application/) a folder with the necessary files to launch DIAL with a [sample application](https://github.com/epam/ai-dial/tree/main/dial-docker-compose/application/echo) using Docker Compose. 
 
 ## Step 2: Launch Chat
 
 Run `docker compose up` in the console from the folder with the `docker-compose.yml` file.
 
-Once DIAL Chat is up on http://localhost:3000/, select the Echo Application and start typing in prompts to see how the Echo application mirrors them.
+Once DIAL Chat is up on http://localhost:3000/, select the Echo Application in [DIAL Marketplace](/docs/platform/4.chat/1.marketplace.md) and start typing in prompts to see how the Echo application mirrors them.
 
 ![](./img/dial-chat-local.png)

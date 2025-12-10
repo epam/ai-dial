@@ -28,7 +28,7 @@ const config = {
   url: 'https://docs.dialx.ai',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl:  process.env.BASE_URL ? process.env.BASE_URL : '/',
+  baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '/',
   trailingSlash: false,
 
   // GitHub pages deployment config.
@@ -36,9 +36,13 @@ const config = {
   organizationName: 'epam', // Usually your GitHub org/user name.
   projectName: 'ai-dial', // Usually your repo name.
   deploymentBranch: 'gh-pages',
-
   onBrokenLinks: 'throw', //'throw', for exceptions
-  onBrokenMarkdownLinks: 'throw',
+  onBrokenAnchors: 'throw',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
+  },
   onDuplicateRoutes: 'throw',
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -78,7 +82,7 @@ const config = {
           priority: 0.5,
         },
         gtag: {
-          trackingID: 'G-GVY5VWYV1E',
+          trackingID: 'GTM-NQKQWGFJ',
         },
       }),
     ],
@@ -103,6 +107,13 @@ const config = {
   //           type: 'text/javascript',
   //         },
   //       ],
+
+  scripts: [
+    {
+      src: 'https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on',
+      type: 'text/javascript',
+    },
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -148,7 +159,7 @@ const config = {
             items: [
               {
                 html: footerLink(
-                  'https://discord.gg/hgqEAbEwZ9',
+                  'https://discord.gg/ukzj9U9tEe',
                   './static/discord.svg',
                 ),
               },
