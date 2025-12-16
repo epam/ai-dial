@@ -4,7 +4,7 @@
 
 > Refer to [DIAL-Native Applications](/docs/platform/3.core/7.apps.md) to learn about applications in DIAL.
 
-## Applications List
+## Applications Main Screen
 
 In Applications, you can see, create and manage applications deployed in your instance of DIAL.
 
@@ -12,46 +12,47 @@ In Applications, you can see, create and manage applications deployed in your in
 
 ##### Applications grid
 
-> **TIP**: Use the **Columns** selector to customize which columns are visible in the grid.
+> **TIP**: Use the **Columns** selector to customize which columns are visible in the grid and their order.
 
-| Field                     | Definition   |
-|---------------------------|----------------|
-| **Display Name**          | A user-friendly name of the application (e.g. "Data Clustering Application").                 |
-| **Version**               | Version string or tag (e.g. v1, 2024-07-01). You can use a higher version to publish application updates without disrupting existing users.    |
-| **Description**           | A brief free-text summary describing the application (e.g. "Clusters incoming text into semantic groups").           |
-| **Deployment ID**         | A unique identifier used in the DIAL [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. dca, support-bot). This is the path segment of the Application’s HTTP endpoint.|
-| **Endpoint**              | Full URL where the application is exposed.     |
-| **Topics**                | Tags or categories (e.g. "finance," "support," "image-capable") you can assign for discovery, filtering, or grouping in large deployments. Helps end users and admins find the right application by the use case. |
-| **Attachment types**      | An option you can use to define which file attachments this application can accept.        |
-| **Max attachment number** | Maximum number of attachments allowed per single request.           |
+| Field                     | Definition    |
+|---------------------------|--------------------------------------------|
+| **Display Name**          | A user-friendly name of the application (e.g. "Data Clustering Application").  |
+| **Description**           | A brief free-text summary describing the application (e.g. "Clusters incoming text into semantic groups"). |
+| **ID**                    | A unique identifier used in the DIAL [dynamic settings](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/applications.md) (e.g. dca, support-bot). This is the path segment of the Application’s HTTP endpoint.          |
+| **Endpoint**              | Full URL where the application is exposed.                                     |
+| **Author**                | Contains information about the application's author.                                       |
+| **Topics**                | Tags or categories (e.g. "finance," "support," "image-capable") you can assign for discovery, filtering, or grouping in large deployments. Helps end users and admins find the right application by the use case.                |
+| **Attachment types**      | Controls which types of attachments this application can accept according to [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types).                           |
+| **Max attachment number** | Maximum number of attachments allowed in a single request.                      |
 | **Forward auth token**    | This parameter allow you to determine whether the Auth Token should be forwarded from the caller's session to the upstream API call. This enables multi-tenant scenarios or pass-through authentication for downstream services. |
 
 ## Create Application
 
+On the main screen you can add new application deployments.
+
 > Refer to [Enable App](/docs/tutorials/1.developers/4.apps-development/3.enable-app.md) to learn more about enabling applications in DIAL.
+
+Follow these steps to add a new application deployment: 
 
 1. Click **+ Create** to invoke the **Create Application** modal.
 2. Define application's parameters
 
-    | Field                  | Required       | Definition & Guidance|
-    |------------------------|-----------------|------------------------------------|
-    | **Deployment ID**      | Yes         | A unique identifier under the `applications` section of DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. support-bot, data-cluster).                    |
-    | **Display Name**       | Yes         | A user-friendly label (e.g. "Customer Support Bot") shown throughout the Admin UI.       |
-    | **Version**            | No              | An optional version tag to track apps releases (e.g. `2024-07-18`, `v1`).     |
-    | **Application Runner** | No              | [Application type schema](/docs/platform/3.core/7.apps.md#schema-rich-applications). Defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md). |
-    | **Description**        | No              | A free-text summary describing the application (e.g. supported inputs, business purpose).                       |
-    | **Endpoint**           | Conditional | The full URL where this Application’s API will be exposed once created. Not needed if Application Runner is selected. Required otherwise.|
+    | Field                    | Required      | Definition & Guidance                                                          |
+    |--------------------------|---------------|--------------------------------------------|
+    | **ID**                   | Yes           | A unique identifier under the `applications` section of DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. support-bot, data-cluster).                               |
+    | **Display Name**         | Yes           | A user-friendly label (e.g. "Customer Support Bot") shown throughout the Admin UI.                         |
+    | **Source Type**          | Yes           | Can be one of the following options: Endpoints, Application Runner.            |
+    | **Endpoint**             | Conditional   | Required if Source Type is 'Endpoints'. The application’s completion endpoint. |
+    | **Application Runner**   | Conditional   | Required if Source Type is 'Application Runner'. [Application type schema](/docs/platform/3.core/7.apps.md#schema-rich-applications) as defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md). |
+    | **Description**          | No            | A free-text summary describing the application (e.g. supported inputs, business purpose).                  |
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#application-configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
 
-        ![](img/img_12.png)
+    ![](img/img_12.png)
 
 ## Application Configuration
 
-##### Top Bar Controls
-
-* **Delete**: Permanently removes this application. All clients calling its endpoint will receive errors until a replacement is published.
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the application’s configuration. Use JSON mode for copy-paste or advanced edits.
+Click any application on the main screen to open the configuration section.
 
 ### Properties
 
@@ -61,20 +62,26 @@ Once configured, your application is ready to orchestrate models and interceptor
 
 ![ ](img/img_13.png)
 
-| Field                   | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|-------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Deployment ID**       | Yes      | A unique key under `applications` in DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. data-clustering, support-bot).                                                                                                                                                                                                                                                                                                                                   |
-| **Display Name**        | Yes      | A user-friendly label shown on the UI (e.g. "Data Clustering Application"). Helps end user to identify and select applications.                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Version**             | No       | A version tag for rollout management (e.g. `v1.0`, `2024-07-15`). Use this to publish a new version of an application without disturbing existing users.                                                                                                                                                                                                                                                                                                                                                             |
-| **Application Runner**  | No       | Application type schema. Defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md).                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **Description**         | No       | A free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs).                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **Maintainer**          | No       | Field used to specify the responsible person or team overseeing the app’s configuration.                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **Completion Endpoint** | Optional | URL where the app is exposed. Clients use this to integrate. Auto-populated if Application Runner is selected. **Required** if Application Runner is not selected.                                                                                                                                                                                                                                                                                                                                                   |
-| **Icon**                | No       | A logo to visually distinguish the app on the UI.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Topics**              | No       | Tags that you can assign to apps (e.g. "finance", "support"). Helps to split apps into categories for better navigation on UI.                                                                                                                                                                                                                                                                                                                                                                                       |
-| **Attachments**         | No       | An option you can use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **None** – attachments are not allowed.  <br /> **All** – unrestricted types. Optionally specify max number of attachments. <br /> **Custom** – enter specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Optionally specify max number of attachments. |
-| **Forward auth token**  | No       | Select a downstream auth token to forward from the user’s session (for multi-tenant downstream).                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **Max retry attempts**  | No       | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors).                                                                                                                                                                                                                                                                                                                                                                             |
+| Field                      | Required    | Description                                                                    |
+|----------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| **ID**                     | Yes         | A unique key under `applications` in DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. data-clustering, support-bot).                                                                                                                |
+| **Updated Time**           | -           | Date and time when the app's configuration was last updated.                   |
+| **Creation Time**          | -           | Date and time when the app's configuration was created.                        |
+| **Display Name**           | Yes         | A user-friendly label shown on the UI (e.g. "Data Clustering Application"). Helps end user to identify and select applications.                 |
+| **Application Runner**     | No          | Application type schema. Defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md).                             |
+| **Description**            | No          | A free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs).                                                  |
+| **Maintainer**             | No          | Field used to specify the responsible person or team overseeing the app’s configuration.                                                        |
+| **Icon**                   | No          | A logo to visually distinguish the app on the UI.                              |
+| **Topics**                 | No          | Tags that you can assign to apps (e.g. "finance", "support"). Helps to split apps into categories for better navigation on UI.                  |
+| **Source Type**            | Yes         | Can be one of the following options: Endpoints, Application Runner.            |
+| **Application Runner**     | Conditional | Required if Source Type is 'Application Runner'. [Application type schema](/docs/platform/3.core/7.apps.md#schema-rich-applications). Defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md).                                                                  |
+| **Completion Endpoint**    | Conditional | URL where the app is exposed. Clients use this to integrate. Auto-populated if Source is Application Runner and endpoint is specified in respective runner. **Required** if Source is Endpoints.                                                                                                  |
+| **Viewer URL**             | Optional    | Optional, needed only if Source Type is 'Endpoints'. An optional field with a URL of the application's custom UI. A custom UI, if enabled, will override the standard DIAL Chat UI.                                                                                                               |
+| **Editor URL**             | Optional    | Optional, needed only if Source Type is 'Endpoints'. An optional field with a URL of the application's custom builder UI. Application builder allows end-users to create instances of apps using a [UI wizard](/docs/tutorials/0.user-guide.md#application-builder).                              |
+| **Attachments**            | No          | An option you can use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **None** – attachments are not allowed.  <br /> **All** – unrestricted types. Optionally specify max number of attachments. <br /> **Custom** – enter specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Optionally specify max number of attachments. |
+| **Attachments Max Number** | No          | Maximum number of input attachments.                                           |
+| **Forward auth token**     | No          | Select a downstream auth token to forward from the user’s session (for multi-tenant downstream).                                                |
+| **Max retry attempts**     | No          | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors).        |
  
 ### Features
 
@@ -105,12 +112,12 @@ While [Model feature flags](/docs/tutorials/3.admin/entities-models.md#feature-f
 
 You can override or extend DIAL Core’s built-in protocol calls with your own HTTP services. Here, you can specify endpoints used by [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) (e.g. a Python or Node Runner) to perform preprocessing or policy checks before delegating to your underlying models and workflows.
 
-| Field                        | Description & When to Use                                                                                                                                                 |
-|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Field                        | Description & When to Use                           |
+|------------------------------|--------------------------|
 | **Rate endpoint**            | A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).             |
 | **Tokenize endpoint**        | A URL to call a custom tokenization service. When you need precise, app-wide token counting (for mixed-model or multi-step prompts) that the model adapter can’t provide. |
 | **Truncate prompt endpoint** | A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual application call.  |
-| **Configuration endpoint**   | A URL to fetch dynamic app-specific settings (e.g. per-tenant max tokens, allowed parameters). Use this to drive runtime overrides from a remote config store.            |
+| **Configuration endpoint**   | A URL to fetch JSON Schema describing settings of the DIAL application. DIAL Core exposes this endpoint to DIAL clients as `GET v1/deployments/<deployment name>/configuration`. DIAL client must provide a JSON value corresponding to the configuration JSON Schema in a chat completion request in the `custom_fields.configuration` field.       |
 
 #### Feature Flags (Toggles)
 
@@ -118,8 +125,8 @@ Enable or disable per-request options that your application accepts from clients
 
 > **Note**: Changes take effect immediately after saving.
 
-| Toggle                        | What It Does                                                                                                                                                  |
-|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Toggle                        | What It Does|
+|-------------------------------|------------|
 | **System prompt**             | Enables an initial "system" message injection. Useful for orchestrating multi-step agents where you need to enforce a global policy at the application level. |
 | **Tools**                     | Enables `tools`/`functions` payloads in API calls. Switch on if your application makes external function calls (e.g. calendar lookup, database fetch).        |
 | **Seed**                      | Enables the `seed` parameter for reproducible results. Great for testing or deterministic pipelines.  Disable to ensure randomized creativity.                |
@@ -146,7 +153,9 @@ In the Roles tab, you can create and manage roles defined in the [Access Managem
 
 **Important**: if roles are not specified for a specific application, it will be available to all users
 
-> Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about roles and rate limits in DIAL.
+> * Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
+> * Refer to [Roles](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to lean more about roles in DIAL.
+> * Refer to tutorials to learn how to configure access and limits for [JWT](/docs/tutorials/2.devops/2.auth-and-access-control/1.jwt.md) and [API keys](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md)
 
 ![](img/img_15.png)
 
@@ -160,6 +169,8 @@ In the Roles tab, you can create and manage roles defined in the [Access Managem
 | **Tokens per day**    | Daily tokens limit for a specific role. Blank = no limits. <br />Inherits the [default value](#default-rate-limits). <br />Can be overridden.        |
 | **Tokens per week**   | Weekly tokens limit for a specific role. Blank = no limits. <br />Inherits the [default value](#default-rate-limits). <br />Can be overridden.       |
 | **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits.<br /> Inherits the [default value](#default-rate-limits). <br />Can be overridden.      |
+| **Expiration time**   | The maximum number of users who can accept a shared resource.    |
+| **Max users**         | TTL (Time To Live) of the invitation link to a shared resource.  |
 | **Actions**     | Additional role-specific actions. <br /> Open [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> Make all restrictions unlimited for the given role |
 
 #### Set Rate Limits
@@ -176,12 +187,14 @@ The grid on the Roles screen lists roles that can access a specific application.
 
 Default rate limits are set for all roles in the **Roles** grid by default; however you can override them for any role.
 
-| Field  | Description      |
-|-------------------------------|---|
+| Field                         | Description                                                                             |
+|-------------------------------|-----------------------------------------------------------------------------------------|
 | **Default tokens per minute** | The maximum tokens any user can consume per minute unless a specific limit is in place. |
 | **Default tokens per day**    | The maximum tokens any user can consume per day unless a specific limit is in place.    |
 | **Default tokens per week**   | The maximum tokens any user can consume per week unless a specific limit is in place.   |
 | **Default tokens per month**  | The maximum tokens any user may consume per month unless a specific limit is in place.  |
+| **Expiration time**           | The default maximum number of users who can accept a shared resource.                   |
+| **Max users**                 | The default TTL (Time To Live) of the invitation link to a shared resource.             |
 
 #### Role-Specific Access
 
@@ -258,7 +271,61 @@ You can define Interceptors in the [Entities → Interceptors](/docs/tutorials/3
 2. Choose **Remove** to detach it from this application.
 3. **Save** to lock-in the interceptors list
 
+### Dependencies
+This tab lists other entities Models or Applications that the current Application depends on. Administrators can manually add new dependencies (by selecting from available Models and Applications) or remove the existing ones.
+
+![](img/102.png)
+
+| Column           | Description                                                                                |
+|------------------|--------------------------------------------------------------------------------------------|
+| **Entity Type**  | Indication whether dependent object is an Application or a Model.                          |
+| **ID**           | Identifier of the respective model or application.                                         |
+| **Display Name** | Descriptive name of the dependent model or application.                                    |
+| **Version**      | Version of the dependent model.                                                            |
+| **Description**  | Additional textual details about the dependent model or application.                       |
+| **Actions**      | Allows to open the dependent object in new tab or remove it from the list of dependencies. |
+
+
+#### Add
+
+1. Click **+ Add** (in the upper-right of the dependencies grid).
+2. Select the type of object to add: Application or Model.
+3. In the modal window, choose model or application existing in DIAL from the grid.
+4. **Add** to append them to the dependencies grid.
+
+![](img/101.png)
+
+### App Routes
+
+App Routes tab is introduced to manage application-specific routes. The tab includes a left-hand pane listing all app-related routes. 
+If the application is created based on a specific application runner, tab allows only viewing routes inherited from the app runner. 
+Otherwise, it allows creating, viewing, editing, and deleting routes.
+
+#### Properties
+
+Properties sub-tab allows to configure route identity and requests handling behavior.
+
+> Configuration of this tab is similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
+
+![103.png](img/103.png)
+
+#### Attachments
+
+Attachments sub-tab enables to configure attachment paths for both requests and responses.
+
+![104.png](img/104.png)
+
+#### Roles
+
+Sub-tab enables route-specific role assignments, allowing administrators to control access to each individual route.
+
+> Configuration of this tab is similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
+
+![105.png](img/105.png)
+
 ### Audit
+
+In the **Audit** tab, you can monitor key metrics, activities and traces related to the selected application. 
 
 #### Dashboard
 
@@ -308,11 +375,66 @@ This table shows the KPIs breakdown by **Project**. You can use it to compare co
 | **Completion tokens** | Total tokens returned by the application as responses.            |
 | **Money**             | Estimated cost.                  |
 
+#### Traces
+
+> **TIP**: You can monitor the entire system's traces in [Usage Log](/docs/tutorials/3.admin/telemetry-usage-log.md).
+
+In this tab, you can see individual traces, each representing a single end-to-end interaction of a DIAL entity with the selected application.
+
+
+| Column                     | Definition                                                                                   |
+|----------------------------|----------------------------------------------------------------------------------------------|
+| Completion Time            | Timestamp when the trace finished processing (end-to-end interaction).                       |
+| Trace ID                   | Unique identifier of the trace (one end-to-end interaction).                                 |
+| Topic                      | Auto-generated subject/title summarizing the trace.                                          |
+| Reactions                  | Indication of user reactions presence (like/dislike) for the trace.                          |
+| Cached prompt tokens       | Number of prompt tokens served from cache (prompt-caching).                                  |
+| Prompt tokens              | Number of tokens in the prompt sent to the model for this trace.                             |
+| Completion tokens          | Number of tokens generated by the model as output for this trace.                            |
+| Deployment price           | Cost attributed to the selected deployment for this trace.                                   |
+| Total price                | Total cost of the trace.                                                                     |
+| Number of request messages | Number of discrete request messages that were included in the trace.                         |
+| Deployment ID              | Identifier of the DIAL deployment used to serve this trace.                                  |
+| Parent Deployment ID       | Identifier of the parent deployment (e.g., application that was using the underlying model). |
+| Model                      | Identifier of the underlying model used to carry out the trace.                              |
+| Project                    | Project to which this trace associated in DIAL.                                              |
+| Upstream                   | The upstream endpoint (e.g., completions endpoint of the model).                             |
+| Execution path             | The execution path of the trace.                                                             |
+| User                       | Identifier of the end user who initiated the trace.                                          |
+| User title                 | The name of the user (if available).                                                         |
+| Language                   | Language detected in the trace (e.g., `en`).                                                 |
+| Duration                   | Total end-to-end duration of the trace from first request to completion.                     |
+| Response ID                | Identifier of the response object returned by the model for this trace.                      |
+| Conversation ID            | Identifier of the conversation/session this trace belongs to.                                |
+| Code span ID               | Identifier of a specific code execution span associated with the trace (if any).             |
+| Code span parent ID        | Identifier of the parent span for a code execution span (if any).                            |
+
+
+#### Conversations
+
+> **TIP**: You can monitor all usage sessions in [Usage Log](/docs/tutorials/3.admin/telemetry-usage-log.md).
+
+In Conversations, you can see individual traces grouped into end‑to‑end conversation sessions.
+
+| Column                     | Definition                                                                                     |
+|----------------------------|------------------------------------------------------------------------------------------------|
+| Last activity              | Timestamp of the most recent trace within the conversation.                                    |
+| Conversation ID            | Unique identifier of the user session that groups related traces.                              |
+| Topic                      | Auto-generated subject summarizing the conversation.                                           |
+| Cached prompt tokens       | Count of prompt tokens served from cache across the conversation.                              |
+| Prompt tokens              | Total number of request/prompt tokens sent to the model across all traces in the conversation. |
+| Completion tokens          | Total number of tokens generated by the model across all traces in the conversation.           |
+| Total price                | Aggregated cost for the conversation.                                                          |
+| Number of request messages | Total number of discrete request messages included in the conversation.                        |
+| Deployment ID              | Identifier of the deployment associated with the conversation.                                 |
+| Project                    | Project to which the conversation associated in DIAL.                                          |
+| User                       | Identifier of the end user who initiated the conversation.                                     |
+| User title                 | Name of the user (if available).                                                               |
+| Language                   | Detected language for the conversation (e.g., `en`).                                           |
+
 #### Activities
 
-The Activities section under the Audit tab of a specific application provides detailed visibility into all changes made to that app.
-
-This section mimics the functionality available in the global Audit → Activities menu, but is scoped specifically to the selected app.
+The Activities section provides detailed visibility into all changes made to the selected application. This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected app.
 
 ![](img/87.png)
 
@@ -324,6 +446,8 @@ This section mimics the functionality available in the global Audit → Activiti
 | **Time**          | Timestamp indicating when the activity occurred.                             |
 | **Initiated**     | Email address of the user who performed the activity.                        |
 | **Activity ID**   | A unique identifier for the logged activity, used for tracking and auditing. |
+|**Actions**|Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details.  |
+
 
 ##### Activity Details
 
@@ -333,19 +457,24 @@ The Activity Details view provides a detailed snapshot of a specific change made
 
 To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
 
-| **Element/Section** | **Description**                                                                                                                                         |
+| **Element/Section** | **Description**                   |
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Activity type**   | Type of the change performed (e.g., Update, Create, Delete).                                                                                            |
-| **Time**            | Timestamp of the change.                                                                                                                                |
+| **Time**            | Timestamp of the change.          |
 | **Initiated**       | Identifier of the user who made the change.                                                                                                             |
 | **Activity ID**     | Unique identifier for the specific activity tracking.                                                                                                   |
-| **View**            | Dropdown to switch between showing all parameter or changed only.                                                                                       |
+| **Comparison**      | Dropdown to switch between showing all parameter or changed only.|
+| **View**            | Dropdown to switch for selection between Before/After and Before/Current state.|
 | **Parameters Diff** | Side-by-side comparison of app fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
+
+##### Resource Rollback
+
+Use Resource Rollback to restore the previous version of the selected activity. A rollback leads to generation of a new entry on the audit activity screen.
 
 
 ### JSON Editor
 
-For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any app’s configuration page.
+Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the application’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any application configuration page.
 
 ![](img/img_18.png)
 
@@ -355,4 +484,8 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
+
+### Delete
+
+Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected application.
 

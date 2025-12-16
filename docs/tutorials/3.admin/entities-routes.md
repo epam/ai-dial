@@ -4,7 +4,7 @@
 
 Routes in DIAL are used for communication through registered endpoints in the [DIAL Core](/docs/platform/3.core/0.about-core.md). They act as a bridging mechanism between the DIAL Core and external applications, facilitating seamless interactions. Once a route with a designated endpoint is set up in DIAL Core, it allows client applications, such as DIAL Chat, to interact with this endpoint. Essentially, DIAL Core functions as an intermediary, handling authentication and authorization between the client and the external application linked to the route.
 
-## Routes List
+## Routes Main Screen
 
 In Routes, you can view, filter, and create new routes.
 
@@ -12,32 +12,32 @@ In Routes, you can view, filter, and create new routes.
 
 ##### Routes grid
 
-| Field           | Definition                                        |
-|-----------------|---------------------------------------------------|
-| **Name**        | A user-friendly name of the Route.                 |
-| **Description** | A brief free-text description of the Route's purpose.   |
+| Field            | Definition                                                   |
+|------------------|--------------------------------------------------------------|
+| **ID**           | This is a unique key under the Routes section of DIAL Admin. |
+| **Display Name** | A user-friendly name of the Route.                           |
+| **Description**  | A brief free-text description of the Route's purpose.        |
 
 ## Create
 
-1. Click **+ Create** to invoke the **Create Route** modal.
-2. Define rout's parameters
+Follow these steps to add a new route:
 
-    | Field           | Required        | Definition                                                   |
-    |-----------------|------------------|----------------------------------------------------------------------|
-    | **Name**        | Yes          | A user-friendly name of the Route.                                    |
-    | **Description** | No               | A brief free-text description of the Route’s purpose.                      |
-    | **Paths**       | Yes          | URL path(s) pattern this route should match (e.g. `/chat`, `/support/`). |
+1. Click **+ Create** to invoke the **Create Route** modal, where you can define rout's parameters:
 
-3. Once all required fields are filled, click **Create**. The dialog closes and the new [route configuration](#route-configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
+    | Field            | Required | Definition                                                               |
+    |------------------|----------|--------------------------------------------------------------------------|
+    | **ID**           | Yes      | This is a unique key under the Routes section of DIAL Admin.             |
+    | **Display Name** | Yes      | A user-friendly name of the Route.                                       |
+    | **Description**  | No       | A brief free-text description of the Route’s purpose.                    |
+    | **Paths**        | Yes      | URL path(s) pattern this route should match (e.g. `/chat`, `/support/`). |
 
-![](img/img_20.png)
+2. Once all required fields are filled, click **Create**. The dialog closes and the new [route configuration](#route-configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
+
+    ![](img/img_20.png)
 
 ## Route Configuration
 
-##### Top Bar Controls
-
-* **Delete**: Permanently removes the selected route. Any client calls to this path will return 404 until a new route is created.
-* **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the route’s configuration. Use JSON mode for copy-paste or advanced edits.
+Click any route on the main screen to open the configuration section.
 
 ### Properties
 
@@ -47,10 +47,13 @@ In the Properties tab, you can define the identity and routing behavior.
 
 ##### Basic Identification
 
-| Field            | Required | Definition                                                                          |
-|------------------|-----------|-------------------------------------------------------------------------------------|
-| **Name**         | Yes   | A unique route key used in the URL and [dynamic settings of DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. `chat`, `support`).       |
-| **Description**  | No        | Free‐text note about the route’s purpose (e.g. “Primary GPT-4 chat with fallback”). |                                                                      |
+| Field             | Required | Definition                                                                                                                                                                 |
+|-------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ID**            | -        | This is a unique key under the Routes section of DIAL Admin and [dynamic settings of DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings). |
+| **Updated Time**  | -        | Date and time when the route's configuration was last updated.                                                                                                             |
+| **Creation Time** | -        | Date and time when the route's configuration was created.                                                                                                                  |
+| **Display Name**  | Yes      | A user-friendly name of the Route.                                                                                                                                         |
+| **Description**   | No       | Free‐text note about the route’s purpose (e.g. “Primary GPT-4 chat with fallback”).                                                                                        |                                                                      |
  
 ##### Request Matching: Paths & Methods
 
@@ -73,7 +76,7 @@ Use the output mode to define the response of a Route.
 
 Define where and how to forward requests when the **Upstreams** [output mode](#output-mode) is selected.
 
-| Field                  | Required | Description & Use Case  |
+| Field                  | Required | Definition  |
 |------------------------|-----------|-------------------------|
 | **Upstream Endpoints** | Yes   | Full URL(s) of the back-end service(s) to receive the routed request (e.g. `https://dial-core.example.com/v1/chat`).  |
 | **Keys**               | No        | API key or token to attach (via header or query) when calling the upstream. Click the eye icon to reveal a masked value. |
@@ -86,11 +89,17 @@ Define where and how to forward requests when the **Upstreams** [output mode](#o
 
 Define where and how to forward requests when **Response** mode is selected:
 
-| Field                  | Required | What It Does                                                                                          |
+| Field                  | Required | Definition                                                                                          |
 |------------------------|-----------|-------------------------------------------------------------------------------------------------------|
 | **Status**             | No        | The HTTP status code your route will return (e.g. `200`, `404`, `503`).                               |
 | **Body**               | No        | The exact payload to send in the response body. You can enter plain text or raw JSON.                 |
 | **Max retry attempts** | No        | *(Optional)* Determines how many times DIAL will retry the static‐response logic on internal errors.  |
+
+##### Additional Parameters
+
+| Field     | Required | Definition  |
+|-----------|----------|------------------------------------|
+| **Order** | No       | The value of this parameter determines the order within the global routes. The lower value means the higher priority. The value can't be negative integer. The default one is 2\^31-1. |
 
 ### Roles
 
@@ -153,10 +162,52 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 1. Click the **actions** menu in the role's line.
 2. Choose **Remove** in the menu.
 
+
+### Audit
+
+#### Activities
+
+The Activities section provides a detailed insight into all changes made to the selected route.
+
+This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected route.
+
+![](img/routes-audit.png)
+
+##### Activities List Table
+
+| **Field**         | **Definition**              |
+| ----------------- |------------------------------------------------------------------------------|
+| **Activity type** | The type of action performed  (e.g., Create, Update, Delete).                |
+| **Time**          | Timestamp indicating when the activity occurred.                             |
+| **Initiated**     | Email address of the user who performed the activity.                        |
+| **Activity ID**   | A unique identifier for the logged activity, used for tracking and auditing. |
+|**Actions**|Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details.  |
+
+##### Activity Details
+
+The Activity Details view provides a detailed snapshot of a specific change made to a route.
+
+![](img/routes-audit-details.png)
+
+To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
+
+| **Element/Section** | **Description**                                           |
+|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Activity type**   | Type of the change performed (e.g., Update, Create, Delete).                                               |
+| **Time**            | Timestamp of the change.                                  |
+| **Initiated**       | Identifier of the user who made the change.               |
+| **Activity ID**     | Unique identifier for the specific activity tracking.     |
+| **Comparison**      | Dropdown to switch between showing all parameter or changed only.|
+| **View**            | Dropdown to switch for selection between Before/After and Before/Current state.|
+| **Parameters Diff** | Side-by-side comparison of toolset fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
+
+##### Resource Rollback
+
+Use Resource Rollback to restore the previous version of the selected activity. A rollback leads to generation of a new entry on the audit activity screen.
+
 ### JSON Editor
 
-For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any route's configuration page.
-
+Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the route’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any route configuration page.
 ![](img/72.png)
 
 ##### Switching to the JSON Editor
@@ -165,3 +216,8 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
+
+### Delete
+
+Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected route.
+

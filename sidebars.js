@@ -36,6 +36,21 @@ const sidebars = {
             },
             {
               type: 'doc',
+              id: 'platform/core/auth-intro',
+              label: 'Authentication',
+            },
+            {
+              type: 'doc',
+              id: 'platform/architecture-and-concepts/access-control',
+              label: 'Access Control Overview',
+            },
+            {
+              type: 'doc',
+              id: 'platform/core/token-limits-and-cost-control',
+              label: 'Usage Limits and Cost Control',
+            },
+            {
+              type: 'doc',
               id: 'platform/architecture-and-concepts/components',
               label: 'Platform Components',
             },
@@ -43,6 +58,11 @@ const sidebars = {
               type: 'doc',
               id: 'platform/architecture-and-concepts/agentic-platform',
               label: 'Agentic Platform',
+            },
+            {
+              type: 'doc',
+              id: 'platform/architecture-and-concepts/app-server',
+              label: 'Application Server',
             },
             {
               type: 'doc',
@@ -72,13 +92,8 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'platform/core/auth-intro',
-              label: 'Authentication',
-            },
-            {
-              type: 'doc',
               id: 'platform/core/access-control-intro',
-              label: 'Access & Cost Control',
+              label: 'Access Control',
             },
             {
               type: 'doc',
@@ -178,6 +193,11 @@ const sidebars = {
           type: 'doc',
           id: 'tutorials/user-guide',
           label: 'Chat User Guide',
+        },
+        {
+          type: 'doc',
+          id: 'tutorials/mind-map',
+          label: 'Mind Map Studio',
         },
         {
           type: 'category',
@@ -308,15 +328,36 @@ const sidebars = {
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/developers/integrations/vscode-extension',
-                  label: 'Integration with Continue',
+                  id: 'tutorials/developers/integrations/msteams-bot',
+                  label: 'Integration with MS Teams',
                 },
                 {
                   type: 'doc',
                   id: 'tutorials/developers/integrations/n8n-integration',
                   label: 'Integration with n8n',
                 },
-              ],
+                {
+                  type: 'category',
+                  label: 'Integrations with Code Assistants',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/integrations/vscode-extension',
+                      label: 'Integration with Continue',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/integrations/cline',
+                      label: 'Integration with Cline',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/developers/integrations/roocode',
+                      label: 'Integration with Roo Code',
+                    },
+                  ],
+                },
+              ]
             },
             {
               type: 'doc',
@@ -362,6 +403,11 @@ const sidebars = {
                   type: 'doc',
                   id: 'tutorials/devops/deployment/gcp-deployment-guide',
                   label: 'GCP Deployment Guide',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/devops/deployment/aws-deployment-guide',
+                  label: 'AWS Deployment Guide',
                 },
                 {
                   type: 'category',
@@ -413,18 +459,13 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/programmatic-auth',
-                  label: 'Create API Keys',
+                  id: 'tutorials/devops/auth-and-access-control/api-keys',
+                  label: 'API Keys',
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/api-key-roles',
-                  label: 'API Keys Roles & Limits',
-                },
-                {
-                  type: 'doc',
-                  id: 'tutorials/devops/auth-and-access-control/chat-users-roles',
-                  label: 'JWT Roles & Limits',
+                  id: 'tutorials/devops/auth-and-access-control/jwt',
+                  label: 'JWT',
                 },
                 {
                   type: 'category',
@@ -447,8 +488,13 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/devops/auth-and-access-control/configure-idps/azureb2c',
+                      label: 'Azure AD B2C',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/devops/auth-and-access-control/configure-idps/entraID',
-                      label: 'Microsoft Entra',
+                      label: 'Microsoft Entra ID',
                     },
                     {
                       type: 'doc',
@@ -510,6 +556,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/entities-toolsets',
+                      label: 'Toolsets',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/entities-interceptors',
                       label: 'Interceptors',
                     },
@@ -531,6 +582,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/builders-interceptor-templates',
+                      label: 'Interceptor Templates',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/builders-adapters',
                       label: 'Adapters',
                     },
@@ -540,6 +596,16 @@ const sidebars = {
                   type: 'category',
                   label: 'Assets',
                   items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/assets-applications',
+                      label: 'Applications',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/assets-toolsets',
+                      label: 'Toolsets',
+                    },
                     {
                       type: 'doc',
                       id: 'tutorials/admin/assets-prompts',
@@ -584,6 +650,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/approvals-toolset-publications',
+                      label: 'Toolset Publications',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/approvals-prompt-publications',
                       label: 'Prompt Publications',
                     },
@@ -596,7 +667,7 @@ const sidebars = {
                 },
                 {
                   type: 'category',
-                  label: 'Telemetry',
+                  label: 'Audit',
                   items: [
                     {
                       type: 'doc',
@@ -606,7 +677,12 @@ const sidebars = {
                     {
                       type: 'doc',
                       id: 'tutorials/admin/telemetry-activity-audit',
-                      label: 'Activity Audit',
+                      label: 'Activities',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/telemetry-usage-log',
+                      label: 'Usage Log',
                     },
                   ]
                 }

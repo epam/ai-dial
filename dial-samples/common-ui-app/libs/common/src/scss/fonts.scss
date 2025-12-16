@@ -1,0 +1,69 @@
+h1 {
+  @apply font-semibold;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+h2 {
+  @apply font-normal;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+h3 {
+  @apply heading-3;
+}
+
+@layer components {
+  .body {
+    @apply font-normal;
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .small {
+    @apply font-normal;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .small-text-semi {
+    @apply small font-semibold;
+  }
+
+  .small-medium {
+    @apply font-normal;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .small-150 {
+    @apply font-normal;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .tiny {
+    @apply font-normal;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .tiny-150 {
+    @apply font-normal;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .caption {
+    @apply font-normal;
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .heading-3 {
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    line-height: 18px !important;
+  }
+}
