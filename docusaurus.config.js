@@ -41,6 +41,7 @@ const config = {
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'throw',
+      onBrokenMarkdownImages: 'throw',
     },
   },
   onDuplicateRoutes: 'throw',
