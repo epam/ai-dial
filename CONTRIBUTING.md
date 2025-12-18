@@ -45,7 +45,7 @@ Please see [repository map](https://dialx.ai/open-source).
 
 AI DIAL is a secure, enterprise-grade, free LLM orchestrator that is API-first and model-agnostic. It is designed to be cloud-agnostic, providing horizontal features that simplify interactions with various models and LLM-centric applications, as well as the development of LLM applications. We strive to avoid dependencies on specific cloud or LLM vendors, compromises on scalability or security, excessive expansion of our tech footprint, or potential licensing risks. We typically design features as APIs, which custom extensions can leverage.
 
-The solution is domain-agnostic. We prioritize use case-agnostic generic features (such as rendering charts in the frontend based on model responses) over features that are overly specific to a single domain (like supporting medical anthologies). However, specific implementations can be built as extensions or derived works. For more information, refer to our [extension framework](https://dialx.ai/extension-framework) and [API reference](https://dialx.ai/dial_api).
+The solution is domain-agnostic. We prioritize use case-agnostic generic features (such as rendering charts in the frontend based on model responses) over features that are overly specific to a single domain (like supporting medical anthologies). However, specific implementations can be built as extensions or derived works. For more information, refer to our [API reference](https://dialx.ai/dial_api).
 
 AI DIAL is a product that is designed to **enhance** or **extend**, rather than replace or compete with:
 
