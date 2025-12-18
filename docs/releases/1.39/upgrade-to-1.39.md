@@ -24,8 +24,8 @@
    - ai-dial-app-builder-python: `0.1.0`
    - quick-apps: `0.8.2`
    - quick-apps-2.0: `0.3.0`
-   - mindmap-backend: `0.11.6`
-   - mindmap-frontend: `0.8.13`
+   - mindmap-backend: `0.12.2`
+   - mindmap-frontend: `0.9.5`
    - admin-backend: `0.12.0`
    - admin-frontend: `0.12.0`
    - ai-dial-admin-mcp-manager-backend ->ai-dial-admin-deployment-manager-backend: `0.3.1`
@@ -124,3 +124,7 @@ Environment variables to configure embeddings thread pools DIAL_RAG__CPU_POOLS__
 
 IMPORTANT (!!!)
 The Deployment Manager FE is part of the Administration application FE.
+
+### Mind Map:
+
+The migration guide: https://github.com/epam/dial-mind-map-frontend/wiki/Migration-Guide-from-0.2-to-0.3
