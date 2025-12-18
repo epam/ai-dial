@@ -120,7 +120,7 @@ If a non-compatible JSON configuration is used with dial-core, the dial-admin ap
 Environment variables to configure embeddings thread pools DIAL_RAG__CPU_POOLS__INDEXING_EMBEDDINGS_POOL and DIAL_RAG__CPU_POOLS__QUERY_EMBEDDINGS_POOL are no longer used.
 
 
-###ai-dial-admin-mcp-manager-frontend:
+### ai-dial-admin-mcp-manager-frontend:
 
 IMPORTANT (!!!)
 The Deployment Manager FE is part of the Administration application FE.
