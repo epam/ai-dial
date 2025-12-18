@@ -28,7 +28,7 @@
    - mindmap-frontend: `0.8.13`
    - admin-backend: `0.12.0`
    - admin-frontend: `0.12.0`
-   - ai-dial-admin-mcp-manager-backend: `0.3.1`
+   - ai-dial-admin-mcp-manager-backend ->ai-dial-admin-deployment-manager-backend: `0.3.1`
 
 ## Before upgrade
 
