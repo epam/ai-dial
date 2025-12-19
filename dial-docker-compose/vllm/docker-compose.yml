@@ -4,11 +4,10 @@ include:
 
 services:
   vllm:
-    # One of the official pre-build Docker images for x86 arch:
+    image: vllm/vllm-openai:v0.13.0
+    # For CPU deployment on x86 arch use one of the following pre-build Docker images:
     # https://docs.vllm.ai/en/stable/getting_started/installation/cpu/#pre-built-images
     # image: public.ecr.aws/q9t5s3a7/vllm-cpu-release-repo:v0.13.0
-    # This official image is massive because of CUDA (>7GB compressed)
-    image: vllm/vllm-openai:v0.13.0
     ports:
       - "8000:8000"
     command:
