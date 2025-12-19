@@ -23,7 +23,7 @@
    - ai-dial-app-controller: `0.3.0`
    - ai-dial-app-builder-python: `0.1.0`
    - quick-apps: `0.8.2`
-   - quick-apps-2.0: `0.3.0`
+   - quick-apps-2.0: `0.3.1`
    - mindmap-backend: `0.12.2`
    - mindmap-frontend: `0.9.5`
    - admin-backend: `0.12.0`
@@ -128,3 +128,8 @@ The Deployment Manager FE is part of the Administration application FE.
 ### Mind Map:
 
 The migration guide: https://github.com/epam/dial-mind-map-frontend/wiki/Migration-Guide-from-0.2-to-0.3
+
+### quick-apps-2.0
+
+Update schema to the recent one: [Quickapp2 Schema](./quickapp2-schema.json). Changes were done in `$defs` and `properties` sections.
+Use admin panel to update existing quick apps to the recent schema version.
