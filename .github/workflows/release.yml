@@ -50,8 +50,8 @@ jobs:
           cwd: "./dial-docker-compose/ci/addon"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
-  run-quickstart-self-hosted-model:
-    name: Quickstart self-hosted model
+  run-quickstart-self-hosted-model-ollama:
+    name: Quickstart self-hosted model (Ollama)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
@@ -60,13 +60,24 @@ jobs:
           cwd: "./dial-docker-compose/ci/ollama"
           up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
 
+  run-quickstart-self-hosted-model-vllm:
+    name: Quickstart self-hosted model (vLLM)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: isbang/compose-action@248470ecc5ed40d8ed3d4480d8260d77179ef579 # v2.4.2
+        with:
+          cwd: "./dial-docker-compose/ci/vllm"
+          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
+
   build-and-deploy:
     needs:
       - run-notebooks
       - run-quickstart-model
       - run-quickstart-application
       - run-quickstart-addon
-      - run-quickstart-self-hosted-model
+      - run-quickstart-self-hosted-model-ollama
+      - run-quickstart-self-hosted-model-vllm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
