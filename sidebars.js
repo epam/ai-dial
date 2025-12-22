@@ -219,8 +219,13 @@ const sidebars = {
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/developers/local-run/quick-start-with-self-hosted-model',
-                  label: 'Chat with a Self-Hosted Model',
+                  id: 'tutorials/developers/local-run/quick-start-with-self-hosted-model-ollama',
+                  label: 'Chat with a Self-Hosted Model (Ollama)',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/local-run/quick-start-with-self-hosted-model-vllm',
+                  label: 'Chat with a Self-Hosted Model (vLLM)',
                 },
               ],
             },

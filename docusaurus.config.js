@@ -63,6 +63,7 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.js',
+          exclude: ['releases/**'],
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           //editUrl:

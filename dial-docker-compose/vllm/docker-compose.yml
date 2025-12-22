@@ -1,0 +1,27 @@
+include:
+  - path: ../common.yml
+    env_file: ./.env
+
+services:
+  vllm:
+    image: vllm/vllm-openai:v0.13.0
+    # For CPU deployment on x86 arch use one of the following pre-build Docker images:
+    # https://docs.vllm.ai/en/stable/getting_started/installation/cpu/#pre-built-images
+    # image: public.ecr.aws/q9t5s3a7/vllm-cpu-release-repo:v0.13.0
+    ports:
+      - "8000:8000"
+    command:
+      # The model that vLLM downloads from HF and serves at `/v1/chat/completions` endpoint.
+      - "${VLLM_CHAT_MODEL:-Qwen/Qwen2.5-Coder-0.5B-Instruct-GPTQ-Int4}"
+      # This must be equal to the corresponding DIAL deployment ID in DIAL Core config
+      - "--served-model-name"
+      - "dial-chat-deployment-id"
+    environment:
+      - VLLM_CPU_KVCACHE_SPACE=${VLLM_CPU_KVCACHE_SPACE:-1}
+      - VLLM_USE_FLASHINFER_SAMPLER=0
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 120s

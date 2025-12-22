@@ -1,0 +1,16 @@
+{
+  "routes": {},
+  "models": {
+    "dial-chat-deployment-id": {
+      "type": "chat",
+      "displayName": "Self-hosted chat model",
+      "endpoint": "http://vllm:8000/v1/chat/completions"
+    }
+  },
+  "keys": {
+    "dial_api_key": {
+      "project": "TEST-PROJECT",
+      "role": "default"
+    }
+  }
+}
