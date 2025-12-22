@@ -133,3 +133,4 @@ The migration guide: https://github.com/epam/dial-mind-map-frontend/wiki/Migrati
 
 Update schema to the recent one: [Quickapp2 Schema](./quickapp2-schema.json). Changes were done in `$defs` and `properties` sections.
 Use admin panel to update existing quick apps to the recent schema version.
+Add [Content Downloader](./content_downloader.json) to predefined quick app tools. This file should be available in `${PREDEFINED_BASE_PATH}/tool` folder.  
