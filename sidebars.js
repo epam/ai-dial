@@ -195,6 +195,11 @@ const sidebars = {
           label: 'Chat User Guide',
         },
         {
+          type: 'doc',
+          id: 'tutorials/mind-map',
+          label: 'Mind Map Studio',
+        },
+        {
           type: 'category',
           label: 'Developers',
           items: [
@@ -214,8 +219,13 @@ const sidebars = {
                 },
                 {
                   type: 'doc',
-                  id: 'tutorials/developers/local-run/quick-start-with-self-hosted-model',
-                  label: 'Chat with a Self-Hosted Model',
+                  id: 'tutorials/developers/local-run/quick-start-with-self-hosted-model-ollama',
+                  label: 'Chat with a Self-Hosted Model (Ollama)',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/local-run/quick-start-with-self-hosted-model-vllm',
+                  label: 'Chat with a Self-Hosted Model (vLLM)',
                 },
               ],
             },
@@ -619,6 +629,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/assets-toolsets',
+                      label: 'Toolsets',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/assets-prompts',
                       label: 'Prompts',
                     },
@@ -658,6 +673,11 @@ const sidebars = {
                       type: 'doc',
                       id: 'tutorials/admin/approvals-application-publications',
                       label: 'Application Publications',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/approvals-toolset-publications',
+                      label: 'Toolset Publications',
                     },
                     {
                       type: 'doc',
