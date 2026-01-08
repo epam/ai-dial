@@ -120,6 +120,11 @@ const sidebars = {
               id: 'platform/core/apps',
               label: 'DIAL-Native Apps',
             },
+            {
+              type: 'doc',
+              id: 'tutorials/developers/apps-development/develop-custom-apps-overview',
+              label: 'Custom Apps',
+            },
           ],
         },
         {
@@ -319,11 +324,6 @@ const sidebars = {
                   type: 'category',
                   label: 'Develop Custom Apps',
                   items: [
-                    {
-                      type: 'doc',
-                      id: 'tutorials/developers/apps-development/develop-custom-apps-overview',
-                      label: 'Overview',
-                    },
                     {
                       type: 'doc',
                       id: 'tutorials/developers/apps-development/develop-single-app',
