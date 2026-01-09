@@ -6,7 +6,7 @@ DIAL-native applications adhere to the [unified protocol](/docs/platform/3.core/
 
 > Refer to [DIAL Core](/docs/platform/3.core/7.apps.md) to learn more about applications in DIAL.
 
-## Applications Main Screen
+## Main Screen
 
 Applications, when added via DIAL Core configuration files or published by users are placed in the Public folder. The main screen displays all the applications available in Public folder in DIAL. 
 
@@ -14,7 +14,7 @@ Applications, when added via DIAL Core configuration files or published by users
 
 ![ ](img/121.png)
 
-### Folders Structure
+##### Folders Structure
 
 Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public space. 
 
@@ -27,7 +27,7 @@ Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) a
 
 ![ ](img/122.png)
 
-### Applications Grid
+##### Applications Grid
 
 Click on any folder to display applications in the applications grid.
 
@@ -39,7 +39,46 @@ Click on any folder to display applications in the applications grid.
 | **Updated time** | The timestamp of the last modification of the application. Use to track changes.                     |
 | **Actions**      | Actions you can perform on the selected application: <br /> - **Open in new tab**: Opens a new tab with application's properties, features and parameters.  <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the application.<br />- **Delete**: Use to delete the application. Alternatively you can use **Bulk Actions** in the header to remove multiple applications. |
 
-## Create Application Asset
+## Export
+
+Use **Bulk Actions** in the toolbar to download selected applications. 
+
+![ ](img/apps_bulk_actions.png)
+
+This is useful for migrating applications between environments, sharing sets of applications with another users, or keeping a point-in-time backup.
+
+![ ](img/apps_export.png)
+
+##### To export applications:
+
+1. Click **Bulk Actions** button in the toolbar.
+2. Select applications by checking the boxes in each row. You can also select the version you want to export. 
+3. Click **Export** in the bottom to launch the export modal. 
+4. In the modal window select the export format: Archive or JSON.
+5. Click **Export** to generate export file and start downloading.
+
+![ ](img/apps_export2.png)
+
+## Import
+
+Use **Import** in the toolbar to upload new or update existing applications from external JSON files or ZIP archive. This is essential for migrating, restoring, or sharing application assets between DIAL users.
+
+![ ](img/import_apps.png)
+
+##### To import applications:
+
+1. Click **Import** in the toolbar to launch the import modal.
+2. Select the type of files you want to import. **Drag & Drop** your archive or JSON files into the files area or click **Browse** to open a file picker.
+   * **Archive**: Select if you want to import a single ZIP or tarball containing multiple JSON files. **Note**: Only 1 archive can be imported at a time.
+   * **JSON**: Select if you want to import JSON files. **Note**: Up to 30 files can be imported at once.
+3. Select a Conflict resolution Strategy. It allows you to decide how to handle existing applications with the same name and version in your workspace:
+   * **Skip**: Leave existing applications untouched, only new ones will be added.
+   * **Override**: Replace applications with the same name and version with the imported ones.
+   * **Edit manually**: Resolve conflicts manually one by one.
+4. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all applications will be imported directly into the root folder without recreating the original folder hierarchy.
+5. Click **Finish** to start.
+
+## Create
 
 On the main screen you can manually add new DIAL application to the public folder.
 

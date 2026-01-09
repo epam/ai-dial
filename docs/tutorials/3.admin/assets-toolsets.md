@@ -4,7 +4,7 @@
 
 Toolsets are MCP servers that you can use as tools in [Quick Apps 2.0](/docs/video%20demos/2.Applications/5.quick-apps.md).
 
-## Toolsets Main Screen
+## Main Screen
 
 On the main screen, you can find all publicly-available Toolsets that have either been published by DIAL users or added via a direct modification to [DIAL Core's dynamic settings](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolsets.md). 
 
@@ -36,7 +36,42 @@ Click on any folder to display toolsets in the toolsets grid.
 | **Updated time** | The timestamp of the last modification of the toolset. Use to track changes.     |
 | **Actions**      | Actions you can perform on the selected toolset: <br /> - **Open in new tab**: Opens a new tab with toolset's properties and parameters. <br />- **Duplicate**: Use to create a copy of the toolset. <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the toolset.<br />- **Delete**: Use to delete the toolset. Alternatively you can use **Bulk Actions** in the header to remove multiple toolsets. |
 
-## Create Toolset Asset
+## Export
+
+Use **Bulk Actions** in the toolbar to download selected toolsets. 
+
+![ ](img/apps_bulk_actions.png)
+
+This is useful for migrating toolsets between environments, sharing sets of toolsets with another users, or keeping a point-in-time backup.
+
+##### To export toolsets:
+
+1. Click **Bulk Actions** button in the toolbar.
+2. Select toolsets by checking the boxes in each row. You can also select the version you want to export. 
+3. Click **Export** in the bottom to launch the export modal.
+4. In the modal window select the export format: Archive or JSON.
+5. Click **Export** to generate export file and start downloading.  
+
+## Import
+
+Use **Import** in the toolbar to upload new or update existing toolsets from ZIP archive. This is essential for migrating, restoring, or sharing toolsets assets between DIAL users.
+
+##### To import toolsets:
+
+1. Click **Import** in the toolbar to launch the import modal.
+2. **Drag & Drop** your DIAL Admin archive into the files area or click **Browse** to open a file picker.
+
+    ![ ](img/140.png)
+
+3. Select a Conflict resolution strategy. It allows you to decide how to handle existing toolsets with the same identifier and version:
+   * **Skip**: Leave existing toolsets untouched, only new ones will be added.
+   * **Override**: Replace toolsets having the same name and version with the imported ones.
+4. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all toolsets will be imported directly into the root folder without recreating the original folder hierarchy.
+5. Click **Finish** to start.
+
+    ![ ](img/141.png)
+
+## Create
 
 On the main screen you can add new toolsets to the public folder.
 
@@ -56,24 +91,6 @@ Follow these steps to add a new toolset:
 3. Once all required fields are filled click **Create**. The dialog closes and the new [toolset configuration](#configuration-screen) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
 
     ![](img/132.png)
-
-## Import
-
-Use **Import** in the toolbar to upload new or update existing toolsets from ZIP archive. This is essential for migrating, restoring, or sharing toolsets assets between DIAL users.
-
-##### To import toolsets:
-
-1. Click **Import** in the toolbar to launch the import modal.
-2. **Drag & Drop** your DIAL Admin archive into the files area or click **Browse** to open a file picker.
-
-    ![ ](img/140.png)
-
-3. Select a Conflict resolution strategy. It allows you to decide how to handle existing toolsets with the same identifier and version:
-   * **Skip**: Leave existing toolsets untouched, only new ones will be added.
-   * **Override**: Replace toolsets having the same name and version with the imported ones.
-4. Click **Finish** to start.
-
-    ![ ](img/141.png)
 
 ## Configuration Screen
 
@@ -143,6 +160,6 @@ Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON 
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
-### Delete
+## Delete
 
 Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected toolset. To remove several toolsets, use the **Bulk Actions** option on the main screen.
