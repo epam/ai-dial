@@ -97,6 +97,12 @@ In the Properties tab, you can view and manage the selected file, including movi
 
 ## Delete
 
-Click **Delete** in the toolbar on the Properties screen to permanently remove the selected file from your workspace. Any models or applications that reference it will break until you reattach a valid file.
+Click **Delete** in the toolbar on the Properties screen to permanently remove the selected file from your workspace. 
+
+> **Note**: Any models or applications that reference it will break until you reattach a valid file.
 
 You can also delete a file using the Delete option in the file context menu or by deleting the related folder.
+
+Use **Bulk Actions** in the toolbar to delete multiple files. 
+
+![ ](img/apps_bulk_actions.png)
