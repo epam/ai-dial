@@ -14,7 +14,7 @@
    - ai-dial-adapter-dial: `0.11.0`
    - ai-dial-auth-helper: `0.4.0`
    - ai-dial-chat-themes: `0.12.0`
-   - ai-dial-chat: `0.41.4`
+   - ai-dial-chat: `0.41.3`
    - ai-dial-core: `0.39.1`
    - ai-dial-analytics-realtime: `0.20.0`
    - ai-dial-rag: `0.38.0`
@@ -41,11 +41,14 @@
 
 ### Release-specific notes
 
+
 ## Config changes
 
 ### ai-dial-core
 
 Added new optional parameter in application schema: assistantAttachmentsInRequestSupported with the meaning same as same field for application but for entire application type. Doesn't need to be specified by default.
+
+
 
 ### ai-dial-chat
 
@@ -53,9 +56,14 @@ Added new optional env variables
 
 `NEXT_PUBLIC_STAGE_CONTENT_LIMIT`   - Sets the maximum size (in kilobytes) for stage content when rendered. If the content exceeds this limit, a download link will be shown instead.  Default value is 40.
 
+
+
+
 ### ai-dial-chat-themes
 
+
 ### ai-dial-adapter-openai
+
 
 ### ai-dial-adapter-bedrock
 
@@ -89,9 +97,12 @@ ANTHROPIC_MAX_RETRY_ATTEMPTS=2
 GOOGLE_GENAI_MAX_RETRY_ATTEMPTS=4
 ```
 
+
 ### admin-frontend
 
+
 ### admin-backend
+
 
 #### Detect dial-core versions changes
 
@@ -99,25 +110,27 @@ GOOGLE_GENAI_MAX_RETRY_ATTEMPTS=4
 
 The `CORE_CONFIG_VERSION` environment variable is now **required** to be set in case `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT` is set to `false`. To resolve any breaking changes in the DIAL Core JSON config (e.g. the deletion of any property), it is recommended to define `CORE_CONFIG_VERSION` environment variable even if `ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT` is set to `true`.
 
-1. **Handling of breaking changes in DIAL Core configuration**:
+2. **Handling of breaking changes in DIAL Core configuration**:
 
 If a non-compatible JSON configuration is used with dial-core, the dial-admin application will not be able to start and connect with it to retrieve its config version. If the connection to the dial-core application cannot be established, the dial-admin application will apply the configuration version specified in the `CORE_CONFIG_VERSION` environment variable.
+
 
 ### ai-dial-rag
 
 Environment variables to configure embeddings thread pools DIAL_RAG__CPU_POOLS__INDEXING_EMBEDDINGS_POOL and DIAL_RAG__CPU_POOLS__QUERY_EMBEDDINGS_POOL are no longer used.
 
-### ai-dial-admin-mcp-manager-frontend
+
+### ai-dial-admin-mcp-manager-frontend:
 
 IMPORTANT (!!!)
 The Deployment Manager FE is part of the Administration application FE.
 
-### Mind Map
+### Mind Map:
 
-The migration guide: <https://github.com/epam/dial-mind-map-frontend/wiki/Migration-Guide-from-0.2-to-0.3>
+The migration guide: https://github.com/epam/dial-mind-map-frontend/wiki/Migration-Guide-from-0.2-to-0.3
 
 ### quick-apps-2.0
 
 Update schema to the recent one: [Quickapp2 Schema](./quickapp2-schema.json). Changes were done in `$defs` and `properties` sections.
 Use admin panel to update existing quick apps to the recent schema version.
-Add [Content Downloader](./content_downloader.json) to predefined quick app tools. This file should be available in `${PREDEFINED_BASE_PATH}/tool` folder.
+Add [Content Downloader](./content_downloader.json) to predefined quick app tools. This file should be available in `${PREDEFINED_BASE_PATH}/tool` folder.  
