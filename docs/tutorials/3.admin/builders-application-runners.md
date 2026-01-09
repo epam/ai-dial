@@ -91,7 +91,7 @@ You can override or extend DIAL Core’s built-in protocol calls with your own H
 | **Truncate prompt endpoint**      | No| A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual application call.      |
 | **Application properties header** | No| This setting determines how the apps configuration is handled during a chat completion request. If enabled, DIAL will append the apps configuration to the chat completion request headers.   |
 | **Playback support**| No| [Playback](/docs/tutorials/0.user-guide.md#playback) allows to simulate a conversation without any engagement with models. This allows to review and analyze the conversation flow without invoking any model responses. |
-|**Assistant attachments in request**| No|Indicates whether the application supports DIAL attachments in the assistant messages. When set to `true`, DIAL Chat must preserve attachments in the assistant messages, instead of removing them. The feature is especially useful for apps that can generate attachments as well as take attachments in its input.|
+|**Assistant attachments in request**| No|Indicates whether the application supports `attachments` in `messages` in [chat completion request](https://dialx.ai/dial_api#operation/sendChatCompletionRequest). When set to `true`, DIAL Chat preserves `attachments` in `messages` in the chat completion requests to DIAL Core, instead of removing them. The feature is especially useful for apps that can generate attachments as well as take attachments in its input.|
 
 ![ ](img/runner_features.png)
 
