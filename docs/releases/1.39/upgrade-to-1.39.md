@@ -26,7 +26,7 @@
    - quick-apps-2.0: `0.3.1`
    - mindmap-backend: `0.12.3`
    - mindmap-frontend: `0.9.7`
-   - admin-backend: `0.12.0`
+   - admin-backend: `0.12.3`
    - admin-frontend: `0.12.0`
    - ai-dial-admin-mcp-manager-backend ->ai-dial-admin-deployment-manager-backend: `0.3.1`
 
