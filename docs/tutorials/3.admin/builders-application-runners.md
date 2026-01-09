@@ -70,16 +70,30 @@ In the **Properties** tab, you can define identity and metadata of application r
 | **Bucket copy**| Yes      | Determines whether files stored in the application's bucket should be copied when the application is copied, moved, or published.|
 | **Topics**  | No| Use tags to associate runner with specific topics or categories (e.g. "finance", "support") for identification and filtering on UI.    |
 | **Completion endpoint**    | Yes      | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
-| **Configuration endpoint** | No| A URL to fetch dynamic app-specific settings. Use this to drive runtime overrides from a remote config store. |
-| **Rate endpoint**| No| A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).|
-| **Truncate prompt endpoint**      | No| A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual application call.      |
-| **Tokenize endpoint**      | No| A URL to call a custom tokenization service.|
 | **Viewer URL** | No| A URL of the custom viewer UI. A custom UI, if enabled, will override the standard DIAL Chat UI for applications built based on this application runner.|
 | **Editor URL** | No| A URL of the custom builder UI. Application builder allows DIAL Chat end-users to create instances of apps using a UI wizards.|
-| **Application properties header** | No| This setting determines how the apps configuration is handled during a chat completion request. If enabled, DIAL will append the apps configuration to the chat completion request headers.   |
-| **Playback support**| No| [Playback](/docs/tutorials/0.user-guide.md#playback) allows to simulate a conversation without any engagement with models. This allows to review and analyze the conversation flow without invoking any model responses. |
 
 ![ ](img/img_26.png)
+
+### Features
+
+In the Features tab, you can control optional capabilities of applications created with the Application Runner. 
+
+You can override or extend DIAL Core’s built-in protocol calls with your own HTTP services. Here, you can specify endpoints used by Application Runners (e.g. a Python or Node Runner) to perform preprocessing or policy checks before delegating to your underlying models and workflows.
+
+> Values are propagated to applications created with the related application runner and can be overridden on per-application basis in the [Applications Configuration](/docs/tutorials/3.admin/entities-applications.md#features).
+
+| Field                        | Required|Description |
+|------------------------------|----------|----------------|
+| **Configuration endpoint** | No| A URL to fetch dynamic app-specific settings. Use this to drive runtime overrides from a remote config store. |
+| **Rate endpoint**| No| A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).|
+| **Tokenize endpoint**      | No| A URL to call a custom tokenization service.|
+| **Truncate prompt endpoint**      | No| A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual application call.      |
+| **Application properties header** | No| This setting determines how the apps configuration is handled during a chat completion request. If enabled, DIAL will append the apps configuration to the chat completion request headers.   |
+| **Playback support**| No| [Playback](/docs/tutorials/0.user-guide.md#playback) allows to simulate a conversation without any engagement with models. This allows to review and analyze the conversation flow without invoking any model responses. |
+|**Assistant attachments in request**| No|Indicates whether the application supports DIAL attachments in the assistant messages. When set to `true`, DIAL Chat must preserve attachments in the assistant messages, instead of removing them. The feature is especially useful for apps that can generate attachments as well as take attachments in its input.|
+
+![ ](img/runner_features.png)
 
 ### Parameters
 

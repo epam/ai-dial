@@ -4,7 +4,7 @@
 
 > Refer to [DIAL-Native Applications](/docs/platform/3.core/7.apps.md) to learn about applications in DIAL.
 
-## Applications Main Screen
+## Main Screen
 
 In Applications, you can see, create and manage applications deployed in your instance of DIAL.
 
@@ -26,7 +26,7 @@ In Applications, you can see, create and manage applications deployed in your in
 | **Max attachment number** | Maximum number of attachments allowed in a single request.                      |
 | **Forward auth token**    | This parameter allow you to determine whether the Auth Token should be forwarded from the caller's session to the upstream API call. This enables multi-tenant scenarios or pass-through authentication for downstream services. |
 
-## Create Application
+## Create
 
 On the main screen you can add new application deployments.
 
@@ -131,12 +131,14 @@ Enable or disable per-request options that your application accepts from clients
 | **Tools**                     | Enables `tools`/`functions` payloads in API calls. Switch on if your application makes external function calls (e.g. calendar lookup, database fetch).        |
 | **Seed**                      | Enables the `seed` parameter for reproducible results. Great for testing or deterministic pipelines.  Disable to ensure randomized creativity.                |
 | **URL Attachments**           | Enables URL references (images, docs) as attachments in API requests. Must be enabled if your workflow downloads or processes remote assets via URLs.         |
+|**Assistant attachments in request**| Indicates whether the application supports DIAL attachments in the assistant messages. When set to `true`, DIAL Chat must preserve attachments in the assistant messages, instead of removing them. The feature is especially useful for apps that can generate attachments as well as take attachments in its input. The value is inherited from the related application runner.|
 | **Folder Attachments**        | Enables attachments of folders (batching multiple files).                                                                                                     |
 | **Accessible by request key** | Indicates whether the deployment is accessible using a [per-request API key](/docs/platform/3.core/3.per-request-keys.md).                                    |
 | **Content parts**             | Indicates whether the deployment supports requests with content parts or not.                                                                                 |
 | **Consent required**          | indicates whether the application requires user consent before use.                                                                                           |
 
 ### Parameters
+
 The Parameters tab within an application’s configuration allows administrators to manage application-specific parameters that influence its behavior:
 * Displays a list of key–value pairs defined for the selected application.
 * Parameters can be used to pass custom configurations or flags.
