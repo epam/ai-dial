@@ -4,9 +4,10 @@
 
 You can add an additional logic into the processing of every request and response for models and apps, enabling PII obfuscation, guardrails, safety checks, and beyond. This is achieved through the integration of pluggable components known as Interceptors. 
 
-> Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
+> * Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
+> * You can configure global interceptors that apply on a system level in [System Properties](/docs/tutorials/3.admin/home.md#system-properties).
 
-## Interceptors Main Screen
+## Main Screen
 
 In Interceptors, you can find, manage and add interceptors to your DIAL environment.
 
