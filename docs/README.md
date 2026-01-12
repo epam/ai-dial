@@ -23,7 +23,8 @@
 ## Run DIAL Locally
 
 * [Launch DIAL Chat with an Azure model](/docs/tutorials/1.developers/0.local-run/1.quick-start-model.md)
-* [Launch DIAL Chat with a self-hosted model](/docs/tutorials/1.developers/0.local-run/3.quick-start-with-self-hosted-model.md)
+* [Launch DIAL Chat with a self-hosted model (Ollama)](/docs/tutorials/1.developers/0.local-run/3.quick-start-with-self-hosted-model-ollama.md)
+* [Launch DIAL Chat with a self-hosted model (vLLM)](/docs/tutorials/1.developers/0.local-run/4.quick-start-with-self-hosted-model-vllm.md)
 * [Launch DIAL Chat with a sample application](/docs/tutorials/1.developers/0.local-run/0.quick-start-with-application.md)
 
 ## Helm Deployment
