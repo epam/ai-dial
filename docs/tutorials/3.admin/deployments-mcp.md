@@ -45,11 +45,7 @@ On the main screen, you can add new MCP containers based on existing [images](/d
 
 On the configuration screen, you can view and edit the selected MCP container settings, start and stop the container, view logs and events, or delete the container.
 
-### Properties
-
-In the Properties tab, you can preview and modify selected container's basic properties.
-
-##### Actions
+### Actions
 
 In the header of the Configuration screen, you can find the following action buttons:
 
@@ -61,13 +57,17 @@ In the header of the Configuration screen, you can find the following action but
 
 ![ ](img/mcp_container_properties_actions.png)
 
+### Properties
+
+In the Properties tab, you can preview and modify selected container's basic properties.
+
 ##### Fields Description
 
 | Property        | Description |
 |----------------|--------------|
 |ID             | The unique identifier of the MCP container.|
 |Type           | The type of the MCP container.|
-| MCP Image      | The image from which the MCP container was created.|
+| MCP Image      | The image from which the MCP container was created. Click to open details or navigate to [MCP Images](/docs/tutorials/3.admin/deployments-images.md).|
 | Creation Time     | The date and time when the MCP container was created.|
 |Updated Time   | The date and time when the MCP container was last updated.|
 | Status         | The current status of the MCP container (e.g., Running, Stopped).|

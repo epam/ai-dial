@@ -2,7 +2,7 @@
 
 ## About Toolsets
 
-Toolsets allow applications to interact with external services (such as MCP servers) to perform specific actions. 
+Toolsets are MCP servers that you can use as tools in [Quick Apps 2.0](/docs/video%20demos/2.Applications/5.quick-apps.md).
 
 ## Main Screen
 
