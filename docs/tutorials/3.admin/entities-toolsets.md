@@ -4,24 +4,25 @@
 
 Toolsets allow applications to interact with external services (such as MCP servers) to perform specific actions. 
 
-## Toolsets Main Screen
+## Main Screen
 
 On the **Toolsets** main screen, you can find all toolsets existing in your DIAL instance. Here you can view, filter, and add new toolset definitions.
 
-![](img/109.png)
+![](img/entities_tools.png)
 
 ##### Toolsets grid
 
 | Field                     | Definition|
 |---------------------------|-------|
-| **ID**                    | This is a unique key under the toolsets section of DIAL Admin.               |
 | **Display Name**          | A user-friendly label for a toolset (e.g. GitHub, Google Maps).              |
 | **Description**           | Free-text notes about this toolset’s purpose, capabilities, or any other relevant details.              |
-|**Source Type**            |A source type of the toolset: either DIAL MCP Container or External Endpoint.|
-|**Source**                 |For the MCP Container source type, enter a container ID. For External Endpoint - enter a URL of the external endpoint.|
+| **ID**                    | This is a unique key under the toolsets section of DIAL Admin.               |
+|**Updated Time**          |Date and time when the toolset's configuration was last updated.              |
+|**Source Type**            |A source type of the toolset: either DIAL [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) or External Endpoint.|
+|**Source**                 |For the [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) source type, it is a container ID. For External Endpoint - a URL of the external endpoint.|
 | **Author**                | Contains the tools author's name.                      |
 | **Topics**                | Tags or categories (e.g. "finance," "support") you can assign for discovery, filtering, or grouping. Helps end users and admins find the right toolset.  |
-|**Updated Time**          |Date and time when the toolset's configuration was last updated.              |
+
 
 ## Create Toolset
 
@@ -35,13 +36,13 @@ Follow these steps to add a new toolset:
     | **ID**            | Yes      | This is a unique key under the toolsets section of DIAL Admin.       |
     | **Display Name**  | Yes       | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).|
     | **Description**   | No       | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details.                         |
-    |**Source Type**|Yes|Choose between the available source types of toolset: DIAL MCP Container and External Endpoint.|
+    |**Source Type**|Yes|Choose between the available source types of toolset: DIAL [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) and External Endpoint.|
     | **External Endpoint** | Conditional      | Toolset API for MCP calls. The endpoint that a Quick App can call to fetch external data. Applies for External Endpoint source types. |
-    | **Container** | Conditional      | MCP server container ID. Applies for MCP Container source types. |
+    | **Container** | Conditional      |If MCP Container source type is selected, pick one [MCP container](/docs/tutorials/3.admin/deployments-mcp.md) from the list. |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#toolset-configuration). When done with toolset configuration, click **Save**. It may take some time for the changes to take effect after saving.
 
-    ![](img/110.png)
+    ![](img/create_toolsets.png)
 
 ## Toolset Configuration
 
@@ -56,15 +57,14 @@ You can access the toolset configuration screen by clicking any toolset in the t
 
 In the **Properties** tab, you can view and edit main definitions and settings for toolset. 
 
-![](img/111.png)
-
-##### Basic Identification and Information
+##### Toolset properties
 
 | Field                  | Required    | Description    |
 |------------------------|-------------|-------------------------------|
 | **ID**                 | -           | This is a unique key under the toolsets section of DIAL Admin.      |
 | **Updated Time**       | -           | Date and time when the toolset's configuration was last updated.    |
 | **Creation Time**      | -           | Date and time when the toolset's configuration was created.|
+|**Sync with core**      | -           | Indicates whether the toolset's configuration in Admin app is synchronized with the DIAL Core configuration. Click top open a read-only JSON Viewer to see the details.<br />Use [JSON Editor](#json-editor) to edit DIAL Admin or DIAL Core configuration of the selected toolset.|
 | **Display Name**       | No          | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).  |
 | **Description**        | No          | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details.|
 | **Maintainer**         | No          | Field used to specify the responsible person overseeing the toolset’s configuration.|
@@ -72,11 +72,13 @@ In the **Properties** tab, you can view and edit main definitions and settings f
 | **Topics**             | No          | A tag that associates a toolsets with one or more topics or categories (e.g. "finance", "support").    |
 | **Source Type**        | Yes         | The source type of the selected toolset: MCP Container or External Endpoint.  |
 | **External Endpoint**  | Conditional | The MCP endpoint that a Quick App can call to fetch external data. Applies for External Endpoint deployment source type.|
-| **Container**          | Conditional | MCP server container ID. Applies for MCP Container deployment source type.   |
+| **Container**          | Conditional | MCP server container ID. Applies for MCP Container deployment source type. Follow a link to navigate to [MCP Deployments](/docs/tutorials/3.admin/deployments-mcp.md).|
 | **Transport**          | Yes         |  A transport supported by MCP server. The available options are: HTTP or SSE. Default: HTTP. Choose SSE for server-sent events when supported. |
 | **Authentication**     | Yes         | The following toolset authentication options are available: <br/> 1. **OAuth** - authenticate via OAuth 2.0 with an external identity provider. Supports **With login** and **With login & configuration** options. <br/> 2. **API Key** - authenticate requests using a key. <br/> 3. **Without authentication** — no authentication enforced, endpoint is publicly accessible.<br/>Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolset_credentials_api.md) to learn more about toolset authentication. |
-|**Forward per request key**|Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. **Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`.|
+|**Forward per request key**|No|Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. **Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`.|
 | **Max retry attempts** | Yes         | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors).|
+
+![](img/toolset_properties.png)
 
 ### Tools Overview
 
@@ -194,7 +196,6 @@ To open Activity Details, click on the three-dot menu (⋮) at the end of a row 
 
 Use Resource Rollback to restore the previous version of the selected activity. A rollback leads to generation of a new entry on the audit activity screen.
 
-
 ### JSON Editor
 
 Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the toolset’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any toolset configuration page.
@@ -205,9 +206,10 @@ Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON 
 
 1. Navigate to **Entities → Toolsets**, then select the toolset you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
+3. Chose between the Admin and Core format to see the configuration details as stored in DIAL Admin or DIAL Core. **Note**: click **Sync with core** in the **Properties** tab to compare them side-by-side in a read-only JSON Viewer.
+4. Make changes and click **Save** to apply them.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
-
 
 ### Delete
 

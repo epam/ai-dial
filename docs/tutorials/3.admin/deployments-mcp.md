@@ -2,7 +2,9 @@
 
 ## Introduction
 
-This page allows you to manage MCP server containers within the DIAL system. You can create new containers based on existing images, start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting. The page provides all essential tools for deploying and maintaining your MCP servers efficiently.
+This page allows you to manage MCP server containers within the DIAL system. You can create new containers based on existing [images](/docs/tutorials/3.admin/deployments-images.md), start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting. The page provides all essential tools for deploying and maintaining your MCP servers efficiently.
+
+> MCP Containers can be used as sources to create [Toolsets](/docs/tutorials/3.admin/entities-toolsets.md) and [Assets Toolsets](/docs/tutorials/3.admin/assets-toolsets.md).
 
 ## Main Screen
 
@@ -53,7 +55,7 @@ In the header of the Configuration screen, you can find the following action but
 
 | Action         | Description                                                  |
 |----------------|--------------------------------------------------------------|
-| Create           | Click to create a new Toolset or a Asset Toolset.         |
+| Create           | Click to create a new [Toolset](/docs/tutorials/3.admin/entities-toolsets.md) and [Asset Toolset](/docs/tutorials/3.admin/assets-toolsets.md).         |
 | Run/Stop        | Click to start or stop the MCP container.                   |  
 | Delete         | Click to delete the MCP container.                           |
 
