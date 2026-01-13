@@ -22,8 +22,8 @@ The grid with models displays the main properties of models which include:
 | **Version**               | An **optional** tag with the version of a specific model deployment (e.g. `0613`, `v1`). Use it to distinguish between "latest," "beta," or date-stamped builds. |
 | **Description**           | Description of the model’s purpose including any relevant details. The description is displayed in DIAL Chat UI and Marketplace.|
 | **ID**                    | This is a unique key under the `models` section of [DIAL Core’s config](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/models.md). Must match the upstream service’s model or deployment name (e.g. `gpt-4-0613`).                |
-| **Source Type**           | Can be one of the following options: Adapter, Model Container, External Endpoint.                    |
-| **Source**                | Exact Adapter Id, Model deployment Id or Endpoint of the model, based on your Source Type selection.  |
+| **Source Type**           | Can be one of the following options: Adapter, Endpoint or Deployment model.                    |
+| **Source**                | Exact Adapter Id, [Model serving Id](/docs/tutorials/3.admin/deployments-models.md) or Endpoint of the model, based on your Source Type selection.  |
 | **Author**                | Information about the user who deployed the model.                  |
 | **Type**                  | Defines **Chat** (conversational completions) and **Embedding** models (vector generation). DIAL Core uses this to choose the correct API endpoint and a payload schema.    |
 | **Override Name**         | An **optional**, context-specific display label that overrides the Display Name in UI components. Use it to give a model different aliases in different workflows without redefining the model.             |
@@ -51,7 +51,7 @@ Follow these steps to add new language models to your DIAL instance:
     | **Description**  | No           | Free-text note about the model’s purpose or distinguishing traits.            |
     | **Source Type**  | Yes          | Allows to select one of the following options: Adapter, Model Container, External Endpoint.        |
     | **Adapter**      | Conditional  | Required if Source Type is 'Adapter'. A model adapter that will handle requests to this model (e.g. OpenAI, DIAL). The chosen adapter supplies authentication, endpoint URL, and request formatting. |
-    | **Container**    | Conditional  | Required if Source Type is 'Model Container'. Allows to select one of Model deployments in DIAL instance (the container must be in a Running state).                |
+    | **Container**    | Conditional  | Required if Source Type is 'Model Container'. Allows to select one of [Model servings](/docs/tutorials/3.admin/deployments-models.md) in DIAL instance (the container must be in a Running state).                |
     | **Endpoint**     | Conditional  | Required if Source Type is 'External Endpoint'. URL that DIAL Core will invoke for this model.     |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#model-configuration). When done with model configuration, click **Save**. It may take some time for the changes to take effect after saving. Once added, the model appears in the **Models** listing and become available to use across the DIAL ecosystem.
