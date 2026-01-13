@@ -51,11 +51,40 @@ In the header of the Configuration screen, you can find the following action but
 
 | Action         | Description                                                  |
 |----------------|--------------------------------------------------------------|
-| Create           | Click to create a new [Toolset](/docs/tutorials/3.admin/entities-toolsets.md) and [Asset Toolset](/docs/tutorials/3.admin/assets-toolsets.md).         |
+| Create           | Available for running containers. <br /> Click to create a new [Toolset](/docs/tutorials/3.admin/entities-toolsets.md) and [Asset Toolset](/docs/tutorials/3.admin/assets-toolsets.md).         |
 | Run/Stop        | Click to start or stop the MCP container.                   |  
 | Delete         | Click to delete the MCP container.                           |
 
 ![ ](img/mcp_container_properties_actions.png)
+
+### Create Toolset
+
+You can create a new toolset based on the running MCP container. The created toolset will use the MCP container as its source and appear in the Toolsets list on the [Entities - Toolsets](/docs/tutorials/3.admin/entities-toolsets.md) page.
+
+1. In the Configuration screen of the running MCP container, click the **Create** button in the header and select **Toolset** from the dropdown.
+2. In the Create Toolsets dialog, fill in the form fields:
+    - **ID**: Unique identifier for the toolset.
+    - **Display Name**: Enter a name for the toolset.
+    - **Description**: Provide a brief description of the toolset.
+3. Click the **Create** button to submit the form and create the toolset.
+
+![ ](img/create_toolset_deployment.png)
+
+### Create Asset Toolset
+
+You can create a new asset toolset based on the running MCP container. The created asset toolset will use the MCP container as its source and appear in the Asset Toolsets list on the [Assets - Toolsets](/docs/tutorials/3.admin/assets-toolsets.md) page.
+
+1. In the Configuration screen of the running MCP container, click the **Create** button in the header and select **Asset Toolset** from the dropdown.
+2. In the Create Asset Toolsets dialog, fill in the form fields:    
+    - **ID**: Unique identifier for the asset toolset.
+    - **Display Name**: Enter a name for the asset toolset.
+    - **Version**: Specify a version of the asset toolset.
+    - **Description**: Provide a brief description of the asset toolset.
+    - **External Endpoint**: Specify an external endpoint for the asset toolset.
+    - **Target folder**: Specify the target folder for the asset toolset.
+3. Click the **Create** button to submit the form and create the asset toolset.
+
+![ ](img/create_asset_toolset-deployment.png)
 
 ### Properties
 

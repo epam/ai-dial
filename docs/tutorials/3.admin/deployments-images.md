@@ -50,6 +50,8 @@ On the main screen, you can add new Docker images for MCP Servers and Intercepto
 
 ## Configuration Screen
 
+Click any Docker image from the main screen to open its configuration screen.
+
 On the configuration screen, you can view and edit the selected Docker image settings.
 
 ### Actions

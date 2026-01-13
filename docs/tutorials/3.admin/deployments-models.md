@@ -8,7 +8,7 @@ When created, a model serving can be used as a source type to create [AI model d
 
 ## Main Screen
 
-On the Model Servings main screen, you can view existing and add new AI model servings.
+On the main screen, you can view existing and add new AI model servings.
 
 ![](img/model_servings.png)
 
@@ -16,15 +16,15 @@ On the Model Servings main screen, you can view existing and add new AI model se
 
 |Field|Description|
 |---|----|
-|Name|The name of the model serving.|
-|Description|A brief description of the model serving.|
-|Source Type|The source type of the model (NIM or HuggingFace).|
-|Status|The current status of the model serving (e.g., Running, Not Running, Stopped, Preparing).|
-|ID|The unique identifier for the model serving.|
-|Container URL|The URL of the container where the model is hosted.|
-|Maintainer|The person or team responsible for maintaining the model serving.|
-|Create time|The date and time when the model serving was created.|
-|Update time|The date and time when the model serving was last updated.|
+|Name|Name of the model serving.|
+|Description|Brief description of the model serving.|
+|Source Type|Source type of the model (NIM or HuggingFace).|
+|Status|Current status of the model serving (e.g., Running, Not Running, Stopped, Preparing).|
+|ID|Unique identifier for the model serving.|
+|Container URL|URL of the container where the model is hosted.|
+|Maintainer|Person or team responsible for maintaining the model serving.|
+|Create time|Date and time when the model serving was created.|
+|Update time|Date and time when the model serving was last updated.|
 
 ## Create
 
@@ -32,7 +32,7 @@ On the main screen, click the **Create** button to open the Create Model Serving
 
 ##### To create a new model serving:
 
-1. Click the **Create** button on the Model Servings main screen to open the Create Model Serving form.
+1. Click the **Create** button on the main screen to open the Create Model Serving form.
 2. Fill in the required fields in the form:
    - **Name**: Enter a name for the model serving.
    - **Description**: Provide a brief description of the model serving.
@@ -53,7 +53,7 @@ In the header of the Configuration screen, you can find the following action but
 
 | Action         | Description                                                  |
 |----------------|--------------------------------------------------------------|
-| Create Model          | Enables for running model servings.<br />Click to create a new [model deployment](/docs/tutorials/3.admin/entities-models.md) using this selected model serving.|
+| Create Model          | Available for running model servings.<br />Click to create a new [model deployment](/docs/tutorials/3.admin/entities-models.md) using this selected model serving.|
 | Run/Stop        | Click to start or stop the selected model serving.|  
 | Delete         | Click to delete the selected model serving.|
 
@@ -65,9 +65,9 @@ You can use a **running** model serving to create a new model deployment in DIAL
 
 1. In the Configuration screen of the running model serving, click the **Create Model** button in the header.
 2. In the Create Model dialog, fill in the form fields:
-   - **ID**: The unique identifier for the model deployment.
+   - **ID**: Unique identifier for the model deployment.
    - **Display Name**: Enter a name for the model deployment.
-   - **Display Version**: Specify the version of the model deployment.
+   - **Display Version**: Specify a version of the model deployment.
    - **Description**: Provide a brief description of the model deployment.
 3. Click the **Create** button to submit the form and create the model deployment. Repeat these steps to create more model deployments if needed.
 
@@ -79,21 +79,21 @@ In the Properties tab, you can view and edit the selected model serving settings
 
 | Property         | Required | Description                                                  |
 |------------------|----------|----------------------------------------------------|
-|ID                | - |The unique identifier of the model serving.                  |
+|ID                | - |Unique identifier of the model serving.                  |
 |Type| - |Container by default.|
-|Creation Time| - |The date and time when the model serving was created.        |
-|Updated Time| - |The date and time when the model serving was last updated.    |
-|Status| - |The current status of the model serving. |
-|URL| - |The URL of the container where the model is hosted.|
-|Name              | Yes |The name of the model serving.                               |
-|Description       | No  |A brief description of the model serving.                   |
-|Maintainer      | No  |The person or team responsible for maintaining the model serving.|
-|Source Type| Yes |The source type of the model (NIM or HuggingFace).|
+|Creation Time| - |Date and time when the model serving was created.        |
+|Updated Time| - |Date and time when the model serving was last updated.    |
+|Status| - |Current status of the model serving. |
+|URL| - |URL of the container where the model is hosted.|
+|Name              | Yes |Name of the model serving.                               |
+|Description       | No  |Brief description of the model serving.                   |
+|Maintainer      | No  |Person or team responsible for maintaining the model serving.|
+|Source Type| Yes |Source type of the model (NIM or HuggingFace).|
 |Model Name| Conditional |Applies to HuggingFace source type.<br/>The name of the model from HuggingFace.|
 |Docker Image URI| Conditional |Applies to NIM source type.<br/>The Docker image URI for the model.|
-|Endpoint Configuration| No |The port configuration for the model serving.|
-|Environment Variables| No |The list of environment variables for the model serving.|
-|Resources| No |The resource allocation settings for the model serving (CPU, Memory, GPU).|
+|Endpoint Configuration| No |Port configuration for the model serving.|
+|Environment Variables| No |List of environment variables for the model serving.|
+|Resources| No |Resource allocation settings for the model serving (CPU, Memory, GPU).|
 
 ![ ](img/model_serving_properties.png)
 
