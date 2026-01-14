@@ -13,7 +13,10 @@
   "resolutions": {
     "@babel/runtime": "^7.26.10",
     "@babel/helpers ": "^7.26.10",
-    "koa": "2.16.2"
+    "koa": "2.16.2",
+    "qs": "6.14.1",
+    "glob": "10.5.0",
+    "preact": "10.28.2"
   },
   "dependencies": {
     "@babel/helpers": "^7.27.3",
