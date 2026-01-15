@@ -1,6 +1,6 @@
 # Applications
 
-## About Applications
+## Introduction
 
 DIAL-native applications adhere to the [unified protocol](/docs/platform/3.core/0.about-core.md#unified-api) of DIAL, a single protocol for all applications and models deployed in a specific DIAL instance. 
 

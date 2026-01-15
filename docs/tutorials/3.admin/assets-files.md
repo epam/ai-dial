@@ -1,6 +1,6 @@
 # Files
 
-## About Files
+## Introduction
 
 Files in DIAL are arbitrary binary or text assets (JSON, CSV, PDF, images, etc.) your models and applications can reference at runtime.
 

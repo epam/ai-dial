@@ -1,8 +1,8 @@
 # Toolsets
 
-## About Toolsets
+## Introduction
 
-Toolsets are MCP servers that you can use as tools in [Quick Apps 2.0](/docs/video%20demos/2.Applications/5.quick-apps.md).
+Toolsets in DIAL are connections with MCP servers that you can use as tools in [Quick Apps 2.0](/docs/video%20demos/2.Applications/5.quick-apps.md).
 
 ## Main Screen
 
