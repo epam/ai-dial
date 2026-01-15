@@ -1,12 +1,12 @@
 # Application Runners
 
-## About Application Runners
+## Introduction
 
-Application Runner can be seen as an application template (based on JSON schema) that allows end-users create individual logical instances each with its own configuration. Quick Apps, Code Apps and Mind Maps are application runners available in DIAL platform out of the box.
+Application Runner can be seen as an application factory that allows end-users create individual logical instances each with its own configuration. For example, a custom RAG application runner may allow an end user to configure a personalized RAG agent by connecting it to chosen data sources, such as internal knowledge bases, document repositories, or external APIs, and then share it with other users and groups. An application runner definition includes a configuration schema that enforces data structure persisted for each instance. It is worth noting that Quick Apps, Code Apps and Mind Maps are application runners available in DIAL platform out of the box.
 
 > Refer to [Schema-rich Applications](/docs/platform/3.core/7.apps.md#schema-rich-applications) to learn more.
 
-## Application Runners List
+## Main Screen
 
 In Application Runners, you can add and manage Application Runners you have in your DIAL instance.
 

@@ -2,7 +2,13 @@
 
 ## Introduction
 
-This page allows you to manage containers for interceptors within the DIAL system. You can create new containers based on existing [images](/docs/tutorials/3.admin/deployments-images.md), start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting.
+DIAL uses interceptors as a middleware that modifies incoming or outgoing requests to/from apps and AI models according to a specific logic enabling PII obfuscation, guardrails, safety checks, and beyond. You can use [Interceptors SDK](https://github.com/epam/ai-dial-interceptors-sdk) to create custom interceptors.
+
+You can enable custom interceptors in DIAL using their endpoint or a predefined template. Refer to [Interceptors](/docs/tutorials/3.admin/entities-interceptors.md) and [Interceptor Templates](/docs/tutorials/3.admin/builders-interceptor-templates.md) to learn more. 
+
+You can also deploy custom interceptors using Docker images, which you can add in the [Images](/docs/tutorials/3.admin/deployments-images.md) section.
+
+In **Interceptor Deployments**, you can manage containers for interceptors within the DIAL system. You can create new containers based on existing [images](/docs/tutorials/3.admin/deployments-images.md), start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting.
 
 Running containers can be used as sources to create [interceptors](/docs/tutorials/3.admin/entities-interceptors.md) in DIAL.
 

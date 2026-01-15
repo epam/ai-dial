@@ -117,17 +117,21 @@ You can work with container properties in the table or a JSON editor view modes:
 
 ### Tools Overview
 
-MCP Tools are specialized components that extend the functionality of MCP containers. These tools provide specific capabilities to process, transform, or analyze data flowing through the MCP server. Each tool can be configured independently within the container to support different operational requirements.
+MCP server-specific functions exposed to the LLM to take actions. These tools provide specific capabilities to process, transform, or analyze data flowing through the MCP server. Each tool can be configured independently within the container to support different operational requirements.
 
 ![](img/mcp_container_tools.png)
 
 ### Resources
 
-TBD
+A specific contextual data attached and managed by the MCP server that provides additional context to AI models.
+
+![](img/mcp_container_resources.png)
 
 ### Prompts
 
-TBD
+Pre-defined by MCP server templates or instructions that guide language model interactions.
+
+![](img/mcp_container_prompts.png)
 
 ### Execution log
 

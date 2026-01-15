@@ -2,9 +2,23 @@
 
 ## Introduction
 
-The Model Servings page enables DIAL admins to deploy and manage AI models listed at NIM and HuggingFace.
+The Model Servings page enables DIAL admins to deploy and manage containers for AI models listed at [NVIDIA NIM](https://build.nvidia.com/models) and [Hugging Face](https://huggingface.co/models).
 
-When created, a model serving can be used as a source type to create [AI model deployments](/docs/tutorials/3.admin/entities-models.md) in DIAL, making models accessible for DIAL applications and users.
+## How to Use Models
+
+To be able to use AI models in DIAL, you need adapters. Model adapters unify the APIs of respective AI models to align with the Unified Protocol of DIAL Core. DIAL includes adapters for [Azure OpenAI](https://github.com/epam/ai-dial-adapter-openai) models, [GCP Vertex AI](https://github.com/epam/ai-dial-adapter-vertexai/?tab=readme-ov-file#supported-models) models, and [AWS Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) models. You can also create custom adapters for other AI models with [DIAL SKD](https://github.com/epam/ai-dial-sdk). 
+
+You can use DIAL OpenAI adapter to work with compatible models listed on Hugging Face or NVIDIA NIM. For other models not compatible with OpenAI API, you need to create custom adapters.
+
+##### To enable a model in DIAL:
+
+1. Add and run a model serving container with an OpenAI-compatible model from Hugging Face or NIM.
+2. Unless it is a part of your DIAL setup, create a new adapter based on [DIAL Azure OpenAI Adapter](https://github.com/epam/ai-dial-adapter-openai) and add it in [Builders/Adapters](/docs/tutorials/3.admin/builders-adapters.md#create).
+3. In [Entities/Models](/docs/tutorials/3.admin/entities-models.md#create-model), create a new model entity:
+   - As a **Source Type**, select your OpenAI adapter. 
+   - As an **Override Name**, use the model name from the running model serving container. You can find it in the container logs.
+   - Add **Upstream Endpoint** with the URL of your model serving running container. Follow this pattern: `http://<container_url>/openai/v1/chat/completions`.
+4. Now the AI model is available for users and apps based on your permissions model. 
 
 ## Main Screen
 
@@ -18,10 +32,10 @@ On the main screen, you can view existing and add new AI model servings.
 |---|----|
 |Name|Name of the model serving.|
 |Description|Brief description of the model serving.|
-|Source Type|Source type of the model (NIM or HuggingFace).|
+|Source Type|Source type of the model (NIM or Hugging Face).|
 |Status|Current status of the model serving (e.g., Running, Not Running, Stopped, Preparing).|
 |ID|Unique identifier for the model serving.|
-|Container URL|URL of the container where the model is hosted.|
+|Container URL|URL of the container where the model is hosted.<br />Available for a running container.|
 |Maintainer|Person or team responsible for maintaining the model serving.|
 |Create time|Date and time when the model serving was created.|
 |Update time|Date and time when the model serving was last updated.|
@@ -36,8 +50,8 @@ On the main screen, click the **Create** button to open the Create Model Serving
 2. Fill in the required fields in the form:
    - **Name**: Enter a name for the model serving.
    - **Description**: Provide a brief description of the model serving.
-   - **Source Type**: Select the source type (NIM or HuggingFace).
-   - **Model Name**: Applies to HuggingFace source type. Enter the name of the model from HuggingFace.
+   - **Source Type**: Select the source type (NIM or Hugging Face).
+   - **Model Name**: Applies to Hugging Face source type. Enter the name of the model from Hugging Face.
    - **Docker Image URI**: Applies to NIM source type. Enter the Docker image URI for the model.
 3. Click the **Create** button to submit the form and create the model serving.
 
@@ -61,7 +75,7 @@ In the header of the Configuration screen, you can find the following action but
 
 ### To Create Model
 
-You can use a **running** model serving to create a new model deployment in DIAL. Once created, the model deployment appears in [Entities/Models](/docs/tutorials/3.admin/entities-models.md) and can be used as a source for DIAL applications and users.
+You can use a **running** model serving container to create a new model deployment in DIAL. Once created, the model deployment appears in [Entities/Models](/docs/tutorials/3.admin/entities-models.md). Refer to [How to Use Models](#how-to-use-models) section for more details on how to enable models in DIAL.
 
 1. In the Configuration screen of the running model serving, click the **Create Model** button in the header.
 2. In the Create Model dialog, fill in the form fields:
@@ -75,21 +89,21 @@ You can use a **running** model serving to create a new model deployment in DIAL
 
 ## Properties
 
-In the Properties tab, you can view and edit the selected model serving settings.
+In the Properties tab, you can view and edit the selected model serving container settings.
 
 | Property         | Required | Description                                                  |
 |------------------|----------|----------------------------------------------------|
-|ID                | - |Unique identifier of the model serving.                  |
+|ID                | - |Unique identifier of the model serving container.                  |
 |Type| - |Container by default.|
-|Creation Time| - |Date and time when the model serving was created.        |
-|Updated Time| - |Date and time when the model serving was last updated.    |
-|Status| - |Current status of the model serving. |
+|Creation Time| - |Date and time when the model serving container was created.        |
+|Updated Time| - |Date and time when the model serving container was last updated.    |
+|Status| - |Current status of the model serving container. |
 |URL| - |URL of the container where the model is hosted.|
-|Name              | Yes |Name of the model serving.                               |
-|Description       | No  |Brief description of the model serving.                   |
-|Maintainer      | No  |Person or team responsible for maintaining the model serving.|
-|Source Type| Yes |Source type of the model (NIM or HuggingFace).|
-|Model Name| Conditional |Applies to HuggingFace source type.<br/>The name of the model from HuggingFace.|
+|Name              | Yes |Name of the model serving container.                               |
+|Description       | No  |Brief description of the model serving container.                   |
+|Maintainer      | No  |Person or team responsible for maintaining the model serving container.|
+|Source Type| Yes |Source type of the model (NIM or Hugging Face).|
+|Model Name| Conditional |Applies to Hugging Face source type.<br/>The name of the model from Hugging Face.|
 |Docker Image URI| Conditional |Applies to NIM source type.<br/>The Docker image URI for the model.|
 |Endpoint Configuration| No |Port configuration for the model serving.|
 |Environment Variables| No |List of environment variables for the model serving.|

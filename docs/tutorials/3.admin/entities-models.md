@@ -4,7 +4,7 @@
 
 > Refer to the [Supported Models](/docs/platform/2.supported-models.md) page for a list of all supported models and  model adapters.
 
-## Models Main Screen
+## Main Screen
 
 On the **Models** page, you can find all language models (LLMs) deployed on your DIAL instance. Here you can view, filter, and add new model definitions.
 
@@ -22,8 +22,8 @@ The grid with models displays the main properties of models which include:
 | **Version**               | An **optional** tag with the version of a specific model deployment (e.g. `0613`, `v1`). Use it to distinguish between "latest," "beta," or date-stamped builds. |
 | **Description**           | Description of the model’s purpose including any relevant details. The description is displayed in DIAL Chat UI and Marketplace.|
 | **ID**                    | This is a unique key under the `models` section of [DIAL Core’s config](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/models.md). Must match the upstream service’s model or deployment name (e.g. `gpt-4-0613`).                |
-| **Source Type**           | Can be one of the following options: Adapter, Endpoint or Deployment model.                    |
-| **Source**                | Exact Adapter Id, [Model serving Id](/docs/tutorials/3.admin/deployments-models.md) or Endpoint of the model, based on your Source Type selection.  |
+| **Source Type**           | Available options: Adapter, External Endpoint or Model Container.                    |
+| **Source**                | Exact Adapter Id, [Model serving container Id](/docs/tutorials/3.admin/deployments-models.md) or Endpoint of the model, based on your Source Type selection.  |
 | **Author**                | Information about the user who deployed the model.                  |
 | **Type**                  | Defines **Chat** (conversational completions) and **Embedding** models (vector generation). DIAL Core uses this to choose the correct API endpoint and a payload schema.    |
 | **Override Name**         | An **optional**, context-specific display label that overrides the Display Name in UI components. Use it to give a model different aliases in different workflows without redefining the model.             |
@@ -49,10 +49,7 @@ Follow these steps to add new language models to your DIAL instance:
     | **Display Name** | Yes          | A user-friendly label shown across the UI (e.g. "GPT-4 Turbo").|
     | **Version**      | No           | Version is an optional tag to track releases when you register multiple variants of the same model. (e.g. `2024-07-18`, `v1`)  |
     | **Description**  | No           | Free-text note about the model’s purpose or distinguishing traits.            |
-    | **Source Type**  | Yes          | Allows to select one of the following options: Adapter, Model Container, External Endpoint.        |
-    | **Adapter**      | Conditional  | Required if Source Type is 'Adapter'. A model adapter that will handle requests to this model (e.g. OpenAI, DIAL). The chosen adapter supplies authentication, endpoint URL, and request formatting. |
-    | **Container**    | Conditional  | Required if Source Type is 'Model Container'. Allows to select one of [Model servings](/docs/tutorials/3.admin/deployments-models.md) in DIAL instance (the container must be in a Running state).                |
-    | **Endpoint**     | Conditional  | Required if Source Type is 'External Endpoint'. URL that DIAL Core will invoke for this model.     |
+    | **Source Type**  | Yes          | **Adapter**: select the corresponding AI model adapter from the list of [available adapters](/docs/tutorials/3.admin/builders-adapters.md). In this case DIAL Core will use the adapter endpoint URL to communicate with the model.<br />**Model Container**: select one of the available [model containers](/docs/tutorials/3.admin/deployments-models.md). In this case DIAL Core will use the container URL to communicate with the model.<br />**External Endpoint**: provide the external endpoint URL DIAL Core will use to directly (not using model adapters) communicate with the model. In this case, the model API must be compatible with DIAL Core API.|
 
 3. Click **Create** to close the dialog and open the [configuration screen](#model-configuration). When done with model configuration, click **Save**. It may take some time for the changes to take effect after saving. Once added, the model appears in the **Models** listing and become available to use across the DIAL ecosystem.
 
@@ -84,7 +81,7 @@ In the **Properties** tab, you can view and edit main definitions and runtime se
 ##### Basic Identification and Information
 
 | Field             | Required | Description                |
-|-------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------------|----------|----------------------|
 | **ID**            | -        | A unique key DIAL Core uses in the `models` section. Must match the upstream’s deployment or model name (e.g. `gpt-4o`, `gpt-4-turbo`). Non-editable after the model created. |
 | **Updated Time**  | -        | Date and time when the model's configuration was last updated.              |
 | **Creation Time** | -        | Date and time when the model's configuration was created.                   |
@@ -96,28 +93,42 @@ In the **Properties** tab, you can view and edit main definitions and runtime se
 
 ##### Adapter
 
+Unless AI model API is compatible with the DIAL Unified Protocol, you need adapters to be able to use AI models in DIAL. Model adapters unify the APIs of respective AI models to align with the Unified Protocol of DIAL Core.
+
+DIAL includes adapters for [Azure OpenAI](https://github.com/epam/ai-dial-adapter-openai) models, [GCP Vertex AI](https://github.com/epam/ai-dial-adapter-vertexai/?tab=readme-ov-file#supported-models) models, and [AWS Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) models. You can also create custom adapters for other AI models with [DIAL SKD](https://github.com/epam/ai-dial-sdk). 
+
+Adapter can be added in [Builders/Adapters](/docs/tutorials/3.admin/builders-adapters.md#create).
+
+You the Source Type of your model is Adapter, DIAL Core will use adapters endpoint to communicate with the model.
+
 The following properties need to be specified if selected Source Type is Adapter:
 
 | Field        | Required | Description |
-|--------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Adapter**  | Yes      | An option to select a [model adapter](/docs/platform/0.architecture-and-concepts/3.components.md#model-adapters) (connector) to  handle requests to this model deployment (e.g. **OpenAI**, **DIAL**).  Adapter defines how to authenticate, format payloads, and parse responses. |
+|--------------|----------|--------------------------------|
+| **Adapter**  | Yes      | An option to select a [model adapter](/docs/tutorials/3.admin/builders-adapters.md) to  handle requests to this model deployment (e.g. **OpenAI**, **DIAL**).  Adapter defines how to authenticate, format payloads, and parse responses. |
 | **Type**     | Yes      | A choice between **Chat** or **Embedding** API.  <br />**Chat** - for conversational chat completions.  <br />**Embedding** - for vector generation (semantic search, clustering).         |
 | **Endpoint** | Yes      | URL that DIAL Core will invoke for this model/type. The base URL is determined by the selected adapter, while the path can be partially customized.      |
 
 ##### Model Container
 
+AI models can be deployed in DIAL using Docker images. You can add and run [images](/docs/tutorials/3.admin/deployments-images.md) and [containers](/docs/tutorials/3.admin/deployments-models.md) in the Deployment section.
+
+If the Source Type of your model is Model Container, DIAL Core will use the container URL to communicate with the model.
+
 The following properties need to be specified if selected Source Type is Model Container:
 
 | Field          | Required | Description      |
-|----------------|----------|----------------------------------------------------------------------------------------|
-| **Container**  | Yes      | Allows to select one of Model deployments in DIAL instance (must be in Running state). |
+|----------------|----------|---------------------|
+| **Container**  | Yes      | Allows to select one of the running [Model Containers](/docs/tutorials/3.admin/deployments-models.md). |
 
 ##### External Endpoint
+
+If your AI model is deployed elsewhere and is compatible with DIAL Core API, you can add it using its endpoint for a direct communication between the DIAL Core and the AI model.
 
 The following properties need to be specified if selected Source Type is External Endpoint:
 
 | Field        | Required | Description|
-|--------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|--------------|----------|----------------------------|
 | **Type**     | Yes      | A choice between **Chat** or **Embedding** API.  <br />**Chat** - for conversational chat completions.  <br />**Embedding** - for vector generation (semantic search, clustering). |
 | **Endpoint** | Yes      | URL that DIAL Core will invoke for this model.              |
 
@@ -134,7 +145,7 @@ The following properties need to be specified if selected Source Type is Externa
 
 | Field                  | Required | Description   |
 |------------------------|-----------|-----------------|
-| **Upstream Endpoints** | Yes       | One or more backend URLs to send requests to.  Enables round-robin load balancing or fallback among multiple hosts. Refer to [Load Balancer](/docs/platform/3.core/5.load-balancer.md) to learn more.     |
+| **Upstream Endpoints** | Yes       | One or more backend URLs to send requests to. Enables round-robin load balancing or fallback among multiple hosts. Refer to [Load Balancer](/docs/platform/3.core/5.load-balancer.md) to learn more.<br /> You can use upstream endpoint to provide an alternative URL. For example a model Docker container URL if the model is deployed as a container in DIAL. Refer to [Model Servings](/docs/tutorials/3.admin/deployments-models.md#to-enable-a-model-in-dial) to learn more about this use case.|
 | **Keys**               | No        | API key, token, or credential passed to the upstream.  Stored securely and masked—click the eye icon to reveal.|
 | **Weight**             | Yes       | Numeric [weight](/docs/platform/3.core/5.load-balancer.md#weights) for this endpoint in a multi-upstream scenario.  Higher = more traffic share.                   |
 | **Tier**               | No        | Specifies an endpoint group. In a regular scenario, all requests are routed to endpoints with the lowest tier, but in case of an outage or hitting the limits, the next one in the line helps to handle the load. |
@@ -144,7 +155,7 @@ The following properties need to be specified if selected Source Type is Externa
 ##### Advanced Options
 
 | Field                  | Required | Description            |
-|------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------------|----------|------------------------|
 | **Tokenizer Model**    | No       | Identifies the specific model whose tokenization algorithm exactly matches that of the referenced model. This is typically the name of the earliest released model in a series of models sharing an identical tokenization algorithm. This parameter is essential for DIAL clients that reimplement tokenization algorithms on their side, instead of utilizing the tokenize endpoint provided by the model.             |
 | **Forward auth token** | No       | Select a downstream auth token to forward from the user’s session (for downstream multi-tenant).          |
 | **Interaction limit**  | No       | This parameter ensures that the model does not exceed a specified token limit during interactions.<br />**Available values**:<br />**None** - DIAL does not apply any additional interaction limits beyond limits that your model enforces natively. Ideal for early prototyping or when you trust the LLM’s built-in safeguards. <br />**Total Number of Tokens** - enforces a single, cumulative cap on the sum of all `prompt + completion` tokens across the entire chat. <br />**Separately Prompts and Completions** - two independent limits: one on the sum of all input (prompt) tokens and another on the sum of all output (completion) tokens over the course of a conversation. |
