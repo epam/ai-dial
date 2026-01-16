@@ -21,7 +21,7 @@ services:
     mem_limit: 2200M
 
   chat:
-    image: epam/ai-dial-chat:0.39.0
+    image: epam/ai-dial-chat:0.39.6
     platform: linux/amd64
     environment:
       AUTH_KEYCLOAK_CLIENT_ID: "dial-chat"
@@ -159,7 +159,7 @@ services:
   admin-frontend:
     image: epam/ai-dial-admin-frontend:0.10.0
     platform: linux/amd64
-    environment:     	
+    environment:
       DIAL_ADMIN_API_URL: "http://admin-backend:8080/"
       NEXTAUTH_URL: "http://${COMMON_HOST}:${DIAL_ADMIN_FRONTEND_HOST_PORT}"
       NEXTAUTH_SECRET: "${NEXTAUTH_SECRET}"
