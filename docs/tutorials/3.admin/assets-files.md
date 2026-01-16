@@ -1,10 +1,10 @@
 # Files
 
-## About Files
+## Introduction
 
 Files in DIAL are arbitrary binary or text assets (JSON, CSV, PDF, images, etc.) your models and applications can reference at runtime.
 
-## Files Main Screen
+## Main Screen
 
 In Files, you can manage all files in the Public folder.
 
@@ -12,7 +12,7 @@ In Files, you can manage all files in the Public folder.
 
 ![ ](img/img_35.png)
 
-### Folders Structure
+##### Folders Structure
 
 Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public space. 
 
@@ -25,7 +25,7 @@ Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) a
 
 ![ ](img/img_35_1.png)
 
-### Files Grid
+##### Files Grid
 
 Click any folder in the hierarchy to display files stored in it.
 
@@ -40,7 +40,11 @@ Click any folder in the hierarchy to display files stored in it.
 
 ## Export
 
-Use **Bulk Actions** in the toolbar to export files. This is helpful for backup, sharing, or migrating supporting assets alongside your DIAL configuration.
+Use **Bulk Actions** in the toolbar to export files. 
+
+![ ](img/apps_bulk_actions.png)
+
+This is helpful for backup, sharing, or migrating supporting assets alongside your DIAL configuration.
 
 ![ ](img/img_49.png)
 
@@ -67,7 +71,8 @@ Use **Import** in the toolbar to upload external files into DIAL’s assets stor
    * **Override**: Replace existing files with the new ones.
    * **Skip**: Do not import conflicting files and keep existing files unchanged.
    * **Edit manually**: Rename incoming files one by one to avoid conflicts. Each conflicting file is flagged with red color and becomes editable - update its **Name** to avoid conflicts.
-5. Once all conflicts are resolved, click **Finish** to complete the import.
+5. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all files will be imported directly into the root folder without recreating the original folder hierarchy.
+6. Once all conflicts are resolved, click **Finish** to complete the import.
 
     ![](img/img_51.png)
 
@@ -92,6 +97,12 @@ In the Properties tab, you can view and manage the selected file, including movi
 
 ## Delete
 
-Click **Delete** in the toolbar on the Properties screen to permanently remove the selected file from your workspace. Any models or applications that reference it will break until you reattach a valid file.
+Click **Delete** in the toolbar on the Properties screen to permanently remove the selected file from your workspace. 
+
+> **Note**: Any models or applications that reference it will break until you reattach a valid file.
 
 You can also delete a file using the Delete option in the file context menu or by deleting the related folder.
+
+Use **Bulk Actions** in the toolbar to delete multiple files. 
+
+![ ](img/apps_bulk_actions.png)

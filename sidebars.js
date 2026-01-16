@@ -604,6 +604,32 @@ const sidebars = {
                 },
                 {
                   type: 'category',
+                  label: 'Deployments',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/deployments-mcp',
+                      label: 'MCP Deployments',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/deployments-interceptors',
+                      label: 'Interceptor Deployments',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/deployments-models',
+                      label: 'Model Servings',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'tutorials/admin/deployments-images',
+                      label: 'Images',
+                    },
+                  ]
+                },
+                {
+                  type: 'category',
                   label: 'Access Management',
                   items: [
                     {
