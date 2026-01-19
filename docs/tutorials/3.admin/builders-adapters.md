@@ -7,7 +7,7 @@ In DIAL, **model adapters** unify provider-specific model APIs with the **Unifie
 * **Coded implementation** that talks to the AI model and implements the Unified Protocol.
 * **Metadata object** that you manage in **Builders/Adapters**, which establishes the relationship to the **models**.
 
-DIAL includes adapters for [Azure OpenAI](https://github.com/epam/ai-dial-adapter-openai) models, [GCP Vertex AI](https://github.com/epam/ai-dial-adapter-vertexai/?tab=readme-ov-file#supported-models) models, and [AWS Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) models. You can also create custom adapters for other AI models with [DIAL SKD](https://github.com/epam/ai-dial-sdk).
+DIAL includes adapters for [Azure OpenAI](https://github.com/epam/ai-dial-adapter-openai) models, [GCP Vertex AI](https://github.com/epam/ai-dial-adapter-vertexai/?tab=readme-ov-file#supported-models) models, and [AWS Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) models. You can also create custom adapters for other AI models with [DIAL SDK](https://github.com/epam/ai-dial-sdk).
 
 > Refer to [Adapters documentation](/docs/platform/0.architecture-and-concepts/3.components.md#model-adapters) to learn more.
 

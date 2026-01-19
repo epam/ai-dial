@@ -71,17 +71,15 @@ In the **Properties** tab, you can define identity and metadata of application r
 | **Topics**  | No| Use tags to associate runner with specific topics or categories (e.g. "finance", "support") for identification and filtering on UI.    |
 | **Completion endpoint**    | Yes      | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
 | **Viewer URL** | No| A URL of the custom viewer UI. A custom UI, if enabled, will override the standard DIAL Chat UI for applications built based on this application runner.|
-| **Editor URL** | No| A URL of the custom builder UI. Application builder allows DIAL Chat end-users to create instances of apps using a UI wizards.|
+| **Editor URL** | No| URL of a custom UI for configuring application settings when creating or updating a logical instance of an application.|
 
 ![ ](img/img_26.png)
 
 ### Features
 
-In the Features tab, you can control optional capabilities of applications created with the Application Runner. 
+In the Features tab, you can define additional capabilities of applications created with the Application Runner such as custom endpoints for configuration, cost estimation, tokenization, prompt truncation and other features.
 
-You can override or extend DIAL Core’s built-in protocol calls with your own HTTP services. Here, you can specify endpoints used by Application Runners (e.g. a Python or Node Runner) to perform preprocessing or policy checks before delegating to your underlying models and workflows.
-
-> Values are propagated to applications created with the related application runner and can be overridden on per-application basis in the [Applications Configuration](/docs/tutorials/3.admin/entities-applications.md#features).
+Defined features are propagated to applications created with the related application runner. Features undefined on the application runner level, can be set on per-application basis in the [Applications Configuration](/docs/tutorials/3.admin/entities-applications.md#features).
 
 | Field                        | Required|Description |
 |------------------------------|----------|----------------|

@@ -17,7 +17,7 @@ On the **Toolsets** main screen, you can find all toolsets existing in your DIAL
 | **Display Name**          | A user-friendly label for a toolset (e.g. GitHub, Google Maps).              |
 | **Description**           | Free-text notes about this toolset’s purpose, capabilities, or any other relevant details.              |
 | **ID**                    | This is a unique key under the toolsets section of DIAL Admin.               |
-|**Updated Time**          |Date and time when the toolset's configuration was last updated.              |
+|**Updated Time**           | Date and time when the toolset's configuration was last updated.              |
 |**Source Type**            |A source type of the toolset: either DIAL [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) or External Endpoint.|
 |**Source**                 |For the [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) source type, it is a container ID. For External Endpoint - a URL of the external endpoint.|
 | **Author**                | Contains the tools author's name.                      |

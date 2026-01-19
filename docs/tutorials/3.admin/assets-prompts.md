@@ -86,11 +86,11 @@ Follow these steps to add a new prompt:
 2. Click **Create** in the toolbar to invoke the **Create Prompt** modal.
 3. Define prompt's parameters
 
-    | Column           |Required| Definition                |
-    |------------------|--------|-------------------------|
-    | **Display name** | Yes|A unique identifier for a prompt (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. |
-    | **Version**      | Yes|Semantic version string (e.g. 1.0.0, 0.1.2) that enables safe updates.   |
-    | **Description**  | No|Free-text summary of the prompt’s purpose and key placeholders.  |
+    | Column           |Required| Definition |
+    |------------------|--------|------------|
+    | **Display name** | Yes | Unique identifier for a prompt (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. |
+    | **Version**      | Yes | Semantic version string (e.g. 1.0.0, 0.1.2) that enables safe updates.|
+    | **Description**  | No | Free-text summary of the prompt’s purpose and key placeholders.|
 
 4. Once all required fields are filled, click **Create**. The dialog closes and the new prompt [configuration screen](#configuration) is opened. This entry will appear immediately in the listing once created.
 

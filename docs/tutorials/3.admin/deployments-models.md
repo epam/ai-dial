@@ -6,7 +6,7 @@ The Model Servings page enables DIAL admins to deploy and manage containers for 
 
 ## How to Use Models
 
-To be able to use AI models in DIAL, you need adapters. Model adapters unify the APIs of respective AI models to align with the Unified Protocol of DIAL Core. DIAL includes adapters for [Azure OpenAI](https://github.com/epam/ai-dial-adapter-openai) models, [GCP Vertex AI](https://github.com/epam/ai-dial-adapter-vertexai/?tab=readme-ov-file#supported-models) models, and [AWS Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) models. You can also create custom adapters for other AI models with [DIAL SKD](https://github.com/epam/ai-dial-sdk). 
+To be able to use AI models in DIAL, you need adapters. Model adapters unify the APIs of respective AI models to align with the Unified Protocol of DIAL Core. DIAL includes adapters for [Azure OpenAI](https://github.com/epam/ai-dial-adapter-openai) models, [GCP Vertex AI](https://github.com/epam/ai-dial-adapter-vertexai/?tab=readme-ov-file#supported-models) models, and [AWS Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) models. You can also create custom adapters for other AI models with [DIAL SDK](https://github.com/epam/ai-dial-sdk). 
 
 You can use DIAL OpenAI adapter to work with compatible models listed on Hugging Face or NVIDIA NIM. For other models not compatible with OpenAI API, you need to create custom adapters.
 
@@ -30,10 +30,10 @@ On the main screen, you can view existing and add new AI model servings.
 
 |Field|Description|
 |---|----|
-|Name|Name of the model serving.|
+|Display Name|Name of the model serving rendered on UI.|
 |Description|Brief description of the model serving.|
 |Source Type|Source type of the model (NIM or Hugging Face).|
-|Status|Current status of the model serving (e.g., Running, Not Running, Stopped, Preparing).|
+|Status|Current status of the model serving.|
 |ID|Unique identifier for the model serving.|
 |Container URL|URL of the container where the model is hosted.<br />Available for a running container.|
 |Maintainer|Person or team responsible for maintaining the model serving.|
@@ -48,10 +48,11 @@ On the main screen, click the **Create** button to open the Create Model Serving
 
 1. Click the **Create** button on the main screen to open the Create Model Serving form.
 2. Fill in the required fields in the form:
-   - **Name**: Enter a name for the model serving.
+   - **ID**: Unique identifier for the model serving.
+   - **Display Name**: Enter a name for the model serving.
    - **Description**: Provide a brief description of the model serving.
    - **Source Type**: Select the source type (NIM or Hugging Face).
-   - **Model Name**: Applies to Hugging Face source type. Enter the name of the model from Hugging Face.
+   - **Hugging Face Model Name**: Applies to Hugging Face source type. Enter the name of the model from Hugging Face.
    - **Docker Image URI**: Applies to NIM source type. Enter the Docker image URI for the model.
 3. Click the **Create** button to submit the form and create the model serving.
 
@@ -91,23 +92,23 @@ You can use a **running** model serving container to create a new model deployme
 
 In the Properties tab, you can view and edit the selected model serving container settings.
 
-| Property         | Required | Description                                                  |
-|------------------|----------|----------------------------------------------------|
-|ID                | - |Unique identifier of the model serving container.                  |
-|Type| - |Container by default.|
-|Creation Time| - |Date and time when the model serving container was created.        |
-|Updated Time| - |Date and time when the model serving container was last updated.    |
-|Status| - |Current status of the model serving container. |
-|URL| - |URL of the container where the model is hosted.|
-|Name              | Yes |Name of the model serving container.                               |
-|Description       | No  |Brief description of the model serving container.                   |
-|Maintainer      | No  |Person or team responsible for maintaining the model serving container.|
-|Source Type| Yes |Source type of the model (NIM or Hugging Face).|
-|Model Name| Conditional |Applies to Hugging Face source type.<br/>The name of the model from Hugging Face.|
-|Docker Image URI| Conditional |Applies to NIM source type.<br/>The Docker image URI for the model.|
-|Endpoint Configuration| No |Port configuration for the model serving.|
-|Environment Variables| No |List of environment variables for the model serving.|
-|Resources| No |Resource allocation settings for the model serving (CPU, Memory, GPU).|
+| Property         | Required | Editable | Description                                                  |
+|------------------|----------|---------|----------------------------------------------------|
+|ID                | - |No|Unique identifier of the model serving container.                  |
+|Type| - |No|Container by default.|
+|Creation Time| - |No|Date and time when the model serving container was created.        |
+|Updated Time| - |No|Date and time when the model serving container was last updated.    |
+|Status| - |No|Current status of the model serving container. |
+|URL| - |No|URL of the container where the model is hosted.|
+|Display Name | Yes |Yes|Name of the model serving container rendered in UI.                               |
+|Description | No  |Yes|Brief description of the model serving container.                   |
+|Maintainer | No  |Yes|Person or team responsible for maintaining the model serving container.|
+|Source Type| Yes |Yes|Source type of the model (NIM or Hugging Face).|
+|Hugging Face model name| Conditional |Yes|Applies to Hugging Face source type.<br/>The name of the model from Hugging Face.|
+|Docker Image URI| Conditional |Yes|Applies to NIM source type.<br/>The Docker image URI for the model.|
+|Endpoint Configuration| No |Yes|Port configuration for the model serving.|
+|Environment Variables| No |Yes|List of environment variables for the model serving.|
+|Resources| No |Yes|Resource allocation settings for the model serving (CPU, Memory, GPU).|
 
 ![ ](img/model_serving_properties.png)
 

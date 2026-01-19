@@ -16,17 +16,16 @@ On the main screen, you can see a list of all MCP containers along with their cu
 
 | Column         | Description                                                  |
 |----------------|--------------------------------------------------------------|
-| Name           | The name of the MCP container.                               |
-| Description    | A brief description of the MCP container.                               |
-| MCP Image      | The image from which the MCP container was created.          |
-| Status         | The current status of the MCP container (e.g., Running, Stopped). |
-|ID             | The unique identifier of the MCP container.                  |
-|Container URL | The URL to access the MCP container.                          |
-|Maintainer     | The maintainer of the MCP container.                          |
-| Create time     | The date and time when the MCP container was created.        |
-|Update time   | The date and time when the MCP container was last updated.    |
-| Actions        | Buttons to manage the selected MCP container:<br/>-**Open in a new tab** - click to open the container configuration screen in a new tab in your browser.<br/>-**Duplicate** - click to duplicate the MCP container.<br/>-**Stop/Run** - click to start and stop a container.<br/>-**Delete** - click to remove the container. |
-
+| Display Name           | Display name of the MCP container rendered in UI.                               |
+| Description    | Brief description of the MCP container.                               |
+| MCP Image      | Image from which the MCP container was created.          |
+| Status         | Current status of the MCP container (e.g., Running, Stopped). |
+|ID             | Unique identifier of the MCP container.                  |
+|Container URL | URL to access the MCP container.                          |
+|Maintainer     | Maintainer of the MCP container.                          |
+| Create time     | Date and time when the MCP container was created.        |
+|Update time   | Date and time when the MCP container was last updated.    |
+| Actions        | Buttons to manage the selected MCP container:<br/>- **Open in a new tab**: click to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate** - click to duplicate the MCP container.<br/>- **Stop/Run**: click to start and stop a container.<br/>- **Delete**: click to remove the container. |
 
 ## Create
 
@@ -92,21 +91,21 @@ In the Properties tab, you can preview and modify selected container's basic pro
 
 ##### Fields Description
 
-| Property        | Description |
-|----------------|--------------|
-|ID             | The unique identifier of the MCP container.|
-|Type           | The type of the MCP container.|
-| MCP Image      | The image from which the MCP container was created. Click to open details or navigate to [MCP Images](/docs/tutorials/3.admin/deployments-images.md).|
-| Creation Time     | The date and time when the MCP container was created.|
-|Updated Time   | The date and time when the MCP container was last updated.|
-| Status         | The current status of the MCP container (e.g., Running, Stopped).|
-|URL | The URL to access the MCP container.|
-| Name           | The name of the MCP container. You can edit this field.|
-| Description    | A brief description of the MCP container. You can edit this field.|
-|Maintainer     | The maintainer of the MCP container. You can edit this field.|
-|Endpoint Configuration| The endpoint configuration of the MCP container:<br /> **Transport**: the transport protocol (HTTP or Server-Sent Events).<br />**Container endpoint path**: the specific endpoint path where the MCP service is accessible.<br />**Port**: the network port the container uses.|
-|Environment Variables| A list of environment variables for the MCP container. You can add, edit, or remove variables as needed.|
-|Resources| The resource limits for the MCP container, including CPU and memory allocation. You can adjust these settings based on your requirements.|
+| Property       | Required | Editable | Description |
+|----------------|-----------|----------|------------|
+|ID             | - | No | Unique identifier of the MCP container.|
+|Type           | - | No | Type of the MCP container.|
+| MCP Image      | - | No | Image from which the MCP container was created. Click to open details or navigate to [MCP Images](/docs/tutorials/3.admin/deployments-images.md).|
+| Creation Time     | - | No | Date and time when the MCP container was created.|
+|Updated Time   | - | No | Date and time when the MCP container was last updated.|
+| Status         | - | No | Current status of the MCP container (e.g., Running, Stopped).|
+|URL | - | No | The URL to access the MCP container.|
+| Display Name           | Yes | Yes | Display name of the MCP container rendered in UI. |
+| Description    | No | Yes | Brief description of the MCP container. |
+|Maintainer     | No | Yes | Maintainer of the MCP container. |
+|Endpoint Configuration| No | Yes | Endpoint configuration of the MCP container:<br /> **Transport**: the transport protocol (HTTP or Server-Sent Events).<br />**Container endpoint path**: the specific endpoint path where the MCP service is accessible.<br />**Port**: the network port the container uses.|
+|Environment Variables| No | Yes | List of environment variables for the MCP container. You can add, edit, or remove variables as needed.|
+|Resources| No | Yes | Resource limits for the MCP container, including CPU and memory allocation. You can adjust these settings based on your requirements.|
 
 ![](img/mcp_container_properties.png)
 

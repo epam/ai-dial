@@ -88,7 +88,7 @@ Follow these steps to add a new toolset:
     | **Display Name**      | Yes         | A user-friendly label shown throughout the Admin UI and in DIAL Core. |
     | **Version**           | Yes         | Semantic identifier (e.g., 1.2.0) of a toolset's version. |
     | **Description**       | No          | A free-text summary describing the toolset (e.g. purpose and data being fetched). |
-    | **External Endpoint** | Yes | Toolset API for MCP calls. The endpoint that a Quick App can call to fetch external data.        |
+    | **External Endpoint** | Yes | Endpoint DIAL Core will use to communicate with the toolset.   |
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [toolset configuration](#configuration-screen) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
 

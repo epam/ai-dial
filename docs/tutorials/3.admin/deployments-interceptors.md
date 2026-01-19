@@ -22,7 +22,7 @@ On the main screen, you can see a list of all interceptor containers along with 
 
 | Column         | Description                                                  |
 |----------------|--------------------------------------------------------------|
-| Name           | Name of the interceptor container.                       |
+| Display Name           | Name of the interceptor container rendered in UI.                       |
 | Description    | Brief description of the interceptor container.            |
 | Interceptor Image | Docker image from which the interceptor container was created. |
 | Status         | Current status of the interceptor container (e.g., Running, Stopped). |
@@ -31,7 +31,7 @@ On the main screen, you can see a list of all interceptor containers along with 
 |Maintainer     | Maintainer of the interceptor container.                    |
 | Create time     | Date and time when the interceptor container was created.    |
 |Update time   | Date and time when the interceptor container was last updated.|
-| Actions        | Buttons to manage the selected interceptor container:<br/>-**Open in a new tab** - click to open the container configuration screen in a new tab in your browser.<br/>-**Duplicate** - click to duplicate the interceptor container.<br/>-**Stop/Run** - click to start and stop a container.<br/>-**Delete** - click to remove the container. |  
+| Actions        | Buttons to manage the selected interceptor container:<br/>- **Open in a new tab**: click to open the container configuration screen in a new tab in your browser.<br/>-**Duplicate**: click to duplicate the interceptor container.<br/>-**Stop/Run**: click to start and stop a container.<br/>-**Delete**: click to remove the container. |  
 
 ## Create
 
@@ -41,7 +41,7 @@ On the main screen, you can add new interceptor containers based on existing [im
 
 1. Click the **+Create** button on the main screen to open the **Creating Interceptor Container** form.
 2. Select the desired Docker image from the list, including the image version.
-3. Specify optional properties and click **Finish** to create the container.
+3. Specify properties and click **Finish** to create the container.
 4. The screen with the container configuration is displayed. You can modify the configuration as needed, run, stop or delete the container.
 
 ![](img/create_interceptor_container.png)
@@ -83,21 +83,21 @@ In the Properties tab, you can view and edit the selected interceptor container 
 
 ##### Fields Description
 
-| Property        | Required | Description | 
-|----------------|----------|--------------|
-|ID             | -      | Unique identifier for the interceptor container. |
-|Type           | -      | Type of the interceptor container. |
-|Interceptor Image | -    | Docker image from which the interceptor container was created. |
-|Creation Time     | -      | Date and time when the interceptor container was created. |
-|Updated Time   | -      | Date and time when the interceptor container was last updated. |
-| Status         | -      | Current status of the interceptor container (e.g., Running, Stopped). |
-|URL | -      | URL to access the interceptor container. |
-| Name           | Yes     | Name of the interceptor container. You can edit this field. |
-| Description    | No      | Brief description of the interceptor container. You can edit this field. |
-|Maintainer     | No      | Maintainer of the interceptor container. You can edit this field. |
-|Endpoint Configurations | No | Configuration details for the endpoints exposed by the interceptor container. You can edit this field. |
-|Environment Variables | No | Environment variables set for the interceptor container. You can edit this field. |
-|Resources      | No      | Resource limits and requests for the interceptor container. You can edit this field. |
+| Property        | Required | Editable |Description | 
+|----------------|----------|-----------|-----------|
+|ID             | -      | No     |Unique identifier for the interceptor container. |
+|Type           | -      | No     | Type of the interceptor container. |
+|Interceptor Image | -    | No     | Docker image from which the interceptor container was created. |
+|Creation Time     | -      | No     | Date and time when the interceptor container was created. |
+|Updated Time   | -      | No     | Date and time when the interceptor container was last updated. |
+| Status         | -      | No     | Current status of the interceptor container (e.g., Running, Stopped). |
+|URL | -      | No     | URL to access the interceptor container. |
+| Display Name           | Yes     | Yes | Name of the interceptor container rendered in UI. |
+| Description    | No      | Yes | Brief description of the interceptor container. |
+|Maintainer     | No      | Yes | Maintainer of the interceptor container. |
+|Endpoint Configuration | No | Yes | Configuration details for the endpoints exposed by the interceptor container. |
+|Environment Variables | No | Yes | Environment variables set for the interceptor container. |
+|Resources      | No      | Yes | Resource limits and requests for the interceptor container. |
 
 ![](img/interceptor_container_properties.png)
 
