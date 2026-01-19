@@ -76,20 +76,21 @@ In the **Properties** tab, you can view and edit main definitions and runtime se
 * [Advanced Options](#advanced-options): Tokenizer model, forward auth token, interaction limits, retry attempts.
 * [Cost Configuration](#cost-configuration): Set cost unit, prompt price, and completion price for real-time billing.
 
-![](img/img_5.png)
+![](img/entities_models_properties.png)
 
 ##### Basic Identification and Information
 
 | Field             | Required | Description                |
 |-------------------|----------|----------------------|
-| **ID**            | -        | A unique key DIAL Core uses in the `models` section. Must match the upstream’s deployment or model name (e.g. `gpt-4o`, `gpt-4-turbo`). Non-editable after the model created. |
+| **ID**            | -        | Unique key DIAL Core uses in the `models` section. Must match the upstream’s deployment or model name (e.g. `gpt-4o`, `gpt-4-turbo`). Non-editable after the model created. |
 | **Updated Time**  | -        | Date and time when the model's configuration was last updated.              |
 | **Creation Time** | -        | Date and time when the model's configuration was created.                   |
+| **Sync with core** | -        | Indicates the status of the entity's configuration synchronization with DIAL Core.<br />Synchronization occurs automatically every 2 mins (the default and configurable parameter via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Synced**:<br />- For valid entities: Displayed when the JSON of our entity matches the JSON of the entity in Core.<br />- For invalid entities: Displayed when there is no such entity in Core, since invalid entities are not exported to Core.<br />**In progress...**: <br />- For valid entities: Displayed when either (1) the entity does not exist in Core, or (2) the JSONs do not match and the time since the last Core config load and our entity update in Admin is less than or equal 2 minutes.<br />- For invalid entities: Displayed when the entity exists in Core and the time since the last Core config load and our entity update in Admin is less than or equal 2 minutes.<br />**Out of sync**:<br />- For valid entities: Displayed when the entity exists in Core, the JSONs do not match, and the time since the last Core config load and our entity update in Admin exceeds 2 minutes.<br />- For invalid entities: Displayed when the entity exists in Core and the time since the last Core config load and our entity update in Admin exceeds 2 minutes.<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity’s state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- Core has removed the expected entity types from the config or moved them under a different key (e.g., models are missing or stored under a new key).|
 | **Display Name**  | Yes      | User-friendly label shown in tables and dropdowns in DIAL clients (e.g. "GPT-4o").   Helps users identify and select models on UI.        |
-| **Version**       | No       | An optional version tag for tracking releases (e.g. `0613`, `v1`).   Useful for A/B testing or canary rollouts.              |
+| **Display version**       | No       | An optional version tag for tracking releases (e.g. `0613`, `v1`).   Useful for A/B testing or canary rollouts.              |
 | **Description**   | No       | Free-text note describing the model’s purpose, fine-tune details, or its cost tier.      |
 | **Maintainer**    | No       | Field used to specify the responsible person or team overseeing the model’s configuration.              |
-| **Source Type**   | Yes      | Allows to select one of the following options: Adapter, Model Container, External Endpoint.             |
+| **Source type**   | Yes      | Allows to select one of the following options: Adapter, Model Container, External Endpoint.             |
 
 ##### Adapter
 
@@ -137,8 +138,8 @@ The following properties need to be specified if selected Source Type is Externa
 | Field             | Required | Description        |
 |-------------------|-----------|--------|
 | **Override Name** | No        | Custom display name for specific contexts.    |
-| **Icon**          | No        | A logo to visually distinguish models in the UI.  |
-| **Topics**        | No        | A tag that associates a model with one or more topics or categories (e.g. "finance", "support").  |
+| **Icon**          | No        | Logo to visually distinguish models in the UI.  |
+| **Topics**        | No        | Tag that associates a model with one or more topics or categories (e.g. "finance", "support").  |
 | **Attachments**   | No        | An option to select the attachment types (images, files) this model can have.  <br />**None** – no attachments allowed.  <br />**All** – unrestricted types. Optionally specify max number of attachments. <br />**Custom** – specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Optionally specify max number of attachments. |
 
 ##### Upstream Configuration
