@@ -18,7 +18,8 @@
     "glob": "10.5.0",
     "preact": "10.28.2",
     "js-yaml": "4.1.1",
-    "esbuild": "0.25.0"
+    "esbuild": "0.25.0",
+    "on-headers": "1.1.0"
   },
   "dependencies": {
     "@babel/helpers": "^7.27.3",
