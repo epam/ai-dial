@@ -95,9 +95,9 @@ Follow these steps to add a new application:
     | **Display Name**         | Yes         | A user-friendly label (e.g. "Customer Support Bot") shown throughout the Admin UI.     |
     | **Version**              | Yes         | Semantic identifier (e.g., 1.2.0) of an application's version.   |
     | **Description**          | No          | A free-text summary describing the application (e.g. supported inputs, business purpose). |
-    | **Source Type**          | Yes         | Can be one of the following options: Endpoints, Application Runner.                    |
-    | **Endpoint**             | Conditional | Required if Source Type is **Endpoints**. The application’s completion endpoint.         |
-    | **Application Runner**   | Conditional | Required if Source Type is **Application Runner**. [Application type JSON schema](/docs/platform/3.core/7.apps.md#schema-rich-applications) as defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md). |
+    | **Source Type**          | Yes         | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided endpoints.<br />- **Application runner**: application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications.                    |
+    | **Endpoint**             | Conditional | The application’s chat completion endpoint that will be used by DIAL Core. Required if Source Type is **Endpoints**.        |
+    | **Application runner**   | Conditional | Select one of the [available application runners](/docs/tutorials/3.admin/builders-application-runners.md). Required if Source Type is **Application runner**. |
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#configuration-screen) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
 
@@ -113,19 +113,40 @@ In the Properties tab, you can see all and define selected application's basic p
 
 ![](img/123.png)
 
-| Field    | Definition & Use Case |
+##### Available Actions
+
+You can find the following action buttons in the configuration screen header:
+
+| Action | Description |
+|--------|-------------|
+| **Version**  | Version of the application. Can be selected from the dropdown to display information for different versions.           |
+| **Delete** | Use to delete the selected application. |
+
+##### Fields Description
+
+| Field    | Description |
 |----------|--------------------------|
-| **Display Name**  | The name of the application assigned by the author. It is read-only but includes a copy-to-clipboard button for easy reference.    |
-| **Runner**   | [Application Runner](/docs/tutorials/3.admin/builders-application-runners.md) the application is based upon. NULL if the application was not created based on a runner. |
+| **ID**      | A unique identifier of the application. |
 | **Author**  | The username or system ID associated with the user who created or last updated this application.      |
 | **Creation Time** | The timestamp of when the application was created.   |
 | **Updated Time** | Date and time when the app's configuration was last updated.             |
-| **Version**  | Version of the application. Can be selected from the dropdown to display information for different versions.           |
+| **Folder Storage**  | The path to the application's location in the hierarchy of folders. It allows you to move the application between folders.| 
+| **Status** | Current status of the application:<br />**Valid**: application configuration is compatible with the JSON schema or the related application runner.<br />Only valid entities will be materialized into the DIAL Core configuration.<br />**Invalid**: application configuration is incompatible with the JSON schema of the related application runner. |
+| **Display Name**  | The name of the application assigned by the author. It is read-only but includes a copy-to-clipboard button for easy reference.    |
 | **Description**   | A free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs).  |
 | **Icon**  | A logo to visually distinguish the app on the UI. Maximum size: 512 MB. Supported types: .jpeg, .jpg, .jpe, .png, .gif, .apng, .webp, .avif, .svg, .svgz, .bmp, .ico. Up to 1 files.|
 | **Topics**  | Tags that you can assign to apps (e.g. "finance", "support"). Helps to assign categories for better navigation on UI.  |
-| **Storage Folder**  | The path to the application's location in the hierarchy of folders. It allows you to move the application between folders.|  
-
+| **Folder Storage**  | The path to the application's location in the hierarchy of folders. It allows you to move the application between folders.| 
+| **Source Type**     | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications.|
+| **Application runner**   | [Application Runner](/docs/tutorials/3.admin/builders-application-runners.md) the application is based upon. Enabled and is required if Source Type = Application runner is selected. |
+| **Completion endpoint** | The application’s chat completion endpoint that will be used by DIAL Core. Enabled and is required if Source Type = Endpoints is selected. |
+| **Editor URL** | URL of the application's custom builder UI. Application builder allows creating instances of apps using a [UI wizard](/docs/tutorials/0.user-guide.md#application-builder). Enabled if Source Type = Endpoints is selected. |
+| **Viewer URL** | URL of the application's custom UI. A custom UI, if enabled, will override the standard DIAL Chat UI. Enabled if Source Type = Endpoints is selected. |
+| **Attachments** | An option you can use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **None** – attachments are not allowed.  <br /> **Use all** – unrestricted types. Optionally specify max number of attachments. <br /> **Custom** – enter specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Optionally specify max number of attachments. |
+| **Attachments max number**  | Maximum number of input attachments. Enabled if attachment types are defined. |
+| **Defaults** | Default parameters for the application. Default parameters are applied if a request doesn't contain them in OpenAI chat/completions API call. |
+| **Forward auth token** | Select a downstream auth token to forward from the user’s session (for multi-tenant downstream). |
+| **Max retry attempts**  | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors). |
 
 ### Features
 

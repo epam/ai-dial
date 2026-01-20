@@ -16,15 +16,15 @@ In Applications, you can see, create and manage applications deployed in your in
 
 | Field                     | Definition    |
 |---------------------------|--------------------------------------------|
-| **Display Name**          | A user-friendly name of the application (e.g. "Data Clustering Application").  |
-| **Description**           | A brief free-text summary describing the application (e.g. "Clusters incoming text into semantic groups"). |
-| **ID**                    | A unique identifier used in the DIAL [dynamic settings](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/applications.md) (e.g. dca, support-bot). This is the path segment of the Application’s HTTP endpoint.          |
+| **Display Name**          | User-friendly name of the application (e.g. "Data Clustering Application").  |
+| **Description**           | Brief free-text summary describing the application (e.g. "Clusters incoming text into semantic groups"). |
+| **ID**                    | Unique identifier used in the DIAL [dynamic settings](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/applications.md) (e.g. dca, support-bot). This is the path segment of the Application’s HTTP endpoint.          |
 | **Endpoint**              | Full URL where the application is exposed.                                     |
-| **Author**                | Contains information about the application's author.                                       |
+| **Author**                | Information about the application's author.                                       |
 | **Topics**                | Tags or categories (e.g. "finance," "support," "image-capable") you can assign for discovery, filtering, or grouping in large deployments. Helps end users and admins find the right application by the use case.                |
-| **Attachment types**      | Controls which types of attachments this application can accept according to [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types).                           |
+| **Attachment types**      | Types of attachments this application can accept according to [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types).                           |
 | **Max attachment number** | Maximum number of attachments allowed in a single request.                      |
-| **Forward auth token**    | This parameter allow you to determine whether the Auth Token should be forwarded from the caller's session to the upstream API call. This enables multi-tenant scenarios or pass-through authentication for downstream services. |
+| **Status** | Current status of the application:<br />**Valid**: application configuration is compatible with the JSON schema or the related application runner.<br />Only valid entities will be materialized into the DIAL Core configuration.<br />**Invalid**: application configuration is incompatible with the JSON schema of the related application runner. |
 
 ## Create
 
@@ -37,14 +37,16 @@ Follow these steps to add a new application deployment:
 1. Click **+ Create** to invoke the **Create Application** modal.
 2. Define application's parameters
 
-    | Field                    | Required      | Definition & Guidance                                                          |
-    |--------------------------|---------------|--------------------------------------------|
-    | **ID**                   | Yes           | A unique identifier under the `applications` section of DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. support-bot, data-cluster).                               |
-    | **Display Name**         | Yes           | A user-friendly label (e.g. "Customer Support Bot") shown throughout the Admin UI.                         |
-    | **Source Type**          | Yes           | Can be one of the following options: Endpoints, Application Runner.            |
-    | **Endpoint**             | Conditional   | Required if Source Type is 'Endpoints'. The application’s completion endpoint. |
-    | **Application Runner**   | Conditional   | Required if Source Type is 'Application Runner'. [Application type schema](/docs/platform/3.core/7.apps.md#schema-rich-applications) as defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md). |
-    | **Description**          | No            | A free-text summary describing the application (e.g. supported inputs, business purpose).                  |
+    | Field                    | Required      | Definition & Guidance  |
+    |--------------------------|---------------|------------------------|
+    | **ID**                   | Yes           | Unique identifier under the `applications` section of DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. support-bot, data-cluster).|
+    | **Display Name**         | Yes           | User-friendly label (e.g. "Customer Support Bot") shown throughout the Admin UI.|
+    | **Display version**      | No           | Semantic identifier (e.g., 1.2.0) of an application's version.|
+    | **Description**          | No            | Free-text summary describing the application (e.g. supported inputs, business purpose).|
+    | **Source Type**          | Yes           | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided endpoints.<br />- **Application runner**: application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications.            |
+    | **Completion endpoints**             | Conditional   | The application’s completion endpoint DIAL COre will use to communicate with application. Required if Source Type is **Endpoints**.  |
+    | **Application runner**   | Conditional   | Select one of the [available application runners](/docs/tutorials/3.admin/builders-application-runners.md). Required if Source Type is **Application runner**. |
+
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#application-configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
 
@@ -60,28 +62,30 @@ In the Properties tab, you can define the application's identity, routing, UI me
 
 Once configured, your application is ready to orchestrate models and interceptors behind a single HTTP endpoint.
 
-![ ](img/img_13.png)
+![ ](img/entities_app_properties.png)
 
-| Field                      | Required    | Description                                                                    |
-|----------------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **ID**                     | Yes         | A unique key under `applications` in DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. data-clustering, support-bot).                                                                                                                |
-| **Updated Time**           | -           | Date and time when the app's configuration was last updated.                   |
-| **Creation Time**          | -           | Date and time when the app's configuration was created.                        |
-| **Display Name**           | Yes         | A user-friendly label shown on the UI (e.g. "Data Clustering Application"). Helps end user to identify and select applications.                 |
-| **Application Runner**     | No          | Application type schema. Defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md).                             |
-| **Description**            | No          | A free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs).                                                  |
-| **Maintainer**             | No          | Field used to specify the responsible person or team overseeing the app’s configuration.                                                        |
-| **Icon**                   | No          | A logo to visually distinguish the app on the UI.                              |
-| **Topics**                 | No          | Tags that you can assign to apps (e.g. "finance", "support"). Helps to split apps into categories for better navigation on UI.                  |
-| **Source Type**            | Yes         | Can be one of the following options: Endpoints, Application Runner.            |
-| **Application Runner**     | Conditional | Required if Source Type is 'Application Runner'. [Application type schema](/docs/platform/3.core/7.apps.md#schema-rich-applications). Defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md).                                                                  |
-| **Completion Endpoint**    | Conditional | URL where the app is exposed. Clients use this to integrate. Auto-populated if Source is Application Runner and endpoint is specified in respective runner. **Required** if Source is Endpoints.                                                                                                  |
-| **Viewer URL**             | Optional    | Optional, needed only if Source Type is 'Endpoints'. An optional field with a URL of the application's custom UI. A custom UI, if enabled, will override the standard DIAL Chat UI.                                                                                                               |
-| **Editor URL**             | Optional    | Optional, needed only if Source Type is 'Endpoints'. An optional field with a URL of the application's custom builder UI. Application builder allows end-users to create instances of apps using a [UI wizard](/docs/tutorials/0.user-guide.md#application-builder).                              |
-| **Attachments**            | No          | An option you can use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **None** – attachments are not allowed.  <br /> **All** – unrestricted types. Optionally specify max number of attachments. <br /> **Custom** – enter specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Optionally specify max number of attachments. |
-| **Attachments Max Number** | No          | Maximum number of input attachments.                                           |
-| **Forward auth token**     | No          | Select a downstream auth token to forward from the user’s session (for multi-tenant downstream).                                                |
-| **Max retry attempts**     | No          | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors).        |
+| Field                      | Required    | Description |
+|----------------------------|-------------|---------------|
+| **ID**                     | -         | A unique key under `applications` in DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. data-clustering, support-bot). |
+| **Updated Time**           | -           | Date and time when the app's configuration was last updated. |
+| **Creation Time**          | -           | Date and time when the app's configuration was created. |
+| **Status** |- | Current status of the application:<br />**Valid**: application configuration is compatible with the JSON schema or the related application runner.<br />Only valid entities will be materialized into the DIAL Core configuration.<br />**Invalid**: application configuration is incompatible with the JSON schema of the related application runner. |
+| **Sync with core** | -        | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity’s state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
+| **Display Name**           | Yes         | A user-friendly label shown on the UI (e.g. "Data Clustering Application"). Helps end user to identify and select applications. |
+| **Description**            | No          | A free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs). |
+| **Maintainer**             | No          | Field used to specify the responsible person or team overseeing the app’s configuration. |
+| **Icon**                   | No          | A logo to visually distinguish the app on the UI. |
+| **Topics**                 | No          | Tags that you can assign to apps (e.g. "finance", "support"). Helps to split apps into categories for better navigation on UI. |
+| **Source Type**            | Yes         | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided endpoints.<br />- **Application runner**: application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications.            |
+| **Application runner**     | Conditional | Required if Source Type is 'Application Runner'. [Application type schema](/docs/platform/3.core/7.apps.md#schema-rich-applications). Defined in [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md). |
+| **Completion endpoint**    | Conditional | URL where the app is exposed. Clients use this to integrate. Auto-populated if Source is Application Runner and endpoint is specified in respective runner. **Required** if Source is Endpoints. |
+| **Viewer URL**             | Optional    | Optional, needed only if Source Type is 'Endpoints'. An optional field with a URL of the application's custom UI. A custom UI, if enabled, will override the standard DIAL Chat UI. |
+| **Editor URL**             | Optional    | Optional, needed only if Source Type is 'Endpoints'. An optional field with a URL of the application's custom builder UI. Application builder allows end-users to create instances of apps using a [UI wizard](/docs/tutorials/0.user-guide.md#application-builder). |
+| **Attachments**            | No          | An option you can use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **None** – attachments are not allowed.  <br /> **Use all** – unrestricted types. Optionally specify max number of attachments. <br /> **Custom** – enter specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Optionally specify max number of attachments. |
+| **Attachments max number** | No          | Maximum number of input attachments. Enabled if attachment types are defined.|
+| **Forward auth token**     | No          | Select a downstream auth token to forward from the user’s session (for multi-tenant downstream). |
+| **Max retry attempts**     | No          | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors). |
+| **Defaults** | Default parameters for the application. Default parameters are applied if a request doesn't contain them in OpenAI chat/completions API call. |
  
 ### Features
 
@@ -112,8 +116,8 @@ While [Model feature flags](/docs/tutorials/3.admin/entities-models.md#feature-f
 
 You can override or extend DIAL Core’s built-in protocol calls with your own HTTP services. Here, you can specify endpoints used by [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) (e.g. a Python or Node Runner) to perform preprocessing or policy checks before delegating to your underlying models and workflows.
 
-| Field                        | Description & When to Use                           |
-|------------------------------|--------------------------|
+| Field                        | Description & When to Use |
+|------------------------------|---------------------------|
 | **Rate endpoint**            | A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).             |
 | **Tokenize endpoint**        | A URL to call a custom tokenization service. When you need precise, app-wide token counting (for mixed-model or multi-step prompts) that the model adapter can’t provide. |
 | **Truncate prompt endpoint** | A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual application call.  |
@@ -132,10 +136,10 @@ Enable or disable per-request options that your application accepts from clients
 | **Seed**                      | Enables the `seed` parameter for reproducible results. Great for testing or deterministic pipelines.  Disable to ensure randomized creativity.                |
 | **URL Attachments**           | Enables URL references (images, docs) as attachments in API requests. Must be enabled if your workflow downloads or processes remote assets via URLs.         |
 |**Assistant attachments in request**| No|Indicates whether the application supports `attachments` in `messages` from `role=assistant` in [chat completion request](https://dialx.ai/dial_api#operation/sendChatCompletionRequest). When set to `true`, DIAL Chat preserves `attachments` in `messages` in the chat completion requests to DIAL Core, instead of removing them. The feature is especially useful for apps that can generate attachments as well as take attachments in its input.|
-| **Folder Attachments**        | Enables attachments of folders (batching multiple files).                                                                                                     |
-| **Accessible by request key** | Indicates whether the deployment is accessible using a [per-request API key](/docs/platform/3.core/3.per-request-keys.md).                                    |
-| **Content parts**             | Indicates whether the deployment supports requests with content parts or not.                                                                                 |
-| **Consent required**          | indicates whether the application requires user consent before use.                                                                                           |
+| **Folder Attachments**        | Enables attachments of folders (batching multiple files). |
+| **Accessible by request key** | Indicates whether the deployment is accessible using a [per-request API key](/docs/platform/3.core/3.per-request-keys.md). |
+| **Content parts**             | Indicates whether the deployment supports requests with content parts or not. |
+| **Consent required**          | indicates whether the application requires user consent before use. |
 
 ### Parameters
 
@@ -163,8 +167,8 @@ In the Roles tab, you can create and manage roles defined in the [Access Managem
 
 ##### Roles grid
 
-| Column                | Description & Guidance        |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------|
+| Column                | Description & Guidance  |
+|-----------------------|------------------------ |
 | **Name**              | A unique role identifier.       |
 | **Description**       | A user-friendly description of the role (e.g., "Admin, Prompt Engineer, Developer"). |
 | **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits.<br /> Inherits the [default value](#default-rate-limits).<br /> Can be overridden.       |

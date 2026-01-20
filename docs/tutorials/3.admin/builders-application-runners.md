@@ -58,10 +58,11 @@ Click any Application Runner on the main screen to open its configuration page.
 In the **Properties** tab, you can define identity and metadata of application runners. DIAL Core uses this information to send orchestration payloads and display application runners on UI.
 
 | Field| Required | Definition  |
-|-----------------------------------|----------|--------------------------------------------------------|
+|------|----------|-------------|
 | **ID**      | -      | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
 | **Updated Time** | - | Date and time when the app runner's configuration was last updated.   |
 | **Creation Time**| - | Date and time when the app runner's configuration was created. |
+| **Sync with core** | -        | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity’s state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
 | **Display name** | Yes      | A user-friendly name assigned to the selected application runner (e.g. "Python Lambda Runner" or "NodeJS Service Worker").|
 | **Description**| No| Free-text notes about the runner: its environment (staging vs. prod), resource profile (2 vCPU, 8 GB RAM), or any special instructions.| 
 | **Icon**    | No| An optional icon representing the runner visually in the UI. Select from predefined icons.  |
@@ -81,8 +82,8 @@ In the Features tab, you can define additional capabilities of applications crea
 
 Defined features are propagated to applications created with the related application runner. Features undefined on the application runner level, can be set on per-application basis in the [Applications Configuration](/docs/tutorials/3.admin/entities-applications.md#features).
 
-| Field                        | Required|Description |
-|------------------------------|----------|----------------|
+| Field | Required |Description |
+|-------|----------|------------|
 | **Configuration endpoint** | No| A URL to fetch dynamic app-specific settings. Use this to drive runtime overrides from a remote config store. |
 | **Rate endpoint**| No| A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).|
 | **Tokenize endpoint**      | No| A URL to call a custom tokenization service.|

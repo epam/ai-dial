@@ -13,7 +13,7 @@ On the **Toolsets** main screen, you can find all toolsets existing in your DIAL
 ##### Toolsets grid
 
 | Field                     | Definition|
-|---------------------------|-------|
+|---------------------------|-----------|
 | **Display Name**          | A user-friendly label for a toolset (e.g. GitHub, Google Maps).              |
 | **Description**           | Free-text notes about this toolset’s purpose, capabilities, or any other relevant details.              |
 | **ID**                    | This is a unique key under the toolsets section of DIAL Admin.               |
@@ -64,7 +64,7 @@ In the **Properties** tab, you can view and edit main definitions and settings f
 | **ID**                 | -           | This is a unique key under the toolsets section of DIAL Admin.      |
 | **Updated Time**       | -           | Date and time when the toolset's configuration was last updated.    |
 | **Creation Time**      | -           | Date and time when the toolset's configuration was created.|
-|**Sync with core**      | -           | Indicates whether the toolset's configuration in Admin app is synchronized with the DIAL Core configuration. Click top open a read-only JSON Viewer to see the details.<br />Use [JSON Editor](#json-editor) to edit DIAL Admin or DIAL Core configuration of the selected toolset.|
+| **Sync with core** | -        | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity’s state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
 | **Display Name**       | No          | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).  |
 | **Description**        | No          | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details.|
 | **Maintainer**         | No          | Field used to specify the responsible person overseeing the toolset’s configuration.|
@@ -121,10 +121,10 @@ In the **Roles** tab, you can define user groups that are authorized to use a sp
 ##### Roles grid
 
 | Column           | Description & Guidance |
-|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **ID**           | A unique role's identifier.                                                                                                                                                                                                                                                                                                                                                                                       |
-| **Display Name** | A role's name.                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Description**  | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team").                                                                                                                                                                                                                                                                                                                         |
+|------------------|------------------------|
+| **ID**           | A unique role's identifier.  |
+| **Display Name** | A role's name. |
+| **Description**  | A user-friendly explanation of the role’s purpose (e.g., "DIAL Prompt Engineering Team"). |
 | **Actions**      | Additional role-specific actions: <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab or [remove](#remove-1) the role from the list. |
 
 
@@ -166,8 +166,8 @@ This section mimics the functionality available in the global [Audit → Activit
 
 ##### Activities List Table
 
-| **Field**         | **Definition**              |
-| ----------------- |------------------------------------------------------------------------------|
+| **Field**         | **Definition**  |
+| ----------------- |-----------------|
 | **Activity type** | The type of action performed  (e.g., Create, Update, Delete).                |
 | **Time**          | Timestamp indicating when the activity occurred.  |
 | **Initiated**     | Email address of the user who performed the activity.                        |
@@ -182,8 +182,8 @@ The Activity Details view provides a detailed snapshot of a specific change made
 
 To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
 
-| **Element/Section** | **Description**                |
-|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Element/Section** | **Description** |
+|---------------------|-----------------|
 | **Activity type**   | Type of the change performed (e.g., Update, Create, Delete).                    |
 | **Time**            | Timestamp of the change.       |
 | **Initiated**       | Identifier of the user who made the change.               |
