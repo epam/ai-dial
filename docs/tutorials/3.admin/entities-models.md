@@ -241,7 +241,7 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 | **Tokens per day**    | Daily tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.     |
 | **Tokens per week**   | Weekly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.    |
 | **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.   |
-| **Actions**           | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **Set unlimited** or [Remove](#remove) the role from the list. |
+| **Actions**           | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **Set unlimited**, [Remove](#remove) the role from the list or **Reset to default limits**.|
 
 #### Set Rate Limits
 
@@ -489,6 +489,8 @@ Use Resource Rollback to restore the previous version of the selected activity. 
 
 You can work with model properties using the UI and JSON view modes. Use the **JSON Editor** toggle on the configuration screen to switch between them. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI. 
 
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
+
 You can also use the JSON editor to preview and edit deployment properties as they are defined in Admin service and DIAL Core formats. **Sync with core** indicator will inform you about the synchronization state when any changes are made.
 
 ![ ](img/entities_models_properties_json.png)
@@ -498,7 +500,6 @@ You can also use the JSON editor to preview and edit deployment properties as th
 1. Navigate to **Entities → Models**, then select the model you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 
-> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ### Delete
 

@@ -104,7 +104,7 @@ By editing the JSON configuration in the Parameters tab, you define the input pa
 
 ### Interceptors
 
-In the **Interceptors** tab, you can add [interceptors](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md#application-type-interceptors) that will process requests and responses for applications built on this runner.
+In the **Interceptors** tab, you can add [local interceptors](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md#application-type-interceptors) that will process requests and responses for applications built on this runner. Such interceptors will be displayed as **runner interceptors** in the [application configuration](/docs/tutorials/3.admin/entities-applications.md#interceptors) screen. You can also preview global interceptors defined in [System Properties](/docs/tutorials/3.admin/home.md#system-properties).
 
 ![ ](img/app-runner-interceptors.png)
 

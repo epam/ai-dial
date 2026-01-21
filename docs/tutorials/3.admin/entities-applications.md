@@ -1,22 +1,21 @@
 # Applications
 
-## About Applications
-
-> Refer to [DIAL-Native Applications](/docs/platform/3.core/7.apps.md) to learn about applications in DIAL.
-
 ## Main Screen
 
 In Applications, you can see, create and manage applications deployed in your instance of DIAL.
 
-![](img/img_11.png)
+> Refer to [DIAL-Native Applications](/docs/platform/3.core/7.apps.md) to learn about applications in DIAL.
+
+![](img/entities_apps.png)
 
 ##### Applications grid
 
 > **TIP**: Use the **Columns** selector to customize which columns are visible in the grid and their order.
 
-| Field                     | Definition    |
-|---------------------------|--------------------------------------------|
+| Field                     | Definition |
+|---------------------------|------------|
 | **Display Name**          | User-friendly name of the application (e.g. "Data Clustering Application").  |
+| **Version** | Semantic identifier of the application version (e.g. 1.0.0). |
 | **Description**           | Brief free-text summary describing the application (e.g. "Clusters incoming text into semantic groups"). |
 | **ID**                    | Unique identifier used in the DIAL [dynamic settings](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/applications.md) (e.g. dca, support-bot). This is the path segment of the Application’s HTTP endpoint.          |
 | **Endpoint**              | Full URL where the application is exposed.                                     |
@@ -37,8 +36,8 @@ Follow these steps to add a new application deployment:
 1. Click **+ Create** to invoke the **Create Application** modal.
 2. Define application's parameters
 
-    | Field                    | Required      | Definition & Guidance  |
-    |--------------------------|---------------|------------------------|
+    | Field                    | Required      | Description  |
+    |--------------------------|---------------|--------------|
     | **ID**                   | Yes           | Unique identifier under the `applications` section of DIAL Core’s [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. support-bot, data-cluster).|
     | **Display Name**         | Yes           | User-friendly label (e.g. "Customer Support Bot") shown throughout the Admin UI.|
     | **Display version**      | No           | Semantic identifier (e.g., 1.2.0) of an application's version.|
@@ -52,7 +51,7 @@ Follow these steps to add a new application deployment:
 
     ![](img/img_12.png)
 
-## Application Configuration
+## Configuration
 
 Click any application on the main screen to open the configuration section.
 
@@ -72,6 +71,7 @@ Once configured, your application is ready to orchestrate models and interceptor
 | **Status** |- | Current status of the application:<br />**Valid**: application configuration is compatible with the JSON schema or the related application runner.<br />Only valid entities will be materialized into the DIAL Core configuration.<br />**Invalid**: application configuration is incompatible with the JSON schema of the related application runner. |
 | **Sync with core** | -        | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity’s state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
 | **Display Name**           | Yes         | Application name displayed on UI (e.g. "Data Clustering Application"). Helps end user to identify and select applications. |
+| **Display version**    | No          | Semantic identifier of the application version (e.g. 1.0.0). |
 | **Description**            | No          | Free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs). |
 | **Maintainer**             | No          | Field used to specify the responsible person or team overseeing the app’s configuration. |
 | **Icon**                   | No          | Logo to visually distinguish the app on the UI. |
@@ -93,17 +93,17 @@ In the Features tab, you can control optional capabilities of applications.
 
 ##### The difference between model and application features
 
-While [Model feature flags](/docs/tutorials/3.admin/entities-models.md#feature-flags-toggles) govern what each LLM integration can do, Application feature flags define which of those capabilities your orchestrated service exposes to clients. Also, you can plug in custom preprocessing endpoints.
+While [Model feature flags](/docs/tutorials/3.admin/entities-models.md#feature-flags-toggles) govern what each AI model integration can do, Application feature flags define which of those capabilities your orchestrated service exposes to clients. Also, you can plug in custom preprocessing endpoints.
 
 **Scope**
 
-* **Model features** apply *per LLM*, controlling what the model endpoint itself supports (e.g. whether GPT-4 can accept system prompts or function calls).
+* **Model features** apply *per AI model*, controlling what the model endpoint itself supports (e.g. whether GPT-4 can accept system prompts or function calls).
 * **Application features** apply *per orchestrated service*, governing what your composed workflow will accept and pass through—regardless of which models are called under the hood.
 
 **Override Capability**
 
 * At the **application** level, you can disable a feature globally (even if models support it) or plug in custom endpoints that apply *above* all models.
-* At the **model** level, toggles only reflect the true capabilities of that specific LLM integration.
+* At the **model** level, toggles only reflect the true capabilities of that specific AI model integration.
 
 **Use Cases**
 
@@ -116,12 +116,12 @@ While [Model feature flags](/docs/tutorials/3.admin/entities-models.md#feature-f
 
 You can override or extend DIAL Core’s built-in protocol calls with your own HTTP services. Here, you can specify endpoints used by [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) (e.g. a Python or Node Runner) to perform preprocessing or policy checks before delegating to your underlying models and workflows.
 
-| Field                        | Description & When to Use |
+| Field                        | Description |
 |------------------------------|---------------------------|
-| **Rate endpoint**            | A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).             |
-| **Tokenize endpoint**        | A URL to call a custom tokenization service. When you need precise, app-wide token counting (for mixed-model or multi-step prompts) that the model adapter can’t provide. |
-| **Truncate prompt endpoint** | A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual application call.  |
-| **Configuration endpoint**   | A URL to fetch JSON Schema describing settings of the DIAL application. DIAL Core exposes this endpoint to DIAL clients as `GET v1/deployments/<deployment name>/configuration`. DIAL client must provide a JSON value corresponding to the configuration JSON Schema in a chat completion request in the `custom_fields.configuration` field.       |
+| **Rate endpoint**            | URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules). |
+| **Tokenize endpoint**        | URL to call a custom tokenization service. When you need precise, app-wide token counting (for mixed-model or multi-step prompts) that the model adapter can’t provide. |
+| **Truncate prompt endpoint** | URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual application call.  |
+| **Configuration endpoint**   | URL to fetch JSON Schema describing settings of the DIAL application. DIAL Core exposes this endpoint to DIAL clients as `GET v1/deployments/<deployment name>/configuration`. DIAL client must provide a JSON value corresponding to the configuration JSON Schema in a chat completion request in the `custom_fields.configuration` field.       |
 
 #### Feature Flags (Toggles)
 
@@ -135,27 +135,22 @@ Enable or disable per-request options that your application accepts from clients
 | **Tools**                     | Enables `tools`/`functions` payloads in API calls. Switch on if your application makes external function calls (e.g. calendar lookup, database fetch).        |
 | **Seed**                      | Enables the `seed` parameter for reproducible results. Great for testing or deterministic pipelines.  Disable to ensure randomized creativity.                |
 | **URL Attachments**           | Enables URL references (images, docs) as attachments in API requests. Must be enabled if your workflow downloads or processes remote assets via URLs.         |
-|**Assistant attachments in request**| No|Indicates whether the application supports `attachments` in `messages` from `role=assistant` in [chat completion request](https://dialx.ai/dial_api#operation/sendChatCompletionRequest). When set to `true`, DIAL Chat preserves `attachments` in `messages` in the chat completion requests to DIAL Core, instead of removing them. The feature is especially useful for apps that can generate attachments as well as take attachments in its input.|
 | **Folder Attachments**        | Enables attachments of folders (batching multiple files). |
+|**Assistant attachments in request**| No|Indicates whether the application supports `attachments` in `messages` from `role=assistant` in [chat completion request](https://dialx.ai/dial_api#operation/sendChatCompletionRequest). When set to `true`, DIAL Chat preserves `attachments` in `messages` in the chat completion requests to DIAL Core, instead of removing them. The feature is especially useful for apps that can generate attachments as well as take attachments in its input.|
 | **Accessible by request key** | Indicates whether the deployment is accessible using a [per-request API key](/docs/platform/3.core/3.per-request-keys.md). |
 | **Content parts**             | Indicates whether the deployment supports requests with content parts or not. |
 | **Consent required**          | indicates whether the application requires user consent before use. |
+| **Support comment in rate response** | Indicates whether the application supports the field `comment` in rate response payload. |
 
 ### Parameters
 
-The Parameters tab within an application’s configuration allows administrators to manage application-specific parameters that influence its behavior:
-* Displays a list of key–value pairs defined for the selected application.
-* Parameters can be used to pass custom configurations or flags.
-* Parameters values are controlled by the admin.
+The Parameters tab within an application’s configuration allows administrators to manage application-specific parameters that influence its behavior. The content of this screen is determined by the related application runner.
 
-For example, in a data extraction application, admins can use this tab to:
-1. Manage specific fields that need to be extracted.
-2. Link prompt templates from the Assets → Prompts Library to each field.
-
+![](img/entities_apps_parameters.png)
 
 ### Roles
 
-In the Roles tab, you can create and manage roles defined in the [Access Management](/docs/tutorials/3.admin/access-management-roles.md) section. Here, you can define user groups that can use specific applications and define rate limits for them.
+In the Roles tab, you can create and manage roles that have access to the selected application. Roles are defined in the [Access Management](/docs/tutorials/3.admin/access-management-roles.md) section. Here, you can define user groups that can use specific applications and define rate limits for them.
 
 **Important**: if roles are not specified for a specific application, it will be available to all users
 
@@ -163,21 +158,20 @@ In the Roles tab, you can create and manage roles defined in the [Access Managem
 > * Refer to [Roles](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to lean more about roles in DIAL.
 > * Refer to tutorials to learn how to configure access and limits for [JWT](/docs/tutorials/2.devops/2.auth-and-access-control/1.jwt.md) and [API keys](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md)
 
-![](img/img_15.png)
+![](img/entities_apps_roles.png)
 
 ##### Roles grid
 
 | Column                | Description & Guidance  |
 |-----------------------|------------------------ |
-| **Name**              | A unique role identifier.       |
-| **Description**       | A user-friendly description of the role (e.g., "Admin, Prompt Engineer, Developer"). |
+| **Display Name**              | Unique role name.       |
+| **ID** | Unique role identifier.  |
+| **Description**       | Description of the role (e.g., "Admin, Prompt Engineer, Developer"). |
 | **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits.<br /> Inherits the [default value](#default-rate-limits).<br /> Can be overridden.       |
 | **Tokens per day**    | Daily tokens limit for a specific role. Blank = no limits. <br />Inherits the [default value](#default-rate-limits). <br />Can be overridden.        |
 | **Tokens per week**   | Weekly tokens limit for a specific role. Blank = no limits. <br />Inherits the [default value](#default-rate-limits). <br />Can be overridden.       |
 | **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits.<br /> Inherits the [default value](#default-rate-limits). <br />Can be overridden.      |
-| **Expiration time**   | The maximum number of users who can accept a shared resource.    |
-| **Max users**         | TTL (Time To Live) of the invitation link to a shared resource.  |
-| **Actions**     | Additional role-specific actions. <br /> Open [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> Make all restrictions unlimited for the given role |
+| **Actions**           | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **Set unlimited**, [Remove](#remove) the role from the list or **Reset to default limits**. |
 
 #### Set Rate Limits
 
@@ -199,8 +193,6 @@ Default rate limits are set for all roles in the **Roles** grid by default; howe
 | **Default tokens per day**    | The maximum tokens any user can consume per day unless a specific limit is in place.    |
 | **Default tokens per week**   | The maximum tokens any user can consume per week unless a specific limit is in place.   |
 | **Default tokens per month**  | The maximum tokens any user may consume per month unless a specific limit is in place.  |
-| **Expiration time**           | The default maximum number of users who can accept a shared resource.                   |
-| **Max users**                 | The default TTL (Time To Live) of the invitation link to a shared resource.             |
 
 #### Role-Specific Access
 
@@ -224,7 +216,7 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 1. Click the **actions** menu in the role's line.
 2. Choose **Remove** in the menu.
 
-![](img/82.png)
+![](img/apps_remove_role.png)
 
 ### Interceptors
 
@@ -234,7 +226,9 @@ You can define Interceptors in the [Entities → Interceptors](/docs/tutorials/3
 
 > Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 
-![](img/img_16.png)
+In the **Interceptors** tab of an application configuration, you can preview [global](/docs/tutorials/3.admin/home.md#system-properties) and interceptors defined on the [application runner level](/docs/tutorials/3.admin/builders-application-runners.md#interceptors) and also define local interceptors specific to this application.
+
+![](img/entities_apps_interceptors.png)
 
 ##### The difference between model and application interceptors
 
@@ -248,13 +242,14 @@ You can define Interceptors in the [Entities → Interceptors](/docs/tutorials/3
 * **Model**: Ideal for prompt "pre-processing" or response transformations that are specific for each LLM.
 * **Application**: Manage cross-cutting concerns across the whole application (e.g., tenant-based routing, unified logging, end-to-end policy enforcement).
 
-##### Interceptors Grid
+##### Interceptors grid
 
 | Column            | Description  |
 | ----------------- |-------------|
-| **Order**         | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor’s in this order.Response interceptors are invoked in the reversed order.      |
-| **Name**          | The interceptor’s alias, matching the **Name** field in its definition.      |
+| **Order** | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor’s in this order.Response interceptors are invoked in the reversed order.      |
+| **Display Name** | The interceptor’s alias, matching the **Name** field in its definition.      |
 | **Description**   | Free-text summary from the interceptor’s definition, explaining its purpose. |
+| **ID** | Unique identifier of the interceptor.                                        |
 | **Actions** | Additional role-specific actions. <br /> Open interceptor in a new tab. <br /> [Remove](#remove-1) the selected interceptor from the model's configuration. |
 
 #### Add
@@ -278,6 +273,7 @@ You can define Interceptors in the [Entities → Interceptors](/docs/tutorials/3
 3. **Save** to lock-in the interceptors list
 
 ### Dependencies
+
 This tab lists other entities Models or Applications that the current Application depends on. Administrators can manually add new dependencies (by selecting from available Models and Applications) or remove the existing ones.
 
 ![](img/102.png)
@@ -303,13 +299,15 @@ This tab lists other entities Models or Applications that the current Applicatio
 
 ### App Routes
 
-App Routes tab is introduced to manage application-specific routes. The tab includes a left-hand pane listing all app-related routes. 
+Routes in DIAL are used for communication through registered endpoints in the DIAL Core. They act as a bridging mechanism between the DIAL Core and applications, facilitating seamless interactions.
+
+In the App Routes tab you can manage application-specific routes. The tab includes a left-hand pane listing all app-related routes. 
 If the application is created based on a specific application runner, tab allows only viewing routes inherited from the app runner. 
 Otherwise, it allows creating, viewing, editing, and deleting routes.
 
 #### Properties
 
-Properties sub-tab allows to configure route identity and requests handling behavior.
+In the Properties sub-tab you can configure route's identity and requests handling behavior.
 
 > Configuration of this tab is similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
 
@@ -317,13 +315,13 @@ Properties sub-tab allows to configure route identity and requests handling beha
 
 #### Attachments
 
-Attachments sub-tab enables to configure attachment paths for both requests and responses.
+In the Attachments sub-tab you can configure attachment paths for both requests and responses.
 
 ![104.png](img/104.png)
 
 #### Roles
 
-Sub-tab enables route-specific role assignments, allowing administrators to control access to each individual route.
+In the Roles sub-tab you can configure route-specific role assignments, allowing administrators to control access to each individual route.
 
 > Configuration of this tab is similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
 
@@ -480,16 +478,19 @@ Use Resource Rollback to restore the previous version of the selected activity. 
 
 ### JSON Editor
 
-Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the application’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any application configuration page.
+You can work with applications' properties using the UI and JSON view modes. Use the **JSON Editor** toggle on the configuration screen to switch between them. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI. 
 
-![](img/img_18.png)
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
+
+You can also use the JSON editor to preview and edit deployment properties as they are defined in Admin service and DIAL Core formats. **Sync with core** indicator will inform you about the synchronization state when any changes are made.
+
+![](img/entities_apps_json_editor.png)
 
 ##### Switching to the JSON Editor
 
 1. Navigate to **Entities → Applications**, then select the application you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 
-> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ### Delete
 
