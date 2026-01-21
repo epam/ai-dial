@@ -14,14 +14,14 @@ On the **Toolsets** main screen, you can find all toolsets existing in your DIAL
 
 | Field                     | Definition|
 |---------------------------|-----------|
-| **Display Name**          | A user-friendly label for a toolset (e.g. GitHub, Google Maps).              |
-| **Description**           | Free-text notes about this toolset’s purpose, capabilities, or any other relevant details.              |
-| **ID**                    | This is a unique key under the toolsets section of DIAL Admin.               |
-|**Updated Time**           | Date and time when the toolset's configuration was last updated.              |
-|**Source Type**            |A source type of the toolset: either DIAL [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) or External Endpoint.|
-|**Source**                 |For the [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) source type, it is a container ID. For External Endpoint - a URL of the external endpoint.|
-| **Author**                | Contains the tools author's name.                      |
-| **Topics**                | Tags or categories (e.g. "finance," "support") you can assign for discovery, filtering, or grouping. Helps end users and admins find the right toolset.  |
+| **Display Name**          | Name of a toolset displayed on UI (e.g. GitHub, Google Maps). |
+| **Description**           | Free-text notes about this toolset’s purpose, capabilities, or any other relevant details. |
+| **ID**                    | This is a unique key under the toolsets section of DIAL Admin. |
+|**Updated Time**           | Date and time when the toolset's configuration was last updated. |
+|**Source Type**            | Source type of the toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.|
+|**Source**                 | Identifier of a toolset source.<br />- For the [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) source type, it is a container ID.<br /> - For External Endpoint - a URL of the external endpoint.|
+| **Author**                | Name of the toolset creator.                      |
+| **Topics**                | Tags or categories assigned for toolsets for discovery, filtering, or grouping on UI (e.g. "finance," "support").|
 
 
 ## Create Toolset
@@ -31,14 +31,14 @@ Follow these steps to add a new toolset:
 1. Click **+ Create** to invoke a **Create Toolset** modal.
 2. Define parameters:
 
-    | Field | Required | Definition & Guidance  |
-    |-------------------|----------|--------------|
-    | **ID**            | Yes      | This is a unique key under the toolsets section of DIAL Admin.       |
-    | **Display Name**  | Yes       | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).|
-    | **Description**   | No       | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details.                         |
-    |**Source Type**|Yes|Choose between the available source types of toolset: DIAL [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) and External Endpoint.|
-    | **External Endpoint** | Conditional      | Toolset API for MCP calls. The endpoint that a Quick App can call to fetch external data. Applies for External Endpoint source types. |
-    | **Container** | Conditional      |If MCP Container source type is selected, pick one [MCP container](/docs/tutorials/3.admin/deployments-mcp.md) from the list. |
+    | Field | Required | Description |
+    |------ |----------|-------------|
+    | **ID** | Yes | Define a unique identifier of a toolset.|
+    | **Display Name** | Yes | Define a name of a toolset shown across the UI (e.g. GitHub, Google Maps).|
+    | **Description** | No | Enter a free-text note about the this toolset’s purpose, capabilities, or any other relevant details. |
+    |**Source Type**| Yes |Choose between the available source types of toolset: <br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.|
+    | **External Endpoint** | Conditional | Define a Toolset API endpoint for MCP calls. Applies for External Endpoint source type. |
+    | **Container** | Conditional | Select one of the available [MCP containers](/docs/tutorials/3.admin/deployments-mcp.md) from the list. Applies for MCP Container source type. |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#toolset-configuration). When done with toolset configuration, click **Save**. It may take some time for the changes to take effect after saving.
 
@@ -70,10 +70,10 @@ In the **Properties** tab, you can view and edit main definitions and settings f
 | **Maintainer**         | No          | Field used to specify the responsible person overseeing the toolset’s configuration.|
 | **Icon**               | No          | A logo to visually distinguish toolsets in the UI.                  |
 | **Topics**             | No          | A tag that associates a toolsets with one or more topics or categories (e.g. "finance", "support").    |
-| **Source Type**        | Yes         | The source type of the selected toolset: MCP Container or External Endpoint.  |
-| **External Endpoint**  | Conditional | The MCP endpoint that a Quick App can call to fetch external data. Applies for External Endpoint deployment source type.|
-| **Container**          | Conditional | MCP server container ID. Applies for MCP Container deployment source type. Follow a link to navigate to [MCP Deployments](/docs/tutorials/3.admin/deployments-mcp.md).|
-| **Transport**          | Yes         |  A transport supported by MCP server. The available options are: HTTP or SSE. Default: HTTP. Choose SSE for server-sent events when supported. |
+| **Source Type**        | Yes         | The source type of the selected toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.  |
+| **External Endpoint**  | Conditional | A Toolset API endpoint for MCP calls. Applies for External Endpoint source type.|
+| **Container**          | Conditional | MCP server [container ID](/docs/tutorials/3.admin/deployments-mcp.md). Applies for MCP Container deployment source type. |
+| **Transport**          | Yes         |  A transport supported by a related MCP server.<br />Available options: HTTP (default) or SSE.<br />Choose SSE for server-sent events when supported. |
 | **Authentication**     | Yes         | The following toolset authentication options are available: <br/> 1. **OAuth** - authenticate via OAuth 2.0 with an external identity provider. Supports **With login** and **With login & configuration** options. <br/> 2. **API Key** - authenticate requests using a key. <br/> 3. **Without authentication** — no authentication enforced, endpoint is publicly accessible.<br/>Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolset_credentials_api.md) to learn more about toolset authentication. |
 |**Forward per request key**|No|Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. **Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`.|
 | **Max retry attempts** | Yes         | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors).|

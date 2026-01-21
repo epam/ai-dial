@@ -17,14 +17,14 @@ On the main screen, you can find, manage and add interceptors to your DIAL envir
 
 | Field      | Definition |
 |---------------------------|-------|
-| **Display Name**| A user-friendly name of the interceptor (e.g. "PII Information Remover"). |
-| **Description** | A brief summary of what this interceptor does and any parameters it uses (e.g. BLACKLIST={"foo","bar"} or Logs request/response payloads).|
-| **ID**     | A unique identifier for the interceptor (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. | 
-| **Source Type** | Can be one of the following options: [Interceptor Template](/docs/tutorials/3.admin/builders-interceptor-templates.md), [Interceptor deployment](/docs/tutorials/3.admin/deployments-interceptors.md), External Endpoint. |
-| **Source** | Interceptor's Adapter ID, Interceptor Container Id or Completion Endpoint URL, depending on the choice of the Source Type.   |
-| **Author** | Contains information about the interceptor's author.|
+| **Display Name**| Name of the interceptor displayed on UI (e.g. "PII Information Remover"). |
+| **Description** | Brief summary of what this interceptor does and any parameters it uses (e.g. BLACKLIST={"foo","bar"} or Logs request/response payloads).|
+| **ID**     | Unique identifier for the interceptor (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. | 
+| **Source Type** | Source type of the interceptor:<br />- [Interceptor Template](/docs/tutorials/3.admin/builders-interceptor-templates.md): Interceptor is based on a template.<br />- [Interceptor deployment](/docs/tutorials/3.admin/deployments-interceptors.md): Interceptor is based on a deployed interceptor image.<br />- External Endpoint: Interceptor is based on an external HTTP endpoint. |
+| **Source** | Identifier of the interceptor source: Interceptor's Template, Interceptor Container Id or Completion Endpoint URL, depending on the choice of the Source Type.   |
+| **Author** | Information about the interceptor's author.|
 |**Updated time**| Date and time when the interceptor's configuration was last updated.|
-|**Status**| The current status of the interceptor. E.g. local or [global](/docs/tutorials/3.admin/home.md#system-properties).|
+|**Status**| The current status of the interceptor.<br />- **local**: Apply to selected deployments.<br />- [global](/docs/tutorials/3.admin/home.md#system-properties): Apply to all deployments.|
 
 ## Create
 
@@ -33,15 +33,15 @@ Follow these steps to add a new definition of an interceptor:
 1. Click **+ Create** to invoke the **Create Interceptor** modal.
 2. Define interceptor's parameters:
 
-    | Column | Definition & Use      |
-    |------------------|-------|
-    | **ID** | A unique identifier for the interceptor (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. |
-    | **Display Name** | A user-friendly name of the interceptor (e.g. "PII Information Remover"). |
-    | **Description**  | A brief summary of what this interceptor does and any parameters it uses (e.g. BLACKLIST={"foo","bar"} or Logs request/response payloads).|
-    | **Source Type** | Can be one of the following options: [Interceptor Template](/docs/tutorials/3.admin/builders-interceptor-templates.md), [Interceptor deployment](/docs/tutorials/3.admin/deployments-interceptors.md), External Endpoint. |
-    | **Interceptor template** | Interceptor's Template Id. Applies for the Interceptor Template source type.   |
-    | **Container** | Interceptor's Container Id. Applies for the Interceptor Container source type.  |
-    | **Completion endpoint** | URL of the chat completion endpoint. Applies for the External Endpoint source type.    |
+    | Column | Required |Description|
+    |--------|----------|-----------|
+    | **ID** | Yes | A unique identifier for the interceptor (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. |
+    | **Display Name** | Yes | A user-friendly name of the interceptor (e.g. "PII Information Remover"). |
+    | **Description**  | No | A brief summary of what this interceptor does and any parameters it uses (e.g. BLACKLIST={"foo","bar"} or Logs request/response payloads).|
+    | **Source Type** | Yes | Source type of the interceptor:<br />- [Interceptor Template](/docs/tutorials/3.admin/builders-interceptor-templates.md): Interceptor is based on a template.<br />- [Interceptor deployment](/docs/tutorials/3.admin/deployments-interceptors.md): Interceptor is based on a deployed interceptor image.<br />- External Endpoint: Interceptor is based on an external HTTP endpoint. |
+    | **Interceptor template** | Conditional | Interceptor's Template Id. Applies for the Interceptor Template source type.   |
+    | **Container** | Conditional | Interceptor's [Container Id](/docs/tutorials/3.admin/deployments-interceptors.md). Applies for the Interceptor Container source type.  |
+    | **Completion endpoint** | Conditional | URL of the chat completion endpoint. Applies for the External Endpoint source type.    |
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new interceptor [configuration screen](#configuration) is opened. Once added, a new entry appears in the **Interceptors** listing. It may take some time for the changes to take effect after saving.
 
@@ -68,7 +68,7 @@ In the Properties tab, you can define metadata and execution endpoints for Inter
 | **Description**            | No          | A free-text summary of the interceptor’s behavior and any configuration parameters (e.g. `BLACKLIST={"foo","bar"}`). Helps to identify the interceptor and its purpose.  |
 | **Maintainer**             | No          | Field used to specify the responsible person or team overseeing the interceptor and its configuration.  |
 | **Forward Auth Token**     | Yes          | Specify whether to forward an Auth Token to your interceptor's endpoint. Use this when your interceptor service requires its own authentication. |
-| **Source Type**            | Yes         | Can be one of the following options: Interceptor Template, Interceptor deployment, External Endpoint. |
+| **Source Type**            | Yes         | Source type of the interceptor:<br />- [Interceptor Template](/docs/tutorials/3.admin/builders-interceptor-templates.md): Interceptor is based on a template.<br />- [Interceptor deployment](/docs/tutorials/3.admin/deployments-interceptors.md): Interceptor is based on a deployed interceptor image.<br />- External Endpoint: Interceptor is based on an external HTTP endpoint. |
 | **Completion Endpoint**    | Conditional | URL of the chat completion endpoint. Applies for the External Endpoint source type. |
 | **Configuration Endpoint** | Conditional | The URL that exposes the configuration of the interceptor. Applies for the External Endpoint source type.   |
 | **Interceptor template**   | Conditional | Interceptor's template Id. Applies for the Interceptor Template source type.|

@@ -2,19 +2,21 @@
 
 ## Introduction
 
-DIAL uses interceptors as a middleware that modifies incoming or outgoing requests to/from apps and AI models according to a specific logic enabling PII obfuscation, guardrails, safety checks, and beyond. You can use [Interceptors SDK](https://github.com/epam/ai-dial-interceptors-sdk) to create custom interceptors.
+DIAL uses interceptors as a middleware that modifies incoming or outgoing requests to/from apps and AI models according to a specific logic enabling PII obfuscation, guardrails, safety checks, and beyond. 
 
-You can enable custom interceptors in DIAL using their endpoint or a predefined template. Refer to [Interceptors](/docs/tutorials/3.admin/entities-interceptors.md) and [Interceptor Templates](/docs/tutorials/3.admin/builders-interceptor-templates.md) to learn more. 
+> Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 
-You can also deploy custom interceptors using Docker images, which you can add in the [Images](/docs/tutorials/3.admin/deployments-images.md) section.
+##### Ways of adding interceptors in DIAL
 
-In **Interceptor Deployments**, you can manage containers for interceptors within the DIAL system. You can create new containers based on existing [images](/docs/tutorials/3.admin/deployments-images.md), start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting.
+> Use [Interceptors SDK](https://github.com/epam/ai-dial-interceptors-sdk) to create custom interceptors.
 
-Running containers can be used as sources to create [interceptors](/docs/tutorials/3.admin/entities-interceptors.md) in DIAL.
+- Use endpoints of your custom interceptors to [add interceptors](/docs/tutorials/3.admin/entities-interceptors.md#create) directly using the External Endpoint source type.
+- Define and configure [Interceptor Templates](/docs/tutorials/3.admin/builders-interceptor-templates.md) and use them as a source type to create interceptors.
+- You can also deploy custom interceptors using Docker [Images](/docs/tutorials/3.admin/deployments-images.md), create containers, which you can use as a source type to [create interceptors](#to-create-interceptor).
 
 ## Main Screen
 
-On the main screen, you can see a list of all interceptor containers along with their current status and details. On this screen, you can also add new interceptor containers based on existing images.
+In **Interceptor Deployments**, you can manage containers for interceptors within the DIAL system. You can create new containers based on existing [images](/docs/tutorials/3.admin/deployments-images.md), start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting.
 
 ![](img/interceptor_deployments.png)
 
@@ -31,7 +33,7 @@ On the main screen, you can see a list of all interceptor containers along with 
 |Maintainer     | Maintainer of the interceptor container.                    |
 | Create time     | Date and time when the interceptor container was created.    |
 |Update time   | Date and time when the interceptor container was last updated.|
-| Actions        | Buttons to manage the selected interceptor container:<br/>- **Open in a new tab**: click to open the container configuration screen in a new tab in your browser.<br/>-**Duplicate**: click to duplicate the interceptor container.<br/>-**Stop/Run**: click to start and stop a container.<br/>-**Delete**: click to remove the container. |  
+| Actions        | Buttons to manage the selected interceptor container:<br/>- **Open in a new tab**: click to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: click to duplicate the interceptor container.<br/>- **Stop/Run**: click to start and stop a container.<br/>- **Delete**: click to remove the container. |  
 
 ## Create
 
@@ -56,11 +58,11 @@ On the configuration screen, you can view and edit the selected interceptor cont
 
 In the header of the Configuration screen, you can find the following action buttons:
 
-| Action         | Description                                                  |
-|----------------|--------------------------------------------------------------|
-| Create Interceptor           | Available for running containers. <br /> Click to create a new [interceptor](/docs/tutorials/3.admin/entities-interceptors.md) using this selected interceptor container.         |
-| Run/Stop        | Click to start or stop the interceptor container.           |       
-| Delete         | Click to delete the interceptor container.                  |
+| Action | Description |
+|------- |-------------|
+| Create Interceptor | Available for running containers. <br /> Click to create a new [interceptor](/docs/tutorials/3.admin/entities-interceptors.md) using this selected interceptor container. |
+| Run/Stop | Click to start or stop the interceptor container. |       
+| Delete | Click to delete the interceptor container. |
 
 ![](img/interceptor_container_actions.png)
 

@@ -109,6 +109,7 @@ In the Properties tab, you can view and edit the selected model serving containe
 |Endpoint Configuration| No |Yes|Port configuration for the model serving.|
 |Environment Variables| No |Yes|List of environment variables for the model serving.|
 |Resources| No |Yes|Resource allocation settings for the model serving (CPU, Memory, GPU).|
+|Configuration| No |Additional configuration settings for the model serving container.|
 
 ![ ](img/model_serving_properties.png)
 
