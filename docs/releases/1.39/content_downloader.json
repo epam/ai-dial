@@ -1,0 +1,36 @@
+{
+  "type": "internal-tool",
+  "display": {
+    "stage": {
+      "name": "File content downloader: "
+    }
+  },
+  "open_ai_tool": {
+    "type": "function",
+    "function": {
+      "name": "content_downloader",
+      "description": "**Content Downloader**  \nThe system have the content blob storage. URLs of the storage have relative format `files/<bucket_id>/<file_path>/<file_name>`. In case if tool requires the bytes or byte content of the url, this tool should be used to resolve file storage URL to the actual byte content",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL to resolve content. Should be in format `files/<bucket_id>/<file_path>/<file_name>`. DONT make up URL, only exact URLs would work.",
+            "display": {
+              "stage": {
+                "show_value_in_stage_title": false,
+                "ignore": false
+              }
+            }
+          }
+        },
+        "required": ["url"]
+      }
+    }
+  },
+  "attachment": {
+    "supported_types": [
+      "*/*"
+    ]
+  }
+}
