@@ -61,19 +61,20 @@ In the **Properties** tab, you can view and edit main definitions and settings f
 
 | Field                  | Required    | Description    |
 |------------------------|-------------|-------------------------------|
-| **ID**                 | -           | This is a unique key under the toolsets section of DIAL Admin.      |
+| **ID**                 | -           | Unique key under the toolsets section of DIAL Admin.      |
 | **Updated Time**       | -           | Date and time when the toolset's configuration was last updated.    |
 | **Creation Time**      | -           | Date and time when the toolset's configuration was created.|
+| **Authentication** | - | Toolset authentication indicator.|
 | **Sync with core** | -        | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity’s state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
-| **Display Name**       | No          | A user-friendly label shown across the UI (e.g. GitHub, Google Maps).  |
-| **Description**        | No          | Free-text note about the this toolset’s purpose, capabilities, or any other relevant details.|
+| **Display Name**       | Yes          | Name of a toolset shown across the UI (e.g. GitHub, Google Maps).  |
+| **Description**        | No          | Note about the this toolset’s purpose, capabilities, or any other relevant details.|
 | **Maintainer**         | No          | Field used to specify the responsible person overseeing the toolset’s configuration.|
-| **Icon**               | No          | A logo to visually distinguish toolsets in the UI.                  |
-| **Topics**             | No          | A tag that associates a toolsets with one or more topics or categories (e.g. "finance", "support").    |
+| **Icon**               | No          | Logo to visually distinguish toolsets in the UI.                  |
+| **Topics**             | No          | Tag that associates a toolsets with one or more topics or categories (e.g. "finance", "support").    |
 | **Source Type**        | Yes         | The source type of the selected toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.  |
-| **External Endpoint**  | Conditional | A Toolset API endpoint for MCP calls. Applies for External Endpoint source type.|
+| **External Endpoint**  | Conditional | Toolset API endpoint for MCP calls. Applies for External Endpoint source type.|
 | **Container**          | Conditional | MCP server [container ID](/docs/tutorials/3.admin/deployments-mcp.md). Applies for MCP Container deployment source type. |
-| **Transport**          | Yes         |  A transport supported by a related MCP server.<br />Available options: HTTP (default) or SSE.<br />Choose SSE for server-sent events when supported. |
+| **Transport**          | Yes         |  Transport supported by a related endpoint.<br />Available options: HTTP (default) or SSE.<br />Choose SSE for server-sent events when supported. |
 | **Authentication**     | Yes         | The following toolset authentication options are available: <br/> 1. **OAuth** - authenticate via OAuth 2.0 with an external identity provider. Supports **With login** and **With login & configuration** options. <br/> 2. **API Key** - authenticate requests using a key. <br/> 3. **Without authentication** — no authentication enforced, endpoint is publicly accessible.<br/>Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolset_credentials_api.md) to learn more about toolset authentication. |
 |**Forward per request key**|No|Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. **Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`.|
 | **Max retry attempts** | Yes         | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors).|
@@ -198,7 +199,11 @@ Use Resource Rollback to restore the previous version of the selected activity. 
 
 ### JSON Editor
 
-Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the toolset’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any toolset configuration page.
+You can work with toolset properties using the UI and JSON view modes. Use the **JSON Editor** toggle on the configuration screen to switch between them. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI. 
+
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
+
+You can also use the JSON editor to preview and edit deployment properties as they are defined in Admin service and DIAL Core formats. **Sync with core** indicator will inform you about the synchronization state when any changes are made.
 
 ![ ](img/118.png)
 
