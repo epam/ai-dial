@@ -55,6 +55,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - name: Retry docker compose pull
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd ./dial-docker-compose/ci/ollama
+
+          attempts=5
+          for i in $(seq 1 $attempts); do
+            echo "Pull attempt $i/$attempts"
+            if docker compose pull; then
+              echo "Pull succeeded"
+              exit 0
+            fi
+
+            rc=$?
+            echo "Pull failed (exit $rc). Diagnostics:"
+            docker --version || true
+            docker compose version || true
+
+            echo "Sleeping before retry..."
+            sleep $((10 * i))
+          done
+
+          echo "All pull attempts failed."
+          exit 1
       - uses: isbang/compose-action@05da55b2bb8a5a759d1c4732095044bd9018c050 # v2.4.3
         with:
           cwd: "./dial-docker-compose/ci/ollama"
