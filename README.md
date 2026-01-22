@@ -73,3 +73,4 @@ Here is the current list of repositories where you can find more details.
   - [DIAL GCP VertexAI Adapter](https://github.com/epam/ai-dial-adapter-vertexai) - pluggable Google LLMs adapter
   - [DIAL AWS Bedrock Adapter](https://github.com/epam/ai-dial-adapter-bedrock) - pluggable Amazon LLMs adapter (Anthropic Claude 1/2 is included)
   - More model adapters will be released (you may contribute)
+- [PDF Highlighter](https://github.com/epam/pdf-highlighter-kit) - high-performance PDF viewer with intelligent highlighting and text selection capabilities for web applications.

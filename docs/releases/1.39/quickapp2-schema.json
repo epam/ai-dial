@@ -1,0 +1,2662 @@
+{
+  "dial:applicationTypeCompletionEndpoint": "http://<app-host>/openai/deployments/quick_apps2/chat/completions",
+  "dial:applicationTypeConfigurationEndpoint": "http://<app-host>/openai/deployments/quick_apps2/configuration",
+  "type": "object",
+  "$id": "https://mydial.epam.com/custom_application_schemas/quickapps2",
+  "$schema": "https://dial.epam.com/application_type_schemas/schema#",
+  "dial:applicationTypeDisplayName": "Quick App 2.0",
+  "dial:appendApplicationPropertiesHeader": false,
+  "title": "ApplicationConfig",
+  "$defs": {
+    "ApiKeyAuthorization": {
+      "properties": {
+        "type": {
+          "const": "api_key",
+          "default": "api_key",
+          "title": "Type",
+          "type": "string"
+        },
+        "key": {
+          "title": "Key",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "location": {
+          "$ref": "#/$defs/AuthorizationLocation"
+        }
+      },
+      "required": [
+        "key",
+        "name",
+        "location"
+      ],
+      "title": "ApiKeyAuthorization",
+      "type": "object"
+    },
+    "AttachmentConfig": {
+      "properties": {
+        "supported_types": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "List of supported attachment types.",
+          "title": "Supported Types"
+        },
+        "propagate_types_to_choice": {
+          "description": "List of attachment types to propagate from stage to choice.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Propagate Types To Choice",
+          "type": "array"
+        }
+      },
+      "title": "AttachmentConfig",
+      "type": "object"
+    },
+    "AuthorizationLocation": {
+      "enum": [
+        "header",
+        "query",
+        "body"
+      ],
+      "title": "AuthorizationLocation",
+      "type": "string"
+    },
+    "BasicAuthorization": {
+      "properties": {
+        "type": {
+          "const": "basic",
+          "default": "basic",
+          "title": "Type",
+          "type": "string"
+        },
+        "username": {
+          "title": "Username",
+          "type": "string"
+        },
+        "password": {
+          "title": "Password",
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "password"
+      ],
+      "title": "BasicAuthorization",
+      "type": "object"
+    },
+    "BearerAuthorization": {
+      "properties": {
+        "type": {
+          "const": "bearer",
+          "default": "bearer",
+          "title": "Type",
+          "type": "string"
+        },
+        "token": {
+          "title": "Token",
+          "type": "string"
+        }
+      },
+      "required": [
+        "token"
+      ],
+      "title": "BearerAuthorization",
+      "type": "object"
+    },
+    "ClientIdSecretAuthorization": {
+      "properties": {
+        "type": {
+          "const": "client_id_secret",
+          "default": "client_id_secret",
+          "title": "Type",
+          "type": "string"
+        },
+        "client_id": {
+          "title": "Client Id",
+          "type": "string"
+        },
+        "client_secret": {
+          "title": "Client Secret",
+          "type": "string"
+        },
+        "token_url": {
+          "title": "Token Url",
+          "type": "string"
+        },
+        "scope": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scope"
+        },
+        "aud": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Aud"
+        }
+      },
+      "required": [
+        "client_id",
+        "client_secret",
+        "token_url"
+      ],
+      "title": "ClientIdSecretAuthorization",
+      "type": "object"
+    },
+    "ConfigurableSchemaArray": {
+      "properties": {
+        "display": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ParameterDisplayConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the tool parameter in stage."
+        },
+        "default": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The default value if value is not set",
+          "title": "Default"
+        },
+        "type": {
+          "const": "array",
+          "title": "Type",
+          "type": "string"
+        },
+        "items": {
+          "discriminator": {
+            "mapping": {
+              "None": "#/$defs/JsonSchemaConst",
+              "array": "#/$defs/JsonSchemaArray",
+              "boolean": "#/$defs/JsonSchemaSimpleType",
+              "integer": "#/$defs/JsonSchemaSimpleType",
+              "number": "#/$defs/JsonSchemaSimpleType",
+              "object": "#/$defs/JsonSchemaObject",
+              "string": "#/$defs/JsonSchemaSimpleType"
+            },
+            "propertyName": "type"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/JsonSchemaSimpleType"
+            },
+            {
+              "$ref": "#/$defs/JsonSchemaConst"
+            },
+            {
+              "$ref": "#/$defs/JsonSchemaObject"
+            },
+            {
+              "$ref": "#/$defs/JsonSchemaArray"
+            }
+          ],
+          "title": "Items"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "items",
+        "description"
+      ],
+      "title": "ConfigurableSchemaArray",
+      "type": "object"
+    },
+    "ConfigurableSchemaConst": {
+      "properties": {
+        "display": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ParameterDisplayConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the tool parameter in stage."
+        },
+        "default": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The default value if value is not set",
+          "title": "Default"
+        },
+        "type": {
+          "const": null,
+          "title": "Type",
+          "type": "null"
+        },
+        "const": {
+          "title": "Const"
+        }
+      },
+      "required": [
+        "type",
+        "const"
+      ],
+      "title": "ConfigurableSchemaConst",
+      "type": "object"
+    },
+    "ConfigurableSchemaObject": {
+      "properties": {
+        "display": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ParameterDisplayConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the tool parameter in stage."
+        },
+        "default": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The default value if value is not set",
+          "title": "Default"
+        },
+        "type": {
+          "const": "object",
+          "title": "Type",
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "discriminator": {
+              "mapping": {
+                "None": "#/$defs/JsonSchemaConst",
+                "array": "#/$defs/JsonSchemaArray",
+                "boolean": "#/$defs/JsonSchemaSimpleType",
+                "integer": "#/$defs/JsonSchemaSimpleType",
+                "number": "#/$defs/JsonSchemaSimpleType",
+                "object": "#/$defs/JsonSchemaObject",
+                "string": "#/$defs/JsonSchemaSimpleType"
+              },
+              "propertyName": "type"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/JsonSchemaSimpleType"
+              },
+              {
+                "$ref": "#/$defs/JsonSchemaConst"
+              },
+              {
+                "$ref": "#/$defs/JsonSchemaObject"
+              },
+              {
+                "$ref": "#/$defs/JsonSchemaArray"
+              }
+            ]
+          },
+          "title": "Properties"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "required": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Required"
+        }
+      },
+      "required": [
+        "type",
+        "properties",
+        "description"
+      ],
+      "title": "ConfigurableSchemaObject",
+      "type": "object"
+    },
+    "ConfigurableSchemaSimpleType": {
+      "properties": {
+        "display": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ParameterDisplayConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the tool parameter in stage."
+        },
+        "default": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The default value if value is not set",
+          "title": "Default"
+        },
+        "type": {
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "enum": {
+          "anyOf": [
+            {
+              "items": {},
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Enum"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "title": "ConfigurableSchemaSimpleType",
+      "type": "object"
+    },
+    "ContentPropagation": {
+      "properties": {
+        "propagate_history": {
+          "default": false,
+          "description": "Flag to propagate messages to deployment. If True, the messages will be propagated in such way: [assistant, tool] -> [user, assistant].",
+          "title": "Propagate History",
+          "type": "boolean"
+        },
+        "propagate_headers": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "List of headers to propagate to the DIAL deployment. If None, the default headers will be used.",
+          "title": "Propagate Headers"
+        }
+      },
+      "title": "ContentPropagation",
+      "type": "object"
+    },
+    "ContinueStrategyModel": {
+      "properties": {
+        "trigger_on": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TriggerOn"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The trigger on condition. If set as `null`, it will be applied to all tool errors."
+        },
+        "instructions": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Instructions to LLM what to do next.",
+          "title": "Instructions"
+        },
+        "type": {
+          "const": "continue",
+          "default": "continue",
+          "description": "The type of the strategy.",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "title": "ContinueStrategyModel",
+      "type": "object"
+    },
+    "CustomFieldsConfig": {
+      "properties": {
+        "configuration": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the custom fields.",
+          "title": "Configuration"
+        }
+      },
+      "title": "CustomFieldsConfig",
+      "type": "object"
+    },
+    "CustomSystemPromptConfig": {
+      "properties": {
+        "variables": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "The preset variable values",
+          "title": "Variables",
+          "type": "object"
+        },
+        "type": {
+          "const": "custom",
+          "default": "custom",
+          "description": "The type of the system prompt.",
+          "title": "Type",
+          "type": "string"
+        },
+        "content": {
+          "description": "The content of the system prompt.",
+          "title": "Content",
+          "type": "string"
+        }
+      },
+      "required": [
+        "variables",
+        "content"
+      ],
+      "title": "CustomSystemPromptConfig",
+      "type": "object"
+    },
+    "DeploymentToolSet": {
+      "properties": {
+        "name": {
+          "description": "The name of the tool set.",
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The description of the tool set.",
+          "title": "Description"
+        },
+        "enabled": {
+          "default": true,
+          "description": "Whether the toolset is enabled.",
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "type": {
+          "const": "dial-deployment",
+          "default": "dial-deployment",
+          "description": "The type of the tool set.",
+          "title": "Type",
+          "type": "string"
+        },
+        "tools": {
+          "description": "Tools with their configurations.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/DialDeploymentTool"
+              },
+              {
+                "$ref": "#/$defs/DialDeploymentSimpleTool"
+              },
+              {
+                "$ref": "#/$defs/PredefinedTool"
+              }
+            ]
+          },
+          "title": "Tools",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "tools"
+      ],
+      "title": "DeploymentToolSet",
+      "type": "object"
+    },
+    "DialDeploymentConfig": {
+      "properties": {
+        "name": {
+          "description": "The name of the DIAL deployment.",
+          "title": "Name",
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/$defs/DialDeploymentParameters",
+          "description": "The predefined parameters for the DIAL deployment."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "DialDeploymentConfig",
+      "type": "object"
+    },
+    "DialDeploymentParameters": {
+      "properties": {
+        "temperature": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The temperature for the model. A higher temperature means the model will take more risks.",
+          "title": "Temperature"
+        },
+        "top_p": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The number of top tokens to sample from. A higher value means more randomness.",
+          "title": "Top P"
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The seed for the model. Can be used for enhancing reproducibility of models' responses.",
+          "title": "Seed"
+        },
+        "stop": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Up to 4 sequences where the Assistant will stop generating further tokens.",
+          "title": "Stop"
+        },
+        "n": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "How many chat completion choices to generate for each input message.",
+          "title": "N"
+        },
+        "max_tokens": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The maximum number of tokens to generate by the Assistant.",
+          "title": "Max Tokens"
+        },
+        "presence_penalty": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "A number between -2.0 and 2.0. Positive values impose a penalty on new tokens based on their appearance in the current text, thereby increasing the model's tendency to introduce new topics in its responses.",
+          "title": "Presence Penalty"
+        },
+        "frequency_penalty": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "A number between -2.0 and 2.0. Positive values apply a penalty to new tokens according to their existing frequency in the preceding text, thereby reducing the model's propensity to repeat the exact same line.",
+          "title": "Frequency Penalty"
+        },
+        "custom_fields": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CustomFieldsConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration parameters for the DIAL deployment. Schema is defined for specific deployment via configuration endpoint"
+        }
+      },
+      "title": "DialDeploymentParameters",
+      "type": "object"
+    },
+    "DialDeploymentSimpleTool": {
+      "properties": {
+        "deployment_id": {
+          "description": "The id of the deployment",
+          "dial:resource": true,
+          "title": "Deployment Id",
+          "type": "string"
+        },
+        "enabled": {
+          "default": true,
+          "description": "Whether the tool is enabled.",
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "type": {
+          "const": "dial-deployment-simple",
+          "default": "dial-deployment-simple",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "deployment_id"
+      ],
+      "title": "DialDeploymentSimpleTool",
+      "type": "object"
+    },
+    "DialDeploymentTool": {
+      "properties": {
+        "attachment": {
+          "$ref": "#/$defs/AttachmentConfig",
+          "description": "Configuration for tool attachments."
+        },
+        "fallback_configuration": {
+          "$ref": "#/$defs/ToolFallbackConfig",
+          "description": "Tool fallback configuration."
+        },
+        "display": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ToolDisplayConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the tool stage."
+        },
+        "enabled": {
+          "default": true,
+          "description": "Whether the tool is enabled.",
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "open_ai_tool": {
+          "$ref": "#/$defs/OpenAiToolConfig",
+          "description": "JSON Schema with full tool configuration."
+        },
+        "type": {
+          "const": "deployment-tool",
+          "default": "deployment-tool",
+          "title": "Type",
+          "type": "string"
+        },
+        "deployment": {
+          "$ref": "#/$defs/DialDeploymentConfig",
+          "description": "The configuration for the DIAL deployment tool."
+        },
+        "system_prompt": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "custom": "#/$defs/CustomSystemPromptConfig",
+                  "dial": "#/$defs/DialSystemPromptConfig"
+                },
+                "propertyName": "type"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/CustomSystemPromptConfig"
+                },
+                {
+                  "$ref": "#/$defs/DialSystemPromptConfig"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the system prompt used in the DIAL deployment tool.",
+          "title": "System Prompt"
+        },
+        "content_propagation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ContentPropagation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration with propagations to DIAL deployment."
+        }
+      },
+      "required": [
+        "open_ai_tool",
+        "deployment"
+      ],
+      "title": "DialDeploymentTool",
+      "type": "object"
+    },
+    "DialMCPToolSet": {
+      "properties": {
+        "name": {
+          "default": "dial-mcp",
+          "description": "default name of the toolset",
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The description of the tool set.",
+          "title": "Description"
+        },
+        "enabled": {
+          "default": true,
+          "description": "Whether the toolset is enabled.",
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "type": {
+          "const": "dial-mcp",
+          "default": "dial-mcp",
+          "description": "The type of the tool set.",
+          "title": "Type",
+          "type": "string"
+        },
+        "dial_id": {
+          "description": "The Dial ID associated with this MCP toolset.",
+          "dial:resource": true,
+          "title": "Dial Id",
+          "type": "string"
+        },
+        "transport": {
+          "default": "HTTP",
+          "description": "The transport type of the tool set.",
+          "enum": [
+            "HTTP",
+            "SSE"
+          ],
+          "title": "Transport",
+          "type": "string"
+        },
+        "allowed_tools": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Allowed MCP tool names from the server",
+          "title": "Allowed Tools"
+        },
+        "attachment": {
+          "$ref": "#/$defs/AttachmentConfig",
+          "description": "Configuration for toolset attachments."
+        },
+        "fallback_configuration": {
+          "$ref": "#/$defs/ToolFallbackConfig",
+          "description": "Tool fallback configuration."
+        }
+      },
+      "required": [
+        "dial_id"
+      ],
+      "title": "DialMCPToolSet",
+      "type": "object"
+    },
+    "DialSystemPromptConfig": {
+      "properties": {
+        "type": {
+          "const": "dial",
+          "default": "dial",
+          "description": "The type of the system prompt.",
+          "title": "Type",
+          "type": "string"
+        },
+        "path": {
+          "description": "Relative path to the the system prompt in DIAL, including bucket",
+          "title": "Path",
+          "type": "string"
+        },
+        "variables": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Variables to be used in the DIAL system prompt",
+          "title": "Variables"
+        },
+        "content": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The loaded prompt from template",
+          "title": "Content"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "title": "DialSystemPromptConfig",
+      "type": "object"
+    },
+    "FileContextConfig": {
+      "properties": {
+        "type": {
+          "const": "file",
+          "default": "file",
+          "description": "The type of the context.",
+          "title": "Type",
+          "type": "string"
+        },
+        "url": {
+          "description": "Relative file URL in DIAL",
+          "dial:file": true,
+          "format": "dial-file-encoded",
+          "title": "Url",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The description of the file context.",
+          "title": "Description"
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "title": "FileContextConfig",
+      "type": "object"
+    },
+    "FormattedParameterConfig": {
+      "properties": {
+        "ignore": {
+          "default": false,
+          "description": "Whether to show parameter with value in the stage content.",
+          "title": "Ignore",
+          "type": "boolean"
+        },
+        "ignore_parameter_name": {
+          "default": false,
+          "description": "Whether to show parameter name in the stage content.",
+          "title": "Ignore Parameter Name",
+          "type": "boolean"
+        },
+        "show_value_in_stage_title": {
+          "default": false,
+          "description": "Whether to show parameter value in the stage title.",
+          "title": "Show Value In Stage Title",
+          "type": "boolean"
+        },
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "If present then will be used instead of original name, otherwise will be used original name.",
+          "title": "Name"
+        },
+        "prefix": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The prefix to be added after parameter name and before parameter value.",
+          "title": "Prefix"
+        },
+        "suffix": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The suffix to be added after parameter value.",
+          "title": "Suffix"
+        },
+        "replaced_value_info": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The replaced parameter value that will shown in the stage content.",
+          "title": "Replaced Value Info"
+        },
+        "format": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The format of the parameter value. If present then the value will be wrapped in ```{format} {parameter value}```.",
+          "title": "Format"
+        }
+      },
+      "title": "FormattedParameterConfig",
+      "type": "object"
+    },
+    "InternalTool": {
+      "properties": {
+        "attachment": {
+          "$ref": "#/$defs/AttachmentConfig",
+          "description": "Configuration for tool attachments."
+        },
+        "fallback_configuration": {
+          "$ref": "#/$defs/ToolFallbackConfig",
+          "description": "Tool fallback configuration."
+        },
+        "display": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ToolDisplayConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the tool stage."
+        },
+        "enabled": {
+          "default": true,
+          "description": "Whether the tool is enabled.",
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "open_ai_tool": {
+          "$ref": "#/$defs/OpenAiToolConfig",
+          "description": "JSON Schema with full tool configuration."
+        },
+        "type": {
+          "const": "internal-tool",
+          "default": "internal-tool",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "open_ai_tool"
+      ],
+      "title": "InternalTool",
+      "type": "object"
+    },
+    "InternalToolSet": {
+      "properties": {
+        "name": {
+          "description": "The name of the tool set.",
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The description of the tool set.",
+          "title": "Description"
+        },
+        "enabled": {
+          "default": true,
+          "description": "Whether the toolset is enabled.",
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "type": {
+          "const": "internal",
+          "default": "internal",
+          "description": "The type of the tool set.",
+          "title": "Type",
+          "type": "string"
+        },
+        "tools": {
+          "description": "Tools with their configurations.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/InternalTool"
+              },
+              {
+                "$ref": "#/$defs/PredefinedTool"
+              }
+            ]
+          },
+          "title": "Tools",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "tools"
+      ],
+      "title": "InternalToolSet",
+      "type": "object"
+    },
+    "JsonSchemaArray": {
+      "properties": {
+        "type": {
+          "const": "array",
+          "title": "Type",
+          "type": "string"
+        },
+        "items": {
+          "discriminator": {
+            "mapping": {
+              "None": "#/$defs/JsonSchemaConst",
+              "array": "#/$defs/JsonSchemaArray",
+              "boolean": "#/$defs/JsonSchemaSimpleType",
+              "integer": "#/$defs/JsonSchemaSimpleType",
+              "number": "#/$defs/JsonSchemaSimpleType",
+              "object": "#/$defs/JsonSchemaObject",
+              "string": "#/$defs/JsonSchemaSimpleType"
+            },
+            "propertyName": "type"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/JsonSchemaSimpleType"
+            },
+            {
+              "$ref": "#/$defs/JsonSchemaConst"
+            },
+            {
+              "$ref": "#/$defs/JsonSchemaObject"
+            },
+            {
+              "$ref": "#/$defs/JsonSchemaArray"
+            }
+          ],
+          "title": "Items"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "items",
+        "description"
+      ],
+      "title": "JsonSchemaArray",
+      "type": "object"
+    },
+    "JsonSchemaConst": {
+      "properties": {
+        "type": {
+          "const": null,
+          "title": "Type",
+          "type": "null"
+        },
+        "const": {
+          "title": "Const"
+        }
+      },
+      "required": [
+        "type",
+        "const"
+      ],
+      "title": "JsonSchemaConst",
+      "type": "object"
+    },
+    "JsonSchemaObject": {
+      "properties": {
+        "type": {
+          "const": "object",
+          "title": "Type",
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "discriminator": {
+              "mapping": {
+                "None": "#/$defs/JsonSchemaConst",
+                "array": "#/$defs/JsonSchemaArray",
+                "boolean": "#/$defs/JsonSchemaSimpleType",
+                "integer": "#/$defs/JsonSchemaSimpleType",
+                "number": "#/$defs/JsonSchemaSimpleType",
+                "object": "#/$defs/JsonSchemaObject",
+                "string": "#/$defs/JsonSchemaSimpleType"
+              },
+              "propertyName": "type"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/JsonSchemaSimpleType"
+              },
+              {
+                "$ref": "#/$defs/JsonSchemaConst"
+              },
+              {
+                "$ref": "#/$defs/JsonSchemaObject"
+              },
+              {
+                "$ref": "#/$defs/JsonSchemaArray"
+              }
+            ]
+          },
+          "title": "Properties"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "required": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Required"
+        }
+      },
+      "required": [
+        "type",
+        "properties",
+        "description"
+      ],
+      "title": "JsonSchemaObject",
+      "type": "object"
+    },
+    "JsonSchemaSimpleType": {
+      "properties": {
+        "type": {
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "enum": {
+          "anyOf": [
+            {
+              "items": {},
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Enum"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "title": "JsonSchemaSimpleType",
+      "type": "object"
+    },
+    "MCPApiKeyAuthorization": {
+      "properties": {
+        "type": {
+          "const": "api_key",
+          "default": "api_key",
+          "title": "Type",
+          "type": "string"
+        },
+        "key": {
+          "title": "Key",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "name"
+      ],
+      "title": "MCPApiKeyAuthorization",
+      "type": "object"
+    },
+    "MCPProtocol": {
+      "enum": [
+        "sse",
+        "streamable_http"
+      ],
+      "title": "MCPProtocol",
+      "type": "string"
+    },
+    "MCPServerInfo": {
+      "properties": {
+        "url": {
+          "description": "URL of the MCP server",
+          "title": "Url",
+          "type": "string"
+        },
+        "authorization": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "api_key": "#/$defs/MCPApiKeyAuthorization",
+                  "basic": "#/$defs/BasicAuthorization",
+                  "bearer": "#/$defs/BearerAuthorization",
+                  "client_id_secret": "#/$defs/ClientIdSecretAuthorization"
+                },
+                "propertyName": "type"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/BearerAuthorization"
+                },
+                {
+                  "$ref": "#/$defs/MCPApiKeyAuthorization"
+                },
+                {
+                  "$ref": "#/$defs/ClientIdSecretAuthorization"
+                },
+                {
+                  "$ref": "#/$defs/BasicAuthorization"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Authorization"
+        },
+        "protocol": {
+          "$ref": "#/$defs/MCPProtocol"
+        }
+      },
+      "required": [
+        "url",
+        "protocol"
+      ],
+      "title": "MCPServerInfo",
+      "type": "object"
+    },
+    "MCPToolSet": {
+      "properties": {
+        "name": {
+          "description": "The name of the tool set.",
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The description of the tool set.",
+          "title": "Description"
+        },
+        "enabled": {
+          "default": true,
+          "description": "Whether the toolset is enabled.",
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "type": {
+          "const": "mcp",
+          "default": "mcp",
+          "description": "The type of the tool set.",
+          "title": "Type",
+          "type": "string"
+        },
+        "mcp_server_info": {
+          "$ref": "#/$defs/MCPServerInfo"
+        },
+        "allowed_tools": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Allowed MCP tool names from the server",
+          "title": "Allowed Tools"
+        },
+        "attachment": {
+          "$ref": "#/$defs/AttachmentConfig",
+          "description": "Configuration for toolset attachments."
+        },
+        "fallback_configuration": {
+          "$ref": "#/$defs/ToolFallbackConfig",
+          "description": "Tool fallback configuration."
+        }
+      },
+      "required": [
+        "name",
+        "mcp_server_info"
+      ],
+      "title": "MCPToolSet",
+      "type": "object"
+    },
+    "OpenAiToolConfig": {
+      "properties": {
+        "type": {
+          "const": "function",
+          "default": "function",
+          "title": "Type",
+          "type": "string"
+        },
+        "function": {
+          "$ref": "#/$defs/OpenAiToolFunction"
+        }
+      },
+      "required": [
+        "function"
+      ],
+      "title": "OpenAiToolConfig",
+      "type": "object"
+    },
+    "OpenAiToolConfig_RestApiEndpointObjectParam_RestApiEndpointArrayParam_RestApiEndpointSimpleTypeParam_RestApiEndpointConstParam_": {
+      "properties": {
+        "type": {
+          "const": "function",
+          "default": "function",
+          "title": "Type",
+          "type": "string"
+        },
+        "function": {
+          "$ref": "#/$defs/OpenAiToolFunction_RestApiEndpointObjectParam_RestApiEndpointArrayParam_RestApiEndpointSimpleTypeParam_RestApiEndpointConstParam_"
+        }
+      },
+      "required": [
+        "function"
+      ],
+      "title": "OpenAiToolConfig[RestApiEndpointObjectParam, RestApiEndpointArrayParam, RestApiEndpointSimpleTypeParam, RestApiEndpointConstParam]",
+      "type": "object"
+    },
+    "OpenAiToolFunction": {
+      "properties": {
+        "parameters": {
+          "$ref": "#/$defs/OpenAiToolFunctionParameters"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameters",
+        "description",
+        "name"
+      ],
+      "title": "OpenAiToolFunction",
+      "type": "object"
+    },
+    "OpenAiToolFunctionParameters": {
+      "properties": {
+        "type": {
+          "const": "object",
+          "title": "Type",
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "discriminator": {
+              "mapping": {
+                "None": "#/$defs/ConfigurableSchemaConst",
+                "array": "#/$defs/ConfigurableSchemaArray",
+                "boolean": "#/$defs/ConfigurableSchemaSimpleType",
+                "integer": "#/$defs/ConfigurableSchemaSimpleType",
+                "number": "#/$defs/ConfigurableSchemaSimpleType",
+                "object": "#/$defs/ConfigurableSchemaObject",
+                "string": "#/$defs/ConfigurableSchemaSimpleType"
+              },
+              "propertyName": "type"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/ConfigurableSchemaObject"
+              },
+              {
+                "$ref": "#/$defs/ConfigurableSchemaArray"
+              },
+              {
+                "$ref": "#/$defs/ConfigurableSchemaSimpleType"
+              },
+              {
+                "$ref": "#/$defs/ConfigurableSchemaConst"
+              }
+            ]
+          },
+          "title": "Properties"
+        },
+        "required": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Required"
+        }
+      },
+      "required": [
+        "type",
+        "properties"
+      ],
+      "title": "OpenAiToolFunctionParameters",
+      "type": "object"
+    },
+    "OpenAiToolFunctionParameters_RestApiEndpointObjectParam_RestApiEndpointArrayParam_RestApiEndpointSimpleTypeParam_RestApiEndpointConstParam_": {
+      "properties": {
+        "type": {
+          "const": "object",
+          "title": "Type",
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "discriminator": {
+              "mapping": {
+                "None": "#/$defs/RestApiEndpointConstParam",
+                "array": "#/$defs/RestApiEndpointArrayParam",
+                "boolean": "#/$defs/RestApiEndpointSimpleTypeParam",
+                "integer": "#/$defs/RestApiEndpointSimpleTypeParam",
+                "number": "#/$defs/RestApiEndpointSimpleTypeParam",
+                "object": "#/$defs/RestApiEndpointObjectParam",
+                "string": "#/$defs/RestApiEndpointSimpleTypeParam"
+              },
+              "propertyName": "type"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/RestApiEndpointObjectParam"
+              },
+              {
+                "$ref": "#/$defs/RestApiEndpointArrayParam"
+              },
+              {
+                "$ref": "#/$defs/RestApiEndpointSimpleTypeParam"
+              },
+              {
+                "$ref": "#/$defs/RestApiEndpointConstParam"
+              }
+            ]
+          },
+          "title": "Properties"
+        },
+        "required": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Required"
+        }
+      },
+      "required": [
+        "type",
+        "properties"
+      ],
+      "title": "OpenAiToolFunctionParameters[RestApiEndpointObjectParam, RestApiEndpointArrayParam, RestApiEndpointSimpleTypeParam, RestApiEndpointConstParam]",
+      "type": "object"
+    },
+    "OpenAiToolFunction_RestApiEndpointObjectParam_RestApiEndpointArrayParam_RestApiEndpointSimpleTypeParam_RestApiEndpointConstParam_": {
+      "properties": {
+        "parameters": {
+          "$ref": "#/$defs/OpenAiToolFunctionParameters_RestApiEndpointObjectParam_RestApiEndpointArrayParam_RestApiEndpointSimpleTypeParam_RestApiEndpointConstParam_"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameters",
+        "description",
+        "name"
+      ],
+      "title": "OpenAiToolFunction[RestApiEndpointObjectParam, RestApiEndpointArrayParam, RestApiEndpointSimpleTypeParam, RestApiEndpointConstParam]",
+      "type": "object"
+    },
+    "ParameterDisplayConfig": {
+      "properties": {
+        "stage": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FormattedParameterConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the parameter stage."
+        }
+      },
+      "title": "ParameterDisplayConfig",
+      "type": "object"
+    },
+    "PredefinedSystemPromptConfig": {
+      "properties": {
+        "type": {
+          "const": "predefined",
+          "default": "predefined",
+          "description": "The type of the system prompt.",
+          "title": "Type",
+          "type": "string"
+        },
+        "template": {
+          "description": "The predefined template name for a system prompt",
+          "title": "Template",
+          "type": "string"
+        },
+        "content": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The loaded prompt from template",
+          "title": "Content"
+        }
+      },
+      "required": [
+        "template"
+      ],
+      "title": "PredefinedSystemPromptConfig",
+      "type": "object"
+    },
+    "PredefinedTool": {
+      "description": "Represents a reference to a single tool template.",
+      "properties": {
+        "type": {
+          "const": "predefined-tool",
+          "default": "predefined-tool",
+          "description": "The type indicating this is a tool template reference.",
+          "title": "Type",
+          "type": "string"
+        },
+        "template_name": {
+          "description": "The name of the tool template file (without extension), e.g., 'rag_tool'.",
+          "title": "Template Name",
+          "type": "string"
+        },
+        "enabled": {
+          "default": true,
+          "description": "Whether the tool is enabled.",
+          "title": "Enabled",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "template_name"
+      ],
+      "title": "PredefinedTool",
+      "type": "object"
+    },
+    "PredefinedToolSet": {
+      "properties": {
+        "type": {
+          "const": "predefined",
+          "default": "predefined",
+          "description": "The type of the tool set.",
+          "title": "Type",
+          "type": "string"
+        },
+        "template_name": {
+          "description": "Name of the predefined template",
+          "title": "Template Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "template_name"
+      ],
+      "title": "PredefinedToolSet",
+      "type": "object"
+    },
+    "RestApiEndpointArrayParam": {
+      "properties": {
+        "parameter_info": {
+          "$ref": "#/$defs/RestApiEndpointHeaderParamInfo"
+        },
+        "display": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ParameterDisplayConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the tool parameter in stage."
+        },
+        "default": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The default value if value is not set",
+          "title": "Default"
+        },
+        "type": {
+          "const": "array",
+          "title": "Type",
+          "type": "string"
+        },
+        "items": {
+          "discriminator": {
+            "mapping": {
+              "None": "#/$defs/JsonSchemaConst",
+              "array": "#/$defs/JsonSchemaArray",
+              "boolean": "#/$defs/JsonSchemaSimpleType",
+              "integer": "#/$defs/JsonSchemaSimpleType",
+              "number": "#/$defs/JsonSchemaSimpleType",
+              "object": "#/$defs/JsonSchemaObject",
+              "string": "#/$defs/JsonSchemaSimpleType"
+            },
+            "propertyName": "type"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/JsonSchemaSimpleType"
+            },
+            {
+              "$ref": "#/$defs/JsonSchemaConst"
+            },
+            {
+              "$ref": "#/$defs/JsonSchemaObject"
+            },
+            {
+              "$ref": "#/$defs/JsonSchemaArray"
+            }
+          ],
+          "title": "Items"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameter_info",
+        "type",
+        "items",
+        "description"
+      ],
+      "title": "RestApiEndpointArrayParam",
+      "type": "object"
+    },
+    "RestApiEndpointConstParam": {
+      "properties": {
+        "parameter_info": {
+          "$ref": "#/$defs/RestApiEndpointHeaderParamInfo"
+        },
+        "display": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ParameterDisplayConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the tool parameter in stage."
+        },
+        "default": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The default value if value is not set",
+          "title": "Default"
+        },
+        "type": {
+          "const": null,
+          "title": "Type",
+          "type": "null"
+        },
+        "const": {
+          "title": "Const"
+        }
+      },
+      "required": [
+        "parameter_info",
+        "type",
+        "const"
+      ],
+      "title": "RestApiEndpointConstParam",
+      "type": "object"
+    },
+    "RestApiEndpointHeaderParamInfo": {
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/ToolEndpointParamType"
+        },
+        "key": {
+          "title": "Key",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "key"
+      ],
+      "title": "RestApiEndpointHeaderParamInfo",
+      "type": "object"
+    },
+    "RestApiEndpointMethodInfo": {
+      "properties": {
+        "method_url": {
+          "title": "Method Url",
+          "type": "string"
+        },
+        "method_type": {
+          "$ref": "#/$defs/ToolEndpointInfoMethodType"
+        }
+      },
+      "required": [
+        "method_url",
+        "method_type"
+      ],
+      "title": "RestApiEndpointMethodInfo",
+      "type": "object"
+    },
+    "RestApiEndpointObjectParam": {
+      "properties": {
+        "parameter_info": {
+          "$ref": "#/$defs/RestApiEndpointHeaderParamInfo"
+        },
+        "display": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ParameterDisplayConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the tool parameter in stage."
+        },
+        "default": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The default value if value is not set",
+          "title": "Default"
+        },
+        "type": {
+          "const": "object",
+          "title": "Type",
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "discriminator": {
+              "mapping": {
+                "None": "#/$defs/JsonSchemaConst",
+                "array": "#/$defs/JsonSchemaArray",
+                "boolean": "#/$defs/JsonSchemaSimpleType",
+                "integer": "#/$defs/JsonSchemaSimpleType",
+                "number": "#/$defs/JsonSchemaSimpleType",
+                "object": "#/$defs/JsonSchemaObject",
+                "string": "#/$defs/JsonSchemaSimpleType"
+              },
+              "propertyName": "type"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/JsonSchemaSimpleType"
+              },
+              {
+                "$ref": "#/$defs/JsonSchemaConst"
+              },
+              {
+                "$ref": "#/$defs/JsonSchemaObject"
+              },
+              {
+                "$ref": "#/$defs/JsonSchemaArray"
+              }
+            ]
+          },
+          "title": "Properties"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "required": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Required"
+        }
+      },
+      "required": [
+        "parameter_info",
+        "type",
+        "properties",
+        "description"
+      ],
+      "title": "RestApiEndpointObjectParam",
+      "type": "object"
+    },
+    "RestApiEndpointSimpleTypeParam": {
+      "properties": {
+        "parameter_info": {
+          "$ref": "#/$defs/RestApiEndpointHeaderParamInfo"
+        },
+        "display": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ParameterDisplayConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the tool parameter in stage."
+        },
+        "default": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The default value if value is not set",
+          "title": "Default"
+        },
+        "type": {
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "enum": {
+          "anyOf": [
+            {
+              "items": {},
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Enum"
+        }
+      },
+      "required": [
+        "parameter_info",
+        "type"
+      ],
+      "title": "RestApiEndpointSimpleTypeParam",
+      "type": "object"
+    },
+    "RestApiTool": {
+      "properties": {
+        "attachment": {
+          "$ref": "#/$defs/AttachmentConfig",
+          "description": "Configuration for tool attachments."
+        },
+        "fallback_configuration": {
+          "$ref": "#/$defs/ToolFallbackConfig",
+          "description": "Tool fallback configuration."
+        },
+        "display": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ToolDisplayConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the tool stage."
+        },
+        "enabled": {
+          "default": true,
+          "description": "Whether the tool is enabled.",
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "open_ai_tool": {
+          "$ref": "#/$defs/OpenAiToolConfig_RestApiEndpointObjectParam_RestApiEndpointArrayParam_RestApiEndpointSimpleTypeParam_RestApiEndpointConstParam_",
+          "description": "JSON Schema with full tool configuration."
+        },
+        "rest_api_method_info": {
+          "$ref": "#/$defs/RestApiEndpointMethodInfo"
+        },
+        "type": {
+          "const": "restapi-tool",
+          "default": "restapi-tool",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "open_ai_tool",
+        "rest_api_method_info"
+      ],
+      "title": "RestApiTool",
+      "type": "object"
+    },
+    "RestApiToolSet": {
+      "properties": {
+        "name": {
+          "description": "The name of the tool set.",
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The description of the tool set.",
+          "title": "Description"
+        },
+        "enabled": {
+          "default": true,
+          "description": "Whether the toolset is enabled.",
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "type": {
+          "const": "rest-api",
+          "default": "rest-api",
+          "description": "The type of the tool set.",
+          "title": "Type",
+          "type": "string"
+        },
+        "authorization": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "api_key": "#/$defs/ApiKeyAuthorization",
+                  "basic": "#/$defs/BasicAuthorization",
+                  "bearer": "#/$defs/BearerAuthorization",
+                  "client_id_secret": "#/$defs/ClientIdSecretAuthorization"
+                },
+                "propertyName": "type"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/BasicAuthorization"
+                },
+                {
+                  "$ref": "#/$defs/BearerAuthorization"
+                },
+                {
+                  "$ref": "#/$defs/ClientIdSecretAuthorization"
+                },
+                {
+                  "$ref": "#/$defs/ApiKeyAuthorization"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Authorization"
+        },
+        "tools": {
+          "description": "Tools with their configurations.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/RestApiTool"
+              },
+              {
+                "$ref": "#/$defs/PredefinedTool"
+              }
+            ]
+          },
+          "title": "Tools",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "tools"
+      ],
+      "title": "RestApiToolSet",
+      "type": "object"
+    },
+    "StopStrategyModel": {
+      "properties": {
+        "trigger_on": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TriggerOn"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The trigger on condition. If set as `null`, it will be applied to all tool errors."
+        },
+        "type": {
+          "const": "stop",
+          "default": "stop",
+          "description": "The type of the strategy.",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "title": "StopStrategyModel",
+      "type": "object"
+    },
+    "ToolDisplayConfig": {
+      "properties": {
+        "stage": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ToolStageConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The configuration for the tool stage."
+        }
+      },
+      "title": "ToolDisplayConfig",
+      "type": "object"
+    },
+    "ToolEndpointInfoMethodType": {
+      "enum": [
+        "get",
+        "post",
+        "put",
+        "delete"
+      ],
+      "title": "ToolEndpointInfoMethodType",
+      "type": "string"
+    },
+    "ToolEndpointParamType": {
+      "enum": [
+        "query",
+        "url",
+        "body",
+        "header"
+      ],
+      "title": "ToolEndpointParamType",
+      "type": "string"
+    },
+    "ToolFallbackConfig": {
+      "properties": {
+        "strategies": {
+          "description": "Strategy to handle tool fallbacks.",
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "continue": "#/$defs/ContinueStrategyModel",
+                "stop": "#/$defs/StopStrategyModel"
+              },
+              "propertyName": "type"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/StopStrategyModel"
+              },
+              {
+                "$ref": "#/$defs/ContinueStrategyModel"
+              }
+            ]
+          },
+          "title": "Strategies",
+          "type": "array"
+        },
+        "display_error_in_stage": {
+          "default": true,
+          "description": "Whether to display exception message in the stage or just error notification.",
+          "title": "Display Error In Stage",
+          "type": "boolean"
+        }
+      },
+      "title": "ToolFallbackConfig",
+      "type": "object"
+    },
+    "ToolStageConfig": {
+      "properties": {
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The name of the tool stage. Can contain placeholders for tool arguments in curly braces.",
+          "title": "Name"
+        },
+        "body": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The body of the tool stage. Can contain placeholders for tool arguments in curly braces.",
+          "title": "Body"
+        },
+        "show": {
+          "default": true,
+          "description": "Whether the tool stage should be shown in the chat.",
+          "title": "Show",
+          "type": "boolean"
+        }
+      },
+      "title": "ToolStageConfig",
+      "type": "object"
+    },
+    "TriggerOn": {
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/TriggerOnType",
+          "description": "The type of the trigger on condition."
+        },
+        "value": {
+          "description": "The value to match against.",
+          "title": "Value",
+          "type": "string"
+        },
+        "case_sensitive": {
+          "default": false,
+          "title": "Case Sensitive",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "TriggerOn",
+      "type": "object"
+    },
+    "TriggerOnType": {
+      "enum": [
+        "contains",
+        "equals"
+      ],
+      "title": "TriggerOnType",
+      "type": "string"
+    },
+    "UserDefinedContextConfig": {
+      "properties": {
+        "type": {
+          "const": "user-defined",
+          "default": "user-defined",
+          "description": "The type of the context.",
+          "title": "Type",
+          "type": "string"
+        },
+        "content": {
+          "description": "The content of the user-defined context.",
+          "title": "Content",
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ],
+      "title": "UserDefinedContextConfig",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "orchestrator": {
+      "properties": {
+        "deployment": {
+          "$ref": "#/$defs/DialDeploymentConfig",
+          "description": "The configuration for the orchestrator DIAL deployment."
+        },
+        "system_prompt": {
+          "description": "The configuration for the system prompt.",
+          "discriminator": {
+            "mapping": {
+              "custom": "#/$defs/CustomSystemPromptConfig",
+              "dial": "#/$defs/DialSystemPromptConfig",
+              "predefined": "#/$defs/PredefinedSystemPromptConfig"
+            },
+            "propertyName": "type"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/PredefinedSystemPromptConfig"
+            },
+            {
+              "$ref": "#/$defs/CustomSystemPromptConfig"
+            },
+            {
+              "$ref": "#/$defs/DialSystemPromptConfig"
+            }
+          ],
+          "title": "System Prompt"
+        },
+        "max_iterations": {
+          "description": "The max count of orchestrator(agent) operations. Default: 15",
+          "title": "Max Iterations",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "deployment",
+        "system_prompt"
+      ],
+      "title": "OrchestratorConfig",
+      "type": "object",
+      "description": "The configuration for the orchestrator.",
+      "dial:meta": {
+        "dial:propertyKind": "server",
+        "dial:propertyOrder": 1
+      }
+    },
+    "contexts": {
+      "description": "The list of contexts.",
+      "items": {
+        "discriminator": {
+          "mapping": {
+            "file": "#/$defs/FileContextConfig",
+            "user-defined": "#/$defs/UserDefinedContextConfig"
+          },
+          "propertyName": "type"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/$defs/FileContextConfig"
+          },
+          {
+            "$ref": "#/$defs/UserDefinedContextConfig"
+          }
+        ]
+      },
+      "title": "Contexts",
+      "type": "array",
+      "dial:meta": {
+        "dial:propertyKind": "server",
+        "dial:propertyOrder": 2
+      }
+    },
+    "tool_sets": {
+      "description": "The list of tool sets.",
+      "items": {
+        "discriminator": {
+          "mapping": {
+            "dial-deployment": "#/$defs/DeploymentToolSet",
+            "dial-mcp": "#/$defs/DialMCPToolSet",
+            "internal": "#/$defs/InternalToolSet",
+            "mcp": "#/$defs/MCPToolSet",
+            "predefined": "#/$defs/PredefinedToolSet",
+            "rest-api": "#/$defs/RestApiToolSet"
+          },
+          "propertyName": "type"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/$defs/RestApiToolSet"
+          },
+          {
+            "$ref": "#/$defs/DeploymentToolSet"
+          },
+          {
+            "$ref": "#/$defs/InternalToolSet"
+          },
+          {
+            "$ref": "#/$defs/MCPToolSet"
+          },
+          {
+            "$ref": "#/$defs/DialMCPToolSet"
+          },
+          {
+            "$ref": "#/$defs/PredefinedToolSet"
+          }
+        ]
+      },
+      "title": "Tool Sets",
+      "type": "array",
+      "dial:meta": {
+        "dial:propertyKind": "server",
+        "dial:propertyOrder": 3
+      }
+    },
+    "starters": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "The list of starter buttons.",
+      "title": "Starters",
+      "dial:meta": {
+        "dial:propertyKind": "server",
+        "dial:propertyOrder": 4
+      }
+    }
+  },
+  "required": [
+    "orchestrator",
+    "contexts",
+    "tool_sets"
+  ]
+}
