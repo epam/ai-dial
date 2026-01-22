@@ -135,11 +135,11 @@ Use **compare versions** to compare the prompt's text across its versions. You c
 
 ### JSON Editor
 
-**Advanced users with technical expertise** can work with the prompt properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI.
+**Advanced users with technical expertise** can work with the prompt properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed on UI.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
-![](img/73.png)
+![](img/assets_prompts_json.png)
 
 ##### Switching to the JSON Editor
 

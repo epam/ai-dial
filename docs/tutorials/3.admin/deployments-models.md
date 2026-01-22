@@ -113,7 +113,7 @@ In the Properties tab, you can view and edit the selected model serving containe
 
 ![ ](img/model_serving_properties.png)
 
-You can work with model serving properties in the table or a JSON editor view modes:
+**Advanced users with technical expertise** can work with model serving properties in the table or a JSON editor view modes. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed on UI.
 
 ![ ](img/model_serving_json_editor.png)
 

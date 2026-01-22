@@ -161,16 +161,19 @@ To open Activity Details, click on the three-dot menu (⋮) at the end of a row 
 
 ### JSON Editor
 
-**Advanced users with technical expertise** can work with the interceptor properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI.
+**Advanced users with technical expertise** can work with the interceptor properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed on UI.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
-![](img/71.png)
+![](img/entities_interceptors_json.png)
 
-##### Switching to the JSON Editor
+##### Working with JSON Editor
 
 1. Navigate to **Entities → Interceptors**, then select the interceptor you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
+3. Chose between the Admin and Core format to see and work with properties in the necessary format. **Note**: Core format view mode does not render the actual configuration stored in DIAL Core but the configuration in Admin service displayed in the DIAL Core format.
+4. Make changes and click **Save** to apply them.
+5. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.
 
 ### Delete
 

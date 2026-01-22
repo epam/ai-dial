@@ -472,18 +472,21 @@ Use Resource Rollback to restore the previous version of the selected activity. 
 
 ### JSON Editor
 
-**Advanced users with technical expertise** can work with the application properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI.
+**Advanced users with technical expertise** can work with the application properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed on UI.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
-You can also use the JSON editor to preview and edit deployment properties as they are defined in Admin service and DIAL Core formats. **Sync with core** indicator will inform you about the synchronization state when any changes are made.
+In JSON editor, you can use the view dropdown to select between Admin format and Core format. Note, that these formatting options are for your convenience only and do not render properties as they are defined in DIAL Core. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.
 
 ![](img/entities_apps_json_editor.png)
 
-##### Switching to the JSON Editor
+##### Working with JSON Editor
 
 1. Navigate to **Entities → Applications**, then select the application you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
+3. Chose between the Admin and Core format to see and work with properties in the necessary format. **Note**: Core format view mode does not render the actual configuration stored in DIAL Core but the configuration in Admin service displayed in the DIAL Core format.
+4. Make changes and click **Save** to apply them.
+5. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.
 
 ### Delete
 

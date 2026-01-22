@@ -117,10 +117,9 @@ In the Properties tab, you can preview and modify selected container's basic pro
 
 ![](img/mcp_container_properties.png)
 
-You can work with container properties in the table or a JSON editor view modes:
+**Advanced users with technical expertise** can work with container properties in the table or a JSON editor view modes. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed on UI.
 
 ![ ](img/mcp_container_json_editor.png)
-
 
 ### Tools Overview
 

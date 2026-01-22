@@ -211,12 +211,17 @@ Use Resource Rollback to restore the previous version of the selected activity. 
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
-![](img/72.png)
+In JSON editor, you can use the view dropdown to select between Admin format and Core format. Note, that these formatting options are for your convenience only and do not render properties as they are defined in DIAL Core. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.
 
-##### Switching to the JSON Editor
+![](img/entities_routes_json.png)
 
-1. Navigate to **Entities → Routes**, then select the Route you want to edit.
+##### Working with JSON Editor
+
+1. Navigate to **Entities → Routes**, then select the route you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
+3. Chose between the Admin and Core format to see and work with properties in the necessary format. **Note**: Core format view mode does not render the actual configuration stored in DIAL Core but the configuration in Admin service displayed in the DIAL Core format.
+4. Make changes and click **Save** to apply them.
+5. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.
 
 ### Delete
 

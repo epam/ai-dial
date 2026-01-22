@@ -103,7 +103,7 @@ In the Properties tab, you can view and edit the selected interceptor container 
 
 ![](img/interceptor_container_properties.png)
 
-**Advanced users with technical expertise** can work with the container properties in a JSON editor view mode:
+**Advanced users with technical expertise** can work with the container properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed on UI.
 
 ![ ](img/interceptor_container_json_editor.png)
 
