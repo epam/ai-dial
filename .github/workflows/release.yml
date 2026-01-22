@@ -64,7 +64,7 @@ jobs:
           attempts=5
           for i in $(seq 1 $attempts); do
             echo "Pull attempt $i/$attempts"
-            if docker compose pull; then
+            if docker compose pull --quiet; then
               echo "Pull succeeded"
               exit 0
             fi
