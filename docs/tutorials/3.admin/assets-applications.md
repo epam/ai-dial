@@ -184,7 +184,9 @@ Enable or disable per-request options that your application accepts from clients
 
 ### JSON Editor
 
-For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor**.
+**Advanced users with technical expertise** can work with the application properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI.
+
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ![](img/json-editor-apps.png)
 
@@ -192,8 +194,6 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 
 1. Navigate to **Assets → Applications**, then select the application you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
-
-> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ## Delete
 

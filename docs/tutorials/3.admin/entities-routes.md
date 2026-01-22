@@ -208,15 +208,16 @@ Use Resource Rollback to restore the previous version of the selected activity. 
 
 ### JSON Editor
 
-Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the route’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any route configuration page.
+**Advanced users with technical expertise** can work with the route properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI.
+
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
+
 ![](img/72.png)
 
 ##### Switching to the JSON Editor
 
 1. Navigate to **Entities → Routes**, then select the Route you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
-
-> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ### Delete
 

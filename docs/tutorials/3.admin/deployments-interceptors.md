@@ -22,18 +22,18 @@ In **Interceptor Deployments**, you can manage containers for interceptors withi
 
 ##### Interceptor Containers Grid
 
-| Column         | Description                                                  |
-|----------------|--------------------------------------------------------------|
-| Display Name           | Name of the interceptor container rendered in UI.                       |
-| Description    | Brief description of the interceptor container.            |
+| Column | Description |
+|--------|-------------|
+| Display Name | Name of the interceptor container rendered in UI. |
+| Description | Brief description of the interceptor container. |
 | Interceptor Image | Docker image from which the interceptor container was created. |
-| Status         | Current status of the interceptor container (e.g., Running, Stopped). |
-|ID             | Unique identifier of the interceptor container.              |
-|Container URL | URL to access the interceptor container.                    |
-|Maintainer     | Maintainer of the interceptor container.                    |
-| Create time     | Date and time when the interceptor container was created.    |
-|Update time   | Date and time when the interceptor container was last updated.|
-| Actions        | Buttons to manage the selected interceptor container:<br/>- **Open in a new tab**: click to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: click to duplicate the interceptor container.<br/>- **Stop/Run**: click to start and stop a container.<br/>- **Delete**: click to remove the container. |  
+| Status | Current status of the interceptor container (e.g., Running, Stopped). |
+| ID | Unique identifier of the interceptor container. |
+| Container URL | URL to access the interceptor container. |
+| Maintainer | Maintainer of the interceptor container. |
+| Create time | Date and time when the interceptor container was created. |
+| Update time | Date and time when the interceptor container was last updated. |
+| Actions | Buttons to manage the selected interceptor container:<br/>- **Open in a new tab**: click to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: click to duplicate the interceptor container.<br/>- **Stop/Run**: click to start and stop a container.<br/>- **Delete**: click to remove the container. |  
 
 ## Create
 
@@ -42,7 +42,7 @@ On the main screen, you can add new interceptor containers based on existing [im
 ##### To create a new interceptor container
 
 1. Click the **+Create** button on the main screen to open the **Creating Interceptor Container** form.
-2. Select the desired Docker image from the list, including the image version.
+2. Select the desired [image](/docs/tutorials/3.admin/deployments-images.md) from the list and pick its installed version from the list (labeled with green indicator).
 3. Specify properties and click **Finish** to create the container.
 4. The screen with the container configuration is displayed. You can modify the configuration as needed, run, stop or delete the container.
 
@@ -85,32 +85,31 @@ In the Properties tab, you can view and edit the selected interceptor container 
 
 ##### Fields Description
 
-| Property        | Required | Editable |Description | 
-|----------------|----------|-----------|-----------|
-|ID             | -      | No     |Unique identifier for the interceptor container. |
-|Type           | -      | No     | Type of the interceptor container. |
-|Interceptor Image | -    | No     | Docker image from which the interceptor container was created. |
-|Creation Time     | -      | No     | Date and time when the interceptor container was created. |
-|Updated Time   | -      | No     | Date and time when the interceptor container was last updated. |
-| Status         | -      | No     | Current status of the interceptor container (e.g., Running, Stopped). |
-|URL | -      | No     | URL to access the interceptor container. |
-| Display Name           | Yes     | Yes | Name of the interceptor container rendered in UI. |
-| Description    | No      | Yes | Brief description of the interceptor container. |
-|Maintainer     | No      | Yes | Maintainer of the interceptor container. |
-|Endpoint Configuration | No | Yes | Configuration details for the endpoints exposed by the interceptor container. |
-|Environment Variables | No | Yes | Environment variables set for the interceptor container. |
-|Resources      | No      | Yes | Resource limits and requests for the interceptor container. |
+| Property | Required | Editable | Description |
+|----------|----------|----------|-------------|
+| ID | - | No | Unique identifier for the interceptor container. |
+| Type | - | No | Type of the interceptor container. |
+| Interceptor Image | - | No | Docker image from which the interceptor container was created. |
+| Creation Time | - | No | Date and time when the interceptor container was created. |
+| Updated Time | - | No | Date and time when the interceptor container was last updated. |
+| Status | - | No | Current status of the interceptor container (e.g., Running, Stopped). |
+| URL | - | No | URL to access the interceptor container. |
+| Display Name | Yes | Yes | Name of the interceptor container rendered in UI. |
+| Description | No | Yes | Brief description of the interceptor container. |
+| Maintainer | No | Yes | Maintainer of the interceptor container. |
+| Endpoint Configuration | No | Yes | Configuration details for the endpoints exposed by the interceptor container. |
+| Environment Variables | No | Yes | Environment variables set for the interceptor container. |
+| Resources | No | Yes | Resource limits and requests for the interceptor container. |
 
 ![](img/interceptor_container_properties.png)
 
-You can work with the container properties in the table or a JSON editor view modes:
+**Advanced users with technical expertise** can work with the container properties in a JSON editor view mode:
 
 ![ ](img/interceptor_container_json_editor.png)
 
 ### Execution log
 
 In the Execution Log tab, you can view real-time logs generated by the selected interceptor container. This log provides insights into the container's operations, including any errors or important events that occur during its execution.
-
 
 ### Events
 

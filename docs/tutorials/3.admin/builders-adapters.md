@@ -106,7 +106,7 @@ The Activities section provides detailed visibility into all changes made to the
 
 ### JSON Editor
 
-For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any adapter's configuration page.
+**Advanced users with technical expertise** can work with the adapter properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI.
 
 ##### Switching to the JSON Editor
 

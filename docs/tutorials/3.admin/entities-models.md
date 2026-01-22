@@ -483,7 +483,7 @@ Use Resource Rollback to restore the previous version of the selected activity. 
 
 ### JSON Editor
 
-You can work with model properties using the UI and JSON view modes. Use the **JSON Editor** toggle on the configuration screen to switch between them. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI. 
+**Advanced users with technical expertise** can work with the model properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 

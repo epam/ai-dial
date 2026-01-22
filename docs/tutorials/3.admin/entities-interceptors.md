@@ -161,7 +161,9 @@ To open Activity Details, click on the three-dot menu (⋮) at the end of a row 
 
 ### JSON Editor
 
-Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the interceptor’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any interceptor configuration page.
+**Advanced users with technical expertise** can work with the interceptor properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI.
+
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ![](img/71.png)
 
@@ -169,8 +171,6 @@ Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON 
 
 1. Navigate to **Entities → Interceptors**, then select the interceptor you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
-
-> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ### Delete
 

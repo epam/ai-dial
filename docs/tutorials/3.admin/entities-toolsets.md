@@ -199,7 +199,7 @@ Use Resource Rollback to restore the previous version of the selected activity. 
 
 ### JSON Editor
 
-You can work with toolset properties using the UI and JSON view modes. Use the **JSON Editor** toggle on the configuration screen to switch between them. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI. 
+**Advanced users with technical expertise** can work with the toolset properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
@@ -213,8 +213,6 @@ You can also use the JSON editor to preview and edit deployment properties as th
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 3. Chose between the Admin and Core format to see the configuration details as stored in DIAL Admin or DIAL Core. **Note**: click **Sync with core** in the **Properties** tab to compare them side-by-side in a read-only JSON Viewer.
 4. Make changes and click **Save** to apply them.
-
-> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ### Delete
 

@@ -123,7 +123,9 @@ Use to stop associating API keys with roles.
 
 ### JSON Editor
 
-For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any key's configuration page.
+**Advanced users with technical expertise** can work with the keys properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI.
+
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ![](img/75.png)
 
@@ -131,9 +133,6 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 
 1. Navigate to **Access Management → Keys**, then select the key you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
-
-> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
-
 
 ## Delete
 

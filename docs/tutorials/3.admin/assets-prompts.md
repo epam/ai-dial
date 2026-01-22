@@ -135,7 +135,9 @@ Use **compare versions** to compare the prompt's text across its versions. You c
 
 ### JSON Editor
 
-For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor**.
+**Advanced users with technical expertise** can work with the prompt properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI.
+
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ![](img/73.png)
 
@@ -143,8 +145,6 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 
 1. Navigate to **Assets → Prompts**, then select the prompt you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
-
-> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ## Delete
 

@@ -152,6 +152,8 @@ You can remove a tool only if **Use all available tools** toggle is **Off**.
 
 ### JSON Editor
 
+**Advanced users with technical expertise** can work with the toolset properties in a JSON editor view mode.
+
 Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON view of the toolset’s configuration. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** on any toolset configuration page.
 
 ![ ](img/118.png)

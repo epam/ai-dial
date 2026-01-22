@@ -174,7 +174,9 @@ To open Activity Details, click on the three-dot menu (⋮) at the end of a row 
 
 ### JSON Editor
 
-For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any role's configuration page.
+**Advanced users with technical expertise** can work with the roles properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI.
+
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ![](img/74.png)
 
@@ -182,8 +184,6 @@ For advanced scenarios of bulk updates, copy/paste between environments, or twea
 
 1. Navigate to **Access Management → Roles**, then select the role you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
-
-> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ## Delete
 
