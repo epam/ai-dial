@@ -57,28 +57,8 @@ jobs:
       - name: Docker Compose pull
         shell: bash
         run: |
-          set -euo pipefail
           cd ./dial-docker-compose/ci/ollama
-
-          attempts=5
-          for i in $(seq 1 $attempts); do
-            echo "Pull attempt $i/$attempts"
-            if docker compose pull --quiet; then
-              echo "Pull succeeded"
-              exit 0
-            fi
-
-            rc=$?
-            echo "Pull failed (exit $rc). Diagnostics:"
-            docker --version || true
-            docker compose version || true
-
-            echo "Sleeping before retry..."
-            sleep $((10 * i))
-          done
-
-          echo "All pull attempts failed."
-          exit 1
+          docker compose pull --quiet
       - name: Docker Compose up
         shell: bash
         run: |
