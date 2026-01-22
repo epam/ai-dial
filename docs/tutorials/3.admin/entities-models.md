@@ -14,22 +14,22 @@ On the **Models** page, you can find all AI models available on your DIAL instan
 
 The grid with models displays the main properties of models which include:
 
-| Field | Definition |
+| Field | Description |
 |-------|------------|
 | **Display Name** | Model name (e.g. "GPT-4 Turbo"). Display name is shown in all DIAL client UI components for a quick model identification. |
-| **Version** | Version of a specific model deployment (e.g. `0613`, `v1`). Used to distinguish between "latest," "beta," or date-stamped builds. |
-| **Description** | Description of the model’s purpose including any relevant details. The description is displayed in DIAL Chat UI and Marketplace.|
-| **ID** | Unique key under the `models` section of [DIAL Core’s config](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/models.md). Must match the upstream service’s model or deployment name (e.g. `gpt-4-0613`). |
-| **Source Type** | Source type of a model:<br />- [Adapter](/docs/tutorials/3.admin/builders-adapters.md): Model is based on a model adapter.<br />- **External Endpoint**: Model is deployed outside DIAL infrastructure and exposes an endpoint DIAL Core uses for communication.<br />- [Model Container](/docs/tutorials/3.admin/deployments-models.md): Model is based on a deployed model container.|
-| **Source** | Source identifier. Adapter Id, [Model serving container Id](/docs/tutorials/3.admin/deployments-models.md) or Endpoint of the model, based on your Source Type selection.  |
+| **Version** | Version of a specific model deployment (e.g. `0613`, `v1`). Used to distinguish between "latest", "beta" or date-stamped builds. |
+| **Description** | Description of the model's purpose including any relevant details. The description is displayed in DIAL Chat UI and Marketplace. |
+| **ID** | Unique key under the `models` section of [DIAL Core's config](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/models.md). Must match the upstream service's model or deployment name (e.g. `gpt-4-0613`). |
+| **Source Type** | Source type of a model:<br />**Adapter**: Model is based on a [model adapter](/docs/tutorials/3.admin/builders-adapters.md).<br />**External Endpoint**: Model is deployed outside DIAL infrastructure and exposes an endpoint DIAL Core uses for communication.<br />**Model Container**: Model is based on a deployed [model container](/docs/tutorials/3.admin/deployments-models.md). |
+| **Source** | Source identifier. Adapter ID, [Model serving container ID](/docs/tutorials/3.admin/deployments-models.md) or Endpoint of the model, based on your Source Type selection. |
 | **Author** | Information about the user who deployed the model. |
-| **Type** | Defines **Chat** (conversational completions) and **Embedding** models (vector generation). DIAL Core uses this to choose the correct API endpoint and a payload schema.    |
-| **Override Name** | Context-specific optional display label that overrides the Display Name in UI components. Use it to give a model different aliases in different workflows without redefining the model.             |
-| **Topics** | Tags or categories you can assign for discovery, filtering, or grouping in large deployments (e.g. "finance," "support," "image-capable"). Helps end users and admins find the right model by the use case. Topics are also used to filter models in [DIAL Marketplace](/docs/platform/4.chat/1.marketplace.md).|
-| **Attachment types** | Types of attachments this model can accept according to [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types).       |
-| **Max attachment number** | Maximum number of attachments allowed in a single request. Blank for an unlimited number.|
-| **Tokenizer model** | Identifies the specific model with a tokenization algorithm identical to the referenced model's. This is typically the name of the earliest released model in a series of models sharing an identical tokenization algorithm. This parameter is essential for DIAL clients that reimplement tokenization algorithms on their side, instead of utilizing the tokenize Endpoint provided by the model. |
-| **Interaction limit** | The interaction limit parameter in models refers to the maximum number of tokens that can be transmitted in a completion request and response combined. This parameter ensures that the model does not exceed a specified token limit during interactions.     |
+| **Type** | Defines **Chat** (conversational completions) and **Embedding** models (vector generation). DIAL Core uses this to choose the correct API endpoint and a payload schema. |
+| **Override Name** | Context-specific optional display label that overrides the Display Name in UI components. Use it to give a model different aliases in different workflows without redefining the model. |
+| **Topics** | Tags or categories you can assign for discovery, filtering, or grouping in large deployments (e.g. "finance", "support", "image-capable"). Helps end users and admins find the right model by the use case. Topics are also used to filter models in [DIAL Marketplace](/docs/platform/4.chat/1.marketplace.md). |
+| **Attachment types** | Types of attachments this model can accept according to [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types). |
+| **Max attachment number** | Maximum number of attachments allowed in a single request. Blank for an unlimited number. |
+| **Tokenizer model** | Identifies the specific model with a tokenization algorithm identical to the referenced model's. This is typically the name of the earliest released model in a series of models sharing an identical tokenization algorithm. This parameter is essential for DIAL clients that reimplement tokenization algorithms on their side, instead of utilizing the tokenize endpoint provided by the model. |
+| **Interaction limit** | The interaction limit parameter in models refers to the maximum number of tokens that can be transmitted in a completion request and response combined. This parameter ensures that the model does not exceed a specified token limit during interactions. |
 | **Prompt price** | Cost per unit (according to **Cost unit**, typically "token" or "request") applied to the *input* portion of each call. Used by the [Dashboard and Usage Logs](/docs/tutorials/3.admin/telemetry-dashboard.md) to estimate spending in real time. |
 | **Completion price** | Cost per unit is charged for the output portion of each call. Combined with the prompt price, it determines your per-model cost calculations. |
 
@@ -40,13 +40,13 @@ Follow these steps to add new AI model to your DIAL instance:
 1. Click **+ Create** to invoke a **Create Model** modal.
 2. Define parameters for a new model:
 
-    | Field            | Required     | Description |
-    |------------------|--------------|-------------|
-    | **ID**           | Yes          | Unique identifier used by the model adapter to invoke the model's backend.  |
-    | **Display Name** | Yes          | Model name shown across the UI (e.g. "GPT-4 Turbo").|
-    | **Display version** | No        | Version is an optional tag to track releases when you register multiple variants of the same model. (e.g. `2024-07-18`, `v1`)  |
-    | **Description**  | No           | Free-text note about the model’s purpose or distinguishing traits.            |
-    | **Source type**  | Yes          | **Adapter**: Select the corresponding AI model adapter from the list of [available adapters](/docs/tutorials/3.admin/builders-adapters.md). In this case DIAL Core will use the adapter endpoint URL to communicate with the model.<br />**Model Container**: Select one of the available [model containers](/docs/tutorials/3.admin/deployments-models.md). In this case DIAL Core will use the container URL to communicate with the model.<br />**External Endpoint**: Provide the external chat completion endpoint URL DIAL Core will use to directly (not using model adapters) communicate with the model. In this case, the model API must be compatible with DIAL Core API.|
+    | Field | Required | Description |
+    |-------|----------|-------------|
+    | **ID** | Yes | Unique identifier used by the model adapter to invoke the model's backend. |
+    | **Display Name** | Yes | Model name shown across the UI (e.g. "GPT-4 Turbo"). |
+    | **Display version** | No | Version is an optional tag to track releases when you register multiple variants of the same model. (e.g. `2024-07-18`, `v1`) |
+    | **Description** | No | Free-text note about the model's purpose or distinguishing traits. |
+    | **Source type** | Yes | **Adapter**: Select the corresponding AI model adapter from the list of [available adapters](/docs/tutorials/3.admin/builders-adapters.md). In this case DIAL Core will use the adapter endpoint URL to communicate with the model.<br />**Model Container**: Select one of the available [model containers](/docs/tutorials/3.admin/deployments-models.md). In this case DIAL Core will use the container URL to communicate with the model.<br />**External Endpoint**: Provide the external chat completion endpoint URL DIAL Core will use to directly (not using model adapters) communicate with the model. In this case, the model API must be compatible with DIAL Core API. |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#model-configuration). When done with model configuration, click **Save**. It may take some time for the changes to take effect after saving. Once added, the model appears in the **Models** listing and become available to use across the DIAL ecosystem.
 
@@ -77,16 +77,16 @@ In the **Properties** tab, you can view and edit main definitions and runtime se
 
 ##### Basic Identification and Information
 
-| Field             | Required | Description |
-|-------------------|----------|-------------|
-| **ID** | - | Unique key DIAL Core uses in the `models` section. Must match the upstream’s deployment or model name (e.g. `gpt-4o`, `gpt-4-turbo`). Non-editable after the model created. |
-| **Updated Time**  | - | Date and time when the model's configuration was last updated. |
+| Field | Required | Description |
+|-------|----------|-------------|
+| **ID** | - | Unique key DIAL Core uses in the `models` section. Must match the upstream's deployment or model name (e.g. `gpt-4o`, `gpt-4-turbo`). Non-editable after the model created. |
+| **Updated Time** | - | Date and time when the model's configuration was last updated. |
 | **Creation Time** | - | Date and time when the model's configuration was created. |
-| **Sync with core** | - | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity’s state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
-| **Display Name** | Yes | User-friendly label shown in tables and dropdowns in DIAL clients (e.g. "GPT-4o").   Helps users identify and select models on UI. |
-| **Display version** | No | An optional version tag for tracking releases (e.g. `0613`, `v1`).   Useful for A/B testing or canary rollouts. |
-| **Description** | No | Free-text note describing the model’s purpose, fine-tune details, or its cost tier. |
-| **Maintainer** | No | Field used to specify the responsible person or team overseeing the model’s configuration. |
+| **Sync with core** | - | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
+| **Display Name** | Yes | User-friendly label shown in tables and dropdowns in DIAL clients (e.g. "GPT-4o"). Helps users identify and select models on UI. |
+| **Display version** | No | An optional version tag for tracking releases (e.g. `0613`, `v1`). Useful for A/B testing or canary rollouts. |
+| **Description** | No | Free-text note describing the model's purpose, fine-tune details, or its cost tier. |
+| **Maintainer** | No | Field used to specify the responsible person or team overseeing the model's configuration. |
 | **Source type** | Yes | Allows to select one of the following options: [Adapter](#adapter), [Model Container](#model-container), [External Endpoint](#external-endpoint). |
 
 ##### Adapter
@@ -99,11 +99,11 @@ Adapter can be added in [Builders/Adapters](/docs/tutorials/3.admin/builders-ada
 
 The following properties need to be specified if selected Source Type is Adapter:
 
-| Field        | Required | Description |
-|--------------|----------|-------------|
-| **Adapter**  | Yes      | [Model adapter](/docs/tutorials/3.admin/builders-adapters.md) that will be used to handle requests to this model deployment (e.g. **OpenAI**, **DIAL**).  Adapter defines how to authenticate, format payloads, and parse responses. |
-| **Type**     | Yes      | A choice between **Chat** or **Embedding** API.  <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering).         |
-| **Endpoint** | Yes      | URL that DIAL Core will invoke for this model. The base URL is determined by the selected adapter, while the path can be partially customized.      |
+| Field | Required | Description |
+|-------|----------|-------------|
+| **Adapter** | Yes | [Model adapter](/docs/tutorials/3.admin/builders-adapters.md) that will be used to handle requests to this model deployment (e.g. **OpenAI**, **DIAL**). Adapter defines how to authenticate, format payloads, and parse responses. |
+| **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
+| **Endpoint** | Yes | URL that DIAL Core will invoke for this model. The base URL is determined by the selected adapter, while the path can be partially customized. |
 
 ##### Model Container
 
@@ -113,9 +113,9 @@ If the Source Type of your model is Model Container, DIAL Core will use the cont
 
 The following properties need to be specified if selected Source Type is Model Container:
 
-| Field          | Required | Description |
-|----------------|----------|-------------|
-| **Container**  | Yes      | Select one of the running [Model Containers](/docs/tutorials/3.admin/deployments-models.md). |
+| Field | Required | Description |
+|-------|----------|-------------|
+| **Container** | Yes | Select one of the running [Model Containers](/docs/tutorials/3.admin/deployments-models.md). |
 
 ##### External Endpoint
 
@@ -123,19 +123,19 @@ If your AI model is deployed elsewhere and is compatible with DIAL Core API, you
 
 The following properties need to be specified if selected Source Type is External Endpoint:
 
-| Field        | Required | Description|
-|--------------|----------|----------------------------|
-| **Type**     | Yes      | A choice between **Chat** or **Embedding** API.  <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
-| **Endpoint** | Yes      | URL that DIAL Core will invoke for this model.              |
+| Field | Required | Description |
+|-------|----------|-------------|
+| **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
+| **Endpoint** | Yes | URL that DIAL Core will invoke for this model. |
 
 ##### Presentation & Attachments
 
-| Field             | Required | Description        |
-|-------------------|-----------|--------|
-| **Override name** | No        | Custom display name for specific contexts.    |
-| **Icon**          | No        | Logo to visually distinguish models in the UI.  |
-| **Topics**        | No        | Tag that associates a model with one or more topics or categories (e.g. "finance", "support").  |
-| **Attachments**   | No        | Attachment types (images, files) this model can accept.  <br />**None**: Attachments are not allowed.  <br />**All**: Unrestricted types. Optionally specify max number of attachments.<br />**Custom**: Specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Optionally specify max number of attachments. |
+| Field | Required | Description |
+|-------|----------|-------------|
+| **Override name** | No | Custom display name for specific contexts. |
+| **Icon** | No | Logo to visually distinguish models in the UI. |
+| **Topics** | No | Tag that associates a model with one or more topics or categories (e.g. "finance", "support"). |
+| **Attachments** | No | Attachment types (images, files) this model can accept. <br />**None**: Attachments are not allowed. <br />**All**: Unrestricted types. Optionally specify max number of attachments.<br />**Custom**: Specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Optionally specify max number of attachments. |
 
 ##### Default Parameters 
 
@@ -152,7 +152,6 @@ Default parameters are applied if a request doesn't contain them in OpenAI chat/
 | **Weight** | Numeric [weight](/docs/platform/3.core/5.load-balancer.md#weights) for this endpoint in a multi-upstream scenario.  Higher = more traffic share. |
 | **Tier** | Specifies an endpoint group. In a regular scenario, all requests are routed to endpoints with the lowest tier, but in case of an outage or hitting the limits, the next one in the line helps to handle the load. |
 | **Extra Data** | Free-form JSON or string metadata passed to the model adapter with each request. |
-
 
 ##### Advanced Options
 
@@ -178,7 +177,7 @@ Enables real-time cost estimation and quota enforcement. Powers the [telemetry d
 
 In the **Features** tab, you can enable, disable, or override optional capabilities for a specific model. You can use model's features to tailor DIAL Core’s [Unified Protocol](/docs/platform/3.core/0.about-core.md#unified-api) behavior—turning features on when your model supports them, or off when it doesn’t.
 
-> **TIPs**:  Enable only the features you need. Extra toggles can cause errors if upstream doesn’t support them. After setting a custom endpoint, test it via a simple API call to confirm accessibility and authentication.
+> **TIP**:  Enable only the features you need. Extra toggles can cause errors if upstream doesn’t support them. After setting a custom endpoint, test it via a simple API call to confirm accessibility and authentication.
 
 ![](img/entities_models_features.png)
 
@@ -191,7 +190,7 @@ Some models adapters expose specialized HTTP endpoints for tokenization, rate es
 | **Rate endpoint** | URL to invoke the model’s cost‐estimation or billing API.<br /> Call an endpoint that returns token counts & credit usage. <br /> Override if your adapter supports a dedicated "rate" path. |
 | **Tokenize endpoint** | URL to invoke a standalone tokenization service.<br /> Use when you need precise token counts before truncation or batching. <br /> Models without built-in tokenization require this. |
 | **Truncate prompt endpoint** | URL to invoke a prompt‐truncation API.<br /> Ensures prompts are safely cut to max context length. <br /> Useful when working with very long user inputs. |
-| **Configuration endpoint** | A URL to fetch JSON Schema describing settings of the DIAL model. DIAL Core exposes this endpoint to DIAL clients as `GET v1/deployments/<deployment name>/configuration`. DIAL client must provide a JSON value corresponding to the configuration JSON Schema in a chat completion request in the `custom_fields.configuration` field.|
+| **Configuration endpoint** | URL to fetch JSON Schema describing settings of the DIAL model. DIAL Core exposes this endpoint to DIAL clients as `GET v1/deployments/<deployment name>/configuration`. DIAL client must provide a JSON value corresponding to the configuration JSON Schema in a chat completion request in the `custom_fields.configuration` field.|
 
 ##### Feature Flags (Toggles)
 
@@ -222,8 +221,7 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 
 **Important**: if roles are not specified for a specific model, the model will be available to all users.
 
-> Refer to [Access Control](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to learn more about roles in DIAL.
->
+> * Refer to [Access Control](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to learn more about roles in DIAL.
 > * Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
 > * Refer to [Roles](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to lean more about roles in DIAL.
 > * Refer to tutorials to learn how to configure access and limits for [JWT](/docs/tutorials/2.devops/2.auth-and-access-control/1.jwt.md) and [API keys](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md)
@@ -236,12 +234,12 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 |--------|-------------|
 | **ID** | Unique role's identifier. |
 | **Display Name** | Unique role's name displayed on UI. |
-| **Description**       | Description of the role’s purpose (e.g., "DIAL Prompt Engineering Team"). |
-| **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.|
-| **Tokens per day**    | Daily tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.     |
-| **Tokens per week**   | Weekly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.    |
-| **Tokens per month**  | Monthly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden.   |
-| **Actions**           | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **Set unlimited**, [Remove](#remove) the role from the list or **Reset to default limits**.|
+| **Description** | Description of the role's purpose (e.g., "DIAL Prompt Engineering Team"). |
+| **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden. |
+| **Tokens per day** | Daily tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden. |
+| **Tokens per week** | Weekly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden. |
+| **Tokens per month** | Monthly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden. |
+| **Actions** | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **Set unlimited**, [Remove](#remove) the role from the list or **Reset to default limits**. |
 
 #### Set Rate Limits
 
@@ -257,12 +255,12 @@ The grid on the Roles screen lists the roles that can access a specific model. H
 
 Default limits are set for all roles in the **Roles** grid by default; however you can override them as needed.
 
-| Field    | Description       |
-|-------------------------------|-----------------------------------------------------------------------------------------|
+| Field | Description |
+|-------|-------------|
 | **Default tokens per minute** | The maximum tokens any user can consume per minute unless a specific limit is in place. |
-| **Default tokens per day**    | The maximum tokens any user can consume per day unless a specific limit is in place.    |
-| **Default tokens per week**   | The maximum tokens any user can consume per week unless a specific limit is in place.   |
-| **Default tokens per month**  | The maximum tokens any user may consume per month unless a specific limit is in place.  |
+| **Default tokens per day** | The maximum tokens any user can consume per day unless a specific limit is in place. |
+| **Default tokens per week** | The maximum tokens any user can consume per week unless a specific limit is in place. |
+| **Default tokens per month** | The maximum tokens any user may consume per month unless a specific limit is in place. |
 
 #### Role-Specific Access
 
@@ -304,12 +302,12 @@ In the **Interceptors** tab, you can view configured [global interceptors](/docs
 
 ##### Interceptors grid
 
-| Column            | Description  |
-| ----------------- |-------------|
-| **ID** | Unique interceptor identifier.      |
-| **Order** | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor’s in this order.Response interceptors are invoked in the reversed order.      |
-| **Display Name** | Alias of the interceptor, matching the **Name** field in its definition.|
-| **Description** | Free-text summary from the interceptor’s definition, explaining its purpose. |
+| Column | Description |
+|--------|-------------|
+| **ID** | Unique interceptor identifier. |
+| **Order** | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor's in this order.Response interceptors are invoked in the reversed order. |
+| **Display Name** | Alias of the interceptor, matching the **Name** field in its definition. |
+| **Description** | Free-text summary from the interceptor's definition, explaining its purpose. |
 | **Actions** | Additional role-specific actions. <br /> Open interceptor in a new tab. <br /> [Remove](#remove-1) the selected interceptor from the model's configuration. |
 
 #### Add
@@ -346,13 +344,11 @@ In the **Dashboard** tab, you can monitor real-time and historical metrics for t
 
 ![](img/model-dashboard.png)
 
-##### Top Bar Controls
-
-| Control                | What It Does            |
-| ---------------------- |----------|
-| **Time Period**        | An option allowing to select the date range for all charts and tables (e.g. last 15 min, 2 days, 7 days, 30 days). |
-| **+ Add filter**       | A filter with options to drill into a specific project.   |
-| **Auto refresh**       | Set the dashboard to poll for new data (e.g. every 1 min) or turn off auto-refresh.          |
+| Control | Description |
+|---------|--------------|
+| **Time Period** | Select the date range for all charts and tables (e.g. last 15 min, 2 days, 7 days, 30 days). |
+| **+ Add filter** | Filter with options to drill into a specific project. |
+| **Auto refresh** | Set the dashboard to poll for new data (e.g. every 1 min) or turn off auto-refresh. |
 
 ##### System Usage Chart
 
@@ -369,24 +365,24 @@ You can use them to:
 * Monitor burst traffic with "Request Count".
 * Watch token consumption to anticipate quota exhaustion.
 
-| Metric            | Definition|
-|-------------------|---------------------------|
-| **Unique Users**  | Count of distinct user IDs or API keys that have called this model. |
-| **Request Count** | Total number of chat or embedding calls routed to this model.       |
-| **Total Tokens**  | Sum of `prompt + completion` tokens consumed by this model.           |
-| **Money**         | Estimated spending on this model.   |
+| Metric | Description |
+|--------|------------|
+| **Unique Users** | Count of distinct user IDs or API keys that have called this model. |
+| **Request Count** | Total number of chat or embedding calls routed to this model. |
+| **Total Tokens** | Sum of `prompt + completion` tokens consumed by this model. |
+| **Money** | Estimated spending on this model. |
 
 ##### Projects Consumption Table
 
 This table shows the KPIs breakdown by **Project**. You can use it to compare consumption across multiple projects.
 
-| Column                | Description               |
-|-----------------------|-----------------|
-| **Project**           | The project utilizing this model.|
-| **Request Count**     | Number of calls directed to the model.                    |
-| **Prompt tokens**     | Total tokens submitted in the prompt portion of requests. |
-| **Completion tokens** | Total tokens returned by the model as responses.          |
-| **Money**             | Estimated costs.           |
+| Column | Description |
+|--------|-------------|
+| **Project** | The project utilizing this model. |
+| **Request Count** | Number of calls directed to the model. |
+| **Prompt tokens** | Total tokens submitted in the prompt portion of requests. |
+| **Completion tokens** | Total tokens returned by the model as responses. |
+| **Money** | Estimated costs. |
 
 #### Traces
 
@@ -396,32 +392,32 @@ In this tab, you can see individual traces, each representing a single end-to-en
 
 ![](img/model-traces.png)
 
-| Column                     | Definition                                                                                   |
-|----------------------------|----------------------------------------------------------------------------------------------|
-| Completion Time            | Timestamp when the trace finished processing (end-to-end interaction).                       |
-| Trace ID                   | Unique identifier of the trace (one end-to-end interaction).                                 |
-| Topic                      | Auto-generated subject/title summarizing the trace.                                          |
-| Reactions                  | Indication of user reactions presence (like/dislike) for the trace.                          |
-| Cached prompt tokens       | Number of prompt tokens served from cache (prompt-caching).                                  |
-| Prompt tokens              | Number of tokens in the prompt sent to the model for this trace.                             |
-| Completion tokens          | Number of tokens generated by the model as output for this trace.                            |
-| Deployment price           | Cost attributed to the selected deployment for this trace.                                   |
-| Total price                | Total cost of the trace.                                                                     |
-| Number of request messages | Number of discrete request messages that were included in the trace.                         |
-| Deployment ID              | Identifier of the DIAL deployment used to serve this trace.                                  |
-| Parent Deployment ID       | Identifier of the parent deployment (e.g., application that was using the underlying model). |
-| Model                      | Identifier of the underlying model used to carry out the trace.                              |
-| Project                    | Project to which this trace associated in DIAL.                                              |
-| Upstream                   | The upstream endpoint (e.g., completions endpoint of the model).                             |
-| Execution path             | The execution path of the trace.                                                             |
-| User                       | Identifier of the end user who initiated the trace.                                          |
-| User title                 | The name of the user (if available).                                                         |
-| Language                   | Language detected in the trace (e.g., `en`).                                                 |
-| Duration                   | Total end-to-end duration of the trace from first request to completion.                     |
-| Response ID                | Identifier of the response object returned by the model for this trace.                      |
-| Conversation ID            | Identifier of the conversation/session this trace belongs to.                                |
-| Code span ID               | Identifier of a specific code execution span associated with the trace (if any).             |
-| Code span parent ID        | Identifier of the parent span for a code execution span (if any).                            |
+| Column | Description |
+|--------|-------------|
+| **Completion Time** | Timestamp when the trace finished processing (end-to-end interaction). |
+| **Trace ID** | Unique identifier of the trace (one end-to-end interaction). |
+| **Topic** | Auto-generated subject/title summarizing the trace. |
+| **Reactions** | Indication of user reactions presence (like/dislike) for the trace. |
+| **Cached prompt tokens** | Number of prompt tokens served from cache (prompt-caching). |
+| **Prompt tokens** | Number of tokens in the prompt sent to the model for this trace. |
+| **Completion tokens** | Number of tokens generated by the model as output for this trace. |
+| **Deployment price** | Cost attributed to the selected deployment for this trace. |
+| **Total price** | Total cost of the trace. |
+| **Number of request messages** | Number of discrete request messages that were included in the trace. |
+| **Deployment ID** | Identifier of the DIAL deployment used to serve this trace. |
+| **Parent Deployment ID** | Identifier of the parent deployment (e.g., application that was using the underlying model). |
+| **Model** | Identifier of the underlying model used to carry out the trace. |
+| **Project** | Project to which this trace associated in DIAL. |
+| **Upstream** | The upstream endpoint (e.g., completions endpoint of the model). |
+| **Execution path** | Execution path of the trace. |
+| **User** | Identifier of the end user who initiated the trace. |
+| **User title** | Name of the user (if available). |
+| **Language** | Language detected in the trace (e.g., `en`). |
+| **Duration** | Total end-to-end duration of the trace from first request to completion. |
+| **Response ID** | Identifier of the response object returned by the model for this trace. |
+| **Conversation ID** | Identifier of the conversation/session this trace belongs to. |
+| **Code span ID** | Identifier of a specific code execution span associated with the trace (if any). |
+| **Code span parent ID** | Identifier of the parent span for a code execution span (if any). |
 
 #### Conversations
 
@@ -431,21 +427,21 @@ In Conversations, you can see individual traces grouped into end‑to‑end conv
 
 ![](img/model-conversations.png)
 
-| Column                     | Definition                                                                                     |
-|----------------------------|------------------------------------------------------------------------------------------------|
-| Last activity              | Timestamp of the most recent trace within the conversation.                                    |
-| Conversation ID            | Unique identifier of the user session that groups related traces.                              |
-| Topic                      | Auto-generated subject summarizing the conversation.                                           |
-| Cached prompt tokens       | Count of prompt tokens served from cache across the conversation.                              |
-| Prompt tokens              | Total number of request/prompt tokens sent to the model across all traces in the conversation. |
-| Completion tokens          | Total number of tokens generated by the model across all traces in the conversation.           |
-| Total price                | Aggregated cost for the conversation.                                                          |
-| Number of request messages | Total number of discrete request messages included in the conversation.                        |
-| Deployment ID              | Identifier of the deployment associated with the conversation.                                 |
-| Project                    | Project to which the conversation associated in DIAL.                                          |
-| User                       | Identifier of the end user who initiated the conversation.                                     |
-| User title                 | Name of the user (if available).                                                               |
-| Language                   | Detected language for the conversation (e.g., `en`).                                           |
+| Column | Description |
+|--------|-------------|
+| **Last activity** | Timestamp of the most recent trace within the conversation. |
+| **Conversation ID** | Unique identifier of the user session that groups related traces. |
+| **Topic** | Auto-generated subject summarizing the conversation. |
+| **Cached prompt tokens** | Count of prompt tokens served from cache across the conversation. |
+| **Prompt tokens** | Total number of request/prompt tokens sent to the model across all traces in the conversation. |
+| **Completion tokens** | Total number of tokens generated by the model across all traces in the conversation. |
+| **Total price** | Aggregated cost for the conversation. |
+| **Number of request messages** | Total number of discrete request messages included in the conversation. |
+| **Deployment ID** | Identifier of the deployment associated with the conversation. |
+| **Project** | Project to which the conversation associated in DIAL. |
+| **User** | Identifier of the end user who initiated the conversation. |
+| **User title** | Name of the user (if available). |
+| **Language** | Detected language for the conversation (e.g., `en`). |
 
 #### Activities
 
@@ -455,13 +451,13 @@ The Activities section provides detailed visibility into all changes made to the
 
 ##### Activities List Table
 
-| **Field**         | **Definition**              |
-| ----------------- | ---------------------------------------------------------------------------- |
-| **Activity type** | The type of action performed on the model (e.g., Create, Update, Delete).    |
-| **Time**          | Timestamp indicating when the activity occurred.        |
-| **Initiated**     | Email address of the user who performed the activity.   |
-| **Activity ID**   | A unique identifier for the logged activity, used for tracking and auditing. |
-|**Actions**|Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details.  |
+| Field | Description |
+|-----------|----------------|
+| **Activity type** | Action performed on the model (e.g., Create, Update, Delete). |
+| **Time** | Timestamp indicating when the activity occurred. |
+| **Initiated** | Email address of the user who performed the activity. |
+| **Activity ID** | Unique identifier for the logged activity, used for tracking and auditing. |
+| **Actions** | Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details. |
 
 ##### Activity Details
 
@@ -471,14 +467,14 @@ The Activity Details view provides a detailed snapshot of a specific change made
 
 To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
 
-| **Element/Section** | **Description**     |
-|---------------------|--------|
-| **Activity type**   | Type of the change performed (e.g., Update, Create, Delete).         |
-| **Time**            | Timestamp of the change.           |
-| **Initiated**       | Identifier of the user who made the change.             |
-| **Activity ID**     | Unique identifier for the specific activity tracking.   |
-| **Comparison**      | Dropdown to switch between showing all parameter or changed only.|
-| **View**            | Dropdown to switch for selection between Before/After and Before/Current state.|
+| Element/Section | Description |
+|-----------------|-------------|
+| **Activity type** | Type of the change performed (e.g., Update, Create, Delete). |
+| **Time** | Timestamp of the change. |
+| **Initiated** | Identifier of the user who made the change. |
+| **Activity ID** | Unique identifier for the specific activity tracking. |
+| **Comparison** | Dropdown to switch between showing all parameter or changed only. |
+| **View** | Dropdown to switch for selection between Before/After and Before/Current state. |
 | **Parameters Diff** | Side-by-side comparison of model fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
 
 ##### Resource Rollback
@@ -499,7 +495,6 @@ You can also use the JSON editor to preview and edit deployment properties as th
 
 1. Navigate to **Entities → Models**, then select the model you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
-
 
 ### Delete
 
