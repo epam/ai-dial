@@ -1,10 +1,23 @@
 # Applications
 
+## Introduction
+
+DIAL supports two types of applications: schema-rich and standalone.
+
+* [Schema-rich applications](/docs/platform/3.core/7.apps.md#schema-rich-applications) are defined by a JSON schema which describes the application's structure, including properties, endpoints and more. **Application Runners** are used to run schema-rich applications. An application runner can be seen as an application factory that allows end-users and admins create individual logical instances of applications (using API, Admin Panel or UI wizards) each with its own configuration. An application runner definition includes a configuration schema that enforces data structure persisted for each instance. It is worth noting that Quick Apps, Code Apps and Mind Maps are application runners available in DIAL platform out of the box. You can create your own custom application runners to enable creation of specific types of applications. Applications of standard types (e.g. Quick Apps, Code Apps, and Mind Maps) are automatically hosted and deployed on the DIAL infrastructure. This eliminates the need for developers to manage tasks like hosting, scaling, file storage, and application management, as these are handled seamlessly by DIAL.
+* In [standalone applications](/docs/platform/3.core/7.apps.md#applications-without-schemas), business logic properties are embedded in the application code or container environment meaning they cannot be modified through the DIAL Core API, contrary to schema-rich applications. Such applications exist as a single logical instance on the DIAL platform. When enabling such an app, you must explicitly specify standard parameters of the application and available endpoints the application offers. DIAL does not impose any limitation as for technologies used to develop such applications.
+
+Applications that adhere to the Unified Protocol of DIAL are [DIAL-native applications](/docs/platform/3.core/7.apps.md). DIAL-native apps can be enabled in DIAL and used directly (via API or UI) or as building blocks, agents in other apps and custom workflows. Such application can be developed using DIAL SDK and are compatible with OpenAI API.
+
+DIAL allows adding and using custom conversational (implementing a completion endpoint) or non-conversational apps into DIAL, even if they don't follow the unified protocol of DIAL. There are no limitations of how and where the custom applications are deployed, the only requirement is that there must be network connectivity between DIAL Core and the backend service, as well as between UI applications and DIAL Core. Any communication between components is made only through API.
+
+You can add both DIAL-native and custom applications into DIAL via a direct configuration of DIAL Core, using DIAL API or DIAL Admin Panel. Refer to [Documentation](/docs/tutorials/1.developers/4.apps-development/3.enable-app.md) to learn more.
+
+In this tutorial we will explore how to add and manage applications using DIAL Admin.
+
 ## Main Screen
 
-In Applications, you can see, create and manage applications deployed in your instance of DIAL.
-
-> Refer to [DIAL-Native Applications](/docs/platform/3.core/7.apps.md) to learn about applications in DIAL.
+On this screen, you can access all the available application deployments in your instance of DIAL. Here, you can also create and manage new application deployments.
 
 ![](img/entities_apps.png)
 
@@ -14,7 +27,7 @@ In Applications, you can see, create and manage applications deployed in your in
 
 | Field | Description |
 |-------|-------------|
-| **Display Name** | User-friendly name of the application (e.g. "Data Clustering Application"). |
+| **Display Name** | Name of the application (e.g. "Data Clustering Application") rendered on UI. |
 | **Version** | Semantic identifier of the application version (e.g. 1.0.0). |
 | **Description** | Brief free-text summary describing the application (e.g. "Clusters incoming text into semantic groups"). |
 | **ID** | Unique identifier used in the DIAL [dynamic settings](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/applications.md) (e.g. dca, support-bot). This is the path segment of the Application's HTTP endpoint. |
@@ -39,15 +52,15 @@ Follow these steps to add a new application deployment:
     | Field | Required | Description |
     |-------|----------|-------------|
     | **ID** | Yes | Unique identifier under the `applications` section of DIAL Core's [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. support-bot, data-cluster). |
-    | **Display Name** | Yes | User-friendly label (e.g. "Customer Support Bot") shown throughout the Admin UI. |
+    | **Display Name** | Yes | Name of the application (e.g. "Data Clustering Application") rendered on UI. |
     | **Display version** | No | Semantic identifier (e.g., 1.2.0) of an application's version. |
     | **Description** | No | Free-text summary describing the application (e.g. supported inputs, business purpose). |
     | **Source Type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. In [Builders/Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) you can see all the available runners and add new ones. |
-    | **Completion endpoints** | Conditional | The application's completion endpoint DIAL COre will use to communicate with application. Required if Source Type is **Endpoints**. |
+    | **Completion endpoints** | Conditional | The application's completion endpoint DIAL Core will use to communicate with application. Required if Source Type is **Endpoints**. |
     | **Application runner** | Conditional | Select one of the [available application runners](/docs/tutorials/3.admin/builders-application-runners.md). Required if Source Type is **Application runner**. |
 
 
-3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
+3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#configuration) screen is opened. New application deployment appears immediately in the listing once created. It may take some time for the changes to take effect after saving.
 
     ![](img/img_12.png)
 
