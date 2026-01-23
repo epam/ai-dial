@@ -1,10 +1,22 @@
 # Models
 
+## Introduction
+
+DIAL allows you to access and use AI models from all major LLM providers, open-source community, alternative vendors, and fine-tuned micro models, as well as self-hosted or models listed on Hugging Face, NVIDIA NIM or DeepSeek.
+
+> Refer to [Supported Models](/docs/platform/2.supported-models.md) to learn more about the supported AI models.
+
+DIAL provides a single [Unified API](https://dialx.ai/dial_api), based on OpenAI API, for accessing all AI models, embedding models and applications. The key design principle is to create a unification layer that allows all models and applications to be interchangeable, delivering a cohesive conversational experience and future-proof development of custom GenAI applications.
+
+DIAL uses [AI model adapters](/docs/tutorials/3.admin/builders-adapters.md), that unify the APIs of respective AI models to align with the Unified Protocol of DIAL Core. If a model is compatible with DIAL Unified Protocol, it can be used directly without an adapter. 
+
+You can add AI models to DIAL via a direct configuration of [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/models.md) or using DIAL Admin Panel. This tutorial describes how to add and manage AI models using DIAL Admin Panel.
+
+When a model is successfully added, it can be accessed across the DIAL ecosystem including, [DIAL Chat](https://dialx.ai/features/dial-chat), [DIAL Marketplace](https://dialx.ai/features/dial-marketplace) and via [API](https://dialx.ai/dial_api#operation/sendChatCompletionRequest).
+
 ## Main Screen
 
-On the **Models** page, you can find all AI models available on your DIAL instance. Here you can view, filter, and add new model definitions.
-
-> Refer to the [Supported Models](/docs/platform/2.supported-models.md) to learn more about the supported AI models and model adapters.
+On this page, you can find all AI models deployments available on your DIAL instance. Here you can view, filter, and add new model definitions.
 
 ![](img/entities_models.png)
 
@@ -46,7 +58,7 @@ Follow these steps to add new AI model to your DIAL instance:
     | **Display Name** | Yes | Model name shown across the UI (e.g. "GPT-4 Turbo"). |
     | **Display version** | No | Version is an optional tag to track releases when you register multiple variants of the same model. (e.g. `2024-07-18`, `v1`) |
     | **Description** | No | Free-text note about the model's purpose or distinguishing traits. |
-    | **Source type** | Yes | **Adapter**: Select the corresponding AI model adapter from the list of [available adapters](/docs/tutorials/3.admin/builders-adapters.md). In this case DIAL Core will use the adapter endpoint URL to communicate with the model.<br />**Model Container**: Select one of the available [model containers](/docs/tutorials/3.admin/deployments-models.md). In this case DIAL Core will use the container URL to communicate with the model.<br />**External Endpoint**: Provide the external chat completion endpoint URL DIAL Core will use to directly (not using model adapters) communicate with the model. In this case, the model API must be compatible with DIAL Core API. |
+    | **Source type** | Yes | **Adapter**: Select the corresponding AI model adapter from the list of [available adapters](/docs/tutorials/3.admin/builders-adapters.md). In this case DIAL Core will use the adapter's endpoint URL to communicate with the model.<br />**Model Container**: Select one of the available [model containers](/docs/tutorials/3.admin/deployments-models.md) deployed in DIAL. In this case DIAL Core will use the container URL to communicate with the model.<br />**External Endpoint**: For externally-hosted models, provide the chat completion endpoint URL DIAL Core will use to directly (not using model adapters) communicate with the model. In this case, the model API must be compatible with DIAL Core API. |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#configuration). When done with model configuration, click **Save**. It may take some time for the changes to take effect after saving. Once added, the model appears in the **Models** listing and become available to use across the DIAL ecosystem.
 
@@ -66,28 +78,34 @@ You can access the model configuration screen by clicking any model in the model
 
 In the **Properties** tab, you can view and edit main definitions and runtime settings for model deployment.
 
-* [Basic identification](#basic-identification-and-information): ID, Display Name, Version, Description.
-* [Adapter & Endpoint](#adapter): Select the Adapter, API Type (Chat or Embedding), and read-only Endpoint URL.
-* [Presentation & Attachments](#presentation--attachments): Override name, icon, topics, and attachment types.
+* [Basic Information](#basic-information): Identification and basic information about the model and its author.
+* [Source Type](#source-type): Parameters associated with the way the model was created: Adapter, Model Container, or External Endpoint.
+* [Personalization](#personalization): Parameters to customize model's appearance on UI.
+* [Attachments](#attachments): Define attachment types and maximum number of attachments the model can accept.
+* [Default Parameters](#default-parameters): Set default values for model parameters used in chat/completions requests.
 * [Upstream Configuration](#upstream-configuration): Define upstream endpoints, authentication keys, weights, and extra data.
 * [Advanced Options](#advanced-options): Tokenizer model, forward auth token, interaction limits, retry attempts.
 * [Cost Configuration](#cost-configuration): Set cost unit, prompt price, and completion price for real-time billing.
 
+##### Basic Information
+
+| Field | Required | Editable | Description |
+|-------|----------|----------|-------------|
+| **ID** | - | No | Unique key DIAL Core uses in the `models` section. Must match the upstream's deployment or model name (e.g. `gpt-4o`, `gpt-4-turbo`). Non-editable after the model created. |
+| **Updated Time** | - | No | Date and time when the model's configuration was last updated. |
+| **Creation Time** | - | No | Date and time when the model's configuration was created. |
+| **Sync with core** | - | No | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
+| **Display Name** | Yes | Yes | Model name shown in tables and dropdowns in DIAL clients (e.g. "GPT-4o"). Helps users identify and select models on UI. |
+| **Display version** | No | Yes | Version tag for tracking releases (e.g. `0613`, `v1`). Useful for A/B testing or canary rollouts. |
+| **Description** | No | Yes | Text describing the model's features, details, or other relevant information. |
+| **Maintainer** | No | Yes | Name of the responsible person or team overseeing the model's configuration. |
+| **Source type** | Yes | Yes | Source type indicates the way a model was created: [Adapter](#adapter), [Model Container](#model-container), [External Endpoint](#external-endpoint). |
+
 ![](img/entities_models_properties.png)
 
-##### Basic Identification and Information
+##### Source Type
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| **ID** | - | Unique key DIAL Core uses in the `models` section. Must match the upstream's deployment or model name (e.g. `gpt-4o`, `gpt-4-turbo`). Non-editable after the model created. |
-| **Updated Time** | - | Date and time when the model's configuration was last updated. |
-| **Creation Time** | - | Date and time when the model's configuration was created. |
-| **Sync with core** | - | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
-| **Display Name** | Yes | User-friendly label shown in tables and dropdowns in DIAL clients (e.g. "GPT-4o"). Helps users identify and select models on UI. |
-| **Display version** | No | An optional version tag for tracking releases (e.g. `0613`, `v1`). Useful for A/B testing or canary rollouts. |
-| **Description** | No | Free-text note describing the model's purpose, fine-tune details, or its cost tier. |
-| **Maintainer** | No | Field used to specify the responsible person or team overseeing the model's configuration. |
-| **Source type** | Yes | Allows to select one of the following options: [Adapter](#adapter), [Model Container](#model-container), [External Endpoint](#external-endpoint). |
+The Source Type defines how the model is integrated into DIAL. Depending on the selected Source Type, different parameters need to be specified.
 
 ##### Adapter
 
@@ -105,9 +123,11 @@ The following properties need to be specified if selected Source Type is Adapter
 | **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
 | **Endpoint** | Yes | URL that DIAL Core will invoke for this model. The base URL is determined by the selected adapter, while the path can be partially customized. |
 
+![](img/source_type_adapter.png)
+
 ##### Model Container
 
-AI models can be deployed in DIAL using Docker images. You can add and run [images](/docs/tutorials/3.admin/deployments-images.md) and [containers](/docs/tutorials/3.admin/deployments-models.md) in the Deployment section.
+AI models can be deployed in DIAL using images. You can deploy [images](/docs/tutorials/3.admin/deployments-images.md) and use them to create [containers](/docs/tutorials/3.admin/deployments-models.md) in the Deployments section.
 
 If the Source Type of your model is Model Container, DIAL Core will use the container URL to communicate with the model.
 
@@ -115,7 +135,11 @@ The following properties need to be specified if selected Source Type is Model C
 
 | Field | Required | Description |
 |-------|----------|-------------|
+| **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
 | **Container** | Yes | Select one of the running [Model Containers](/docs/tutorials/3.admin/deployments-models.md). |
+| **Endpoint** | Yes | URL that DIAL Core will invoke for this model. The base URL is determined by the selected container, while the path can be partially customized. |
+
+![](img/source_type_container.png)
 
 ##### External Endpoint
 
@@ -128,20 +152,34 @@ The following properties need to be specified if selected Source Type is Externa
 | **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
 | **Endpoint** | Yes | URL that DIAL Core will invoke for this model. |
 
-##### Presentation & Attachments
+![](img/source_type_endpoint.png)
+
+##### Personalization
+
+These parameters help customize how the model is presented in the DIAL UI.
 
 | Field | Required | Description |
 |-------|----------|-------------|
 | **Override name** | No | Custom display name for specific contexts. |
 | **Icon** | No | Logo to visually distinguish models in the UI. |
 | **Topics** | No | Tag that associates a model with one or more topics or categories (e.g. "finance", "support"). |
-| **Attachments** | No | Attachment types (images, files) this model can accept. <br />**None**: Attachments are not allowed. <br />**All**: Unrestricted types. Optionally specify max number of attachments.<br />**Custom**: Specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Optionally specify max number of attachments. |
+
+![](img/model_personalization.png)
+
+##### Attachments
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| **Attachments** | No | Attachment types (images, files) this model can accept. <br />**None**: Attachments are not allowed. <br />**All**: Unrestricted types. Optionally specify max number of attachments.<br />**Custom**: Specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). |
+| **Attachments max number** | No | Maximum number of input attachments, When **unset** (default), attachments are not allowed. |
+
+![](img/models_attachments.png)
 
 ##### Default Parameters 
 
-Default parameters are applied if a request doesn't contain them in OpenAI chat/completions API call.
+Default parameters can be use to pass additional parameters with the chat completion request. 
 
-![](img/defaults.png)
+![](img/model_defaults.png)
 
 ##### Upstream Configuration
 
@@ -153,6 +191,8 @@ Default parameters are applied if a request doesn't contain them in OpenAI chat/
 | **Tier** | Specifies an endpoint group. In a regular scenario, all requests are routed to endpoints with the lowest tier, but in case of an outage or hitting the limits, the next one in the line helps to handle the load. |
 | **Extra Data** | Free-form JSON or string metadata passed to the model adapter with each request. |
 
+![](img/model_upstreams.png)
+
 ##### Advanced Options
 
 | Field | Description |
@@ -161,7 +201,9 @@ Default parameters are applied if a request doesn't contain them in OpenAI chat/
 | **Forward auth token** | Select a downstream auth token to forward from the user’s session (for downstream multi-tenant).|
 | **Interaction limit** | This parameter ensures that the model does not exceed a specified token limit during interactions.<br />**Available values**:<br />**None**: DIAL does not apply any additional interaction limits beyond limits that your model enforces natively. Ideal for early prototyping or when you trust the LLM’s built-in safeguards. <br />**Total number of tokens**: Enforces a single, cumulative cap on the sum of all `prompt + completion` tokens across the entire chat. <br />**Separately Prompts & Completions**: Two independent limits: one on the sum of all input (prompt) tokens and another on the sum of all output (completion) tokens over the course of a conversation. |
 | **Max retry attempts** | The number of times DIAL Core will retry a connection in case of upstream errors (e.g. on timeouts or 5xx responses).    |
-| **Hashing Order** | Specifies the ordered components of a chat request used to compute its hash, reflecting how tools and messages are tokenized in LLMs. Enables DIAL Core to route requests with shared prefixes to the same upstream, supporting effective context caching. Refer to [DIAL Core documentation](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/models.md) to learn more. |
+| **Hashing Order** | Specifies the order in which parts of a chat completion request—like the `tools` used and the chat `messages` — are combined to create a unique fingerprint (hash) for that request. By default, it checks the `tools` first and then the `messages`. This fingerprint helps the system recognize when different requests share the same beginning, so it can reuse previous work and speed things up through caching, which is especially important because the system can only cache information for requests that start the same way. Refer to [DIAL Core documentation](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/models.md) for details. |
+
+![](img/model_advanced_params.png)
 
 ##### Cost Configuration
 
@@ -173,9 +215,13 @@ Enables real-time cost estimation and quota enforcement. Powers the [telemetry d
 | **Prompt price** | Yes | Cost per unit for prompt tokens. |
 | **Completion price** | Yes | Cost per unit for completion tokens (chat responses). |
 
+![](img/model_cost.png)
+
 ### Features
 
 In the **Features** tab, you can enable, disable, or override optional capabilities for a specific model. You can use model's features to tailor DIAL Core’s [Unified Protocol](/docs/platform/3.core/0.about-core.md#unified-api) behavior—turning features on when your model supports them, or off when it doesn’t.
+
+Model features apply per AI model, controlling what the model endpoint itself supports (e.g. whether GPT-4 can accept system prompts or function calls).
 
 > **TIP**:  Enable only the features you need. Extra toggles can cause errors if upstream doesn’t support them. After setting a custom endpoint, test it via a simple API call to confirm accessibility and authentication.
 
@@ -194,37 +240,38 @@ Some models adapters expose specialized HTTP endpoints for tokenization, rate es
 
 ##### Feature Flags (Toggles)
 
+Model toggles ensure you don’t accidentally send unsupported parameters to a given model.
+
 Each toggle corresponds to a capability in the [Unified Protocol](/docs/platform/3.core/0.about-core.md#unified-api-features). Enable them only if your model and adapter fully support that feature.
 
-| Toggle   | Description |
-|----------|-------------|
+| Toggle | Description |
+|--------|-------------|
 | **System prompt** | Allows injecting a system‐level message (the "agent’s instructions") at the start of every chat. Disable for models that ignore or block system prompts. |
-| **Tools**| Enables the `tools` (a.k.a. functions) feature for safe external API calls. Enable if you plan to use DIAL Add-ons or function calling. |
-| **Temperature supported**  | Enables the `temperature` parameter to control randomness in output. |
-| **Seed** | Enables the `seed` parameter for deterministic output. Use in testing or reproducible workflows. |
+| **Tools**| Enables the `tools` (a.k.a. functions) feature for safe external API calls. Enable if you plan to use DIAL toolsets or function calling. |
+| **Temperature supported**  | Enables the `temperature` parameter to control randomness in model deployment's output. |
+| **Seed** | Enables the `seed` parameter for deterministic output. If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result. Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend. |
 | **URL Attachments** | Allows passing URLs as attachments (images, docs) to the model. Can be required for image-based or file-referencing prompts. |
 | **Folder Attachments** | Enables attaching folders (batching multiple files). |
-| **Assistant attachment in request** | Indicates whether the model supports `attachments` chat completion `messages` form the `role=assistant`. When enabled, DIAL Chat must preserve attachments in messages from assistants, instead of removing them. The feature is especially useful for models that can generate attachments as well as take attachments in its input. A typical example of such a model is an image-editing model. |
+| **Assistant attachment in request** | Indicates whether the model deployment supports `attachments` [chat completion request](https://dialx.ai/dial_api#operation/sendChatCompletionRequest) `messages` form the `role=assistant`. When enabled, DIAL Chat must preserve `attachments` in `messages` from assistants, instead of removing them. The feature is especially useful for models that can generate attachments as well as take attachments as an input. A typical example of such a model is an image-editing model. |
 | **Accessible by request key** | Indicates whether the deployment is accessible using a [per-request API key](/docs/platform/3.core/3.per-request-keys.md). |
-| **Content parts** | Indicates whether the deployment supports requests with content parts or not. 
+| **Content parts** | Indicates whether the model deployment supports requests with content parts or not. Content parts in a chat completion request allow sending to AI model a message consisting of different types of content, such as text, images, or other media, within a single request which enables more rich and flexible interaction with a model.|
 | **Cache**| Whether the deployment supports [LLM caching](/docs/tutorials/1.developers/6.prompt-caching.md). |
 | **Auto caching** | Indicates whether the deployment supports [automatic caching](/docs/tutorials/1.developers/6.prompt-caching.md), where it's possible. |
-| **Parallel tool calls** | Indicates whether the deployment supports `parallel_tool_calls` parameter in a chat completion request. |
+| **Parallel tool calls** | Indicates whether the deployment supports `parallel_tool_calls` parameter in a [chat completion request](https://dialx.ai/dial_api#operation/sendChatCompletionRequest) which enables parallel `function` calling when using a `tool`. |
 | **Support comment in rate response** | Indicates whether the model supports the field `comment` in rate response payload. |
 
 ### Roles
 
-> You can create and manage roles in the [Access Management](/docs/tutorials/3.admin/access-management-roles.md) section.
+> You can create and manage roles in the [Access Management](/docs/tutorials/3.admin/access-management-roles.md) section or via a direct configuration of [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/roles.md).
 
-In the **Roles** tab, you can define user groups that are authorized to use a specific model and enforce per-role rate limits.
+In the **Roles** tab, you can define user groups that are authorized to use a specific model deployment and enforce role-based rate and usage limits.
 This is essential for multi-tenant governance, quota enforcement, and cost control across teams or customers, preventing runaway costs by enforcing a hard ceiling.
 
-**Important**: if roles are not specified for a specific model, the model will be available to all users.
+**Important**: if roles are not specified for a specific model deployment, it is available to all users.
 
-> * Refer to [Access Control](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to learn more about roles in DIAL.
 > * Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
 > * Refer to [Roles](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to lean more about roles in DIAL.
-> * Refer to tutorials to learn how to configure access and limits for [JWT](/docs/tutorials/2.devops/2.auth-and-access-control/1.jwt.md) and [API keys](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md)
+> * Refer to tutorials to learn how to use roles to define access and cost control for [JWT](/docs/tutorials/2.devops/2.auth-and-access-control/1.jwt.md) and [API keys](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md)
 
 ![](img/entities_models_roles.png)
 
@@ -250,6 +297,8 @@ The grid on the Roles screen lists the roles that can access a specific model. H
 1. **Click** in the desired cell (e.g., **Tokens per day** for the "ADMIN").
 2. **Enter** a numeric limit or leave blank to enable an unlimited access. Click **Reset to default limits** to restore [default settings](#default-limits) for all roles.
 3. Click **Save** to apply changes.
+
+![](img/model_roles.png)
 
 #### Default Limits
 
@@ -308,7 +357,7 @@ In the **Interceptors** tab, you can view configured [global interceptors](/docs
 | **Order** | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor's in this order.Response interceptors are invoked in the reversed order. |
 | **Display Name** | Alias of the interceptor, matching the **Name** field in its definition. |
 | **Description** | Free-text summary from the interceptor's definition, explaining its purpose. |
-| **Actions** | Additional role-specific actions. <br /> Open interceptor in a new tab. <br /> [Remove](#remove-1) the selected interceptor from the model's configuration. |
+| **Actions** | Additional actions. <br /> Open interceptor in a new tab. <br /> [Remove](#remove-1) the selected interceptor from the model's configuration. |
 
 #### Add
 
@@ -345,7 +394,7 @@ In the **Dashboard** tab, you can monitor real-time and historical metrics for t
 ![](img/model-dashboard.png)
 
 | Control | Description |
-|---------|--------------|
+|---------|-------------|
 | **Time Period** | Select the date range for all charts and tables (e.g. last 15 min, 2 days, 7 days, 30 days). |
 | **+ Add filter** | Filter with options to drill into a specific project. |
 | **Auto refresh** | Set the dashboard to poll for new data (e.g. every 1 min) or turn off auto-refresh. |
@@ -366,7 +415,7 @@ You can use them to:
 * Watch token consumption to anticipate quota exhaustion.
 
 | Metric | Description |
-|--------|------------|
+|--------|-------------|
 | **Unique Users** | Count of distinct user IDs or API keys that have called this model. |
 | **Request Count** | Total number of chat or embedding calls routed to this model. |
 | **Total Tokens** | Sum of `prompt + completion` tokens consumed by this model. |
@@ -452,7 +501,7 @@ The Activities section provides detailed visibility into all changes made to the
 ##### Activities List Table
 
 | Field | Description |
-|-----------|----------------|
+|-------|-------------|
 | **Activity type** | Action performed on the model (e.g., Create, Update, Delete). |
 | **Time** | Timestamp indicating when the activity occurred. |
 | **Initiated** | Email address of the user who performed the activity. |
