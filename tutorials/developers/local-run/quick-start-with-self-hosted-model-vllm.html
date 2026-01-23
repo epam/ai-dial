@@ -13,8 +13,8 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/98fb745b-9467-48d1-8f4f-b993d54a5a27?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.872e663b.css">
-<script src="/assets/js/runtime~main.be532b7f.js" defer="defer"></script>
-<script src="/assets/js/main.55dd4625.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.8e1b2456.js" defer="defer"></script>
+<script src="/assets/js/main.1f173146.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -33,20 +33,20 @@
 <div class="language-sh codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sh codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cd dial-docker-compose/vllm</span><br></span></code></pre></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-2-choose-a-model-to-run">Step 2: Choose a model to run<a href="#step-2-choose-a-model-to-run" class="hash-link" aria-label="Direct link to Step 2: Choose a model to run" title="Direct link to Step 2: Choose a model to run" translate="no">​</a></h2>
 <p>vLLM supports a wide range of popular open-source models.
-We&#x27;ll demonstrate how integrate HuggingFace chat model served by vLLM in the DIAL Platform.</p>
+We&#x27;ll demonstrate how integrate Hugging Face chat model served by vLLM in the DIAL Platform.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-3-launch-dial-chat">Step 3: Launch DIAL Chat<a href="#step-3-launch-dial-chat" class="hash-link" aria-label="Direct link to Step 3: Launch DIAL Chat" title="Direct link to Step 3: Launch DIAL Chat" translate="no">​</a></h2>
 <ol>
 <li class="">
 <p>Configure <code>.env</code> file in the current directory according to the type of model you&#x27;ve chosen:</p>
 <ul>
-<li class="">Set <code>VLLM_CHAT_MODEL</code> for the name of a chat model. A lightweight <a href="https://huggingface.co/Qwen/Qwen2.5-Coder-0.5B-Instruct-GPTQ-Int4" target="_blank" rel="noopener noreferrer" class="">Qwen/Qwen2.5-Coder-0.5B-Instruct-GPTQ-Int4</a> chat model from HuggingFace is a default.</li>
+<li class="">Set <code>VLLM_CHAT_MODEL</code> for the name of a chat model. A lightweight <a href="https://huggingface.co/Qwen/Qwen2.5-Coder-0.5B-Instruct-GPTQ-Int4" target="_blank" rel="noopener noreferrer" class="">Qwen/Qwen2.5-Coder-0.5B-Instruct-GPTQ-Int4</a> chat model from Hugging Face is a default.</li>
 </ul>
 </li>
 <li class="">
 <p>Then run the following command to run vLLM server and key DIAL Platform components:</p>
 <div class="language-sh codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sh codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">docker compose up --abort-on-container-exit</span><br></span></code></pre></div></div>
 <blockquote>
-<p>Keep in mind that a typical size of a lightweight HuggingFace model is around a few gigabytes. So it may take a few minutes <em>(or more)</em> to download it on the first run, depending on your internet bandwidth and the size of the model you choose.</p>
+<p>Keep in mind that a typical size of a lightweight Hugging Face model is around a few gigabytes. So it may take a few minutes <em>(or more)</em> to download it on the first run, depending on your internet bandwidth and the size of the model you choose.</p>
 </blockquote>
 </li>
 <li class="">
