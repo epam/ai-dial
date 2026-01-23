@@ -47,7 +47,7 @@ Follow these steps to add a new application deployment:
     | **Application runner** | Conditional | Select one of the [available application runners](/docs/tutorials/3.admin/builders-application-runners.md). Required if Source Type is **Application runner**. |
 
 
-3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#application-configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
+3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
 
     ![](img/img_12.png)
 

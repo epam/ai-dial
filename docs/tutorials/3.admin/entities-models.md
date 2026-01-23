@@ -48,7 +48,7 @@ Follow these steps to add new AI model to your DIAL instance:
     | **Description** | No | Free-text note about the model's purpose or distinguishing traits. |
     | **Source type** | Yes | **Adapter**: Select the corresponding AI model adapter from the list of [available adapters](/docs/tutorials/3.admin/builders-adapters.md). In this case DIAL Core will use the adapter endpoint URL to communicate with the model.<br />**Model Container**: Select one of the available [model containers](/docs/tutorials/3.admin/deployments-models.md). In this case DIAL Core will use the container URL to communicate with the model.<br />**External Endpoint**: Provide the external chat completion endpoint URL DIAL Core will use to directly (not using model adapters) communicate with the model. In this case, the model API must be compatible with DIAL Core API. |
 
-3. Click **Create** to close the dialog and open the [configuration screen](#model-configuration). When done with model configuration, click **Save**. It may take some time for the changes to take effect after saving. Once added, the model appears in the **Models** listing and become available to use across the DIAL ecosystem.
+3. Click **Create** to close the dialog and open the [configuration screen](#configuration). When done with model configuration, click **Save**. It may take some time for the changes to take effect after saving. Once added, the model appears in the **Models** listing and become available to use across the DIAL ecosystem.
 
     ![](img/img_4.png)
 
@@ -235,10 +235,10 @@ This is essential for multi-tenant governance, quota enforcement, and cost contr
 | **ID** | Unique role's identifier. |
 | **Display Name** | Unique role's name displayed on UI. |
 | **Description** | Description of the role's purpose (e.g., "DIAL Prompt Engineering Team"). |
-| **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden. |
-| **Tokens per day** | Daily tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden. |
-| **Tokens per week** | Weekly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden. |
-| **Tokens per month** | Monthly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-rate-limits). Can be overridden. |
+| **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-limits). Can be overridden. |
+| **Tokens per day** | Daily tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-limits). Can be overridden. |
+| **Tokens per week** | Weekly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-limits). Can be overridden. |
+| **Tokens per month** | Monthly tokens limit for a specific role. Blank = no limits. Inherits the [default value](#default-limits). Can be overridden. |
 | **Actions** | Additional role-specific actions. <br /> When **Make available to specific roles** toggle is off - opens the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab. <br /> When **Make available to specific roles** toggle is on, you can open the [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab, set **Set unlimited**, [Remove](#remove) the role from the list or **Reset to default limits**. |
 
 #### Set Rate Limits
@@ -248,7 +248,7 @@ The grid on the Roles screen lists the roles that can access a specific model. H
 ##### To set or change rate limits for a role
 
 1. **Click** in the desired cell (e.g., **Tokens per day** for the "ADMIN").
-2. **Enter** a numeric limit or leave blank to enable an unlimited access. Click **Reset to default limits** to restore [default settings](#default-rate-limits) for all roles.
+2. **Enter** a numeric limit or leave blank to enable an unlimited access. Click **Reset to default limits** to restore [default settings](#default-limits) for all roles.
 3. Click **Save** to apply changes.
 
 #### Default Limits

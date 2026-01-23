@@ -31,7 +31,7 @@ Follow these steps to add a new route:
 | **Description** | No | Brief free-text description of the Route's purpose. |
 | **Paths** | Yes | URL path(s) pattern this route should match (e.g. `/chat`, `/support/`). |
 
-2. Once all required fields are filled, click **Create**. The dialog closes and the new [route configuration](#route-configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
+2. Once all required fields are filled, click **Create**. The dialog closes and the new [route configuration](#configuration) screen is opened. This entry will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
 
     ![](img/img_20.png)
 
