@@ -1,13 +1,13 @@
 # Keys
 
-## About API Keys
+## Introduction
 
 DIAL Core uses API keys to manage access of external applications for resources in DIAL.
 
 > * Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
 > * Refer to [Tutorials](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md) to learn how to configure access and usage control for API keys.
 
-## Keys Main Screen
+## Main Screen
 
 On the main screen you can see all existing API keys with their details.
 
@@ -17,19 +17,20 @@ On the main screen you can see all existing API keys with their details.
 
 > **TIP**: Use the **Columns** selector to customize which columns are visible in the grid.
 
-| Column                    | Definition                                                                                                          |
+| Column                    | Definition                            |
 |---------------------------|---------------------------------------------------------------------------------------------------------------------|
-| **ID**                    | A unique key under the Keys section of DIAL Admin.                                                                  |
-| **Display Name**          | A user-friendly name of the Key.                                                                                    |
+| **ID**                    | A unique key under the Keys section of DIAL Admin.                 |
+| **Display Name**          | A user-friendly name of the Key.      |
 | **Description**           | Optional notes explaining the key’s purpose, owner/team, or special instructions.                                   |
 | **Key generation time**   | A key's creation timestamp. Useful for auditing and correlating the key's usage with system changes or deployments. |
 | **Expiration time**       | A key's expiration timestamp. Setting expirations enforces regular key rotation.                                    |
-| **Status**                | The current state of the key.                                                                                       |
-| **Project**               | The name of the project the key is associated with.                                                                 |
-| **Updated time**          | Timestamp of the latest change.                                                                                     |
-| **Creation time**         | Date and time when the key artefact was created in DIAL.                                                            |
-| **Project contact point** | Email of the responsible person or group.                                                                           |
-| **Secured**               | Indication if it is secured API key.                                                                                |
+| **Status**                | The current state of the key.         |
+| **Project**               | The name of the project the key is associated with.                |
+| **Updated time**          | Timestamp of the latest change.       |
+| **Creation time**         | Date and time when the key artefact was created in DIAL.           |
+| **Project contact point** | Email of the responsible person or group.                          |
+| **Secured**               | Indication if it is secured API key.  |
+| **Topics**                | Tags assigned to the key (e.g. "admin", "user").                   |
 
 
 ## Create Keys
@@ -39,14 +40,14 @@ Follow these steps to create a new API key:
 1. Click **Create** to invoke the **Create Key** modal.
 2. In the modal, specify the following parameters for the new key:
 
-    | Field               | Required | Description & Use Cases                                                                                                                                                             |
-    |---------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **ID**              | Yes      | A unique key under the Keys section of DIAL Admin. Click Generate to automatically create unique GUID.                                                                              |
-    | **Display Name**    | Yes      | A user-friendly name of the Key.                                                                                                                                                    |
-    | **Description**     | No       | An optional free-form text.<br />Use to document the key’s purpose, owner team, or usage context.                                                                                   |
-    | **Project**         | Yes      | Logical project or department grouping (e.g. "AnalyticsTeam").<br />Helps organize keys and apply cost/usage reporting by project.                                                  |
+    | Field               | Required | Description  |
+    |---------------------|----------|-------------|
+    | **ID**              | Yes      | A unique key under the Keys section of DIAL Admin. Click Generate to automatically create unique GUID.|
+    | **Display Name**    | Yes      | A user-friendly name of the Key.                     |
+    | **Description**     | No       | An optional free-form text.<br />Use to document the key’s purpose, owner team, or usage context.     |
+    | **Project**         | Yes      | Logical project or department grouping (e.g. "AnalyticsTeam").<br />Helps organize keys and apply cost/usage reporting by project. |
     | **Key value**       | Yes      | The actual secret string used for authentication.<br />Initially hidden; click **👁️** to reveal.<br />Press **Generate** to have its value automatically generated in GUID format. |
-    | **Validity Period** | Yes      | A key's expiration time period. Use to enforce credential rotation and retirement.                                                                                                  |
+    | **Validity Period** | Yes      | A key's expiration time period. Use to enforce credential rotation and retirement.                    |
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new [key configuration](#key-configuration) screen is opened. A new key entry will appear immediately in the listing once created.
 
@@ -73,20 +74,20 @@ In the Properties tab, you can view metadata and manage the selected settings fo
 
 ![](img/img_44.png)
 
-| Field                     | Required | Description & Use Cases                                                                                                                         |
-|---------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| **ID**                    | -        | A unique key under the Keys section of DIAL Admin.                                                                                              |
-| **Creation Time**         | -        | Date and time when the key artefact was created in DIAL.                                                                                        |
-| **Key Generation Time**   | -        | Date and time when the actual key value was last modified.                                                                                      |
-| **Expiration Time**       | -        | Date and time when the key is expiring.                                                                                                         |
-| **Status**                | -        | Indicates whether the key is valid or not.                                                                                                      |
+| Field                     | Required | Description |
+|---------------------------|----------|------------|
+| **ID**                    | -        | A unique key under the Keys section of DIAL Admin.                |
+| **Creation Time**         | -        | Date and time when the key artefact was created in DIAL.          |
+| **Key Generation Time**   | -        | Date and time when the actual key value was last modified.        |
+| **Expiration Time**       | -        | Date and time when the key is expiring.                           |
+| **Status**                | -        | Indicates the validity status of a key.<br /> A key is **invalid** in cases when there are no roles assigned to it, or its secret value is missing or is expired.|
 | **Display Name**          | Yes      | A user-friendly identifier of a key.<br />Use meaningful names to tie keys back to projects, environments, or teams.                            |
 | **Description**           | No       | A free-form text.<br />Use to document the key’s purpose, owner team, or usage context (e.g. "Used by QH Data Ingestion pipeline").             |
 | **Project**               | Yes      | Logical project or department grouping (e.g. "QH", "AnalyticsTeam").<br />Helps organize keys and apply cost/usage reporting by project.        |
-| **Project contact point** | No       | Email of the responsible person or group.                                                                                                       |
+| **Project contact point** | No       | Email of the responsible person or group. |
 | **Key value**             | Yes      | The actual secret string used for authentication.<br />Initially hidden - click **👁️** to reveal.<br />Press **Copy** to copy it to clipboard. |
-| **Secured**               | Yes      | Toggle to make the key a [secured API key](/docs/platform/3.core/4.privacy.md#applications-audit-logs).                                         |
-
+| **Secured**               | Yes      | Toggle to make the key a [secured API key](/docs/platform/3.core/4.privacy.md#applications-audit-logs). |
+| **Topics**                | No       | Tags that you can assign to keys (e.g. "admin", "user"). Helps to split keys into categories for better navigation on UI. |
 
 ### Roles
 
@@ -122,17 +123,21 @@ Use to stop associating API keys with roles.
 
 ### JSON Editor
 
-For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor** in any key's configuration page.
-
-![](img/75.png)
-
-##### Switching to the JSON Editor
-
-1. Navigate to **Access Management → Keys**, then select the key you want to edit.
-2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
+**Advanced users with technical expertise** can work with the keys properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed on UI.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
+![](img/keys_json.png)
+
+In JSON editor, you can use the view dropdown to select between Admin format and Core format. Note, that these formatting options are for your convenience only and do not render properties as they are defined in DIAL Core. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.
+
+##### Working with JSON Editor
+
+1. Navigate to **Access Management → Keys**, then select the key you want to edit.
+2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
+3. Chose between the Admin and Core format to see and work with properties in the necessary format. **Note**: Core format view mode does not render the actual configuration stored in DIAL Core but the configuration in Admin service displayed in the DIAL Core format.
+4. Make changes and click **Save** to apply them.
+5. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.
 
 ## Delete
 
