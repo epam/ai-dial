@@ -9,11 +9,11 @@ You can add an additional logic into the processing of every request and respons
 
 ## Main Screen
 
-On the main screen, you can find, manage and add interceptors to your DIAL environment.
+On the main screen, you can access all the available interceptors, manage and add interceptors to your DIAL environment.
 
 ![ ](img/img_28.png)
 
-##### Interceptors Grid
+##### Interceptors grid
 
 | Field | Description |
 |-------|-------------|
@@ -25,6 +25,7 @@ On the main screen, you can find, manage and add interceptors to your DIAL envir
 | **Author** | Information about the interceptor's author. |
 | **Updated time** | Date and time when the interceptor's configuration was last updated. |
 | **Status** | The current status of the interceptor.<br />- **local**: Apply to selected deployments.<br />- [global](/docs/tutorials/3.admin/home.md#system-properties): Apply to all deployments. |
+ **Topics** | Tags that associate an interceptor with one or more topics or categories (e.g. "compliance", "logging"). |
 
 ## Create
 
@@ -35,9 +36,9 @@ Follow these steps to add a new definition of an interceptor:
 
     | Column | Required | Description |
     |--------|----------|-------------|
-    | **ID** | Yes | A unique identifier for the interceptor (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. |
-    | **Display Name** | Yes | A user-friendly name of the interceptor (e.g. "PII Information Remover"). |
-    | **Description** | No | A brief summary of what this interceptor does and any parameters it uses (e.g. BLACKLIST={"foo","bar"} or Logs request/response payloads). |
+    | **ID** | Yes | Unique identifier for the interceptor (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. |
+    | **Display Name** | Yes | Name of the interceptor (e.g. "PII Information Remover") displayed on UI. |
+    | **Description** | No | Brief summary of what this interceptor does and any parameters it uses (e.g. BLACKLIST={"foo","bar"} or Logs request/response payloads). |
     | **Source Type** | Yes | Source type of the interceptor:<br />- [Interceptor Template](/docs/tutorials/3.admin/builders-interceptor-templates.md): Interceptor is based on a template.<br />- [Interceptor deployment](/docs/tutorials/3.admin/deployments-interceptors.md): Interceptor is based on a deployed interceptor image.<br />- External Endpoint: Interceptor is based on an external HTTP endpoint. |
     | **Interceptor template** | Conditional | Interceptor's Template Id. Applies for the Interceptor Template source type. |
     | **Container** | Conditional | Interceptor's [Container Id](/docs/tutorials/3.admin/deployments-interceptors.md). Applies for the Interceptor Container source type. |
@@ -45,7 +46,7 @@ Follow these steps to add a new definition of an interceptor:
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new interceptor [configuration screen](#configuration) is opened. Once added, a new entry appears in the **Interceptors** listing. It may take some time for the changes to take effect after saving.
 
-    ![](img/img_29.png)
+    ![](img/create_interceptor.png)
 
 ## Configuration
 
@@ -57,37 +58,29 @@ In the Properties tab, you can define metadata and execution endpoints for Inter
 
 ![](img/img_30.png)
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| **ID** | - | Unique key under `interceptors` in DIAL Core's [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. data-clustering, support-bot). |
-| **Updated Time** | - | Date and time when the interceptor's configuration was last updated. |
-| **Creation Time** | - | Date and time when the interceptor's configuration was created. |
-| **Status** | - | Current status of the interceptor:<br />- **local**: configured and applied to a specific instance of an application.<br />- **global**: apply to any deployment in DIAL and tend to have the most strict rules, because they receive original input first and examine the response last. |
-| **Sync with core** | - | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />- **Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />- **In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />- **Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />- **Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
-| **Display Name** | Yes | A user-friendly name of the interceptor (e.g. "PII Information Remover"). |
-| **Description** | No | A free-text summary of the interceptor's behavior and any configuration parameters (e.g. `BLACKLIST={"foo","bar"}`). Helps to identify the interceptor and its purpose. |
-| **Maintainer** | No | Field used to specify the responsible person or team overseeing the interceptor and its configuration. |
-| **Forward Auth Token** | Yes | Specify whether to forward an Auth Token to your interceptor's endpoint. Use this when your interceptor service requires its own authentication. |
-| **Source Type** | Yes | Source type of the interceptor:<br />- [Interceptor Template](/docs/tutorials/3.admin/builders-interceptor-templates.md): Interceptor is based on a template.<br />- [Interceptor deployment](/docs/tutorials/3.admin/deployments-interceptors.md): Interceptor is based on a deployed interceptor image.<br />- External Endpoint: Interceptor is based on an external HTTP endpoint. |
-| **Completion Endpoint** | Conditional | URL of the chat completion endpoint. Applies for the External Endpoint source type. |
-| **Configuration Endpoint** | Conditional | The URL that exposes the configuration of the interceptor. Applies for the External Endpoint source type. |
-| **Interceptor template** | Conditional | Interceptor's template Id. Applies for the Interceptor Template source type. |
-| **Container** | Conditional | Interceptor's Container Id. Applies for the Interceptor deployment source type. |
-| **Defaults** | No | The interceptor configuration could be preset on the per-interceptor basis via the `defaults` field. Default parameters are applied if a request doesn't contain them in OpenAI chat/completions API call. Refer to [Interceptors SDK](https://github.com/epam/ai-dial-interceptors-sdk/blob/development/README.md#interceptor-configuration) to learn more. |
+| Field | Required | Editable | Description |
+|-------|----------|----------|-------------|
+| **ID** | - | No | Unique key under `interceptors` in DIAL Core's [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. data-clustering, support-bot). |
+| **Updated Time** | - | No | Date and time when the interceptor's configuration was last updated. |
+| **Creation Time** | - | No | Date and time when the interceptor's configuration was created. |
+| **Status** | - | No | Current status of the interceptor:<br />- **local**: configured and applied to a specific instance of a deployment.<br />- [global](/docs/tutorials/3.admin/home.md#system-properties): apply to any deployment in DIAL and tend to have the most strict rules, because they receive original input first and examine the response last. |
+| **Sync with core** | - | No | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />- **Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />- **In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />- **Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />- **Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
+| **Display Name** | Yes | Yes | Name of the interceptor displayed on IU (e.g. "PII Information Remover"). |
+| **Description** | No | Yes | Description of the interceptor (e.g. `BLACKLIST={"foo","bar"}`). Helps to identify the interceptor and its purpose. |
+| **Maintainer** | No | Yes | Identification of a responsible person or a team overseeing the interceptor and its configuration. |
+| **Forward Auth Token** | Yes | Yes | This parameter allows to determine whether to forward an Auth Token to your interceptor's endpoint. Use this when your interceptor service requires its own authentication. If enabled, HTTP header with authorization token are forwarded to chat completion endpoint of the interceptor. |
+| **Source Type** | Yes | Yes | Source type of the interceptor:<br />- [Interceptor Template](/docs/tutorials/3.admin/builders-interceptor-templates.md): Interceptor is based on a template.<br />- [Interceptor deployment](/docs/tutorials/3.admin/deployments-interceptors.md): Interceptor is based on a deployed interceptor image.<br />- External Endpoint: Interceptor is based on an external HTTP endpoint. |
+| **Completion Endpoint** | Conditional | Yes | URL of the chat completion endpoint. Applies for the External Endpoint source type. |
+| **Configuration Endpoint** | Conditional | Yes | The URL that exposes the configuration of the interceptor. Applies for the External Endpoint source type. |
+| **Interceptor template** | Conditional | Yes | Interceptor's template Id. Applies for the Interceptor Template source type. |
+| **Container** | Conditional | Yes | Interceptor's Container Id. Applies for the Interceptor deployment source type. |
+| **Defaults** | No | Yes | The interceptor configuration could be preset on the per-interceptor basis via the `defaults` field. Default parameters are applied if a request doesn't contain them in OpenAI chat/completions API call. Refer to [Interceptors SDK](https://github.com/epam/ai-dial-interceptors-sdk/blob/development/README.md#interceptor-configuration) to learn more. |
 
 ### Parameter Scheme
 
 In this tab, you can define additional parameters for the interceptor. The parameters displayed in this section depend on the JSON schema provided by the interceptor's configuration endpoint (applies for the External Endpoint source type).
 
 ![](img/parameter_scheme.png)
-
-### Application Runners
-
-In this tab, you can see Application Runners a specific interceptor is currently associated with. Application Runners are used to run [schema-rich applications](/docs/platform/3.core/7.apps.md#schema-rich-applications) of specific types. By creating this binding, you can determine what types of applications will use the selected interceptor during their execution. 
-
-> **TIP**: You can also define this mapping on the [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md#interceptors) configuration screen in the Interceptors tab.
-
-![](img/interceptors_app_runners.png)
 
 ### Entities
 
@@ -99,21 +92,31 @@ In the Entities tab, you can see Models and Applications this interceptor is cur
 
 | Column | Description |
 |--------|-------------|
-| **ID** | A unique identifier of the Application or Model. |
-| **Display Name** | A user-friendly name of the Application/Model (e.g. "Data Clustering Application"). |
-| **Description** | Provides a brief summary of the application or model purpose. |
-| **Type** | A type of the entity using the given interceptor: Model, Application. |
+| **ID** | Unique identifier of the Application or Model deployment. |
+| **Display Name** | Name of the Application/Model deployment (e.g. "Data Clustering Application"). |
+| **Description** | Description of the deployment. |
+| **Type** | Type of the entity using the given interceptor: Model, Application. |
 
 #### Add
 
+On this screen, you can add a model or application to associate them with the selected interceptor.
+
 1. Click **+ Add** (top-right of the Entities Grid).
 2. **Select** one or more apps/models in the modal.
-3. **Confirm** to insert them into the table.
+3. **Apply** to complete action.
 
 #### Remove
  
 1. Click the **actions** menu in the entity's line.
 2. Choose **Remove** in the menu.
+
+### Application Runners
+
+In this tab, you can see Application Runners a specific interceptor is currently associated with. Application Runners are used to run [schema-rich applications](/docs/platform/3.core/7.apps.md#schema-rich-applications) of specific types. By creating this binding, you can determine what types of applications will use the selected interceptor during their execution. 
+
+> **TIP**: You can also define this mapping on the [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md#interceptors) configuration screen in the Interceptors tab.
+
+![](img/interceptors_app_runners.png)
 
 ### Audit
 
