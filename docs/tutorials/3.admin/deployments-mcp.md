@@ -123,7 +123,9 @@ In the Properties tab, you can preview and modify selected container's basic pro
 
 ### Tools Overview
 
-MCP server-specific functions exposed to the LLM to take actions. These tools provide specific capabilities to process, transform, or analyze data flowing through the MCP server. Each tool can be configured independently within the container to support different operational requirements.
+[Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are specific functions supported by a related MCP server that can be used by clients to perform specific actions (e.g., process, transform, or analyze data flowing through the MCP server). 
+
+On this screen, you can view the list of tools supported by the selected MCP server along with their details. Toolsets created based on this container will inherit these tools in the [Tools Overview](/docs/tutorials/3.admin/entities-toolsets.md#tools-overview) configuration tab.
 
 ![](img/mcp_container_tools.png)
 

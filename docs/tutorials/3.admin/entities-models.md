@@ -12,11 +12,14 @@ DIAL uses [AI model adapters](/docs/tutorials/3.admin/builders-adapters.md), tha
 
 You can add AI models to DIAL via a direct configuration of [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/models.md) or using DIAL Admin Panel. This tutorial describes how to add and manage AI models using DIAL Admin Panel.
 
-When a model is successfully added, it can be accessed across the DIAL ecosystem including, [DIAL Chat](https://dialx.ai/features/dial-chat), [DIAL Marketplace](https://dialx.ai/features/dial-marketplace) and via [API](https://dialx.ai/dial_api#operation/sendChatCompletionRequest).
 
 ## Main Screen
 
 On this page, you can find all AI models deployments available on your DIAL instance. Here you can view, filter, and add new model definitions.
+
+When a model deployment is successfully added, it can be accessed across the DIAL ecosystem including, [DIAL Chat](https://dialx.ai/features/dial-chat), [DIAL Marketplace](https://dialx.ai/features/dial-marketplace) and via [API](https://dialx.ai/dial_api#operation/sendChatCompletionRequest) for authorized [user roles](/docs/tutorials/3.admin/access-management-roles.md).
+
+> You can use DIAL Core API to [access](https://dialx.ai/dial_api#tag/Deployment-listing/operation/getModels) available model deployments and to [send chat completion](https://dialx.ai/dial_api#operation/sendChatCompletionRequest) requests.
 
 ![](img/entities_models.png)
 
