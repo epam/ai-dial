@@ -161,29 +161,40 @@ Having selected and configured any authentication method, click **Save** and **L
 
 ### Tools Overview
 
-Tools in toolsets are functionalities supported by a corresponding MCP server that can be used to extend the capabilities of your toolset. In this tab, you can find all tools included in the toolset and add more tools.
+[Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are specific functions supported by a related MCP server that can be used by clients to perform specific actions. On this screen, you can find and manage all tools supported by the related MCP server.
 
-![](img/135.png)
+In case your toolset was created based on the MCP container deployed in DIAL, the content of this screen is inherited from the related [MCP container](/docs/tutorials/3.admin/deployments-mcp.md#tools-overview).
 
-#### Add
+#### Use all tools
 
-You can add a tool manually only if **Use all available tools** toggle is **Off**.
+Enable **Use all available tools** toggle to automatically include all tools supported by the related MCP server. When enabled, you cannot add or remove tools manually.
 
-1. Click **+ Add** on the top-right.
-2. Click **+ Add** in the modal and give names to the tools that will be added.
-3. **Add** to add tools to the toolset.
+Click on any tool to preview its details or [try it out](#try-tools).
 
-![](img/113.png)
+![](img/assets_tools_tools_overview.png)
 
-#### Remove
+#### Manage tools
 
-You can remove a tool only if **Use all available tools** toggle is **Off**.
+Disable **Use all available tools** toggle to enable a manual tools management mode.
 
-1. Hover the tool by the pointer to see Delete button.
-2. Click **Delete** to remove a tool.
+![](img/assets_manage_tools.png)
 
-![](img/remove-tool.png)
+1. Disable **Use all available tools** toggle and click **Manage tool** button to open the **Manage tools** modal.
+2. The modal displays all tools available to your user. You can preview and enable/disable each tool individually.
+3. MCP sever can support other tools that are not available to your user and therefore are not rendered in the list of available tools. If you know their names, you can manually add them. Manually-added tools are labeled accordingly on the Tools Overview screen.
+4. Click **Confirm** to apply changes.
+5. On the **Tools overview** screen, use the filter to see all tools, just auto-detected tools or manually added tools.
+6. Hover over any tool to see its details or [try it out](#try-tools).
 
+![](img/assets_toolsets_manage_tools.png)
+
+#### Try tools
+
+Click or hover over any **enabled** tool to enter the Try out mode.
+
+In the **Try out mode**, you can test each enabled tool by sending a sample request to the server. When sending a request, you can use the rendered UI form to populate the request input fields or enter JSON view mode to get access to all the fields supported by the input schema.
+
+![](img/assets_toolset_tryout.png)
 
 ### JSON Editor
 
