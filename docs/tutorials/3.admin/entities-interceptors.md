@@ -71,14 +71,14 @@ In the Properties tab, you can define metadata and execution endpoints for Inter
 | **Forward Auth Token** | Yes | Yes | This parameter allows to determine whether to forward an Auth Token to your interceptor's endpoint. Use this when your interceptor service requires its own authentication. If enabled, HTTP header with authorization token are forwarded to chat completion endpoint of the interceptor. |
 | **Source Type** | Yes | Yes | Source type of the interceptor:<br />- [Interceptor Template](/docs/tutorials/3.admin/builders-interceptor-templates.md): Interceptor is based on a template.<br />- [Interceptor deployment](/docs/tutorials/3.admin/deployments-interceptors.md): Interceptor is based on a deployed interceptor image.<br />- External Endpoint: Interceptor is based on an external HTTP endpoint. |
 | **Completion Endpoint** | Conditional | Yes | URL of the chat completion endpoint. Applies for the External Endpoint source type. |
-| **Configuration Endpoint** | Conditional | Yes | The URL that exposes the configuration of the interceptor. Applies for the External Endpoint source type. |
+| **Configuration Endpoint** | Conditional | Yes | The URL that exposes the configuration of the interceptor. This endpoint returns JSON schema with configuration parameters that are rendered in the [Parameter Scheme tab](#parameter-scheme). Applies for the External Endpoint source type. |
 | **Interceptor template** | Conditional | Yes | Interceptor's template Id. Applies for the Interceptor Template source type. |
 | **Container** | Conditional | Yes | Interceptor's Container Id. Applies for the Interceptor deployment source type. |
 | **Defaults** | No | Yes | The interceptor configuration could be preset on the per-interceptor basis via the `defaults` field. Default parameters are applied if a request doesn't contain them in OpenAI chat/completions API call. Refer to [Interceptors SDK](https://github.com/epam/ai-dial-interceptors-sdk/blob/development/README.md#interceptor-configuration) to learn more. |
 
 ### Parameter Scheme
 
-In this tab, you can define additional parameters for the interceptor. The parameters displayed in this section depend on the JSON schema provided by the interceptor's configuration endpoint (applies for the External Endpoint source type).
+In this tab, you can define additional configuration parameters for the interceptor. The parameters displayed in this section are defined by the JSON schema returned by the interceptor's configuration endpoint specified in the [Properties tab](#properties) when the source type External Endpoint is selected. If a valid endpoint is specified, the content on this screen is rendered automatically based on the JSON schema returned by that endpoint. Rendered parameters are pre-populated with their default values. In case the invalid configuration endpoint is provided, "No Configuration Scheme" state is shown instead.
 
 ![](img/parameter_scheme.png)
 

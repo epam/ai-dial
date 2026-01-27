@@ -66,7 +66,7 @@ In the **Properties** tab, you can view and edit main definitions and settings o
 | **ID** | - | No | Unique key under the toolsets section of DIAL Admin. |
 | **Updated Time** | - | No | Date and time when the toolset's configuration was last updated. |
 | **Creation Time** | - | No | Date and time when the toolset's configuration was created. |
-| **Authentication** | - | No | Toolset authentication indicator. |
+| **Authentication** | - | No | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset in not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated for your user only. <br />- **Logged in (Organization)**: The toolset is authenticated for all users in your organization. |
 | **Sync with core** | - | No | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
 | **Display Name** | Yes | Yes | Name of a toolset shown across the UI (e.g. GitHub, Google Maps). |
 | **Description** | No | Yes | Description of a toolset. |
@@ -79,9 +79,43 @@ In the **Properties** tab, you can view and edit main definitions and settings o
 | **Transport** | Yes | Yes | Transport supported by a related endpoint.<br />Available options: HTTP (default) or SSE.<br />Choose SSE for server-sent events when supported. |
 | **Forward per request key** | No | Yes | Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. <br />**Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`. |
 | **Max retry attempts** | Yes | Yes | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) routing a failed call to a toolset endpoint (due to timeouts or 5xx errors). |
-| **Authentication** | Yes | Yes | Toolset authentication configuration: <br/> 1. **OAuth** - authenticate via OAuth 2.0 with an external identity provider. Supports **With login** and **With login & configuration** options. <br/> 2. **API Key** - authenticate requests using a key. <br/> 3. **Without authentication** — no authentication enforced, endpoint is publicly accessible.<br/>Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolset_credentials_api.md) to learn more about toolset authentication. |
+| **Authentication** | Yes | Yes | [Toolset authentication configuration](#authentication). |
 
 ![](img/toolset_properties.png)
+
+#### Authentication
+
+If the toolset you have chosen requires authentication at the related MCP server, you will have to sign in before you can use it. For example, if you are using an application that relies on the MCP toolset and authentication is required, you will not be able to access it unless you are logged in. Therefore, make sure you are authenticated with MCP server you are about to use.
+
+> Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolset_credentials_api.md) to learn more about toolset authentication.
+
+##### Step 1: Select and configure the authentication method 
+
+DIAL supports several authentication methods for toolsets:
+
+* **OAuth**: Authenticate via OAuth 2.0 with an external identity provider. If this option is selected, you have to populate the authentication form with correct values provided by the identity provider:
+    - **Redirect URI**: Redirect URI used during sign in flows. After authentication, the MCP Server redirects the User to the provided URI.
+    - **Client ID**: The unique identifier of the client/application requesting access to the resource. 
+    - **Client Secret**: A confidential key used by the client to authenticate itself with the authentication server. 
+    - **Scopes Supported**: List of supported scopes that define access levels. May be discovered via .well-known endpoints. 
+    - **Default authorization endpoint**: URL for performing authorization. Can be discovered via .well-known metadata if provided by the Authorization Server.
+    - **Default token endpoint**: The URL where the client exchanges the authorization code for an access token. Can be discovered via .well-known metadata if provided by the Authorization Server.
+    - **PKCE method**: The method used for Proof Key for Code Exchange (PKCE), usually `plain` or `S256`.
+* **API Key**: Authenticate using API key. If this option is selected, you have to provide the API key and header name in the configuration.
+* **Without authentication**: No authentication enforced, endpoint is publicly accessible.
+
+![](img/entities_toolsets_auth.png)
+
+##### Step 2: Choose personal or organization authentication
+
+Having selected and configured any authentication method, click **Save** and **Log In** to authenticate a toolset with the related MCP server. At this step, prior to the actual authentication, you will be prompted to select between **Personal** and **Organization** authentication:
+
+* **Personal**: the toolset will be authenticated for your user only with the authentication state labeled **Logged in (Personal)**.
+* **Organization**: the toolset will be authenticated for all users in your organization with the authentication state labeled **Logged in (Organization)**. Any user will be able to log out and log back in with personal credentials. 
+
+**Important**: at this step, for authentication with API keys, you will be prompted to provide a valid API key value.
+
+![](img/entities_toolsets_auth2.png)
 
 ### Tools Overview
 
