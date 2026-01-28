@@ -20,7 +20,9 @@ Selected use cases:
 
 In DIAL, you can create and use templates to add interceptors, create interceptors based on images deployed in DIAL or third-party systems.
 
-You can configure global interceptors that apply on a system level in [System Properties](/docs/tutorials/3.admin/home.md#system-properties) and local interceptors that are triggered for specific [model](/docs/tutorials/3.admin/entities-models.md#interceptors) or [application](/docs/tutorials/3.admin/entities-applications.md#interceptors) deployments or apps created based on [application runners](/docs/tutorials/3.admin/builders-application-runners.md#interceptors).
+You can configure global interceptors that apply on a system level in [System Properties](/docs/tutorials/3.admin/home.md#system-properties) and local interceptors that are triggered for specific [model](/docs/tutorials/3.admin/entities-models.md#interceptors) or [application](/docs/tutorials/3.admin/entities-applications.md#interceptors) deployments or apps created based on [application runners](/docs/tutorials/3.admin/builders-application-runners.md#interceptors). 
+
+Interceptors can be added via a direct configuration of [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md) or via DIAL Admin, as described in this section.
 
 > * Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 > * Refer to [DIAL Interceptors Python SDK](https://github.com/epam/ai-dial-interceptors-sdk) for a comprehensive information, configuration and implementation examples.

@@ -11,7 +11,7 @@ Applications that adhere to the Unified Protocol of DIAL are [DIAL-native applic
 
 DIAL allows adding and using custom conversational (implementing a completion endpoint) or non-conversational apps into DIAL, even if they don't follow the unified protocol of DIAL. There are no limitations of how and where the custom applications are deployed, the only requirement is that there must be network connectivity between DIAL Core and the backend service, as well as between UI applications and DIAL Core. Any communication between components is made only through API.
 
-You can add both DIAL-native and custom applications into DIAL via a direct configuration of DIAL Core, using DIAL API or DIAL Admin Panel. Refer to [Documentation](/docs/tutorials/1.developers/4.apps-development/3.enable-app.md) to learn more.
+You can add both DIAL-native and custom applications into DIAL via a direct configuration of [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/applications.md), using [DIAL Core API](https://dialx.ai/dial_api#tag/Applications) or DIAL Admin Panel. Refer to [Documentation](/docs/tutorials/1.developers/4.apps-development/3.enable-app.md) to learn more.
 
 In this tutorial we will explore how to add and manage applications using DIAL Admin.
 
