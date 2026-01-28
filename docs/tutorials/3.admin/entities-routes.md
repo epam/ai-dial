@@ -17,6 +17,10 @@ In Routes, you can view, filter, and create new routes.
 | **ID** | Unique key under the Routes section of DIAL Admin. |
 | **Display Name** | Name of the route. |
 | **Description** | Brief free-text description of the Route's purpose. |
+| **Paths** | List of paths to be matched request's path. If any path is matched, the request will be processed by this route. Note. A path can be a plain string or a regular expression. |
+| **Updated Time** | Date and time when the route's configuration was last updated. |
+| **Topics** | Tag that associates a route with one or more topics or categories (e.g. "finance", "support"). |
+| **Order** | The value of this parameter determines the order within the global routes. The lower value means the higher priority. The value can't be negative integer. The default one is 2\^31-1. |
 
 ## Create
 
@@ -47,22 +51,23 @@ In the Properties tab, you can define the identity and routing behavior.
 
 ##### Basic Identification
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| **ID** | - | Unique key under the Routes section of DIAL Admin and [dynamic settings of DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings). |
-| **Updated Time** | - | Date and time when the route's configuration was last updated. |
-| **Creation Time** | - | Date and time when the route's configuration was created. |
-| **Sync with core** | - | State of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />- **Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />- **In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />- **Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />- **Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
-| **Display Name** | Yes | Name of the route. |
-| **Description** | No | Free‐text note about the route's purpose (e.g. "Primary GPT-4 chat with fallback"). |
+| Field | Required | Editable | Description |
+|-------|----------|----------|-------------|
+| **ID** | - | No | Unique key under the Routes section of DIAL Admin and [dynamic settings of DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings). |
+| **Updated Time** | - | No | Date and time when the route's configuration was last updated. |
+| **Creation Time** | - | No | Date and time when the route's configuration was created. |
+| **Sync with core** | - | No | State of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />- **Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />- **In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />- **Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />- **Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
+| **Display Name** | Yes | Yes | Name of the route. |
+| **Description** | No | Yes | Free‐text note about the route's purpose (e.g. "Primary GPT-4 chat with fallback"). |
+| **Topics** | No | Yes | Tag that associates a route with one or more topics or categories (e.g. "finance", "support"). |
  
 ##### Request Matching: Paths & Methods
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| **Paths** | Yes | One or more URL path patterns this route should match (e.g. `/chat`, `/support/**`). Click **+ Add paths** to register additional patterns. Click the trash icon to remove a path. |
-| **Rewrite path** | No | Toggle on to strip or transform the incoming path before forwarding upstream. Use when your upstream service expects a different URL structure (e.g. remove `/api/v1/routes/chat` prefix). |
-| **Methods** | No | Select one or more HTTP methods (GET, POST, PUT, DELETE, etc.) the route can accept. |
+| Field | Required | Editable | Description |
+|-------|----------|----------|-------------|
+| **Paths** | Yes | Yes | One or more URL path patterns this route should match (e.g. `/chat`, `/support/**`). Click **+ Add paths** to register additional patterns. Click the trash icon to remove a path. |
+| **Rewrite path** | No | Yes | Use to replace the path to the upstream server with the path of the original request. Use when your upstream service expects a different URL structure (e.g. remove `/api/v1/routes/chat` prefix). |
+| **Methods** | No | Yes | Select one or more HTTP methods (GET, POST, PUT, DELETE, etc.) the route can accept. |
  
 ##### Output Mode
 
@@ -70,98 +75,54 @@ Use the output mode to define the response of a route.
 
 | Option | Description |
 |--------|-------------|
-| **Upstreams** | Add and configure upstreams to forward matching requests to one or more upstream endpoints (Models or Applications). Refer to [Upstream Configuration](#upstream-configuration).|
-| **Response**  | Use to return a static, pre-defined payload. Useful for health checks or mock responses. Refer to [Response Configuration](#response-configuration). |
+| **Upstreams** | One or more backend URLs (e.g., http://, https://, ws://, wss://) to which requests are sent. Supports HTTP and WebSocket protocols. When multiple endpoints are provided, round-robin load balancing and automatic fallback can be enabled among the hosts. Refer to [Upstream Configuration](#upstream-configuration).|
+| **Response**  | Use to return a static, pre-defined payload. If the response is set then DIAL Core returns the response immediately. Useful for health checks or mock responses. Refer to [Response Configuration](#response-configuration). |
 
 ##### Upstream Configuration
 
-Define where and how to forward requests when the **Upstreams** [output mode](#output-mode) is selected.
+A list of upstream servers with their parameters. 
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| **Upstream Endpoints** | Yes | Full URL(s) of the back-end service(s) to receive the routed request (e.g. `https://dial-core.example.com/v1/chat`). |
-| **Keys** | No | API key or token to attach (via header or query) when calling the upstream. Click the eye icon to reveal a masked value. |
-| **Weight** | No | Relative traffic weight for [load balancing](/docs/platform/3.core/5.load-balancer.md) among multiple endpoints (higher = more traffic). |
-| **Tier** | No | Specifies an endpoint group. In a regular scenario, all requests are routed to endpoints with the lowest tier, but in case of an outage or hitting the limits, the next one in the line helps to handle the load. Refer to [load balancing](/docs/platform/3.core/5.load-balancer.md) to learn more. |
-| **Extra Data** | No | Select a JSON BLOB from [Assets → Files](/docs/tutorials/3.admin/assets-files.md) to attach as metadata for the upstream adapter.|
-| **+ Add Upstream** | — | Append additional endpoints for failover or capacity scaling.|
+| Field | Required | Editable | Description |
+|-------|----------|----------|-------------|
+| **Upstream Endpoints** | Yes | Yes | Full URL(s) of the back-end service(s) to receive the routed request (e.g. `https://dial-core.example.com/v1/chat`). Supports HTTP and WebSocket protocols. When multiple endpoints are provided, round-robin load balancing and automatic fallback can be enabled among the hosts. |
+| **Keys** | No | Yes | API key, token or credential to attach (via header or query) when calling the upstream. Click the eye icon to reveal a masked value. |
+| **Weight** | No | Yes | Relative traffic weight for [load balancing](/docs/platform/3.core/5.load-balancer.md) among multiple endpoints. <br />Positive number represents an endpoint capacity, zero or negative disables this endpoint from routing. Higher = more traffic share. <br />Default value: 1. |
+| **Tier** | No | Yes | Specifies an endpoint group. In a regular scenario, all requests are routed to endpoints with the lowest tier, but in case of an outage or hitting the limits, the next one in the line helps to handle the load. <br />Only positive numbers allowed. <br />Refer to [load balancing](/docs/platform/3.core/5.load-balancer.md) to learn more. |
+| **Extra Data** | No | Yes | Additional metadata containing any information that is passed to the upstream's endpoint. It can be a JSON or String. |
+| **+ Add Upstream** | - | - | Append additional endpoints for failover or capacity scaling.|
 
 ##### Response Configuration
 
-Define where and how to forward requests when **Response** mode is selected:
+Define parameters for a pre-configured route's response.
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| **Status** | No | HTTP status code your route will return (e.g. `200`, `404`, `503`). |
-| **Body** | No | Exact payload to send in the response body. You can enter plain text or raw JSON. |
-| **Max retry attempts** | No | Determines how many times DIAL will retry the static‐response logic on internal errors. |
+| Field | Required | Editable | Description |
+|-------|----------|----------|-------------|
+| **Status** | No | Yes | HTTP status code your route will return (e.g. `200`, `404`, `503`). |
+| **Body** | No | Yes | Exact payload to send in the response body. You can enter plain text or raw JSON. |
 
 ##### Additional Parameters
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| **Order** | No | The value of this parameter determines the order within the global routes. The lower value means the higher priority. The value can't be negative integer. The default one is 2\^31-1. |
+| Field | Required | Editable | Description |
+|-------|----------|----------|-------------|
+| **Order** | No | Yes | The value of this parameter determines the order within the global routes. The lower value means the higher priority. The value can't be negative integer. The default one is 2\^31-1. |
+| **Max retry attempts** | No | Yes | Determines how many times DIAL will retry if upstream server returns unsuccessful response code. In this case load balancer will try to find another upstream from the list of available upstreams. |
 
 ### Roles
 
-In the **Roles** tab, you can define user groups that can invoke this route and define rate limits for them.
+In the **Roles** tab, you can define user groups that can invoke this route.
 
-![](img/img_22.png)
+> You can create and manage roles in the [Access Management](/docs/tutorials/3.admin/access-management-roles.md) section.
+
+![](img/routes_roles.png)
 
 ##### Roles grid columns
 
 | Column | Description |
 |--------|-------------|
-| **Name** | Unique role identifier. |
+| **Display Name** | Name or the role displayed on UI. |
 | **Description** | Description of the role (e.g., "Admin, Prompt Engineer, Developer"). |
-| **Tokens per minute** | Per Minute tokens limit for a specific role. Blank = no limits.<br />Inherits the [default value](#default-rate-limits).<br />Can be overridden. |
-| **Tokens per day** | Daily tokens limit for a specific role. Blank = no limits.<br />Inherits the [default value](#default-rate-limits).<br />Can be overridden. |
-| **Tokens per week** | Weekly tokens limit for a specific role. Blank = no limits.<br />Inherits the [default value](#default-rate-limits).<br />Can be overridden. |
-| **Tokens per month** | Monthly tokens limit for a specific role. Blank = no limits.<br />Inherits the [default value](#default-rate-limits).<br />Can be overridden. |
-| **Actions** | Additional role-specific actions.<br />Open [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab.<br />Make all restrictions unlimited for the given role |
-
-#### Set Rate Limits
-
-The grid on the Roles screen lists the roles that can access a specific route. Here, you can also set individual limits for selected roles. For example, you can give "Admin" role unlimited monthly tokens but throttle "Developer" to 100,000 tokens/day or allow the "External Partner" role a small trial quota (e.g., 10,000 tokens/month) before upgrade.
-
-**To set or change rate limits for a role:**
-
-1. **Click** in the desired cell (e.g., **Tokens per day** for the “ADMIN”).
-2. **Enter** a numeric limit or leave blank to set no limits. Click **Reset to default limits** to restore default settings for all roles.
-3. Click **Save** to apply changes.
-
-#### Default Rate Limits
-
-Default limits are set for all the roles in the **Roles** grid by default; however you can override them for any role.
-
-| Field | Description |
-|-------|-------------|
-| **Default tokens per minute** | The maximum tokens any user may consume per minute if no role-specific limit applies. |
-| **Default tokens per day** | The maximum tokens any user may consume per day if no role-specific limit applies. |
-| **Default tokens per week** | The maximum tokens any user may consume per week if no role-specific limit applies. |
-| **Default tokens per month** | The maximum tokens any user may consume per month if no role-specific limit applies. |
-
-#### Role-Specific Access
-
-Use **Make available to specific roles** toggle to define access to the route:
-
-* **Off**: Route is accessible by any authenticated user. All existing roles are in the grid.
-* **On**: Route is restricted - only the roles you explicitly add to the grid below can use it.
-
-#### Add
-
-You can add a role only if **Make available to specific roles** toggle is **On**.
-
-1. Click **+ Add** (top-right of the Roles Grid).
-2. **Select** one or more roles in the modal.
-3. **Confirm** to insert them into the table.
-
-#### Remove
-
-You can remove a role only if **Make available to specific roles** toggle is **On**.
-
-1. Click the **actions** menu in the role's line.
-2. Choose **Remove** in the menu.
+| **ID** | Unique role identifier. |
+| **Actions** | Additional role-specific actions.<br />- Open [Roles](/docs/tutorials/3.admin/access-management-roles.md) section in a new tab.<br />- Remove the given role |
 
 ### Audit
 
