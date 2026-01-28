@@ -2,10 +2,28 @@
 
 ## Introduction
 
-You can add an additional logic into the processing of every request and response for models and apps, enabling PII obfuscation, guardrails, safety checks, and beyond. This is achieved through the integration of pluggable components known as Interceptors. 
+DIAL Interceptor is a pluggable component with the primary goal to implement Responsible AI approach and enforce compliance with organization and external policies and standards (biased answers, data leaks etc.). 
+
+Interceptors provide an ability to delegate content analysis to third-party systems or dedicated models used within an organization or have any other custom implementation in it.
+
+Selected use cases:
+
+* Prevent harmful request from reaching the model
+* Prevent harmful reply from reaching the user 
+* Modify the request/response, introduce disclaimers 
+* DLP (Data Loss Prevention) 
+* Smart information collection
+* Implement caching strategies
+* Application of watermarks
+
+[DIAL Interceptors Python SDK](https://github.com/epam/ai-dial-interceptors-sdk) makes development of new interceptors easier and enables integration with external systems like Google Model Armor, MS Presidio and more.
+
+In DIAL, you can create and use templates to add interceptors, create interceptors based on images deployed in DIAL or third-party systems.
+
+You can configure global interceptors that apply on a system level in [System Properties](/docs/tutorials/3.admin/home.md#system-properties) and local interceptors that are triggered for specific [model](/docs/tutorials/3.admin/entities-models.md#interceptors) or [application](/docs/tutorials/3.admin/entities-applications.md#interceptors) deployments or apps created based on [application runners](/docs/tutorials/3.admin/builders-application-runners.md#interceptors).
 
 > * Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
-> * You can configure global interceptors that apply on a system level in [System Properties](/docs/tutorials/3.admin/home.md#system-properties).
+> * Refer to [DIAL Interceptors Python SDK](https://github.com/epam/ai-dial-interceptors-sdk) for a comprehensive information, configuration and implementation examples.
 
 ## Main Screen
 

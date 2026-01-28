@@ -6,11 +6,13 @@ Toolsets in DIAL are connections with MCP servers that can be used as tools in [
 
 In DIAL, you can use self-hosted toolsets based on the deployed MCP containers and external toolsets deployed outside of DIAL using their endpoints.
 
+DIAL Core API allows to [access](https://dialx.ai/dial_api#tag/Deployment-listing/operation/getToolSets) available toolset deployments and to [add and manage](https://dialx.ai/dial_api#tag/Toolsets) toolsets. You can also add toolsets via a direct configuration of [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolsets.md).
+
+This documentation section describes how to manage toolsets in DIAL Admin.
+
 ## Main Screen
 
 On this screen, you can find all toolset deployments existing in your DIAL instance. Here you can view, filter, and add new toolset definitions.
-
-> You can use DIAL Core API to [access](https://dialx.ai/dial_api#tag/Deployment-listing/operation/getToolSets) available toolset deployments and to [add and manage](https://dialx.ai/dial_api#tag/Toolsets) toolsets.
 
 ![](img/entities_tools.png)
 
