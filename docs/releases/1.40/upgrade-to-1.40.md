@@ -67,6 +67,7 @@
 ### ai-dial-admin-deployment-manager-backend
 
 - Deployment manager: migrate to open source epam/ai-dial-admin-deployment-manager-backend:0.13.0
+- Proxy images for deployment manager migrate to opensource: https://github.com/epam/ai-dial-deployment-manager-mcp-proxy. Replace `MCP_PROXY_EXECUTABLE_IMAGE_ALPINE` with  `ghcr.io/epam/ai-dial-deployment-manager-mcp-proxy:0.1.0-alpine` and `MCP_PROXY_EXECUTABLE_IMAGE_DEBIAN` with  `ghcr.io/epam/ai-dial-deployment-manager-mcp-proxy:0.1.0-debian`
 
 ### ai-dial-rag
 
