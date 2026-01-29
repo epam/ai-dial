@@ -24,8 +24,8 @@
    - ai-dial-app-builder-python: `0.1.0`
    - quick-apps: `0.8.2`
    - quick-apps-2.0: `0.4.0`
-   - mindmap-backend: `0.12.6`
-   - mindmap-frontend: `0.9.8`
+   - mindmap-backend: `0.13.0`
+   - mindmap-frontend: `0.9.12`
    - admin-backend: `0.13.0`
    - admin-frontend: `0.13.0`
    - ai-dial-admin-deployment-manager-backend: `0.13.0`
