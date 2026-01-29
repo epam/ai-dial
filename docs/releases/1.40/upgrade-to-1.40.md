@@ -69,6 +69,42 @@
 - Deployment manager: migrate to open source epam/ai-dial-admin-deployment-manager-backend:0.13.0
 - Proxy images for deployment manager migrate to opensource: https://github.com/epam/ai-dial-deployment-manager-mcp-proxy. Replace `MCP_PROXY_EXECUTABLE_IMAGE_ALPINE` with  `ghcr.io/epam/ai-dial-deployment-manager-mcp-proxy:0.1.0-alpine` and `MCP_PROXY_EXECUTABLE_IMAGE_DEBIAN` with  `ghcr.io/epam/ai-dial-deployment-manager-mcp-proxy:0.1.0-debian`
 
+#### Changes made to environment variables
+
+|Previous Variable Name|New Variable Name|Description|
+|-|-|-|
+|`SECURITY_ALLOWED_ROLES`|`providers.<your_provider_name>.allowed-roles`|Comma-separated list of roles with access permissions defined for the specific identity provider.|
+|`SECURITY_JWT_JWKS_URI`|`providers.<your_provider_name>.jwk-set-uri`|URI for JSON Web Key Set defined for the specific identity provider.|
+|`SECURITY_JWT_ACCEPTED_ISSUERS`|`providers.<your_provider_name>.issuer`|List of accepted JWT token issuers defined for the specific identity provider.|
+|`SECURITY_JWT_ACCEPTED_ISSUERS_ALIAS`|`providers.azure.aliases`|Aliases for accepted JWT token issuers (applicable only for Azure provider).|
+|`DIAL_ADMIN_CLIENT_ID`|`providers.<your_provider_name>.audiences`|Previously used as a unique identifier of the DIAL Admin Deployment Manager application. This environment variable was removed bacause it defined the same property as `SECURITY_JWT_ACCEPTED_AUDIENCES`.|
+|`SECURITY_JWT_ACCEPTED_AUDIENCES`|`providers.<your_provider_name>.audiences`|List of accepted JWT token audiences. Defines the intended recipients of the claim `aud` in JWT.|
+|`SECURITY_ROLES_CLAIM`|`providers.<your_provider_name>.role-claims`|JWT claim name for user roles defined for the specific identity provider.|
+|`SECURITY_ROLES_CLAIM`|`providers.<your_provider_name>.principal-claim`|Specific claim that uniquely identifies the user or service (the "principal") for whom the token was issued.|
+
+#### Added support for multiple identity providers
+
+The DIAL Admin Deployment Manager application now supports the use of multiple identity providers, which offers greater flexibility and integration with various identity services. Below is an example of configuration demonstrating how to set up multiple providers:
+
+```properties
+providers.auth0.jwk-set-uri: "https://example-auth0.com/.well-known/jwks.json"
+providers.auth0.issuer: "https://example-auth0.com"
+providers.auth0.role-claims: "example_roles"
+providers.auth0.principal-claim: "example_roles"
+providers.auth0.audiences: "example-audience-id"
+providers.keycloak.jwk-set-uri: "https://example-keycloak.com/realms/Example/protocol/openid-connect/certs"
+providers.keycloak.issuer: "https://example-keycloak.com/realms/Example"
+providers.keycloak.role-claims: "example_roles"
+providers.keycloack.principal-claim: "example_roles"
+providers.keycloak.audiences: "example-ui, example-admin"
+providers.azure.jwk-set-uri: "https://example.microsoft.com/common/discovery/v2.0/keys"
+providers.azure.issuer: "example-issuer-id"
+providers.azure.role-claims: "example_groups"
+providers.azure.principal-claim: "example_groups"
+providers.azure.audiences: "example-audience-id"
+providers.azure.aliases: "login.microsoftonline.com, login.windows.net, login.microsoft.com, sts.windows.net, login.partner.microsoftonline.cn, login.chinacloudapi.cn, login.microsoftonline.de, login.microsoftonline.us, login.usgovcloudapi.net, login-us.microsoftonline.com"
+providers.azure.allowed-roles: "example-role-id"
+
 ### ai-dial-rag
 
 ### Mind Map
