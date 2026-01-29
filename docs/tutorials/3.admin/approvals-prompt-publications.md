@@ -1,6 +1,6 @@
 # Prompt Publications
 
-## About Prompt Publications
+## Introduction
 
 DIAL users can publish their created prompts to make them available to other users. Published prompts become available in the public folder and can be accessible to users based on the access rules defined during the publication process. You can access published prompts in [Assets/Prompts](/docs/tutorials/3.admin/assets-prompts.md) section. Published prompts can be unpublished by DIAL admin or other DIAL users.
 
@@ -11,26 +11,25 @@ In this section of the DIAL Admin panel, admins can access and approve or declin
 > * Refer to [Publications](/docs/platform/7.collaboration-intro.md#publication) to learn more about publications in DIAL.
 > * Refer to [DIAL Chat User Guide](/docs/tutorials/0.user-guide.md#publications) to learn about the publication process from the perspective of a DIAL Chat end-user.
 
-## Prompt Publications List
+## Main Screen
 
 The Prompt Publications screen shows all publish/unpublish requests submitted by end-users using the DIAL API. 
 
 ![ ](img/img_52.png)
 
-##### Prompt Publications Grid
+##### Prompt publications grid
 
-
-| Column         | Definition|
-|----------------|-----------|
-| **Name**       | The title of the request.|
-| **Author**     | A username of the request author.|
+| Column | Description |
+|--------|------------|
+| **Name** | The title of the request. |
+| **Author** | A username of the request author. |
 | **Created at** | A timestamp when the request was submitted. |
 
 ## Review Page
 
 Click any request on the main screen to access the review page. On this page, you can inspect the selected request and decide whether to **Publish**, **Unpublish** or **Decline** it.
 
-##### Publication Request Controls
+##### Publication request controls
 
 On the top bar, you can find the following controls:
 
@@ -42,15 +41,17 @@ On the top bar, you can find the following controls:
 
 ![](img/unpublish-toolset.png)
 
-| Element                | Definition  |
-|------------------------|-------------|
-| **Author**             | Username of the account that created the prompt publication request. |
-| **Creation Time**         | Timestamp of when the prompt publication request was submitted for review. |
-| **Folder Storage**     | The default target folder under [Assets → Prompts](/docs/tutorials/3.admin/assets-prompts.md), if published.                    |
-| **Prompt Identifier**  | Header showing the prompt’s **name**.                  |
-| **Version**            | Version string assigned by the author.                 |
-| **Description**        | Optional user-friendly summary provided by the author.|
-| **Content**            | The actual prompt string.         |
-| **Permissions**        | The proposed access rules to the published prompt (e.g., based on user group). Ensure the audience matches intended reach. If rules are not defined, the published resources will be available to all users. <br /> Available Controls:<br /> - **Review structure** opens a modal showing the storage folders tree and prompt's folder position in the hierarchy.<br />- **Compare changes** side-by-side diff of **current vs proposed** permission rules to the prompt's folder. Use to verify and validate changes in access rules before approving the publication request. |
+##### Publication request details
+
+| Field | Description |
+|---------|------------|
+| **Author** | Username of the account that created the prompt publication request. |
+| **Creation Time** | Timestamp of when the prompt publication request was submitted for review. |
+| **Folder Storage** | The default target folder under [Assets → Prompts](/docs/tutorials/3.admin/assets-prompts.md), if published. |
+| **Prompt Identifier** | Header showing the prompt's **name**. |
+| **Version** | Version string assigned by the author. |
+| **Description** | Optional user-friendly summary provided by the author. |
+| **Content** | The actual prompt string. |
+| **Permissions** | The proposed access rules to the published prompt (e.g., based on user group). Ensure the audience matches intended reach. If rules are not defined, the published resources will be available to all users.<br />**Available Controls:**<br />• **Review structure** - opens a modal showing the storage folders tree and prompt's folder position in the hierarchy.<br />• **Compare changes** - side-by-side diff of **current vs proposed** permission rules to the prompt's folder. Use to verify and validate changes in access rules before approving the publication request. |
 
 ![](img/publish-prompt.png)

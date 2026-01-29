@@ -6,7 +6,7 @@ A prompt is an instruction, a question, or a message that a user provides to a l
 
 > Refer to [DIAL Chat User Guide](/docs/tutorials/0.user-guide.md#prompts) to learn more about prompts and DIAL Chat features.
 
-## Prompts Main Screen
+## Main Screen
 
 All prompts published by users get into the Public folder. In the Prompts section, you can manage all system and user prompt templates available in the Public folder. All  Here, you can also arrange prompts into folders, version them, and then use them in applications or chats.
 
@@ -14,7 +14,7 @@ All prompts published by users get into the Public folder. In the Prompts sectio
 
 ![ ](img/img_32.png)
 
-### Folders Structure
+##### Folders Structure
 
 Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public space. 
 
@@ -27,7 +27,7 @@ Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) a
 
 ![ ](img/img_32_1.png)
 
-### Prompts Grid
+##### Prompts Grid
 
 Click any folder in the hierarchy to display prompts stored in it.
 
@@ -39,27 +39,13 @@ Click any folder in the hierarchy to display prompts stored in it.
 | **Update time**  | The timestamp of the last modification of the prompt. Use to track changes.                                             |
 | **Actions**      | Actions you can perform on the selected prompt: <br /> - **Open in new tab**: Opens a new tab with prompt's properties.   <br />- [Duplicate](/docs/tutorials/0.user-guide.md#duplicate-1): Click to duplicate a prompt.<br />- **Move to another folder**: Use to select the target folder in the hierarchy to move the file.<br />- **Delete**: Use to delete a prompt. Alternatively you can use **Bulk Actions** in the header to remove multiple prompts. |
 
-## Create
-
-Follow these steps to add a new prompt:
-
-1. Select a folder for a new prompt (e.g. public/marketing, private/project-x).
-2. Click **Create** in the toolbar to invoke the **Create Prompt** modal.
-3. Define prompt's parameters
-
-    | Column           |Required| Definition                |
-    |------------------|--------|-------------------------|
-    | **Display name** | Yes|A unique identifier for a prompt (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. |
-    | **Version**      | Yes|Semantic version string (e.g. 1.0.0, 0.1.2) that enables safe updates.   |
-    | **Description**  | No|Free-text summary of the prompt’s purpose and key placeholders.  |
-
-4. Once all required fields are filled, click **Create**. The dialog closes and the new prompt [configuration screen](#configuration) is opened. This entry will appear immediately in the listing once created.
-
-   ![](img/img_33.png)
-
 ## Export
 
-Use **Bulk Actions** in the toolbar to bulk download prompts. This is useful for migrating prompts between environments, sharing sets of prompts with another users, or keeping a point-in-time backup.
+Use **Bulk Actions** in the toolbar to bulk download prompts. 
+
+![ ](img/apps_bulk_actions.png)
+
+This is useful for migrating prompts between environments, sharing sets of prompts with another users, or keeping a point-in-time backup.
 
 ![ ](img/img_47.png)
 
@@ -89,7 +75,26 @@ Use **Import** in the toolbar to upload new or update existing prompts from exte
    * **Skip**: Leave existing prompts untouched, only new ones will be added.
    * **Override**: Replace prompts with the same name and version with the imported ones.
    * **Edit manually**: Resolve conflicts manually one by one.
-4. Click **Finish** to start.
+4. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all prompts will be imported directly into the root folder without recreating the original folder hierarchy.
+5. Click **Finish** to start.
+
+## Create
+
+Follow these steps to add a new prompt:
+
+1. Select a folder for a new prompt (e.g. public/marketing, private/project-x).
+2. Click **Create** in the toolbar to invoke the **Create Prompt** modal.
+3. Define prompt's parameters
+
+    | Column           |Required| Definition |
+    |------------------|--------|------------|
+    | **Display name** | Yes | Unique identifier for a prompt (e.g. reject-blacklisted-words, audit-logger). This key is used when you attach it to a Model or Application. |
+    | **Version**      | Yes | Semantic version string (e.g. 1.0.0, 0.1.2) that enables safe updates.|
+    | **Description**  | No | Free-text summary of the prompt’s purpose and key placeholders.|
+
+4. Once all required fields are filled, click **Create**. The dialog closes and the new prompt [configuration screen](#configuration) is opened. This entry will appear immediately in the listing once created.
+
+   ![](img/img_33.png)
 
 ## Configuration
 
@@ -130,16 +135,16 @@ Use **compare versions** to compare the prompt's text across its versions. You c
 
 ### JSON Editor
 
-For advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI—you can switch to the **JSON Editor**.
+**Advanced users with technical expertise** can work with the prompt properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed on UI.
 
-![](img/73.png)
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
+
+![](img/assets_prompts_json.png)
 
 ##### Switching to the JSON Editor
 
 1. Navigate to **Assets → Prompts**, then select the prompt you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
-
-> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
 ## Delete
 

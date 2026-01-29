@@ -106,5 +106,19 @@ Click your avatar (or name) in the top-right corner of the header to reveal the 
 | **Settings** | Opens the User Settings modal where you can adjust personal preferences. Here you can choose a UI theme.|
 | **Log out**  | Ends your session and returns you to the login screen.                   |
 
+### System Properties
 
+Click the **Globe** icon in the footer or in Quick Actions on the home page to open the System Properties screen. Here, you can add and configure global interceptors. Global interceptors apply to any deployment (applications and models) in DIAL and tend to have the most strict rules, because they receive original input first and examine the response last.
 
+> Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
+
+![](img/system_properties.png)
+
+##### To add a global interceptor:
+
+1. Click **+ Add** on the System Properties screen.
+2. Select from the list of [available interceptors](/docs/tutorials/3.admin/entities-interceptors.md).
+3. Click **Apply** to add the interceptor. Repeat steps 1-3 to add more interceptors.
+4. Click **Save** on the System Properties screen to apply changes or **Discard** to cancel all unsaved actions.
+
+> When a global interceptor is added, its status in [Entities/Interceptors](/docs/tutorials/3.admin/entities-interceptors.md) changes to **Global** and you can also see it listed under the Global Interceptors tab in configuration of any application or model. 
