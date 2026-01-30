@@ -22,8 +22,8 @@
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.3.0`
    - ai-dial-app-builder-python: `0.1.0`
-   - quick-apps: `0.8.2`
-   - quick-apps-2.0: `0.4.0`
+   - quick-apps: `0.8.2` (deprecated, use ai-dial-quickapps-backend for new installations)
+   - ai-dial-quickapps-backend: `0.4.0` (earlier known as quick-apps-2.0)
    - mindmap-backend: `0.13.0`
    - mindmap-frontend: `0.9.12`
    - admin-backend: `0.13.0`
@@ -114,10 +114,13 @@ providers.azure.principal-claim: "example_groups"
 providers.azure.audiences: "example-audience-id"
 providers.azure.aliases: "login.microsoftonline.com, login.windows.net, login.microsoft.com, sts.windows.net, login.partner.microsoftonline.cn, login.chinacloudapi.cn, login.microsoftonline.de, login.microsoftonline.us, login.usgovcloudapi.net, login-us.microsoftonline.com"
 providers.azure.allowed-roles: "example-role-id"
+```
 
 ### ai-dial-rag
 
 ### Mind Map
 
-### quick-apps-2.0
+### ai-dial-quickapps-backend
+
+- Now docker image for `ai-dial-quickapps-backend` is published to [Docker Hub](https://hub.docker.com/r/epam/ai-dial-quickapps-backend). Update your Helm chart values to use the new image location if you were using a custom image registry before.
 
