@@ -60,7 +60,10 @@
 
 ### admin-frontend
 
-- add/update DISABLE_MENU_ITEMS env variable - add 'ModelDeployments' key
+- Add `DEPLOYMENTS_ENABLED` variables - set `true`
+- Add/update DISABLE_MENU_ITEMS env variable - add 'ModelDeployments' key
+- Remove `EMBEDDED_APPS` variable
+- Remove `DEPLOYMENTS_PLUGIN_ENABLED` variable
 
 ### admin-backend
 
