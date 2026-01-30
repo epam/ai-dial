@@ -60,10 +60,13 @@
 
 ### admin-frontend
 
-- Add `DEPLOYMENTS_ENABLED` variables - set `true`
-- Add/update DISABLE_MENU_ITEMS env variable - add 'ModelDeployments' key
-- Remove `EMBEDDED_APPS` variable
-- Remove `DEPLOYMENTS_PLUGIN_ENABLED` variable
+#### Deployment manager FE configuration changes
+
+-  Set `DEPLOYMENTS_ENABLED` to `true` to see the Deployment Manager.
+-  `DISABLE_MENU_ITEMS`: add ModelDeployments to hide the Model Deployments UI when model serving infrastructure is not ready.
+- `EMBEDDED_APPS` — removed, no longer used.
+- `DEPLOYMENTS_PLUGIN_ENABLED` — removed, no longer used.
+  
 
 ### admin-backend
 
