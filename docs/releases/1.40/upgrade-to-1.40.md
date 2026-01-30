@@ -69,7 +69,11 @@
   
 
 ### admin-backend
-
+#### S2S Admin Backend and core configuration 
+  Here is the full instraction for dial admin s2s configuration :
+  - keycloack provider - https://github.com/epam/ai-dial-admin-backend/blob/development/docs/keycloack-s2s.md
+  - azure provider - https://github.com/epam/ai-dial-admin-backend/blob/development/docs/azure-s2s-config.md
+ 
 ### ai-dial-admin-deployment-manager-backend
 
 - Deployment manager: migrate to open source epam/ai-dial-admin-deployment-manager-backend:0.13.0
