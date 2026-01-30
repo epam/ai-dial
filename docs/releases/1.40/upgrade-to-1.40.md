@@ -25,7 +25,7 @@
    - quick-apps: `0.8.2` (deprecated, use ai-dial-quickapps-backend for new installations)
    - ai-dial-quickapps-backend: `0.4.0` (earlier known as quick-apps-2.0)
    - mindmap-backend: `0.13.0`
-   - mindmap-frontend: `0.9.12`
+   - mindmap-frontend: `0.9.13`
    - admin-backend: `0.13.0`
    - admin-frontend: `0.13.0`
    - ai-dial-admin-deployment-manager-backend: `0.13.0`
