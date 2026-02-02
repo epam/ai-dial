@@ -2,7 +2,13 @@
 
 ## Introduction
 
-Application Runner can be seen as an application factory that allows end-users create individual logical instances each with its own configuration. For example, a custom RAG application runner may allow an end user to configure a personalized RAG agent by connecting it to chosen data sources, such as internal knowledge bases, document repositories, or external APIs, and then share it with other users and groups. An application runner definition includes a configuration schema that enforces data structure persisted for each instance. It is worth noting that Quick Apps, Code Apps and Mind Maps are application runners available in DIAL platform out of the box.
+Application Runner can be seen as an application factory that allows end-users create individual logical instances of applications each with its own configuration. An application runner definition includes a configuration schema that enforces data structure persisted for each instance. 
+
+> Refer to [Entities/Application](/docs/tutorials/3.admin/entities-applications.md#create) or [Assets/Applications](/docs/tutorials/3.admin/assets-applications.md#create) to learn how to create application deployments based on application runners.
+
+For example, a custom RAG application runner may allow an end user to configure a personalized RAG agent by connecting it to chosen data sources, such as internal knowledge bases, document repositories, or external APIs, and then share it with other users and groups. 
+
+It is worth noting that [Quick Apps](/docs/platform/3.core/7.apps.md#quick-apps), [Code Apps](/docs/platform/3.core/7.apps.md#code-apps) and [Mind Maps](/docs/platform/3.core/7.apps.md#mind-maps) are application runners available in DIAL platform out of the box. You can use DIAL SDK to create custom application runners.
 
 > Refer to [Schema-rich Applications](/docs/platform/3.core/7.apps.md#schema-rich-applications) to learn more.
 
@@ -12,15 +18,15 @@ In Application Runners, you can add and manage Application Runners you have in y
 
 ![ ](img/img_23.png)
 
-##### Application Runners Grid
+##### Application Runners grid
 
-| Column     | Description   |
-|------------------|--------------------|
-| **Display Name** | A user-friendly label for the application runner (e.g. "Python Lambda Runner", "NodeJS App Service"). Helps you pick the right runner when creating a new application based on it. |
-| **ID**  | A unique identifier for this runner—typically the base URL of the service (e.g. `https://my-runner.example.com`). DIAL Core uses this endpoint to POST orchestration payloads. |
-| **Description**  | Free-text notes about the runner’s capabilities, cluster location, version, or SLA (e.g. "v2 on GKE, 2 vCPU, 8 GB RAM").  |
-|**Topics**| Tags associated with the runner for identification and filtering on Admin UI (e.g. "finance", "support"). |
-|**Updated time**| Timestamp of the last update to this runner's configuration. Useful for tracking recent changes. |
+| Column | Description |
+|--------|-------------|
+| **Display Name** | Name of the application runner rendered on UI (e.g. "Python Lambda Runner", "NodeJS App Service"). |
+| **ID** | Unique identifier of the application runner. Typically, it is the base URL of the service (e.g. `https://my-runner.example.com`). DIAL Core uses this endpoint to POST orchestration payloads. |
+| **Description** | Description of the application runner capabilities, cluster location, version, or SLA (e.g. "v2 on GKE, 2 vCPU, 8 GB RAM"). |
+| **Topics** | Tags associated with the application runner for identification and filtering on Admin UI (e.g. "finance", "support"). |
+| **Updated time** | Timestamp of the last update to this runner's configuration. Useful for tracking recent changes. |
 
 ## Create
 
@@ -29,12 +35,12 @@ On the main screen, you can add new Application Runners.
 1. Click **+ Create** to invoke the **Application Runner** modal.
 2. Define key parameters for the new application runner:
 
-    | Field     | Required | Definition   |
-    |-----------|-----------|-----------|
-    | **ID**    | Yes   | A unique identifier for this runner—typically the base URL of a specific service. |
-    | **Display name**  | Yes   |  A user-friendly name of the Application Runner that will be displayed on UI. |
-    | **Description** | No  | Free-text notes about the runner’s capabilities.|
-    |**Completion endpoint**|Yes| The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner.|
+    | Field | Required | Description|
+    |-------|----------|------------|
+    | **ID** | Yes | Unique identifier of the application runner. Typically, it is the base URL of the service (e.g. `https://my-runner.example.com`). DIAL Core uses this endpoint to POST orchestration payloads. |
+    | **Display name** | Yes | Name of the application runner rendered on UI |
+    | **Description** | No | Description of the application runner capabilities, cluster location, version, or SLA (e.g. "v2 on GKE, 2 vCPU, 8 GB RAM"). |
+    | **Completion endpoint** | Yes | The base URL of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any application bound to this runner. |
 3. Once all required fields are filled, click **Create**. The dialog closes and the new runner [configuration screen](#configuration) is opened. A new runner will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
 
     ![](img/img_24.png)
@@ -53,26 +59,27 @@ Click any Application Runner on the main screen to open its configuration page.
 * **Save**: Commits any unsaved changes to the runner’s configuration. Changes may take some time to propagate and take effect.
 * **Discard**: Reverts any unsaved changes made to the runner’s configuration since the last save.
 
+![ ](img/app-runner-actions.png)
+
 ### Properties
 
 In the **Properties** tab, you can define identity and metadata of application runners. DIAL Core uses this information to send orchestration payloads and display application runners on UI.
 
-| Field| Required | Definition  |
-|------|----------|-------------|
-| **ID**      | -      | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
-| **Updated Time** | - | Date and time when the app runner's configuration was last updated.   |
-| **Creation Time**| - | Date and time when the app runner's configuration was created. |
-| **Sync with core** | -        | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity’s state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
-| **Display name** | Yes      | A user-friendly name assigned to the selected application runner (e.g. "Python Lambda Runner" or "NodeJS Service Worker").|
-| **Description**| No| Free-text notes about the runner: its environment (staging vs. prod), resource profile (2 vCPU, 8 GB RAM), or any special instructions.| 
-| **Icon**    | No| An optional icon representing the runner visually in the UI. Select from predefined icons.  |
-| **Title**   | No| Optional title of the application runner.|
-| **Type**    | Yes      | The Parameters object app runner expects in its payload.|
-| **Bucket copy**| Yes      | Determines whether files stored in the application's bucket should be copied when the application is copied, moved, or published.|
-| **Topics**  | No| Use tags to associate runner with specific topics or categories (e.g. "finance", "support") for identification and filtering on UI.    |
-| **Completion endpoint**    | Yes      | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
-| **Viewer URL** | No| A URL of the custom viewer UI. A custom UI, if enabled, will override the standard DIAL Chat UI for applications built based on this application runner.|
-| **Editor URL** | No| URL of a custom UI for configuring application settings when creating or updating a logical instance of an application.|
+| Field | Required | Editable | Description |
+|-------|----------|----------|-------------|
+| **ID** | - | No | The base URL or a unique identifier of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any Application bound to this runner. |
+| **Updated Time** | - | No | Date and time when the app runner's configuration was last updated. |
+| **Creation Time** | - | No | Date and time when the app runner's configuration was created. |
+| **Sync with core** | - | No | Indicator of the state of the entity's configuration synchronization between Admin service and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
+| **Display name** | Yes | Yes | Name of the application runner displayed on UI (e.g. "Python Lambda Runner" or "NodeJS Service Worker"). |
+| **Description** | No | Yes | Description of the application runner (e.g. its environment (staging vs. prod), resource profile (2 vCPU, 8 GB RAM), or any special instructions). |
+| **Icon** | No | Yes| Icon representing the runner visually in the UI. |
+| **Title** | No | Yes | Title of the application runner. |
+| **Bucket copy** | Yes | Yes | This property determines whether files stored in the application's file storage bucket should be copied when the application is copied, moved, or published. |
+| **Topics** | No | Yes | Tags associating application runner with specific topics or categories (e.g. "finance", "support") for identification and filtering on UI. |
+| **Completion endpoint** | Yes | Yes | Base URL of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any application bound to this runner. |
+| **Viewer URL** | No | Yes | URL of an alternative end-user UI (is needed when the default chat interface is not sufficient). If enabled, will override the standard DIAL Chat UI for applications built based on this application runner. |
+| **Editor URL** | No | Yes | URL of a UI screen for configuring application settings when creating or updating a logical application instance. |
 
 ![ ](img/img_26.png)
 
