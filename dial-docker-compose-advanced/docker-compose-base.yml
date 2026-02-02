@@ -53,7 +53,7 @@ services:
       'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
       'proxy.config.files': '["/app/config/config.json"]'
       'aidial.identityProviders.keycloak.jwksUrl': 'http://keycloak:${KC_PORT}/realms/dial/protocol/openid-connect/certs'
-      'aidial.identityProviders.keycloak.rolePath': 'resource_access.dial-chat.roles'
+      'aidial.identityProviders.keycloak.rolePath': 'roles'
       'aidail.access.admin.rules': '[{"source": "roles", "function": "EQUAL", "targets": ["admin"]}]'
       'aidial.identityProviders.keycloak.loggingKey': 'email'
       'aidial.identityProviders.keycloak.loggingSalt': 'loggingSalt'
