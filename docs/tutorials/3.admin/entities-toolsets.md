@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Toolsets in DIAL are connections with MCP servers that can be used as tools in [Quick Apps 2.0](/docs/video%20demos/2.Applications/5.quick-apps.md).
+Toolsets in DIAL are connections with MCP servers that can be used as tools by any internal or external application to perform specific actions. Refer to [Video Demo](/docs/video%20demos/2.Applications/5.quick-apps.md) to watch how tools are used in [DIAL Quick Apps 2.0](/docs/platform/3.core/7.apps.md#quick-apps-20).
 
 In DIAL, you can use self-hosted toolsets based on the deployed MCP containers and external toolsets deployed outside of DIAL using their endpoints.
 
