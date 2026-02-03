@@ -17,9 +17,9 @@ In this tutorial we will explore how to add and manage applications using DIAL A
 
 ## Main Screen
 
-On this screen, you can access all the available application deployments in your instance of DIAL. Here, you can also create and manage new application deployments.
+On this screen, you can access all the available application deployments in your instance of DIAL. Applications displayed in this section were either added by a direct modification of the DIAL Core config file or via DIAL Admin. Here, you can also create and manage new application deployments.
 
-> You can use DIAL Core API to [access](https://dialx.ai/dial_api#tag/Deployment-listing/operation/getApplications) available application deployments and to [add and manage](https://dialx.ai/dial_api#tag/Applications) applications.
+**Note**: This section does not display applications in either private user folders or the public folder in DIAL file storage. Applications in private folders are available only to their owners. Applications in public folder are accessible in [Assets/Applications](/docs/tutorials/3.admin/assets-applications.md) section.
 
 ![](img/entities_apps.png)
 
