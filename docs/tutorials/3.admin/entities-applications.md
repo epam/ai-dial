@@ -2,22 +2,12 @@
 
 ## Introduction
 
-DIAL supports two types of applications: schema-rich and standalone.
-
-* [Schema-rich applications](/docs/platform/3.core/7.apps.md#schema-rich-applications) are defined by a JSON schema which describes the application's structure, including properties, endpoints and more. [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) are used to run schema-rich applications. An application runner can be seen as an application factory that allows end-users and admins create individual logical instances of applications (using API, Admin Panel or UI wizards) each with its own configuration. An application runner definition includes a configuration schema that enforces data structure persisted for each instance. It is worth noting that Quick Apps, Code Apps and Mind Maps are application runners available in DIAL platform out of the box. You can create your own custom application runners to enable creation of specific types of applications. Applications of standard types (e.g. Quick Apps, Code Apps, and Mind Maps) are automatically hosted and deployed on the DIAL infrastructure. This eliminates the need for developers to manage tasks like hosting, scaling, file storage, and application management, as these are handled seamlessly by DIAL.
-* In [standalone applications](/docs/platform/3.core/7.apps.md#applications-without-schemas), business logic properties are embedded in the application code or container environment meaning they cannot be modified through the DIAL Core API, contrary to schema-rich applications. Such applications exist as a single logical instance on the DIAL platform. When enabling such an app, you must explicitly specify standard parameters of the application and available endpoints the application offers. DIAL does not impose any limitation as for technologies used to develop such applications.
-
-Applications that adhere to the Unified Protocol of DIAL are [DIAL-native applications](/docs/platform/3.core/7.apps.md). DIAL-native apps can be enabled in DIAL and used directly (via API or UI) or as building blocks, agents in other apps and custom workflows. Such application can be developed using DIAL SDK and are compatible with OpenAI API.
-
-DIAL allows adding and using custom conversational (implementing a completion endpoint) or non-conversational apps into DIAL, even if they don't follow the unified protocol of DIAL. There are no limitations of how and where the custom applications are deployed, the only requirement is that there must be network connectivity between DIAL Core and the backend service, as well as between UI applications and DIAL Core. Any communication between components is made only through API.
-
-You can add both DIAL-native and custom applications into DIAL via a direct configuration of [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/applications.md), using [DIAL Core API](https://dialx.ai/dial_api#tag/Applications) or DIAL Admin Panel. Refer to [Documentation](/docs/tutorials/1.developers/4.apps-development/3.enable-app.md) to learn more.
-
-In this tutorial we will explore how to add and manage applications using DIAL Admin.
+> * Refer to [DIAL-Native Applications](/docs/platform/3.core/7.apps.md) to learn about applications in DIAL.
+> * Refer to [Tutorials](/docs/tutorials/1.developers/4.apps-development/3.enable-app.md) to learn how to enable applications in DIAL.
 
 ## Main Screen
 
-On this screen, you can access all the available application deployments in your instance of DIAL. Applications displayed in this section were either added by a direct modification of the DIAL Core config file or via DIAL Admin. Here, you can also create and manage new application deployments.
+On this screen, you can access all the available application deployments in your instance of DIAL. Applications displayed in this section were either added by a direct modification of the [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/applications.md) config file or via DIAL Admin. Here, you can also create and manage new application deployments.
 
 **Note**: This section does not display applications in either private user folders or the public folder in DIAL file storage. Applications in private folders are available only to their owners. Applications in public folder are accessible in [Assets/Applications](/docs/tutorials/3.admin/assets-applications.md) section.
 

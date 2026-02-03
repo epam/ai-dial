@@ -12,7 +12,7 @@ This documentation section describes how to manage toolsets in DIAL Admin.
 
 ## Main Screen
 
-On this screen, you can find all toolset deployments existing in your DIAL instance. Here you can view, filter, and add new toolset definitions.
+On this screen, you can find all toolset deployments existing in your DIAL instance that were added via a direct modification of [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolsets.md) config file or via DIAL Admin. Here you can view, filter, and add new toolset definitions.
 
 ![](img/entities_tools.png)
 

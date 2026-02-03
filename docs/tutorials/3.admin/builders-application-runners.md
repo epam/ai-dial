@@ -219,7 +219,7 @@ In the **Audit** tab, you can monitor activities related to the selected app run
 
 ### JSON Editor
 
-**Advanced users with technical expertise** can work with the application runner properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed on UI.
+**Advanced users with technical expertise** can work with the JSON schema of the application runner in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed on UI.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 

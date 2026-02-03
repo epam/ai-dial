@@ -29,7 +29,7 @@ Interceptors can be added via a direct configuration of [DIAL Core](https://gith
 
 ## Main Screen
 
-On the main screen, you can access all the available interceptors, manage and add interceptors to your DIAL environment.
+On this screen, you can access all the available interceptors added via DIAL Admin or a direct modification of [DIAL Core config file](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md). Here, you can manage and add interceptors to your DIAL environment.
 
 ![ ](img/img_28.png)
 

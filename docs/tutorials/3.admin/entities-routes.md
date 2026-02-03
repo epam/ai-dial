@@ -6,7 +6,7 @@ Routes in DIAL are used for communication through registered endpoints in the [D
 
 ## Main Screen
 
-In Routes, you can view, filter, and create new routes.
+On this screen, you can access all rotes added in DIAL Admin or via a direct modification of [DIAL Core config file](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/routes.md).
 
 ![](img/img_19.png)
 
