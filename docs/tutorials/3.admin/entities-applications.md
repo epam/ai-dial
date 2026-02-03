@@ -152,7 +152,7 @@ The Parameters tab within an application’s configuration allows administrators
 
 In the Roles tab, you can create and manage roles that have access to the selected application. Roles are defined in the [Access Management](/docs/tutorials/3.admin/access-management-roles.md) section. Here, you can define user groups that can use specific applications and define rate limits for them.
 
-**Important**: if roles are not specified for a specific application, it will be available to all users
+**Important**: if roles are not selected for a specific application or **Make available to specific roles** toggle is disabled, it will be available to all user roles.
 
 > * Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
 > * Refer to [Roles](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to lean more about roles in DIAL.
@@ -199,7 +199,7 @@ Default rate limits are set for all roles in the **Roles** grid by default; howe
 Use **Make available to specific roles** toggle to define access to the application:
 
 * **Off**: Application is callable by any authenticated user. All existing user roles are in the grid.
-* **On**: Application is restricted - only the roles you explicitly add to the grid can invoke it.
+* **On**: Application is restricted - only selected roles can access the application. If empty, the application is not available to any role.
 
 #### Add
 
