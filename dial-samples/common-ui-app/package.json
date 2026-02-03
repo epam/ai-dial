@@ -28,7 +28,7 @@
     "@monaco-editor/react": "^4.7.0",
     "@tabler/icons-react": "^3.30.0",
     "classnames": "^2.5.1",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "monaco-editor": "^0.52.2",
     "next": "~15.4.10",
     "next-auth": "^4.24.12",
