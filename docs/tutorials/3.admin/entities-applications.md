@@ -77,7 +77,7 @@ Once configured, your application is ready to orchestrate models and interceptor
 | **Icon** | No | Logo to visually distinguish the app on the UI. |
 | **Topics** | No | Tags that you can assign to apps (e.g. "finance", "support"). Helps to split apps into categories for better navigation on UI. |
 | **Source Type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. In [Builders/Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) you can see all the available runners and add new ones. |
-| **Application runner** | Conditional | Select one of the available application runners. Required if Source Type is **Application runner**. |
+| **Application runner** | Conditional | Select one of the available application runners. If the application is created based on an application runner, DIAL Core will forward all payloads to endpoints defined in the [application runner configuration](/docs/tutorials/3.admin/builders-application-runners.md#features). Required if Source Type is **Application runner**. |
 | **Completion endpoint** | Conditional | Chat completion endpoint of the application. Required if Source Type is **Endpoints**. |
 | **Viewer URL** | Optional | URL of the application's custom UI. A custom UI, if enabled, will override the standard DIAL Chat UI. Available if Source Type is **Endpoints**. |
 | **Editor URL** | Optional | URL of the application's custom builder UI. Application builder allows creating instances of apps using a [UI wizard](/docs/tutorials/0.user-guide.md#application-builder). Available if Source Type is **Endpoints**. |
@@ -144,7 +144,7 @@ Enable or disable per-request options that your application accepts from clients
 
 ### Parameters
 
-The Parameters tab within an application’s configuration allows administrators to manage application-specific parameters that influence its behavior. The content of this screen is determined by the related application runner.
+The Parameters tab within an application’s configuration allows administrators to manage application-specific parameters that influence its behavior. The content of this screen is determined by the [parameters of the related application runner](/docs/tutorials/3.admin/builders-application-runners.md#parameters).
 
 ![](img/entities_apps_parameters.png)
 
@@ -300,9 +300,10 @@ This tab lists other entities Models or Applications that the current Applicatio
 
 Routes in DIAL are used for communication through registered endpoints in the DIAL Core. They act as a bridging mechanism between the DIAL Core and applications, facilitating seamless interactions.
 
+> Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/routes.md) to learn more about routes.
+
 In the App Routes tab you can manage application-specific routes. The tab includes a left-hand pane listing all app-related routes. 
-If the application is created based on a specific application runner, tab allows only viewing routes inherited from the app runner. 
-Otherwise, it allows creating, viewing, editing, and deleting routes.
+If the application is created based on a [specific application runner](/docs/tutorials/3.admin/builders-application-runners.md#app-routes), tab allows only viewing routes inherited from it. Otherwise, it allows creating, viewing, editing, and deleting routes.
 
 #### Properties
 

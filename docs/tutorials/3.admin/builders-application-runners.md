@@ -89,40 +89,44 @@ In the Features tab, you can define additional capabilities of applications crea
 
 Defined features are propagated to applications created with the related application runner. Features undefined on the application runner level, can be set on per-application basis in the [Applications Configuration](/docs/tutorials/3.admin/entities-applications.md#features).
 
-| Field | Required |Description |
-|-------|----------|------------|
-| **Configuration endpoint** | No| A URL to fetch dynamic app-specific settings. Use this to drive runtime overrides from a remote config store. |
-| **Rate endpoint**| No| A URL to call a custom rate-estimation API. Use this to compute cost or quota usage based on your own logic (e.g. grouping by tenant, complex billing rules).|
-| **Tokenize endpoint**      | No| A URL to call a custom tokenization service.|
-| **Truncate prompt endpoint**      | No| A URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual application call.      |
-| **Application properties header** | No| This setting determines how the apps configuration is handled during a chat completion request. If enabled, DIAL will append the apps configuration to the chat completion request headers.   |
-| **Playback support**| No| [Playback](/docs/tutorials/0.user-guide.md#playback) allows to simulate a conversation without any engagement with models. This allows to review and analyze the conversation flow without invoking any model responses. |
-|**Assistant attachments in request**| No|Indicates whether the application supports `attachments` in `messages` from `role=assistant` in [chat completion request](https://dialx.ai/dial_api#operation/sendChatCompletionRequest). When set to `true`, DIAL Chat preserves `attachments` in `messages` in the chat completion requests to DIAL Core, instead of removing them. The feature is especially useful for apps that can generate attachments as well as take attachments in its input.|
+| Field | Required | Description |
+|-------|----------|-------------|
+| **Configuration endpoint** | No | URL to fetch JSON Schema describing settings of the application. Use this to drive runtime overrides from a remote config store. |
+| **Rate endpoint** | No | URL of a custom rate-estimation API to compute cost or quota usage based on your custom logic (e.g. grouping by tenant, complex billing rules). |
+| **Tokenize endpoint** | No | URL to call a custom tokenization service. Can be used if you require precise, app-wide token counting (for mixed-model or multi-step prompts) that the model adapter can't provide. |
+| **Truncate prompt endpoint** | No | URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual app call. |
+| **Application properties header** | No | This setting determines how the apps configuration is handled during a chat completion request. If enabled, DIAL will append the apps configuration to the chat completion request headers. |
+| **Playback support** | No | This setting enables [Playback](/docs/tutorials/0.user-guide.md#playback). Playback allows to simulate a conversation without any engagement with models. This allows to review and analyze the conversation flow without invoking any model responses. |
+| **Assistant attachments in request** | No | This setting indicates whether the application supports `attachments` in `messages` from `role=assistant` in [chat completion request](https://dialx.ai/dial_api#operation/sendChatCompletionRequest). When set to `true`, DIAL Chat preserves `attachments` in `messages` in the chat completion requests to DIAL Core, instead of removing them. The feature is especially useful for apps that can generate attachments as well as take attachments in its input. |
 
 ![ ](img/runner_features.png)
 
 ### Parameters
 
-By editing the JSON configuration in the Parameters tab, you define the input parameters that must be completed to successfully create a new Application from this Runner.
+By editing the configuration in the Parameters tab, you define [parameters that must be configured](/docs/tutorials/3.admin/entities-applications.md#parameters) to create an instance of application based on the selected Application Runner. The content of this screen is defined by required properties of the JSON schema of the Application Runner which you can access in [JSON Editor](#json-editor). 
+
+> **Note**: JSON schema of application runners conforms to the main [meta schema](https://github.com/epam/ai-dial-core/blob/development/config/src/main/resources/custom-application-schemas/schema.json).
 
 > Refer to [Schema-rich Applications](/docs/platform/3.core/7.apps.md#schema-rich-applications) to learn more.
 
-![ ](img/img_25.png)
+![ ](img/app-runner-parameters.png)
 
 ### Interceptors
 
-In the **Interceptors** tab, you can add [local interceptors](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md#application-type-interceptors) that will process requests and responses for applications built on this runner. Such interceptors will be displayed as **runner interceptors** in the [application configuration](/docs/tutorials/3.admin/entities-applications.md#interceptors) screen. You can also preview global interceptors defined in [System Properties](/docs/tutorials/3.admin/home.md#system-properties).
+In the **Interceptors** tab, you can add [local interceptors](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md#application-type-interceptors) that will process requests and responses for applications built on this runner. Such interceptors will be displayed as **runner interceptors** in the [configuration](/docs/tutorials/3.admin/entities-applications.md#interceptors) of application created based on the selected application runner. 
+
+In this tab, you can also preview **global** interceptors defined in [System Properties](/docs/tutorials/3.admin/home.md#system-properties) that apply to all deployments in DIAL.
 
 ![ ](img/app-runner-interceptors.png)
 
-##### Interceptors Grid
+##### Interceptors grid
 
 | Column | Description |
 |--------|-------------|
 | **Order** | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor's in this order. Response interceptors are invoked in the reversed order. |
 | **Display Name** | The interceptor's alias, matching the Name field in its definition. |
 | **Description** | Free-text summary from the interceptor's definition, explaining its purpose. |
-|**ID**| Unique identifier of the interceptor, as defined in its configuration. |
+| **ID** | Unique identifier of the interceptor, as defined in its configuration. |
 
 #### Add
 
@@ -140,17 +144,17 @@ You can add one or more interceptors to the application runner.
 ### Applications
 
 In the Applications tab, you can see which DIAL Applications are bound to this runner.
-By assigning applications here, you tell DIAL Core to dispatch orchestration payloads for those apps to this specific runner endpoint.
+By assigning applications here, you tell DIAL Core to dispatch orchestration payloads for those apps to endpoints of the selected application runner.
 
-![ ](img/img_27.png)
+![ ](img/app-runner-applications.png)
 
 ##### Applications List
 
-| Column| Definition |
-| ----------------- | -----------|
-| **ID** | The unique identifier of the application.|
-| **Display Name**  | A user-friendly name of the application (e.g. "Data Clustering Application").|
-| **Description**   | A free-text description of the application|
+| Column | Description |
+|--------|-------------|
+| **ID** | Unique identifier of the application. |
+| **Display Name** | Name of the application displayed on UI (e.g. "Data Clustering Application"). |
+| **Description** | Text with the description of the application. |
 
 #### Add
 
@@ -167,6 +171,10 @@ You can add applications defined in the [Entities](/docs/tutorials/3.admin/entit
 
 ### App Routes
 
+Routes in DIAL are used for communication through registered endpoints in the DIAL Core. They act as a bridging mechanism between the DIAL Core and applications, facilitating seamless interactions.
+
+> Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/routes.md) to learn more about routes.
+
 In the **App Routes** tab, you can manage application runner-specific routes. Here you can create, view, edit, and delete routes.
 
 #### Create
@@ -175,7 +183,7 @@ In the **App Routes** tab, you can manage application runner-specific routes. He
 2. Enter the route **Display name** in the modal.
 3. Click **Create** to confirm creation.
 
-![ ](img/142.png)
+![ ](img/app-runner-create-route.png)
 
 #### Properties
 
@@ -183,13 +191,13 @@ In the **Properties** sub-tab you can configure route's identity and requests-ha
 
 > **TIP**: Configuration of this tab is similar to routes. See [Routes documentation](/docs/tutorials/3.admin/entities-routes.md) for more information. 
 
-![106.png](img/106.png)
+![ ](img/app-runner-route-properties.png)
 
 #### Attachments
 
 In the **Attachments** sub-tab you can configure attachment paths for both requests and responses.
 
-![107.png](img/107.png)
+![ ](img/app-runner-route-attachments.png)
 
 #### Roles
 
@@ -199,16 +207,15 @@ In the **Roles** sub-tab you can define route-specific role assignments, allowin
 
 Use **Inherit Application Roles** toggle to apply roles assigned to an application which is built based on the selected application runner.
 
-![108.png](img/108.png)
+![ ](img/app-runner-route-roles.png)
 
 ### Audit
 
 In the **Audit** tab, you can monitor activities related to the selected app runner.
 
-#### Activities
+> **TIP**: This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected app runner.
 
-The Activities section provides detailed visibility into all changes made to the selected app runner. This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected app runner.
-
+![ ](img/app-runner-audit.png)
 
 ### JSON Editor
 
