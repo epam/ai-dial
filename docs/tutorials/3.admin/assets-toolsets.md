@@ -109,7 +109,7 @@ In the **Properties** tab, you can preview and modify selected toolset's basic p
 | **Author** | Username or system ID associated with the user who created or last updated this toolset. |
 | **Creation Time** | Timestamp of when the toolset was created. |
 | **Updated Time** | Date and time when the toolset's configuration was last updated. |
-| **Authentication** | Current authentication status of the selected toolset. |
+| **Authentication** | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset in not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated for your user only. <br />- **Logged in (Organization)**: The toolset is authenticated for all users in your organization. |
 | **Folder Storage** | Path to the toolset's location in the hierarchy of the public folder. |
 | **Display Name** | The name of the toolset assigned by the author. |
 | **Version** | Version of the toolset. Can be selected from the dropdown to display information for different versions. |
@@ -119,35 +119,82 @@ In the **Properties** tab, you can preview and modify selected toolset's basic p
 | **Storage folder** | The path to the toolset's location in the hierarchy of folders. It allows you to move the toolset between folders. |
 | **External Endpoint** | The MCP endpoint that a Quick App can call to fetch external data. |
 | **Transport** | A transport supported by MCP server. The available options are: HTTP or SSE. Default: HTTP. Choose SSE for server-sent events when supported. |
-| **Authentication** | Authentication settings for the Toolset. Supported OAUTH, API_KEY, or NONE. Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolset_credentials_api.md) to learn more about toolset authentication. |
+| **Authentication** | [Authentication settings for the toolset.](#authentication) |
 | **Forward per request key** | Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. **Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`. |
 | **Max retry attempts** | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors). |
 
+#### Authentication
+
+If the toolset you have chosen requires authentication at the related MCP server, you will have to sign in before you can use it. For example, if you are using an application that relies on the MCP toolset and authentication is required, you will not be able to access it unless you are logged in. Therefore, make sure you are authenticated with MCP server you are about to use.
+
+**Note**, that toolset can be published with credentials by other users. In this case, a toolset can be already authenticated for all users in the organization - **Logged in (Organization)**. You can use it or log out and log back in with your personal credentials - **Logged in (Personal)**.
+
+> Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolset_credentials_api.md) to learn more about toolset authentication
+
+##### Step 1: Select and configure the authentication method 
+
+DIAL supports several authentication methods for toolsets:
+
+* **OAuth**: Authenticate via OAuth 2.0 with an external identity provider. If this option is selected, you have to choose **With login** for a dynamic registration of clients or **With login & configuration** for a static registration of clients - depending on what method your MCP server supports. For a dynamic option, it is enough to provide an **External Endpoint** in the toolset properties. For a static, populate the authentication form with correct values provided by the identity provider:
+    - **Redirect URI**: Redirect URI used during sign in flows. After authentication, the MCP Server redirects the User to the provided URI.
+    - **Client ID**: The unique identifier of the client/application requesting access to the resource. 
+    - **Client Secret**: A confidential key used by the client to authenticate itself with the authentication server. 
+    - **Scopes Supported**: List of supported scopes that define access levels. May be discovered via .well-known endpoints. 
+    - **Default authorization endpoint**: URL for performing authorization. Can be discovered via .well-known metadata if provided by the Authorization Server.
+    - **Default token endpoint**: The URL where the client exchanges the authorization code for an access token. Can be discovered via .well-known metadata if provided by the Authorization Server.
+    - **PKCE method**: The method used for Proof Key for Code Exchange (PKCE), usually `plain` or `S256`.
+* **API Key**: Authenticate using API key. If this option is selected, you have to provide the API key and header name in the configuration.
+* **Without authentication**: No authentication enforced, endpoint is publicly accessible.
+
+![](img/assets_toolsets_auth.png)
+
+##### Step 2: Choose personal or organization authentication
+
+Having selected and configured any authentication method, click **Save** and **Log In** to authenticate a toolset with the related MCP server. At this step, prior to the actual authentication, you will be prompted to select between **Personal** and **Organization** authentication:
+
+* **Personal**: the toolset will be authenticated for your user only with the authentication state labeled **Logged in (Personal)**.
+* **Organization**: the toolset will be authenticated for all users in your organization with the authentication state labeled **Logged in (Organization)**. Any user will be able to log out and log back in with personal credentials.
+
+**Important**: at this step, for authentication with API keys, you will be prompted to provide a valid API key value.
+
+![](img/assets_toolsets_auth2.png)
+
 ### Tools Overview
 
-Tools in toolsets are functionalities supported by a corresponding MCP server that can be used to extend the capabilities of your toolset. In this tab, you can find all tools included in the toolset and add more tools.
+[Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are specific functions supported by a related MCP server that can be used by clients to perform specific actions. On this screen, you can find and manage all tools supported by the related MCP server.
 
-![](img/135.png)
+In case your toolset was created based on the MCP container deployed in DIAL, the content of this screen is inherited from the related [MCP container](/docs/tutorials/3.admin/deployments-mcp.md#tools-overview).
 
-#### Add
+#### Use all tools
 
-You can add a tool manually only if **Use all available tools** toggle is **Off**.
+Enable **Use all available tools** toggle to automatically include all tools supported by the related MCP server. When enabled, you cannot add or remove tools manually.
 
-1. Click **+ Add** on the top-right.
-2. Click **+ Add** in the modal and give names to the tools that will be added.
-3. **Add** to add tools to the toolset.
+Click on any tool to preview its details or [try it out](#try-tools).
 
-![](img/113.png)
+![](img/assets_tools_tools_overview.png)
 
-#### Remove
+#### Manage tools
 
-You can remove a tool only if **Use all available tools** toggle is **Off**.
+Disable **Use all available tools** toggle to enable a manual tools management mode.
 
-1. Hover the tool by the pointer to see Delete button.
-2. Click **Delete** to remove a tool.
+![](img/assets_manage_tools.png)
 
-![](img/remove-tool.png)
+1. Disable **Use all available tools** toggle and click **Manage tool** button to open the **Manage tools** modal.
+2. The modal displays all tools available to your user. You can preview and enable/disable each tool individually.
+3. MCP sever can support other tools that are not available to your user and therefore are not rendered in the list of available tools. If you know their names, you can manually add them. Manually-added tools are labeled accordingly on the Tools Overview screen.
+4. Click **Confirm** to apply changes.
+5. On the **Tools overview** screen, use the filter to see all tools, just auto-detected tools or manually added tools.
+6. Hover over any tool to see its details or [try it out](#try-tools).
 
+![](img/assets_toolsets_manage_tools.png)
+
+#### Try tools
+
+Click or hover over any **enabled** tool to enter the Try out mode.
+
+In the **Try out mode**, you can test each enabled tool by sending a sample request to the server. When sending a request, you can use the rendered UI form to populate the request input fields or enter JSON view mode to get access to all the fields supported by the input schema.
+
+![](img/assets_toolset_tryout.png)
 
 ### JSON Editor
 
