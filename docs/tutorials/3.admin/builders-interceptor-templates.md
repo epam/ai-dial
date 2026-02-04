@@ -2,11 +2,11 @@
 
 ## Introduction
 
-**Interceptor template** is a reusable blueprint for creating interceptors in DIAL. It allows to save time on similar interceptors configuration.
+**Interceptor templates** are reusable blueprints that streamline the creation of interceptors in DIAL. They save time by eliminating repetitive configuration when setting up similar interceptors.
 
-> Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more about them.
+> To learn more about interceptors, refer to [Interceptors](/docs/platform/3.core/6.interceptors.md).
 
-Added interceptor templates can be [used as source type](/docs/tutorials/3.admin/entities-interceptors.md#create) for creating new interceptor entities.
+Once created, interceptor templates can be [selected as a source type](/docs/tutorials/3.admin/entities-interceptors.md#create) when creating new interceptor entities.
 
 ## Main Screen
 
