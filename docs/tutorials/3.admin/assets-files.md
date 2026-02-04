@@ -2,51 +2,47 @@
 
 ## Introduction
 
-Files in DIAL are arbitrary binary or text assets (JSON, CSV, PDF, images, etc.) your models and applications can reference at runtime.
+Files in DIAL are arbitrary binary or text assets (JSON, CSV, PDF, images, etc.) which AI models and/or applications can reference at runtime. Files in DIAL can be stored in BLOB storage or a local file system.
+
+Files are considered to be a protected resource. Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn how protected resources are handled in DIAL.
 
 ## Main Screen
 
-In Files, you can manage all files in the Public folder.
+In Files, you can view and manage all files located the **Public** folder in the DIAL's file system. Files in the Public folder are files published with conversations or applications by end users. Such files are accessible to all authorized DIAL users.
 
-> Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to lean more about Private and Public logical spaces for objects storage in DIAL. 
+> **Note**: This screen, does not give access to private files of users.
 
 ![ ](img/img_35.png)
 
 ##### Folders Structure
 
-Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public space. 
+Objects in the Public folder are arranged hierarchically, similar to a file system. In this part of the screen, you can see the structure of the Public folder. 
 
-| Element | Description          |
-|------------------------|--------------------------------------------|
-| **Root folder**        | A root folder. Contains the sub-folders and files. It is visible to all users.  |
-| **Sub-folders**        | Files can be placed in a specific sub-folder for logical organization purposes.          |
-| **+ (Create)**         | Hover over any folder to display this action. Allows creating new child or sibling folder and import the files into it. Same flow as [Import](#import), but also requires to provide a folder name. |
-| **Actions**    | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with files inside it.|
+| Element | Description |
+|---------|-------------|
+| **Root folder** | Pubic is a root folder with sub-folders and files. It is visible to all authorized users. |
+| **Sub-folders** | Files can be placed in a specific sub-folder for logical organization purposes. |
+| **+ (Create)** | Hover over any folder to display this action. Allows creating new child or sibling folder and import the files into it. Same flow as [Import](#import), but also requires to provide a folder name. |
+| **Actions** | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with files inside it.|
 
 ![ ](img/img_35_1.png)
 
 ##### Files Grid
 
-Click any folder in the hierarchy to display files stored in it.
-
-| Column           | Definition                                                                                          |
-|------------------|-------------------|
-| **Display Name** | A technical key for the file (e.g. `exclusion-words`).                                              |
-| **Extension**    | The extension of the file.                                                                 |
-| **Author**       | The username or system ID associated with the user who created or last updated this file.    |
-| **Actions**      | Actions you can perform on the selected file: <br /> - **Open in new tab**: Opens a new tab with file's properties.  <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the file.<br />- **Delete**: Use to delete the file.  |
+| Column | Description |
+|--------|-------------|
+| **Display Name** | A technical key for the file (e.g. `exclusion-words`). |
+| **Extension** | The extension of the file. |
+| **Author** | The username or system ID associated with the user who created or last updated this file. |
+| **Actions** | Actions you can perform on the selected file: <br /> - **Open in new tab**: Opens a new tab with file's properties. <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the file.<br />- **Delete**: Use to delete the file. |
 
 ![ ](img/files-actions.png)
 
 ## Export
 
-Use **Bulk Actions** in the toolbar to export files. 
+Use **Bulk Actions** in the toolbar to export files. This is helpful for backup, sharing, or migrating files.
 
 ![ ](img/apps_bulk_actions.png)
-
-This is helpful for backup, sharing, or migrating supporting assets alongside your DIAL configuration.
-
-![ ](img/img_49.png)
 
 ##### To export files:
 
@@ -56,7 +52,7 @@ This is helpful for backup, sharing, or migrating supporting assets alongside yo
 
 ## Import
 
-Use **Import** in the toolbar to upload external files into DIAL’s assets storage. This is useful for adding reference documents, data or other supporting assets.
+Use **Import** in the toolbar to upload external files into DIAL’s file storage. This is useful for adding reference documents, data or other supporting assets.
 
 ![](img/img_50.png)
 
