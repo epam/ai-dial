@@ -126,45 +126,11 @@ In the **Roles** tab, you can define user groups that can invoke this route.
 
 ### Audit
 
-#### Activities
+On this screen, you can access a detailed preview and revert any changes made to the selected route.
 
-The Activities section provides a detailed insight into all changes made to the selected route.
-
-This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected route.
+> **TIP**: This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected route.
 
 ![](img/routes-audit.png)
-
-##### Activities List Table
-
-| Field | Description |
-|-------|-------------|
-| **Activity type** | Type of action performed (e.g., Create, Update, Delete). |
-| **Time** | Timestamp indicating when the activity occurred. |
-| **Initiated** | Email address of the user who performed the activity. |
-| **Activity ID** | Unique identifier for the logged activity, used for tracking and auditing. |
-| **Actions** | Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details. |
-
-##### Activity Details
-
-The Activity Details view provides a detailed snapshot of a specific change made to a route.
-
-![](img/routes-audit-details.png)
-
-To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
-
-| Element/Section | Description |
-|-----------------|-------------|
-| **Activity type** | Type of the change performed (e.g., Update, Create, Delete). |
-| **Time** | Timestamp of the change. |
-| **Initiated** | Identifier of the user who made the change. |
-| **Activity ID** | Unique identifier for the specific activity tracking. |
-| **Comparison** | Dropdown to switch between showing all parameter or changed only. |
-| **View** | Dropdown to switch for selection between Before/After and Before/Current state. |
-| **Parameters Diff** | Side-by-side comparison of toolset fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
-
-##### Resource Rollback
-
-Use Resource Rollback to restore the previous version of the selected activity. A rollback leads to generation of a new entry on the audit activity screen.
 
 ### JSON Editor
 

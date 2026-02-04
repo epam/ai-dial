@@ -22,8 +22,6 @@ In DIAL, you can create and use templates to add interceptors, create intercepto
 
 You can configure global interceptors that apply on a system level in [System Properties](/docs/tutorials/3.admin/home.md#system-properties) and local interceptors that are triggered for specific [model](/docs/tutorials/3.admin/entities-models.md#interceptors) or [application](/docs/tutorials/3.admin/entities-applications.md#interceptors) deployments or apps created based on [application runners](/docs/tutorials/3.admin/builders-application-runners.md#interceptors). 
 
-Interceptors can be added via a direct configuration of [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/interceptors.md) or via DIAL Admin, as described in this section.
-
 > * Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 > * Refer to [DIAL Interceptors Python SDK](https://github.com/epam/ai-dial-interceptors-sdk) for a comprehensive information, configuration and implementation examples.
 
@@ -98,7 +96,7 @@ In the Properties tab, you can define metadata and execution endpoints for Inter
 
 ### Parameter Scheme
 
-In this tab, you can define additional configuration parameters for the interceptor. The parameters displayed in this section are defined by the JSON schema returned by the interceptor's configuration endpoint specified in the [Properties tab](#properties) when the source type External Endpoint is selected. If a valid endpoint is specified, the content on this screen is rendered automatically based on the JSON schema returned by that endpoint. Rendered parameters are pre-populated with their default values. In case the invalid configuration endpoint is provided, "No Configuration Scheme" state is shown instead.
+In this tab, you can define additional configuration parameters for the interceptor. The parameters displayed in this section are defined by the JSON schema returned by the configuration endpoint specified in the [Properties tab](#properties) when the source type External Endpoint is selected or by the configuration endpoint of the [related interceptor template](/docs/tutorials/3.admin/builders-interceptor-templates.md). If a valid endpoint is specified, the content on this screen is rendered automatically based on the JSON schema returned by that endpoint. Rendered parameters are pre-populated with their default values. In case the invalid configuration endpoint is provided, "No Configuration Scheme" state is shown instead.
 
 ![](img/parameter_scheme.png)
 
@@ -140,47 +138,11 @@ In this tab, you can see Application Runners a specific interceptor is currently
 
 ### Audit
 
-In the Audit tab, you can track all changes made to this interceptor.
+On this screen, you can access a detailed preview and revert any changes made to the selected interceptor.
 
-#### Activities
+> **TIP**: This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected interceptor.
 
-In the Activities section, you can see all changes made to the selected interceptor.
-
-This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected interceptor.
-
-![](img/interceptors-activity.png)
-
-##### Activities List Table
-
-| Field | Description |
-|-------|-------------|
-| **Activity type** | The type of action performed on the interceptor (e.g., Create, Update, Delete). |
-| **Time** | Timestamp indicating when the activity occurred. |
-| **Initiated** | Email address of the user who performed the activity. |
-| **Activity ID** | A unique identifier for the logged activity, used for tracking and auditing. |
-| **Actions** | Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details. |
-
-##### Resource Rollback
-
-Use Resource Rollback to restore the previous version of the selected activity. A rollback leads to generation of a new entry on the audit activity screen.
-
-![](img/interceptors-activity-rollback.png)
-
-##### Activity Details
-
-To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”. The Activity Details view provides a detailed snapshot of a specific change made to an interceptor.
-
-| Element/Section | Description |
-|-----------------|-------------|
-| **Activity type** | Type of the change performed (e.g., Update, Create, Delete). |
-| **Time** | Timestamp of the change. |
-| **Initiated** | Identifier of the user who made the change. |
-| **Activity ID** | Unique identifier for the specific activity tracking. |
-| **Comparison** | Dropdown to switch between showing all parameter or changed only. |
-| **View** | Dropdown to switch for selection between Before/After and Before/Current state. |
-| **Parameters Diff** | Expandable sections with side-by-side comparison of changes made. Color-coding is used to indicate the operation type (Update, Create, Delete). |
-
-![](img/interceptors-activity-details.png)
+![](img/interceptors-audit.png)
 
 ### JSON Editor
 

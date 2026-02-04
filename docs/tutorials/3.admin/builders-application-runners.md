@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Application Runner can be seen as an application factory that allows end-users create individual logical instances of applications each with its own configuration. An application runner definition includes a configuration schema that enforces data structure persisted for each instance. 
+Application Runner can be seen as an application factory that allows end-users create individual logical instances of applications each with its own configuration. An application runner definition includes a JSON configuration schema that enforces data structure persisted for each instance. JSON schema of application runners conforms to the main [meta schema](https://github.com/epam/ai-dial-core/blob/development/config/src/main/resources/custom-application-schemas/schema.json). 
 
 > Refer to [Entities/Application](/docs/tutorials/3.admin/entities-applications.md#create) or [Assets/Applications](/docs/tutorials/3.admin/assets-applications.md#create) to learn how to create application deployments based on application runners.
 
@@ -63,7 +63,7 @@ Click any Application Runner on the main screen to open its configuration page.
 
 ### Properties
 
-In the **Properties** tab, you can define identity and metadata of application runners. DIAL Core uses this information to send orchestration payloads and display application runners on UI.
+In the **Properties** tab, you can configure the core identity, metadata, and integration endpoints for your application runner. This includes settings that control how DIAL Core routes requests, how the runner appears in the UI, and how applications built on this runner interact with end users.
 
 | Field | Required | Editable | Description |
 |-------|----------|----------|-------------|
@@ -91,11 +91,11 @@ Defined features are propagated to applications created with the related applica
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| **Configuration endpoint** | No | URL to fetch JSON Schema describing settings of the application. Use this to drive runtime overrides from a remote config store. |
+| **Configuration endpoint** | No | URL to fetch JSON Schema describing settings of the application. DIAL Core exposes this endpoint to DIAL clients as `GET v1/deployments/<deployment name>/configuration`. DIAL client must provide a JSON value corresponding to the configuration JSON Schema in a chat completion request in the `custom_fields.configuration` field. Use this to drive runtime overrides from a remote config store. |
 | **Rate endpoint** | No | URL of a custom rate-estimation API to compute cost or quota usage based on your custom logic (e.g. grouping by tenant, complex billing rules). |
 | **Tokenize endpoint** | No | URL to call a custom tokenization service. Can be used if you require precise, app-wide token counting (for mixed-model or multi-step prompts) that the model adapter can't provide. |
 | **Truncate prompt endpoint** | No | URL to call your own prompt-truncation API. Handy if you implement advanced context-window management (e.g. dynamic summarization) before the actual app call. |
-| **Application properties header** | No | This setting determines how the apps configuration is handled during a chat completion request. If enabled, DIAL will append the apps configuration to the chat completion request headers. |
+| **Application properties header** | No | This setting determines how the app's configuration is handled during a chat completion request. If enabled, DIAL will append the app's configuration to the chat completion request headers. |
 | **Playback support** | No | This setting enables [Playback](/docs/tutorials/0.user-guide.md#playback). Playback allows to simulate a conversation without any engagement with models. This allows to review and analyze the conversation flow without invoking any model responses. |
 | **Assistant attachments in request** | No | This setting indicates whether the application supports `attachments` in `messages` from `role=assistant` in [chat completion request](https://dialx.ai/dial_api#operation/sendChatCompletionRequest). When set to `true`, DIAL Chat preserves `attachments` in `messages` in the chat completion requests to DIAL Core, instead of removing them. The feature is especially useful for apps that can generate attachments as well as take attachments in its input. |
 
@@ -211,9 +211,9 @@ Use **Inherit Application Roles** toggle to apply roles assigned to an applicati
 
 ### Audit
 
-In the **Audit** tab, you can monitor activities related to the selected app runner.
+On this screen, you can access a detailed preview and revert any changes made to the selected application runner.
 
-> **TIP**: This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected app runner.
+> **TIP**: This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected application runner.
 
 ![ ](img/app-runner-audit.png)
 
