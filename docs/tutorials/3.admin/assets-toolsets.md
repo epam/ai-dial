@@ -2,25 +2,23 @@
 
 ## Introduction
 
-Toolsets in DIAL are connections with MCP servers that you can use as tools in [Quick Apps 2.0](/docs/video%20demos/2.Applications/5.quick-apps.md).
+Toolsets in DIAL are connections with MCP servers that can be used as tools by any internal or external application to perform specific actions. Refer to [Video Demo](/docs/video%20demos/2.Applications/5.quick-apps.md) to watch how tools are used in [DIAL Quick Apps 2.0](/docs/platform/3.core/7.apps.md#quick-apps-20).
+
+Toolsets are considered to be a protected resource. Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn how protected resources are handled in DIAL.
 
 ## Main Screen
 
-On the main screen, you can find all publicly-available Toolsets that have either been published by DIAL users or added via a direct modification to [DIAL Core's dynamic settings](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolsets.md). 
-
-Publicly-available toolsets can be accessed via [DIAL Core API](https://dialx.ai/dial_api#tag/Deployment-listing/operation/getToolSets) or [DIAL Marketplace](/docs/platform/4.chat/1.marketplace.md) by all authorized users and apps.
-
-> Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to lean more about Private and Public logical spaces for objects storage in DIAL. 
+On the main screen, you can find all Toolsets located in the Public folder. Such toolsets have either been published by DIAL users or added by administrators. 
 
 ![ ](img/131.png)
 
 ##### Folders Structure
 
-Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public space.
+Objects in the Public folder are arranged hierarchically, similar to a file system. In this part of the screen, you can see the structure of the Public folder. 
 
 | Element | Description |
 |---------|-------------|
-| **Root folder** | A root public folder. Contains the sub-folders and toolsets. It is visible to all users. |
+| **Root folder** | Pubic is a root folder with sub-folders and files. It is visible to all authorized users. |
 | **Sub-folders** | Toolsets can be placed in a specific sub-folder for logical organization purposes. |
 | **Actions** | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with Toolsets inside it. |
 
@@ -40,11 +38,9 @@ Click on any folder to display toolsets in the toolsets grid.
 
 ## Export
 
-Use **Bulk Actions** in the toolbar to download selected toolsets. 
+Use **Bulk Actions** in the toolbar to download selected toolsets. This is useful for migrating toolsets between environments, sharing sets of toolsets with another users, or keeping a point-in-time backup.
 
 ![ ](img/apps_bulk_actions.png)
-
-This is useful for migrating toolsets between environments, sharing sets of toolsets with another users, or keeping a point-in-time backup.
 
 ##### To export toolsets:
 
@@ -83,17 +79,23 @@ Follow these steps to add a new toolset:
 
     | Field | Required | Description |
     |-------|----------|-------------|
-    | **ID** | Yes | A unique identifier of the toolset. |
-    | **Display Name** | Yes | A user-friendly label shown throughout the Admin UI and in DIAL Core. |
+    | **ID** | Yes | Unique identifier of the toolset. |
+    | **Display Name** | Yes | Name of the toolset displayed on UI. |
     | **Version** | Yes | Semantic identifier (e.g., 1.2.0) of a toolset's version. |
-    | **Description** | No | A free-text summary describing the toolset (e.g. purpose and data being fetched). |
-    | **External Endpoint** | Yes | Endpoint DIAL Core will use to communicate with the toolset. |
+    | **Description** | No | Description of a toolset. |
+    | **External Endpoint** | Yes | Endpoint DIAL Core will use to communicate with the related MCP server. |
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [toolset configuration](#configuration-screen) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
 
     ![](img/132.png)
 
-## Configuration Screen
+## Delete
+
+Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected toolset. To remove several toolsets, use the **Bulk Actions** option on the main screen.
+
+![ ](img/apps_bulk_actions.png)
+
+## Configuration
 
 Click any toolset on the main screen to open a screen with information about the selected toolset and its configuration details.
 
@@ -103,25 +105,23 @@ In the **Properties** tab, you can preview and modify selected toolset's basic p
 
 ![](img/134.png)
 
-| Field | Description |
-|-------|-------------|
-| **ID** | Unique identifier of the toolset. |
-| **Author** | Username or system ID associated with the user who created or last updated this toolset. |
-| **Creation Time** | Timestamp of when the toolset was created. |
-| **Updated Time** | Date and time when the toolset's configuration was last updated. |
-| **Authentication** | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset in not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated for your user only. <br />- **Logged in (Organization)**: The toolset is authenticated for all users in your organization. |
-| **Folder Storage** | Path to the toolset's location in the hierarchy of the public folder. |
-| **Display Name** | The name of the toolset assigned by the author. |
-| **Version** | Version of the toolset. Can be selected from the dropdown to display information for different versions. |
-| **Description** | A free-text summary describing the toolset. |
-| **Icon** | A logo to visually distinguish the toolset on the UI. Maximum size: 512 MB. Supported types: .jpeg, .jpg, .jpe, .png, .gif, .apng, .webp, .avif, .svg, .svgz, .bmp, .ico. Up to 1 files. |
-| **Topics** | Tags that you can assign to toolset. Helps to assign categories for better navigation on UI. |
-| **Storage folder** | The path to the toolset's location in the hierarchy of folders. It allows you to move the toolset between folders. |
-| **External Endpoint** | The MCP endpoint that a Quick App can call to fetch external data. |
-| **Transport** | A transport supported by MCP server. The available options are: HTTP or SSE. Default: HTTP. Choose SSE for server-sent events when supported. |
-| **Authentication** | [Authentication settings for the toolset.](#authentication) |
-| **Forward per request key** | Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. **Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`. |
-| **Max retry attempts** | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors). |
+| Field | Required | Editable | Description |
+|-------|----------|----------|-------------|
+| **ID** | - | No | Unique identifier of the toolset. |
+| **Creation Time** | - | No | Creation timestamp. |
+| **Updated Time** | - | No | Timestamps if the last update. |
+| **Authentication** | - | No | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset in not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated for your user only. <br />- **Logged in (Organization)**: The toolset is authenticated for all users in your organization. |
+| **Folder Storage** | - | No | Path to the toolset's location in the hierarchy within the public folder. |
+| **Display Name** | Yes | Yes | The name of the toolset displayed on UI. |
+| **Description** | No | Yes | Toolset description. |
+| **Icon** | Yes | Yes | Logo of the toolset displayed on UI.<br />Maximum size: 512 MB.<br />Supported types: .jpeg, .jpg, .jpe, .png, .gif, .apng, .webp, .avif, .svg, .svgz, .bmp, .ico. |
+| **Topics** | No | Yes | Semantic tags associated wih the toolset. |
+| **Storage folder** | Yes | Yes | Path to the toolset's location in the hierarchy of the Public folders. It allows you to move the toolset between folders. |
+| **External Endpoint** | Yes | Yes | Endpoint DIAL Core will use to communicate with the related MCP server. |
+| **Transport** | Yes | Yes | Transport supported by MCP server.<br />- **HTTP** (default)<br />- **SSE** (for server-sent events when supported) |
+| **Authentication** | Yes | Yes | [Authentication settings for the toolset.](#authentication) |
+| **Forward per request key** | Yes | Yes | Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. **Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`. |
+| **Max retry attempts** | Yes | Yes | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors). |
 
 #### Authentication
 
@@ -137,14 +137,14 @@ DIAL supports several authentication methods for toolsets:
 
 * **OAuth**: Authenticate via OAuth 2.0 with an external identity provider. If this option is selected, you have to choose **With login** for a dynamic registration of clients or **With login & configuration** for a static registration of clients - depending on what method your MCP server supports. For a dynamic option, it is enough to provide an **External Endpoint** in the toolset properties. For a static, populate the authentication form with correct values provided by the identity provider:
     - **Redirect URI**: Redirect URI used during sign in flows. After authentication, the MCP Server redirects the User to the provided URI.
-    - **Client ID**: The unique identifier of the client/application requesting access to the resource. 
-    - **Client Secret**: A confidential key used by the client to authenticate itself with the authentication server. 
+    - **Client ID**: Unique identifier of the client/application requesting access to the resource. 
+    - **Client Secret**: Confidential key used by a client to authenticate itself with the authentication server. 
     - **Scopes Supported**: List of supported scopes that define access levels. May be discovered via .well-known endpoints. 
     - **Default authorization endpoint**: URL for performing authorization. Can be discovered via .well-known metadata if provided by the Authorization Server.
-    - **Default token endpoint**: The URL where the client exchanges the authorization code for an access token. Can be discovered via .well-known metadata if provided by the Authorization Server.
-    - **PKCE method**: The method used for Proof Key for Code Exchange (PKCE), usually `plain` or `S256`.
-* **API Key**: Authenticate using API key. If this option is selected, you have to provide the API key and header name in the configuration.
-* **Without authentication**: No authentication enforced, endpoint is publicly accessible.
+    - **Default token endpoint**: URL where a client exchanges authorization code for an access token. Can be discovered via .well-known metadata if provided by the Authorization Server.
+    - **PKCE method**: Proof Key method for Code Exchange (PKCE), usually `plain` or `S256`.
+* **API Key**: Authenticate using API key. If this option is selected, provide API key and header name in the configuration.
+* **Without authentication**: No authentication is required.
 
 ![](img/assets_toolsets_auth.png)
 
@@ -210,7 +210,3 @@ Use the **JSON Editor** toggle to switch between the form-based UI and raw JSON 
 
 1. Navigate to **Assets → Toolsets**, then select the toolset you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
-
-## Delete
-
-Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected toolset. To remove several toolsets, use the **Bulk Actions** option on the main screen.
