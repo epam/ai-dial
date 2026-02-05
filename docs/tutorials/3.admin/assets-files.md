@@ -27,13 +27,13 @@ Objects in the Public folder are arranged hierarchically, similar to a file syst
 
 ![ ](img/img_35_1.png)
 
-##### Files Grid
+##### Files grid
 
 | Column | Description |
 |--------|-------------|
-| **Display Name** | A technical key for the file (e.g. `exclusion-words`). |
-| **Extension** | The extension of the file. |
-| **Author** | The username or system ID associated with the user who created or last updated this file. |
+| **Display Name** | File name. |
+| **Extension** | File extension. |
+| **Author** | Username or system ID associated with the user who created or last updated this file. |
 | **Actions** | Actions you can perform on the selected file: <br /> - **Open in new tab**: Opens a new tab with file's properties. <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the file.<br />- **Delete**: Use to delete the file. |
 
 ![ ](img/files-actions.png)
@@ -52,7 +52,7 @@ Use **Bulk Actions** in the toolbar to export files. This is helpful for backup,
 
 ## Import
 
-Use **Import** in the toolbar to upload external files into DIAL’s file storage. This is useful for adding reference documents, data or other supporting assets.
+Use **Import** in the toolbar to upload external files into the Public folder in the file storage.
 
 ![](img/img_50.png)
 
@@ -72,25 +72,6 @@ Use **Import** in the toolbar to upload external files into DIAL’s file storag
 
     ![](img/img_51.png)
 
-## Configuration
-
-Click any file to open the configuration screen.
-
-### Properties
-
-In the Properties tab, you can view and manage the selected file, including moving it across folders.
-
-![](img/img_36.png)
-
-
-| Field | Definition & Use Case                                                                                                                  |
-|--------------------|------------------------------------------------------|
-| **Display Name**   | The filename including extension (e.g. request.json, lookup.csv). Display-only but with a copy-to-clipboard button for easy reference. |
-| **Source/Display Name**    | The name of the file without the extension (e.g. request).   |
-| **Source/Extension**  | The file type (e.g. .json, .csv, .pdf). |
-|**Source/Actions** |Click the context menu icon to open additional actions:<br />- **Preview**: Click to preview a file.<br />- **Download**: Click to download a file.|
-| **Storage Folder**   | The path to the file's location in the hierarchy of folders. Use for moving files between folders.                                            |  
-
 ## Delete
 
 Click **Delete** in the toolbar on the Properties screen to permanently remove the selected file from your workspace. 
@@ -102,3 +83,10 @@ You can also delete a file using the Delete option in the file context menu or b
 Use **Bulk Actions** in the toolbar to delete multiple files. 
 
 ![ ](img/apps_bulk_actions.png)
+
+## Properties
+
+Click any file to open the Properties screen. In Properties, you can view files metadata, download, delete or move file across folders.
+
+![](img/file-properties.png)
+
