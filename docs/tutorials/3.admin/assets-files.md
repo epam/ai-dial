@@ -8,24 +8,25 @@ Files are considered to be a protected resource. Refer to [Access Control](/docs
 
 ## Main Screen
 
-In Files, you can view and manage all files located the **Public** folder in the DIAL's file system. Files in the Public folder are files published with conversations or applications by end users. Such files are accessible to all authorized DIAL users.
+In Files, you can view and manage all files located the **Public** folder in the DIAL's file system. Files in the Public folder are files published with applications by end users. Such files are accessible to all authorized DIAL users.
 
 > **Note**: This screen, does not give access to private files of users.
 
 ![ ](img/img_35.png)
 
-##### Folders Structure
+##### Public file storage
 
-Objects in the Public folder are arranged hierarchically, similar to a file system. In this part of the screen, you can see the structure of the Public folder. 
+Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. 
 
-| Element | Description |
-|---------|-------------|
-| **Root folder** | Pubic is a root folder with sub-folders and files. It is visible to all authorized users. |
-| **Sub-folders** | Files can be placed in a specific sub-folder for logical organization purposes. |
-| **+ (Create)** | Hover over any folder to display this action. Allows creating new child or sibling folder and import the files into it. Same flow as [Import](#import), but also requires to provide a folder name. |
-| **Actions** | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with files inside it.|
+- **Root folder**: Pubic is a root folder that includes sub-folders with files. It is visible to all authorized users.
+- **Sub-folders**:  Files of published applications appear in sub-folders. Also, admin can import files into a new sub-folder manually. <br />**Note**, that an application publication request can include access rules for the selected target sub-folder. You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). The effective authorization rule for an object in a sub-folder includes restrictions applied to all parent sub-folders up to the root folder. Refer to [Tutorials](/docs/tutorials/1.developers/1.work-with-resources/0.work-with-publications.md#effective-rules) to learn about affective rules for folders.
 
-![ ](img/img_35_1.png)
+| Available Actions | Description |
+|-------------------|-------------|
+| **Create folder + import objects** | Hover over any folder to display the **+** icon. It allows importing objects into new child or sibling folders. Same flow as [Import](#import), but requires providing a new folder name. **Note** that new folders can be added only via this method or along with the publication request if a new folder is defined in it. |
+| **Actions** | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with objects inside it.|
+
+![ ](img/folder-actions.png)
 
 ##### Files grid
 
