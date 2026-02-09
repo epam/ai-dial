@@ -7,9 +7,9 @@ In DIAL, **model adapters** unify provider-specific model APIs with the **Unifie
 * **Coded implementation** that talks to the AI model and implements the Unified Protocol.
 * **Metadata object** that you manage in **Builders/Adapters**, which establishes the relationship to the **models**.
 
-DIAL includes adapters for [Azure OpenAI](https://github.com/epam/ai-dial-adapter-openai) models, [GCP Vertex AI](https://github.com/epam/ai-dial-adapter-vertexai/?tab=readme-ov-file#supported-models) models, and [AWS Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) models. You can also create custom adapters for other AI models with [DIAL SDK](https://github.com/epam/ai-dial-sdk).
+DIAL includes adapters for [Azure OpenAI](https://github.com/epam/ai-dial-adapter-openai) models, [GCP Vertex AI](https://github.com/epam/ai-dial-adapter-vertexai/?tab=readme-ov-file#supported-models) models, and [AWS Bedrock](https://github.com/epam/ai-dial-adapter-bedrock) models. 
 
-> Refer to [Adapters documentation](/docs/platform/0.architecture-and-concepts/3.components.md#model-adapters) to learn more.
+Compatibility with Azure OpenAI API, makes it simple to add new adapters for language models or develop them with [DIAL SDK](https://github.com/epam/ai-dial-sdk).
 
 ## Main Screen
 
@@ -17,32 +17,32 @@ The main screen displays all registered adapters in your DIAL instance.
 
 ![](img/89.png)
 
-##### Adapters Grid
+##### Adapters grid
 
-| Column            | Definition        |
-|-------------------|---------------------|
-| **ID**          | The adapter’s unique name (identifier).      |
-| **Display Name**  | A user-friendly label for the adapter. Helps you pick the right adapter when creating a new model. |
-| **Description**   | Free-text notes about the adapter’s purpose (e.g., “Adapter for OpenAI models”).                   |
-|**Updated time**|Timestamp of the last update to this adapter's configuration. Useful to track recent changes. |
+| Column | Description |
+|--------|-------------|
+| **ID** | Unique identifier of the adapter. |
+| **Display Name** | Name of the adapter displayed on UI. |
+| **Description** | Brief description of the adapter (e.g., "Adapter for OpenAI models"). |
+| **Updated time** | Timestamp of the last update to this adapter's configuration. Useful to track recent changes. |
+| **Topics** | Semantic tags associated with adapter. |
 
 ## Create
 
-On the main scree, you can add new adapters to your instance of DIAL:
+On the main screen, you can add new adapters by following these steps:
 
 1. Click **+ Create** to invoke the **Adapter** modal.
-2. Define key parameters for the new adapter:
 
-    | Field                 | Required | Definition                    |
-    |-----------------------|----------|-------------------|
-    | **ID**              | Yes      | A unique identifier for this adapter.                    |
-    | **Display name**      | No       | A user-friendly name of the adapter.                     |
-    | **Description**       | No       | Free-text notes about what this adapter is for.          |
-    | **Base endpoint**     | Yes      | The base URL of the adapter service that implements the Unified Protocol. Is the base URL part of the model completion endpoint if one created based on the adapter. |
+    | Field | Required | Description |
+    |-------|----------|------------|
+    | **ID** | Yes | Unique identifier. |
+    | **Display name** | Yes | Unique name of the adapter displayed on UI. |
+    | **Description** | No | Description of the adapter. |
+    | **Base endpoint** | Yes | Base URL of the adapter service that implements the Unified Protocol (following the format: `{ADAPTER_ORIGIN}/openai/deployments/`). |
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new adapter's configuration screen is opened. A new adapter will appear immediately on the main screen once it is created.
 
-    ![](img/90.png)
+    ![](img/adapters-create.png)
 
 ## Configuration
 
@@ -50,44 +50,49 @@ Click any adapter on the main screen to open its configuration page.
 
 ##### Top Bar Controls
 
-* **Create Model**: Use to create a model deployment using the selected model adapter. Created models will be available in the [Entities → Models](/docs/tutorials/3.admin/entities-models.md) section.
+* **Create Model**: Use to create a model deployment using the selected model adapter as a source type. Created models will be available in the [Entities → Models](/docs/tutorials/3.admin/entities-models.md) section.
 * **Delete**: Use to remove the adapter itself and all models utilizing it. After confirmation - the adapter and all related models are deleted.
+* **Save**: Use to save and apply any changes.
+* **Discard**: Use to discard any unsaved changes. You can revert changes in the [Audit](#audit) section.
 * **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the adapter's configuration. Use JSON mode for copy-paste or advanced edits.
+
+![](img/adapters-controls.png)
 
 ### Properties
 
 In the Properties tab, you can view and define identity and metadata of the selected adapter.
 
-| Field                 | Required | Editable|Definition                |
-|-----------------------|----------|------|------------|
-| **ID**              | -      | No|A unique identifier for this adapter.                |
-|**Updated Time**|-|No|Timestamp of the last update to this adapter's configuration. Useful to track recent changes. |
-|**Creation Time**|-|No|Adapter creation timestamp.|
-| **Display name**      | Yes       | Yes |A user-friendly name of the adapter.                 |
-| **Description**       | No       | Yes |Free-text notes about what this adapter is for.      |
-| **Base endpoint**     | Yes      | Yes |The base URL of the adapter service that implements the Unified Protocol. Is the base URL part of the model completion endpoint if created based on the adapter. |
+| Field | Required | Editable | Description |
+|-------|----------|----------|-------------|
+| **ID** | - | No | Unique identifier. |
+| **Updated Time** | - | No | Timestamp of the last update to this adapter's configuration. Useful to track recent changes. |
+| **Creation Time** | - | No | Adapter creation timestamp. |
+| **Display Name** | Yes | Yes | Unique name of the adapter displayed on UI. |
+| **Description** | No | Yes | Brief description of the adapter. |
+| **Base endpoint** | Yes | Yes | Base URL of the adapter service that implements the Unified Protocol (following the format: `{ADAPTER_ORIGIN}/openai/deployments/`). |
+| **Topics** | No | Yes |Semantic tags associated with adapter. |
 
-![](img/91.png)
+![](img/adapters-properties.png)
 
 ### Models
 
-In the **Models** tab, you can manage all models this adapter exposes.
+In the **Models** tab, you can view and add AI models exposed by the selected adapter.
 
-| Column            | Description                                                                               |
-|-------------------|-------------------------------------------------------------------------------------------|
-| **ID**            | Model's identifier.                                                                       |
-| **Display Name**  | A user-friendly name of the model that will be displayed on UI.                           |
-| **Description**   | A free-text description of the model                                                      |
+| Field | Description |
+|-------|-------------|
+| **ID** | Model's identifier. |
+| **Display Name** | Name of the AI model displayed on UI. |
+| **Description** | Description of the model. |
 
-![](img/92.png)
+![](img/adapters-models.png)
 
 #### Add
 
-You can add new models that will be processed by the selected adapter. 
+You can add AI models that will be processed by the selected adapter. 
 
 1. Click **+ Add**.
 2. **Select** one or more available models in the modal window. You can check all the available models in the [Entities → Models](/docs/tutorials/3.admin/entities-models.md) section. You can also use **+ Create Model** button [on this screen](#top-bar-controls) to create a new model on the fly.
-3. **Confirm** to insert them into the table.
+3. Click **Apply** to insert them into the table.
 
 #### Remove
 
@@ -98,11 +103,11 @@ You can remove models processed by the adapter.
 
 ### Audit
 
-In the **Audit** tab, you can monitor activities related to the selected adapter.
+On this screen, you can access a detailed preview and revert any changes made to the selected AI model adapter.
 
-#### Activities
+> **TIP**: This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected AI model adapter.
 
-The Activities section provides detailed visibility into all changes made to the selected adapter. This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected adapter.
+![ ](img/adapters-audit.png)
 
 ### JSON Editor
 

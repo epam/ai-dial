@@ -12,7 +12,9 @@ This documentation section describes how to manage toolsets in DIAL Admin.
 
 ## Main Screen
 
-On this screen, you can find all toolset deployments existing in your DIAL instance. Here you can view, filter, and add new toolset definitions.
+On this screen, you can find all toolset deployments existing in your DIAL instance that were added via a direct modification of [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolsets.md) config file or via DIAL Admin. Here you can view, filter, and add new toolset definitions.
+
+> **Note**: Published toolsets (toolsets located in the Public folder in DIAL file system) are available in the [Assets/Toolsets](/docs/tutorials/3.admin/assets-toolsets.md) section.
 
 ![](img/entities_tools.png)
 
@@ -205,43 +207,11 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 
 ### Audit
 
-#### Activities
+On this screen, you can access a detailed preview and revert any changes made to the selected toolset.
 
-The Activities section under the Audit tab of a specific toolset provides detailed visibility into all changes made to that toolset.
-
-This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected toolset.
+> **TIP**: This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected toolset.
 
 ![](img/116.png)
-
-| Field | Description |
-|-------|-------------|
-| **Activity type** | The type of action performed (e.g., Create, Update, Delete). |
-| **Time** | Timestamp indicating when the activity occurred. |
-| **Initiated** | Email address of the user who performed the activity. |
-| **Activity ID** | A unique identifier for the logged activity, used for tracking and auditing. |
-| **Actions** | Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details. |
-
-##### Activity Details
-
-The Activity Details view provides a detailed snapshot of a specific change made to a toolset.
-
-![](img/117.png)
-
-To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
-
-| Element/Section | Description |
-|-----------------|-------------|
-| **Activity type** | Type of the change performed (e.g., Update, Create, Delete). |
-| **Time** | Timestamp of the change. |
-| **Initiated** | Identifier of the user who made the change. |
-| **Activity ID** | Unique identifier for the specific activity tracking. |
-| **Comparison** | Dropdown to switch between showing all parameter or changed only. |
-| **View** | Dropdown to switch for selection between Before/After and Before/Current state. |
-| **Parameters Diff** | Side-by-side comparison of toolset fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
-
-##### Resource Rollback
-
-Use Resource Rollback to restore the previous version of the selected activity. A rollback leads to generation of a new entry on the audit activity screen.
 
 ### JSON Editor
 
