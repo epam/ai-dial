@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In DIAL, applications created by users (either using DIAL Core API or UI) are stored in a private folder of a dedicated user in the file storage and are not accessible by anyone but the application author (owner). To enable other users to access them, based on explicitly defined access rules, applications can be published (or manually placed in the Public folder by administrators).
+In DIAL, applications created by users (either using DIAL Core API or UI) are stored in a private folder of a dedicated user in the file storage and are not accessible to anyone but the application author (owner). To enable access for other users, based on explicitly defined access rules, applications can be published or manually placed in the Public folder by administrators.
 
 > Refer to [Entities/Applications](/docs/tutorials/3.admin/entities-applications.md) to learn about applications in DIAL.
 
@@ -10,43 +10,44 @@ In DIAL, applications created by users (either using DIAL Core API or UI) are st
 
 The Assets/Applications screen displays all applications located in the Public folder in DIAL file storage. Applications get to the Public folder when published by users or added by administrators.
 
-> Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to lean more about Private and Public logical spaces for objects storage in DIAL. 
+> * Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about Private and Public logical spaces for objects storage in DIAL.
+> * Refer to [Chat User Guide](/docs/tutorials/0.user-guide.md#publish-2) to learn how end users can publish applications and to [DIAL Core API Publications](https://dialx.ai/dial_api#tag/Publications) to learn how to create and manage publication requests via API.
 
 ![ ](img/121.png)
 
-##### Folders Structure
+##### Public file storage
 
-Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public folder. 
+Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. 
 
-| Element | Description |
-|---------|-------------|
-| **Root folder** | A root folder. Contains the sub-folders and applications. It is visible to all users. Applications when added via the DIAL Core configuration file, are automatically placed in the root folder. |
-| **Sub-folders** | Applications can be placed in a specific sub-folder for logical organization purposes. |
-| **Actions** | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with applications inside it.|
+- **Root folder**: Pubic is a root folder with sub-folders. It is visible to all authorized users. If a sub-folder is not specified for the new object, it is placed in the root folder by default.
+- **Sub-folders**: Objects can be placed in sub-folders for logical organization purposes - one object per sub-folder is recommended. 
 
-![ ](img/122.png)
+> **Note**, that access rules can be applied to sub-folders (manually or in publication request). You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). The effective authorization rule for an object in a sub-folder includes restrictions applied to all parent sub-folders up to the root folder. Refer to [Tutorials](/docs/tutorials/1.developers/1.work-with-resources/0.work-with-publications.md#effective-rules) to learn about affective rules for folders.
 
-##### Applications Grid
+| Available Actions | Description |
+|-------------------|-------------|
+| **Create folder + import objects** | Hover over any folder to display the **+** icon. It allows importing objects into new child or sibling folders. Same flow as [Import](#import), but requires providing a new folder name. **Note** that new folders can be added only via this method or along with the publication request if a new folder is defined in it. |
+| **Actions** | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br />**Note**, that actions performed to a folder with apps that include attached files will be applied to a related folder in [Assets/Files](/docs/tutorials/3.admin/assets-files.md). <br /> - **Rename**: Use to rename the selected folder. <br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with objects inside it.|
 
-Click on any folder to display applications in the applications grid.
+![ ](img/folder-actions.png)
+
+##### Applications grid
+
+Click any folder to display applications in the applications grid.
 
 | Column | Description |
 |--------|-------------|
-| **Display Name** | Name of the application displayed on UI. |
-| **Version** | Version of the application. |
+| **ID** | Unique identifier of the application. |
+| **Version** | Published version of the application. |
 | **Author** | Username or system ID associated with the user who created or last updated this application. |
 | **Updated time** | Timestamp of the last modification of the application. Use to track changes. |
 | **Actions** | Actions you can perform on the selected application: <br /> - **Open in new tab**: Opens a new tab with application's properties, features and parameters. <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the application.<br />- **Delete**: Use to delete the application. Alternatively you can use **Bulk Actions** in the header to remove multiple applications. |
 
 ## Export
 
-Use **Bulk Actions** in the toolbar to download selected applications. 
+Use **Bulk Actions** in the toolbar to download selected applications. This is useful for migrating applications between environments, sharing sets of applications with other users, or keeping a point-in-time backup.
 
 ![ ](img/apps_bulk_actions.png)
-
-This is useful for migrating applications between environments, sharing sets of applications with another users, or keeping a point-in-time backup.
-
-![ ](img/apps_export.png)
 
 ##### To export applications:
 
@@ -90,17 +91,26 @@ Follow these steps to add a new application:
 
     | Field | Required | Description |
     |-------|----------|-------------|
-    | **ID** | Yes | Unique identifier under the `applications` section of DIAL Core's [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. support-bot, data-cluster). |
-    | **Display Name** | Yes | Application label (e.g. "Customer Support Bot") shown throughout the Admin UI. |
+    | **ID** | Yes | Unique identifier of the application. |
+    | **Display Name** | Yes | Application name displayed on UI (e.g. "Customer Support Bot"). |
     | **Version** | Yes | Semantic identifier (e.g., 1.2.0) of an application's version. |
-    | **Description** | No | Free-text summary describing the application (e.g. supported inputs, business purpose). |
+    | **Description** | No | Description of the application. |
     | **Source Type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided chat completion endpoint.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. In [Builders/Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) you can see all the available runners and add new ones.|
-    | **Endpoint** | Conditional | The application's chat completion endpoint that will be used by DIAL Core. Required if Source Type is **Endpoints**. |
+    | **Completion endpoint** | Conditional | The application's chat completion endpoint that will be used by DIAL Core. Required if Source Type is **Endpoints**. |
     | **Application runner** | Conditional | Select one of the [available application runners](/docs/tutorials/3.admin/builders-application-runners.md). Required if Source Type is **Application runner**. |
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#configuration-screen) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
 
     ![](img/130.png)
+
+## Delete
+
+There are several ways to delete an application:
+
+* Click **Delete** in the toolbar on the Configuration screen to permanently remove the selected application from your DIAL instance.
+* Use the Delete option in the application context menu
+* Delete the related folder where the application is located.
+* Use **Bulk Actions** on the main screen to remove more than one application.
 
 ## Configuration Screen
 
@@ -194,8 +204,3 @@ Enable or disable per-request options that your application accepts from clients
 1. Navigate to **Assets → Applications**, then select the application you want to edit.
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 
-## Delete
-
-Click **Delete** in the toolbar on the Configuration screen to permanently remove the selected application from your DIAL instance.
-
-You can also delete an application using the Delete option in the application context menu or by deleting the related folder.
