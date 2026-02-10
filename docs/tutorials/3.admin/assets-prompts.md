@@ -10,16 +10,20 @@ Prompts are considered to be a protected resource. Refer to [Access Control](/do
 
 ## Main Screen
 
-In Prompts, you can access and manager all prompts in the Public folder. Prompts get to the Public folder if published by users or added by administrators.
+In Prompts, you can access and manage all prompts in the Public folder. Prompts get to the Public folder if published by users or added by administrators.
 
 ![ ](img/img_32.png)
 
-##### Public file storage
+### Folders
 
 Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. 
 
-- **Root folder**: Pubic is a root folder with sub-folders. It is visible to all authorized users. If a sub-folder is not specified for the new object, it is placed in the root folder by default.
-- **Sub-folders**: Objects can be placed in sub-folders for logical organization purposes - one object per sub-folder is recommended. **Note**, that a publication request can include access rules for the selected target sub-folder. You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). The effective authorization rule for an object in a sub-folder includes restrictions applied to all parent sub-folders up to the root folder. Refer to [Tutorials](/docs/tutorials/1.developers/1.work-with-resources/0.work-with-publications.md#effective-rules) to learn about affective rules for folders.
+- **Root folder**: Pubic is a root folder which can include sub-folders and prompts. Prompts in the root folder are visible to all authorized users.
+- **Sub-folders**: Sub-folders can include uploaded or published prompts.
+
+> **Note**, that access rules can be applied to sub-folders (manually or in publication request). You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). The effective authorization rule for an object in a sub-folder includes restrictions applied to all parent sub-folders up to the root folder. Refer to [Tutorials](/docs/tutorials/1.developers/1.work-with-resources/0.work-with-publications.md#effective-rules) to learn about affective rules for folders.
+
+You can perform various actions on folders:
 
 | Available Actions | Description |
 |-------------------|-------------|
@@ -28,9 +32,11 @@ Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) 
 
 ![ ](img/folder-actions.png)
 
-##### Prompts grid
+### Prompts
 
 Click any folder in the hierarchy to display prompts stored in it.
+
+##### Prompts grid
 
 | Column | Description |
 |--------|-------------|
@@ -40,7 +46,7 @@ Click any folder in the hierarchy to display prompts stored in it.
 | **Update time** | The timestamp of the last modification of the prompt. Use to track changes. |
 | **Actions** | Actions you can perform on the selected prompt: <br /> - **Open in new tab**: Opens a new tab with prompt's properties. <br />- [Duplicate](/docs/tutorials/0.user-guide.md#duplicate-1): Click to duplicate a prompt.<br />- **Move to another folder**: Use to select the target folder in the hierarchy to move the file.<br />- **Delete**: Use to delete a prompt. Alternatively you can use **Bulk Actions** in the header to remove multiple prompts. |
 
-## Export
+#### Export
 
 Use **Bulk Actions** in the toolbar to bulk download prompts. This is useful for migrating prompts between environments, sharing sets of prompts with other users, or keeping a point-in-time backup.
 
@@ -56,7 +62,7 @@ Use **Bulk Actions** in the toolbar to bulk download prompts. This is useful for
 
 ![ ](img/img_47_1.png)
 
-## Import
+#### Import
 
 Use **Import** in the toolbar to upload new or update existing prompts from external JSON files or ZIP archive. This is essential for migrating, restoring, or sharing prompt assets between DIAL users.
 
@@ -75,7 +81,7 @@ Use **Import** in the toolbar to upload new or update existing prompts from exte
 4. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all prompts will be imported directly into the root folder without recreating the original folder hierarchy.
 5. Click **Finish** to start.
 
-## Create
+#### Create
 
 Follow these steps to add a new prompt:
 
@@ -93,7 +99,7 @@ Follow these steps to add a new prompt:
 
    ![](img/img_33.png)
 
-## Delete
+#### Delete
 
 Click **Delete** in the toolbar on the Properties screen to permanently remove the selected prompt (or the selected versions) from your workspace. 
 
