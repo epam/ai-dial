@@ -76,7 +76,7 @@
  
 ### ai-dial-admin-deployment-manager-backend
 
-- Deployment manager: migrate to open source epam/ai-dial-admin-deployment-manager-backend:0.13.0
+- Deployment manager: migrate to open source epam/ai-dial-admin-deployment-manager-backend:0.13.1
 - Proxy images for deployment manager migrate to opensource: https://github.com/epam/ai-dial-deployment-manager-mcp-proxy. Replace `MCP_PROXY_EXECUTABLE_IMAGE_ALPINE` with  `ghcr.io/epam/ai-dial-deployment-manager-mcp-proxy:0.1.0-alpine` and `MCP_PROXY_EXECUTABLE_IMAGE_DEBIAN` with  `ghcr.io/epam/ai-dial-deployment-manager-mcp-proxy:0.1.0-debian`
 
 #### Changes made to environment variables
@@ -105,7 +105,7 @@ providers.auth0.audiences: "example-audience-id"
 providers.keycloak.jwk-set-uri: "https://example-keycloak.com/realms/Example/protocol/openid-connect/certs"
 providers.keycloak.issuer: "https://example-keycloak.com/realms/Example"
 providers.keycloak.role-claims: "example_roles"
-providers.keycloack.principal-claim: "example_roles"
+providers.keycloak.principal-claim: "example_roles"
 providers.keycloak.audiences: "example-ui, example-admin"
 providers.azure.jwk-set-uri: "https://example.microsoft.com/common/discovery/v2.0/keys"
 providers.azure.issuer: "example-issuer-id"
@@ -115,6 +115,15 @@ providers.azure.audiences: "example-audience-id"
 providers.azure.aliases: "login.microsoftonline.com, login.windows.net, login.microsoft.com, sts.windows.net, login.partner.microsoftonline.cn, login.chinacloudapi.cn, login.microsoftonline.de, login.microsoftonline.us, login.usgovcloudapi.net, login-us.microsoftonline.com"
 providers.azure.allowed-roles: "example-role-id"
 ```
+
+#### Model Serving (Preview)
+
+A new **Model Serving (Preview)** feature has been introduced. When the underlying model serving infrastructure (KServe/NIM) are not yet available, configure the service with:
+
+- `K8S_NIM_ENABLED: "false"`
+- `K8S_KSERVE_ENABLED: "false"`
+
+These settings ensure the service operates correctly in environments where model serving components are not yet ready or deployed.
 
 ### ai-dial-rag
 
