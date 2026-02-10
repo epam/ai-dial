@@ -90,7 +90,12 @@
 |`DIAL_ADMIN_CLIENT_ID`|`providers.<your_provider_name>.audiences`|Previously used as a unique identifier of the DIAL Admin Deployment Manager application. This environment variable was removed bacause it defined the same property as `SECURITY_JWT_ACCEPTED_AUDIENCES`.|
 |`SECURITY_JWT_ACCEPTED_AUDIENCES`|`providers.<your_provider_name>.audiences`|List of accepted JWT token audiences. Defines the intended recipients of the claim `aud` in JWT.|
 |`SECURITY_ROLES_CLAIM`|`providers.<your_provider_name>.role-claims`|JWT claim name for user roles defined for the specific identity provider.|
-|`SECURITY_ROLES_CLAIM`|`providers.<your_provider_name>.principal-claim`|Specific claim that uniquely identifies the user or service (the "principal") for whom the token was issued.|
+|`SECURITY_USER_CLAIM`|`providers.<your_provider_name>.principal-claim`|Specific claim that uniquely identifies the user or service (the "principal") for whom the token was issued.|
+
+**Note**: In this release, the following provider configuration properties have changed from optional to mandatory:
+* providers.<your_provider_name>.role-claims
+* providers.<your_provider_name>.principal-claim
+
 
 #### Added support for multiple identity providers
 
