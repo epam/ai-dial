@@ -116,7 +116,9 @@ The Related Containers tab displays all [MCP](/docs/tutorials/3.admin/deployment
 
 ##### Add containers
 
-You can associate containers with the selected image or its specific version. In this case, an added container will acquire in its configuration a version of a related image. **Note**: One container can be associated only with one version of an image.
+You can link containers to this image or a specific version of it. When you add a container here, it will automatically use the selected image version in its configuration. 
+
+**Note**: Every container must be linked to an image or image version. Once linked, you cannot remove the container from this list—you can only change which image it uses.
 
 1. Click **Add** to invoke the adding modal.
 2. In the modal, you can enable/disable the **Show containers related to this image** toggle to display containers related to this particular image or not.
