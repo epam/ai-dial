@@ -61,6 +61,8 @@ On the main screen, use the **Create** button to create Hugging Face or NIM mode
 
 Click any model serving from the main screen to open its configuration.
 
+> **Note**: Configuration fields are disabled when the container is in a transition state (launching or stopping).
+
 ### Actions
 
 In the header of the Configuration screen, you can find the following action buttons:
@@ -90,8 +92,6 @@ You can use a **running** model serving container to create a new model deployme
 ## Properties
 
 In the Properties tab, you can view and edit the selected model serving container settings.
-
-> **Note**: Configuration fields are disabled when the container is in a transition state (launching or stopping).
 
 | Property | Required | Editable | Description |
 |----------|----------|----------|-------------|
