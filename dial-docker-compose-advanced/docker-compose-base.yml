@@ -21,7 +21,7 @@ services:
     mem_limit: 2200M
 
   chat:
-    image: epam/ai-dial-chat:0.39.6
+    image: epam/ai-dial-chat:0.41.7
     platform: linux/amd64
     environment:
       AUTH_KEYCLOAK_CLIENT_ID: "dial-chat"
@@ -47,7 +47,7 @@ services:
     restart: always
 
   core:
-    image: epam/ai-dial-core:0.37.0
+    image: epam/ai-dial-core:0.39.2
     platform: linux/amd64
     environment:
       'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
@@ -78,7 +78,7 @@ services:
     restart: always
 
   adapter-openai:
-    image: epam/ai-dial-adapter-openai:0.33.0
+    image: epam/ai-dial-adapter-openai:0.36.1
     platform: linux/amd64
     environment:
       DALLE3_DEPLOYMENTS: "dall-e-3"
@@ -120,10 +120,11 @@ services:
     restart: always
 
   admin-backend:
-    image: epam/ai-dial-admin-backend:0.10.0
+    image: epam/ai-dial-admin-backend:0.13.0
     platform: linux/amd64
     user: root
     environment:
+      ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT: "true"
       CONFIG_EXPORT_OUTPUTFILE_PATH: /app/config/config.json
       CONFIG_REST_SECURITY_MODE: "oidc"
       CORE_CLIENT_URL: "http://core:8080"
@@ -136,12 +137,11 @@ services:
       H2_DATASOURCE_PASSWORD: ${H2_DATASOURCE_PASSWORD}
       H2_FILE: ./data/testdb
       METRICS_ENABLED: "false"
-      SECURITY_ALLOWED_ROLES: 'ConfigAdmin,admin'
-      SECURITY_JWT_ACCEPTED_AUDIENCES: '*'
-      SECURITY_JWT_ACCEPTED_ISSUERS: "http://${COMMON_HOST}:${KC_PORT}/realms/dial"
-      SECURITY_JWT_JWKS_URI: "http://keycloak:${KC_PORT}/realms/dial/protocol/openid-connect/certs"
-      SECURITY_ROLES_CLAIM: roles
-      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI: "http://keycloak:${KC_PORT}/realms/dial"
+      'providers.keycloak.allowed-roles': 'ConfigAdmin,admin'
+      'providers.keycloak.audiences': 'dial-admin-console'
+      'providers.keycloak.issuer': "http://${COMMON_HOST}:${KC_PORT}/realms/dial"
+      'providers.keycloak.jwk-set-uri': "http://keycloak:${KC_PORT}/realms/dial/protocol/openid-connect/certs"
+      'providers.keycloak.role-claims': roles
     volumes:
       - ${DIAL_DIR:-.}/admin/data:/app/data
       - ${DIAL_DIR:-.}/core:/app/config
@@ -157,7 +157,7 @@ services:
     restart: always
 
   admin-frontend:
-    image: epam/ai-dial-admin-frontend:0.10.0
+    image: epam/ai-dial-admin-frontend:0.13.0
     platform: linux/amd64
     environment:
       DIAL_ADMIN_API_URL: "http://admin-backend:8080/"
