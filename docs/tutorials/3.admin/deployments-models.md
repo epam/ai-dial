@@ -71,7 +71,7 @@ In the header of the Configuration screen, you can find the following action but
 |--------|-------------|
 | Create Model | Available for running model servings.<br />Click to create a new [model deployment](/docs/tutorials/3.admin/entities-models.md) using this selected model serving. |
 | Run/Stop | Click to start or stop the selected model serving. |
-| Delete | Click to delete the selected model serving. |
+| Delete | Click to delete the selected model serving container. **Note**: This will effect model deployments created based on the deleted container. |
 
 ![ ](img/model_serving_actions.png)
 
@@ -99,7 +99,7 @@ In the Properties tab, you can view and edit the selected model serving containe
 | Creation Time | - | No | Date and time when the model serving container was created. |
 | Updated Time | - | No | Date and time when the model serving container was last updated. |
 | Status | - | No | Current status of the model serving container. |
-| Restarts | - | No | Restart counter for launching containers. |
+| Restarts | - | No | Restart counter for launching containers. You can find details in the [Execution Log](#execution-log). |
 | URL | - | No | URL of the running container where the model is hosted. |
 | Display Name | Yes | Yes | Name of the model serving container rendered in UI. |
 | Description | No | Yes | Brief description of the model serving container. |

@@ -111,7 +111,7 @@ In the Properties tab, you can preview and modify selected container's basic pro
 | Updated Time | - | No | Date and time when the MCP container was last updated. |
 | Status | - | No | Current status of the MCP container (e.g., Running, Stopped). |
 | URL | - | No | The URL to access the running MCP container. |
-| Restarts | - | No | Restart counter for launching containers. Use to identify crash loops. |
+| Restarts | - | No | Restart counter for launching containers. Use to identify crash loops. You can find details in the [Execution Log](#execution-log). |
 | Display Name | Yes | Yes | Display name of the MCP container rendered in UI. |
 | Description | No | Yes | Brief description of the MCP container. |
 | Maintainer | No | Yes | Maintainer of the MCP container. |
