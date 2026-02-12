@@ -10,7 +10,7 @@ On the main screen, you can see all the available and add new images for MCP Ser
 
 ![](img/deployment_images.png)
 
-##### Images Grid
+##### Images grid
 
 | Column | Description |
 |--------|-------------|
@@ -25,7 +25,7 @@ On the main screen, you can see all the available and add new images for MCP Ser
 | Create time | Date and time when the image was created. |
 | Topics | List of topics associated with the image. |
 | Transport type | Transport type used by the MCP image:<br />- **Remote** (HTTP/SSE)<br />- **Local** (STDIO). |
-| Actions | Buttons to manage the selected image:<br/>- **Delete**: click to remove the image.<br/>- **Duplicate**: click to create a copy of the image.<br/>- **Open in a new tab**: click to open image properties in a new tab in your browser. |
+| Actions | Buttons to manage the selected image:<br/>- **Delete**: Use to remove the image.<br/>- **Duplicate**: Use to create a copy of the image.<br/>- **Open in a new tab**: Use to open image properties in a new tab in your browser. |
 
 ## Add Image
 
@@ -53,6 +53,8 @@ On the main screen, you can add new images for MCP Servers and Interceptors.
 On the main screen, click **Global firewall** to define a list of domain names allowed to access all deployed images. This is a security feature that restricts incoming requests, so only trusted domains (such as your company’s website or specific client applications) have access.
 
 **Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters.
+
+![ ](img/images_global_firewall.png)
 
 ## Configuration
 
@@ -102,11 +104,11 @@ In the Properties tab, you can preview and modify selected image's basic propert
 
 ### Firewall settings 
 
-In this section, you can define a list of authorized domain names.
+In this section, you can define a list of authorized domain names for the selected image and preview a list of [globally-authorized](#global-firewall) domain names.
 
 **Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters.
 
-![ ](img/model_servings_firewall.png)
+![ ](img/image-firewall.png)
 
 ### Related Containers
 

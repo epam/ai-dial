@@ -44,6 +44,8 @@ On the main screen, you can view existing and add new AI model servings.
 
 On the main screen, use the **Create** button to create Hugging Face or NIM model servings.
 
+![](img/create-model-serving.png)
+
 ##### To create a new model serving:
 
 1. Click the **Create** button on the main screen and select which type of model serving you want to create.
@@ -81,8 +83,8 @@ You can use a **running** model serving container to create a new model deployme
 
 1. In the Configuration screen of the running model serving, click the **Create Model** button in the header.
 2. In the Create Model dialog, fill in the form fields:
-   - **ID**: Unique identifier for the model deployment.
-   - **Display Name**: Enter a name for the model deployment.
+   - **ID**: Unique identifier for the model deployment. Auto-populated according to the selected model serving.
+   - **Display Name**: Enter a name for the model deployment. Auto-populated according to the selected model serving.
    - **Display Version**: Specify a version of the model deployment.
    - **Description**: Provide a brief description of the model deployment.
 3. Click the **Create** button to submit the form and create the model deployment. Repeat these steps to create more model deployments if needed.
@@ -122,15 +124,19 @@ In the Properties tab, you can view and edit the selected model serving containe
 
 A whitelist domains setting in your model serving container configuration specifies which domains are allowed to access the model's API or service. This is a security feature that restricts incoming requests, so only trusted domains (such as your company’s website or specific client applications) can interact with the model.
 
+> Refer to [Global Firewall](/docs/tutorials/3.admin/deployments-images.md#global-firewall) to learn how to define authorized domain names for all images.
+
 **Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters.
 
 ![ ](img/model_servings_firewall.png)
 
 ## Execution log
 
-In the Execution Log tab, you can view the logs related to the operations and activities of the selected model serving.
+In the Execution Log tab, you can view the logs related to the operations and activities of the selected model serving container.
 
-Use model serving container health indicators to identify problems:
+![ ](img/model_servings_execution_log.png)
+
+In case of issues, health indicators are displayed to help identify problems:
 
 | Indicator | Description |
 |-----------|-------------|
@@ -138,7 +144,7 @@ Use model serving container health indicators to identify problems:
 | Last restarted at | Timestamp of the last model serving restart. |
 | Last reason | Restart failure reason. |
 
-![ ](img/model_servings_execution_log.png)
+![ ](img/model_serving_log.png)
 
 ## Events
 

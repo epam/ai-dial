@@ -1,4 +1,4 @@
-# MCP Deployments
+# MCP Containers
 
 ## Introduction
 
@@ -24,16 +24,16 @@ On the main screen, you can see a list of all MCP containers along with their cu
 
 | Column | Description |
 |--------|-------------|
-| Display Name | Display name of the MCP container rendered in UI. |
+| Display Name | Name of the MCP container rendered on UI. |
 | Description | Brief description of the MCP container. |
-| MCP Image | Image from which the MCP container was created. |
+| MCP Image | Name of the image from which the MCP container was created. |
 | Status | Current status of the MCP container (e.g., Running, Stopped). |
 | ID | Unique identifier of the MCP container. |
 | Container URL | URL to access the MCP container. |
 | Maintainer | Maintainer of the MCP container. |
 | Create time | Date and time when the MCP container was created. |
 | Update time | Date and time when the MCP container was last updated. |
-| Actions | Buttons to manage the selected MCP container:<br/>- **Open in a new tab**: click to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate** - click to duplicate the MCP container.<br/>- **Stop/Run**: click to start and stop a container.<br/>- **Delete**: click to remove the container. |
+| Actions | Buttons to manage the selected MCP container:<br/>- **Open in a new tab**: Use to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: Use to duplicate the MCP container.<br/>- **Stop/Run**: Use to start and stop a container.<br/>- **Delete**: Use to remove the container. |
 
 ## Create
 
@@ -70,12 +70,12 @@ In the header of the Configuration screen, you can find the following action but
 
 ### Create Toolset
 
-You can create a new toolset based on the running MCP container. The created toolset will use the MCP container as its source and appear in the Toolsets list on the [Entities - Toolsets](/docs/tutorials/3.admin/entities-toolsets.md) page.
+You can create a new toolset based on the running MCP container. The created toolset will use the MCP container as its source and appear in [Entities/Toolsets](/docs/tutorials/3.admin/entities-toolsets.md).
 
 1. In the Configuration screen of the running MCP container, click the **Create** button in the header and select **Toolset** from the dropdown.
 2. In the Create Toolsets dialog, fill in the form fields:
-    - **ID**: Unique identifier for the toolset.
-    - **Display Name**: Enter a name for the toolset.
+    - **ID**: Unique identifier for the toolset. Auto-populated according to the selected MCP container.
+    - **Display Name**: Enter a name for the toolset. Auto-populated according to the selected MCP container.
     - **Description**: Provide a brief description of the toolset.
 3. Click the **Create** button to submit the form and create the toolset.
 
@@ -83,16 +83,18 @@ You can create a new toolset based on the running MCP container. The created too
 
 ### Create Asset Toolset
 
-You can create a new asset toolset based on the running MCP container. The created asset toolset will use the MCP container as its source and appear in the Asset Toolsets list on the [Assets - Toolsets](/docs/tutorials/3.admin/assets-toolsets.md) page.
+> Assets are stored in the Public folder in DIAL file system. All authorized users have access to this folder. Objects can be placed in sub-folders, which can have specific access rules applied to them. You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md).
+
+You can create a new asset toolset based on the running MCP container. The created asset toolset will use the MCP container as its source and appear in [Assets/Toolsets](/docs/tutorials/3.admin/assets-toolsets.md).
 
 1. In the Configuration screen of the running MCP container, click the **Create** button in the header and select **Asset Toolset** from the dropdown.
-2. In the Create Asset Toolsets dialog, fill in the form fields:    
-    - **ID**: Unique identifier for the asset toolset.
-    - **Display Name**: Enter a name for the asset toolset.
+2. In the Create Asset Toolsets dialog, fill in the form fields:
+    - **Folder Storage**: Select a folder for the asset toolset in the Public storage.  
+    - **ID**: Unique identifier for the asset toolset. Auto-populated according to the selected MCP container.
+    - **Display Name**: Enter a name for the asset toolset. Auto-populated according to the selected MCP container.
     - **Version**: Specify a version of the asset toolset.
     - **Description**: Provide a brief description of the asset toolset.
     - **External Endpoint**: Specify an external endpoint for the asset toolset.
-    - **Target folder**: Specify the target folder for the asset toolset.
 3. Click the **Create** button to submit the form and create the asset toolset.
 
 ![ ](img/create_asset_toolset-deployment.png)
@@ -129,9 +131,11 @@ In the Properties tab, you can preview and modify selected container's basic pro
 
 A whitelist domains setting in your MCP container configuration specifies which domains are allowed to access the service. This is a security feature that restricts incoming requests, so only trusted domains (such as your company’s website or specific client applications) can interact with the MCP server.
 
+> Refer to [Global Firewall](/docs/tutorials/3.admin/deployments-images.md#global-firewall) to learn how to define authorized domain names for all images.
+
 **Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters.
 
-![ ](img/model_servings_firewall.png)
+![ ](img/mcp-firewall.png)
 
 ### Tools Overview
 
@@ -157,7 +161,9 @@ Pre-defined by MCP server templates or instructions that guide language model in
 
 The Execution Log tab provides real-time visibility into the operations of your MCP container. Here you can view the chronological output generated during container execution, including status messages, errors, and operational events. This information is invaluable for monitoring container health, diagnosing issues, and verifying proper functionality. Use this log to quickly identify and troubleshoot problems that may occur during the operation of your MCP server.
 
-Use MCP server container health indicators to identify problems:
+![](img/mcp_container_execution_log.png)
+
+In case of issues, health indicators are displayed to help identify problems:
 
 | Indicator | Description |
 |-----------|-------------|
@@ -165,7 +171,7 @@ Use MCP server container health indicators to identify problems:
 | Last restarted at | Timestamp of the last container restart. |
 | Last reason | Restart failure reason. |
 
-![](img/mcp_container_execution_log.png)
+![](img/mcp_log.png)
 
 ### Events
 
