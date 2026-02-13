@@ -40,7 +40,7 @@ Follow these steps to create a new role:
     | **Display Name** | Yes | Name shown in the UI for the role. |
     | **Description** | No | Optional text describing the role (e.g., "Business User role for the Data Extraction app"). |
 
-3. Once all required fields are filled, click **Create**. The dialog closes and the new [role configuration](#role-configuration) screen is opened. A new role entry will appear immediately in the listing once created.
+3. Once all required fields are filled, click **Create**. The dialog closes and the new [role configuration](#configuration) screen is opened. A new role entry will appear immediately in the listing once created.
 
     ![](img/img_38.png)
 
@@ -121,7 +121,7 @@ In the Keys tab, you can assign [API keys](/docs/tutorials/3.admin/access-manage
 | Action | Description | 
 |--------|-------------|
 | Add | Use to add API keys which the selected role can use. |
-| Remove | Use to disconnect the selected role from API keys. To delete API key, go to [Access Management → Keys](/docs/tutorials/3.admin/access-management-keys.md) section. | 
+| Remove | Use to disconnect the selected role from API keys. To delete API key, go to [Keys](/docs/tutorials/3.admin/access-management-keys.md). | 
 
 ### Audit
 
