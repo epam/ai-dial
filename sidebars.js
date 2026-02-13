@@ -608,18 +608,18 @@ const sidebars = {
                   items: [
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/deployments-models',
+                      label: 'Model Servings',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/deployments-mcp',
-                      label: 'MCP Deployments',
+                      label: 'MCP Containers',
                     },
                     {
                       type: 'doc',
                       id: 'tutorials/admin/deployments-interceptors',
-                      label: 'Interceptor Deployments',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'tutorials/admin/deployments-models',
-                      label: 'Model Servings',
+                      label: 'Interceptor Containers',
                     },
                     {
                       type: 'doc',
