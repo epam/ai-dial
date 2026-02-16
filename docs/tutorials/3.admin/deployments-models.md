@@ -122,9 +122,7 @@ In the Properties tab, you can view and edit the selected model serving containe
 
 ## Firewall settings 
 
-A whitelist domains setting in your model serving container configuration specifies which domains are allowed to access the model's API or service. This is a security feature that restricts incoming requests, so only trusted domains (such as your company’s website or specific client applications) can interact with the model.
-
-> Refer to [Global Firewall](/docs/tutorials/3.admin/deployments-images.md#global-firewall) to learn how to define authorized domain names for all images.
+The whitelist domains setting specifies which external domains the model serving container is allowed to connect to. This setting controls outgoing traffic from the container, ensuring that it can only communicate with trusted domains (for example, your company’s website or specific client applications).
 
 **Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters.
 

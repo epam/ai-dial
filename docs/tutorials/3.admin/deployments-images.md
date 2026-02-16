@@ -50,7 +50,11 @@ On the main screen, you can add new images for MCP Servers and Interceptors.
 
 ## Global firewall
 
-On the main screen, click **Global firewall** to define a list of domain names allowed to access all deployed images. This is a security feature that restricts incoming requests, so only trusted domains (such as your company’s website or specific client applications) have access.
+Global firewall settings define a list of authorized domain names that apply to the build process of all images within the environment. These settings control which external domains or resources any image build can access, ensuring a consistent security policy across all image builds.
+
+By enforcing these restrictions globally, you can prevent unauthorized or unintended network connections during the creation of any image, regardless of individual image configurations.
+
+> Refer to [Firewall settings](#firewall-settings) to configure additional authorized domain names for a specific image.
 
 **Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters.
 
@@ -104,7 +108,11 @@ In the Properties tab, you can preview and modify selected image's basic propert
 
 ### Firewall settings 
 
-In this section, you can define a list of authorized domain names for the selected image and preview a list of [globally-authorized](#global-firewall) domain names.
+The whitelist domains setting specifies which external resources the image build process can access. These settings are relevant only while the image is being created — for example, to restrict which domains or repositories can be reached when installing dependencies or downloading files.
+
+> **Note**: Firewall settings defined for a specific image apply in addition to the [Global firewall settings](#global-firewall).
+
+> **Note**: These firewall rules do not affect containers that are later created from the image. Containers can have their own firewall settings.
 
 **Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters.
 
