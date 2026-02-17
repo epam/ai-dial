@@ -161,6 +161,10 @@ The Execution Log tab provides real-time visibility into the operations of your 
 
 ![](img/mcp_container_execution_log.png)
 
+When container starts with more than one pod, you can see logs for each of them: 
+
+![](img/mcp_log_pods.png)
+
 In case of issues, health indicators are displayed to help identify problems:
 
 | Indicator | Description |
