@@ -1,43 +1,59 @@
 # Activity Audit
 
-## About Activity Audit
+## Introduction
 
-The Activity Audit page is your system-wide "black box recorder". It captures every change anyone makes in the Admin Panel (who, what, and when) so you could trace, verify, and, if needed, roll back any action.
+The Activity Audit page serves as your system-wide "black box recorder," providing complete visibility into every administrative action performed within DIAL. This comprehensive audit trail captures the full lifecycle of changes—tracking who initiated each action, what resources were modified, and precisely when these changes occurred.
 
-## Activity Audit List
+With Activity Audit, you can:
 
-On the main Activity Audit screen, you can view all events that has happened in DIAL Admin Panel.
+* **Trace modifications** across all resource types (models, applications, roles, interceptors, and more)
+* **Verify compliance** by reviewing detailed before-and-after comparisons of configuration changes
+* **Investigate issues** by drilling down into individual events with timestamped, user-attributed records
+* **Restore stability** through granular resource rollback or system-wide state restoration
+
+Whether you're troubleshooting unexpected behavior, conducting security reviews, or maintaining regulatory compliance, Activity Audit gives you the forensic detail and recovery capabilities needed to manage your DIAL deployment with confidence.
+
+## Main Screen
+
+On the main screen, you can view all events that has happened in DIAL Admin Panel.
 
 ##### Top Bar Controls
 
 * **Time Period** filter: A dropdown control that scopes the Activity-Audit table to a custom period range.
 * **Refresh** button: Manually refreshes the entries on the page honoring all active filters and the selected **Time Period** to pull the latest audit events
+* **System Rollback**: Use to restore a specific state of the entire system.
 
 ![](img/img_66.png)
 
-| Name                | Required | Definition                                                                                           |
-|---------------------|-----------|------------------------------------------------------------------------------------------------------|
-| Activity type       | Yes       | The action performed on the resource (e.g., **Create**, **Update**, **Delete**).                     |
-| Resource type       | Yes       | The category of the object affected (e.g., **Model**, **Interceptor**, **Role**, **Application**, etc.). |
-| Resource identifier | Yes       | A user-friendly name or deployment Id of the specific resource that was acted upon.                   |
-| Time                | Yes       | Timestamp of the change.                                       |
-| Initiated           | Yes       | A user who triggered the action (e-mail); may show system e-mail for automated events.                 |
-| Activity ID         | Yes       | Immutable UUID that uniquely identifies the audit event.                                             |
+| Name | Description |
+|----- |-------------|
+| **Activity type** | Action performed on the resource (e.g., **Create**, **Update**, **Delete**). |
+| **Resource type** | Category of the object affected (e.g., **Model**, **Interceptor**, **Role**, **Application**, etc.). |
+| **Resource identifier** | Identifier of the specific resource that was acted upon. |
+| **Time** | Timestamp of the change. |
+| **Initiated** | E-mail of the user who triggered action. |
+| **Activity ID** | Immutable UUID that uniquely identifies the audit event. |
+
+### Activity Details
+
+Click any activity on the main screen to open a comprehensive drill-down view that provides forensic-level insight into resource modifications. This panel enables you to:
+
+* **Inspect precise changes** through a side-by-side before/after comparison showing exactly which fields were added, modified, or removed
+* **Verify user accountability** by reviewing who initiated the change and when it was committed to the system
+* **Understand change context** with categorized groupings (Features, Roles, Interceptors, etc.) that organize modifications by logical section
+* **Restore previous states** using one-click resource rollback to revert unwanted changes
+
+The Activity Details view serves as both an investigative tool for troubleshooting and a recovery mechanism for maintaining system stability.
 
 
-### Entry Details
-
-The Activity-Audit Entry page is the detailed drill-down for a single audit event.
-It lets you inspect exactly what changed in a resource, who did it, and when, with a side-by-side "before/after" diff that can be rolled back with one click.
-
-| Name                | Required | Definition                                                                                           |
-|---------------------|-----------|------------------------------------------------------------------------------------------------------|
-| Activity type       | Yes       | The action performed on the resource (e.g., **Create**, **Update**, **Delete**).                     |
-| Resource type       | Yes       | The category of the object affected (e.g., **Model**, **Interceptor**, **Role**, **Application**, etc.). |
-| Resource identifier | Yes       | A user-friendly name or deployment Id of the specific resource that was acted upon.                   |
-| Time                | Yes       | Timestamp when the platform successfully committed the change.                                       |
-| Initiated           | Yes       | A user who triggered the action (e-mail); may show system e-mail for automated events.                 |
-| Activity ID         | Yes       | Immutable UUID that uniquely identifies the audit event.                                             |
+| Name | Required | Description |
+|------|----------|-------------|
+| Activity type | Yes | The action performed on the resource (e.g., **Create**, **Update**, **Delete**). |
+| Resource type | Yes | The category of the object affected (e.g., **Model**, **Interceptor**, **Role**, **Application**, etc.). |
+| Resource identifier | Yes | A user-friendly name or deployment Id of the specific resource that was acted upon. |
+| Time | Yes | Timestamp when the platform successfully committed the change. |
+| Initiated | Yes | A user who triggered the action (e-mail); may show system e-mail for automated events. |
+| Activity ID | Yes | Immutable UUID that uniquely identifies the audit event. |
 
 
 #### Review Changes
