@@ -10,7 +10,7 @@ jobs:
     name: Cookbook notebooks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           submodules: true
       - uses: isbang/compose-action@4894d2492015c1774ee5a13a95b1072093087ec3 # v2.5.0
@@ -23,7 +23,7 @@ jobs:
     name: Quickstart model
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - uses: isbang/compose-action@4894d2492015c1774ee5a13a95b1072093087ec3 # v2.5.0
         name: Run quickstart model example
         with:
@@ -34,7 +34,7 @@ jobs:
     name: Quickstart application
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - uses: isbang/compose-action@4894d2492015c1774ee5a13a95b1072093087ec3 # v2.5.0
         with:
           cwd: "./dial-docker-compose/ci/application"
@@ -44,7 +44,7 @@ jobs:
     name: Quickstart addon
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - uses: isbang/compose-action@4894d2492015c1774ee5a13a95b1072093087ec3 # v2.5.0
         with:
           cwd: "./dial-docker-compose/ci/addon"
@@ -54,7 +54,7 @@ jobs:
     name: Quickstart self-hosted model (Ollama)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Docker Compose pull
         shell: bash
         run: |
@@ -75,7 +75,7 @@ jobs:
       - run-quickstart-self-hosted-model-ollama
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
           node-version: 22
