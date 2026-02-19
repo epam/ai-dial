@@ -2,13 +2,13 @@
 
 ## Introduction
 
-DIAL-native applications adhere to the [unified protocol](/docs/platform/3.core/0.about-core.md#unified-api) of DIAL, a single protocol for all applications and models deployed in a specific DIAL instance. 
+In DIAL, applications created by users (either using DIAL Core API or UI) are stored in a private folder of a dedicated user in the file storage and are not accessible by anyone but the application author (owner). To enable other users to access them, based on explicitly defined access rules, applications can be published (or manually placed in the Public folder by administrators).
 
-> Refer to [DIAL Core](/docs/platform/3.core/7.apps.md) to learn more about applications in DIAL.
+> Refer to [Entities/Applications](/docs/tutorials/3.admin/entities-applications.md) to learn about applications in DIAL.
 
 ## Main Screen
 
-Applications, when added via DIAL Core configuration files or published by users are placed in the Public folder. The main screen displays all the applications available in Public folder in DIAL. 
+The Assets/Applications screen displays all applications located in the Public folder in DIAL file storage. Applications get to the Public folder when published by users or added by administrators.
 
 > Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to lean more about Private and Public logical spaces for objects storage in DIAL. 
 
@@ -16,7 +16,7 @@ Applications, when added via DIAL Core configuration files or published by users
 
 ##### Folders Structure
 
-Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public space. 
+Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public folder. 
 
 | Element | Description |
 |---------|-------------|
