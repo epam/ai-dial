@@ -28,7 +28,7 @@ On this screen, you can find all API keys defined in your instance of DIAL. Here
 | **Creation time** | Key's creation timestamp. |
 | **Updated time** | Timestamp of the latest change. |
 | **Key generation time** | Timestamp of the key's secret value generation. |
-| **Expiration time** | Keys' expiration timestamp. |
+| **Expiration time** | Key's expiration timestamp. Setting expirations enforces regular key rotation. |
 | **Status** | Current validity status of the key. A key is **invalid** in cases when there are no roles assigned to it, or its secret value is missing or is expired. |
 | **Project** | Name of the project the key was created for. |
 | **Project contact point** | Email of the responsible person or group. |
@@ -91,15 +91,15 @@ In the Properties tab, you can view metadata and manage the selected settings fo
 | **Updated Time** | - | Timestamp of the last update. |
 | **Creation Time** | - | Key's creation timestamp. |
 | **Key Generation Time** | - | Timestamp of the key's secret value generation. |
-| **Expiration Time** | - | Keys' expiration timestamp. Setting expirations enforces regular key rotation. |
+| **Expiration Time** | - | Key's expiration timestamp. Setting expirations enforces regular key rotation. |
 | **Status** | - | Current validity status of the key. A key is **invalid** in cases when there are no roles assigned to it, or its secret value is missing or is expired. |
 | **Display Name** | Yes | Name of the key displayed on UI. |
 | **Description** | No | Description of the key. |
 | **Project** | Yes | Name of the project the key was created for. |
 | **Project contact point** | No | Email of the responsible person or group. |
 | **Key value** | Yes | Secret string used for authentication.<br />Initially hidden - click **👁️** to reveal.<br />Press **Copy** to copy it to clipboard. |
-| **Secured** | Yes | Toggle to make the key a [secured API key](/docs/platform/3.core/4.privacy.md#applications-audit-logs). |
-| **Topics** | No | Tags assigned to the key (e.g. "admin", "user"). Helps to split keys into categories for better navigation on UI. |
+| **Secured** | Yes | Indication if it is [secured API key](/docs/platform/3.core/4.privacy.md#applications-audit-logs). |
+| **Topics** | No | Tags assigned to the key (e.g. "admin", "user"). |
 
 ![](img/keys-properties.png)
 

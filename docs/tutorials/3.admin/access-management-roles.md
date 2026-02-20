@@ -76,16 +76,16 @@ In the Properties tab, you can define the identity and metadata for the role. Th
 
 In the Entities tab, you can assign which [Models](/docs/tutorials/3.admin/entities-models.md), [Applications](/docs/tutorials/3.admin/entities-applications.md), [Toolsets](/docs/tutorials/3.admin/entities-toolsets.md) or [Routes](/docs/tutorials/3.admin/entities-routes.md) this role can access, and within which rate limits.
 
-| Column | Definition |
-|--------|------------|
-| **ID** | Unique role's identifier. |
-| **Display Name** | Role's name displayed on UI. |
-| **Description** | Description of the given role. |
-| **Type** | Resource category: one of [Models](/docs/tutorials/3.admin/entities-models.md), [Applications](/docs/tutorials/3.admin/entities-applications.md), [Toolsets](/docs/tutorials/3.admin/entities-toolsets.md) or [Routes](/docs/tutorials/3.admin/entities-routes.md). |
-| **Tokens per minute** | Maximum number of tokens this role may consume per minute when calling this resource. <br />Available to applications and models. |
-| **Tokens per day** | Maximum number of tokens this role may consume per day when calling this resource. <br />Available to applications and models. |
-| **Tokens per week** | Maximum number of tokens this role may consume per week when calling this resource. <br />Available to applications and models. |
-| **Tokens per month** | Maximum number of tokens this role may consume per month when calling this resource. <br />Available to applications and models. |
+| Column | Description |
+|--------|-------------|
+| **ID** | Unique entity's identifier. |
+| **Display Name** | Entity's name displayed on UI. |
+| **Description** | Description of the given entity. |
+| **Type** | Entity category: one of [Models](/docs/tutorials/3.admin/entities-models.md), [Applications](/docs/tutorials/3.admin/entities-applications.md), [Toolsets](/docs/tutorials/3.admin/entities-toolsets.md) or [Routes](/docs/tutorials/3.admin/entities-routes.md). |
+| **Tokens per minute** | Maximum number of tokens this role may consume per minute when calling a given entity. <br />Available to applications and models. |
+| **Tokens per day** | Maximum number of tokens this role may consume per day when calling a given entity. <br />Available to applications and models. |
+| **Tokens per week** | Maximum number of tokens this role may consume per week when calling a given entity. <br />Available to applications and models. |
+| **Tokens per month** | Maximum number of tokens this role may consume per month when calling a given entity. <br />Available to applications and models. |
 
 ![ ](img/roles-entities.png)
 
@@ -94,7 +94,7 @@ In the Entities tab, you can assign which [Models](/docs/tutorials/3.admin/entit
 | Action | Description | 
 |--------|-------------|
 | Add | Use to add a new entity which the selected role can access. |
-| Remove | Use to remove entities and disable role's access to them. | 
+| Remove | Use to remove entities from the list to disable role's access to them. | 
 | Set unlimited | Use to set an unlimited token usage for selected entities. <br />Available to applications and models. |
 
 ### Keys
@@ -108,9 +108,9 @@ In the Keys tab, you can assign [API keys](/docs/tutorials/3.admin/access-manage
 | ID | Unique key identifier. |
 | Creation time | Key's creation timestamp. |
 | Key generation time | Timestamp of the key's secret value generation. |
-| Expiration time | Key's expiration timestamp. Blank means no expiration (i.e. permanent until manually revoked). |
+| Expiration time | Key's expiration timestamp. Setting expirations enforces regular key rotation. Blank means no expiration (i.e. permanent until manually revoked). |
 | Status | Current validity status of the key. A key is **invalid** in cases when there are no roles assigned to it, or its secret value is missing or is expired. |
-| Topics | Semantic tags associated with a key. |
+| Topics | Tags assigned to the key (e.g. "admin", "user"). |
 | Updated time | Timestamp of the last update. |
 | Project | Name of the project the key was created for. |
 
