@@ -25,12 +25,12 @@ On this screen, you can find all API keys defined in your instance of DIAL. Here
 | **ID** | Unique key identifier. |
 | **Display Name** | Name of the key displayed on UI. |
 | **Description** | Description of the key. |
-| **Creation time** | Date and time when the key artefact was created in DIAL. |
+| **Creation time** | Key's creation timestamp. |
 | **Updated time** | Timestamp of the latest change. |
-| **Key generation time** | Timestamp of the secret value generation. |
-| **Expiration time** | Key's expiration timestamp. Setting expirations enforces regular key rotation. |
-| **Status** | Current status of the key. A key is **invalid** in cases when there are no roles assigned to it, or its secret value is missing or is expired. |
-| **Project** | Name of the project the key is associated with. |
+| **Key generation time** | Timestamp of the key's secret value generation. |
+| **Expiration time** | Keys' expiration timestamp. |
+| **Status** | Current validity status of the key. A key is **invalid** in cases when there are no roles assigned to it, or its secret value is missing or is expired. |
+| **Project** | Name of the project the key was created for. |
 | **Project contact point** | Email of the responsible person or group. |
 | **Secured** | Indication if it is [secured API key](/docs/platform/3.core/4.privacy.md#applications-audit-logs). |
 | **Topics** | Tags assigned to the key (e.g. "admin", "user"). |
@@ -47,7 +47,7 @@ Follow these steps to create a new API key:
     | **ID** | Yes | Unique key identifier. Click Generate to automatically create unique GUID. |
     | **Display Name** | Yes | Name of the key displayed on UI. |
     | **Description** | No | Description of the key. |
-    | **Project** | Yes | Logical project or department grouping (e.g. "AnalyticsTeam").<br />Helps organize keys and apply cost/usage reporting by project. |
+    | **Project** | Yes | Name of the project the key was created for. |
     | **Key value** | Yes | Secret string used for authentication.<br />Initially hidden; click **👁️** to reveal.<br />Press **Generate** to have its value automatically generated in GUID format.<br />Can be changed in [Properties](#properties). |
     | **Validity Period** | Yes | Key's expiration time period. Use to enforce credential rotation and retirement. |
 
@@ -87,19 +87,19 @@ In the Properties tab, you can view metadata and manage the selected settings fo
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| **ID** | - | Unique key's identifier. |
+| **ID** | - | Unique key identifier. |
 | **Updated Time** | - | Timestamp of the last update. |
-| **Creation Time** | - | Creation timestamp. |
-| **Key Generation Time** | - | Timestamp of the last generation of the key's secret value. |
-| **Expiration Time** | - | Keys' expiration timestamp. |
-| **Status** | - | Indicates the validity status of a key.<br /> A key is **invalid** in cases when there are no roles assigned to it, or its secret value is missing or is expired. |
+| **Creation Time** | - | Key's creation timestamp. |
+| **Key Generation Time** | - | Timestamp of the key's secret value generation. |
+| **Expiration Time** | - | Keys' expiration timestamp. Setting expirations enforces regular key rotation. |
+| **Status** | - | Current validity status of the key. A key is **invalid** in cases when there are no roles assigned to it, or its secret value is missing or is expired. |
 | **Display Name** | Yes | Name of the key displayed on UI. |
 | **Description** | No | Description of the key. |
-| **Project** | Yes | Logical project or department grouping (e.g. "QH", "AnalyticsTeam").<br />Helps organize keys and apply cost/usage reporting by project. |
+| **Project** | Yes | Name of the project the key was created for. |
 | **Project contact point** | No | Email of the responsible person or group. |
 | **Key value** | Yes | Secret string used for authentication.<br />Initially hidden - click **👁️** to reveal.<br />Press **Copy** to copy it to clipboard. |
 | **Secured** | Yes | Toggle to make the key a [secured API key](/docs/platform/3.core/4.privacy.md#applications-audit-logs). |
-| **Topics** | No | Tags that you can assign to keys (e.g. "admin", "user"). Helps to split keys into categories for better navigation on UI. |
+| **Topics** | No | Tags assigned to the key (e.g. "admin", "user"). Helps to split keys into categories for better navigation on UI. |
 
 ![](img/keys-properties.png)
 
@@ -138,7 +138,7 @@ The Activities section provides detailed visibility into all changes made to the
 
 ![](img/keys_json.png)
 
-In JSON editor, you can use the view dropdown to select between Admin format and Core format. Note, that these formatting options are for your convenience only and do not render properties as they are defined in DIAL Core. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.
+In JSON editor, you can use the view dropdown to select between Admin format and Core format. Note, that these formatting options are for your convenience only and do not render properties as they are defined in DIAL Core.
 
 ##### Working with JSON Editor
 
@@ -146,4 +146,3 @@ In JSON editor, you can use the view dropdown to select between Admin format and
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 3. Chose between the Admin and Core format to see and work with properties in the necessary format. **Note**: Core format view mode does not render the actual configuration stored in DIAL Core but the configuration in Admin service displayed in the DIAL Core format.
 4. Make changes and click **Save** to apply them.
-5. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.

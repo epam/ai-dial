@@ -21,10 +21,10 @@ On this screen, you can find all roles defined in your instance of DIAL. Here, y
 
 | Column | Description |
 |--------|-------------|
-| **ID**| Unique identifier of a role. |
+| **ID**| Unique role's identifier. |
 | **Display Name** | Role's name displayed on UI. |
-| **Description**  | Description of a role (e.g. "Business User role for the Data Extraction application"). |
-| **Updated Time** | Date and time when the role's configuration was last updated. |
+| **Description**  | Description of the given role. |
+| **Updated Time** | Last update timestamp. |
 | **Topics** | Semantic tags assigned to roles (e.g. "admin", "user"). |
 
 ## Create Role
@@ -36,9 +36,9 @@ Follow these steps to create a new role:
 
     | Field | Required | Description |
     |-------|----------|-------------|
-    | **ID** | Yes | Unique identifier for the role. |
-    | **Display Name** | Yes | Name shown in the UI for the role. |
-    | **Description** | No | Optional text describing the role (e.g., "Business User role for the Data Extraction app"). |
+    | **ID** | Yes | Unique role's identifier. |
+    | **Display Name** | Yes | Role's name displayed on UI. |
+    | **Description** | No | Description of the given role. |
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new [role configuration](#configuration) screen is opened. A new role entry will appear immediately in the listing once created.
 
@@ -61,12 +61,12 @@ In the Properties tab, you can define the identity and metadata for the role. Th
 | Field | Required | Description |
 |-------|----------|-------------|
 | **ID** | - | Unique role's identifier. |
-| **Updated Time** | - | Date and time when the role's configuration was last updated. |
-| **Creation Time** | - | Date and time when the role's configuration was created. |
+| **Updated Time** | - | Last update timestamp. |
+| **Creation Time** | - | Creation timestamp. |
 | **Sync with core** | - | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
-| **Display Name** | Yes | Name of the role displayed on UI. |
-| **Description** | No | Optional description of a role. |
-| **Topics** | No | Tags that you can assign to roles (e.g. "admin", "user"). Helps to split roles into categories for better navigation on UI. |
+| **Display Name** | Yes | Role's name displayed on UI. |
+| **Description** | No | Description of the given role. |
+| **Topics** | No | Semantic tags assigned to roles (e.g. "admin", "user"). |
 | **Set cost limits** | No | These settings allow configuring [token usage limitations](/docs/platform/3.core/8.token-limits-and-cost-control.md#token-rate-limiting).<br />**Available values**: Tokens per minute, Tokens per day, Tokens per week, Tokens per month.<br />In case limitations for a specific role are not set, the limitations configured for the **default** role apply. In case limitations for the **default** role are not set, the value is unlimited.<br />Refer to [DIAL Core documentation](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/roles.md) to learn more about available usage and cost limitations for roles. |
 | **Sharing** | No | Use to set the [sharing limits](/docs/tutorials/1.developers/1.work-with-resources/1.sharing.md) that apply for specific types of resources in DIAL.<br />**Expiration time** refers to TTL of the sharing link. Default: 72 hrs.<br />**Max users** refers to the maximum number of users who can accept a sharing link for a resource being shared. The limit is applied to the shared resource. Default: 10 for APPLICATION and UNLIMITED for other resource types.<br />Refer to [DIAL Core documentation](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/roles.md#rolesrole_nameshare) to learn more about sharing limitations. |
 
@@ -78,9 +78,9 @@ In the Entities tab, you can assign which [Models](/docs/tutorials/3.admin/entit
 
 | Column | Definition |
 |--------|------------|
-| **ID** | Unique identifier of a role. |
-| **Display Name** | Name of a role displayed on UI. |
-| **Description** | A brief description of a role. |
+| **ID** | Unique role's identifier. |
+| **Display Name** | Role's name displayed on UI. |
+| **Description** | Description of the given role. |
 | **Type** | Resource category: one of [Models](/docs/tutorials/3.admin/entities-models.md), [Applications](/docs/tutorials/3.admin/entities-applications.md), [Toolsets](/docs/tutorials/3.admin/entities-toolsets.md) or [Routes](/docs/tutorials/3.admin/entities-routes.md). |
 | **Tokens per minute** | Maximum number of tokens this role may consume per minute when calling this resource. <br />Available to applications and models. |
 | **Tokens per day** | Maximum number of tokens this role may consume per day when calling this resource. <br />Available to applications and models. |
@@ -103,16 +103,16 @@ In the Keys tab, you can assign [API keys](/docs/tutorials/3.admin/access-manage
 
 | Column | Description |
 |--------|-------------|
-| Display Name | Name of the API key displayed on UI. |
-| Description | Description of a key. |
+| Display Name | Name of the key displayed on UI. |
+| Description | Description of the key. |
 | ID | Unique key identifier. |
 | Creation time | Key's creation timestamp. |
-| Key generation time | Generation timestamp of the secret value of the key. |
+| Key generation time | Timestamp of the key's secret value generation. |
 | Expiration time | Key's expiration timestamp. Blank means no expiration (i.e. permanent until manually revoked). |
-| Status | The current state of the key. |
+| Status | Current validity status of the key. A key is **invalid** in cases when there are no roles assigned to it, or its secret value is missing or is expired. |
 | Topics | Semantic tags associated with a key. |
 | Updated time | Timestamp of the last update. |
-| Project | Project associated with the key for the costs tracking purpose. |
+| Project | Name of the project the key was created for. |
 
 ![](img/img_41.png)
 
@@ -137,7 +137,7 @@ The Activities section provides detailed visibility into all changes made to the
 
 ![](img/roles_json.png)
 
-In JSON editor, you can use the view dropdown to select between Admin format and Core format. Note, that these formatting options are for your convenience only and do not render properties as they are defined in DIAL Core. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.
+In JSON editor, you can use the view dropdown to select between Admin format and Core format. Note, that these formatting options are for your convenience only and do not render properties as they are defined in DIAL Core.
 
 ##### Working with JSON Editor
 
@@ -145,4 +145,3 @@ In JSON editor, you can use the view dropdown to select between Admin format and
 2. Click the **JSON Editor** toggle (top-right). The UI reveals the raw JSON.
 3. Chose between the Admin and Core format to see and work with properties in the necessary format. **Note**: Core format view mode does not render the actual configuration stored in DIAL Core but the configuration in Admin service displayed in the DIAL Core format.
 4. Make changes and click **Save** to apply them.
-5. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.
