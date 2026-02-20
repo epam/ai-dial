@@ -2,15 +2,9 @@
 
 ## Introduction
 
-The **Usage Log** provides comprehensive visibility into all interactions within your DIAL environment by capturing **traces**—individual end-to-end exchanges between users and DIAL entities (applications or models). 
+Each request to DIAL Core deployment (model or application) initiated by external of internal client may result in a complex sequence of calls between DIAL applications and AI models. All requests within this call sequence share a single Trace ID, allowing you to track the entire end-to-end interaction. Additionally, each request is assigned a unique Core span ID, so the combination of Trace ID and Core span ID uniquely identifies every request.
 
-Each trace represents a complete request-response cycle, from the initial user prompt through to the final model output, including all associated metadata such as token counts, costs, and performance metrics.
-
-The Usage Log offers two complementary views:
-- **Traces Tab**: Displays individual traces with granular details for in-depth analysis of specific interactions
-- **Conversations Tab**: Groups related traces into conversation sessions, enabling you to review aggregated metrics and understand multi-turn dialogue patterns
-
-This dual perspective allows you to analyze usage patterns at both the micro (individual trace) and macro (conversation session) levels, supporting effective monitoring, cost optimization, and performance analysis.
+The **Usage Log** provides comprehensive visibility into all requests processed by DIAL Core. It offers two complementary views: **Traces** for granular request-level details (token consumption, costs, performance metrics, execution paths), and **Conversations** for aggregated conversation-level metrics. 
 
 ##### Top Bar Controls
 
@@ -19,9 +13,7 @@ This dual perspective allows you to analyze usage patterns at both the micro (in
 
 ## Traces
 
-The Traces Tab provides a detailed view of all requests processed by DIAL Core. Each row represents an individual request—whether initiated by an external or internal DIAL client. When a DIAL client sends a request to a DIAL Core deployment (model or application), it may result in a complex sequence of calls between DIAL applications and models. All requests within this call sequence share a single Trace ID, allowing you to track the entire end-to-end interaction. Additionally, each request is assigned a unique Core span ID, so the combination of Trace ID and Core span ID uniquely identifies every request.
-
-This granular view enables you to analyze token consumption, costs, performance metrics, and execution paths for each request. Use the Traces Tab to investigate specific interactions, troubleshoot issues, or analyze usage patterns at both the trace and individual request level.
+In **Traces** you can access a detailed view into all requests processed by DIAL Core. Each row represents an individual request—whether initiated by an external or internal DIAL client. Use it to investigate specific interactions, troubleshoot issues, or analyze usage patterns at both the trace and individual request level.
 
 ![](img/119.png)
 
@@ -54,22 +46,22 @@ This granular view enables you to analyze token consumption, costs, performance 
 
 ## Conversations
 
-The **Conversations Tab** aggregates related traces into cohesive user sessions, providing a conversation-level view of interactions within DIAL. Each row represents a complete conversation session, displaying aggregated metrics such as total token consumption, cumulative costs, and activity timelines. This view enables you to analyze multi-turn dialogues, track user engagement patterns, and monitor resource utilization across entire conversation flows rather than isolated interactions.
+In **Conversations** you can access a detailed view into all requests to DIAL Core deployments (model or application) initiated by external of internal client aggregated into conversations. Each row represents a conversation session, displaying aggregated metrics such as total token consumption, cumulative costs, and activity timelines. This view enables you to analyze multi-turn dialogues, track user engagement patterns, and monitor resource utilization across entire conversation flows rather than isolated interactions.
 
 ![](img/120.png)
 
 | Column | Description |
 |--------|-------------|
 | **Last activity** | Timestamp of the most recent trace within the conversation. |
-| **Conversation ID** | Unique identifier of the user session that groups related traces. |
-| **Topic** | Auto-generated subject summarizing the conversation. |
-| **Cached prompt tokens** | Count of prompt tokens served from cache across the conversation. |
+| **Conversation ID** | DIAL Chat conversation identifier the given request belongs to. |
+| **Deployment ID** | Identifier of the DIAL deployment corresponding to the given request. |
 | **Prompt tokens** | Total number of request/prompt tokens sent to the AI model across all traces in the conversation. |
+| **Cached prompt tokens** | Number of prompt tokens served from cache (prompt-caching). |
 | **Completion tokens** | Total number of tokens generated by the AI model across all traces in the conversation. |
-| **Total price** | Aggregated cost of the conversation. |
-| **Number of request messages** | Total number of discrete request messages included in the conversation. |
-| **Deployment ID** | Identifier of the deployment associated with the conversation. |
-| **Project** | Related project in DIAL. |
-| **User** | Identifier of the end user who initiated the conversation. |
-| **User title** | Name of the user (if available). |
+| **Total price** | The total cost of the request, including the cost of this request and all related requests it directly or indirectly triggered. It always holds that `Deployment price >= Total price`. |
+| **Number of request messages** | The number indicates the chat conversation length in chat completion requests and the input count in embedding requests. |
+| **Project** | Project ID corresponding to the DIAL API Key via which the given request was made. |
+| **User** | Hashed identifier of the end user who initiated the trace. |
+| **User title** | Title of the user (if available). |
+| **Topic** | Auto-generated subject summarizing the conversation. |
 | **Language** | Detected language for the conversation (e.g., `en`). |
