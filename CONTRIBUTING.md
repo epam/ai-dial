@@ -59,8 +59,8 @@ AI DIAL is a product that is designed to **enhance** or **extend**, rather than 
 We aim to complement these services, streamlining the development, deployment, and operation of GenAI applications, as well as facilitating the [interoperability](https://docs.dialx.ai/platform/architecture-and-concepts/architecture) of various applications to achieve specific business objectives. For this purpose we provide:
 
 - [Unified API](https://dialx.ai/dial_api) to access multimodal models, assistants, applications, and embedding models.
-- Essential services such as resilient file/chat/prompt//model [storage](https://docs.dialx.ai/platform/architecture-and-concepts/components#persistent-layer) with user-based [access control](https://docs.dialx.ai/platform/core/access-control-intro).
-- Important operational features, including [sharing](https://dialx.ai/dial_api#tag/Sharing), organization-wide [publications](https://dialx.ai/dial_api#tag/Publications), [review processes](https://docs.dialx.ai/tutorials/developers/work-with-resources/work-with-publications), and [rate limits](https://docs.dialx.ai/platform/architecture-and-concepts/components#rate-limits--cost-control).
+- Essential services such as resilient file/chat/prompt//model [storage](https://docs.dialx.ai/platform/architecture-and-concepts/architecture#persistent-layer) with user-based [access control](https://docs.dialx.ai/platform/core/access-control-intro).
+- Important operational features, including [sharing](https://dialx.ai/dial_api#tag/Sharing), organization-wide [publications](https://dialx.ai/dial_api#tag/Publications), [review processes](https://docs.dialx.ai/tutorials/developers/work-with-resources/work-with-publications), and [rate limits](https://docs.dialx.ai/platform/architecture-and-concepts/architecture#rate-limits--cost-control).
 
 ## Feature Validation Checklist
 
