@@ -57,7 +57,8 @@ Changes in [DIAL Core](https://github.com/epam/ai-dial-core) configuration:
 
 ### ai-dial-chat
 
-- Requires `ai-dial-chat-themes` **v0.14.0 or higher**
+Requires `ai-dial-chat-themes` **v0.14.0 or higher**
+For more details of changes, see the [changelog](https://github.com/epam/ai-dial-chat-themes/blob/development/docs/CHANGELOG.md#0140).
 
 #### New Environment Variable
 
@@ -66,7 +67,8 @@ Changes in [DIAL Core](https://github.com/epam/ai-dial-core) configuration:
 | `AUTH_IDTOKEN_PROVIDERS` | - | No | Comma-separated list of identity provider IDs that will pass an **identity token** to the API instead of an access token. This is required for providers whose access tokens are not JWT (e.g., Google, GitLab). | Any string. Values must be separated by commas (e.g., `google,gitlab`). |
 
 ### ai-dial-chat-themes
-Added new button colors and rename color tokens. If you are using a custom theme, please add the new color definitions to your theme configuration. (https://github.com/epam/ai-dial-chat-themes/blob/development/docs/CHANGELOG.md#0140)
+Added new button colors and rename color tokens. If you are using a custom theme, please add the new color definitions to your theme configuration. For more details of changes, see the [changelog](https://github.com/epam/ai-dial-chat-themes/blob/development/docs/CHANGELOG.md#0140).
+
 
 ### ai-dial-adapter-openai
 
@@ -76,14 +78,14 @@ Added new button colors and rename color tokens. If you are using a custom theme
 
 | Environment Variable       | Default Value | Description |
 |----------------------------|---------------|------------|
-| `COMPATIBILITY_MAPPING`    | `{}`           | **Deprecated** in favor of [compatibility configuration in DIAL Core config](https://github.com/epam/ai-dial-adapter-bedrock/tree/release-0.37?tab=readme-ov-file#compatibility-configuration-in-dial-core-config). F[Adapter Bedrock Environment Variables](https://github.com/epam/ai-dial-adapter-bedrock/tree/development?tab=readme-ov-file#environment-variables) section. |
-
+| `COMPATIBILITY_MAPPING`    | `{}`           | **Deprecated** in favor of [compatibility configuration in DIAL Core config](https://github.com/epam/ai-dial-adapter-bedrock/tree/release-0.37?tab=readme-ov-file#compatibility-configuration-in-dial-core-config). For more details of changes, see [Adapter Bedrock Environment Variables](https://github.com/epam/ai-dial-adapter-bedrock/tree/development?tab=readme-ov-file#environment-variables) section. |
 
 ### ai-dial-adapter-vertexai
 
 ### admin-frontend
 
-- Requires `ai-dial-chat-themes` **v0.14.0 or higher**
+Requires `ai-dial-chat-themes` **v0.14.0 or higher**
+For more details of changes, see the [changelog](https://github.com/epam/ai-dial-chat-themes/blob/development/docs/CHANGELOG.md#0140).
 
 #### New Environment Variable
 
@@ -98,8 +100,7 @@ If you are using a **GCP Database**, follow the instructions in the [GCP Databas
 
 #### Google Identity Setup
 
-To configure **Google Identity** as an Identity Provider, follow the official guide:  
-[Google Provider Configuration](https://github.com/epam/ai-dial-admin-backend/blob/development/docs/google-provider-configuration.md)
+To configure **Google Identity** as an Identity Provider, follow the official guide: [Google Provider Configuration](https://github.com/epam/ai-dial-admin-backend/blob/development/docs/google-provider-configuration.md)
 
 #### New Environment Variables
 
@@ -114,29 +115,23 @@ The following environment variables were introduced in version 1.41:
 | `providers.*.principal-claim` | Specifies which claim is used as the application principal. |
 | `providers.*.email-claims` | Comma-separated list of JWT claim paths used to extract user email. |
 
-For more details on authentication and security-related configuration, see the **Security Configuration** section in the Admin Backend configuration reference:  
-
-[Security Configuration – Admin Backend](https://github.com/epam/ai-dial-admin-backend/blob/development/docs/configuration.md#security-configuration)
+For more details on authentication and security-related configuration, see the **Security Configuration** section in the Admin Backend configuration reference: [Security Configuration – Admin Backend](https://github.com/epam/ai-dial-admin-backend/blob/development/docs/configuration.md#security-configuration)
 
 ---
 
 #### Updated Environment Variables
 
 
-
 `DATASOURCE_AUTH_TYPE`
 
-A new supported value has been added:
+A new supported value has been added: `gcp`
 
-- `gcp`
-
-> ⚠️ Note: The `gcp` authentication type is supported **only** when:
+> Note: The `gcp` authentication type is supported **only** when:
 >
 > ```text
 > DATASOURCE_VENDOR=POSTGRES
 > ```
 >
-
 
 ### ai-dial-admin-deployment-manager-backend
 
