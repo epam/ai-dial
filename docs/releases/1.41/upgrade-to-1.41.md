@@ -81,6 +81,14 @@ Added new button colors and rename color tokens. If you are using a custom theme
 | `AUTH_IDTOKEN_PROVIDERS` | - | No | Comma-separated list of identity provider IDs that will pass an **identity token** to the API instead of an access token. This is required for providers whose access tokens are not JWT (e.g., Google, GitLab). | Any string. Values must be separated by commas (e.g., `google,gitlab`). |
 
 ### admin-backend
+#### GCP Database Setup
+
+If you are using a **GCP Database**, follow the instructions in the [GCP Database Configuration Guide](https://github.com/epam/ai-dial-admin-backend/blob/development/docs/configuration.md#gcp-database-setup) to set it up properly.
+
+#### Google Identity Setup
+
+To configure **Google Identity** as an Identity Provider, follow the official guide:  
+[Google Provider Configuration](https://github.com/epam/ai-dial-admin-backend/blob/development/docs/google-provider-configuration.md)
 
 #### New Environment Variables
 
@@ -102,6 +110,8 @@ For more details on authentication and security-related configuration, see the *
 ---
 
 #### Updated Environment Variables
+
+
 
 `DATASOURCE_AUTH_TYPE`
 
