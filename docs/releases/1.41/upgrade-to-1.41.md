@@ -8,23 +8,23 @@
    - dial-extension: TBD
    - dial-admin: TBD
 2. Main components versions:
-   - ai-dial-adapter-bedrock: TBD
-   - ai-dial-adapter-openai: TBD
-   - ai-dial-adapter-vertexai: TBD
-   - ai-dial-adapter-dial: TBD
+   - ai-dial-adapter-bedrock: `0.37.0`
+   - ai-dial-adapter-openai: `0.37.0`
+   - ai-dial-adapter-vertexai: `0.33.0`
+   - ai-dial-adapter-dial: `0.12.0`
    - ai-dial-auth-helper: `0.4.0`
    - ai-dial-chat-themes: `0.14.0`
    - ai-dial-chat: `0.43.0`
    - ai-dial-core: TBD
-   - ai-dial-analytics-realtime: TBD
-   - ai-dial-rag: TBD
+   - ai-dial-analytics-realtime: `0.21.0`
+   - ai-dial-rag: `0.40.0`
    - ai-dial-log-parser: `0.3.0`
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.3.0`
    - ai-dial-app-builder-python: `0.1.0`
    - ai-dial-quickapps-backend: `0.5.0`
-   - mindmap-backend: `0.13.0`
-   - mindmap-frontend: `0.9.13`
+   - mindmap-backend: `0.13.2`
+   - mindmap-frontend: `0.9.14`
    - admin-backend: `0.14.0`
    - admin-frontend: `0.14.0`
    - ai-dial-admin-deployment-manager-backend: `0.14.0`
@@ -61,6 +61,13 @@ Added new button colors and rename color tokens. If you are using a custom theme
 
 ### ai-dial-adapter-bedrock
 
+#### Deprecated Environment Variable
+
+| Environment Variable       | Default Value | Description |
+|----------------------------|---------------|------------|
+| `COMPATIBILITY_MAPPING`    | `{}`           | **Deprecated** in favor of [compatibility configuration in DIAL Core config](https://github.com/epam/ai-dial-adapter-bedrock/tree/release-0.37?tab=readme-ov-file#compatibility-configuration-in-dial-core-config). F[Adapter Bedrock Environment Variables](https://github.com/epam/ai-dial-adapter-bedrock/tree/development?tab=readme-ov-file#environment-variables) section. |
+
+
 ### ai-dial-adapter-vertexai
 
 ### admin-frontend
@@ -86,6 +93,7 @@ The following environment variables were introduced in version 1.41:
 | `SECURITY_REQUIRE_EMAIL` | If set to `true`, the `email` claim is required in the JWT token. |
 | `providers.*.user-info-endpoint` | User info endpoint URI. Required for providers that use opaque tokens. |
 | `providers.*.principal-claim` | Specifies which claim is used as the application principal. |
+| `providers.*.email-claims` | Comma-separated list of JWT claim paths used to extract user email. |
 
 For more details on authentication and security-related configuration, see the **Security Configuration** section in the Admin Backend configuration reference:  
 
