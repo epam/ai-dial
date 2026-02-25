@@ -127,7 +127,7 @@ You can link containers to this image or a specific version of it. When you add 
 **Note**: Every container must be linked to an image or image version. Once linked, you cannot remove the container from this list—you can only change which image it uses.
 
 1. Click **Add** to invoke the adding modal.
-2. In the modal, you can enable/disable the **Show containers related to this image** toggle to display all containers or containers associated with the selected image group/version.
+2. In the modal, you can enable/disable the **Show containers related to this image** toggle to display all containers or containers associated with all versions of the selected image.
 3. Select one or several containers and click **Apply**. **Important**: Running containers will be restarted with the new image.
 
 ![ ](img/image_related_containers.png)
