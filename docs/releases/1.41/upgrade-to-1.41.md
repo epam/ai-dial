@@ -15,7 +15,7 @@
    - ai-dial-auth-helper: `0.4.0`
    - ai-dial-chat-themes: `0.14.0`
    - ai-dial-chat: `0.43.0`
-   - ai-dial-core: TBD
+   - ai-dial-core: `0.41.0`
    - ai-dial-analytics-realtime: `0.21.0`
    - ai-dial-rag: `0.40.0`
    - ai-dial-log-parser: `0.3.0`
