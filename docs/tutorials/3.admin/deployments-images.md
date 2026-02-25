@@ -50,11 +50,7 @@ On the main screen, you can add new images for MCP Servers and Interceptors.
 
 ## Global firewall
 
-Global firewall settings define an allow list of authorized domain names that apply to the build process of all images within the environment. These settings specify which external domains or resources any image build is permitted to access, ensuring a consistent security policy across all image builds.
-
-By enforcing this allow list globally, you ensure that only approved network connections are possible during the creation of any image, regardless of individual image configurations.
-
-> Refer to [Firewall settings](#firewall-settings) to configure additional authorized domain names for a specific image.
+Global firewall settings define an allow list of authorized domain names for all image builds in the environment. This helps operators avoid duplicating common allowed domains across images. [Individual image allow lists](#firewall-settings) can extend the global list.
 
 **Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters.
 
@@ -131,7 +127,7 @@ You can link containers to this image or a specific version of it. When you add 
 **Note**: Every container must be linked to an image or image version. Once linked, you cannot remove the container from this list—you can only change which image it uses.
 
 1. Click **Add** to invoke the adding modal.
-2. In the modal, you can enable/disable the **Show containers related to this image** toggle to display containers related to any version of this image or to this image group.
+2. In the modal, you can enable/disable the **Show containers related to this image** toggle to display all containers or containers associated with the selected image group/version.
 3. Select one or several containers and click **Apply**. **Important**: Running containers will be restarted with the new image.
 
 ![ ](img/image_related_containers.png)

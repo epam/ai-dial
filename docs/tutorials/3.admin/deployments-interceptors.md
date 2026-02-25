@@ -54,7 +54,7 @@ Click any interceptor container on the main screen to open its configuration scr
 
 On the configuration screen, you can view and edit the selected interceptor container settings, start and stop the container, view logs and events, or delete the container.
 
-> **Note**: Configuration fields are disabled when the container is Pending state (launching or stopping).
+> **Note**: Configuration fields are disabled when the container is in a transition state (pending or stopping).
 
 ### Actions
 
@@ -99,9 +99,9 @@ In the Properties tab, you can view and edit the selected interceptor container 
 | Display Name | Yes | Yes | Name of the interceptor container rendered in UI. |
 | Description | No | Yes | Brief description of the interceptor container. |
 | Maintainer | No | Yes | Maintainer of the interceptor container. |
-| Endpoint Configuration | No | Yes | Configuration details for the endpoints exposed by the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart if the container is in RollingUpdate mode. |
-| Environment Variables | No | Yes | Environment variables set for the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart if the container is in RollingUpdate mode. |
-| Resources | No | Yes | Resource limits and requests for the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart if the container is in RollingUpdate mode. |
+| Endpoint Configuration | No | Yes | Configuration details for the endpoints exposed by the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
+| Environment Variables | No | Yes | Environment variables set for the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
+| Resources | No | Yes | Resource limits and requests for the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
 
 ![](img/interceptor_container_properties.png)
 
