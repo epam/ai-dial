@@ -108,9 +108,9 @@ In the Properties tab, you can view and edit the selected model serving containe
 | Maintainer | No | Yes | Person or team responsible for maintaining the model serving container. |
 | Hugging Face model name | Conditional | Yes | Applies to Hugging Face models.<br/>The name of the model from Hugging Face. |
 | Docker Image URI | Conditional | Yes | Applies to NIM models.<br/>The Docker image URI for the model. |
-| Endpoint Configuration | No | Yes | Port configuration for the model serving. <br /> **Note**: Running container will be redeployed when these settings change. |
-| Environment Variables | No | Yes | List of environment variables for the model serving. <br /> **Note**: Running container will be redeployed when these settings change. |
-| Resources | No | Yes | Resource allocation settings for the model serving (CPU, Memory, GPU). <br /> **Note**: Running container will be redeployed when these settings change. |
+| Endpoint Configuration | No | Yes | Port configuration for the model serving. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart if the container is in RollingUpdate mode. |
+| Environment Variables | No | Yes | List of environment variables for the model serving. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart if the container is in RollingUpdate mode. |
+| Resources | No | Yes | Resource allocation settings for the model serving (CPU, Memory, GPU). <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart if the container is in RollingUpdate mode. |
 | Configuration | No | Yes | Command that defines the executable and its options to launch the model serving. Arguments provide extra parameters for customization during startup. |
 | Autoscaling | No | Yes | **Note**: Autoscaling is available for Hugging Face models. <br />Parameters to dynamically adjust AI model replicas based on demand. <br /> - **Automatic scale to zero**: Use to define criteria to reduce replicas to zero to save resources. <br />- **Min and Max Replicas**: Sets the minimum and maximum number of model instances that can run, ensuring availability and controlling costs. <br /> - **Pending requests to trigger autoscaling**: Specifies the number of queued requests required to trigger scaling up, helping maintain performance during traffic spikes. |
 

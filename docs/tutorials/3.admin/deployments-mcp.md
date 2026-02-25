@@ -117,9 +117,9 @@ In the Properties tab, you can preview and modify selected container's basic pro
 | Display Name | Yes | Yes | Display name of the MCP container rendered in UI. |
 | Description | No | Yes | Brief description of the MCP container. |
 | Maintainer | No | Yes | Maintainer of the MCP container. |
-| Endpoint Configuration | No | Yes | **Note**: Running container will be redeployed when these settings change. <br /> Endpoint configuration of the MCP container:<br /> **Transport**: the transport protocol (HTTP (default) or Server-Sent Events).<br />**Container endpoint path**: the specific endpoint path where the MCP service is accessible.<br />**Port**: the network port the container uses. |
-| Environment Variables | No | Yes | List of environment variables for the MCP container. <br />You can add, edit, or remove variables as needed.  <br />**Note**: Running container will be redeployed when these settings change. |
-| Resources | No | Yes | Resource limits for the MCP container, including CPU and memory allocation. You can adjust these settings based on your requirements.<br />**Note**: Running container will be redeployed when these settings change. |
+| Endpoint Configuration | No | Yes | Endpoint configuration of the MCP container:<br /> **Transport**: the transport protocol (HTTP (default) or SSE).<br />**Container endpoint path**: the specific endpoint path where the MCP service is accessible.<br />**Port**: the network port the container uses. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart if the container is in RollingUpdate mode. |
+| Environment Variables | No | Yes | List of environment variables for the MCP container. <br />You can add, edit, or remove variables as needed.  <br />**Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart if the container is in RollingUpdate mode. |
+| Resources | No | Yes | Resource limits for the MCP container, including CPU and memory allocation. You can adjust these settings based on your requirements.<br />**Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart if the container is in RollingUpdate mode. |
 
 ![](img/mcp_container_properties.png)
 

@@ -50,9 +50,9 @@ On the main screen, you can add new images for MCP Servers and Interceptors.
 
 ## Global firewall
 
-Global firewall settings define a list of authorized domain names that apply to the build process of all images within the environment. These settings control which external domains or resources any image build can access, ensuring a consistent security policy across all image builds.
+Global firewall settings define an allow list of authorized domain names that apply to the build process of all images within the environment. These settings specify which external domains or resources any image build is permitted to access, ensuring a consistent security policy across all image builds.
 
-By enforcing these restrictions globally, you can prevent unauthorized or unintended network connections during the creation of any image, regardless of individual image configurations.
+By enforcing this allow list globally, you ensure that only approved network connections are possible during the creation of any image, regardless of individual image configurations.
 
 > Refer to [Firewall settings](#firewall-settings) to configure additional authorized domain names for a specific image.
 
@@ -108,7 +108,7 @@ In the Properties tab, you can preview and modify selected image's basic propert
 
 ### Firewall settings 
 
-The whitelist domains setting specifies which external resources the image build process can access. These settings are relevant only while the image is being created — for example, to restrict which domains or repositories can be reached when installing dependencies or downloading files.
+The allow list domains setting specifies which external resources the image build process can access. These settings are relevant only while the image is being created—for example, to control which domains or repositories can be reached when installing dependencies or downloading files.
 
 > **Note**: Firewall settings defined for a specific image apply in addition to the [Global firewall settings](#global-firewall).
 
@@ -131,7 +131,7 @@ You can link containers to this image or a specific version of it. When you add 
 **Note**: Every container must be linked to an image or image version. Once linked, you cannot remove the container from this list—you can only change which image it uses.
 
 1. Click **Add** to invoke the adding modal.
-2. In the modal, you can enable/disable the **Show containers related to this image** toggle to display containers related to this particular image or not.
+2. In the modal, you can enable/disable the **Show containers related to this image** toggle to display containers related to any version of this image or to this image group.
 3. Select one or several containers and click **Apply**. **Important**: Running containers will be restarted with the new image.
 
 ![ ](img/image_related_containers.png)
