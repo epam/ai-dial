@@ -12,20 +12,19 @@
    - ai-dial-adapter-openai: TBD
    - ai-dial-adapter-vertexai: TBD
    - ai-dial-adapter-dial: TBD
-   - ai-dial-auth-helper: TBD
+   - ai-dial-auth-helper: `0.4.0`
    - ai-dial-chat-themes: `0.14.0`
    - ai-dial-chat: `0.43.0`
    - ai-dial-core: TBD
    - ai-dial-analytics-realtime: TBD
    - ai-dial-rag: TBD
-   - ai-dial-log-parser: TBD
-   - ai-dial-code-interpreter: TBD
-   - ai-dial-app-controller: TBD
-   - ai-dial-app-builder-python: TBD
-   - quick-apps: TBD
+   - ai-dial-log-parser: `0.3.0`
+   - ai-dial-code-interpreter: `0.2.0`
+   - ai-dial-app-controller: `0.3.0`
+   - ai-dial-app-builder-python: `0.1.0`
    - ai-dial-quickapps-backend: `0.5.0`
-   - mindmap-backend: TBD
-   - mindmap-frontend: TBD
+   - mindmap-backend: `0.13.0`
+   - mindmap-frontend: `0.9.13`
    - admin-backend: `0.14.0`
    - admin-frontend: `0.14.0`
    - ai-dial-admin-deployment-manager-backend: `0.14.0`
@@ -55,12 +54,6 @@
 |----------------------|---------------|----------|------------|----------------|
 | `AUTH_IDTOKEN_PROVIDERS` | - | No | Comma-separated list of identity provider IDs that will pass an **identity token** to the API instead of an access token. This is required for providers whose access tokens are not JWT (e.g., Google, GitLab). | Any string. Values must be separated by commas (e.g., `google,gitlab`). |
 
-> ℹ️ Example:
->
-> ```
-> AUTH_IDTOKEN_PROVIDERS=google,gitlab
-> ```
-
 ### ai-dial-chat-themes
 Added new button colors and rename color tokens. If you are using a custom theme, please add the new color definitions to your theme configuration. (https://github.com/epam/ai-dial-chat-themes/blob/development/docs/CHANGELOG.md#0140)
 
@@ -80,12 +73,6 @@ Added new button colors and rename color tokens. If you are using a custom theme
 |----------------------|---------------|----------|------------|----------------|
 | `AUTH_IDTOKEN_PROVIDERS` | - | No | Comma-separated list of identity provider IDs that will pass an **identity token** to the API instead of an access token. This is required for providers whose access tokens are not JWT (e.g., Google, GitLab). | Any string. Values must be separated by commas (e.g., `google,gitlab`). |
 
-> ℹ️ Example:
->
-> ```
-> AUTH_IDTOKEN_PROVIDERS=google,gitlab
-> ```
-
 ### admin-backend
 
 #### New Environment Variables
@@ -100,22 +87,27 @@ The following environment variables were introduced in version 1.41:
 | `providers.*.user-info-endpoint` | User info endpoint URI. Required for providers that use opaque tokens. |
 | `providers.*.principal-claim` | Specifies which claim is used as the application principal. |
 
-For more details on authentication and security-related configuration, see the Security Configuration section in the Admin Backend configuration reference:
+For more details on authentication and security-related configuration, see the **Security Configuration** section in the Admin Backend configuration reference:  
 
-https://github.com/epam/ai-dial-admin-backend/blob/development/docs/configuration.md#security-configuration
+[Security Configuration – Admin Backend](https://github.com/epam/ai-dial-admin-backend/blob/development/docs/configuration.md#security-configuration)
+
 ---
 
 #### Updated Environment Variables
 
-###### `DATASOURCE_AUTH_TYPE`
+`DATASOURCE_AUTH_TYPE`
 
 A new supported value has been added:
 
 - `gcp`
 
-> The `gcp` authentication type is supported **only** when `DATASOURCE_VENDOR=POSTGRES`.
+> ⚠️ Note: The `gcp` authentication type is supported **only** when:
+>
+> ```text
+> DATASOURCE_VENDOR=POSTGRES
+> ```
+>
 
-If `DATASOURCE_VENDOR` is set to any other value, `gcp` is not supported.
 
 ### ai-dial-admin-deployment-manager-backend
 
@@ -190,3 +182,14 @@ If these variables are still present in your environment, they should be removed
 ### Mind Map
 
 ### ai-dial-quickapps-backend
+* env variable `PREDEFINED_BASE_PATH` [was deprecated](https://github.com/epam/ai-dial-quickapps-backend/tree/0.5.0?tab=readme-ov-file#deprecated-environment-variables). Migrate to `PREDEFINED_EXTRA_PATHS` by renaming env variable and formatting value as json list, if needed (`value` -> `["value"]`).
+* [Instructions feature was deprecated](https://github.com/epam/ai-dial-quickapps-backend/tree/0.5.0?tab=readme-ov-file#deprecated-agent-instructions). If it was used, see [migration guide](https://github.com/epam/ai-dial-quickapps-backend/blob/0.5.0/docs/skills.md#migrating-from-agent-instructions) to new [Agent Skills](https://github.com/epam/ai-dial-quickapps-backend/blob/0.5.0/docs/skills.md) feature.
+* since version `0.41.0-rc` DIAL Core supports [app schema endpoint feature](https://github.com/epam/ai-dial-core/pull/1352). In setups with such DIAL Core versions QuickApps can be configured to use schema endpoint instead of putting whole schema to DIAL Core. Migration steps:
+    * In DIAL Core config json or in DIAL Admin remove the following properties in configuration schema:
+        * `$defs`
+        * `type`
+        * `title`
+        * `propertires`
+        * `required`
+     * Add new property, replacing `{quickapps_base_url}` with actual service's base URL:
+        * `dial:applicationTypeSchemaEndpoint": "{quickapps_base_url}/v1/configuration-support/application-schema"
