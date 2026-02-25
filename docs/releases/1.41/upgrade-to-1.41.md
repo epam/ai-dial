@@ -43,6 +43,17 @@
 
 ### ai-dial-core
 
+#### New Optional Environment Variable
+
+| Environment Variable                 | Default Value | Required | Description |
+|-------------------------------------|---------------|----------|------------|
+| `identityProviders.*.userIdPath`    | `sub`         | No       | Path to the claim in the JWT token or user info response where the user ID can be taken. |
+
+Changes in [DIAL Core](https://github.com/epam/ai-dial-core) configuration:
+
+|Parameter|Required|Description|
+|-|-|-|
+|`dial:applicationTypeSchemaEndpoint`|No|URL to the application JSON schema endpoint of the custom application of given type|
 
 ### ai-dial-chat
 
