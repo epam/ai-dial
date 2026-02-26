@@ -206,14 +206,20 @@ If these variables are still present in your environment, they should be removed
 ### Mind Map
 
 ### ai-dial-quickapps-backend
+
 * env variable `PREDEFINED_BASE_PATH` [was deprecated](https://github.com/epam/ai-dial-quickapps-backend/tree/0.5.0?tab=readme-ov-file#deprecated-environment-variables). Migrate to `PREDEFINED_EXTRA_PATHS` by renaming env variable and formatting value as json list, if needed (`value` -> `["value"]`).
 * [Instructions feature was deprecated](https://github.com/epam/ai-dial-quickapps-backend/tree/0.5.0?tab=readme-ov-file#deprecated-agent-instructions). If it was used, see [migration guide](https://github.com/epam/ai-dial-quickapps-backend/blob/0.5.0/docs/skills.md#migrating-from-agent-instructions) to new [Agent Skills](https://github.com/epam/ai-dial-quickapps-backend/blob/0.5.0/docs/skills.md) feature.
-* since version `0.41.0-rc` DIAL Core supports [app schema endpoint feature](https://github.com/epam/ai-dial-core/pull/1352). In setups with such DIAL Core versions QuickApps can be configured to use schema endpoint instead of putting whole schema to DIAL Core. Migration steps:
-    * In DIAL Core config json or in DIAL Admin remove the following properties in configuration schema:
-        * `$defs`
-        * `type`
-        * `title`
-        * `propertires`
-        * `required`
-     * Add new property, replacing `{quickapps_base_url}` with actual service's base URL:
-        * `dial:applicationTypeSchemaEndpoint": "{quickapps_base_url}/v1/configuration-support/application-schema"
+
+> [!IMPORTANT]
+> Since version [0.41.0](https://github.com/epam/ai-dial-core/releases/tag/0.41.0) DIAL Core supports [app schema endpoint feature](https://github.com/epam/ai-dial-core/pull/1352). 
+> In setups with such DIAL Core versions QuickApps **should be configured to use schema endpoint** instead of putting whole schema to DIAL Core. 
+> In that way new schemas will be dlivered along with the new Docker images of QuickApps, making process smooth and simple. 
+> Migration steps:
+> * In DIAL Core config json or in DIAL Admin remove the following properties in configuration schema:
+>     * `$defs`
+>     * `type`
+>     * `title`
+>     * `propertires`
+>     * `required`
+> * Add new property, replacing `{quickapps_base_url}` with actual service's base URL:
+>     * `dial:applicationTypeSchemaEndpoint": "{quickapps_base_url}/v1/configuration-support/application-schema"
