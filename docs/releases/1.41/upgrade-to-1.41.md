@@ -20,7 +20,7 @@
    - ai-dial-rag: `0.40.0`
    - ai-dial-log-parser: `0.3.0`
    - ai-dial-code-interpreter: `0.2.0`
-   - ai-dial-app-controller: `0.3.0`
+   - ai-dial-app-controller: `0.4.0`
    - ai-dial-app-builder-python: `0.1.0`
    - ai-dial-quickapps-backend: `0.5.0`
    - mindmap-backend: `0.13.2`
@@ -204,6 +204,13 @@ If these variables are still present in your environment, they should be removed
 ### ai-dial-rag
 
 ### Mind Map
+
+### ai-dial-app-controller
+###### Renamed Environment Variables
+
+| Old Name | New Name |
+|----------|----------|
+| `APP_BUILD_NAMESPACE` | `APP_DEPLOY_NAMESPACE` |
 
 ### ai-dial-quickapps-backend
 
