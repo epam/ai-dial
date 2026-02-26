@@ -14,7 +14,7 @@
    - ai-dial-adapter-dial: `0.12.0`
    - ai-dial-auth-helper: `0.4.0`
    - ai-dial-chat-themes: `0.14.0`
-   - ai-dial-chat: `0.43.0`
+   - ai-dial-chat: `0.43.1`
    - ai-dial-core: `0.41.0`
    - ai-dial-analytics-realtime: `0.21.0`
    - ai-dial-rag: `0.40.0`
@@ -24,7 +24,7 @@
    - ai-dial-app-builder-python: `0.1.0`
    - ai-dial-quickapps-backend: `0.5.0`
    - mindmap-backend: `0.13.2`
-   - mindmap-frontend: `0.9.14`
+   - mindmap-frontend: `0.9.15`
    - admin-backend: `0.14.0`
    - admin-frontend: `0.14.1`
    - ai-dial-admin-deployment-manager-backend: `0.14.0`
