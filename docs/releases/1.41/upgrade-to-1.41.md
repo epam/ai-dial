@@ -22,7 +22,7 @@
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.4.0`
    - ai-dial-app-builder-python: `0.1.0`
-   - ai-dial-quickapps-backend: `0.5.0`
+   - ai-dial-quickapps-backend: `0.5.1`
    - mindmap-backend: `0.13.2`
    - mindmap-frontend: `0.9.15`
    - admin-backend: `0.14.0`
@@ -214,5 +214,5 @@ If these variables are still present in your environment, they should be removed
 
 ### ai-dial-quickapps-backend
 
-* env variable `PREDEFINED_BASE_PATH` [was deprecated](https://github.com/epam/ai-dial-quickapps-backend/tree/0.5.0?tab=readme-ov-file#deprecated-environment-variables). Migrate to `PREDEFINED_EXTRA_PATHS` by renaming env variable and formatting value as json list, if needed (`value` -> `["value"]`).
-* [Instructions feature was deprecated](https://github.com/epam/ai-dial-quickapps-backend/tree/0.5.0?tab=readme-ov-file#deprecated-agent-instructions). If it was used, see [migration guide](https://github.com/epam/ai-dial-quickapps-backend/blob/0.5.0/docs/skills.md#migrating-from-agent-instructions) to new [Agent Skills](https://github.com/epam/ai-dial-quickapps-backend/blob/0.5.0/docs/skills.md) feature.
+* env variable `PREDEFINED_BASE_PATH` [was deprecated](https://github.com/epam/ai-dial-quickapps-backend/tree/0.5.1?tab=readme-ov-file#deprecated-environment-variables). Migrate to `PREDEFINED_EXTRA_PATHS` by renaming env variable and formatting value as json list, if needed (`value` -> `["value"]`).
+* [Instructions feature was deprecated](https://github.com/epam/ai-dial-quickapps-backend/tree/0.5.1?tab=readme-ov-file#deprecated-agent-instructions). If it was used, see [migration guide](https://github.com/epam/ai-dial-quickapps-backend/blob/0.5.1/docs/skills.md#migrating-from-agent-instructions) to new [Agent Skills](https://github.com/epam/ai-dial-quickapps-backend/blob/0.5.1/docs/skills.md) feature.
