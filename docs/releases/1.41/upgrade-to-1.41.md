@@ -87,6 +87,8 @@ Added new button colors and rename color tokens. If you are using a custom theme
 Requires `ai-dial-chat-themes` **v0.14.0 or higher**
 For more details of changes, see the [changelog](https://github.com/epam/ai-dial-chat-themes/blob/development/docs/CHANGELOG.md#0140).
 
+-  `DISABLE_MENU_ITEMS`: add ModelServings to hide the Model Service UI when model serving infrastructure is not ready.
+ 
 #### New Environment Variable
 
 | Environment Variable | Default Value | Required | Description | Allowed Values |
