@@ -206,11 +206,6 @@ If these variables are still present in your environment, they should be removed
 ### Mind Map
 
 ### ai-dial-app-controller
-###### Renamed Environment Variables
-
-| Old Name | New Name |
-|----------|----------|
-| `APP_BUILD_NAMESPACE` | `APP_DEPLOY_NAMESPACE` |
 
 ### ai-dial-quickapps-backend
 
