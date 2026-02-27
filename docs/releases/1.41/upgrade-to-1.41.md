@@ -191,6 +191,14 @@ A new supported value has been added: `gcp`
 
 > Old variable names are no longer supported. Please update your configuration accordingly.
 
+###### Cilium configuration
+Deployment manager supports usage of cilium policies: 
+| Setting | Effect |
+|--------|--------|
+| `CILIUM_NETWORK_POLICIES_ENABLED=true` | Deployment Manager can enable Cilium network policies for image build and deployments |
+| Required setup | Role + RoleBinding above in each target namespace (`mcp-namespace`, `nim-namespace`, `kserve-namespace`, etc.) |
+
+Here is a guide how to enable cilium policy for Deployment manager with sample values [https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/development/docs/cilium-rbac-sample.md]
 ---
 
 #### Removed Configuration
