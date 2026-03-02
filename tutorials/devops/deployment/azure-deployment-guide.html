@@ -13,8 +13,8 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/ee6eaad1-eb8b-4d84-9528-1c504269dd62?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.3c61bcc8.css">
-<script src="/assets/js/runtime~main.cc155d70.js" defer="defer"></script>
-<script src="/assets/js/main.d700f8b4.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.fd7bf647.js" defer="defer"></script>
+<script src="/assets/js/main.890c3927.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -53,7 +53,7 @@
 <table><thead><tr><th>Service</th><th>Availability SLA</th><th>Resilient to zone-wide outages</th></tr></thead><tbody><tr><td>Azure Kubernetes Service</td><td>99.95% if deployed with zone redundancy</td><td>Yes, if configured explicitly</td></tr><tr><td>Key Vault</td><td>99.99%</td><td>Yes</td></tr><tr><td>Storage Account</td><td>99.99% (read), 99.9% (write)</td><td>Yes, if configured explicitly</td></tr><tr><td>Azure Cache for Redis</td><td>99.9% if deployed with zone redundancy</td><td>Yes, if configured explicitly</td></tr><tr><td>OpenAI</td><td>No SLA</td><td></td></tr></tbody></table>
 <p>Since OpenAI doesn’t have an SLA, it is worth having multiple endpoints in different regions. If one endpoint fails, DIAL will automatically attempt the next one in the list, ensuring resilience.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="disaster-recovery">Disaster Recovery<a href="#disaster-recovery" class="hash-link" aria-label="Direct link to Disaster Recovery" title="Direct link to Disaster Recovery" translate="no">​</a></h2>
-<p>DIAL has two components: <a class="" href="/platform/architecture-and-concepts/components#dial-core">DIAL Core</a> and <a class="" href="/platform/architecture-and-concepts/components#analytics-realtime">DIAL Analytics</a>. Since Analytics Realtime is an optional component that can be managed separately from the DIAL Core, it is better to separate disaster recovery policies for both.</p>
+<p>DIAL has two components: <a class="" href="/platform/architecture-and-concepts/architecture#dial-core-required">DIAL Core</a> and <a class="" href="/platform/architecture-and-concepts/architecture#analytics">DIAL Analytics</a>. Since Analytics Realtime is an optional component that can be managed separately from the DIAL Core, it is better to separate disaster recovery policies for both.</p>
 <p>The DIAL Core part consists of a set of stateless services and a single permanent storage based on Azure Storage account (Redis in this case is treated as stateless, because it serves only as a cache for the primary storage and can be safely restarted if necessary). In case of a region-wide failure, the entire set of components must be run in a different region:</p>
 <ul>
 <li class="">Storage account – since it uses GZRS redundancy, in case of a disaster it can be failed over to the secondary region. After the successful failover it will have only one region (ZRS), so to restore an ability to fail it over once again during the next disaster, the mode should be explicitly set to GZRS again.</li>

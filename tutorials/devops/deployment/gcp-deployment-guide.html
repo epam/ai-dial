@@ -13,8 +13,8 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/ee6eaad1-eb8b-4d84-9528-1c504269dd62?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.3c61bcc8.css">
-<script src="/assets/js/runtime~main.cc155d70.js" defer="defer"></script>
-<script src="/assets/js/main.d700f8b4.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.fd7bf647.js" defer="defer"></script>
+<script src="/assets/js/main.890c3927.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -53,7 +53,7 @@ Apart from that, cluster autoscaling should be configured as well to add an extr
 <table><thead><tr><th>Service</th><th>Availability SLA</th><th>Resilient to zone-wide outages</th></tr></thead><tbody><tr><td>Google Kubernetes Engine (GKE)</td><td>99.95% if deployed with zone redundancy, otherwise 99.5%</td><td>Yes, if configured explicitly</td></tr><tr><td>Cloud Identity</td><td>99.9% - 99.99%</td><td>Yes</td></tr><tr><td>Cloud Storage</td><td>99.95% if using dual-region or multi-region location, otherwise 99.9%</td><td>Yes</td></tr><tr><td>Memorystore for Redis</td><td>99.9% if deployed with zone redundancy</td><td>Yes, if configured explicitly</td></tr><tr><td>Vertex AI Platform</td><td>99.5% - 99.9%</td><td>Depends on configuration (model type, deployment across zones)</td></tr><tr><td>Secret Manager</td><td>99.95%</td><td>Yes</td></tr><tr><td>Artifact Registry</td><td>99.95%</td><td>Yes (Regional)</td></tr></tbody></table>
 <p>Vertex AI services provide an SLA of up to 99.9%, ensuring high availability and reliability for your AI workloads. To improve resilience beyond the SLA, it is worth having multiple endpoints in different regions. If one region becomes unavailable, DIAL can automatically switch to another endpoint, ensuring the service keeps running smoothly.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="disaster-recovery">Disaster Recovery<a href="#disaster-recovery" class="hash-link" aria-label="Direct link to Disaster Recovery" title="Direct link to Disaster Recovery" translate="no">​</a></h2>
-<p>There are two pieces of the DIAL solution: <a class="" href="/platform/architecture-and-concepts/components#dial-core">DIAL Core</a> and <a class="" href="/platform/architecture-and-concepts/components#analytics-realtime">DIAL Analytics</a>. Since DIAL Analytics is an optional component that can be managed separately from the Core, it is better to separate disaster recovery policies for both.</p>
+<p>There are two pieces of the DIAL solution: <a class="" href="/platform/architecture-and-concepts/architecture#dial-core-required">DIAL Core</a> and <a class="" href="/platform/architecture-and-concepts/architecture#analytics">DIAL Analytics</a>. Since DIAL Analytics is an optional component that can be managed separately from the Core, it is better to separate disaster recovery policies for both.</p>
 <p>The Core part consists of a set of stateless services and a single permanent storage based on GCP Cloud Storage (Memorystore for Redis in this case is treated as stateless, because it serves only as a cache for the primary storage and can be safely restarted if necessary). In case of a region-wide failure, the entire set of components must be run in a different region:</p>
 <ul>
 <li class="">GCP Cloud Storage – since it uses dual-region or multi-region configurations, Cloud Storage provides built-in redundancy and availability across regions. For disaster recovery, accessing data from the secondary region is automatic or can involve failover procedures depending on the exact setup. To maintain multi-region redundancy after a regional failure, the configuration may need to be reviewed and potentially re-established.</li>
