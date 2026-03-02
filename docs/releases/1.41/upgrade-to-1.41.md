@@ -199,6 +199,7 @@ Deployment manager supports usage of cilium policies:
 | Required setup | Role + RoleBinding above in each target namespace (`mcp-namespace`, `nim-namespace`, `kserve-namespace`, etc.) |
 
 Here is a guide how to enable cilium policy for Deployment manager with sample values [https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/development/docs/cilium-rbac-sample.md]
+
 ---
 
 #### Removed Configuration
