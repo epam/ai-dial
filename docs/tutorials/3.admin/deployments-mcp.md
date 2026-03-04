@@ -107,19 +107,19 @@ In the Properties tab, you can preview and modify selected container's basic pro
 
 | Property | Required | Editable | Description |
 |----------|----------|----------|-------------|
-| ID | - | No | Unique identifier of the MCP container. |
+| ID | - | No | Unique identifier of the MCP container. Must be between 2 and 36 characters long. Can contain only lowercase Latin letters, numbers, and hyphens. |
 | MCP Image | - | No | Image from which the MCP container was created. Click to open details or navigate to [MCP Images](/docs/tutorials/3.admin/deployments-images.md). |
 | Creation Time | - | No | Date and time when the MCP container was created. |
 | Updated Time | - | No | Date and time when the MCP container was last updated. |
 | Status | - | No | Current status of the MCP container (e.g., Running, Stopped). |
 | URL | - | No | The URL to access the running MCP container. |
 | Restarts | - | No | Restart counter for launching containers. Use to identify crash loops. You can find details in the [Execution Log](#execution-log). |
-| Display Name | Yes | Yes | Display name of the MCP container rendered in UI. |
+| Display Name | Yes | Yes | Display name of the MCP container rendered in UI. Must be between 2 and 255 characters long. |
 | Description | No | Yes | Brief description of the MCP container. |
 | Maintainer | No | Yes | Maintainer of the MCP container. |
-| Endpoint Configuration | No | Yes | Endpoint configuration of the MCP container:<br /> **Transport**: the transport protocol (HTTP (default) or SSE).<br />**Container endpoint path**: the specific endpoint path where the MCP service is accessible.<br />**Port**: the network port the container uses. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
-| Environment Variables | No | Yes | List of environment variables for the MCP container. <br />You can add, edit, or remove variables as needed.  <br />**Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
-| Resources | No | Yes | Resource limits for the MCP container, including CPU and memory allocation. You can adjust these settings based on your requirements.<br />**Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
+| Endpoint Configuration | No | Yes | Endpoint configuration of the MCP container:<br /> **Transport**: the transport protocol (HTTP (default) or SSE).<br />**Container endpoint path**: the specific endpoint path where the MCP service is accessible.<br />**Port**: the network port the container uses (If provided, must be between 1 and 65535.). <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
+| Environment Variables | No | Yes | List of environment variables for the MCP container. <br />You can add, edit, or remove variables as needed.  <br />**Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. <br /> - **Name**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.<br /> - **Value**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`. |
+| Resources | No | Yes | Resource limits for the MCP container, including CPU and memory allocation. You can adjust these settings based on your requirements.<br />**Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode.<br />Validation rules: <br /> - Values must be numeric and greater than 0.<br /> - Maximum allowed values for `cpu`, `memory`, and `nvidia.com/gpu` are defined on the backend via environment variables.<br /> - For each matching resource key (e.g. `cpu`), the value in limits must not be less than the value in `requests`. |
 
 ![](img/mcp_container_properties.png)
 
@@ -131,7 +131,7 @@ In the Properties tab, you can preview and modify selected container's basic pro
 
 The whitelist domains setting specifies which external domains the MCP container is allowed to connect to. This setting controls outgoing traffic from the container, ensuring that it can only communicate with trusted domains (for example, your company’s website or specific client applications).
 
-**Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters.
+**Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters. Domain name must not include leading or trailing hyphens in labels.
 
 ![ ](img/mcp-firewall.png)
 

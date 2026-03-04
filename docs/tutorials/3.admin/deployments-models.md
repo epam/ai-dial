@@ -97,20 +97,20 @@ In the Properties tab, you can view and edit the selected model serving containe
 
 | Property | Required | Editable | Description |
 |----------|----------|----------|-------------|
-| ID | - | No | Unique identifier of the model serving container. |
+| ID | - | No | Unique identifier of the model serving container. Must be between 2 and 36 characters long. Can contain only lowercase Latin letters, numbers, and hyphens. |
 | Creation Time | - | No | Date and time when the model serving container was created. |
 | Updated Time | - | No | Date and time when the model serving container was last updated. |
 | Status | - | No | Current status of the model serving container. |
 | Restarts | - | No | Restart counter for launching containers. You can find details in the [Execution Log](#execution-log). |
 | URL | - | No | URL of the running container where the model is hosted. |
-| Display Name | Yes | Yes | Name of the model serving container rendered in UI. |
+| Display Name | Yes | Yes | Name of the model serving container rendered in UI. Must be between 2 and 255 characters long. |
 | Description | No | Yes | Brief description of the model serving container. |
 | Maintainer | No | Yes | Person or team responsible for maintaining the model serving container. |
 | Hugging Face model name | Conditional | Yes | Applies to Hugging Face models.<br/>The name of the model from Hugging Face. |
 | Docker Image URI | Conditional | Yes | Applies to NIM models.<br/>The Docker image URI for the model. |
 | Endpoint Configuration | No | Yes | Port configuration for the model serving. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
-| Environment Variables | No | Yes | List of environment variables for the model serving. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
-| Resources | No | Yes | Resource allocation settings for the model serving (CPU, Memory, GPU). <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
+| Environment Variables | No | Yes | List of environment variables for the model serving. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. <br /> - **Name**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.<br /> - **Value**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.|
+| Resources | No | Yes | Resource allocation settings for the model serving (CPU, Memory, GPU). <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. <br />Validation rules: <br /> - Values must be numeric and greater than 0.<br /> - Maximum allowed values for `cpu`, `memory`, and `nvidia.com/gpu` are defined on the backend via environment variables.<br /> - For each matching resource key (e.g. `cpu`), the value in limits must not be less than the value in `requests`.|
 | Configuration | No | Yes | Command that defines the executable and its options to launch the model serving. Arguments provide extra parameters for customization during startup. |
 | Autoscaling | No | Yes | **Note**: Autoscaling is available for Hugging Face models. <br />Parameters to dynamically adjust AI model replicas based on demand. <br /> - **Automatic scale to zero**: Use to define criteria to reduce replicas to zero to save resources. <br />- **Min and Max Replicas**: Sets the minimum and maximum number of model instances that can run, ensuring availability and controlling costs. <br /> - **Pending requests to trigger autoscaling**: Specifies the number of queued requests required to trigger scaling up, helping maintain performance during traffic spikes. |
 
@@ -124,7 +124,7 @@ In the Properties tab, you can view and edit the selected model serving containe
 
 The whitelist domains setting specifies which external domains the model serving container is allowed to connect to. This setting controls outgoing traffic from the container, ensuring that it can only communicate with trusted domains (for example, your company’s website or specific client applications).
 
-**Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters.
+**Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters. Domain name must not include leading or trailing hyphens in labels.
 
 ![ ](img/model_servings_firewall.png)
 

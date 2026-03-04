@@ -53,7 +53,7 @@ On the main screen, you can add new images for MCP Servers and Interceptors.
 
 Global firewall settings define an allow list of authorized domain names for all image builds in the environment. This helps operators avoid duplicating common allowed domains across images. [Individual image allow lists](#firewall-settings) can extend the global list.
 
-**Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters.
+**Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters. Domain name must not include leading or trailing hyphens in labels.
 
 ![ ](img/images_global_firewall.png)
 
@@ -88,13 +88,13 @@ In the Properties tab, you can preview and modify selected image's basic propert
 | Updated Time | - | No | Date and time when the image was last updated. |
 | Source type | - | No | Source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
 | Status | - | No | Current status of the image. |
-| Name | Yes | Yes | Name of the image. |
+| Name | Yes | Yes | Name of the image. <br /> Must be between 2 and 255 characters long. <br /> Can contain only letters, numbers, spaces, underscores, and hyphens. <br /> Special characters are not allowed. |
 | Description | No | Yes | Brief description of the image. |
 | Maintainer | No | Yes | Email address of the maintainer of the image. |
-| Topics | No | Yes | List of topics associated with the image. |
+| Topics | No | Yes | List of topics associated with the image. Click to display a list of available topics. <br />You can add your own custom topics to the list following these rules:<br /> - The topic name must not exceed 255 characters. <br /> - The topic name must not contain leading or trailing spaces.|
 | Source type | Conditional | Yes | **Note**: Required for MCP type of image.<br />The source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
-| Docker image URI | Conditional | Yes | URI of the Docker image.<br/>Applies to both MCP (if Source type = Docker image) and Interceptor types. |
-| Source code repository parameters | Conditional | Yes | Applies if Type = MCP Image and Source type = Source code .<br/>- **Repo URL** (required): a source code repository URL.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository.<br />- **Base directory**: the directory path with the Docker file. |
+| Docker image URI | Conditional | Yes |  Valid Docker image URI (validated on backend). If provided, must not start or end with `/`.<br/>Applies to both MCP (if Source type = Docker image) and Interceptor types. |
+| Source code repository parameters | Conditional | Yes | Applies if Type = MCP Image and Source type = Source code .<br/>- **Repo URL** (required): Source code repository URL. If provided, must not start or end with `/`.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository.<br />- **Base directory**: The directory path with the Docker file. If provided, must not start or end with `/`. |
 | MCP transport type | Conditional | Yes | Applies only to MCP type of image.<br/>The transport type used by the MCP image:<br />- **Remote** (HTTP/SSE)<br />- **Local** (STDIO). |
 
 ![ ](img/image_properties.png)
@@ -111,7 +111,7 @@ The allow list domains setting specifies which external resources the image buil
 
 > **Note**: These firewall rules do not affect containers that are later created from the image. Containers can have their own firewall settings.
 
-**Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters.
+**Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters. Domain name must not include leading or trailing hyphens in labels.
 
 ![ ](img/image-firewall.png)
 
