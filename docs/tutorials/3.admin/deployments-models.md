@@ -53,7 +53,7 @@ On the main screen, use the **Create** button to create Hugging Face or NIM mode
    - **ID**: Unique identifier for the model serving.
    - **Display Name**: Enter a name for the model serving.
    - **Description**: Provide a brief description of the model serving.
-   - **Hugging Face Model Name**: Applies to Hugging Face source type. Enter the name of the model from Hugging Face or select from the registry.
+   - **Hugging Face Model Name**: Applies to Hugging Face source type. Start typing the name of the model to see suggestions or click **Select from registry** to pick in the pop-up modal window.
    - **Docker Image URI**: Applies to NIM source type. Enter the Docker image URI for the model.
 3. Click the **Create** button to submit the form and create the model serving.
 
@@ -106,7 +106,7 @@ In the Properties tab, you can view and edit the selected model serving containe
 | Display Name | Yes | Yes | Name of the model serving container rendered in UI. Must be between 2 and 255 characters long. |
 | Description | No | Yes | Brief description of the model serving container. |
 | Maintainer | No | Yes | Person or team responsible for maintaining the model serving container. |
-| Hugging Face model name | Conditional | Yes | Applies to Hugging Face models.<br/>The name of the model from Hugging Face. |
+| Hugging Face model name | Conditional | Yes | Applies to Hugging Face models.<br/>The name of the model from Hugging Face. Start typing the name of the model to see suggestions or click **Select from registry** to pick in the pop-up modal window. |
 | Docker Image URI | Conditional | Yes | Applies to NIM models.<br/>The Docker image URI for the model. |
 | Endpoint Configuration | No | Yes | Port configuration for the model serving. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
 | Environment Variables | No | Yes | List of environment variables for the model serving. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. <br /> - **Name**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.<br /> - **Value**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.|
