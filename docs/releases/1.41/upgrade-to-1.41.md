@@ -27,7 +27,7 @@
    - mindmap-frontend: `0.9.15`
    - admin-backend: `0.14.1`
    - admin-frontend: `0.14.5`
-   - ai-dial-admin-deployment-manager-backend: `0.14.0`
+   - ai-dial-admin-deployment-manager-backend: `0.14.1`
 
 ## Before upgrade
 
@@ -145,6 +145,14 @@ A new supported value has been added: `gcp`
 |-----------|----------------------|---------------|----------|--------------|------------|
 | `app.image-name-format` | `IMAGE_NAME_FORMAT` | `app-%s` | No | - | Name format for images built using Deployment Manager. Must contain `%s` which will be replaced by the image definition ID. |
 | `app.resource-name-prefix` | `RESOURCE_NAME_PREFIX` | - | No | - | Prefix added to all resources produced by image builds and deployments. ⚠️ Do not change this value in existing setups — otherwise previously created images and Kubernetes resources may become inaccessible. |
+
+###### Deployment State Synchronization Configuration
+
+| Property                                              | Environment Variable                                   | Default Value             | Required | Applied when | Description                                                                                                                         |
+|-------------------------------------------------------|--------------------------------------------------------|---------------------------|----------|--------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `app.deployment.reconcile.executor.thread-pool-size`  | `DEPLOYMENT_RECONCILE_EXECUTOR_THREAD_POOL_SIZE`       | `5`                       | No       | -            | Number of threads in the reconciliation pool used by Kubernetes informer event handlers. Bounds concurrent reconciles to avoid OOM. |
+| `app.deployment.reconcile.executor.queue-capacity`    | `DEPLOYMENT_RECONCILE_EXECUTOR_QUEUE_CAPACITY`         | `100`                     | No       | -            | Max pending reconcile tasks. When full, the caller runs the task (backpressure). Tune with thread-pool-size for resync bursts.      |
+| `app.deployment.reconcile.executor.thread-name-prefix`| `DEPLOYMENT_RECONCILE_EXECUTOR_THREAD_NAME_PREFIX`     | `k8s-reconciliation-pool` | No       | -            | Thread name prefix for reconciliation pool threads.                                                                                 |
 
 ---
 
