@@ -17,12 +17,13 @@ On the main screen, you can see all the available and add new images for MCP Ser
 | ID | Unique identifier of the image. |
 | Version | Version of the image. |
 | Name | Name of the image. |
+| Author | Deployment author email address. |
 | Description | Brief description of the image. |
 | Type | Type of the image (MCP or Interceptor). |
 | Source | Image or a Source code. |
 | Status | Current status of the image. |
-| Update time | Date and time when the image was last updated. |
-| Create time | Date and time when the image was created. |
+| Updated time | Date and time when the image was last updated. |
+| Creation time | Date and time when the image was created. |
 | Topics | List of topics associated with the image. |
 | Transport type | Transport type used by the MCP image:<br />- **Remote** (HTTP/SSE)<br />- **Local** (STDIO). |
 | Actions | Buttons to manage the selected image:<br/>- **Delete**: Use to remove the image.<br/>- **Duplicate**: Use to create a copy of the image.<br/>- **Open in a new tab**: Use to open image properties in a new tab in your browser. |
@@ -89,7 +90,7 @@ In the Properties tab, you can preview and modify selected image's basic propert
 | Status | - | No | Current status of the image. |
 | Name | Yes | Yes | Name of the image. |
 | Description | No | Yes | Brief description of the image. |
-| Maintainer | No | Yes | The maintainer of the image. |
+| Maintainer | No | Yes | Email address of the maintainer of the image. |
 | Topics | No | Yes | List of topics associated with the image. |
 | Source type | Conditional | Yes | **Note**: Required for MCP type of image.<br />The source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
 | Docker image URI | Conditional | Yes | URI of the Docker image.<br/>Applies to both MCP (if Source type = Docker image) and Interceptor types. |
