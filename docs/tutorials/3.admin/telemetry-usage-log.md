@@ -35,7 +35,6 @@ In **Traces** you can access a detailed view into all requests processed by DIAL
 | Column | Description |
 |--------|-------------|
 | **Completion Time** | Timestamp when DIAL Core finished processing the given request. |
-| **Duration** | The total duration of the root call to DIAL Core from the initial request to the response. |
 | **Number of request messages** | The number indicates the chat conversation length in chat completion requests and the input count in embedding requests. |
 | **Trace ID** | OpenTelemetry trace ID uniquely identifying a single request from DIAL Client to DIAL Core. All subsequent calls triggered by this request share the same Trace ID. |
 | **Core span ID** | OpenTelemetry span ID corresponding to the given request. |
