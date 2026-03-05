@@ -2,15 +2,15 @@
 
 ## About Prompts
 
-A prompt is an instruction, a question, or a message that a user provides to a language model to receive an answer. Prompts can also contain constraints or requirements. They help the model understand the task at hand and the types of responses that are expected. You can use prompts as templates for your messages, instructions to the model, or to encourage the model to generate specific types of content. In DIAL, you can create prompts beforehand and reuse them in one or several conversations.
+Prompts in DIAL can be stored in BLOB storage or a local file system.
 
-> Refer to [DIAL Chat User Guide](/docs/tutorials/0.user-guide.md#prompts) to learn more about prompts and DIAL Chat features.
+Prompts are considered to be a protected resource. Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn how protected resources are handled in DIAL.
+
+> Refer to [DIAL Chat User Guide](/docs/tutorials/0.user-guide.md#prompts) to learn more about prompts.
 
 ## Main Screen
 
-All prompts published by users get into the Public folder. In the Prompts section, you can manage all system and user prompt templates available in the Public folder. All  Here, you can also arrange prompts into folders, version them, and then use them in applications or chats.
-
-> Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to lean more about Private and Public logical spaces for objects storage in DIAL. 
+In Prompts, you can access and manage all prompts in the Public folder. Prompts get to the Public folder if published by users or added by administrators.
 
 ![ ](img/img_32.png)
 
