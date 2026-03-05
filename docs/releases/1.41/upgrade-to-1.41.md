@@ -78,7 +78,7 @@ Added new button colors and rename color tokens. If you are using a custom theme
 
 | Environment Variable       | Default Value | Description |
 |----------------------------|---------------|------------|
-| `COMPATIBILITY_MAPPING`    | `{}`           | **Deprecated** in favor of [compatibility configuration in DIAL Core config](https://github.com/epam/ai-dial-adapter-bedrock/tree/release-0.37?tab=readme-ov-file#compatibility-configuration-in-dial-core-config). For more details of changes, see [Adapter Bedrock Environment Variables](https://github.com/epam/ai-dial-adapter-bedrock/tree/development?tab=readme-ov-file#environment-variables) section. |
+| `COMPATIBILITY_MAPPING`    | `{}`           | **Deprecated** in favor of [compatibility configuration in DIAL Core config](https://github.com/epam/ai-dial-adapter-bedrock/tree/release-0.37?tab=readme-ov-file#compatibility-configuration-in-dial-core-config). For more details of changes, see [Adapter Bedrock Environment Variables](https://github.com/epam/ai-dial-adapter-bedrock/tree/release-0.37?tab=readme-ov-file#environment-variables) section. |
 
 ### ai-dial-adapter-vertexai
 
@@ -117,7 +117,7 @@ The following environment variables were introduced in version 1.41:
 | `providers.*.principal-claim` | Specifies which claim is used as the application principal. |
 | `providers.*.email-claims` | Comma-separated list of JWT claim paths used to extract user email. |
 
-For more details on authentication and security-related configuration, see the **Security Configuration** section in the Admin Backend configuration reference: [Security Configuration – Admin Backend](https://github.com/epam/ai-dial-admin-backend/blob/development/docs/configuration.md#security-configuration)
+For more details on authentication and security-related configuration, see the **Security Configuration** section in the Admin Backend configuration reference: [Security Configuration – Admin Backend](https://github.com/epam/ai-dial-admin-backend/blob/release-0.14/docs/configuration.md#security-configuration)
 
 ---
 
