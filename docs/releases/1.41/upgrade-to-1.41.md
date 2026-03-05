@@ -25,9 +25,9 @@
    - ai-dial-quickapps-backend: `0.5.2`
    - dial-mind-map-backend: `0.13.2`
    - dial-mind-map-frontend: `0.9.15`
-   - ai-dial-admin-backend: `0.14.1`
+   - ai-dial-admin-backend: `0.14.2`
    - ai-dial-admin-frontend: `0.14.5`
-   - ai-dial-admin-deployment-manager-backend: `0.14.1`
+   - ai-dial-admin-deployment-manager-backend: `0.14.2`
 
 ## Before upgrade
 
@@ -98,11 +98,11 @@ For more details of changes, see the [changelog](https://github.com/epam/ai-dial
 ### admin-backend
 #### GCP Database Setup
 
-If you are using a **GCP Database**, follow the instructions in the [GCP Database Configuration Guide](https://github.com/epam/ai-dial-admin-backend/blob/development/docs/configuration.md#gcp-database-setup) to set it up properly.
+If you are using a **GCP Database**, follow the instructions in the [GCP Database Configuration Guide](https://github.com/epam/ai-dial-admin-backend/blob/0.14.2/docs/gcp-cloud-postgres.md) to set it up properly.
 
 #### Google Identity Setup
 
-To configure **Google Identity** as an Identity Provider, follow the official guide: [Google Provider Configuration](https://github.com/epam/ai-dial-admin-backend/blob/development/docs/google-provider-configuration.md)
+To configure **Google Identity** as an Identity Provider, follow the official guide: [Google Provider Configuration](https://github.com/epam/ai-dial-admin-backend/blob/0.14.2/docs/google-provider-configuration.md)
 
 #### New Environment Variables
 
@@ -206,7 +206,7 @@ Deployment manager supports usage of cilium policies:
 | `CILIUM_NETWORK_POLICIES_ENABLED=true` | Deployment Manager can enable Cilium network policies for image build and deployments |
 | Required setup | Role + RoleBinding above in each target namespace (`mcp-namespace`, `nim-namespace`, `kserve-namespace`, etc.) |
 
-Here is a guide how to enable cilium policy for Deployment manager with sample values [https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/development/docs/cilium-rbac-sample.md]
+Here is a guide how to enable cilium policy for Deployment manager with sample values [https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.14.2/docs/deployment_guide_full_security_model.md] 
 
 ---
 
