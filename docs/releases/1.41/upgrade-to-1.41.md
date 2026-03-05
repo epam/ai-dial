@@ -58,7 +58,7 @@ Changes in [DIAL Core](https://github.com/epam/ai-dial-core) configuration:
 ### ai-dial-chat
 
 Requires `ai-dial-chat-themes` **v0.14.0 or higher**
-For more details of changes, see the [changelog](https://github.com/epam/ai-dial-chat-themes/blob/release-0.14/docs/CHANGELOG.md#0140).
+For more details of changes, see the [changelog](https://github.com/epam/ai-dial-chat-themes/tree/0.14.0/docs/CHANGELOG.md#0140).
 
 #### New Environment Variable
 
@@ -67,7 +67,7 @@ For more details of changes, see the [changelog](https://github.com/epam/ai-dial
 | `AUTH_IDTOKEN_PROVIDERS` | - | No | Comma-separated list of identity provider IDs that will pass an **identity token** to the API instead of an access token. This is required for providers whose access tokens are not JWT (e.g., Google, GitLab). | Any string. Values must be separated by commas (e.g., `google,gitlab`). |
 
 ### ai-dial-chat-themes
-Added new button colors and rename color tokens. If you are using a custom theme, please add the new color definitions to your theme configuration. For more details of changes, see the [changelog](https://github.com/epam/ai-dial-chat-themes/blob/release-0.14/docs/CHANGELOG.md#0140).
+Added new button colors and rename color tokens. If you are using a custom theme, please add the new color definitions to your theme configuration. For more details of changes, see the [changelog](https://github.com/epam/ai-dial-chat-themes/tree/0.14.0/docs/CHANGELOG.md#0140).
 
 
 ### ai-dial-adapter-openai
@@ -78,14 +78,14 @@ Added new button colors and rename color tokens. If you are using a custom theme
 
 | Environment Variable       | Default Value | Description |
 |----------------------------|---------------|------------|
-| `COMPATIBILITY_MAPPING`    | `{}`           | **Deprecated** in favor of [compatibility configuration in DIAL Core config](https://github.com/epam/ai-dial-adapter-bedrock/tree/release-0.37?tab=readme-ov-file#compatibility-configuration-in-dial-core-config). For more details of changes, see [Adapter Bedrock Environment Variables](https://github.com/epam/ai-dial-adapter-bedrock/tree/release-0.37?tab=readme-ov-file#environment-variables) section. |
+| `COMPATIBILITY_MAPPING`    | `{}`           | **Deprecated** in favor of [compatibility configuration in DIAL Core config](https://github.com/epam/ai-dial-adapter-bedrock/tree/0.37.0?tab=readme-ov-file#compatibility-configuration-in-dial-core-config). For more details of changes, see [Adapter Bedrock Environment Variables](https://github.com/epam/ai-dial-adapter-bedrock/tree/0.37.0?tab=readme-ov-file#environment-variables) section. |
 
 ### ai-dial-adapter-vertexai
 
 ### admin-frontend
 
 Requires `ai-dial-chat-themes` **v0.14.0 or higher**
-For more details of changes, see the [changelog](https://github.com/epam/ai-dial-chat-themes/blob/release-0.14/docs/CHANGELOG.md#0140).
+For more details of changes, see the [changelog](https://github.com/epam/ai-dial-chat-themes/tree/0.14.0/docs/CHANGELOG.md#0140).
 
 -  `DISABLE_MENU_ITEMS`: add ModelServings to hide the Model Service UI when model serving infrastructure is not ready. ModelDeployments can be removed.
  
@@ -117,7 +117,7 @@ The following environment variables were introduced in version 1.41:
 | `providers.*.principal-claim` | Specifies which claim is used as the application principal. |
 | `providers.*.email-claims` | Comma-separated list of JWT claim paths used to extract user email. |
 
-For more details on authentication and security-related configuration, see the **Security Configuration** section in the Admin Backend configuration reference: [Security Configuration – Admin Backend](https://github.com/epam/ai-dial-admin-backend/blob/release-0.14/docs/configuration.md#security-configuration)
+For more details on authentication and security-related configuration, see the **Security Configuration** section in the Admin Backend configuration reference: [Security Configuration – Admin Backend](https://github.com/epam/ai-dial-admin-backend/blob/0.14.0/docs/configuration.md#security-configuration)
 
 ---
 
