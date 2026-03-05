@@ -117,7 +117,7 @@ The following environment variables were introduced in version 1.41:
 | `providers.*.principal-claim` | Specifies which claim is used as the application principal. |
 | `providers.*.email-claims` | Comma-separated list of JWT claim paths used to extract user email. |
 
-For more details on authentication and security-related configuration, see the **Security Configuration** section in the Admin Backend configuration reference: [Security Configuration – Admin Backend](https://github.com/epam/ai-dial-admin-backend/blob/0.14.0/docs/configuration.md#security-configuration)
+For more details on authentication and security-related configuration, see the **Security Configuration** section in the Admin Backend configuration reference: [Security Configuration – Admin Backend](https://github.com/epam/ai-dial-admin-backend/blob/0.14.2/docs/configuration.md#security-configuration)
 
 ---
 
@@ -206,7 +206,7 @@ Deployment manager supports usage of cilium policies:
 | `CILIUM_NETWORK_POLICIES_ENABLED=true` | Deployment Manager can enable Cilium network policies for image build and deployments |
 | Required setup | Role + RoleBinding above in each target namespace (`mcp-namespace`, `nim-namespace`, `kserve-namespace`, etc.) |
 
-Here is a guide how to enable cilium policy for Deployment manager with sample values [https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.14.2/docs/deployment_guide_full_security_model.md] 
+Here is a guide how to enable cilium policy for Deployment manager with sample values [Cillium Related Documentation](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.14.2/docs/deployment_guide_full_security_model.md)
 
 ---
 
