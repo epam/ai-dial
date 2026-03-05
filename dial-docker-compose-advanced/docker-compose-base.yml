@@ -43,7 +43,7 @@ services:
       core:
         condition: service_started
       keycloak:
-        condition: service_healthy
+        condition: service_started
     restart: always
 
   core:
@@ -108,15 +108,6 @@ services:
     volumes:
       - ./keycloak/data:/opt/keycloak/data
       - ./keycloak/import/realm-config.json:/opt/keycloak/data/import/realm-config.json
-    healthcheck:
-      test: [
-        "CMD-SHELL",
-        'exec 3<>/dev/tcp/localhost/${KC_PORT}; echo -e "GET /health/ready HTTP/1.1\nhost: localhost:${KC_PORT}\n" >&3; timeout --preserve-status 1 cat <&3 | grep -m 1 status | grep -m 1 UP; ERROR=$?; exec 3<&-; exec 3>&-; exit $ERROR'
-      ]
-      interval: 5s
-      timeout: 3s
-      retries: 6
-      start_period: 60s
     restart: always
 
   admin-backend:
@@ -145,12 +136,6 @@ services:
     volumes:
       - ${DIAL_DIR:-.}/admin/data:/app/data
       - ${DIAL_DIR:-.}/core:/app/config
-    healthcheck:
-      test: ["CMD-SHELL", "wget -q --spider http://localhost:8080/api/v1/health || exit 1"]
-      interval: 5s
-      timeout: 3s
-      retries: 6
-      start_period: 60s
     depends_on:
       core:
         condition: service_started
@@ -172,8 +157,8 @@ services:
       - "${DIAL_ADMIN_FRONTEND_HOST_PORT}:3000"
     depends_on:
       keycloak:
-        condition: service_healthy
+        condition: service_started
       admin-backend:
-        condition: service_healthy
+        condition: service_started
     restart: always
 
