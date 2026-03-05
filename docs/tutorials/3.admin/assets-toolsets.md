@@ -2,15 +2,13 @@
 
 ## Introduction
 
-Toolsets in DIAL are connections with MCP servers that you can use as tools in [Quick Apps 2.0](/docs/video%20demos/2.Applications/5.quick-apps.md).
+Toolsets in DIAL are connections with MCP servers that can be used as tools by any internal or external application to perform specific actions. Refer to [Video Demo](/docs/video%20demos/2.Applications/5.quick-apps.md) to watch how tools are used in [DIAL Quick Apps 2.0](/docs/platform/3.core/7.apps.md#quick-apps-20).
+
+Toolsets are considered to be a protected resource. Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn how protected resources are handled in DIAL.
 
 ## Main Screen
 
-On the main screen, you can find all publicly-available Toolsets that have either been published by DIAL users or added via a direct modification to [DIAL Core's dynamic settings](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolsets.md). 
-
-Publicly-available toolsets can be accessed via [DIAL Core API](https://dialx.ai/dial_api#tag/Deployment-listing/operation/getToolSets) or [DIAL Marketplace](/docs/platform/4.chat/1.marketplace.md) by all authorized users and apps.
-
-> Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to lean more about Private and Public logical spaces for objects storage in DIAL. 
+On the main screen, you can find all Toolsets located in the Public folder. Such toolsets have either been published by DIAL users or added by administrators. 
 
 ![ ](img/131.png)
 

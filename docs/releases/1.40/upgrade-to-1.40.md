@@ -48,6 +48,7 @@
 ### ai-dial-chat
 
 ### ai-dial-chat-themes
+Added new button colors. If you are using a custom theme, please add the new color definitions to your theme configuration. (https://github.com/epam/ai-dial-chat-themes/blob/development/docs/CHANGELOG.md#0130)
 
 ### ai-dial-adapter-openai
 
