@@ -161,7 +161,7 @@ Having selected and configured any authentication method, click **Save** and **L
 
 [Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are specific functions supported by a related MCP server that can be used by clients to perform specific actions. On this screen, you can find and manage all tools supported by the related MCP server.
 
-In case your toolset was created based on the MCP container deployed in DIAL, the content of this screen is inherited from the related [MCP container](/docs/tutorials/3.admin/deployments-mcp.md#tools-overview).
+In case your toolset was created based on the MCP container deployed in DIAL, the content of this screen is inherited from the related [MCP container](/docs/tutorials/3.admin/deployments-mcp.md#tools-overview) and displays all the **enabled** tools. Click [Manage tools](#manage-tools) to access, try and enable all the available tools.
 
 #### Use all tools
 
