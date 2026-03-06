@@ -13,7 +13,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/ee6eaad1-eb8b-4d84-9528-1c504269dd62?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.3c61bcc8.css">
-<script src="/assets/js/runtime~main.fd7bf647.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.feca609e.js" defer="defer"></script>
 <script src="/assets/js/main.890c3927.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -91,38 +91,49 @@
 </li>
 </ol>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="export-config">Export Config<a href="#export-config" class="hash-link" aria-label="Direct link to Export Config" title="Direct link to Export Config" translate="no">​</a></h3>
-<p><strong>Export Config</strong> allows you to download the configuration of the current instance as a file. Great for backups, audit snapshots, or sharing with teammates.</p>
-<p><img decoding="async" loading="lazy" src="/assets/images/img_57-92a6b73b740cfd6edd94b65a27d29c63.png" width="1914" height="899" class="img_ev3q"></p>
+<p><strong>Export Config</strong> allows you to download the configuration of the current instance. Great for backups, audit snapshots, or sharing with teammates.</p>
+<p><img decoding="async" loading="lazy" src="/assets/images/img_57-bf1717b615c6114550bbd3749d121856.png" width="1907" height="899" class="img_ev3q"></p>
 <ol>
 <li class="">
-<p>One of the following export formats can be selected:</p>
+<p>Select the export format:</p>
 <ul>
 <li class=""><strong>DIAL Admin Archive</strong> — <code>.zip</code> archive with the configuration stored as a single <code>.json</code> file. Includes secrets if the <strong>Include secrets</strong> option is selected.</li>
 <li class=""><strong>DIAL Core JSON File</strong> — a single <code>.json</code> file compatible with DIAL Core. Includes secrets if the <strong>Include secrets</strong> option is selected.</li>
-<li class=""><strong>Active Config</strong> — <code>.zip</code> archive with configuration files and secrets stored separately. Secrets are always included.</li>
 </ul>
 </li>
 <li class="">
-<p>Config can be exported partially (user-selected artefacts) or in full.</p>
+<p>Select the export type: Config can be exported partially (user-selected artefacts) or in full.</p>
 <ul>
-<li class="">For a partial export, select the specific artefacts to include.</li>
-</ul>
+<li class="">
+<p><strong>Full</strong>: When this option is selected, use Resources toggles to enable/disable specific categories of resources you want to export.</p>
 </li>
 <li class="">
-<p>Dependencies can be included or ignored for Models, Applications, Roles, and Keys.</p>
+<p><strong>Custom</strong>: When this option is selected, use tabs with resources where you can manually select what entities in each category you want to include. When exporting a Custom config type, dependencies can be included or ignored for Models, Applications, Roles, and Keys.</p>
 <ul>
 <li class=""><strong>Include dependencies</strong> adds all referenced items required by the selected artefacts.</li>
 <li class=""><strong>Ignore dependencies</strong> exports only the items you explicitly select.</li>
 </ul>
-<p><img decoding="async" loading="lazy" src="/assets/images/126-12b5b522752a5a4a677cd74e466bddd8.png" width="1908" height="894" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="/assets/images/126-e5006ea41ed43427b5b2a70484180bdc.png" width="1911" height="1008" class="img_ev3q"></p>
+</li>
+</ul>
 </li>
 <li class="">
-<p>Click  <strong>Export</strong> to open up the Export File Preview screen, where you can:</p>
-<ul>
-<li class="">Preview your selections and any included dependencies.</li>
-<li class="">Review the artefacts and confirm the export.</li>
-</ul>
-<p><img decoding="async" loading="lazy" src="/assets/images/127-4fe658b7223975605182fba59debb033.png" width="1909" height="895" class="img_ev3q"></p>
+<p>Use <strong>Topics</strong> to filter out resources associated with the selected topic(s).</p>
+</li>
+<li class="">
+<p>Click <strong>Export</strong> to open up the Export File Preview screen, where you can:</p>
+<ol>
+<li class="">
+<p>Preview your selections and any included dependencies.</p>
+</li>
+<li class="">
+<p>Use <strong>Include secrets</strong> toggle on the Export Preview screen to export <code>.zip</code> archive with configuration files and secrets stored separately. Secrets are always included.</p>
+</li>
+<li class="">
+<p>Review the artefacts and confirm the export.</p>
+<p><img decoding="async" loading="lazy" src="/assets/images/127-d5e2554eff90cd5e64d364c175b9b018.png" width="1907" height="942" class="img_ev3q"></p>
+</li>
+</ol>
 </li>
 </ol>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="user-settings">User Settings<a href="#user-settings" class="hash-link" aria-label="Direct link to User Settings" title="Direct link to User Settings" translate="no">​</a></h3>
