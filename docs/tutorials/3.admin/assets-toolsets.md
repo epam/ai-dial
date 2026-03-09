@@ -2,13 +2,18 @@
 
 ## Introduction
 
-Toolsets in DIAL are connections with MCP servers that can be used as tools by any internal or external application to perform specific actions. Refer to [Video Demo](/docs/video%20demos/2.Applications/5.quick-apps.md) to watch how tools are used in [DIAL Quick Apps 2.0](/docs/platform/3.core/7.apps.md#quick-apps-20).
+Toolsets in DIAL enable connectivity with MCP servers and can be used as tools by any internal or external application to perform specific actions. Refer to [Video Demo](/docs/video%20demos/2.Applications/5.quick-apps.md) to watch how tools are used in [DIAL Quick Apps 2.0](/docs/platform/3.core/7.apps.md#quick-apps-20).
 
-Toolsets are considered to be a protected resource. Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn how protected resources are handled in DIAL.
+In DIAL, toolsets created by users (either using DIAL Core API or UI) are stored in a private folder of a dedicated user in the DIAL file storage and are not accessible to anyone but the application author (owner). To enable access for other users, toolsets owners can publish them or DIAL administrators can manually add them to the Public folder, where all published resources are stored.
+
+> Refer to [Entities/Toolsets](/docs/tutorials/3.admin/entities-toolsets.md) to learn more.
 
 ## Main Screen
 
-On the main screen, you can find all Toolsets located in the Public folder. Such toolsets have either been published by DIAL users or added by administrators. 
+The Assets/Toolsets screen displays all toolsets located in the Public folder in DIAL file storage. Toolsets get to the Public folder when published by users or added by administrators.
+
+> * Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about Private and Public logical spaces for objects storage in DIAL.
+> * Refer to [Chat User Guide](/docs/tutorials/0.user-guide.md#to-publish-toolset) to learn how end users can publish toolsets and to [DIAL Core API Publications](https://dialx.ai/dial_api#tag/Publications) to learn how to create and manage publication requests via API.
 
 ![ ](img/131.png)
 
@@ -16,29 +21,29 @@ On the main screen, you can find all Toolsets located in the Public folder. Such
 
 Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. 
 
-- **Root folder**: Pubic is a root folder with sub-folders. It is visible to all authorized users. If a sub-folder is not specified for the new object, it is placed in the root folder by default.
-- **Sub-folders**: Objects can be placed in sub-folders for logical organization purposes - one object per sub-folder is recommended.
+- **Root folder**: Pubic is a root folder with sub-folders. It is visible to all authorized users. If a sub-folder is not specified for the new object being published, it is placed in the root folder by default.
+- **Sub-folders**: Objects can be placed in sub-folders for logical organization purposes - one object per sub-folder is recommended. 
 
 > **Note**, that access rules can be applied to sub-folders (manually or in publication request). You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). The effective authorization rule for an object in a sub-folder includes restrictions applied to all parent sub-folders up to the root folder. Refer to [Tutorials](/docs/tutorials/1.developers/1.work-with-resources/0.work-with-publications.md#effective-rules) to learn about affective rules for folders.
 
 | Available Actions | Description |
 |-------------------|-------------|
-| **Create folder + import objects** | Hover over any folder to display the **+** icon. It allows importing objects into new child or sibling folders. Same flow as [Import](#import), but requires providing a new folder name. **Note** that new folders can be added only via this method or along with the publication request if a new folder is defined in it. |
-| **Actions** | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with objects inside it.|
+| **Create sub-folder + import objects** | Hover over any folder to display the **+** icon. It allows importing objects into new child or sibling sub-folders. Same flow as [Import](#import), but requires providing a new folder name. **Note** that new sub-folders can be added only via this method or along with the publication request if a new folder is defined in it. |
+| **Actions** | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder. <br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with objects inside it.|
 
 ![ ](img/folder-actions.png)
 
 ##### Toolsets grid
 
-Click on any folder to display toolsets in the toolsets grid.
+Click any folder to display its content in the toolsets grid.
 
 | Column | Description |
 |--------|-------------|
-| **ID** | Toolset's unique key. |
+| **ID** | Toolset's unique identified. |
 | **Version** | Version of the toolset. |
 | **Author** | Username or system ID associated with the user who created or last updated this toolset. |
-| **Updated time** | Timestamp of the last modification of the toolset. Use to track changes. |
-| **Actions** | Actions you can perform on the selected toolset: <br /> - **Open in new tab**: Opens a new tab with toolset's properties and parameters. <br />- **Duplicate**: Use to create a copy of the toolset. <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the toolset.<br />- **Delete**: Use to delete the toolset. Alternatively you can use **Bulk Actions** in the header to remove multiple toolsets. |
+| **Updated time** | Timestamp of the last update. |
+| **Actions** | Actions you can perform on the selected toolset:<br />- **Open in new tab**: Opens the toolset's properties, features, and parameters in a new tab.<br />- **Move to another folder**: Select a target folder in the hierarchy to move the toolset.<br />- **Delete**: Remove the toolset. You can also use **Bulk Actions** in the toolbar to delete multiple toolsets at once.<br />- **Duplicate**: Create a copy of the toolset in one of two ways:<br />**New version**: Creates another version of the selected toolset. You can also quickly add a new version on the [Configuration](#configuration) screen by clicking **Create** in the **Version** dropdown.<br />**New toolset**: Clones the selected toolset as a new one. |
 
 ## Export
 
@@ -51,7 +56,7 @@ Use **Bulk Actions** in the toolbar to download selected toolsets. This is usefu
 1. Click **Bulk Actions** button in the toolbar.
 2. Select toolsets by checking the boxes in each row. You can also select the version you want to export. 
 3. Click **Export** in the bottom to launch the export modal.
-4. In the modal window select the export format: Archive or JSON.
+4. In the modal window select the export format: ZIP Archive or JSON.
 5. Click **Export** to generate export file and start downloading.  
 
 ## Import
@@ -77,6 +82,8 @@ Use **Import** in the toolbar to upload new or update existing toolsets from ZIP
 
 On the main screen you can add new toolsets to the public folder.
 
+> **Tip**: You can quickly add new toolsets by duplicating existing ones. Use the **Duplicate** action in the toolset's context menu.
+
 Follow these steps to add a new toolset: 
 
 1. Click **+ Create** to invoke the **Create Toolset** modal.
@@ -89,15 +96,20 @@ Follow these steps to add a new toolset:
     | **Description** | No | Description of a toolset. |
     | **External Endpoint** | Yes | Endpoint DIAL Core will use to communicate with the related MCP server. |
 
-3. Once all required fields are filled click **Create**. The dialog closes and the new [toolset configuration](#configuration-screen) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
+3. Once all required fields are filled click **Create**. The dialog closes and the new [toolset configuration](#configuration) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
 
     ![](img/132.png)
 
 ## Delete
 
-Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected toolset. To remove several toolsets, use the **Bulk Actions** option on the main screen.
+There are several ways to delete an application or a specific version of it:
 
-![ ](img/apps_bulk_actions.png)
+* Click **Delete** in the toolbar on the Configuration screen to permanently remove the selected toolset from your DIAL instance.
+* Use the Delete option in the toolset context menu.
+* Delete the related folder where the toolset is located.
+* Use **Bulk Actions** on the main screen to delete more than one toolset.
+
+![](img/assets-delete-toolset.png)
 
 ## Configuration
 
@@ -109,18 +121,30 @@ In the **Properties** tab, you can preview and modify selected toolset's basic p
 
 ![](img/134.png)
 
+##### Available actions
+
+You can find the following action buttons in the configuration screen header:
+
+| Action | Description |
+|--------|-------------|
+| **Version**  | Version of the toolset. Can be selected from the dropdown to display properties for different versions of toolset. <br /> In the dropdown, click **Create** to add a new version of the toolset. |
+| **Delete** | Use to delete the selected toolset. |
+
+##### Fields description
+
 | Field | Required | Editable | Description |
 |-------|----------|----------|-------------|
-| **ID** | - | No | Unique identifier of the toolset. |
-| **Creation Time** | - | No | Creation timestamp. |
+| **ID** | - | No | Unique identifier of the toolset. It is read-only but includes a copy-to-clipboard button for easy reference. |
+| **Author** | - | No | USer who created toolset. |
 | **Updated Time** | - | No | Timestamps if the last update. |
+| **Creation Time** | - | No | Creation timestamp. |
 | **Authentication** | - | No | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset in not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated for your user only. <br />- **Logged in (Organization)**: The toolset is authenticated for all users in your organization. |
-| **Folder Storage** | - | No | Path to the toolset's location in the hierarchy within the public folder. |
+| **Folder Storage** | - | No | Path to the toolset's location in the hierarchy within the public folder. Click to navigate to [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). |
 | **Display Name** | Yes | Yes | The name of the toolset displayed on UI. |
 | **Description** | No | Yes | Toolset description. |
-| **Icon** | Yes | Yes | Logo of the toolset displayed on UI.<br />Maximum size: 512 MB.<br />Supported types: .jpeg, .jpg, .jpe, .png, .gif, .apng, .webp, .avif, .svg, .svgz, .bmp, .ico. |
-| **Topics** | No | Yes | Semantic tags associated wih the toolset. |
-| **Storage folder** | Yes | Yes | Path to the toolset's location in the hierarchy of the Public folders. It allows you to move the toolset between folders. |
+| **Icon** | No | Yes | Logo of the toolset displayed on UI.<br />Maximum size: 512 MB.<br />Supported types: .jpeg, .jpg, .jpe, .png, .gif, .apng, .webp, .avif, .svg, .svgz, .bmp, .ico. |
+| **Topics** | No | Yes | Topics are semantic labels that you can assign to toolsets (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
+| **Storage folder** | Yes | Yes | Path to the toolset's location in the hierarchy of the Public folders. Use **Move to** to change the application's location. |
 | **External Endpoint** | Yes | Yes | Endpoint DIAL Core will use to communicate with the related MCP server. |
 | **Transport** | Yes | Yes | Transport supported by MCP server.<br />- **HTTP** (default)<br />- **SSE** (for server-sent events when supported) |
 | **Authentication** | Yes | Yes | [Authentication settings for the toolset.](#authentication) |
@@ -165,7 +189,7 @@ Having selected and configured any authentication method, click **Save** and **L
 
 ### Tools Overview
 
-[Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are specific functions supported by a related MCP server that can be used by clients to perform specific actions. On this screen, you can find and manage all tools supported by the related MCP server.
+[Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are functions supported by an MCP server that can be used by clients to perform specific actions. On this screen, you can find and manage all tools supported by the related MCP server.
 
 In case your toolset was created based on the MCP container deployed in DIAL, the content of this screen is inherited from the related [MCP container](/docs/tutorials/3.admin/deployments-mcp.md#tools-overview) and displays all the **enabled** tools. Click [Manage tools](#manage-tools) to access, try and enable all the available tools.
 

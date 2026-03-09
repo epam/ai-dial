@@ -142,13 +142,13 @@ You can find the following action buttons in the configuration screen header:
 | **ID** | Unique identifier of the application. It is read-only but includes a copy-to-clipboard button for easy reference. |
 | **Updated Time** | Timestamp of the last updated. |
 | **Creation Time** | Application creation timestamp. |
-| **Folder Storage** | Path to the application's location in the hierarchy of folders. Click to navigate to [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md).|
+| **Folder Storage** | Path to the application's location in the hierarchy of folders. Click to navigate to [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). |
 | **Status** | Current status of the application:<br />**Valid**: application configuration is compatible with the JSON schema or the related application runner.<br />Only valid entities will be materialized into the DIAL Core configuration.<br />**Invalid**: application configuration is incompatible with the JSON schema of the related application runner. |
 | **Display Name** | Name of the application displayed on UI. |
 | **Description** | Free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs). |
 | **Icon** | Logo to visually distinguish the app on the UI. Maximum size: 512 MB. Supported types: .jpeg, .jpg, .jpe, .png, .gif, .apng, .webp, .avif, .svg, .svgz, .bmp, .ico. Up to 1 files.|
 | **Topics** | Topics are semantic labels that you can assign to apps (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
-| **Folder Storage** | Path to the application's location in the hierarchy of folders. Use **Move to** to change the application's location.|
+| **Folder Storage** | Path to the application's location in the hierarchy of folders. Use **Move to** to change the application's location. |
 | **Source Type** | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. In [Builders/Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) you can see all the available runners and add new ones.|
 | **Application runner** | [Application Runner](/docs/tutorials/3.admin/builders-application-runners.md) the application is based upon. <br />**Note**: Enabled and is required if Source Type = Application runner is selected. |
 | **Completion endpoint** | The application's chat completion endpoint that will be used by DIAL Core. <br />**Note**: Enabled and is required if Source Type = Endpoints is selected. |
