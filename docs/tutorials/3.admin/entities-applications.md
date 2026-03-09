@@ -251,11 +251,11 @@ In the **Interceptors** tab of an application configuration, you can preview [gl
 
 | Column | Description |
 |--------|-------------|
-| **Order** | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor's in this order.Response interceptors are invoked in the reversed order. |
+| **Order** | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor's in this order. Response interceptors are invoked in the reversed order. |
 | **Display Name** | The interceptor's alias, matching the **Name** field in its definition. |
 | **Description** | Free-text summary from the interceptor's definition, explaining its purpose. |
 | **ID** | Unique identifier of the interceptor. |
-| **Actions** | Additional role-specific actions. <br /> Open interceptor in a new tab. <br /> [Remove](#remove-1) the selected interceptor from the model's configuration. |
+| **Actions** | Additional interceptor-specific actions. <br /> Open interceptor in a new tab. <br /> [Remove](#remove-1) the selected interceptor from the app's configuration. |
 
 #### Add
 
