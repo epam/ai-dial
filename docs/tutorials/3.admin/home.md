@@ -70,28 +70,29 @@ Use the **Import Config** button to upload a DIAL Core configuration file. Can b
 
 ### Export Config
 
-**Export Config** allows you to download the configuration of the current instance as a file. Great for backups, audit snapshots, or sharing with teammates.
+**Export Config** allows you to download the configuration of the current instance. Great for backups, audit snapshots, or sharing with teammates.
 
 ![](img/img_57.png)
 
-1. One of the following export formats can be selected:
+1. Select the export format:
    * **DIAL Admin Archive** — `.zip` archive with the configuration stored as a single `.json` file. Includes secrets if the **Include secrets** option is selected.
    * **DIAL Core JSON File** — a single `.json` file compatible with DIAL Core. Includes secrets if the **Include secrets** option is selected.
-   * **Active Config** — `.zip` archive with configuration files and secrets stored separately. Secrets are always included.
-2. Config can be exported partially (user-selected artefacts) or in full.
-   * For a partial export, select the specific artefacts to include.
-3. Dependencies can be included or ignored for Models, Applications, Roles, and Keys.
-   * **Include dependencies** adds all referenced items required by the selected artefacts.
-   * **Ignore dependencies** exports only the items you explicitly select.
+2. Select the export type: Config can be exported partially (user-selected artefacts) or in full.
+   * **Full**: When this option is selected, use Resources toggles to enable/disable specific categories of resources you want to export.
+   * **Custom**: When this option is selected, use tabs with resources where you can manually select what entities in each category you want to include. When exporting a Custom config type, dependencies can be included or ignored for Models, Applications, Roles, and Keys.
+      - **Include dependencies** adds all referenced items required by the selected artefacts.
+      - **Ignore dependencies** exports only the items you explicitly select.
 
-   ![](img/126.png)
+      ![](img/126.png)
 
-4. Click  **Export** to open up the Export File Preview screen, where you can:
+3. Use **Topics** to filter out resources associated with the selected topic(s).
+4. Click **Export** to open up the Export File Preview screen, where you can:
 
-   * Preview your selections and any included dependencies.
-   * Review the artefacts and confirm the export.
+   1. Preview your selections and any included dependencies.
+   2. Use **Include secrets** toggle on the Export Preview screen to export `.zip` archive with configuration files and secrets stored separately. Secrets are always included.
+   3. Review the artefacts and confirm the export.
 
-   ![](img/127.png)
+      ![](img/127.png)
 
 ### User Settings
 

@@ -66,8 +66,6 @@ In the Properties tab, you can define the application's identity, routing, UI me
 
 Once configured, your application is ready to orchestrate models and interceptors behind a single HTTP endpoint.
 
-![](img/entities_app_properties.png)
-
 | Field | Required | Description |
 |-------|----------|-------------|
 | **ID** | - | Unique key under `applications` in DIAL Core's [dynamic settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings) (e.g. data-clustering, support-bot). |
@@ -86,12 +84,14 @@ Once configured, your application is ready to orchestrate models and interceptor
 | **Completion endpoint** | Conditional | Chat completion endpoint of the application. Required if Source Type is **Endpoints**. |
 | **Viewer URL** | Optional | URL of the application's custom UI. A custom UI, if enabled, will override the standard DIAL Chat UI. Available if Source Type is **Endpoints**. |
 | **Editor URL** | Optional | URL of the application's custom builder UI. Application builder allows creating instances of apps using a [UI wizard](/docs/tutorials/0.user-guide.md#application-builder). Available if Source Type is **Endpoints**. |
-| **Attachments** | No | Use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **None** – attachments are not allowed.  <br /> **Use all** – unrestricted types. Optionally specify max number of attachments. <br /> **Custom** – enter specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). |
+| **Attachment types** | No | Use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **No attachments**: Disables all attachment types.  <br /> **All attachments types**: Allows all types of file attachments. Optionally specify max number of attachments. <br /> **Specific attachments types**: Enables the user to define/select specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Start typing to see suggestions or use `<type>/<subtype>` format for a manual entry. |
 | **Attachments max number** | No | Maximum number of input attachments. Enabled if attachment types are defined. |
 | **Forward auth token** | No | Select a downstream auth token to forward from the user's session (for multi-tenant downstream). |
 | **Max retry attempts** | No | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors). |
 | **Defaults** | No | Default parameters for the application. Default parameters are applied if a request doesn't contain them in OpenAI chat/completions API call. |
- 
+
+![](img/entities_app_properties.png)
+
 ### Features
 
 In the Features tab, you can control optional capabilities of applications. 

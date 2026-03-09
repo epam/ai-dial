@@ -165,7 +165,7 @@ These parameters help customize how the model is presented in the DIAL UI.
 |-------|----------|-------------|
 | **Override name** | No | Custom display name for specific contexts. |
 | **Icon** | No | Logo to visually distinguish models in the UI. |
-| **Topics** | No | Tag that associates a model with one or more topics or categories (e.g. "finance", "support"). |
+| **Topics** | No | Tags that associate a model with one or more topics or categories (e.g. "finance", "support"). Click to open a list of available topics. |
 
 ![](img/model_personalization.png)
 
@@ -173,7 +173,7 @@ These parameters help customize how the model is presented in the DIAL UI.
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| **Attachments** | No | Attachment types (images, files) this model can accept. <br />**None**: Attachments are not allowed. <br />**All**: Unrestricted types. Optionally specify max number of attachments.<br />**Custom**: Specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). |
+| **Attachment types** | No | This parameter allows you to define attachment types (images, files etc.) this model can accept. <br />**No attachments**: Disables all attachment types. <br />**All attachments types**: Allows all types of file attachments. Optionally specify max number of attachments.<br />**Specific attachments types**: Enables the user to define/select specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Start typing to see suggestions or use `<type>/<subtype>` format for a manual entry. |
 | **Attachments max number** | No | Maximum number of input attachments, When **unset** (default), attachments are not allowed. |
 
 ![](img/models_attachments.png)
