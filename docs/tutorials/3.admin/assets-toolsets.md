@@ -12,6 +12,8 @@ In DIAL, toolsets created by users (either using DIAL Core API or UI) are stored
 
 The Assets/Toolsets screen displays all toolsets located in the Public folder in DIAL file storage. Toolsets get to the Public folder when published by users or added by administrators.
 
+> **Note**: This screen, does not give access to private toolsets of users.
+
 > * Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about Private and Public logical spaces for objects storage in DIAL.
 > * Refer to [Chat User Guide](/docs/tutorials/0.user-guide.md#to-publish-toolset) to learn how end users can publish toolsets and to [DIAL Core API Publications](https://dialx.ai/dial_api#tag/Publications) to learn how to create and manage publication requests via API.
 
@@ -44,6 +46,8 @@ Click any folder to display its content in the toolsets grid.
 | **Author** | Username or system ID associated with the user who created or last updated this toolset. |
 | **Updated time** | Timestamp of the last update. |
 | **Actions** | Actions you can perform on the selected toolset:<br />- **Open in new tab**: Opens the toolset's properties, features, and parameters in a new tab.<br />- **Move to another folder**: Select a target folder in the hierarchy to move the toolset.<br />- **Delete**: Remove the toolset. You can also use **Bulk Actions** in the toolbar to delete multiple toolsets at once.<br />- **Duplicate**: Create a copy of the toolset in one of two ways:<br />**New version**: Creates another version of the selected toolset. You can also quickly add a new version on the [Configuration](#configuration) screen by clicking **Create** in the **Version** dropdown.<br />**New toolset**: Clones the selected toolset as a new one. |
+
+![ ](img/assets-toolsets-actions.png)
 
 ## Export
 

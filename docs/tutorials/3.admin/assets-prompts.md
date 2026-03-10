@@ -11,6 +11,11 @@ In DIAL, prompts created by users (either using [DIAL Core API](https://dialx.ai
 
 The Assets/Prompts screen displays all prompts located in the Public folder in DIAL file storage. Prompts get to the Public folder when published by users or added by administrators.
 
+> **Note**: This screen, does not give access to private prompts of users.
+
+> * Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about Private and Public logical spaces for objects storage in DIAL.
+> * Refer to [Chat User Guide](/docs/tutorials/0.user-guide.md#publish-1) to learn how end users can publish prompts and to [DIAL Core API Publications](https://dialx.ai/dial_api#tag/Publications) to learn how to create and manage publication requests via API.
+
 ![ ](img/img_32.png)
 
 ##### Public file storage
@@ -41,7 +46,9 @@ Click any folder in the hierarchy to display prompts stored in it.
 | **Updated time** | The timestamp of the last modification of the prompt. |
 | **Actions** | Actions you can perform on the selected prompt:<br />- **Open in new tab**: Opens the prompt's properties in a new tab.<br />- **Move to another folder**: Select a target folder in the hierarchy to move the prompt.<br />- **Delete**: Remove the prompt. You can also use **Bulk Actions** in the toolbar to delete multiple prompts at once.<br />- **Duplicate**: Create a copy of the prompt in one of two ways:<br />**New version**: Creates another version of the selected prompt. You can also quickly add a new version on the [Properties](#properties) screen by clicking **Create** in the **Version** dropdown.<br />**New prompt**: Clones the selected prompt as a new one. |
 
-#### Export
+![ ](img/assets-prompts-actions.png)
+
+## Export
 
 Use **Bulk Actions** in the toolbar to bulk download prompts. This is useful for migrating prompts between environments, sharing sets of prompts with other users, or keeping a point-in-time backup.
 
@@ -57,7 +64,7 @@ Use **Bulk Actions** in the toolbar to bulk download prompts. This is useful for
 
    ![ ](img/img_47_1.png)
 
-#### Import
+## Import
 
 Use **Import** in the toolbar to upload new or update existing prompts from external JSON files or ZIP archive. This is essential for migrating, restoring, or sharing prompt assets between DIAL users.
 
@@ -76,7 +83,7 @@ Use **Import** in the toolbar to upload new or update existing prompts from exte
 4. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all prompts will be imported directly into the root folder without recreating the original folder hierarchy.
 5. Click **Finish** to start.
 
-#### Create
+## Create
 
 Follow these steps to add a new prompt to the Public folder:
 
@@ -94,7 +101,7 @@ Follow these steps to add a new prompt to the Public folder:
 
    ![](img/img_33.png)
 
-#### Delete
+## Delete
 
 There are several ways to delete a prompt or a specific version of it:
 

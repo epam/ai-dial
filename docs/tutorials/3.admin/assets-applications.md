@@ -10,6 +10,8 @@ In DIAL, applications created by users (either using DIAL Core API or UI) are st
 
 The Assets/Applications screen displays all applications located in the Public folder in DIAL file storage. Applications get to the Public folder when published by users or added by administrators.
 
+> **Note**: This screen, does not give access to private applications of users.
+
 > * Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about Private and Public logical spaces for objects storage in DIAL.
 > * Refer to [Chat User Guide](/docs/tutorials/0.user-guide.md#publish-2) to learn how end users can publish applications and to [DIAL Core API Publications](https://dialx.ai/dial_api#tag/Publications) to learn how to create and manage publication requests via API.
 
