@@ -91,6 +91,8 @@ Use the **Add** dropdown in the toolbar to add new folders or files.
 
 You can add new child or sibling folders to the hierarchy using the context menu of each folder. 
 
+> **Note**: The name of the folder must not exceed 160 characters.
+
 ![ ](img/assets-files-folder-actions.png)
 
 You can also navigate to a specific folder and use the **Add** dropdown in the toolbar to add sub-folders.

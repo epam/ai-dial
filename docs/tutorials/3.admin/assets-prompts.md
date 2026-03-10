@@ -29,7 +29,7 @@ Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) 
 
 | Available Actions | Description |
 |-------------------|-------------|
-| **Create sub-folder + import objects** | Hover over any folder to display the **+** icon. It allows importing objects into new child or sibling sub-folders. Same flow as [Import](#import), but requires providing a new folder name. **Note** that new sub-folders can be added only via this method or along with the publication request if a new folder is defined in it. |
+| **Create sub-folder + import objects** | Hover over any folder to display the **+** icon. It allows importing objects into new child or sibling sub-folders. <br />The process is similar to [Import](#import), but you’ll need to provide a name for the new folder. <br />Additionally, there’s an optional step where you can define [access rules](/docs/tutorials/3.admin/access-management-folders-storage.md#access-rules) for the new sub-folder. <br />**Note**: New sub-folders can only be created using this method or as part of a publication request if a new folder is specified during that process. |
 | **Actions** | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder. <br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with objects inside it.|
 
 ![ ](img/folder-actions.png)
@@ -97,7 +97,7 @@ Follow these steps to add a new prompt to the Public folder:
    | **Version** | Yes | Version of the prompt (e.g. `1.0.0`).|
    | **Description** | No | Free-form description of the prompt.|
 
-4. Once all required fields are filled, click **Create**. The dialog closes and the new prompt [configuration screen](#configuration) is opened. This entry will appear immediately in the listing once created.
+4. Once all required fields are filled, click **Create**. The dialog closes and the new prompt [properties](#properties) screen is opened. This entry will appear immediately in the listing once created.
 
    ![](img/img_33.png)
 
