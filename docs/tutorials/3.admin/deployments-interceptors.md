@@ -89,19 +89,19 @@ In the Properties tab, you can view and edit the selected interceptor container 
 
 | Property | Required | Editable | Description |
 |----------|----------|----------|-------------|
-| ID | - | No | Unique identifier for the interceptor container. |
+| ID | - | No | Unique identifier for the interceptor container. Must be between 2 and 36 characters long. Can contain only lowercase Latin letters, numbers, and hyphens. |
 | Interceptor Image | - | No | Docker image from which the interceptor container was created. |
 | Creation Time | - | No | Date and time when the interceptor container was created. |
 | Updated Time | - | No | Date and time when the interceptor container was last updated. |
 | Status | - | No | Current status of the interceptor container (e.g., Running, Stopped). |
 | URL | - | No | URL to access the running interceptor container. |
 | Restarts | - | No | Restart counter for launching containers. Use to identify crash loops. You can find details in the [Execution Log](#execution-log).|
-| Display Name | Yes | Yes | Name of the interceptor container rendered in UI. |
+| Display Name | Yes | Yes | Name of the interceptor container rendered in UI. Must be between 2 and 255 characters long. |
 | Description | No | Yes | Brief description of the interceptor container. |
 | Maintainer | No | Yes | Maintainer of the interceptor container. |
 | Endpoint Configuration | No | Yes | Configuration details for the endpoints exposed by the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
-| Environment Variables | No | Yes | Environment variables set for the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
-| Resources | No | Yes | Resource limits and requests for the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
+| Environment Variables | No | Yes | Environment variables set for the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. <br /> - **Name**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.<br /> - **Value**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`. |
+| Resources | No | Yes | Resource limits and requests for the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode.<br />Validation rules: <br /> - Values must be numeric and greater than 0.<br /> - Maximum allowed values for `cpu`, `memory`, and `nvidia.com/gpu` are defined on the backend via environment variables.<br /> - For each matching resource key (e.g. `cpu`), the value in limits must not be less than the value in `requests`. |
 
 ![](img/interceptor_container_properties.png)
 
@@ -113,7 +113,7 @@ In the Properties tab, you can view and edit the selected interceptor container 
 
 The whitelist domains setting specifies which external domains the interceptor container is allowed to connect to. This setting controls outgoing traffic from the container, ensuring that it can only communicate with trusted domains (for example, your company’s website or specific client applications).
 
-**Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters.
+**Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters. Domain name must not include leading or trailing hyphens in labels.
 
 ![ ](img/interceptor_container_firewall.png)
 

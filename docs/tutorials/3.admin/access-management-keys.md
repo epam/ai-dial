@@ -100,6 +100,7 @@ In the Properties tab, you can view metadata and manage the selected settings fo
 | **Key value** | Yes | Secret string used for authentication.<br />Initially hidden - click **👁️** to reveal.<br />Press **Copy** to copy it to clipboard. |
 | **Secured** | Yes | Indication if it is [secured API key](/docs/platform/3.core/4.privacy.md#applications-audit-logs). |
 | **Topics** | No | Tags assigned to the key (e.g. "admin", "user"). |
+| **IPs access restriction** | No | A list of IP address ranges. <br />- **Allow all** or undefined: Any client can have access.<br />- **Block all**: Access is prohibited to all clients. <br />- **Only selected ranges**: Only clients with IP address within the given ranges may have access. IP address could be IPv4 or IPv6. |
 
 ![](img/keys-properties.png)
 
