@@ -25,7 +25,7 @@
    - ai-dial-quickapps-backend: `0.5.2`
    - dial-mind-map-backend: `0.13.2`
    - dial-mind-map-frontend: `0.9.15`
-   - ai-dial-admin-backend: `0.14.2`
+   - ai-dial-admin-backend: `0.14.3`
    - ai-dial-admin-frontend: `0.14.5`
    - ai-dial-admin-deployment-manager-backend: `0.14.3`
 
