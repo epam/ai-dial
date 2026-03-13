@@ -11,6 +11,8 @@ DIAL includes adapters for [Azure OpenAI](https://github.com/epam/ai-dial-adapte
 
 Compatibility with Azure OpenAI API, makes it simple to add new adapters for language models or develop them with [DIAL SDK](https://github.com/epam/ai-dial-sdk).
 
+DIAL enables use of [self-hosted](/docs/tutorials/3.admin/deployments-adapters.md) (deployed withing the DIAL infrastructure) and external adapters.
+
 ## Main Screen
 
 The main screen displays all registered adapters in your DIAL instance.
@@ -26,19 +28,23 @@ The main screen displays all registered adapters in your DIAL instance.
 | **Description** | Brief description of the adapter (e.g., "Adapter for OpenAI models"). |
 | **Updated time** | Timestamp of the last update to this adapter's configuration. Useful to track recent changes. |
 | **Topics** | Semantic tags associated with adapter. |
+| **Source type** | Type of the adapter source: external endpoint or adapter container. |
+| **Source** | URL for externally-deployed adapters or the name of the adapter container for self-hosted adapters. | 
 
 ## Create
 
 On the main screen, you can add new adapters by following these steps:
 
-1. Click **+ Create** to invoke the **Adapter** modal.
+1. Click **+ Create** to invoke the **Create Adapter** modal.
 
     | Field | Required | Description |
-    |-------|----------|------------|
+    |-------|----------|-------------|
     | **ID** | Yes | Unique identifier. |
     | **Display name** | Yes | Unique name of the adapter displayed on UI. |
     | **Description** | No | Description of the adapter. |
-    | **Base endpoint** | Yes | Base URL of the adapter service that implements the Unified Protocol (following the format: `{ADAPTER_ORIGIN}/openai/deployments/`). |
+    | **Source type** | Yes | External Endpoint for for externally-deployed adapters or Adapter Container for self-hosted. |
+    | **Completion endpoint** | Conditional | Applies to External Endpoint source type. <br />Chat completion endpoint URL of the adapter service that implements the Unified Protocol (following the format: `{ADAPTER_ORIGIN}/openai/deployments/`). |
+    | **Container** | Conditional | Applies to Adapter Container source type. <br />Name of the [adapter container](/docs/tutorials/3.admin/deployments-adapters.md). Click to select from the list of available containers. |
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new adapter's configuration screen is opened. A new adapter will appear immediately on the main screen once it is created.
 
@@ -64,13 +70,15 @@ In the Properties tab, you can view and define identity and metadata of the sele
 
 | Field | Required | Editable | Description |
 |-------|----------|----------|-------------|
-| **ID** | - | No | Unique identifier. |
-| **Updated Time** | - | No | Timestamp of the last update to this adapter's configuration. Useful to track recent changes. |
+| **ID** | - | No | Unique read-only identifier of the adapter. |
+| **Updated Time** | - | No | Timestamp of the last update to this adapter's configuration. |
 | **Creation Time** | - | No | Adapter creation timestamp. |
 | **Display Name** | Yes | Yes | Unique name of the adapter displayed on UI. |
 | **Description** | No | Yes | Brief description of the adapter. |
-| **Base endpoint** | Yes | Yes | Base URL of the adapter service that implements the Unified Protocol (following the format: `{ADAPTER_ORIGIN}/openai/deployments/`). |
-| **Topics** | No | Yes |Semantic tags associated with adapter. |
+| **Source type** | Yes | Yes | External Endpoint for for externally-deployed adapters or Adapter Container for self-hosted. |
+| **Completion endpoint** | Yes | Yes | Chat completion endpoint URL of the adapter service that implements the Unified Protocol (following the format: `{ADAPTER_ORIGIN}/openai/deployments/`). |
+| **Container** | Conditional | Yes | Applies to Adapter Container source type. <br />Name of the [adapter container](/docs/tutorials/3.admin/deployments-adapters.md). Click to select from the list of available containers. |
+| **Topics** | No | Yes |Semantic tags associated with adapter. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
 
 ![](img/adapters-properties.png)
 
