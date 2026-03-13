@@ -160,7 +160,7 @@ In the Roles tab, you can create and manage roles that have access to the select
 **Important**: if roles are not selected for a specific application or **Make available to specific roles** toggle is disabled, it will be available to all user roles.
 
 > * Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
-> * Refer to [Roles](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to lean more about roles in DIAL.
+> * Refer to [Roles](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to learn more about roles in DIAL.
 > * Refer to tutorials to learn how to configure access and limits for [JWT](/docs/tutorials/2.devops/2.auth-and-access-control/1.jwt.md) and [API keys](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md)
 
 ![](img/entities_apps_roles.png)
@@ -251,11 +251,11 @@ In the **Interceptors** tab of an application configuration, you can preview [gl
 
 | Column | Description |
 |--------|-------------|
-| **Order** | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor's in this order.Response interceptors are invoked in the reversed order. |
+| **Order** | Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor's in this order. Response interceptors are invoked in the reversed order. |
 | **Display Name** | The interceptor's alias, matching the **Name** field in its definition. |
 | **Description** | Free-text summary from the interceptor's definition, explaining its purpose. |
 | **ID** | Unique identifier of the interceptor. |
-| **Actions** | Additional role-specific actions. <br /> Open interceptor in a new tab. <br /> [Remove](#remove-1) the selected interceptor from the model's configuration. |
+| **Actions** | Additional interceptor-specific actions. <br /> Open interceptor in a new tab. <br /> [Remove](#remove-1) the selected interceptor from the app's configuration. |
 
 #### Add
 
