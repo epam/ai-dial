@@ -70,7 +70,7 @@ In the header of the Configuration screen, you can find the following action but
 | Action | Description |
 |--------|-------------|
 | Version | Click to create a new image version or display configuration of a selected version. |
-| Create Interceptor/MCP Container | Enabled for the installed images.<br />Click to create a new [MCP](/docs/tutorials/3.admin/deployments-mcp.md) or [Interceptor](/docs/tutorials/3.admin/deployments-interceptors.md) container based on the selected image. |
+| Create Interceptor/MCP/Adapter Container | Enabled for the installed images.<br />Click to create a new [MCP](/docs/tutorials/3.admin/deployments-mcp.md), [Adapter](/docs/tutorials/3.admin/deployments-adapters.md) or [Interceptor](/docs/tutorials/3.admin/deployments-interceptors.md) container based on the selected image. |
 | Install | Enabled for not installed images.<br />Click to install the selected version of an image. |
 | Delete | Click to delete the selected image. **Note**: Deleted image will effect the related containers. |
 
@@ -83,7 +83,7 @@ In the Properties tab, you can preview and modify selected image's basic propert
 | Field | Required | Editable | Description |
 |-------|----------|----------|-------------|
 | ID | - | No | Unique read-only identifier of the image. |
-| Type | - | No | Type of the image (MCP or Interceptor). |
+| Type | - | No | Type of the image (MCP, Adapter or Interceptor). |
 | Creation Time | - | No | Date and time when the image was created. |
 | Updated Time | - | No | Date and time when the image was last updated. |
 | Source type | - | No | Source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
@@ -93,8 +93,9 @@ In the Properties tab, you can preview and modify selected image's basic propert
 | Maintainer | No | Yes | Email address of the maintainer of the image. |
 | Topics | No | Yes | List of topics associated with the image. Click to display a list of available topics. <br />You can add your own custom topics to the list following these rules:<br /> - The topic name must not exceed 255 characters. <br /> - The topic name must not contain leading or trailing spaces.|
 | Source type | Conditional | Yes | **Note**: Required for MCP type of image.<br />The source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
-| Docker image URI | Conditional | Yes |  Valid Docker image URI (validated on backend). If provided, must not start or end with `/`.<br/>Applies to both MCP (if Source type = Docker image) and Interceptor types. |
+| Docker image URI | Conditional | Yes |  Valid Docker image URI (validated on backend). If provided, must not start or end with `/`.<br/>Applies to MCP (if Source type = Docker image), Adapter and Interceptor types. |
 | Source code repository parameters | Conditional | Yes | Applies if Type = MCP Image and Source type = Source code .<br/>- **Repo URL** (required): Source code repository URL. If provided, must not start or end with `/`.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository.<br />- **Base directory**: The directory path with the Docker file. If provided, must not start or end with `/`. |
+| Build privileges | Yes | Yes | Use this setting to define permissions level when building image. |
 | MCP transport type | Conditional | Yes | Applies only to MCP type of image.<br/>The transport type used by the MCP image:<br />- **Remote** (HTTP/SSE)<br />- **Local** (STDIO). |
 
 ![ ](img/image_properties.png)
@@ -119,7 +120,7 @@ The allow list domains setting specifies which external resources the image buil
 
 > This tab is enabled for installed images.
 
-The Related Containers tab displays all [MCP](/docs/tutorials/3.admin/deployments-mcp.md) or [Interceptor](/docs/tutorials/3.admin/deployments-interceptors.md) containers related to the selected version of the image.
+The Related Containers tab displays all [MCP](/docs/tutorials/3.admin/deployments-mcp.md), [Adapter](/docs/tutorials/3.admin/deployments-adapters.md) or [Interceptor](/docs/tutorials/3.admin/deployments-interceptors.md) containers related to the selected version of the image.
 
 ##### Add containers
 
