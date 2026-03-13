@@ -16,7 +16,7 @@ DIAL uses interceptors as a middleware that modifies incoming or outgoing reques
 
 ## Main Screen
 
-In **Interceptor Deployments**, you can manage containers for interceptors within the DIAL system. You can create new containers based on existing [images](/docs/tutorials/3.admin/deployments-images.md), start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting.
+In **Interceptor Containers**, you can manage containers for interceptors within the DIAL system. You can create new containers based on existing [images](/docs/tutorials/3.admin/deployments-images.md), start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting.
 
 ![](img/interceptor_deployments.png)
 
@@ -26,11 +26,11 @@ In **Interceptor Deployments**, you can manage containers for interceptors withi
 |--------|-------------|
 | Display Name | Name of the interceptor container rendered on UI. |
 | Description | Brief description of the interceptor container. |
-| Interceptor Image | Docker image from which the interceptor container was created. |
 | Status | Current status of the interceptor container (e.g., Running, Stopped). |
 | ID | Unique identifier of the interceptor container. |
 | Container URL | URL to access the running interceptor container. |
-| Maintainer | Maintainer of the interceptor container. |
+| Author | Email address of the creator of the interceptor container. |
+| Topics | Tags that associate adapter with one or more topics or categories. |
 | Create time | Date and time when the interceptor container was created. |
 | Update time | Date and time when the interceptor container was last updated. |
 | Actions | Buttons to manage the selected interceptor container:<br/>- **Open in a new tab**: Use to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: Use to duplicate the interceptor container.<br/>- **Stop/Run**: Use to start and stop a container.<br/>- **Delete**: Use to remove the container. |  
@@ -89,8 +89,8 @@ In the Properties tab, you can view and edit the selected interceptor container 
 
 | Property | Required | Editable | Description |
 |----------|----------|----------|-------------|
-| ID | - | No | Unique identifier for the interceptor container. Must be between 2 and 36 characters long. Can contain only lowercase Latin letters, numbers, and hyphens. |
-| Interceptor Image | - | No | Docker image from which the interceptor container was created. |
+| ID | - | No | Unique read-only identifier for the interceptor container. Must be between 2 and 36 characters long. Can contain only lowercase Latin letters, numbers, and hyphens. |
+| Interceptor Image | - | No | Docker image from which the interceptor container was created. <br />Click to display the list of available images where you can change the source image for the container. <br />**Note**: The container is redeployed when source image changes. |
 | Creation Time | - | No | Date and time when the interceptor container was created. |
 | Updated Time | - | No | Date and time when the interceptor container was last updated. |
 | Status | - | No | Current status of the interceptor container (e.g., Running, Stopped). |
@@ -99,9 +99,13 @@ In the Properties tab, you can view and edit the selected interceptor container 
 | Display Name | Yes | Yes | Name of the interceptor container rendered in UI. Must be between 2 and 255 characters long. |
 | Description | No | Yes | Brief description of the interceptor container. |
 | Maintainer | No | Yes | Maintainer of the interceptor container. |
+| Topics | No | Yes | Topics are semantic labels that you can assign to containers (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
 | Endpoint Configuration | No | Yes | Configuration details for the endpoints exposed by the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
 | Environment Variables | No | Yes | Environment variables set for the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. <br /> - **Name**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.<br /> - **Value**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`. |
 | Resources | No | Yes | Resource limits and requests for the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode.<br />Validation rules: <br /> - Values must be numeric and greater than 0.<br /> - Maximum allowed values for `cpu`, `memory`, and `nvidia.com/gpu` are defined on the backend via environment variables.<br /> - For each matching resource key (e.g. `cpu`), the value in limits must not be less than the value in `requests`. |
+| Startup probe | No | Yes | Use this configuration to enable and configure the Startup Probe - it is a type of health check specifically designed to signal that the application inside the container is ready to begin serving traffic.<br />- **Type**: HTTP (Performs an HTTP GET request to a specified path and port on the container. The probe is considered successful if the response has a status code between 200 and 399.); TCP (Attempts to establish a TCP connection to the specified port. The probe is successful if the connection is established.).<br />- **Port**: The network port on the container to which the probe will connect or send the request. <br />- **Path**: Path to call inside the container. Available for HTTP type.<br />- **Initial delay seconds**: The number of seconds to wait after the container starts before performing the first probe. This allows the application time to initialize before health checks begin. <br />- **Period seconds**: The interval (in seconds) between consecutive probe checks. This determines how frequently Kubernetes will perform the probe. <br />- **Timeout seconds**: The maximum number of seconds allowed for a single probe check to complete. If the probe does not return within this time, it is considered a failure. <br />- **Failure threshold**: The number of consecutive failed probe attempts before Kubernetes considers the startup probe to have failed, which may result in the container being restarted or marked as failed.|
+| Configuration | No | Yes | Command that defines the executable and its options to launch the container. Arguments provide extra parameters for customization during startup. |
+| Autoscaling | No | Yes | Parameters to dynamically adjust container replicas based on demand. <br /> - **Automatic scale to zero**: Use to define criteria to reduce replicas to zero to save resources. <br />- **Min and Max Replicas**: Sets the minimum and maximum number of instances that can run, ensuring availability and controlling costs. <br /> - **Pending requests to trigger autoscaling**: Specifies the number of queued requests required to trigger scaling up, helping maintain performance during traffic spikes. |
 
 ![](img/interceptor_container_properties.png)
 

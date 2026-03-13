@@ -12,7 +12,6 @@ DIAL uses [AI model adapters](/docs/tutorials/3.admin/builders-adapters.md), tha
 
 You can add AI models to DIAL via a direct configuration of [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/models.md) or using DIAL Admin Panel. This tutorial describes how to add and manage AI models using DIAL Admin Panel.
 
-
 ## Main Screen
 
 On this page, you can find all AI models deployments available on your DIAL instance. Here you can view, filter, and add new model definitions.
@@ -35,15 +34,12 @@ The grid with models displays the main properties of models which include:
 | **Version** | Version of a specific model deployment (e.g. `0613`, `v1`). Used to distinguish between "latest", "beta" or date-stamped builds. |
 | **Description** | Description of the model's purpose including any relevant details. The description is displayed in DIAL Chat UI and Marketplace. |
 | **ID** | Unique key under the `models` section of [DIAL Core's config](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/models.md). Must match the upstream service's model or deployment name (e.g. `gpt-4-0613`). |
-| **Source Type** | Source type of a model:<br />**Adapter**: Model is based on a [model adapter](/docs/tutorials/3.admin/builders-adapters.md).<br />**External Endpoint**: Model is deployed outside DIAL infrastructure and exposes an endpoint DIAL Core uses for communication.<br />**Model Container**: Model is based on a deployed [model container](/docs/tutorials/3.admin/deployments-models.md). |
-| **Source** | Source identifier. Adapter ID, [Model serving container ID](/docs/tutorials/3.admin/deployments-models.md) or Endpoint of the model, based on your Source Type selection. |
-| **Author** | Information about the user who deployed the model. |
-| **Type** | Defines **Chat** (conversational completions) and **Embedding** models (vector generation). DIAL Core uses this to choose the correct API endpoint and a payload schema. |
-| **Override Name** | Context-specific optional display label that overrides the Display Name in UI components. Use it to give a model different aliases in different workflows without redefining the model. |
-| **Topics** | Tags or categories you can assign for discovery, filtering, or grouping in large deployments (e.g. "finance", "support", "image-capable"). Helps end users and admins find the right model by the use case. Topics are also used to filter models in [DIAL Marketplace](/docs/platform/4.chat/1.marketplace.md). |
+| **Source Type** | Source type of a model:<br />**Adapter**: Model is based on a [model adapter](/docs/tutorials/3.admin/builders-adapters.md).<br />**External Endpoint**: Model is deployed outside DIAL infrastructure and exposes an endpoint DIAL Core uses for communication.<br />**Model Serving**: Model is based on a deployed [model serving container](/docs/tutorials/3.admin/deployments-models.md). |
+| **Source** | Adapter, Model Serving or External endpoint depending on the selected source type. |
+| **Author** | Email address of the user who created the model deployment. |
+| **Topics** | Semantic tags associated with the model deployment. |
 | **Attachment types** | Types of attachments this model can accept according to [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types). |
 | **Max attachment number** | Maximum number of attachments allowed in a single request. Blank for an unlimited number. |
-| **Tokenizer model** | Identifies the specific model with a tokenization algorithm identical to the referenced model's. This is typically the name of the earliest released model in a series of models sharing an identical tokenization algorithm. This parameter is essential for DIAL clients that reimplement tokenization algorithms on their side, instead of utilizing the tokenize endpoint provided by the model. |
 | **Interaction limit** | The interaction limit parameter in models refers to the maximum number of tokens that can be transmitted in a completion request and response combined. This parameter ensures that the model does not exceed a specified token limit during interactions. |
 | **Prompt price** | Cost per unit (according to **Cost unit**, typically "token" or "request") applied to the *input* portion of each call. Used by the [Dashboard and Usage Logs](/docs/tutorials/3.admin/telemetry-dashboard.md) to estimate spending in real time. |
 | **Completion price** | Cost per unit is charged for the output portion of each call. Combined with the prompt price, it determines your per-model cost calculations. |
@@ -61,7 +57,7 @@ Follow these steps to add new AI model to your DIAL instance:
     | **Display Name** | Yes | Model name shown across the UI (e.g. "GPT-4 Turbo"). |
     | **Display version** | No | Version is an optional tag to track releases when you register multiple variants of the same model. (e.g. `2024-07-18`, `v1`) |
     | **Description** | No | Free-text note about the model's purpose or distinguishing traits. |
-    | **Source type** | Yes | **Adapter**: Select the corresponding AI model adapter from the list of [available adapters](/docs/tutorials/3.admin/builders-adapters.md). In this case DIAL Core will use the adapter's endpoint URL to communicate with the model.<br />**Model Container**: Select one of the available [model containers](/docs/tutorials/3.admin/deployments-models.md) deployed in DIAL. In this case DIAL Core will use the container URL to communicate with the model.<br />**External Endpoint**: For externally-hosted models, provide the chat completion endpoint URL DIAL Core will use to directly (not using model adapters) communicate with the model. In this case, the model API must be compatible with DIAL Core API. |
+    | **Source type** | Yes | **Adapter**: Select the corresponding AI model adapter from the list of [available adapters](/docs/tutorials/3.admin/builders-adapters.md). In this case DIAL Core will use the adapter's endpoint URL to communicate with the model.<br />**Model Serving**: Select one of the available [model serving containers](/docs/tutorials/3.admin/deployments-models.md) deployed in DIAL. In this case DIAL Core will use the container URL to communicate with the model.<br />**External Endpoint**: For externally-hosted models, provide the chat completion endpoint URL DIAL Core will use to directly (not using model adapters) communicate with the model. In this case, the model API must be compatible with DIAL Core API. |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#configuration). When done with model configuration, click **Save**. It may take some time for the changes to take effect after saving. Once added, the model appears in the **Models** listing and become available to use across the DIAL ecosystem.
 
@@ -69,7 +65,7 @@ Follow these steps to add new AI model to your DIAL instance:
 
 ## Configuration
 
-You can access the model configuration screen by clicking any model in the models grid and also when adding a new model. In this section, you can view and configure all settings for the selected language model deployment.
+You can access the model deployment configuration screen by clicking any model deployment on the main screen and also when adding a new model deployment. In this section, you can view and configure all settings for the selected model deployment.
 
 * [Properties](#properties): Main definitions and runtime settings.
 * [Features](#features): Optional capabilities and custom endpoints.
@@ -95,14 +91,14 @@ In the **Properties** tab, you can view and edit main definitions and runtime se
 | Field | Required | Editable | Description |
 |-------|----------|----------|-------------|
 | **ID** | - | No | Unique key DIAL Core uses in the `models` section. Must match the upstream's deployment or model name (e.g. `gpt-4o`, `gpt-4-turbo`). Non-editable after the model created. |
-| **Updated Time** | - | No | Date and time when the model's configuration was last updated. |
-| **Creation Time** | - | No | Date and time when the model's configuration was created. |
+| **Updated Time** | - | No | Timestamp of the last update. |
+| **Creation Time** | - | No | Model deployment creation timestamp. |
 | **Sync with core** | - | No | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
 | **Display Name** | Yes | Yes | Model name shown in tables and dropdowns in DIAL clients (e.g. "GPT-4o"). Helps users identify and select models on UI. |
 | **Display version** | No | Yes | Version tag for tracking releases (e.g. `0613`, `v1`). Useful for A/B testing or canary rollouts. |
 | **Description** | No | Yes | Text describing the model's features, details, or other relevant information. |
 | **Maintainer** | No | Yes | Name of the responsible person or team overseeing the model's configuration. |
-| **Source type** | Yes | Yes | Source type indicates the way a model was created: [Adapter](#adapter), [Model Container](#model-container), [External Endpoint](#external-endpoint). |
+| **Source type** | Yes | Yes | Source type indicates the way a model was created: [Adapter](#adapter), [Model Serving](#model-serving), [External Endpoint](#external-endpoint). |
 
 ![](img/entities_models_properties.png)
 
@@ -124,23 +120,21 @@ The following properties need to be specified if selected Source Type is Adapter
 |-------|----------|-------------|
 | **Adapter** | Yes | [Model adapter](/docs/tutorials/3.admin/builders-adapters.md) that will be used to handle requests to this model deployment (e.g. **OpenAI**, **DIAL**). Adapter defines how to authenticate, format payloads, and parse responses. |
 | **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
-| **Endpoint** | Yes | URL that DIAL Core will invoke for this model. The base URL is determined by the selected adapter, while the path can be partially customized. |
+| **Endpoint** | Yes | Chat completion endpoint URL that DIAL Core will invoke for this model. The base URL is determined by the selected adapter, while the path can be partially customized. |
 
 ![](img/source_type_adapter.png)
 
-##### Model Container
+##### Model Serving
 
-AI models can be deployed in DIAL using images. You can deploy [images](/docs/tutorials/3.admin/deployments-images.md) and use them to create [containers](/docs/tutorials/3.admin/deployments-models.md) in the Deployments section.
+AI models can be deployed in DIAL using [Model Servings](/docs/tutorials/3.admin/deployments-models.md). If the Source Type of the model deployment is Model Servings, DIAL Core will use the container URL to communicate with the model deployment.
 
-If the Source Type of your model is Model Container, DIAL Core will use the container URL to communicate with the model.
-
-The following properties need to be specified if selected Source Type is Model Container:
+The following properties need to be specified if selected Source Type is Model Serving:
 
 | Field | Required | Description |
 |-------|----------|-------------|
+| **Container** | Yes | Select one of the running [Model Serving](/docs/tutorials/3.admin/deployments-models.md). |
 | **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
-| **Container** | Yes | Select one of the running [Model Containers](/docs/tutorials/3.admin/deployments-models.md). |
-| **Endpoint** | Yes | URL that DIAL Core will invoke for this model. The base URL is determined by the selected container, while the path can be partially customized. |
+| **Endpoint** | Yes | Chat completion endpoint URL that DIAL Core will invoke for this model. The base URL is determined by the selected Model Serving, while the path can be partially customized. |
 
 ![](img/source_type_container.png)
 
@@ -153,7 +147,7 @@ The following properties need to be specified if selected Source Type is Externa
 | Field | Required | Description |
 |-------|----------|-------------|
 | **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
-| **Endpoint** | Yes | URL that DIAL Core will invoke for this model. |
+| **Endpoint** | Yes | Chat completion endpoint URL that DIAL Core will invoke for this model. |
 
 ![](img/source_type_endpoint.png)
 
@@ -165,7 +159,7 @@ These parameters help customize how the model is presented in the DIAL UI.
 |-------|----------|-------------|
 | **Override name** | No | Custom display name for specific contexts. |
 | **Icon** | No | Logo to visually distinguish models in the UI. |
-| **Topics** | No | Tags that associate a model with one or more topics or categories (e.g. "finance", "support"). Click to open a list of available topics. |
+| **Topics** | No | Semantic tags associated with the model deployment. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
 
 ![](img/model_personalization.png)
 
