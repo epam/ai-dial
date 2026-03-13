@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This page allows you to view, add and manage images for [MCP servers](/docs/tutorials/3.admin/deployments-mcp.md) and [Interceptors](/docs/tutorials/3.admin/deployments-interceptors.md) container deployments within the DIAL system.
+This page allows you to view, add and manage images for [MCP servers](/docs/tutorials/3.admin/deployments-mcp.md), [AI model adapters](/docs/tutorials/3.admin/deployments-adapters.md) and [Interceptors](/docs/tutorials/3.admin/deployments-interceptors.md) container deployments within the DIAL system.
 
 ## Main Screen
 
-On the main screen, you can see all the available and add new images for MCP Servers and Interceptors.
+On the main screen, you can see all the available and add new images.
 
 ![](img/deployment_images.png)
 
@@ -17,9 +17,9 @@ On the main screen, you can see all the available and add new images for MCP Ser
 | ID | Unique identifier of the image. |
 | Version | Version of the image. |
 | Name | Name of the image. |
-| Author | Deployment author email address. |
+| Author | Email address of the creator of the image. |
 | Description | Brief description of the image. |
-| Type | Type of the image (MCP or Interceptor). |
+| Type | Type of the image (MCP, Adapter or Interceptor). |
 | Source | Image or a Source code. |
 | Status | Current status of the image. |
 | Updated time | Date and time when the image was last updated. |
@@ -30,7 +30,7 @@ On the main screen, you can see all the available and add new images for MCP Ser
 
 ## Add Image
 
-On the main screen, you can add new images for MCP Servers and Interceptors.
+On the main screen, you can add new images for MCP Servers, AI Model Adapters and Interceptors.
 
 ##### To add a new image
 
@@ -42,9 +42,9 @@ On the main screen, you can add new images for MCP Servers and Interceptors.
 | Name | Yes | Name of the image. |
 | Description | No | Brief description of the image. |
 | Version | Yes | Version of the image. |
-| Type | Yes | Type of the image (MCP or Interceptor). |
+| Type | Yes | Type of the image (MCP, Adapter or Interceptor). |
 | Source type | Conditional | **Note**: Required for MCP type.<br />The source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
-| Docker image URI | Conditional | URI of the Docker image.<br/>Applies to both MCP (if Source type = Docker image) and Interceptor types. |
+| Docker image URI | Conditional | URI of the Docker image.<br/>Applies to all types. |
 | Source code repository parameters | Conditional | Applies if Type = MCP Image and Source type = Source code .<br/>- **Repo URL**: a source code repository URL. **Required**<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository. |
 
 ![ ](img/add_image.png)
@@ -82,7 +82,7 @@ In the Properties tab, you can preview and modify selected image's basic propert
 
 | Field | Required | Editable | Description |
 |-------|----------|----------|-------------|
-| ID | - | No | Unique identifier of the image. |
+| ID | - | No | Unique read-only identifier of the image. |
 | Type | - | No | Type of the image (MCP or Interceptor). |
 | Creation Time | - | No | Date and time when the image was created. |
 | Updated Time | - | No | Date and time when the image was last updated. |

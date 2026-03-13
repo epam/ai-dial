@@ -613,6 +613,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/deployments-adapters',
+                      label: 'Adapter Containers',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/deployments-images',
                       label: 'Images',
                     },

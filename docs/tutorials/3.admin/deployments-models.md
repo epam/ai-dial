@@ -36,7 +36,8 @@ On the main screen, you can view existing and add new AI model servings.
 | Status | Current status of the model serving. |
 | ID | Unique identifier for the model serving. |
 | Container URL | URL of the container where the model is hosted.<br />Available for a running container. |
-| Maintainer | Person or team responsible for maintaining the model serving. |
+| Author | Email address of the creator of the model serving. |
+| Topics | List of topics associated with the model serving. |
 | Create time | Date and time when the model serving was created. |
 | Update time | Date and time when the model serving was last updated. |
 
@@ -106,6 +107,7 @@ In the Properties tab, you can view and edit the selected model serving containe
 | Display Name | Yes | Yes | Name of the model serving container rendered in UI. Must be between 2 and 255 characters long. |
 | Description | No | Yes | Brief description of the model serving container. |
 | Maintainer | No | Yes | Person or team responsible for maintaining the model serving container. |
+| Topics | No | Yes | List of topics associated with the model serving. Click to display a list of available topics. <br />You can add your own custom topics to the list following these rules:<br /> - The topic name must not exceed 255 characters. <br /> - The topic name must not contain leading or trailing spaces.|
 | Hugging Face model name | Conditional | Yes | Applies to Hugging Face models.<br/>The name of the model from Hugging Face. Start typing the name of the model to see suggestions or click **Select from registry** to pick in the pop-up modal window. |
 | Docker Image URI | Conditional | Yes | Applies to NIM models.<br/>The Docker image URI for the model. |
 | Endpoint Configuration | No | Yes | Port configuration for the model serving. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |

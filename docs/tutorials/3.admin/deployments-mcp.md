@@ -30,7 +30,8 @@ On the main screen, you can see a list of all MCP containers along with their cu
 | Status | Current status of the MCP container (e.g., Running, Stopped). |
 | ID | Unique identifier of the MCP container. |
 | Container URL | URL to access the MCP container. |
-| Maintainer | Maintainer of the MCP container. |
+| Author | Email address of the creator of the container. |
+| Topics | Tags that associate adapter with one or more topics or categories. |
 | Create time | Date and time when the MCP container was created. |
 | Update time | Date and time when the MCP container was last updated. |
 | Actions | Buttons to manage the selected MCP container:<br/>- **Open in a new tab**: Use to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: Use to duplicate the MCP container.<br/>- **Stop/Run**: Use to start and stop a container.<br/>- **Delete**: Use to remove the container. |
@@ -108,7 +109,7 @@ In the Properties tab, you can preview and modify selected container's basic pro
 | Property | Required | Editable | Description |
 |----------|----------|----------|-------------|
 | ID | - | No | Unique identifier of the MCP container. Must be between 2 and 36 characters long. Can contain only lowercase Latin letters, numbers, and hyphens. |
-| MCP Image | - | No | Image from which the MCP container was created. Click to open details or navigate to [MCP Images](/docs/tutorials/3.admin/deployments-images.md). |
+| MCP Image | - | No | Image from which the MCP container was created. <br />Click to display the list of available images where you can change the source image for the container. <br />**Note**: The container is redeployed when source image changes.  |
 | Creation Time | - | No | Date and time when the MCP container was created. |
 | Updated Time | - | No | Date and time when the MCP container was last updated. |
 | Status | - | No | Current status of the MCP container (e.g., Running, Stopped). |
@@ -117,6 +118,7 @@ In the Properties tab, you can preview and modify selected container's basic pro
 | Display Name | Yes | Yes | Display name of the MCP container rendered in UI. Must be between 2 and 255 characters long. |
 | Description | No | Yes | Brief description of the MCP container. |
 | Maintainer | No | Yes | Maintainer of the MCP container. |
+| Topics | No | Yes | Topics are semantic labels that you can assign to containers (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
 | Endpoint Configuration | No | Yes | Endpoint configuration of the MCP container:<br /> **Transport**: the transport protocol (HTTP (default) or SSE).<br />**Container endpoint path**: the specific endpoint path where the MCP service is accessible.<br />**Port**: the network port the container uses (If provided, must be between 1 and 65535.). <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
 | Environment Variables | No | Yes | List of environment variables for the MCP container. <br />You can add, edit, or remove variables as needed.  <br />**Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. <br /> - **Name**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.<br /> - **Value**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`. |
 | Resources | No | Yes | Resource limits for the MCP container, including CPU and memory allocation. You can adjust these settings based on your requirements.<br />**Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode.<br />Validation rules: <br /> - Values must be numeric and greater than 0.<br /> - Maximum allowed values for `cpu`, `memory`, and `nvidia.com/gpu` are defined on the backend via environment variables.<br /> - For each matching resource key (e.g. `cpu`), the value in limits must not be less than the value in `requests`. |
