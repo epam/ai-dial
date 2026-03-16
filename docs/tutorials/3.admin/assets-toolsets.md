@@ -4,7 +4,7 @@
 
 Toolsets in DIAL enable connectivity with MCP servers and can be used as tools by any internal or external application to perform specific actions. Refer to [Video Demo](/docs/video%20demos/2.Applications/5.quick-apps.md) to watch how tools are used in [DIAL Quick Apps 2.0](/docs/platform/3.core/7.apps.md#quick-apps-20).
 
-In DIAL, toolsets created by users (either using DIAL Core API or UI) are stored in a private folder of a dedicated user in the DIAL file storage and are not accessible to anyone but the application author (owner). To enable access for other users, toolsets owners can publish them or DIAL administrators can manually add them to the Public folder, where all published resources are stored.
+In DIAL, toolsets created by users (either using DIAL Core API or UI) are stored in a private folder of a dedicated user in the DIAL file storage and are not accessible to anyone but the toolset author (owner). To enable access for other users, toolsets owners can publish them or DIAL administrators can manually add them to the Public folder, where all published resources are stored.
 
 > Refer to [Entities/Toolsets](/docs/tutorials/3.admin/entities-toolsets.md) to learn more.
 
@@ -23,7 +23,7 @@ The Assets/Toolsets screen displays all toolsets located in the Public folder in
 
 Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. 
 
-- **Root folder**: Pubic is a root folder with sub-folders. It is visible to all authorized users. If a sub-folder is not specified for the new object being published, it is placed in the root folder by default.
+- **Root folder**: Public is a root folder with sub-folders. It is visible to all authorized users. If a sub-folder is not specified for the new object being published, it is placed in the root folder by default.
 - **Sub-folders**: Objects can be placed in sub-folders for logical organization purposes - one object per sub-folder is recommended. 
 
 > **Note**, that access rules can be applied to sub-folders (manually or in publication request). You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). The effective authorization rule for an object in a sub-folder includes restrictions applied to all parent sub-folders up to the root folder. Refer to [Tutorials](/docs/tutorials/1.developers/1.work-with-resources/0.work-with-publications.md#effective-rules) to learn about affective rules for folders.
@@ -139,8 +139,8 @@ You can find the following action buttons in the configuration screen header:
 | Field | Required | Editable | Description |
 |-------|----------|----------|-------------|
 | **ID** | - | No | Unique identifier of the toolset. It is read-only but includes a copy-to-clipboard button for easy reference. |
-| **Author** | - | No | USer who created toolset. |
-| **Updated Time** | - | No | Timestamps if the last update. |
+| **Author** | - | No | User who created toolset. |
+| **Updated Time** | - | No | Timestamp of the last update. |
 | **Creation Time** | - | No | Creation timestamp. |
 | **Authentication** | - | No | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset in not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated for your user only. <br />- **Logged in (Organization)**: The toolset is authenticated for all users in your organization. |
 | **Folder Storage** | - | No | Path to the toolset's location in the hierarchy within the public folder. Click to navigate to [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). |
