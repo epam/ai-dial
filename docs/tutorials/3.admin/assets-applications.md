@@ -251,7 +251,11 @@ In the **Interceptors** tab of an application configuration, you can preview [gl
 
 ### Dependencies
 
-This tab lists other entities Models or Applications that the current Application depends on. Administrators can manually add new dependencies (by selecting from available Models and Applications) or remove the existing ones.
+In interconnected systems, applications often rely on other applications or AI models to function, forming complex dependency chains. Access to sensitive data in such ecosystems can pose a challenge, especially when multiple applications interact and propagate requests, and can require an explicit consent from a user to allow an application/AI models to access their data or perform actions on their behalf. 
+
+> Refer to [Managing Authorization in Complex Application Ecosystems](/docs/tutorials/1.developers/4.apps-development/2.auth-matrix.md) to learn more.
+
+On this screen, you can find all dependencies configured for the selected application. Administrators can manually add new dependencies (by selecting from available AI models and applications) or remove the existing ones.
 
 ![](img/assets-apps-dependencies.png)
 
