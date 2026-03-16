@@ -13,7 +13,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/ee6eaad1-eb8b-4d84-9528-1c504269dd62?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.3c61bcc8.css">
-<script src="/assets/js/runtime~main.d1ab4ae4.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.7f2023cf.js" defer="defer"></script>
 <script src="/assets/js/main.890c3927.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -101,7 +101,7 @@
 <blockquote>
 <ul>
 <li class="">Refer to <a class="" href="/platform/core/access-control-intro">Access &amp; Cost Control</a> to learn more about access control in DIAL.</li>
-<li class="">Refer to <a class="" href="/platform/architecture-and-concepts/access-control#roles">Roles</a> to lean more about roles in DIAL.</li>
+<li class="">Refer to <a class="" href="/platform/architecture-and-concepts/access-control#roles">Roles</a> to learn more about roles in DIAL.</li>
 <li class="">Refer to tutorials to learn how to configure access and limits for <a class="" href="/tutorials/devops/auth-and-access-control/jwt">JWT</a> and <a class="" href="/tutorials/devops/auth-and-access-control/api-keys">API keys</a></li>
 </ul>
 </blockquote>
@@ -159,7 +159,7 @@
 <li class=""><strong>Application</strong>: Manage cross-cutting concerns across the whole application (e.g., tenant-based routing, unified logging, end-to-end policy enforcement).</li>
 </ul>
 <h5 class="anchor anchorTargetStickyNavbar_Vzrq" id="interceptors-grid">Interceptors grid<a href="#interceptors-grid" class="hash-link" aria-label="Direct link to Interceptors grid" title="Direct link to Interceptors grid" translate="no">​</a></h5>
-<table><thead><tr><th>Column</th><th>Description</th></tr></thead><tbody><tr><td><strong>Order</strong></td><td>Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor&#x27;s in this order.Response interceptors are invoked in the reversed order.</td></tr><tr><td><strong>Display Name</strong></td><td>The interceptor&#x27;s alias, matching the <strong>Name</strong> field in its definition.</td></tr><tr><td><strong>Description</strong></td><td>Free-text summary from the interceptor&#x27;s definition, explaining its purpose.</td></tr><tr><td><strong>ID</strong></td><td>Unique identifier of the interceptor.</td></tr><tr><td><strong>Actions</strong></td><td>Additional role-specific actions. <br> Open interceptor in a new tab. <br> <a href="#remove-1" class="">Remove</a> the selected interceptor from the model&#x27;s configuration.</td></tr></tbody></table>
+<table><thead><tr><th>Column</th><th>Description</th></tr></thead><tbody><tr><td><strong>Order</strong></td><td>Execution sequence. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor&#x27;s in this order. Response interceptors are invoked in the reversed order.</td></tr><tr><td><strong>Display Name</strong></td><td>The interceptor&#x27;s alias, matching the <strong>Name</strong> field in its definition.</td></tr><tr><td><strong>Description</strong></td><td>Free-text summary from the interceptor&#x27;s definition, explaining its purpose.</td></tr><tr><td><strong>ID</strong></td><td>Unique identifier of the interceptor.</td></tr><tr><td><strong>Actions</strong></td><td>Additional interceptor-specific actions. <br> Open interceptor in a new tab. <br> <a href="#remove-1" class="">Remove</a> the selected interceptor from the app&#x27;s configuration.</td></tr></tbody></table>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="add-1">Add<a href="#add-1" class="hash-link" aria-label="Direct link to Add" title="Direct link to Add" translate="no">​</a></h4>
 <ol>
 <li class="">Click <strong>+ Add</strong> (in the upper-right of the interceptors grid).</li>
@@ -182,7 +182,11 @@
 <li class=""><strong>Save</strong> to lock-in the interceptors list</li>
 </ol>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="dependencies">Dependencies<a href="#dependencies" class="hash-link" aria-label="Direct link to Dependencies" title="Direct link to Dependencies" translate="no">​</a></h3>
-<p>This tab lists other entities Models or Applications that the current Application depends on. Administrators can manually add new dependencies (by selecting from available Models and Applications) or remove the existing ones.</p>
+<p>In interconnected systems, applications often rely on other applications or AI models to function, forming complex dependency chains. Access to sensitive data in such ecosystems can pose a challenge, especially when multiple applications interact and propagate requests, and can require an explicit consent from a user to allow an application/AI models to access their data or perform actions on their behalf.</p>
+<blockquote>
+<p>Refer to <a class="" href="/tutorials/developers/apps-development/auth-matrix">Managing Authorization in Complex Application Ecosystems</a> to learn more.</p>
+</blockquote>
+<p>On this screen, you can find all dependencies configured for the selected application. Administrators can manually add new dependencies (by selecting from available AI models and applications) or remove the existing ones.</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/102-39d6100740c1f8a8df0a7c7eef7c7027.png" width="1906" height="900" class="img_ev3q"></p>
 <table><thead><tr><th>Column</th><th>Description</th></tr></thead><tbody><tr><td><strong>Entity Type</strong></td><td>Indication whether dependent object is an Application or a Model.</td></tr><tr><td><strong>ID</strong></td><td>Identifier of the respective model or application.</td></tr><tr><td><strong>Display Name</strong></td><td>Descriptive name of the dependent model or application.</td></tr><tr><td><strong>Version</strong></td><td>Version of the dependent model.</td></tr><tr><td><strong>Description</strong></td><td>Additional textual details about the dependent model or application.</td></tr><tr><td><strong>Actions</strong></td><td>Allows to open the dependent object in new tab or remove it from the list of dependencies.</td></tr></tbody></table>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="add-2">Add<a href="#add-2" class="hash-link" aria-label="Direct link to Add" title="Direct link to Add" translate="no">​</a></h4>
