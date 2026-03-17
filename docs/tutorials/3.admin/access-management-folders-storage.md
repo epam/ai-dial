@@ -16,7 +16,7 @@ Objects ([applications](/docs/tutorials/3.admin/assets-applications.md), [files]
 
 Objects in the Public folder are arranged hierarchically, similar to a file system. 
 
-- **Root folder**: Pubic is a root folder which can include sub-folders and files.
+- **Root folder**: Public is a root folder which can include sub-folders and files.
 - **Sub-folders**: Sub-folders can include uploaded files and files of published applications.
 
 ![](img/folders-storage-folders.png)
