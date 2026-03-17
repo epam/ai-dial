@@ -6,7 +6,7 @@
    - dial: `5.21.1`
    - dial-core: `4.3.1`
    - dial-extension: `1.3.3`
-   - dial-admin: TBD
+   - dial-admin: `0.9.1` (use `image.tag` for ai-dial-admin-backend: `0.14.3`)
 2. Main components versions:
    - ai-dial-adapter-bedrock: `0.37.0`
    - ai-dial-adapter-openai: `0.37.0`
