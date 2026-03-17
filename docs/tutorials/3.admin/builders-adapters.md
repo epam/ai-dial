@@ -26,7 +26,7 @@ The main screen displays all registered adapters in your DIAL instance.
 | **ID** | Unique identifier of the adapter. |
 | **Display Name** | Name of the adapter displayed on UI. |
 | **Description** | Brief description of the adapter (e.g., "Adapter for OpenAI models"). |
-| **Updated time** | Timestamp of the last update to this adapter's configuration. Useful to track recent changes. |
+| **Updated time** | Timestamp of the last update. |
 | **Topics** | Semantic tags associated with adapter. |
 | **Source type** | Type of the adapter source: external endpoint or adapter container. |
 | **Source** | URL for externally-deployed adapters or the name of the adapter container for self-hosted adapters. | 
@@ -56,8 +56,8 @@ Click any adapter on the main screen to open its configuration page.
 
 ##### Top Bar Controls
 
-* **Create Model**: Use to create a model deployment using the selected model adapter as a source type. Created models will be available in the [Entities → Models](/docs/tutorials/3.admin/entities-models.md) section.
-* **Delete**: Use to remove the adapter itself and all models utilizing it. After confirmation - the adapter and all related models are deleted.
+* **Create Model**: Use to create a model deployment using the selected model adapter as a source type. Created models will be available in the [Entities/Models](/docs/tutorials/3.admin/entities-models.md) section.
+* **Delete**: Use to remove the adapter itself and all models utilizing it. **Note**: After confirmation - the adapter and all related models are deleted.
 * **Save**: Use to save and apply any changes.
 * **Discard**: Use to discard any unsaved changes. You can revert changes in the [Audit](#audit) section.
 * **JSON Editor** (Toggle): Switch between the form-based UI and raw [JSON view](#json-editor) of the adapter's configuration. Use JSON mode for copy-paste or advanced edits.
