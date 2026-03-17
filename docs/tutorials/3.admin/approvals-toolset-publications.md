@@ -43,13 +43,6 @@ Click any publication request on the main screen to access the review page. On t
 
 ![](img/publication-actions-unpublish.png)
 
-
-| Field              | Definition         |
-|--------------------|-----------------------------------------------------------------------------------------------------|
-| **Author**         | The user who has submitted the publication request. Can be used to follow up with the creator if something needs clarification. |
-| **Creation Time**  | The publication request's submission timestamp.          |
-| **Folder Storage** | The path to the file storage folder where the toolset assets will be saved in case it is published. |
-
 ### Properties
 
 In this tab you can access and modify the selected properties of the toolset being published.
