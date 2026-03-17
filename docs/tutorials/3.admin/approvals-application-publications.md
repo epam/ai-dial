@@ -51,7 +51,7 @@ In this tab you can access and modify the selected properties of the application
 |----------|----------|-------------|
 | **Action** | No | Action to be taken on this request: Publish (to publish application) or Unpublish (to remove the application form the Public folder in DIAL file system). |
 | **Creation Time** | No | Publication request creation timestamp. |
-| **Author** | No | Name of the publication request creator. |
+| **Author** | Yes | Name of the publication request creator. |
 | **Folder Storage** | Yes | The path to the target folder in the Public file storage where the published application will be stored. <br /> Use **Move to** to change the initial setting provided in the publication request. |
 | **ID** | Yes |Unique identifier of the application. |
 | **Display Name** | Yes | Name of the application displayed on UI. |
