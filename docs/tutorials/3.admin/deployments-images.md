@@ -23,7 +23,7 @@ On the main screen, you can see all the available and add new images.
 | Source | Image or a Source code. |
 | Status | Current status of the image. |
 | Updated time | Timestamp fo the last update. |
-| Creation time | Crestion timestamp. |
+| Creation time | Creation timestamp. |
 | Topics | List of topics associated with the image. |
 | Transport type | Transport type used by the MCP image:<br />- **Remote** (HTTP/SSE)<br />- **Local** (STDIO). |
 | Actions | Buttons to manage the selected image:<br/>- **Delete**: Use to remove the image.<br/>- **Duplicate**: Use to create a copy of the image.<br/>- **Open in a new tab**: Use to open image properties in a new tab in your browser. |

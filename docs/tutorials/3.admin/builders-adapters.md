@@ -42,7 +42,7 @@ On the main screen, you can add new adapters by following these steps:
     | **ID** | Yes | Unique identifier. |
     | **Display name** | Yes | Unique name of the adapter displayed on UI. |
     | **Description** | No | Description of the adapter. |
-    | **Source type** | Yes | External Endpoint for for externally-deployed adapters or Adapter Container for self-hosted. |
+    | **Source type** | Yes | External Endpoint for externally-deployed adapters or Adapter Container for self-hosted. |
     | **Completion endpoint** | Conditional | Applies to External Endpoint source type. <br />Chat completion endpoint URL of the adapter service that implements the Unified Protocol (following the format: `{ADAPTER_ORIGIN}/openai/deployments/`). |
     | **Container** | Conditional | Applies to Adapter Container source type. <br />Name of the [adapter container](/docs/tutorials/3.admin/deployments-adapters.md). Click to select from the list of available containers. |
 
@@ -75,7 +75,7 @@ In the Properties tab, you can view and define identity and metadata of the sele
 | **Creation Time** | - | No | Adapter creation timestamp. |
 | **Display Name** | Yes | Yes | Unique name of the adapter displayed on UI. |
 | **Description** | No | Yes | Brief description of the adapter. |
-| **Source type** | Yes | Yes | External Endpoint for for externally-deployed adapters or Adapter Container for self-hosted. |
+| **Source type** | Yes | Yes | External Endpoint for externally-deployed adapters or Adapter Container for self-hosted. |
 | **Completion endpoint** | Yes | Yes | Chat completion endpoint URL of the adapter service that implements the Unified Protocol (following the format: `{ADAPTER_ORIGIN}/openai/deployments/`). |
 | **Container** | Conditional | Yes | Applies to Adapter Container source type. <br />Name of the [adapter container](/docs/tutorials/3.admin/deployments-adapters.md). Click to select from the list of available containers. |
 | **Topics** | No | Yes |Semantic tags associated with adapter. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |

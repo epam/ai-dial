@@ -31,7 +31,7 @@ On the main screen, you can see a list of all MCP containers along with their cu
 | ID | Unique identifier of the MCP container. |
 | Container URL | URL to access the MCP container. |
 | Author | Email address of the creator of the container. |
-| Topics | Tags that associate adapter with one or more topics or categories. |
+| Topics | Tags that associate MCP container with one or more topics or categories. |
 | Create time | Creation timestamp. |
 | Update time | Timestamp of the last update. |
 | Actions | Buttons to manage the selected MCP container:<br/>- **Open in a new tab**: Use to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: Use to duplicate the MCP container.<br/>- **Stop/Run**: Use to start and stop a container.<br/>- **Delete**: Use to remove the container. |
@@ -43,7 +43,7 @@ On the main screen, you can add new MCP containers based on existing [images](/d
 ##### To create a new MCP container
 
 1. Click **Create** on the main screen and select to create a container from the internally-deployed image or an external image.
-    - **From Internal Adapter Image**: Select the desired [image](/docs/tutorials/3.admin/deployments-images.md) from the list and pick its installed version from the list (labeled with green indicator).
+    - **From Internal MCP Image**: Select the desired [image](/docs/tutorials/3.admin/deployments-images.md) from the list and pick its installed version from the list (labeled with green indicator).
     - **From Docker Image Reference**: Provide the URL of the external Docker image you want to use.
 2. Specify properties and click **Finish** to create the container.
 3. The screen with the container configuration is displayed. You can modify the configuration as needed, run, stop or delete the container.
