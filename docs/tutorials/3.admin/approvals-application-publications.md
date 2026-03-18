@@ -53,7 +53,7 @@ In this tab you can access and modify the selected properties of the application
 | **Creation Time** | No | Publication request creation timestamp. |
 | **Author** | Yes | Name of the publication request creator. |
 | **Folder Storage** | Yes | The path to the target folder in the Public file storage where the published application will be stored. <br /> Use **Move to** to change the initial setting provided in the publication request. |
-| **ID** | Yes |Unique identifier of the application. |
+| **ID** | Yes | Unique identifier of the application. |
 | **Display Name** | Yes | Name of the application displayed on UI. |
 | **Version** | Yes | Version of the application to be published. |
 | **Description** | Yes | Description of the application. |

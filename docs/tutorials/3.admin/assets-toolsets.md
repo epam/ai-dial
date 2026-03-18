@@ -150,7 +150,7 @@ You can find the following action buttons in the configuration screen header:
 | **Topics** | No | Yes | Topics are semantic labels that you can assign to toolsets (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
 | **Storage folder** | Yes | Yes | Path to the toolset's location in the hierarchy of the Public folders. Use **Move to** to change the application's location. |
 | **External Endpoint** | Yes | Yes | Endpoint DIAL Core will use to communicate with the related MCP server. |
-| **Transport** | Yes | Yes | Transport supported by MCP server.<br />- **HTTP** (default)<br />- **SSE** (for server-sent events when supported) |
+| **Transport** | Yes | Yes | Transport supported by MCP server.<br />- **HTTP** (default)<br />- **SSE** (deprecated) |
 | **Authentication** | Yes | Yes | [Authentication settings for the toolset.](#authentication) |
 | **Forward per request key** | Yes | Yes | Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. **Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`. |
 | **Max retry attempts** | Yes | Yes | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed call (due to timeouts or 5xx errors). |

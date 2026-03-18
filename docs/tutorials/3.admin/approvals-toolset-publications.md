@@ -61,7 +61,7 @@ In this tab you can access and modify the selected properties of the toolset bei
 | **Icon** | Yes | Toolset's icon that will be rendered on UI. |
 | **Topics** | Yes | Topics are semantic labels that you can assign to toolsets (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
 | **External Endpoint**  | Yes | Toolset API endpoint for MCP calls. |
-| **Transport** | Yes | Transport supported by a related endpoint.<br />Available options: HTTP (default) or SSE.<br />Choose SSE for server-sent events when supported. |
+| **Transport** | Yes | Transport supported by a related endpoint.<br />Available options: HTTP (default) or SSE (deprecated). |
 | **Authentication** | Yes | [Toolset authentication configuration](/docs/tutorials/3.admin/entities-toolsets.md#authentication). |
 
 ![](img/toolset-publication-properties.png)
