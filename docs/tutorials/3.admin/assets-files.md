@@ -56,7 +56,7 @@ Click any file (or select several files) to see the context menu with available 
 |-------------------|-------------|
 | **Move to** | Use to move the selected file(s) to another folder. |
 | **Export** | Use to download a ZIP archive with the selected file(s).|
-| **Preview** | Use to preview the content of the file. Can be disabled for selected types of files. The list of file extensions for which preview are enabled: `.html`, `.htm`, `.css`, `.js`, `.mjs`, `.json`, `.xml`, `.txt`, `.md`, `.csv`, `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`, `.svg`, `.ico`, `.bmp`, `.avif`, `.mp3`, `.wav`, `.ogg`, `.mp4`, `.webm`, `.pdf` |
+| **Preview** | Use to preview the content of the file. Can be disabled for selected types of files. The list of file extensions for which preview is enabled: `.html`, `.htm`, `.css`, `.js`, `.mjs`, `.json`, `.xml`, `.txt`, `.md`, `.csv`, `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`, `.svg`, `.ico`, `.bmp`, `.avif`, `.mp3`, `.wav`, `.ogg`, `.mp4`, `.webm`, `.pdf` |
 | **Delete** | Use to delete file(s). <br />**Note**: Any models or applications that reference it will break until you reattach a valid file. |
 
 ![ ](img/files-actions2.png)

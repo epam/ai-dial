@@ -16,7 +16,7 @@ In this section of the DIAL Admin panel, admins can access and approve or declin
 
 The Application Publications screen shows all publish/unpublish requests submitted via [DIAL Chat UI](/docs/tutorials/0.user-guide.md#publish-2) or [Publication API](https://dialx.ai/dial_api#tag/Publications). 
 
-![ ](img/92.png)
+![ ](img/136.png)
 
 ##### Application publications grid
 
@@ -35,7 +35,7 @@ Click any publication request on the main screen to access the review page. On t
 ### Actions
 
 * **Publish**: Applies to publish requests. Use to approve the request.
-* **Unpublish**: Applies to unpublish requests. Use to approve the request and remove the published application from the public folder and make it inaccessible to other users. **Note**, that deleting resources can break workflows that use them.
+* **Unpublish**: Applies to unpublish requests. Use to approve the request and remove the published application from the Public folder and make it inaccessible to other users. **Note**, that deleting resources can break workflows that use them.
 * **Decline**: Reject the publish/unpublish request. Prompts you to enter a decline reason that will be sent back to the request author.
 * **Delete**: Deletes the request.
 

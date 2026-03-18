@@ -28,6 +28,8 @@ The Prompt Publications screen shows all publish/unpublish requests submitted vi
 
 Click any request on the main screen to access the review page. On this page, you can inspect the selected request and decide whether to **Publish**, **Unpublish**, **Decline** or delete it.
 
+**Note**, that administrators can also modify selected properties in the request and take action on the modified request.
+
 ### Actions
 
 * **Publish**: Applies to publish requests. Use to approve the request.

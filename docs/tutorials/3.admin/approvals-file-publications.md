@@ -30,6 +30,8 @@ The File Publications screen shows all publish/unpublish requests submitted via 
 
 Click any publication request on the main screen to access the review page. On this page, you can inspect the selected request and decide whether to **Publish**, **Unpublish**, **Decline** or delete it.
 
+**Note**, that administrators can also modify selected properties in the request and take action on the modified request.
+
 ### Actions
 
 * **Publish**: Applies to publish requests. Use to approve the request.
@@ -58,7 +60,7 @@ In this tab you can access and modify the selected properties of the publication
 
 ##### Available actions
 
-> **Note**, some actions can be disabled for certain file types. The list of file extensions for which download and preview is enabled:  
+> **Note**, some actions can be disabled for certain file types. The list of file extensions for which download and preview are enabled:  
 `.html`, `.htm`, `.css`, `.js`, `.mjs`, `.json`, `.xml`, `.txt`, `.md`, `.csv`, `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`, `.svg`, `.ico`, `.bmp`, `.avif`, `.mp3`, `.wav`, `.ogg`, `.mp4`, `.webm`, `.pdf`.
 
 | Available Actions | Description |
@@ -68,7 +70,7 @@ In this tab you can access and modify the selected properties of the publication
 | **Remove** | Use to remove file from the publication request. |
 | **Add** | Use to add files to publication request. |
 
-![](img/file-publication-actions.png)
+![](img/publish-app-files-actions.png)
 
 ##### JSON Editor
 
