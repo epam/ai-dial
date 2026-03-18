@@ -14,7 +14,7 @@ In this section of the DIAL Admin panel, admins can access and approve or declin
 
 ## Main Screen
 
-The Toolsets Publications screen shows all publish/unpublish requests submitted by end-users using [Publication API](https://dialx.ai/dial_api#tag/Publications). 
+The Toolsets Publications screen shows all publish/unpublish requests submitted via [DIAL Chat UI](/docs/tutorials/0.user-guide.md#publish-3) or [Publication API](https://dialx.ai/dial_api#tag/Publications). 
 
 ![ ](img/136.png)
 
@@ -32,10 +32,10 @@ Click any publication request on the main screen to access the review page. On t
 
 **Note**, that administrators can also modify selected properties in the request and take action on the modified request.
 
-##### Top Bar Controls
+### Actions
 
 * **Publish**: Applies to publish requests. Use to approve the request.
-* **Unpublish**: Applies to unpublish requests. Use to approve the request and remove the published toolset from the public folder and make it inaccessible to other users.
+* **Unpublish**: Applies to unpublish requests. Use to approve the request and remove the published toolset from the public folder and make it inaccessible to other users. **Note**, that deleting resources can break workflows that use them.
 * **Decline**: Reject the publish/unpublish request. Prompts you to enter a decline reason that will be sent back to the request author.
 * **Delete**: Deletes the request.
 
@@ -45,7 +45,7 @@ Click any publication request on the main screen to access the review page. On t
 
 ### Properties
 
-In this tab you can access and modify the selected properties of the toolset being published.
+In this tab you can access and modify the selected properties of the toolset being published and the publication request.
 
 | Property | Editable | Description | 
 |----------|----------|-------------|
@@ -65,6 +65,14 @@ In this tab you can access and modify the selected properties of the toolset bei
 | **Authentication** | Yes | [Toolset authentication configuration](/docs/tutorials/3.admin/entities-toolsets.md#authentication). |
 
 ![](img/toolset-publication-properties.png)
+
+##### JSON Editor
+
+**Advanced users with technical expertise** can work with toolset and publication request properties in the UI or a JSON editor view modes. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed on UI.
+
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
+
+![](img/toolset-publication-json-editor.png)
 
 ### Tools Overview
 

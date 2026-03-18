@@ -14,7 +14,7 @@ In this section of the DIAL Admin panel, admins can access and approve or declin
 
 ## Main Screen
 
-The Application Publications screen shows all publish/unpublish requests submitted by end-users using [Publication API](https://dialx.ai/dial_api#tag/Publications). 
+The Application Publications screen shows all publish/unpublish requests submitted via [DIAL Chat UI](/docs/tutorials/0.user-guide.md#publish-2) or [Publication API](https://dialx.ai/dial_api#tag/Publications). 
 
 ![ ](img/92.png)
 
@@ -32,10 +32,10 @@ Click any publication request on the main screen to access the review page. On t
 
 **Note**, that administrators can also modify selected properties in the request and take action on the modified request.
 
-##### Top Bar Controls
+### Actions
 
 * **Publish**: Applies to publish requests. Use to approve the request.
-* **Unpublish**: Applies to unpublish requests. Use to approve the request and remove the published application from the public folder and make it inaccessible to other users.
+* **Unpublish**: Applies to unpublish requests. Use to approve the request and remove the published application from the public folder and make it inaccessible to other users. **Note**, that deleting resources can break workflows that use them.
 * **Decline**: Reject the publish/unpublish request. Prompts you to enter a decline reason that will be sent back to the request author.
 * **Delete**: Deletes the request.
 
@@ -70,7 +70,7 @@ In this tab you can access and modify the selected properties of the application
 
 ![](img/app-publication-properties.png)
 
-**Advanced users with technical expertise** can work with the publication request properties in a JSON editor view mode. It is useful for advanced scenarios and/or tweaking settings not exposed on UI.
+**Advanced users with technical expertise** can work with the application and publication request properties in a JSON editor view mode. It is useful for advanced scenarios and/or tweaking settings not exposed on UI.
 
 > **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
@@ -93,6 +93,8 @@ In this section, you can see and modify access rules if they apply to the select
 ### Files
 
 If application includes files, they are published together with the application. For example, a talk-to-your-data application can include source files it uses to generate responses.
+
+> You can access published files in [Assets/Files](/docs/tutorials/3.admin/assets-files.md) section in the target folder specified in the application publication request.
 
 In this section, you can access and manage all files published with the application. 
 
