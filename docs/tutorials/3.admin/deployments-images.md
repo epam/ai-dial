@@ -25,7 +25,7 @@ On the main screen, you can see all the available and add new images.
 | Updated time | Timestamp fo the last update. |
 | Creation time | Creation timestamp. |
 | Topics | List of topics associated with the image. |
-| Transport type | Transport type used by the MCP image:<br />- **Remote** (HTTP/SSE)<br />- **Local** (STDIO). |
+| Transport type | Transport type used by the MCP image:<br />- **Remote**: HTTP (default), SSE (deprecated)<br />- **Local** (STDIO). |
 | Actions | Buttons to manage the selected image:<br/>- **Delete**: Use to remove the image.<br/>- **Duplicate**: Use to create a copy of the image.<br/>- **Open in a new tab**: Use to open image properties in a new tab in your browser. |
 
 ## Add Image
@@ -93,6 +93,9 @@ In the Properties tab, you can preview and modify selected image's basic propert
 | Maintainer | No | Yes | Email address of the maintainer of the image. |
 | Topics | No | Yes | List of topics associated with the image. Click to display a list of available topics. <br />You can add your own custom topics to the list following these rules:<br /> - The topic name must not exceed 255 characters. <br /> - The topic name must not contain leading or trailing spaces.|
 | Source type | Conditional | Yes | **Note**: Required for MCP type of image.<br />The source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
+| Docker image URI | Conditional | Yes | Valid Docker image URI (validated on backend). If provided, must not start or end with `/`.<br/>Applies to both MCP (if Source type = Docker image) and Interceptor types. |
+| Source code repository parameters | Conditional | Yes | Applies if Type = MCP Image and Source type = Source code .<br/>- **Repo URL** (required): Source code repository URL. If provided, must not start or end with `/`.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository.<br />- **Base directory**: The directory path with the Docker file. If provided, must not start or end with `/`. |
+| MCP transport type | Conditional | Yes | Applies only to MCP type of image.<br/>The transport type used by the MCP image: <br />- **Remote**: HTTP (default), SSE (deprecated)<br />- **Local** (STDIO) |
 | Docker image URI | Conditional | Yes |  Valid Docker image URI (validated on backend). If provided, must not start or end with `/`.<br/>Applies to MCP (if Source type = Docker image), Adapter and Interceptor types. |
 | Source code repository parameters | Conditional | Yes | Applies if Type = MCP Image and Source type = Source code .<br/>- **Repo URL** (required): Source code repository URL. If provided, must not start or end with `/`.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository.<br />- **Base directory**: The directory path with the Docker file. If provided, must not start or end with `/`. |
 | Build privileges | Yes | Yes | Use this setting to define permissions level when building image. |
