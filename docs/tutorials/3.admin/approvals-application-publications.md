@@ -1,87 +1,111 @@
 # Application Publications
 
-## About Application Publications
+## Introduction
 
-DIAL users can publish their created apps to make them available to other users. Published apps become available in the public folder and can be accessible to users based on the access rules defined in the publication request. You can access published apps in [Assets/Applications](/docs/tutorials/3.admin/assets-applications.md) section. Published apps can be unpublished by DIAL admin or other DIAL users.
+DIAL users can publish their private applications to enable access to other users. Each publication request undergoes a review by DIAL administrators to ensure safety and security.
 
-Apps can be published/unpublished using DIAL Core [API](https://dialx.ai/dial_api#tag/Publications/operation/createPublication) or in [DIAL Chat](/docs/tutorials/0.user-guide.md#publications).
+> You can find all published applications in [Assets/Applications](/docs/tutorials/3.admin/assets-applications.md) section. 
 
-In this section of the DIAL Admin panel, admins can access and approve or decline apps publication requests.
+In this section of the DIAL Admin panel, admins can access and approve or decline requests to publish applications.
 
 > * Refer to [Publications](/docs/platform/7.collaboration-intro.md#publication) to learn more about publications in DIAL.
 > * Refer to [DIAL Chat User Guide](/docs/tutorials/0.user-guide.md#publications) to learn about the publication process from the perspective of a DIAL Chat end-user.
+> * Refer to [Publication API](https://dialx.ai/dial_api#tag/Publications) for programmatic creation and management of publication requests.
 
-## Application Publications List
+## Main Screen
 
-The Application Publications screen shows all publish/unpublish requests submitted by end-users using the DIAL API. 
+The Application Publications screen shows all publish/unpublish requests submitted via [DIAL Chat UI](/docs/tutorials/0.user-guide.md#publish-2) or [Publication API](https://dialx.ai/dial_api#tag/Publications). 
 
-![ ](img/93.png)
+![ ](img/136.png)
 
-##### Application Publications Grid
+##### Application publications grid
 
-| Field            | Definition      |
-|------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| **Name**         | The title of the submitted publication request (not the application).           |
-| **Author**       | The user who has submitted the publication request. Can be used to follow up with the creator if something needs clarification. |
-| **Created at**   | Publication request submission's timestamp.         |
+| Column | Description |
+|--------|--------------|
+| **Name** | Title of the submitted publication request (not the application). |
+| **Author** | The user who has submitted the publication request. |
+| **Creation time** | Publication request submission's timestamp. |
 
+## Review Publication Request
 
-## Review Page
+Click any publication request on the main screen to access the review page. On this page, you can inspect the selected request and decide whether to **Publish**, **Unpublish**, **Decline** or delete it.
 
-Click any publication request on the main screen to access the review page. On this page, you can inspect the selected request and decide whether to **Publish**, **Unpublish** or **Decline** it.
+**Note**, that administrators can also modify selected properties in the request and take action on the modified request.
 
-##### Publication Request Controls
+### Actions
 
 * **Publish**: Applies to publish requests. Use to approve the request.
-* **Unpublish**: Applies to unpublish requests. Use to approve the request and remove the published application from the public folder and make it inaccessible to other users.
+* **Unpublish**: Applies to unpublish requests. Use to approve the request and remove the published application from the Public folder and make it inaccessible to other users. **Note**, that deleting resources can break workflows that use them.
 * **Decline**: Reject the publish/unpublish request. Prompts you to enter a decline reason that will be sent back to the request author.
+* **Delete**: Deletes the request.
 
-![](img/publish-toolset.png)
+![](img/publication-actions.png)
 
-![](img/unpublish-toolset.png)
+![](img/publication-actions-unpublish.png)
 
-| Field              | Definition   |
-|--------------------|--------------|
-| **Runner**         | The application runner that is used by this app (shown as a URL).        |
-| **Author**         | The user who has submitted the publication request. Can be used to follow up with the creator if something needs clarification. |
-| **Create Time**    | The publication request's submission timestamp.          |
-| **Folder Storage** | The path to the file storage folder where the application assets will be saved in case it is published.  |
+### Properties
 
-![](img/94.png)
+In this tab you can access and modify the selected properties of the application being published.
 
+| Property | Editable | Description | 
+|----------|----------|-------------|
+| **Action** | No | Action to be taken on this request: Publish (to publish application) or Unpublish (to remove the application form the Public folder in DIAL file system). |
+| **Creation Time** | No | Publication request creation timestamp. |
+| **Author** | Yes | Name of the publication request creator. |
+| **Folder Storage** | Yes | The path to the target folder in the Public file storage where the published application will be stored. <br /> Use **Move to** to change the initial setting provided in the publication request. |
+| **ID** | Yes | Unique identifier of the application. |
+| **Display Name** | Yes | Name of the application displayed on UI. |
+| **Version** | Yes | Version of the application to be published. |
+| **Description** | Yes | Description of the application. |
+| **Icon** | Yes | Application's icon that will be rendered on UI. |
+| **Topics** | Yes | Topics are semantic labels that you can assign to apps (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
+| **Source type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. In [Builders/Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) you can see all the available runners and add new ones. |
+| **Application runner** | Yes | Select one of the available application runners. If the application is created based on an application runner, DIAL Core will forward all payloads to endpoints defined in the [application runner configuration](/docs/tutorials/3.admin/builders-application-runners.md#features). Required if Source Type is **Application runner**. |
+| **Completion endpoint** | Yes | Chat completion endpoint of the application. Required if Source Type is **Endpoints**. |
+| **Attachment types** | Yes | Use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **No attachments**: Disables all attachment types.  <br /> **All attachments types**: Allows all types of file attachments. Optionally specify max number of attachments. <br /> **Specific attachments types**: Enables the user to define/select specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Start typing to see suggestions or use `<type>/<subtype>` format for a manual entry. |
+| **Attachments max number** | Yes | Maximum number of input attachments. Enabled if attachment types are defined. |
+| **Defaults** | Yes | Default parameters for the application. Default parameters are applied if a request doesn't contain them in OpenAI chat/completions API call. |
+| **Forward auth token** | Yes | Select a downstream auth token to forward from the user's session (for multi-tenant downstream). |
+| **Max retry attempts** | Yes | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors). |
 
-### Properties Tab
+![](img/app-publication-properties.png)
 
-The Properties tab shows the basic information about the app and related access rules. 
+**Advanced users with technical expertise** can work with the application and publication request properties in a JSON editor view mode. It is useful for advanced scenarios and/or tweaking settings not exposed on UI.
 
-| Field            | Definition |
-|------------------|-----------|
-| **Display Name**         | The name of the application that will be rendered in [DIAL Marketplace](/docs/tutorials/0.user-guide.md#marketplace). It must be clear and policy-safe.   |
-| **Version**      | Semantic version of the application (e.g., `0.0.1`) set on the DIAL chat side.           |
-| **Description**  | Summary of app's purpose and capabilities specified by the submitting user. Helps assess app's fit and scope.            |
-| **Icon**         | The application's icon that will be rendered on UI.      |
-| **Topics**       | Tags/categories (e.g., “Text Generation”, “Informational”) used for the app discovery in [DIAL Marketplace](/docs/tutorials/0.user-guide.md#marketplace). |
-| **Permissions**  | The proposed access rules to the published application (e.g., based on user group). Ensure the audience matches intended reach. If rules are not defined, the published resources will be available to all users. <br /> Available Controls:<br /> - **Review structure** opens a modal showing the storage folders tree and apps' folder position in the hierarchy.<br />- **Compare changes** side-by-side diff of **current vs proposed** permission rules to the app's folder. Use to verify and validate changes in access rules before approving the publication request.  |
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
-![](img/95.png)
+![](img/publish-app-json-editor.png)
 
-### Parameters Tab
+### Parameters
 
-The Parameters tab provides administrators with technical metadata and runtime configuration related to the application. 
-
-The content of this tab may vary depending on the app's type and configuration.
+The Parameters tab within an application’s configuration allows administrators to manage application-specific parameters that influence its behavior. The content of this screen is determined by the [parameters of the related application runner](/docs/tutorials/3.admin/builders-application-runners.md#parameters).
 
 ![](img/publish-app-params.png)
 
-### Files Tab
+### Permissions
 
-In this tab you can find a list of application-related assets. This section is empty if the application does not include any files.
+If not defined otherwise, objects are published into the root (Public) folder in DIAL file storage by default. All authenticated users have access to this folder. To define access restrictions, publication request author can create a sub-folder and select it in the **Publish to** field in the publication request. Sub-folders can have access rules applied to them. Refer to [Access Rules](/docs/tutorials/3.admin/access-management-folders-storage.md#access-rules) to learn more.
 
-| Field         | Definition       |
-|---------------|----------------------------------------------------------------------------------|
-| **Name**      | System-generated identifier of the file.         |
-| **Extension** | File type (e.g., `.json`, `.png`).               |
-| **Preview**   | An action button in the row menu can be used to open the file in a new tab.      |
-| **Download**  | An action button in the row menu can be used to download the file to a local PC. |
+In this section, you can see and modify access rules if they apply to the selected publication request.
 
-![](img/96.png)
+![](img/publish-app-permissions.png)
+
+### Files
+
+If application includes files, they are published together with the application. For example, a talk-to-your-data application can include source files it uses to generate responses.
+
+> You can access published files in [Assets/Files](/docs/tutorials/3.admin/assets-files.md) section in the target folder specified in the application publication request.
+
+In this section, you can access and manage all files published with the application. 
+
+| Field | Description |
+|-------|-------------|
+| **Display Name** | Name of the file. |
+| **Extension** | File extension (e.g., `.json`, `.png`). |
+| **Actions** | - **Preview**: Use the preview file content. Can be disabled for specific types of files.<br /> - **Download**: Use to save file on your device.<br /> - **Remove**: Use to remove file from the publication request. | 
+
+![](img/publish-app-files.png)
+
+Use **Add** to attach files to a publication request.
+
+![](img/publish-app-files-actions.png)
