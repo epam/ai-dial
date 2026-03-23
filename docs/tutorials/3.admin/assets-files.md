@@ -4,7 +4,7 @@
 
 Files in DIAL are arbitrary binary or text assets (JSON, CSV, PDF, images, etc.) which AI models and/or applications can reference at runtime. 
 
-In DIAL, files added by users (either using [DIAL Core API](https://dialx.ai/dial_api#tag/Files) or [UI File Manager](/docs/tutorials/0.user-guide.md#files)) are stored in a private folder of a dedicated user in the DIAL file storage and are not accessible to anyone but the file author (owner). Files become available to other users and applications when [published](/docs/tutorials/0.user-guide.md#access-to-application-files-1) with applications and conversations that reference them.
+In DIAL, files added by users (either using [DIAL Core API](https://dialx.ai/dial_api#tag/Files) or [UI File Manager](/docs/tutorials/0.user-guide.md#files)) are stored in a private folder of a dedicated user in the DIAL file storage and are not accessible to anyone but the file author (owner). Files become available to other users and applications when [published](/docs/tutorials/0.user-guide.md#access-to-application-files-1) with applications and conversations that reference them or via [Publication API](https://dialx.ai/dial_api#tag/Publications).
 
 DIAL can be configured to store files in a BLOB storage of the selected cloud provider, ensuring scalability and security of your data.
 
@@ -56,7 +56,7 @@ Click any file (or select several files) to see the context menu with available 
 |-------------------|-------------|
 | **Move to** | Use to move the selected file(s) to another folder. |
 | **Export** | Use to download a ZIP archive with the selected file(s).|
-| **Preview** | Use to preview the content of the file. Can be disabled for selected types of files. |
+| **Preview** | Use to preview the content of the file. Can be disabled for selected types of files. The list of file extensions for which preview is enabled: `.html`, `.htm`, `.css`, `.js`, `.mjs`, `.json`, `.xml`, `.txt`, `.md`, `.csv`, `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`, `.svg`, `.ico`, `.bmp`, `.avif`, `.mp3`, `.wav`, `.ogg`, `.mp4`, `.webm`, `.pdf` |
 | **Delete** | Use to delete file(s). <br />**Note**: Any models or applications that reference it will break until you reattach a valid file. |
 
 ![ ](img/files-actions2.png)

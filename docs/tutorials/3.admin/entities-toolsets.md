@@ -80,7 +80,7 @@ In the **Properties** tab, you can view and edit main definitions and settings o
 | **Source Type** | Yes | Yes | The source type of the selected toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets. |
 | **External Endpoint** | Conditional | Yes | Toolset endpoint for MCP calls. Applies for External Endpoint source type. |
 | **Container** | Conditional | Yes | MCP server [container ID](/docs/tutorials/3.admin/deployments-mcp.md). Applies for MCP Container deployment source type. |
-| **Transport** | Yes | Yes | Transport supported by a related endpoint.<br />Available options: HTTP (default) or SSE.<br />Choose SSE for server-sent events when supported. |
+| **Transport** | Yes | Yes | Transport supported by a related endpoint.<br />Available options: HTTP (default) or SSE (deprecated) |
 | **Forward per request key** | No | Yes | Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. <br />**Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`. |
 | **Max retry attempts** | Yes | Yes | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) routing a failed call to a toolset endpoint (due to timeouts or 5xx errors). |
 | **Authentication** | Yes | Yes | [Toolset authentication configuration](#authentication). |
