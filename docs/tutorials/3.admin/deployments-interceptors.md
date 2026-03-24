@@ -1,4 +1,4 @@
-# Interceptor Deployments
+# Interceptor Containers
 
 ## Introduction
 
@@ -16,24 +16,24 @@ DIAL uses interceptors as a middleware that modifies incoming or outgoing reques
 
 ## Main Screen
 
-In **Interceptor Deployments**, you can manage containers for interceptors within the DIAL system. You can create new containers based on existing [images](/docs/tutorials/3.admin/deployments-images.md), start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting.
+In **Interceptor Containers**, you can manage containers for interceptors within the DIAL system. You can create new containers based on existing [images](/docs/tutorials/3.admin/deployments-images.md), start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting.
 
 ![](img/interceptor_deployments.png)
 
-##### Interceptor Containers Grid
+##### Interceptor containers grid
 
 | Column | Description |
 |--------|-------------|
-| Display Name | Name of the interceptor container rendered in UI. |
+| Display Name | Name of the interceptor container rendered on UI. |
 | Description | Brief description of the interceptor container. |
-| Interceptor Image | Docker image from which the interceptor container was created. |
 | Status | Current status of the interceptor container (e.g., Running, Stopped). |
 | ID | Unique identifier of the interceptor container. |
-| Container URL | URL to access the interceptor container. |
-| Maintainer | Maintainer of the interceptor container. |
-| Create time | Date and time when the interceptor container was created. |
-| Update time | Date and time when the interceptor container was last updated. |
-| Actions | Buttons to manage the selected interceptor container:<br/>- **Open in a new tab**: click to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: click to duplicate the interceptor container.<br/>- **Stop/Run**: click to start and stop a container.<br/>- **Delete**: click to remove the container. |  
+| Container URL | URL to access the running interceptor container. |
+| Author | Email address of the creator of the interceptor container. |
+| Topics | Tags that associate interceptor container with one or more topics or categories. |
+| Create time | Container creation timestamp. |
+| Update time | Timestamp of the last update. |
+| Actions | Buttons to manage the selected interceptor container:<br/>- **Open in a new tab**: Use to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: Use to duplicate the interceptor container.<br/>- **Stop/Run**: Use to start and stop a container.<br/>- **Delete**: Use to remove the container. |  
 
 ## Create
 
@@ -41,18 +41,21 @@ On the main screen, you can add new interceptor containers based on existing [im
 
 ##### To create a new interceptor container
 
-1. Click the **+Create** button on the main screen to open the **Creating Interceptor Container** form.
-2. Select the desired [image](/docs/tutorials/3.admin/deployments-images.md) from the list and pick its installed version from the list (labeled with green indicator).
-3. Specify properties and click **Finish** to create the container.
-4. The screen with the container configuration is displayed. You can modify the configuration as needed, run, stop or delete the container.
+1. Click **Create** on the main screen and select to create a container from the internally-deployed image or an external image.
+    - **From Internal Interceptor Image**: Select the desired [image](/docs/tutorials/3.admin/deployments-images.md) from the list and pick its installed version from the list (labeled with green indicator).
+    - **From Docker Image Reference**: Provide the URL of the external Docker image you want to use.
+2. Specify properties and click **Finish** to create the container.
+3. The screen with the container configuration is displayed. You can modify the configuration as needed, run, stop or delete the container.
 
 ![](img/create_interceptor_container.png)
 
-## Configuration Screen
+## Configuration
 
-Click any interceptor container from the main screen to open its configuration screen.
+Click any interceptor container on the main screen to open its configuration screen.
 
 On the configuration screen, you can view and edit the selected interceptor container settings, start and stop the container, view logs and events, or delete the container.
+
+> **Note**: Configuration fields are disabled when the container is in a transition state (pending or stopping).
 
 ### Actions
 
@@ -62,7 +65,7 @@ In the header of the Configuration screen, you can find the following action but
 |------- |-------------|
 | Create Interceptor | Available for running containers. <br /> Click to create a new [interceptor](/docs/tutorials/3.admin/entities-interceptors.md) using this selected interceptor container. |
 | Run/Stop | Click to start or stop the interceptor container. |       
-| Delete | Click to delete the interceptor container. |
+| Delete | Click to delete the interceptor container. **Note**: This will effect interceptors created based on the deleted container. |
 
 ![](img/interceptor_container_actions.png)
 
@@ -72,8 +75,8 @@ You can use a **running** interceptor container to create a new interceptor in D
 
 1. In the Configuration screen of the running interceptor container, click the **Create Interceptor** button in the header.
 2. In the Create Interceptor dialog, fill in the form fields:
-    - **ID**: Unique identifier for the interceptor.
-    - **Display Name**: Enter a name for the interceptor.
+    - **ID**: Unique identifier for the interceptor. Auto-populated according to the selected container.
+    - **Display Name**: Enter a name for the interceptor. Auto-populated according to the selected container.
     - **Description**: Provide a brief description of the interceptor.
 3. Click the **Create** button to submit the form and create the interceptor. Repeat these steps to create more interceptors if needed.
 
@@ -83,23 +86,28 @@ You can use a **running** interceptor container to create a new interceptor in D
 
 In the Properties tab, you can view and edit the selected interceptor container settings.
 
-##### Fields Description
+##### Fields description
 
 | Property | Required | Editable | Description |
 |----------|----------|----------|-------------|
-| ID | - | No | Unique identifier for the interceptor container. |
-| Type | - | No | Type of the interceptor container. |
-| Interceptor Image | - | No | Docker image from which the interceptor container was created. |
-| Creation Time | - | No | Date and time when the interceptor container was created. |
-| Updated Time | - | No | Date and time when the interceptor container was last updated. |
+| ID | - | No | Unique read-only identifier for the interceptor container. Must be between 2 and 36 characters long. Can contain only lowercase Latin letters, numbers, and hyphens. |
+| Interceptor Image | - | No | Docker image from which the interceptor container was created. <br />Click to display the list of available images where you can change the source image for the container. <br />**Note**: The container is redeployed when source image changes. |
+| Creation Time | - | No | Creation timestamp. |
+| Updated Time | - | No | Timestamp of the last update. |
 | Status | - | No | Current status of the interceptor container (e.g., Running, Stopped). |
-| URL | - | No | URL to access the interceptor container. |
-| Display Name | Yes | Yes | Name of the interceptor container rendered in UI. |
+| URL | - | No | URL to access the running interceptor container. |
+| Restarts | - | No | Restart counter for launching containers. Use to identify crash loops. You can find details in the [Execution Log](#execution-log).|
+| Display Name | Yes | Yes | Name of the interceptor container rendered in UI. Must be between 2 and 255 characters long. |
 | Description | No | Yes | Brief description of the interceptor container. |
-| Maintainer | No | Yes | Maintainer of the interceptor container. |
-| Endpoint Configuration | No | Yes | Configuration details for the endpoints exposed by the interceptor container. |
-| Environment Variables | No | Yes | Environment variables set for the interceptor container. |
-| Resources | No | Yes | Resource limits and requests for the interceptor container. |
+| Maintainer | No | Yes | Email address of the maintainer of the interceptor container. |
+| Topics | No | Yes | Topics are semantic labels that you can assign to containers (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
+| Docker Image Reference | Conditional | Yes | Reference of the external Docker image used to create the container. <br /> Available if the external Docker image was used to create the container. Disabled if the internal image was used to create the container. |
+| Endpoint Configuration | No | Yes | Configuration details for the endpoints exposed by the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
+| Autoscaling | No | Yes | Parameters to dynamically adjust container replicas based on demand. <br /> - **Automatic scale to zero**: Use to define criteria to reduce replicas to zero to save resources. <br />- **Min and Max Replicas**: Sets the minimum and maximum number of instances that can run, ensuring availability and controlling costs. <br /> - **Pending requests to trigger autoscaling**: Specifies the number of queued requests required to trigger scaling up, helping maintain performance during traffic spikes. |
+| Environment Variables | No | Yes | Environment variables set for the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. <br /> - **Name**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.<br /> - **Value**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`. |
+| Resources | No | Yes | Resource limits and requests for the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode.<br />Validation rules: <br /> - Values must be numeric and greater than 0.<br /> - Maximum allowed values for `cpu`, `memory`, and `nvidia.com/gpu` are defined on the backend via environment variables.<br /> - For each matching resource key (e.g. `cpu`), the value in limits must not be less than the value in `requests`. |
+| Configuration | No | Yes | Command that defines the executable and its options to launch the container. Arguments provide extra parameters for customization during startup. |
+| Startup probe | No | Yes | Use this configuration to enable and configure the Startup Probe - it is a type of health check specifically designed to signal that the application inside the container is ready to begin serving traffic.<br />- **Type**: HTTP (Performs an HTTP GET request to a specified path and port on the container. The probe is considered successful if the response has a status code between 200 and 399.); TCP (Attempts to establish a TCP connection to the specified port. The probe is successful if the connection is established.).<br />- **Port**: The network port on the container to which the probe will connect or send the request. <br />- **Path**: Path to call inside the container. Available for HTTP type.<br />- **Initial delay seconds**: The number of seconds to wait after the container starts before performing the first probe. This allows the application time to initialize before health checks begin. <br />- **Period seconds**: The interval (in seconds) between consecutive probe checks. This determines how frequently Kubernetes will perform the probe. <br />- **Timeout seconds**: The maximum number of seconds allowed for a single probe check to complete. If the probe does not return within this time, it is considered a failure. <br />- **Failure threshold**: The number of consecutive failed probe attempts before Kubernetes considers the startup probe to have failed, which may result in the container being restarted or marked as failed.|
 
 ![](img/interceptor_container_properties.png)
 
@@ -107,9 +115,31 @@ In the Properties tab, you can view and edit the selected interceptor container 
 
 ![ ](img/interceptor_container_json_editor.png)
 
+### Firewall settings 
+
+The whitelist domains setting specifies which external domains the interceptor container is allowed to connect to. This setting controls outgoing traffic from the container, ensuring that it can only communicate with trusted domains (for example, your company’s website or specific client applications).
+
+**Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters. Domain name must not include leading or trailing hyphens in labels.
+
+![ ](img/interceptor_container_firewall.png)
+
 ### Execution log
 
 In the Execution Log tab, you can view real-time logs generated by the selected interceptor container. This log provides insights into the container's operations, including any errors or important events that occur during its execution.
+
+When container starts with more than one pod, you can see logs for each of them: 
+
+![](img/mcp_log_pods.png)
+
+In case of issues, health indicators are displayed to help identify problems:
+
+| Indicator | Description |
+|-----------|-------------|
+| Restarts | Restart counter for launching containers. Use to identify crash loops. |
+| Last restarted at | Timestamp of the last container restart. |
+| Last reason | Restart failure reason. |
+
+![](img/mcp_log.png)
 
 ### Events
 

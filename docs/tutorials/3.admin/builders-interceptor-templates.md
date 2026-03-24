@@ -1,23 +1,26 @@
 # Interceptor Templates
 
-## About Interceptor Templates
+## Introduction
 
-An **interceptor template** is a reusable blueprint for creating interceptors in DIAL. It allows to save time on similar interceptors configuration.
+**Interceptor templates** are reusable blueprints that streamline the creation of interceptors in DIAL. They save time by eliminating repetitive configuration when setting up similar interceptors.
 
-> Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
+> To learn more about interceptors, refer to [Interceptors](/docs/platform/3.core/6.interceptors.md).
+
+Once created, interceptor templates can be [selected as a source type](/docs/tutorials/3.admin/entities-interceptors.md#create) when creating new interceptor entities.
 
 ## Main Screen
 
-On the main screen, you can add and manage Interceptor Templates you have in your DIAL instance.
+On the main screen, you can add and manage Interceptor Templates.
 
-### Interceptor Templates Grid
+##### Interceptor templates grid
 
-| Field| Definition   |
-|------------------|------------------------------------------------------------|
-| **Display name** | A user-friendly label for the interceptor template (e.g. “PII Obfuscator”, "Words Blacklist", etc.). Helps you pick the right one when configuring an interceptor. |
-| **ID**     | The unique identifier used internally.     |
-| **Description**  | Free-text notes about the interceptor template and how it can be used.   |
-|**Updated time** | Timestamp for changes tracking and audit evidence (e.g., to verify when the last change was done). |
+| Field | Description |
+|-------|-------------|
+| **Display name** | Name of the interceptor template displayed on UI (e.g. "PII Obfuscator", "Words Blacklist", etc.). |
+| **ID** | Unique identifier. |
+| **Description** | Description of the interceptor template. |
+| **Updated time** | Timestamp of the latest update. |
+| **Topics** | Semantic tags associated with interceptor template. Topics can be used for identify and filter templates on UI. |
 
 ![97.png](img/97.png)
 
@@ -28,26 +31,15 @@ On the main screen of Interceptor Templates, you can create a new interceptor te
 1. Click **+ Create** to invoke the **Interceptor Template** modal.
 2. Define key parameters for the new interceptor template:
 
-    | Field| Required | Definition    |
-    |------------------|----------|--------------------------------|
-    | **ID**     | **Yes**  | The unique identifier used internally.|
-    | **Display name** | No | A user-friendly label for the interceptor template (e.g. “PII Obfuscator”, "Words Blacklist", etc.). Helps you pick the right one when configuring an interceptor.  |
-    | **Description**  | No | Free-text notes about the interceptor template and how it can be used.    |
+    | Field | Required | Definition |
+    |-------|----------|------------|
+    | **ID** | Yes | Unique identifier. |
+    | **Display name** | Yes | Name of the interceptor template displayed on UI. |
+    | **Description** | No | Description of the interceptor template. |
 
 3. Once all required fields are filled, click **Create**. The dialog closes and the new template [configuration screen](#configuration) is opened. A new template will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
 
-    ![98.png](img/98.png)
-
-## Delete 
-
-To delete an interceptor template, follow these steps:
-1. From the main screen, select the interceptor template you want to delete by clicking on its row.
-2. Click the **Delete** button in the top-right corner of the configuration screen.
-3. A confirmation dialog will appear. Review the information carefully, as deleting an interceptor template will also remove all related interceptors bound to it.
-4. If you are sure you want to proceed, click **Delete** in the confirmation dialog. The interceptor template and all related interceptors will be permanently removed from the system.
-
-> **IMPORTANT:** This action is irreversible. Ensure that you have reviewed all dependencies before confirming the deletion.
-
+    ![](img/interceptor-template-create.png)
 
 ## Configuration
 
@@ -58,77 +50,48 @@ Click on an interceptor template from the main screen to open its configuration 
 * **Create Interceptor**: Creates an interceptor with the current interceptor template. Created interceptor can be found in [Entities -> Interceptors](/docs/tutorials/3.admin/entities-interceptors.md).
 * **Save**: Saves any changes made to the interceptor template.
 * **Discard**: Reverts any unsaved changes made to the interceptor template.
-* **Delete**: Permanently removes the selected interceptor template. 
+* **Delete**: Permanently removes the selected interceptor template. **IMPORTANT:** All related interceptors still bound to it will be deleted as well.
 
-    > **IMPORTANT:** All related interceptors still bound to it will be deleted as well.
+![](img/interceptor-template-controls.png)
+
+### Create Interceptor
+
+On the configuration screen, click **+ Create Interceptor** to create a new [interceptor entity](/docs/tutorials/3.admin/entities-interceptors.md) based on the selected template.
+
+1. Click **+ Create Interceptor** and fill in the pop-up form.
+2. Click **Create** to apply. The configuration of the new interceptor entity opens up. You may notice, that the template used is pre-populated in the Interceptor Template field.
+
+![](img/interceptor-template-create-interceptor.png)
 
 ### Properties
 
 In the **Properties** tab, you can preview and modify identity, metadata and endpoints of interceptor template.
 
-Header (non-editable):
+| Field | Required | Editable | Description |
+|-------|----------|----------|-------------|
+| **ID** | - | No | Unique ID of the template (copyable). Cannot be changed after interceptor template is created. |
+| **Updated Time** | - | No | Timestamp for changes tracking and audit evidence (e.g., to verify when the last change was done). |
+| **Creation Time** | - | No | Creation timestamp. |
+| **Display Name** | Yes | Yes | Name of the interceptor template displayed on UI (e.g. "PII Obfuscator", "Words Blacklist", etc.). |
+| **Description** | No | Yes | Description of the interceptor template and how it can be used. |
+| **Completion endpoint** | No | Yes | URL of the interceptor service. This URL is used by DIAL Core to handle requests and responses for the interceptor. |
+| **Configuration endpoint** | No | Yes | URL that exposes the configuration of the interceptor as a JSON schema. |
+| **Topics** | No | Yes | Semantic tags associated with interceptor template. |
 
-| Field | Definition     |
-|-------------------|----------------------------------------------------------------------------------------------------------|
-| **ID**| Read-only unique ID of the template (copyable). Cannot be changed after interceptor template is created. |
-| **Updated Time**  | Timestamp for changes tracking and audit evidence (e.g., to verify when the last change was done). |
-| **Creation Time** | Timestamp of when Interceptor Template was created.|
-
-Fields: 
-
-| Field    | Required | Definition   |
-|----------------------------|----------|-----------------------------------------------------|
-| **Display name**     | Yes | A user-friendly label for the interceptor template (e.g. “PII Obfuscator”, "Words Blacklist", etc.). Helps you pick the right one when configuring an interceptor. |
-| **Description**| No | Free-text notes about the interceptor template and how it can be used.   |
-| **Completion endpoint**    | No | This is the endpoint used by DIAL Core to manage chat completion requests from interceptors.     |
-| **Configuration endpoint** | No | This endpoint is used to request interceptor's configuration parameters as a JSON schema.  |
-
-![99.png](img/99.png)
+![ ](img/interceptor-template-properties.png)
 
 ### Interceptors
 
 A **read-only** grid showing all interceptor **instances** created from this template. Use it to assess potential impact before template edits or deletion.
 
-##### Grid (non-editable)
+From the actions menu of each interceptor you can navigate to its configuration in [Entities/Interceptors](/docs/tutorials/3.admin/entities-interceptors.md#configuration) section.
 
-| Field| Definition   |
-|------------------|--------------------------------------------------------------------------------------|
-| **Display Name** | Display name of the interceptor instance that inherits this template.    |
-| **ID**     | Unique ID of the dependent Interceptor.    |
-| **Description**  | A free-text summary of the interceptor’s behavior and any configuration parameters.  |
-| **Updated Time** | Timestamp for changes tracking and audit evidence (e.g., to verify when the last change was done). |
+![ ](img/interceptor-template-interceptors.png)
 
 ### Audit
 
-#### Activities
+On this screen, you can access a detailed preview and revert any changes made to the selected interceptor template.
 
-The Activities section under the Audit tab of a specific interceptor template provides detailed visibility into all changes made to it.
+> **TIP**: This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected template.
 
-This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected template.
-
-
-##### Activities List Table
-
-| **Field**   | **Definition**   |
-|-------------------|------------------------------------------------------------------------------------------|
-| **Activity type** | The type of action performed on the interceptor template (e.g., Create, Update, Delete). |
-| **Time**    | Timestamp indicating when the activity occurred.     |
-| **Initiated**     | Email address of the user who performed the activity.|
-| **Activity ID**   | A unique identifier for the logged activity, used for tracking and auditing. |
-
-##### Activity Details
-
-The Activity Details view provides a detailed snapshot of a specific change made to an interceptor template.
-
-To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
-
-| **Element/Section** | **Description**     |
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Activity type**   | Type of the change performed (e.g., Update, Create, Delete).  |
-| **Time**| Timestamp of the change.  |
-| **Initiated** | Identifier of the user who made the change. |
-| **Activity ID**     | Unique identifier for the specific activity tracking.   |
-| **View**| Dropdown to switch between showing all parameter or changed only.   |
-| **Parameters Diff** | Side-by-side comparison of the fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
-
-![100.png](img/100.png)
+![ ](img/interceptor-template-audit.png)

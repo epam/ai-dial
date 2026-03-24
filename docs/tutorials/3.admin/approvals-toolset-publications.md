@@ -1,71 +1,94 @@
 # Toolset Publications
 
-## About Toolset Publications
+## Introduction
 
-DIAL users can publish their created toolsets to make them available to other users and applications. Published toolsets become available in the public folder and can be accessible to users and applications based on the access rules defined in the publication request. You can access published toolsets in [Assets/Toolsets](/docs/tutorials/3.admin/assets-toolsets.md) section. Published toolsets can be unpublished by DIAL admin or other DIAL users.
+DIAL users can publish their private toolsets to enable access to other users. Each publication request undergoes a review by DIAL administrators to ensure safety and security.
 
-Toolsets can be published/unpublished using DIAL Core [API](https://dialx.ai/dial_api#tag/Publications/operation/createPublication) or in [DIAL Chat](/docs/tutorials/0.user-guide.md#publications).
+> You can find all published toolsets in [Assets/Toolsets](/docs/tutorials/3.admin/assets-toolsets.md) section. 
 
-In this section of the DIAL Admin panel, admins can access and approve or decline toolsets publication requests.
+In this section of the DIAL Admin panel, admins can access and approve or decline requests to publish toolsets.
 
 > * Refer to [Publications](/docs/platform/7.collaboration-intro.md#publication) to learn more about publications in DIAL.
 > * Refer to [DIAL Chat User Guide](/docs/tutorials/0.user-guide.md#publications) to learn about the publication process from the perspective of a DIAL Chat end-user.
+> * Refer to [Publication API](https://dialx.ai/dial_api#tag/Publications) for programmatic creation and management of publication requests.
 
-## Toolset Publications List
+## Main Screen
 
-The Toolset Publications main screen displays all publish/unpublish requests submitted by DIAL users for toolsets using the DIAL API. 
+The Toolsets Publications screen shows all publish/unpublish requests submitted via [DIAL Chat UI](/docs/tutorials/0.user-guide.md#publish-3) or [Publication API](https://dialx.ai/dial_api#tag/Publications). 
 
-![ ](img/136.png)
+![ ](img/toolset-publications.png)
 
-##### Toolset Publications Grid
+##### Toolset publications grid
 
-| Field             | Definition|
-|-------------------|----------|
-| **Name**          | The title of the submitted publication request (not the toolset).         |
-| **Author**        | The user who has submitted the publication request. Can be used to follow up with the creator if something needs clarification. |
-| **Creation Time** | Submission's timestamp.              |
+| Column | Description |
+|--------|--------------|
+| **Name** | Title of the submitted publication request. |
+| **Author** | The user who has submitted the publication request. |
+| **Creation time** | Publication request submission's timestamp. |
 
-## Review Page
+## Review Publication Request
 
-Click any publication request on the main screen to access the review page. On this page, you can inspect the selected request and decide whether to **Publish**, **Unpublish** or **Decline** it.
+Click any publication request on the main screen to access the review page. On this page, you can inspect the selected request and decide whether to **Publish**, **Unpublish**, **Decline** or delete it.
 
-##### Publication Request Controls
+**Note**, that administrators can also modify selected properties in the request and take action on the modified request.
 
-On the top bar, you can find the following controls:
+### Actions
 
 * **Publish**: Applies to publish requests. Use to approve the request.
-* **Unpublish**: Applies to unpublish requests. Use to approve the request and remove the published toolset from the public folder and make it inaccessible to other users and applications.
+* **Unpublish**: Applies to unpublish requests. Use to approve the request and remove the published toolset from the Public folder and make it inaccessible to other users. **Note**, that deleting resources can break workflows that use them.
 * **Decline**: Reject the publish/unpublish request. Prompts you to enter a decline reason that will be sent back to the request author.
+* **Delete**: Deletes the request.
 
-![](img/publish-toolset.png)
+![](img/publication-actions.png)
 
-![](img/unpublish-toolset.png)
+![](img/publication-actions-unpublish.png)
 
-| Field              | Definition         |
-|--------------------|-----------------------------------------------------------------------------------------------------|
-| **Author**         | The user who has submitted the publication request. Can be used to follow up with the creator if something needs clarification. |
-| **Creation Time**  | The publication request's submission timestamp.          |
-| **Folder Storage** | The path to the file storage folder where the toolset assets will be saved in case it is published. |
+### Properties
 
-### Properties Tab
+In this tab you can access and modify the selected properties of the toolset being published and the publication request.
 
-The Properties tab shows the basic information about the toolset and related access rules. 
+| Property | Editable | Description | 
+|----------|----------|-------------|
+| **Action** | No | Action to be taken on this request: Publish (to publish toolset) or Unpublish (to remove the toolset form the Public folder in DIAL file system). |
+| **Creation Time** | No | Publication request creation timestamp. |
+| **Authentication** | No | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset in not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated for your user only. <br />- **Logged in (Organization)**: The toolset is authenticated for all users in your organization. | 
+| **Author** | Yes | Name of the publication request creator. |
+| **Folder Storage** | Yes | The path to the target folder in the Public file storage where the published toolset will be stored. <br /> Use **Move to** to change the initial setting provided in the publication request. |
+| **ID** | Yes |Unique identifier of the toolset. |
+| **Display Name** | Yes | Name of the toolset displayed on UI. |
+| **Version** | Yes | Version of the toolset to be published. |
+| **Description** | Yes | Description of the toolset. |
+| **Icon** | Yes | Toolset's icon that will be rendered on UI. |
+| **Topics** | Yes | Topics are semantic labels that you can assign to toolsets (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
+| **External Endpoint**  | Yes | Toolset API endpoint for MCP calls. |
+| **Transport** | Yes | Transport supported by a related endpoint.<br />Available options: HTTP (default) or SSE (deprecated). |
+| **Authentication** | Yes | [Toolset authentication configuration](/docs/tutorials/3.admin/entities-toolsets.md#authentication). |
 
-| Field  | Description|
-|------------------------|------------|
-| **Display Name**       | The name of the toolset assigned by the publication request author. |
-| **Description**        | A free-text summary describing the toolset.     |
-| **Icon**               | A logo to visually distinguish the toolset on the UI. Maximum size: 512 MB. Supported types: .jpeg, .jpg, .jpe, .png, .gif, .apng, .webp, .avif, .svg, .svgz, .bmp, .ico. Up to 1 files. |
-| **Topics**             | Tags that you can assign to toolset. Helps to assign categories for better navigation on UI.  |
-| **External Endpoint**  | Toolset API for MCP calls. The endpoint that a Quick App can call to fetch external data.  |
-| **Transport**          | A transport supported by MCP server. The available options are: HTTP or SSE. Default: HTTP. Choose SSE for server-sent events when supported. |
-|**Authentication**|Authentication settings for the Toolset. Supported OAUTH, API_KEY, or NONE. Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolset_credentials_api.md) to learn more about toolset authentication.|
-|**Permissions**|The proposed access rules to the published toolset (e.g., based on user group). Ensure the audience matches intended reach. If rules are not defined, the published resources will be available to all users. <br /> Available Controls:<br /> - **Review structure** opens a modal showing the storage folders tree and toolset's folder position in the hierarchy.<br />- **Compare changes** side-by-side diff of **current vs proposed** permission rules to the toolset's folder. Use to verify and validate changes in access rules before approving the publication request.|
+![](img/toolset-publication-properties.png)
 
-![](img/137.png)
+##### JSON Editor
 
-### Tools Overview Tab
+**Advanced users with technical expertise** can work with toolset and publication request properties in the UI or a JSON editor view modes. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed on UI.
 
-Tools in toolsets are functionalities supported by a corresponding MCP server that can be used to extend the capabilities of the toolset. On this screen, you can find an overview of all tools included in the toolset submitted for publication.
+> **TIP**: You can switch between UI and JSON only if there are no unsaved changes.
 
-![](img/138.png)
+![](img/toolset-publication-json-editor.png)
+
+### Tools Overview
+
+[Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are specific functions supported by a related MCP server that can be used by clients to perform specific actions.
+
+On this screen, you can see and edit tools supported by the toolset submitted for publication.
+
+> Refer to [Toolsets](/docs/tutorials/3.admin/entities-toolsets.md#tools-overview) to learn more about this functionality.
+
+![](img/toolset-publication-tools-overview.png)
+
+### Permissions
+
+If not defined otherwise, objects are published into the root (Public) folder in DIAL file storage by default. All authenticated users have access to this folder. To define access restrictions, publication request author can create a sub-folder and select it in the **Publish to** field in the publication request. Sub-folders can have access rules applied to them. Refer to [Access Rules](/docs/tutorials/3.admin/access-management-folders-storage.md#access-rules) to learn more.
+
+In this section, you can see and modify access rules if they apply to the selected publication request.
+
+![](img/toolset-publication-permissions.png)
+

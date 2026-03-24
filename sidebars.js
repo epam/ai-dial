@@ -26,11 +26,6 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'platform/architecture-and-concepts/concepts',
-              label: 'Main Concepts',
-            },
-            {
-              type: 'doc',
               id: 'platform/architecture-and-concepts/architecture',
               label: 'Architecture Highlights',
             },
@@ -48,11 +43,6 @@ const sidebars = {
               type: 'doc',
               id: 'platform/core/token-limits-and-cost-control',
               label: 'Usage Limits and Cost Control',
-            },
-            {
-              type: 'doc',
-              id: 'platform/architecture-and-concepts/components',
-              label: 'Platform Components',
             },
             {
               type: 'doc',
@@ -608,18 +598,23 @@ const sidebars = {
                   items: [
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/deployments-models',
+                      label: 'Model Servings',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/deployments-mcp',
-                      label: 'MCP Deployments',
+                      label: 'MCP Containers',
                     },
                     {
                       type: 'doc',
                       id: 'tutorials/admin/deployments-interceptors',
-                      label: 'Interceptor Deployments',
+                      label: 'Interceptor Containers',
                     },
                     {
                       type: 'doc',
-                      id: 'tutorials/admin/deployments-models',
-                      label: 'Model Servings',
+                      id: 'tutorials/admin/deployments-adapters',
+                      label: 'Adapter Containers',
                     },
                     {
                       type: 'doc',

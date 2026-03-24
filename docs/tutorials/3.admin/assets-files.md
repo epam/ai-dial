@@ -2,107 +2,111 @@
 
 ## Introduction
 
-Files in DIAL are arbitrary binary or text assets (JSON, CSV, PDF, images, etc.) your models and applications can reference at runtime.
+Files in DIAL are arbitrary binary or text assets (JSON, CSV, PDF, images, etc.) which AI models and/or applications can reference at runtime. 
+
+In DIAL, files added by users (either using [DIAL Core API](https://dialx.ai/dial_api#tag/Files) or [UI File Manager](/docs/tutorials/0.user-guide.md#files)) are stored in a private folder of a dedicated user in the DIAL file storage and are not accessible to anyone but the file author (owner). Files become available to other users and applications when [published](/docs/tutorials/0.user-guide.md#access-to-application-files-1) with applications and conversations that reference them or via [Publication API](https://dialx.ai/dial_api#tag/Publications).
+
+DIAL can be configured to store files in a BLOB storage of the selected cloud provider, ensuring scalability and security of your data.
+
+> Files are considered to be a protected resource. Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md#acls-for-objects) to learn how protected resources are handled in DIAL.
 
 ## Main Screen
 
-In Files, you can manage all files in the Public folder.
+The Assets/Files screen displays all files located in the Public folder in DIAL file storage. Files get to the Public folder when published by users or added by administrators.
 
-> Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to lean more about Private and Public logical spaces for objects storage in DIAL. 
+> **Note**: This screen, does not give access to private files of users.
 
 ![ ](img/img_35.png)
 
-##### Folders Structure
+##### Public file storage
 
-Objects in the [Public space](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. In this part of the screen, you can see the hierarchical structure of folders in the Public space. 
+Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. 
 
-| Element | Description          |
-|------------------------|--------------------------------------------|
-| **Root folder**        | A root folder. Contains the sub-folders and files. It is visible to all users.  |
-| **Sub-folders**        | Files can be placed in a specific sub-folder for logical organization purposes.          |
-| **+ (Create)**         | Hover over any folder to display this action. Allows creating new child or sibling folder and import the files into it. Same flow as [Import](#import), but also requires to provide a folder name. |
-| **Actions**    | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder.<br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with files inside it.|
+- **Root folder**: Public is a root folder with sub-folders. It is visible to all authorized users. If a sub-folder is not specified for the new object being published, it is placed in the root folder by default.
+- **Sub-folders**: Objects can be placed in sub-folders for logical organization purposes - one object per sub-folder is recommended. 
 
-![ ](img/img_35_1.png)
+> **Note**, that access rules can be applied to sub-folders (manually or in publication request). You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). The effective authorization rule for an object in a sub-folder includes restrictions applied to all parent sub-folders up to the root folder. Refer to [Tutorials](/docs/tutorials/1.developers/1.work-with-resources/0.work-with-publications.md#effective-rules) to learn about affective rules for folders.
 
-##### Files Grid
+Hover over any folder in the right or left panel to display the context menu.
 
-Click any folder in the hierarchy to display files stored in it.
+![ ](img/files-folders-actions.png)
 
-| Column           | Definition                                                                                          |
-|------------------|-------------------|
-| **Display Name** | A technical key for the file (e.g. `exclusion-words`).                                              |
-| **Extension**    | The extension of the file.                                                                 |
-| **Author**       | The username or system ID associated with the user who created or last updated this file.    |
-| **Actions**      | Actions you can perform on the selected file: <br /> - **Open in new tab**: Opens a new tab with file's properties.  <br /> - **Move to another folder**: Use to select the target folder in the hierarchy to move the file.<br />- **Delete**: Use to delete the file.  |
+| Available Actions | Description |
+|-------------------|-------------|
+| **Create sub-folders** |  Use to add new child or sibling sub-folders. |
+| **Move to** | Use to select a target location in the hierarchy to move the selected folder. | 
+| **Export** | Use to download the content of the selected folder with objects inside it as a ZIP archive. |
+| **Rename** | Use to rename the selected folder. | 
+| **Manage permissions** | Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder. |
+| **Delete** | Use to delete the folder with objects inside it.|
 
-![ ](img/files-actions.png)
+##### Files grid
 
-## Export
+Click any folder to display its content (files and sub-folders)
 
-Use **Bulk Actions** in the toolbar to export files. 
+| Column | Description |
+|--------|-------------|
+| **Display Name** | File name displayed on UI. |
+| **Updated time** | Timestamp of the last file update. |
+| **Size** | File size in kilobytes. |
 
-![ ](img/apps_bulk_actions.png)
+Click any file (or select several files) to see the context menu with available actions:
 
-This is helpful for backup, sharing, or migrating supporting assets alongside your DIAL configuration.
+| Available Actions | Description |
+|-------------------|-------------|
+| **Move to** | Use to move the selected file(s) to another folder. |
+| **Export** | Use to download a ZIP archive with the selected file(s).|
+| **Preview** | Use to preview the content of the file. Can be disabled for selected types of files. The list of file extensions for which preview is enabled: `.html`, `.htm`, `.css`, `.js`, `.mjs`, `.json`, `.xml`, `.txt`, `.md`, `.csv`, `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`, `.svg`, `.ico`, `.bmp`, `.avif`, `.mp3`, `.wav`, `.ogg`, `.mp4`, `.webm`, `.pdf` |
+| **Delete** | Use to delete file(s). <br />**Note**: Any models or applications that reference it will break until you reattach a valid file. |
 
-![ ](img/img_49.png)
+![ ](img/files-actions2.png)
 
-##### To export files:
+## Export 
 
-1. Click **Bulk Actions**.
-2. Select files by checking the boxes in each row.
-3. Click **Export** to download a ZIP archive with files.
+You can download selected files or folders as a ZIP archive.
 
-## Import
+To export, make a selection and click **Export** in the toolbar. You can also access the Export button in the context menu of each file or folder.
 
-Use **Import** in the toolbar to upload external files into DIAL’s assets storage. This is useful for adding reference documents, data or other supporting assets.
+![ ](img/assets-files-export.png)
 
-![](img/img_50.png)
+## Import Files
 
-##### To import files:
+Use the **Add** dropdown in the toolbar to add new folders or files.
 
-1. Click **Import** in the toolbar to launch the import modal.
-2. Select the type of files you want to import. Drag & drop files or an archive into the drop zone, or click **Browse** to open your local file browser.
-    * **Archive** (single ZIP file). Only 1 archive file can be imported at a time.
-    * **Separate Files** (up to 30 individual files). Each file must be ≤ 512 MB.
-3. Once files appear in the list, click **Next** to proceed.
-4. Resolve any conflicts by choosing a strategy for handling files with the same name and path:
-   * **Override**: Replace existing files with the new ones.
+![ ](img/assets-files-add.png)
+
+1. Click **Add** in the toolbar and select **Files** to invoke the **Import Files** modal.
+2. You can choose to import a ZIP archive or separate files. **Note**: Up to 30 files can be imported at once. Each file must be ≤ 512 MB. Only 1 archive can be imported at a time.
+3. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all files will be imported directly into the root folder without recreating the original folder hierarchy.
+4. Add file either by dragging them into the window or using file browser.
+5. Click **Next** to select a conflict resolution strategy. It allows you to decide how to handle existing prompts with the same name and version in your workspace:
    * **Skip**: Do not import conflicting files and keep existing files unchanged.
-   * **Edit manually**: Rename incoming files one by one to avoid conflicts. Each conflicting file is flagged with red color and becomes editable - update its **Name** to avoid conflicts.
-5. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all files will be imported directly into the root folder without recreating the original folder hierarchy.
-6. Once all conflicts are resolved, click **Finish** to complete the import.
+   * **Override**: Replace files with the same name and version with the imported ones.
+   * **Edit manually**: Rename incoming files one by one to avoid conflicts. Each conflicting file is flagged with red color and becomes editable - update its Name to avoid conflicts.
+6. Click **Finish** to start.
 
-    ![](img/img_51.png)
+![ ](img/assets-files-import-file.png)
 
-## Configuration
+## Add Folders
 
-Click any file to open the configuration screen.
+You can add new child or sibling folders to the hierarchy using the context menu of each folder. 
 
-### Properties
+> **Note**: The name of the folder must not exceed 160 characters.
 
-In the Properties tab, you can view and manage the selected file, including moving it across folders.
+![ ](img/assets-files-folder-actions.png)
 
-![](img/img_36.png)
+You can also navigate to a specific folder and use the **Add** dropdown in the toolbar to add sub-folders.
 
+![ ](img/assets-files-add-folder.png)
 
-| Field | Definition & Use Case                                                                                                                  |
-|--------------------|------------------------------------------------------|
-| **Display Name**   | The filename including extension (e.g. request.json, lookup.csv). Display-only but with a copy-to-clipboard button for easy reference. |
-| **Source/Display Name**    | The name of the file without the extension (e.g. request).   |
-| **Source/Extension**  | The file type (e.g. .json, .csv, .pdf). |
-|**Source/Actions** |Click the context menu icon to open additional actions:<br />- **Preview**: Click to preview a file.<br />- **Download**: Click to download a file.|
-| **Storage Folder**   | The path to the file's location in the hierarchy of folders. Use for moving files between folders.                                            |  
+## Delete 
 
-## Delete
+There are several ways to delete a file:
 
-Click **Delete** in the toolbar on the Properties screen to permanently remove the selected file from your workspace. 
+> **Note**: Any applications that reference it will break until you reattach a valid file.
 
-> **Note**: Any models or applications that reference it will break until you reattach a valid file.
+* Select one of several files/folders and click **Delete** in the toolbar.
+* Use the **Delete** option in the file/folder context menu.
+* To delete a file, you can delete the related folder where the file is located.
 
-You can also delete a file using the Delete option in the file context menu or by deleting the related folder.
-
-Use **Bulk Actions** in the toolbar to delete multiple files. 
-
-![ ](img/apps_bulk_actions.png)
+![ ](img/assets-files-delete.png)

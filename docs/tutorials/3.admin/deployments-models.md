@@ -28,49 +28,53 @@ On the main screen, you can view existing and add new AI model servings.
 
 ##### Model servings grid
 
-|Field|Description|
-|---|----|
-|Display Name|Name of the model serving rendered on UI.|
-|Description|Brief description of the model serving.|
-|Source Type|Source type of the model (NIM or Hugging Face).|
-|Status|Current status of the model serving.|
-|ID|Unique identifier for the model serving.|
-|Container URL|URL of the container where the model is hosted.<br />Available for a running container.|
-|Maintainer|Person or team responsible for maintaining the model serving.|
-|Create time|Date and time when the model serving was created.|
-|Update time|Date and time when the model serving was last updated.|
+| Field | Description |
+|-------|-------------|
+| Display Name | Name of the model serving rendered on UI. |
+| Description | Brief description of the model serving. |
+| Source Type | Source type of the model (NIM or Hugging Face). |
+| Status | Current status of the model serving. |
+| ID | Unique identifier for the model serving. |
+| Container URL | URL of the container where the model is hosted.<br />Available for a running container. |
+| Author | Email address of the creator of the model serving. |
+| Topics | List of topics associated with the model serving. |
+| Create time | Creation timestamp. |
+| Update time | Timestamp of the last update. |
 
-## Create
+## Create Model Serving
 
-On the main screen, click the **Create** button to open the Create Model Serving form.
+On the main screen, use the **Create** button to create Hugging Face or NIM model servings.
+
+![](img/create-model-serving.png)
 
 ##### To create a new model serving:
 
-1. Click the **Create** button on the main screen to open the Create Model Serving form.
-2. Fill in the required fields in the form:
+1. Click the **Create** button on the main screen and select which type of model serving you want to create.
+2. Fill in the required fields in the Model Serving form:
    - **ID**: Unique identifier for the model serving.
-   - **Display Name**: Enter a name for the model serving.
+   - **Display Name**: Enter a name for the model serving displayed on UI.
    - **Description**: Provide a brief description of the model serving.
-   - **Source Type**: Select the source type (NIM or Hugging Face).
-   - **Hugging Face Model Name**: Applies to Hugging Face source type. Enter the name of the model from Hugging Face.
+   - **Hugging Face Model Name**: Applies to Hugging Face source type. Start typing the name of the model to see suggestions or click **Select from registry** to pick in the pop-up modal window.
    - **Docker Image URI**: Applies to NIM source type. Enter the Docker image URI for the model.
 3. Click the **Create** button to submit the form and create the model serving.
 
 ![](img/create_model_serving.png)
 
-## Configuration Screen
+## Configuration
 
-Click any model serving from the main screen to open its configuration screen.
+Click any model serving from the main screen to open its configuration.
+
+> **Note**: Configuration fields are disabled when the container is in a transition state (launching or stopping).
 
 ### Actions
 
 In the header of the Configuration screen, you can find the following action buttons:
 
-| Action         | Description                                                  |
-|----------------|--------------------------------------------------------------|
-| Create Model          | Available for running model servings.<br />Click to create a new [model deployment](/docs/tutorials/3.admin/entities-models.md) using this selected model serving.|
-| Run/Stop        | Click to start or stop the selected model serving.|  
-| Delete         | Click to delete the selected model serving.|
+| Action | Description |
+|--------|-------------|
+| Create Model | Available for running model servings.<br />Click to create a new [model deployment](/docs/tutorials/3.admin/entities-models.md) using this selected model serving. |
+| Run/Stop | Click to start or stop the selected model serving. |
+| Delete | Click to delete the selected model serving container. **Note**: This will effect model deployments created based on the deleted container. |
 
 ![ ](img/model_serving_actions.png)
 
@@ -80,8 +84,8 @@ You can use a **running** model serving container to create a new model deployme
 
 1. In the Configuration screen of the running model serving, click the **Create Model** button in the header.
 2. In the Create Model dialog, fill in the form fields:
-   - **ID**: Unique identifier for the model deployment.
-   - **Display Name**: Enter a name for the model deployment.
+   - **ID**: Unique identifier for the model deployment. Auto-populated according to the selected model serving.
+   - **Display Name**: Enter a name for the model deployment. Auto-populated according to the selected model serving.
    - **Display Version**: Specify a version of the model deployment.
    - **Description**: Provide a brief description of the model deployment.
 3. Click the **Create** button to submit the form and create the model deployment. Repeat these steps to create more model deployments if needed.
@@ -92,24 +96,26 @@ You can use a **running** model serving container to create a new model deployme
 
 In the Properties tab, you can view and edit the selected model serving container settings.
 
-| Property         | Required | Editable | Description                                                  |
-|------------------|----------|---------|----------------------------------------------------|
-|ID                | - |No|Unique identifier of the model serving container.                  |
-|Type| - |No|Container by default.|
-|Creation Time| - |No|Date and time when the model serving container was created.        |
-|Updated Time| - |No|Date and time when the model serving container was last updated.    |
-|Status| - |No|Current status of the model serving container. |
-|URL| - |No|URL of the container where the model is hosted.|
-|Display Name | Yes |Yes|Name of the model serving container rendered in UI.                               |
-|Description | No  |Yes|Brief description of the model serving container.                   |
-|Maintainer | No  |Yes|Person or team responsible for maintaining the model serving container.|
-|Source Type| Yes |Yes|Source type of the model (NIM or Hugging Face).|
-|Hugging Face model name| Conditional |Yes|Applies to Hugging Face source type.<br/>The name of the model from Hugging Face.|
-|Docker Image URI| Conditional |Yes|Applies to NIM source type.<br/>The Docker image URI for the model.|
-|Endpoint Configuration| No |Yes|Port configuration for the model serving.|
-|Environment Variables| No |Yes|List of environment variables for the model serving.|
-|Resources| No |Yes|Resource allocation settings for the model serving (CPU, Memory, GPU).|
-|Configuration| No |Additional configuration settings for the model serving container.|
+| Property | Required | Editable | Description |
+|----------|----------|----------|-------------|
+| ID | - | No | Unique read-only identifier of the model serving container. Must be between 2 and 36 characters long. Can contain only lowercase Latin letters, numbers, and hyphens. |
+| Creation Time | - | No | Creation timestamp. |
+| Updated Time | - | No | Timestamp of the last update. |
+| Status | - | No | Current status of the model serving container. |
+| Restarts | - | No | Restart counter for launching containers. You can find details in the [Execution Log](#execution-log). |
+| URL | - | No | URL of the running container where the model is hosted. |
+| Display Name | Yes | Yes | Name of the model serving container rendered in UI. Must be between 2 and 255 characters long. |
+| Description | No | Yes | Brief description of the model serving container. |
+| Maintainer | No | Yes | Person or team responsible for maintaining the model serving container. |
+| Topics | No | Yes | List of topics associated with the model serving. Click to display a list of available topics. <br />You can add your own custom topics to the list following these rules:<br /> - The topic name must not exceed 255 characters. <br /> - The topic name must not contain leading or trailing spaces.|
+| Hugging Face model name | Conditional | Yes | Applies to Hugging Face models.<br/>The name of the model from Hugging Face. Start typing the name of the model to see suggestions or click **Select from registry** to pick in the pop-up modal window. |
+| Docker Image URI | Conditional | Yes | Applies to NIM models.<br/>The Docker image URI for the model. |
+| Endpoint Configuration | No | Yes | Port configuration for the model serving. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
+| Autoscaling | No | Yes | **Note**: Autoscaling is available for Hugging Face models. <br />Parameters to dynamically adjust AI model replicas based on demand. <br /> - **Automatic scale to zero**: Use to define criteria to reduce replicas to zero to save resources. <br />- **Min and Max Replicas**: Sets the minimum and maximum number of model instances that can run, ensuring availability and controlling costs. <br /> - **Pending requests to trigger autoscaling**: Specifies the number of queued requests required to trigger scaling up, helping maintain performance during traffic spikes. |
+| Environment Variables | No | Yes | List of environment variables for the model serving. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. <br /> - **Name**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.<br /> - **Value**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.|
+| Resources | No | Yes | Resource allocation settings for the model serving (CPU, Memory, GPU). <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. <br />Validation rules: <br /> - Values must be numeric and greater than 0.<br /> - Maximum allowed values for `cpu`, `memory`, and `nvidia.com/gpu` are defined on the backend via environment variables.<br /> - For each matching resource key (e.g. `cpu`), the value in limits must not be less than the value in `requests`.|
+| Configuration | No | Yes | Command that defines the executable and its options to launch the model serving. Arguments provide extra parameters for customization during startup. |
+| Startup probe | No | Yes | Use this configuration to enable and configure the Startup Probe - it is a type of health check specifically designed to signal that the application inside the container is ready to begin serving traffic.<br />- **Type**: HTTP (Performs an HTTP GET request to a specified path and port on the container. The probe is considered successful if the response has a status code between 200 and 399.); TCP (Attempts to establish a TCP connection to the specified port. The probe is successful if the connection is established.).<br />- **Port**: The network port on the container to which the probe will connect or send the request. <br />- **Path**: Path to call inside the container. Available for HTTP type.<br />- **Initial delay seconds**: The number of seconds to wait after the container starts before performing the first probe. This allows the application time to initialize before health checks begin. <br />- **Period seconds**: The interval (in seconds) between consecutive probe checks. This determines how frequently Kubernetes will perform the probe. <br />- **Timeout seconds**: The maximum number of seconds allowed for a single probe check to complete. If the probe does not return within this time, it is considered a failure. <br />- **Failure threshold**: The number of consecutive failed probe attempts before Kubernetes considers the startup probe to have failed, which may result in the container being restarted or marked as failed.|
 
 ![ ](img/model_serving_properties.png)
 
@@ -117,11 +123,33 @@ In the Properties tab, you can view and edit the selected model serving containe
 
 ![ ](img/model_serving_json_editor.png)
 
+## Firewall settings 
+
+The whitelist domains setting specifies which external domains the model serving container is allowed to connect to. This setting controls outgoing traffic from the container, ensuring that it can only communicate with trusted domains (for example, your company’s website or specific client applications).
+
+**Domain name requirements**: Enter the domain name without protocol, e.g., github.com. Each domain must have at least one dot, labels can include letters, numbers, and hyphens (1–63 chars, not starting or ending with a hyphen), and the top-level domain must be at least 2 letters. Domain name must not include leading or trailing hyphens in labels.
+
+![ ](img/model_servings_firewall.png)
+
 ## Execution log
 
-In the Execution Log tab, you can view the logs related to the operations and activities of the selected model serving.
+In the Execution Log tab, you can view the logs related to the operations and activities of the selected model serving container.
 
 ![ ](img/model_servings_execution_log.png)
+
+When container starts with more than one pod, you can see logs for each of them: 
+
+![](img/mcp_log_pods.png)
+
+In case of issues, health indicators are displayed to help identify problems:
+
+| Indicator | Description |
+|-----------|-------------|
+| Restarts | Restart counter for launching containers. Use to identify crash loops. |
+| Last restarted at | Timestamp of the last model serving restart. |
+| Last reason | Restart failure reason. |
+
+![ ](img/model_serving_log.png)
 
 ## Events
 

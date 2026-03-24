@@ -12,7 +12,9 @@ This documentation section describes how to manage toolsets in DIAL Admin.
 
 ## Main Screen
 
-On this screen, you can find all toolset deployments existing in your DIAL instance. Here you can view, filter, and add new toolset definitions.
+On this screen, you can find all toolset deployments existing in your DIAL instance that were added via a direct modification of [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolsets.md) config file or via DIAL Admin. Here you can view, filter, and add new toolset definitions.
+
+> **Note**: Published toolsets (toolsets located in the Public folder in DIAL file system) are available in the [Assets/Toolsets](/docs/tutorials/3.admin/assets-toolsets.md) section.
 
 ![](img/entities_tools.png)
 
@@ -78,7 +80,7 @@ In the **Properties** tab, you can view and edit main definitions and settings o
 | **Source Type** | Yes | Yes | The source type of the selected toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets. |
 | **External Endpoint** | Conditional | Yes | Toolset endpoint for MCP calls. Applies for External Endpoint source type. |
 | **Container** | Conditional | Yes | MCP server [container ID](/docs/tutorials/3.admin/deployments-mcp.md). Applies for MCP Container deployment source type. |
-| **Transport** | Yes | Yes | Transport supported by a related endpoint.<br />Available options: HTTP (default) or SSE.<br />Choose SSE for server-sent events when supported. |
+| **Transport** | Yes | Yes | Transport supported by a related endpoint.<br />Available options: HTTP (default) or SSE (deprecated) |
 | **Forward per request key** | No | Yes | Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. <br />**Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`. |
 | **Max retry attempts** | Yes | Yes | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) routing a failed call to a toolset endpoint (due to timeouts or 5xx errors). |
 | **Authentication** | Yes | Yes | [Toolset authentication configuration](#authentication). |
@@ -123,7 +125,7 @@ Having selected and configured any authentication method, click **Save** and **L
 
 [Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are specific functions supported by a related MCP server that can be used by clients to perform specific actions. On this screen, you can find and manage all tools supported by the related MCP server.
 
-In case your toolset was created based on the MCP container deployed in DIAL, the content of this screen is inherited from the related [MCP container](/docs/tutorials/3.admin/deployments-mcp.md#tools-overview).
+In case your toolset was created based on the MCP container deployed in DIAL, the content of this screen is inherited from the related [MCP container](/docs/tutorials/3.admin/deployments-mcp.md#tools-overview) and displays all the **enabled** tools. Click [Manage tools](#manage-tools) to access, try and enable all the available tools.
 
 #### Use all tools
 
@@ -163,7 +165,7 @@ You can create and manage roles in the [Access Management](/docs/tutorials/3.adm
 In the **Roles** tab, you can define user groups that are authorized to use a specific toolset. 
 
 > * Refer to [Access & Cost Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL.
-> * Refer to [Roles](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to lean more about roles in DIAL.
+> * Refer to [Roles](/docs/platform/0.architecture-and-concepts/6.access-control.md#roles) to learn more about roles in DIAL.
 > * Refer to tutorials to learn how to configure access and limits for [JWT](/docs/tutorials/2.devops/2.auth-and-access-control/1.jwt.md) and [API keys](/docs/tutorials/2.devops/2.auth-and-access-control/0.api-keys.md)
 
 ![](img/114.png)
@@ -205,43 +207,11 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 
 ### Audit
 
-#### Activities
+On this screen, you can access a detailed preview and revert any changes made to the selected toolset.
 
-The Activities section under the Audit tab of a specific toolset provides detailed visibility into all changes made to that toolset.
-
-This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected toolset.
+> **TIP**: This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected toolset.
 
 ![](img/116.png)
-
-| Field | Description |
-|-------|-------------|
-| **Activity type** | The type of action performed (e.g., Create, Update, Delete). |
-| **Time** | Timestamp indicating when the activity occurred. |
-| **Initiated** | Email address of the user who performed the activity. |
-| **Activity ID** | A unique identifier for the logged activity, used for tracking and auditing. |
-| **Actions** | Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details. |
-
-##### Activity Details
-
-The Activity Details view provides a detailed snapshot of a specific change made to a toolset.
-
-![](img/117.png)
-
-To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
-
-| Element/Section | Description |
-|-----------------|-------------|
-| **Activity type** | Type of the change performed (e.g., Update, Create, Delete). |
-| **Time** | Timestamp of the change. |
-| **Initiated** | Identifier of the user who made the change. |
-| **Activity ID** | Unique identifier for the specific activity tracking. |
-| **Comparison** | Dropdown to switch between showing all parameter or changed only. |
-| **View** | Dropdown to switch for selection between Before/After and Before/Current state. |
-| **Parameters Diff** | Side-by-side comparison of toolset fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
-
-##### Resource Rollback
-
-Use Resource Rollback to restore the previous version of the selected activity. A rollback leads to generation of a new entry on the audit activity screen.
 
 ### JSON Editor
 
