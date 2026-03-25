@@ -2,7 +2,11 @@
 
 ## Introduction
 
-Routes in DIAL are used for communication through registered endpoints in the [DIAL Core](/docs/platform/3.core/0.about-core.md). They act as a bridging mechanism between the DIAL Core and external applications, facilitating seamless interactions. Once a route with a designated endpoint is set up in DIAL Core, it allows client applications, such as DIAL Chat, to interact with this endpoint. Essentially, DIAL Core functions as an intermediary, handling authentication and authorization between the client and the external application linked to the route.
+Routes in DIAL are used for communication with external services through registered endpoints in the [DIAL Core](/docs/platform/3.core/0.about-core.md). They act as a bridging mechanism between the DIAL Core and external applications, facilitating seamless interactions. 
+
+Once a route with a designated endpoint is set up in DIAL Core, it allows client applications, e.g. DIAL Chat, to interact with this endpoint. Essentially, DIAL Core functions as an intermediary, handling authentication and authorization between the client and the external application linked to the route.
+
+> You can also define routes for specific application deployments and Application Runners. Refer to [Applications](/docs/tutorials/3.admin/entities-applications.md#app-routes) and [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md#app-routes) to learn how to do this.
 
 ## Main Screen
 
@@ -17,7 +21,7 @@ On this screen, you can access all rotes added in DIAL Admin or via a direct mod
 | **ID** | Unique key under the Routes section of DIAL Admin. |
 | **Display Name** | Name of the route. |
 | **Description** | Brief free-text description of the Route's purpose. |
-| **Paths** | List of paths to be matched request's path. If any path is matched, the request will be processed by this route. Note. A path can be a plain string or a regular expression. |
+| **Paths** | List of paths to be matched request's path. If any path is matched, the request will be processed by this route. A path can be a plain string or a regular expression. |
 | **Updated Time** | Date and time when the route's configuration was last updated. |
 | **Topics** | Tag that associates a route with one or more topics or categories (e.g. "finance", "support"). |
 | **Order** | The value of this parameter determines the order within the global routes. The lower value means the higher priority. The value can't be negative integer. The default one is 2\^31-1. |
@@ -67,7 +71,7 @@ In the Properties tab, you can define the identity and routing behavior.
 |-------|----------|----------|-------------|
 | **Paths** | Yes | Yes | One or more URL path patterns this route should match (e.g. `/chat`, `/support/**`). Click **+ Add paths** to register additional patterns. Click the trash icon to remove a path. |
 | **Rewrite path** | No | Yes | Use to replace the path to the upstream server with the path of the original request. Use when your upstream service expects a different URL structure (e.g. remove `/api/v1/routes/chat` prefix). |
-| **Methods** | No | Yes | Select one or more HTTP methods (GET, POST, PUT, DELETE, etc.) the route can accept. |
+| **Methods** | No | Yes | Select one or more HTTP methods the route can accept. <br /> Supported methods for application routes: GET, POST, PUT, DELETE, HEAD and PATCH. |
  
 ##### Output Mode
 
