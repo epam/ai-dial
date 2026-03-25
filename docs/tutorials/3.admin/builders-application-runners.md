@@ -80,7 +80,7 @@ In the **Properties** tab, you can configure the core identity, metadata, and in
 | **Completion endpoint** | Yes | Yes | Base URL of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any application bound to this runner. |
 | **Viewer URL** | No | Yes | URL of an alternative end-user UI (is needed when the default chat interface is not sufficient). If enabled, will override the standard DIAL Chat UI for applications built based on this application runner. |
 | **Editor URL** | No | Yes | URL of a UI screen for configuring application settings when creating or updating a logical application instance. |
-| **Schema endpoint** | No | Yes | Endpoint that returns JSON schema with parameters of a specific application type. In case specified, the content of the [Parameters](#parameters) section is populated based on the JSON schema provided by the endpoint and is available in read-only view mode. |
+| **Schema endpoint** | No | Yes | Endpoint that returns JSON schema with parameters of a specific application type. In case specified, the content of the [Parameters](#parameters) section is populated based on the JSON schema provided by this endpoint and is available in read-only view mode. |
 
 ![ ](img/img_26.png)
 
@@ -106,7 +106,7 @@ Defined features are propagated to applications created with the related applica
 
 This section displays parameters of JSON schema of a specific application type. Here, you can define [parameters that must be configured](/docs/tutorials/3.admin/entities-applications.md#parameters) to create an instance of application based on the selected Application Runner. 
 
-The content of this section can be defined by `properties`, `required` and `$defs` in JSON editor (in this case it can be manually edited on UI) or passed by the **schema endpoint** in Application Runner properties (in this case the content is read-only).
+The content of this section can be defined by `properties`, `required` and `$defs` in JSON editor (in this case it can be manually edited on UI) or passed by the **Schema endpoint** in Application Runner properties (in this case the content is read-only).
 
 > **Note**: JSON schema of application runners conforms to the main [meta schema](https://github.com/epam/ai-dial-core/blob/development/config/src/main/resources/custom-application-schemas/schema.json). Refer to [Schema-rich Applications](/docs/platform/3.core/7.apps.md#schema-rich-applications) to learn more.
 

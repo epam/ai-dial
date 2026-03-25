@@ -126,15 +126,15 @@ The following properties need to be specified if selected Source Type is Adapter
 
 ##### Model Serving
 
-AI models can be deployed in DIAL using [Model Servings](/docs/tutorials/3.admin/deployments-models.md). If the Source Type of the model deployment is Model Servings, DIAL Core will use the container URL to communicate with the model deployment.
+AI models can be deployed in DIAL using [Model Servings](/docs/tutorials/3.admin/deployments-models.md). If the Source Type of the model deployment is Model Servings, DIAL Core will use its URL to communicate with the model deployment.
 
 The following properties need to be specified if selected Source Type is Model Serving:
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| **Container** | Yes | Select one of the running [Model Serving](/docs/tutorials/3.admin/deployments-models.md). |
-| **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
-| **Endpoint** | Yes | Chat completion endpoint URL that DIAL Core will invoke for this model. The base URL is determined by the selected Model Serving, while the path can be partially customized. |
+| **Container** | Yes | ID of one of the running [Model Serving](/docs/tutorials/3.admin/deployments-models.md) containers. Click to select among the available containers. |
+| **Type** | Yes | Select **Chat** or **Embedding** type of model. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
+| **Endpoint** | Yes | Chat completion endpoint URL that DIAL Core will invoke for this model deployment. The base URL is determined by the selected Model Serving container, while the path can be partially customized: it starts with URL of the Model Serving container and ends with `/chat/completion`. The middle part `openai/v1` can be manually edited. |
 
 ![](img/source_type_container.png)
 
@@ -157,8 +157,8 @@ These parameters help customize how the model is presented in the DIAL UI.
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| **Override name** | No | Custom display name for specific contexts. |
-| **Icon** | No | Logo to visually distinguish models in the UI. |
+| **Override name** | No | Custom display name for specific contexts. <br />**Note**: When `Source Type = Model Serving`, Override name is pre-populated with the ID of the selected Model Serving container. |
+| **Icon** | No | Icon to visually distinguish model deployments in the UI. |
 | **Topics** | No | Semantic tags associated with the model deployment. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
 
 ![](img/model_personalization.png)
