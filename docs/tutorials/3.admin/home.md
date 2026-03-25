@@ -74,23 +74,40 @@ Use the **Import Config** button to upload a DIAL Core configuration file. Can b
 
 ![](img/img_57.png)
 
-1. Select the export format:
+#### Export Deployments
+
+You can export configuration of the selected deployments (Model Servings, Images, MCP, Interceptor and Adapter Containers)
+
+1. Select **Deployments** in **Components**.
+2. Add deployments you want to export.
+3. Use **Include secrets** toggle on the Export Preview screen to export `.zip` archive with configuration files and secrets stored separately. Secrets are always included.
+4. Review the artefacts and click **Export** to download a `.zip` archive.
+
+![](img/export-deployments-config.png)
+
+#### Export Entities, Builders, Access Management
+
+You can export configuration of the selected Entities (Models, Applications, Toolsets, Interceptors, Routes), Builders (Application Runners, Adapters, Interceptor Templates) and Access Management configurations (API keys and Roles)
+
+1. Select **Entities, Builders, Access Management** in **Components**.
+2. Select components you want to export.
+3. Select the export format:
    * **DIAL Admin Archive** — `.zip` archive with the configuration stored as a single `.json` file. Includes secrets if the **Include secrets** option is selected.
    * **DIAL Core JSON File** — a single `.json` file compatible with DIAL Core. Includes secrets if the **Include secrets** option is selected.
-2. Select the export type: Config can be exported partially (user-selected artefacts) or in full.
+4. Select the export type: Config can be exported partially (user-selected artefacts) or in full.
    * **Full**: When this option is selected, use Resources toggles to enable/disable specific categories of resources you want to export.
-   * **Custom**: When this option is selected, use tabs with resources where you can manually select what entities in each category you want to include. When exporting a Custom config type, dependencies can be included or ignored for Models, Applications, Roles, and Keys.
+   * **Custom**: When this option is selected, use tabs with resources where you can manually select what entities in each category you want to include. When exporting a Custom config type, dependencies (e.g. adapters, interceptors, applications, application runners etc. required by the selected resource to operate) can be included or ignored.
       - **Include dependencies** adds all referenced items required by the selected artefacts.
       - **Ignore dependencies** exports only the items you explicitly select.
 
       ![](img/126.png)
 
-3. Use **Topics** to filter out resources associated with the selected topic(s).
-4. Click **Export** to open up the Export File Preview screen, where you can:
+5. Use **Topics** to filter out resources associated with the selected topic(s).
+6. Click **Export** to open up the Export File Preview screen, where you can:
 
    1. Preview your selections and any included dependencies.
    2. Use **Include secrets** toggle on the Export Preview screen to export `.zip` archive with configuration files and secrets stored separately. Secrets are always included.
-   3. Review the artefacts and confirm the export.
+   3. Review the artefacts and click **Export** to download a `.zip` archive.
 
       ![](img/127.png)
 
