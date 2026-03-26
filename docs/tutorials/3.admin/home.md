@@ -1,80 +1,62 @@
-# Introduction to DIAL Admin Panel
+# Home Page
 
-## About
+Welcome to the DIAL Admin Panel Home page — your central command center for managing and configuring your DIAL environment. 
 
-The DIAL Admin Panel provides system [administrators](#who-is-admin) a feature-rich, intuitive, and customizable UI to configure, manage, and monitor the DIAL ecosystem. 
+The Home page provides administrators with a comprehensive overview of the system and quick access to essential management functions.
 
-> Admin Panel serves as a powerful UI for administrators. System configurations can be done also by a direct modification of a [DIAL Core config](https://github.com/epam/ai-dial-core).
+- Shortcuts to the main sections and dashboards
+- Importing/exporting configurations for backup, migration, or sharing
+- Definition of global interceptors in system properties
+- Shortcut to the relevant DIAL Chat environment
+- Shortcut to system documentation portal
+- User settings
 
-> Watch a [video demo](/docs/video%20demos/4.dial-admin-panel.md).
+![ ](img/admin-home.png)
 
-### GitHub Repositories
+## Sections
 
-Admin Panel is licensed under the Apache License 2.0. 
+* [Entities](/docs/tutorials/3.admin/entities-models.md): In this section, you can configure all language models, applications, toolsets, interceptors and routes within the DIAL environment.
+* [Builders](/docs/tutorials/3.admin/builders-application-runners.md): In this section, you can add and configure application runners, model adapters and interceptor templates.
+* [Assets](/docs/tutorials/3.admin/assets-files.md): In this section, you can view, add, and manage public system resources such as applications, toolsets prompts and files.
+* [Deployments](/docs/tutorials/3.admin/deployments-images.md): In this section you can deploy and configure images and containers for Model Servings, MCPs, Interceptors and AI Model Adapters. 
+* [Access Management](/docs/tutorials/3.admin/access-management-roles.md): In this section, you can create and manage user groups, roles, API keys, and usage limits to implement access and cost control policy.
+* [Approvals](/docs/tutorials/3.admin/approvals-file-publications.md): In this section, you can view and manage publication requests submitted by DIAL users for applications, files and prompts.
+* [Audit](/docs/tutorials/3.admin/telemetry-dashboard.md): In this section, you can monitor real-time system usage, including token consumption, system load, and other telemetry data for performance tracking.
 
-It is developed in two separate repositories for frontend and backend components:
+## Import Config
 
-* [Frontend](https://github.com/epam/ai-dial-admin-frontend)
-* [Backend](https://github.com/epam/ai-dial-admin-backend)
-  
-### Who is Admin
+Use **Import Config** to upload a configuration file. Can be used for migrating between environments or restoring backups.
 
-System admin(s) can be defined in [DIAL Core static settings](https://github.com/epam/ai-dial-core?tab=readme-ov-file#static-settings) in the `access.admin.rules`. Admin has the following privileges:
+![ ](img/import-config.png)
 
-* Has `READ` and `WRITE` access to all public system resources (conversations, prompt, files, toolsets and applications).
-* Can view, approve and reject publication requests from DIAL users. 
-* Has access to all DIAL Core API endpoints.
 
-> Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about access control in DIAL and the role of a system administrator.
+1. Click **Import Config** to invoke the import screen.
+2. In the **Files** section, you can make the following selections:
 
-## Admin Panel Sections
+   ![](img/img_56.png)
 
-* **Entities**: In this section, you can configure all language models, applications, toolsets, interceptors and routes within the DIAL environment. Go to [Entities](/docs/tutorials/3.admin/entities-models.md) to learn more.
-* **Builders**: In this section, you can add and configure application runners, model adapters and interceptors. Go to [Builders](/docs/tutorials/3.admin/builders-application-runners.md) to learn more.
-* **Assets**: In this section, you can view, add, and manage public system resources such as applications, prompts and files. Go to [Assets](/docs/tutorials/3.admin/assets-files.md) to learn more.
-* **Access Management**: In this section, you can create and manage user groups, roles, API keys, and usage limits to implement access and cost control policy. Go to [Access Management](/docs/tutorials/3.admin/access-management-roles.md) to learn more.
-* **Approvals**: In this section, you can view and manage publication requests submitted by DIAL users for applications, files and prompts. Go to [Approvals](/docs/tutorials/3.admin/approvals-file-publications.md) to learn more.
-* **Audit**: In this section, you can monitor real-time system usage, including token consumption, system load, and other telemetry data for performance tracking. Go to [Dashboard](/docs/tutorials/3.admin/telemetry-dashboard.md) to learn more.
-
-## Home Screen
-
-The Home screen gives you a high-level overview of your environment and fast access to the most important actions and modules.
-
-![ ](img/img.png)
-
-* **Sidebar** is the main menu available at any page with access to every major DIAL Admin section.
-* **View our documentation** button opens the official [DIAL docs](https://docs.dialx.ai/) in a new tab. It's handy when you need an in-depth reference or look for details.
-* **Open DIAL** button opens https://chat.dialx.ai/ in a new tab, where you can try your apps , prompts, and models live.
-* **Site map** is a visual grid of cards you can use to navigate to a corresponding DIAL Admin section.
-
-### Import Config
-
-Use the **Import Config** button to upload a DIAL Core configuration file. Can be used for migrating between environments or restoring backups.
-
-![](img/img_56.png)
-
-1. **File type**: Either DIAL Core (_.json_) or Admin (_.zip_) format can be selected.
-2. **Conflict resolution**: You can choose between two conflict resolution options:
-   * **Override**: During the import process, any artifact in the archive that matches an existing artifact in DIAL by the identifier will **override** the existing artifact.
-   * **Skip**: Any artifact in the archive that matches an existing artifact in DIAL by the identifier will be **ignored**, and the existing artifact will remain unchanged.
-
-3. Click **Next** to preview the configuration to be imported:
+   - **Components**: Choose to import configuration of Deployments (Model Servings, Images, MCP, Interceptor and Adapter Containers) or Entities (Models, Applications, Toolsets, Interceptors, Routes), Builders (Application Runners, Adapters, Interceptor Templates) and Access Management configurations (API keys and Roles).
+   - **Conflict resolution**: To resolve possible conflicts between imported and existing files you can choose a conflict resolution strategy:
+         * **Override**: During the import process, any resource in the archive that matches an existing one by the identifier will **override** it.
+         * **Skip**: Any resource in the archive that matches the current one by the identifier will be **ignored**, and the current resource will remain unchanged.
+   - **File type**: Choose to import DIAL Core `.json` file or a`.zip` archive.
+3. Add a file or an archive in the File section and proceed with the **Configuration** step where you can preview all resources being imported.
 
    ![](img/img_56_1.png)
 
-4. Click **Compare changes** in the artefact row to view the differences between the artefact already in DIAL and the one being imported:
+4. For each resource, click **Compare changes** in the actions menu to compare current and a version to be imported:
 
-   ![](img/img_56_2.png)
+   ![](img/compare-changes.png)
 
 5. Click **Import** to start the import process.
 
-### Export Config
+## Export Config
 
 **Export Config** allows you to download the configuration of the current instance. Great for backups, audit snapshots, or sharing with teammates.
 
 ![](img/img_57.png)
 
-#### Export Deployments
+#### Deployments
 
 You can export configuration of the selected deployments (Model Servings, Images, MCP, Interceptor and Adapter Containers)
 
@@ -87,7 +69,7 @@ You can export configuration of the selected deployments (Model Servings, Images
 
 ![](img/export-deployments-config.png)
 
-#### Export Entities, Builders, Access Management
+#### Entities, Builders, Access Management
 
 You can export configuration of the selected Entities (Models, Applications, Toolsets, Interceptors, Routes), Builders (Application Runners, Adapters, Interceptor Templates) and Access Management configurations (API keys and Roles)
 
@@ -108,7 +90,7 @@ You can export configuration of the selected Entities (Models, Applications, Too
 
 ![](img/export-entities-config.png)
 
-### User Settings
+## User Settings
 
 Click your avatar (or name) in the top-right corner of the header to reveal the profile menu. Here, you can personalize your DIAL Admin experience and manage your session.
 
@@ -121,7 +103,7 @@ Click your avatar (or name) in the top-right corner of the header to reveal the 
 | **Settings** | Opens the User Settings modal where you can adjust personal preferences. Here you can choose a UI theme.|
 | **Log out**  | Ends your session and returns you to the login screen.                   |
 
-### System Properties
+## System Properties
 
 Click the **Globe** icon in the footer or in Quick Actions on the home page to open the System Properties screen. Here, you can add and configure global interceptors. Global interceptors apply to any deployment (applications and models) in DIAL and tend to have the most strict rules, because they receive original input first and examine the response last.
 
@@ -137,3 +119,6 @@ Click the **Globe** icon in the footer or in Quick Actions on the home page to o
 4. Click **Save** on the System Properties screen to apply changes or **Discard** to cancel all unsaved actions.
 
 > When a global interceptor is added, its status in [Entities/Interceptors](/docs/tutorials/3.admin/entities-interceptors.md) changes to **Global** and you can also see it listed under the Global Interceptors tab in configuration of any application or model. 
+
+## DIAL Core Version
+
