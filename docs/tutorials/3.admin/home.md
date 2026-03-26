@@ -29,7 +29,6 @@ Use **Import Config** to upload a configuration file. Can be used for migrating 
 
 ![ ](img/import-config.png)
 
-
 1. Click **Import Config** to invoke the import screen.
 2. In the **Files** section, you can make the following selections:
 
@@ -52,19 +51,19 @@ Use **Import Config** to upload a configuration file. Can be used for migrating 
 
 ## Export Config
 
-**Export Config** allows you to download the configuration of the current instance. Great for backups, audit snapshots, or sharing with teammates.
+Use **Export Config** to download full or selected configuration of the current instance. Great for backups, audit snapshots, or sharing with teammates.
 
-![](img/img_57.png)
+![ ](img/export-config.png)
 
 #### Deployments
 
-You can export configuration of the selected deployments (Model Servings, Images, MCP, Interceptor and Adapter Containers)
+You can export configuration of the selected Deployments (Model Servings, Images, MCP, Interceptor and Adapter Containers)
 
-1. Select **Deployments** in **Components**.
+1. Click **Export config** and select **Deployments** in **Components**.
 2. Add deployments you want to export. Here, you can choose to ignore or include dependencies required by the selected resources to operate.
 3. Click **Export** to invoke the **Export File Preview** window. 
-   - Enable **Include secrets** to export `.zip` archive with configuration files and secrets stored separately. Secrets are always included. 
-   - Use **Include global firewall** to export `.zip` archive with global firewall configurations.
+   - Enable **Include secrets** to include secret values (e.g. keys, passwords etc.) in the deployment configuration.
+   - Enable **Include global firewall** to include [global domain whitelist](/docs/tutorials/3.admin/deployments-images.md#global-firewall) in the configuration file.
 4. Click **Export** to download a `.zip` archive.
 
 ![](img/export-deployments-config.png)
@@ -73,52 +72,66 @@ You can export configuration of the selected deployments (Model Servings, Images
 
 You can export configuration of the selected Entities (Models, Applications, Toolsets, Interceptors, Routes), Builders (Application Runners, Adapters, Interceptor Templates) and Access Management configurations (API keys and Roles)
 
-1. Select **Entities, Builders, Access Management** in **Components**.
-2. Select components you want to export.
-3. Select the export format:
+1. Click **Export config** and select **Entities, Builders, Access Management** in **Components**.
+2. Choose export format:
    * **DIAL Admin Archive** — `.zip` archive with the configuration stored as a single `.json` file.
    * **DIAL Core JSON File** — a single `.json` file compatible with DIAL Core.
-4. Select the export type: Config can be exported partially (user-selected artefacts) or in full.
+3. Chose export type:
    * **Full**: When this option is selected, use Resources toggles to enable/disable specific categories of resources you want to export.
    * **Custom**: When this option is selected, use tabs with resources where you can manually select what entities in each category you want to include.
       - **Include dependencies**: When exporting a Custom config type, dependencies (e.g. adapters, interceptors, applications, application runners etc. required by the selected resources to operate) can be included or ignored.
-5. Use **Topics** to filter out resources associated with the selected topic(s).
-6. Click **Export** to open up the **Export File Preview** window, where you can:
+4. Use **Topics** to filter out resources associated with the selected topic(s).
+5. Click **Export** to open the **Export File Preview** window, where you can:
    - Preview your selections and any included dependencies.
-   - Use **Include secrets** toggle on the Export Preview screen to export `.zip` archive with configuration files and secrets stored separately. Secrets are always included.
-7. Review the artefacts and click **Export** to download a `.zip` archive.
+   - Enable **Include secrets** to include secret values (e.g. keys, passwords etc.) in the exported configuration file.
+6. Review and click **Export** to download a `.zip` archive.
 
 ![](img/export-entities-config.png)
 
-## User Settings
-
-Click your avatar (or name) in the top-right corner of the header to reveal the profile menu. Here, you can personalize your DIAL Admin experience and manage your session.
-
-![](img/img_1.png)
-
-##### Profile Menu Options
-
-| Option       | Description                                                              |
-| ------------ | ------------------------------------------------------------------------ |
-| **Settings** | Opens the User Settings modal where you can adjust personal preferences. Here you can choose a UI theme.|
-| **Log out**  | Ends your session and returns you to the login screen.                   |
-
 ## System Properties
 
-Click the **Globe** icon in the footer or in Quick Actions on the home page to open the System Properties screen. Here, you can add and configure global interceptors. Global interceptors apply to any deployment (applications and models) in DIAL and tend to have the most strict rules, because they receive original input first and examine the response last.
-
-> Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
+Click the **Globe** icon in the footer or in Quick Actions on the home page to open the System Properties screen. Here, you can add and configure global interceptors. 
 
 ![](img/system_properties.png)
+
+Global interceptors apply to any deployment (applications and models) in DIAL and tend to have the most strict rules, because they receive original input first and examine the response last.
+
+> Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 
 ##### To add a global interceptor:
 
 1. Click **+ Add** on the System Properties screen.
 2. Select from the list of [available interceptors](/docs/tutorials/3.admin/entities-interceptors.md).
-3. Click **Apply** to add the interceptor. Repeat steps 1-3 to add more interceptors.
+3. Click **Apply** to add the interceptor. Repeat steps 1-3 to add more interceptors. If there are more than one interceptors, you can drag-and-drop them to change the execution order. Interceptors run in ascending order (1 → 2 → 3...). A request will flow through each interceptor's in this order. Response interceptors are invoked in the reversed order.
 4. Click **Save** on the System Properties screen to apply changes or **Discard** to cancel all unsaved actions.
 
 > When a global interceptor is added, its status in [Entities/Interceptors](/docs/tutorials/3.admin/entities-interceptors.md) changes to **Global** and you can also see it listed under the Global Interceptors tab in configuration of any application or model. 
 
+![](img/global-interceptors.png)
+
 ## DIAL Core Version
+
+Administrators can manually set the version of DIAL Core to resolve any possible compatibility issues that may arise during upgrades.
+
+1. Click the **Edit** icon in the footer next to the Core version.
+2. In the pop-up, enter the desired [DIAL Core version](https://github.com/epam/ai-dial-core/releases) manually or choose to auto detect it.
+3. Click **Apply**. The updated version is displayed in the footer.
+
+![](img/core-version.png)
+
+## User Settings
+
+Click your avatar (or name) in the top-right corner of the header to open the profile menu. From here, you can log in or out, and select from the available UI themes.
+
+![](img/user-settings.png)
+
+## System Documentation
+
+On the home page, click **View our documentation** to access the comprehensive DIAL Admin user guide.
+
+Additionally, you can click the tooltip icon located in any page header to jump directly to the relevant section of the user guide that explains the features and functionality of the page you are currently viewing. This ensures you always have quick access to helpful information tailored to your current context.
+
+![](img/admin-docs.png)
+
+
 
