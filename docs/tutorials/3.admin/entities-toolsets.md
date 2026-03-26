@@ -31,7 +31,6 @@ On this screen, you can find all toolset deployments existing in your DIAL insta
 | **Author** | Name of the toolset creator. |
 | **Topics** | Tags or categories assigned for toolsets for discovery, filtering, or grouping on UI (e.g. "finance," "support"). |
 
-
 ## Create Toolset
 
 Follow these steps to add a new toolset definition:

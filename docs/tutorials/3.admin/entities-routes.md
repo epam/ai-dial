@@ -51,20 +51,20 @@ Click any route on the main screen to open the configuration section.
 
 In the Properties tab, you can define the identity and routing behavior. 
 
-![](img/img_21.png)
-
 ##### Basic Identification
 
 | Field | Required | Editable | Description |
 |-------|----------|----------|-------------|
-| **ID** | - | No | Unique key under the Routes section of DIAL Admin and [dynamic settings of DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings). |
+| **ID** | - | No | Unique read-only key under the `routes` section of DIAL Admin and [dynamic settings of DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#dynamic-settings). |
 | **Updated Time** | - | No | Date and time when the route's configuration was last updated. |
 | **Creation Time** | - | No | Date and time when the route's configuration was created. |
 | **Sync with core** | - | No | State of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />- **Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />- **In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />- **Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />- **Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
-| **Display Name** | Yes | Yes | Name of the route. |
+| **Display Name** | Yes | Yes | Name of the route displayed on UI. |
 | **Description** | No | Yes | Free‐text note about the route's purpose (e.g. "Primary GPT-4 chat with fallback"). |
 | **Topics** | No | Yes | Tag that associates a route with one or more topics or categories (e.g. "finance", "support"). |
- 
+
+![](img/img_21.png)
+
 ##### Request Matching: Paths & Methods
 
 | Field | Required | Editable | Description |
