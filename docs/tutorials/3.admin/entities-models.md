@@ -157,7 +157,7 @@ These parameters help customize how the model is presented in the DIAL UI.
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| **Override name** | No | Custom display name for specific contexts. <br />**Note**: When `Source Type = Model Serving`, Override name is pre-populated with the ID of the selected Model Serving container. |
+| **Override name** | Conditional | Custom display name for specific contexts. <br />**Note**: Override name is **required** for AI model deployments created based on Model Servings. When `Source Type = Model Serving`, Override name is pre-populated with the ID of the selected Model Serving container. If Source Type is changed from Model Serving to anything else, Override name must be populated manually for the model deployment to work properly. |
 | **Icon** | No | Icon to visually distinguish model deployments in the UI. |
 | **Topics** | No | Semantic tags associated with the model deployment. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
 
