@@ -12,7 +12,7 @@ In **Dashboard**, you can monitor system metrics. Monitoring of system metrics i
 
 | Control | Description |
 |---------|-------------|
-| **Time Period** | Date range filters for all charts and tables. |
+| **Time Period** | Date range filters for all charts and tables. Users can pick one of the predefined options or set a custom time period. |
 | **+ Add filter** | Filter to drill into specific subsets of Projects and Entities. |
 | **Auto refresh** | Control allowing to pull new data (e.g. every 1 min) or turn off auto-refresh. |
 

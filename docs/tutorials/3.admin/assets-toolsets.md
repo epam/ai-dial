@@ -222,9 +222,16 @@ Disable **Use all available tools** toggle to enable a manual tools management m
 
 #### Try tools
 
-Click or hover over any **enabled** tool to enter the Try out mode.
+Click or hover over any **enabled** tool and click **Try out** to enter the Try out mode.
 
-In the **Try out mode**, you can test each enabled tool by sending a sample request to the server. When sending a request, you can use the rendered UI form to populate the request input fields or enter JSON view mode to get access to all the fields supported by the input schema.
+In the **Try out mode**, you can test each enabled tool by sending a request to the server. When sending a request, you can use the rendered UI form or a raw JSON mode to populate the request input fields.
+
+##### To try tool
+
+1. Click any available tool to access its description and input schema parameters. You can display input schema in both table and JSON view modes.
+2. Click **Try out** to open a side bar for sending requests.
+3. Populate the Request body. You can display request body in both table and JSON view modes.  
+4. Click **Send Request** to send the request. The response from the server will be displayed in the Response body area.
 
 ![](img/assets_toolset_tryout.png)
 

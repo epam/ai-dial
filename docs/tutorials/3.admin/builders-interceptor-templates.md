@@ -22,7 +22,7 @@ On the main screen, you can add and manage Interceptor Templates.
 | **Updated time** | Timestamp of the latest update. |
 | **Topics** | Semantic tags associated with interceptor template. Topics can be used for identify and filter templates on UI. |
 
-![97.png](img/97.png)
+![ ](img/97.png)
 
 ## Create
 
