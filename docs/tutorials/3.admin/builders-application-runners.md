@@ -80,7 +80,7 @@ In the **Properties** tab, you can configure the core identity, metadata, and in
 | **Completion endpoint** | Yes | Yes | Base URL of the runner's service hosting (e.g. `https://my-runner.example.com/v1/execute`). DIAL Core will POST orchestration payloads to this endpoint for any application bound to this runner. |
 | **Viewer URL** | No | Yes | URL of an alternative end-user UI (is needed when the default chat interface is not sufficient). If enabled, will override the standard DIAL Chat UI for applications built based on this application runner. |
 | **Editor URL** | No | Yes | URL of a UI screen for configuring application settings when creating or updating a logical application instance. |
-| **Schema endpoint** | No | Yes | Endpoint that returns JSON schema with parameters of a specific application type. In case specified, the content of the [Parameters](#parameters) section is populated based on the JSON schema provided by this endpoint and is available in read-only view mode. |
+| **Schema endpoint** | No | Yes | Endpoint that returns JSON schema that defines parameters of a specific application type. In case specified, the content of the [Parameters](#parameters) section is populated based on the JSON schema provided by this endpoint and is available in read-only view mode. |
 
 ![ ](img/img_26.png)
 

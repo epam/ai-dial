@@ -149,9 +149,7 @@ Enable or disable per-request options that your application accepts from clients
 
 ### Parameters
 
-The Parameters tab within an application’s configuration allows administrators to manage application-specific parameters that influence its behavior. 
-
-If the application is created based on application runner, the content of this screen is determined by the [parameters of the related application runner](/docs/tutorials/3.admin/builders-application-runners.md#parameters). If it is a standalone application with its structure and properties defined by a JSON schema, the content of this screen must conform to the app's JSON schema.
+If the application is created based on Application Runner, the content of this screen is determined by the [parameters of the related Application Runner](/docs/tutorials/3.admin/builders-application-runners.md#parameters). Here, you can configure application-specific parameters that influence its behavior. 
 
 > Refer to [Schema-rich Applications](/docs/platform/3.core/7.apps.md#schema-rich-applications) to learn more.
 

@@ -15,13 +15,13 @@ The Home page provides administrators with a comprehensive overview of the syste
 
 ## Sections
 
-* [Entities](/docs/tutorials/3.admin/entities-models.md): In this section, you can configure all language models, applications, toolsets, interceptors and routes within the DIAL environment.
+* [Entities](/docs/tutorials/3.admin/entities-models.md): In this section, you can configure all AI models, applications, toolsets, interceptors and routes within the DIAL environment.
 * [Builders](/docs/tutorials/3.admin/builders-application-runners.md): In this section, you can add and configure application runners, model adapters and interceptor templates.
 * [Assets](/docs/tutorials/3.admin/assets-files.md): In this section, you can view, add, and manage public system resources such as applications, toolsets prompts and files.
-* [Deployments](/docs/tutorials/3.admin/deployments-images.md): In this section you can deploy and configure images and containers for Model Servings, MCPs, Interceptors and AI Model Adapters. 
+* [Deployments](/docs/tutorials/3.admin/deployments-images.md): This section requires an [additional component](https://github.com/epam/ai-dial-admin-deployment-manager-backend) to be installed. In this section you can deploy and configure images and containers for Model Servings, MCPs, Interceptors and AI Model Adapters. 
 * [Access Management](/docs/tutorials/3.admin/access-management-roles.md): In this section, you can create and manage user groups, roles, API keys, and usage limits to implement access and cost control policy.
-* [Approvals](/docs/tutorials/3.admin/approvals-file-publications.md): In this section, you can view and manage publication requests submitted by DIAL users for applications, files and prompts.
-* [Audit](/docs/tutorials/3.admin/telemetry-dashboard.md): In this section, you can monitor real-time system usage, including token consumption, system load, and other telemetry data for performance tracking.
+* [Approvals](/docs/tutorials/3.admin/approvals-file-publications.md): In this section, you can view and manage publication requests submitted by DIAL users for applications, files, toolsets and prompts.
+* [Audit](/docs/tutorials/3.admin/telemetry-dashboard.md): In Dashboard, you can monitor real-time system usage, including token consumption, system load, and other telemetry data for performance tracking. Activities give access to changelog and perform rollback if needed. In Usage Log you can monitor usage for traces, conversations and MCPs.
 
 ## Import Config
 
@@ -74,8 +74,8 @@ You can export configuration of the selected Entities (Models, Applications, Too
 
 1. Click **Export config** and select **Entities, Builders, Access Management** in **Components**.
 2. Choose export format:
-   * **DIAL Admin Archive** — `.zip` archive with the configuration stored as a single `.json` file.
-   * **DIAL Core JSON File** — a single `.json` file compatible with DIAL Core.
+   * **DIAL Admin Archive** — export a `.zip` archive.
+   * **DIAL Core JSON File** — export a single `.json` file [compatible with DIAL Core](https://github.com/epam/ai-dial-core?tab=readme-ov-file#configuration-%EF%B8%8F).
 3. Chose export type:
    * **Full**: When this option is selected, use Resources toggles to enable/disable specific categories of resources you want to export.
    * **Custom**: When this option is selected, use tabs with resources where you can manually select what entities in each category you want to include.
@@ -94,7 +94,7 @@ Click the **Globe** icon in the footer or in Quick Actions on the home page to o
 
 ![](img/system_properties.png)
 
-Global interceptors apply to any deployment (applications and models) in DIAL and tend to have the most strict rules, because they receive original input first and examine the response last.
+Global interceptors apply to any deployment (applications and models) in DIAL. If local interceptors are also configured for specific models or applications, global interceptors process each request first, before the local interceptors, and review the response after the local interceptors have processed it.
 
 > Refer to [Interceptors](/docs/platform/3.core/6.interceptors.md) to learn more.
 

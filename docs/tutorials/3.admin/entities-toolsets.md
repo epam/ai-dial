@@ -153,7 +153,7 @@ Disable **Use all available tools** toggle to enable a manual tools management m
 
 Click or hover over any **enabled** tool and click **Try out** to enter the Try out mode.
 
-In the **Try out mode**, you can test each enabled tool by sending a request to the server. When sending a request, you can use the rendered UI form to populate the request input fields or enter JSON view mode to get access to all the fields supported by the input schema.
+In the **Try out mode**, you can test each enabled tool by sending a request to the server. When sending a request, you can use the rendered UI form or a raw JSON mode to populate the request input fields.
 
 ##### To try tool
 
