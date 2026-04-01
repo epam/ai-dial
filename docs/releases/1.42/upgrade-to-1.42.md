@@ -17,14 +17,14 @@
    - ai-dial-chat: `0.44.0`
    - ai-dial-core: `0.42.0`
    - ai-dial-analytics-realtime: `0.22.0`
-   - ai-dial-rag: `0.40.2`
+   - ai-dial-rag: `0.41.0`
    - ai-dial-log-parser: `0.3.0`
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.4.0`
    - ai-dial-app-builder-python: `0.1.0`
    - ai-dial-quickapps-backend: `0.6.0`
-   - dial-mind-map-backend: `0.13.3`
-   - dial-mind-map-frontend: `0.9.22`
+   - ai-dial-mind-map-backend: `0.13.3`
+   - ai-dial-mind-map-frontend: `0.9.22`
    - ai-dial-admin-backend: `0.15.0`
    - ai-dial-admin-frontend: `0.15.0`
    - ai-dial-admin-deployment-manager-backend: `0.15.0`
@@ -70,6 +70,14 @@ Refer to the [InfluxDB 3 documentation](https://docs.influxdata.com/influxdb3/co
 -----
 > [!IMPORTANT]
 > Aggregated Dashboards are only supported for InfluxDB 2.
+
+### ai-dial-rag
+
+#### New environment variables
+
+| Variable                  | Optional | Description                                                                            |
+|---------------------------|---------|----------------------------------------------------------------------------------------|
+| `DIAL_RAG__HEADERS_TO_PROXY` | `yes` | List of headers to proxy from the request to the dial core. |
 
 
 ### ai-dial-quickapps-backend:
