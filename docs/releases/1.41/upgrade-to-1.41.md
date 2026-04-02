@@ -23,8 +23,8 @@
    - ai-dial-app-controller: `0.4.0`
    - ai-dial-app-builder-python: `0.1.0`
    - ai-dial-quickapps-backend: `0.5.2`
-   - dial-mind-map-backend: `0.13.2`
-   - dial-mind-map-frontend: `0.9.15`
+   - ai-dial-mind-map-backend: `0.13.2`
+   - ai-dial-mind-map-frontend: `0.9.15`
    - ai-dial-admin-backend: `0.14.3`
    - ai-dial-admin-frontend: `0.14.5`
    - ai-dial-admin-deployment-manager-backend: `0.14.3`
@@ -69,9 +69,6 @@ For more details of changes, see the [changelog](https://github.com/epam/ai-dial
 ### ai-dial-chat-themes
 Added new button colors and rename color tokens. If you are using a custom theme, please add the new color definitions to your theme configuration. For more details of changes, see the [changelog](https://github.com/epam/ai-dial-chat-themes/tree/0.14.0/docs/CHANGELOG.md#0140).
 
-
-### ai-dial-adapter-openai
-
 ### ai-dial-adapter-bedrock
 
 #### Deprecated Environment Variable
@@ -80,9 +77,8 @@ Added new button colors and rename color tokens. If you are using a custom theme
 |----------------------------|---------------|------------|
 | `COMPATIBILITY_MAPPING`    | `{}`           | **Deprecated** in favor of [compatibility configuration in DIAL Core config](https://github.com/epam/ai-dial-adapter-bedrock/tree/0.37.0?tab=readme-ov-file#compatibility-configuration-in-dial-core-config). For more details of changes, see [Adapter Bedrock Environment Variables](https://github.com/epam/ai-dial-adapter-bedrock/tree/0.37.0?tab=readme-ov-file#environment-variables) section. |
 
-### ai-dial-adapter-vertexai
 
-### admin-frontend
+### ai-dial-admin-frontend
 
 Requires `ai-dial-chat-themes` **v0.14.0 or higher**
 For more details of changes, see the [changelog](https://github.com/epam/ai-dial-chat-themes/tree/0.14.0/docs/CHANGELOG.md#0140).
@@ -95,7 +91,7 @@ For more details of changes, see the [changelog](https://github.com/epam/ai-dial
 |----------------------|---------------|----------|------------|----------------|
 | `AUTH_IDTOKEN_PROVIDERS` | - | No | Comma-separated list of identity provider IDs that will pass an **identity token** to the API instead of an access token. This is required for providers whose access tokens are not JWT (e.g., Google, GitLab). | Any string. Values must be separated by commas (e.g., `google,gitlab`). |
 
-### admin-backend
+### ai-dial-admin-backend
 #### GCP Database Setup
 
 If you are using a **GCP Database**, follow the instructions in the [GCP Database Configuration Guide](https://github.com/epam/ai-dial-admin-backend/blob/0.14.2/docs/gcp-cloud-postgres.md) to set it up properly.
@@ -219,12 +215,6 @@ The following environment variables were removed:
 - `WATCHER_FAILURE_RESET_INTERVAL_MS`
 
 If these variables are still present in your environment, they should be removed to avoid confusion.
-
-### ai-dial-rag
-
-### Mind Map
-
-### ai-dial-app-controller
 
 ### ai-dial-quickapps-backend
 
