@@ -1,2 +1,2 @@
-aiohttp==3.13.3
+aiohttp==3.13.4
 backoff==2.2.1
