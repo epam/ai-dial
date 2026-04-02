@@ -86,6 +86,30 @@ Refer to the [InfluxDB 3 documentation](https://docs.influxdata.com/influxdb3/co
 
 ### ai-dial-quickapps-backend:
 
+#### QuickApps Schema Configuration
+
+> [!IMPORTANT]
+> Since version [0.42.0](https://github.com/epam/ai-dial-core/releases/tag/0.42.0) DIAL Core supports [app schema endpoint feature](https://github.com/epam/ai-dial-core/pull/1352).
+> 
+> Required components versions:
+> * `ai-dial-core:0.42.0`
+> * (if used) `ai-dial-admin-backend:0.15.0`
+> * (if used) `ai-dial-admin-frontend:0.15.0`
+>
+> In setups with such versions QuickApps **must be configured to use schema endpoint** instead of putting whole schema to DIAL Core.
+> In that way new schemas will be delivered along with the new Docker images of QuickApps, making process smooth and simple.
+> Migration steps:
+> * In DIAL Core config json or in DIAL Admin remove the following properties in configuration schema:
+>     * `$defs`
+>     * `type`
+>     * `title`
+>     * `propertires`
+>     * `required`
+> * Add new property, replacing `{quickapps_base_url}` with actual service's base URL:
+>     * `dial:applicationTypeSchemaEndpoint": "{quickapps_base_url}/v1/configuration-support/application-schema"
+> 
+> Full schema configuration reference can be found [here](https://github.com/epam/ai-dial-quickapps-backend/blob/0.6.0/docs/application-schema.md#quickapps-application-schema)
+
 #### New environment variables
 
 | Variable                  | Default | Description                                                                            |
