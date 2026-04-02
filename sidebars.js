@@ -511,8 +511,13 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'tutorials/admin/home',
+                  id: 'tutorials/admin/introduction',
                   label: 'Introduction',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/home',
+                  label: 'Home',
                 },
                 {
                   type: 'category',

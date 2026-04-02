@@ -66,6 +66,12 @@ Follow these steps to add a new definition of an interceptor:
 
     ![](img/create_interceptor.png)
 
+## Delete
+
+Use the **Delete** button in the Configuration screen toolbar or on the main screen in actions menu to permanently remove the selected interceptor.
+
+![](img/delete-interceptor.png)
+
 ## Configuration
 
 Click any interceptor on the main screen to open its configuration details.
@@ -73,8 +79,6 @@ Click any interceptor on the main screen to open its configuration details.
 ### Properties
 
 In the Properties tab, you can define metadata and execution endpoints for Interceptors.
-
-![](img/img_30.png)
 
 | Field | Required | Editable | Description |
 |-------|----------|----------|-------------|
@@ -94,6 +98,8 @@ In the Properties tab, you can define metadata and execution endpoints for Inter
 | **Container** | Conditional | Yes | Interceptor's Container Id. Applies for the Interceptor deployment source type. |
 | **Defaults** | No | Yes | The interceptor configuration could be preset on the per-interceptor basis via the `defaults` field. Default parameters are applied if a request doesn't contain them in OpenAI chat/completions API call. Refer to [Interceptors SDK](https://github.com/epam/ai-dial-interceptors-sdk/blob/development/README.md#interceptor-configuration) to learn more. |
 
+![](img/img_30.png)
+
 ### Parameter Scheme
 
 In this tab, you can define additional configuration parameters for the interceptor. The parameters displayed in this section are defined by the JSON schema returned by the configuration endpoint specified in the [Properties tab](#properties) when the source type External Endpoint is selected or by the configuration endpoint of the [related interceptor template](/docs/tutorials/3.admin/builders-interceptor-templates.md). If a valid endpoint is specified, the content on this screen is rendered automatically based on the JSON schema returned by that endpoint. Rendered parameters are pre-populated with their default values. In case the invalid configuration endpoint is provided, "No Configuration Scheme" state is shown instead.
@@ -106,14 +112,14 @@ In the Entities tab, you can see Models and Applications this interceptor is cur
 
 > **TIP**: You can also define this mapping on the [Models](/docs/tutorials/3.admin/entities-models.md#interceptors) and [Applications](/docs/tutorials/3.admin/entities-applications.md#interceptors) configuration screens in the Interceptors tab. 
 
-![](img/img_31.png)
-
 | Column | Description |
 |--------|-------------|
 | **ID** | Unique identifier of the Application or Model deployment. |
 | **Display Name** | Name of the Application/Model deployment (e.g. "Data Clustering Application"). |
 | **Description** | Description of the deployment. |
 | **Type** | Type of the entity using the given interceptor: Model, Application. |
+
+![](img/img_31.png)
 
 #### Add
 
@@ -159,8 +165,3 @@ On this screen, you can access a detailed preview and revert any changes made to
 3. Chose between the Admin and Core format to see and work with properties in the necessary format. **Note**: Core format view mode does not render the actual configuration stored in DIAL Core but the configuration in Admin service displayed in the DIAL Core format.
 4. Make changes and click **Save** to apply them.
 5. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.
-
-### Delete
-
-Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected interceptor.
-

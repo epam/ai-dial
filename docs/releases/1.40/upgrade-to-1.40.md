@@ -22,12 +22,12 @@
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.3.0`
    - ai-dial-app-builder-python: `0.1.0`
-   - quick-apps: `0.8.2` (deprecated, use ai-dial-quickapps-backend for new installations)
+   - ai-dial-quick-apps: `0.8.2` (deprecated, use ai-dial-quickapps-backend for new installations)
    - ai-dial-quickapps-backend: `0.4.0` (earlier known as quick-apps-2.0)
-   - mindmap-backend: `0.13.0`
-   - mindmap-frontend: `0.9.13`
-   - admin-backend: `0.13.0`
-   - admin-frontend: `0.13.4`
+   - ai-dial-mind-map-backend: `0.13.0`
+   - ai-dial-mindmap-frontend: `0.9.13`
+   - ai-dial-admin-backend: `0.13.0`
+   - ai-dial-admin-frontend: `0.13.4`
    - ai-dial-admin-deployment-manager-backend: `0.13.1`
 
 ## Before upgrade
@@ -42,24 +42,15 @@
 
 ## Config changes
 
-### ai-dial-core
-
-
-### ai-dial-chat
-
 ### ai-dial-chat-themes
 Added new button colors. If you are using a custom theme, please add the new color definitions to your theme configuration. (https://github.com/epam/ai-dial-chat-themes/blob/development/docs/CHANGELOG.md#0130)
-
-### ai-dial-adapter-openai
-
-### ai-dial-adapter-bedrock
 
 
 ### ai-dial-adapter-vertexai
 
 - Deprecation of COMPATIBILITY_MAPPING env var in favour of per-upstream configuration (https://github.com/epam/ai-dial-adapter-vertexai?tab=readme-ov-file#compatibility-configuration-in-dial-core-config)
 
-### admin-frontend
+### ai-dial-admin-frontend
 
 #### Deployment manager FE configuration changes
 
@@ -69,7 +60,7 @@ Added new button colors. If you are using a custom theme, please add the new col
 - `DEPLOYMENTS_PLUGIN_ENABLED` — removed, no longer used.
   
 
-### admin-backend
+### ai-dial-admin-backend
 #### S2S Admin Backend and core configuration 
   Here is the full instraction for dial admin s2s configuration :
   - keycloack provider - https://github.com/epam/ai-dial-admin-backend/blob/development/docs/keycloack-s2s.md
@@ -131,9 +122,6 @@ A new **Model Serving (Preview)** feature has been introduced. When the underlyi
 
 These settings ensure the service operates correctly in environments where model serving components are not yet ready or deployed.
 
-### ai-dial-rag
-
-### Mind Map
 
 ### ai-dial-quickapps-backend
 

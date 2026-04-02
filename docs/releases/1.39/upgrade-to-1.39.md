@@ -22,12 +22,12 @@
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.3.0`
    - ai-dial-app-builder-python: `0.1.0`
-   - quick-apps: `0.8.2`
-   - quick-apps-2.0: `0.3.1`
-   - mindmap-backend: `0.12.6`
-   - mindmap-frontend: `0.9.8`
-   - admin-backend: `0.12.0`
-   - admin-frontend: `0.12.4`
+   - ai-dial-quick-apps: `0.8.2`
+   - ai-dial-quick-apps-2.0: `0.3.1`
+   - ai-dial-mindmap-backend: `0.12.6`
+   - ai-dial-mindmap-frontend: `0.9.8`
+   - ai-dial-admin-backend: `0.12.0`
+   - ai-dial-admin-frontend: `0.12.4`
    - ai-dial-admin-mcp-manager-backend ->ai-dial-admin-deployment-manager-backend: `0.3.1`
 
 ## Before upgrade
@@ -52,10 +52,6 @@ Added new optional parameter in application schema: assistantAttachmentsInReques
 Added new optional env variables
 
 `NEXT_PUBLIC_STAGE_CONTENT_LIMIT` - Sets the maximum size (in kilobytes) for stage content when rendered. If the content exceeds this limit, a download link will be shown instead. Default value is 40.
-
-### ai-dial-chat-themes
-
-### ai-dial-adapter-openai
 
 ### ai-dial-adapter-bedrock
 
@@ -89,9 +85,7 @@ ANTHROPIC_MAX_RETRY_ATTEMPTS=2
 GOOGLE_GENAI_MAX_RETRY_ATTEMPTS=4
 ```
 
-### admin-frontend
-
-### admin-backend
+### ai-dial-admin-backend
 
 #### Detect dial-core versions changes
 
@@ -112,11 +106,11 @@ Environment variables to configure embeddings thread pools DIAL_RAG**CPU_POOLS**
 IMPORTANT (!!!)
 The Deployment Manager FE is part of the Administration application FE.
 
-### Mind Map
+### ai-dial-mind-map
 
 The migration guide: <https://github.com/epam/dial-mind-map-frontend/wiki/Migration-Guide-from-0.2-to-0.3>
 
-### quick-apps-2.0
+### ai-dial-quick-apps-2.0
 
 Update schema to the recent one: [Quickapp2 Schema](./quickapp2-schema.json). Changes were done in `$defs` and `properties` sections.
 Use admin panel to update existing quick apps to the recent schema version.

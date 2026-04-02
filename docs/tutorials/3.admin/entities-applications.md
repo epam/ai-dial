@@ -149,7 +149,9 @@ Enable or disable per-request options that your application accepts from clients
 
 ### Parameters
 
-The Parameters tab within an application’s configuration allows administrators to manage application-specific parameters that influence its behavior. The content of this screen is determined by the [parameters of the related application runner](/docs/tutorials/3.admin/builders-application-runners.md#parameters).
+If the application is created based on Application Runner, the content of this screen is determined by the [parameters of the related Application Runner](/docs/tutorials/3.admin/builders-application-runners.md#parameters). Here, you can configure application-specific parameters that influence its behavior. 
+
+> Refer to [Schema-rich Applications](/docs/platform/3.core/7.apps.md#schema-rich-applications) to learn more.
 
 ![](img/entities_apps_parameters.png)
 
@@ -307,12 +309,11 @@ On this screen, you can find all dependencies configured for the selected applic
 
 ### App Routes
 
-Routes in DIAL are used for communication through registered endpoints in the DIAL Core. They act as a bridging mechanism between the DIAL Core and applications, facilitating seamless interactions.
+In this section, you can defile routes that will be used by DIAL Core for interaction with application via specified endpoints. 
+
+If the application is created based on a [specific application runner](/docs/tutorials/3.admin/builders-application-runners.md#app-routes), tab allows only viewing routes inherited from it. Otherwise, it allows creating, viewing, editing, and deleting routes.
 
 > Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/routes.md) to learn more about routes.
-
-In the App Routes tab you can manage application-specific routes. The tab includes a left-hand pane listing all app-related routes. 
-If the application is created based on a [specific application runner](/docs/tutorials/3.admin/builders-application-runners.md#app-routes), tab allows only viewing routes inherited from it. Otherwise, it allows creating, viewing, editing, and deleting routes.
 
 #### Properties
 

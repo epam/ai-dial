@@ -29,7 +29,8 @@
     "@docusaurus/types": "^3.9.2"
   },
   "overrides": {
-    "serialize-javascript": "7.0.3"
+    "picomatch": "4.0.4",
+    "serialize-javascript": "7.0.5"
   },
   "browserslist": {
     "production": [
