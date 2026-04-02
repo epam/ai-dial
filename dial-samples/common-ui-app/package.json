@@ -22,7 +22,8 @@
     "on-headers": "1.1.0",
     "minimatch": "9.0.7",
     "@tootallnate/once": "3.0.1",
-    "serialize-javascript": "7.0.3"
+    "picomatch": "4.0.4",
+    "serialize-javascript": "7.0.5"
   },
   "dependencies": {
     "@babel/helpers": "^7.27.3",
