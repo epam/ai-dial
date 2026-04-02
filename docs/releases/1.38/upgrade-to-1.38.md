@@ -22,12 +22,12 @@
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.3.0`
    - ai-dial-app-builder-python: `0.1.0`
-   - quick-apps: `0.8.2`
-   - quick-apps-2.0: `0.2.0`
-   - mindmap-backend: `0.11.6`
-   - mindmap-frontend: `0.8.13`
-   - admin-backend: `0.11.2`
-   - admin-frontend: `0.11.2`
+   - ai-dial-quick-apps: `0.8.2`
+   - ai-dial-quick-apps-2.0: `0.2.0`
+   - ai-dial-mindmap-backend: `0.11.6`
+   - ai-dial-mindmap-frontend: `0.8.13`
+   - ai-dial-admin-backend: `0.11.2`
+   - ai-dial-admin-frontend: `0.11.2`
    - ai-dial-admin-mcp-manager-backend: `0.2.2`
    - ai-dial-admin-mcp-manager-frontend: `0.2.1`
 
@@ -105,13 +105,13 @@ Changes in [DIAL Bedrock Adapter](https://github.com/epam/ai-dial-adapter-bedroc
 
 - Removed support of retired Gemini 1.5 models ([#309](https://github.com/epam/ai-dial-adapter-vertexai/pull/309), [#315](https://github.com/epam/ai-dial-adapter-vertexai/pull/315)). These models **MUST** be deleted from the adapter configuration before upgrade.
 
-### admin-frontend
+### ai-dial-admin-frontend
 
 Changes in [DIAL Admin Frontend](https://github.com/epam/ai-dial-admin-frontend) configuration:
 
 - The [environment variable](https://github.com/epam/ai-dial-admin-frontend?tab=readme-ov-file#environment-variables) `THEMES_CONFIG_IMAGES` was removed.
 
-### admin-backend
+### ai-dial-admin-backend
 
 Changes in [DIAL Admin Backend](https://github.com/epam/ai-dial-admin-backend) configuration:
 
