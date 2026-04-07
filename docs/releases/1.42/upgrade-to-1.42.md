@@ -142,3 +142,7 @@ This release includes **many critical and high-priority changes**. Please review
 #### Upgrade Notice
 
 This release includes **many critical and high-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.15.0/docs/upgrade-plans/0.15.0.md) before proceeding.
+
+### ai-dial-mind-map-frontend
+
+- Now docker image for `ai-dial-mind-map-frontend` is published to [Docker Hub](https://hub.docker.com/r/epam/ai-dial-mind-map-frontend). Update your Helm chart values to use the new image location if you were using a custom image registry before.
