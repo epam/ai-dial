@@ -12,7 +12,6 @@
    - ai-dial-adapter-openai: `0.38.0`
    - ai-dial-adapter-vertexai: `0.34.0`
    - ai-dial-adapter-dial: `0.13.0`
-   - ai-dial-auth-helper: `0.4.0`
    - ai-dial-chat-themes: `0.14.0`
    - ai-dial-chat: `0.44.1`
    - ai-dial-core: `0.42.0`
@@ -40,6 +39,15 @@
 ### Release-specific notes
 
 ## Config changes
+
+### ai-dial-auth-helper
+
+> **Breaking change**
+
+`ai-dial-auth-helper` has been fully deprecated and removed from the release.
+
+Please migrate to `ai-dial-keycloak-helpers`, which is now the supported and recommended solution for authentication integration.
+[More information](https://github.com/epam/ai-dial-helm/tree/dial-6.0.1/charts/dial#auth-helper)
 
 ### ai-dial-adapter-openai
 
