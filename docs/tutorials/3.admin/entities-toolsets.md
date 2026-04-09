@@ -213,11 +213,11 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 
 ### Audit
 
-On this screen, you can access a detailed preview and revert any changes made to the selected toolset.
+The Audit section enables administrators to monitor usage and consumption, trace calls, view activity history, and roll back changes for each selected toolset. 
 
-> **TIP**: This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected toolset.
+> **TIP**: This section mimics the functionality available in the global [Dashboard, Activities and Usage Log](/docs/tutorials/3.admin/telemetry-dashboard.md) sections, but is scoped specifically to the selected toolset.
 
-![](img/116.png)
+![](img/entities_toolsets_audit.png)
 
 ### JSON Editor
 
