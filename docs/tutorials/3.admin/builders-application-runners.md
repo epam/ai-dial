@@ -179,7 +179,7 @@ In this section, you can defile and manage routes that will be used by DIAL Core
 #### Create
 
 1. Click **+ Add** (top-right of the App Routes pane).
-2. Enter the route **Display name** in the modal.
+2. Enter the route **Display name** in the modal. **Note**: Validation rule: `^[a-zA-Z0-9_]+$` - only alphanumeric characters (A–Z, a–z, 0–9) and underscore `(_)` are allowed.
 3. Click **Create** to confirm creation.
 
 ![ ](img/app-runner-create-route.png)
