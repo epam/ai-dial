@@ -3,10 +3,10 @@
 ## Versions
 
 1. Helm chart versions:
-   - dial: `TBD`
-   - dial-core: `TBD`
-   - dial-extension: `TBD`
-   - dial-admin: `TBD`
+   - dial: `6.1.0`
+   - dial-core: `5.1.1`
+   - dial-extension: `1.3.3`
+   - dial-admin: `0.12.0`
 2. Main components versions:
    - ai-dial-adapter-bedrock: `0.38.0`
    - ai-dial-adapter-openai: `0.38.0`
