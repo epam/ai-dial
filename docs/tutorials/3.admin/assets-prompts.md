@@ -16,64 +16,71 @@ The Assets/Prompts screen displays all prompts located in the Public folder in D
 > * Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about Private and Public logical spaces for objects storage in DIAL.
 > * Refer to [Chat User Guide](/docs/tutorials/0.user-guide.md#publish-1) to learn how end users can publish prompts and to [DIAL Core API Publications](https://dialx.ai/dial_api#tag/Publications) to learn how to create and manage publication requests via API.
 
-![ ](img/img_32.png)
+![ ](img/assets-prompts.png)
 
-##### Public file storage
+### Folders
 
 Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. 
 
 - **Root folder**: Public is a root folder with sub-folders. It is visible to all authorized users. If a sub-folder is not specified for the new object being published, it is placed in the root folder by default.
-- **Sub-folders**: Objects can be placed in sub-folders for logical organization purposes - one object per sub-folder is recommended. 
+- **Sub-folders**: Objects can be placed in sub-folders for logical organization purposes and also to apply access rules.
 
 > **Note**, that access rules can be applied to sub-folders (manually or in publication request). You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). The effective authorization rule for an object in a sub-folder includes restrictions applied to all parent sub-folders up to the root folder. Refer to [Tutorials](/docs/tutorials/1.developers/1.work-with-resources/0.work-with-publications.md#effective-rules) to learn about affective rules for folders.
 
+##### Actions
+
+Hover over any folder in the right or left panel to display the actions menu.
+
 | Available Actions | Description |
 |-------------------|-------------|
-| **Create sub-folder + import objects** | Hover over any folder to display the **+** icon. It allows importing objects into new child or sibling sub-folders. <br />The process is similar to [Import](#import), but you’ll need to provide a name for the new folder. <br />Additionally, there’s an optional step where you can define [access rules](/docs/tutorials/3.admin/access-management-folders-storage.md#access-rules) for the new sub-folder. <br />**Note**: New sub-folders can only be created using this method or as part of a publication request if a new folder is specified during that process. |
-| **Actions** | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder. <br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with objects inside it.|
+| **Create sub-folders** |  Use to add new child or sibling sub-folders. |
+| **Move to** | Use to select a target location in the hierarchy to move the selected folder. | 
+| **Export** | Use to download the content of the selected folder with objects inside it as a ZIP archive or raw JSON file. |
+| **Rename** | Use to rename the selected folder. | 
+| **Manage permissions** | Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder. |
+| **Delete** | Use to delete the folder with objects inside it.|
 
-![ ](img/folder-actions.png)
+![ ](img/files-folders-actions.png)
 
-##### Prompts grid
+### Prompts
 
-Click any folder in the hierarchy to display prompts stored in it.
+Click any folder in the hierarchy to display prompts (and sub-folders) stored in it.
+
+##### Fields description
 
 | Column | Description |
 |--------|-------------|
 | **Display Name** | Prompt name displayed on UI. |
 | **Version** | Version of the prompt (e.g. `1.0.0`). |
 | **Author** | Username or system ID associated with the user who created or last updated this file. |
-| **Updated time** | The timestamp of the last modification of the prompt. |
-| **Actions** | Actions you can perform on the selected prompt:<br />- **Open in new tab**: Opens the prompt's properties in a new tab.<br />- **Move to another folder**: Select a target folder in the hierarchy to move the prompt.<br />- **Delete**: Remove the prompt. You can also use **Bulk Actions** in the toolbar to delete multiple prompts at once.<br />- **Duplicate**: Create a copy of the prompt in one of two ways:<br />**New version**: Creates another version of the selected prompt. You can also quickly add a new version on the [Properties](#properties) screen by clicking **Create** in the **Version** dropdown.<br />**New prompt**: Clones the selected prompt as a new one. |
+| **Updated time** | Timestamp of the last modification of the prompt. |
+| **Actions** | Actions you can perform on the selected prompt:<br />- **Duplicate**: Create a copy of the prompt in one of two ways:<br />**New version**: Creates another version of the selected prompt. You can also quickly add a new version on the [Properties](#properties) screen by clicking **Create** in the **Version** dropdown.<br />**New prompt**: Clones the selected prompt as a new one.<br />- **Move to**: Select a target folder in the hierarchy to move the prompt. To move more than one prompt, select them and click **Move to** in the toolbar.<br />- **Export**: Use to download the selected prompt. Refer to [Export](#export) to learn more.<br />- **Open in a new tab**: Opens the prompt's properties in a new tab.<br />- **Delete**: Remove the prompt. You can also select prompts you want to delete and click **Delete** in the toolbar to delete them all at once. Refer to [Delete](#delete) to learn more.<br /> |
 
 ![ ](img/assets-prompts-actions.png)
 
 ## Export
 
-Use **Bulk Actions** in the toolbar to bulk download prompts. This is useful for migrating prompts between environments, sharing sets of prompts with other users, or keeping a point-in-time backup.
+You can export individual prompts or folders with prompts. Assets can be exported as ZIP archive or raw JSON files.
 
-![ ](img/apps_bulk_actions.png)
+* To export a folder, click **Export** in the actions menu of a specific folder to export its content.
+* To export a specific prompt, select it and click **Export** in its actions menu.
 
-##### To export prompts:
+![ ](img/export-prompts.png)
 
-1. Click **Bulk Actions** button in the toolbar.
-2. Select prompts by checking the boxes in each row. You can also select the version you want to export. 
-3. Click **Export** in the bottom to launch the export modal. 
-4. In the modal window select the export format: ZIP Archive or JSON file.
-5. Click **Export** to generate export file and start downloading.
+* To export several prompts, select them and click **Export** in the top toolbar.
 
-   ![ ](img/img_47_1.png)
+![ ](img/export-prompts-bulk.png)
 
 ## Import
 
-Use **Import** in the toolbar to upload new or update existing prompts from external JSON files or ZIP archive. This is essential for migrating, restoring, or sharing prompt assets between DIAL users.
+You can upload ZIP archives or raw JSON files with prompts. This is essential for migrating, restoring, or sharing prompt assets between DIAL users.
 
-![ ](img/img_48.png)
+![ ](img/import-prompts.png)
 
 ##### To import prompts:
 
-1. Click **Import** in the toolbar to launch the import modal.
-2. Select the type of files you want to import. **Drag & Drop** your archive or JSON files into the files area or click **Browse** to open a file picker.
+1. Click **Create** in the toolbar and select **Import**.
+2. Select the type of files you want to import. **Drag & Drop** your ZIP archive or JSON files into the files area or click **Browse** to open a file picker.
    * **Archive**: Select if you want to import a single ZIP or tarball containing multiple JSON files. **Note**: Only 1 archive can be imported at a time.
    * **JSON**: Select if you want to import JSON files. **Note**: Up to 30 files can be imported at once.
 3. Select a Conflict resolution Strategy. It allows you to decide how to handle existing prompts with the same name and version in your workspace:
@@ -85,10 +92,10 @@ Use **Import** in the toolbar to upload new or update existing prompts from exte
 
 ## Create
 
-Follow these steps to add a new prompt to the Public folder:
+Follow these steps to manually add a single prompt to the Public folder:
 
 1. Select a target folder for a new prompt.
-2. Click **Create** in the toolbar to invoke the **Create Prompt** modal.
+2. Click **Create** in the toolbar and select **Prompt** to invoke the **Create Prompt** modal.
 3. Define prompt's parameters
 
    | Column | Required | Description |
@@ -99,7 +106,21 @@ Follow these steps to add a new prompt to the Public folder:
 
 4. Once all required fields are filled, click **Create**. The dialog closes and the new prompt [properties](#properties) screen is opened. This entry will appear immediately in the listing once created.
 
-   ![](img/img_33.png)
+   ![](img/create-prompt.png)
+
+## Add Folders
+
+Prompts can be placed in sub-folders. 
+
+In the actions menu of each existing folder, select **Add sibling** or **Add child** to create new sub-folders.
+
+> **Note**: The name of the folder must not exceed 160 characters.
+
+![ ](img/assets-files-folder-actions.png)
+
+You can also navigate to a specific folder and use the **Create** dropdown in the toolbar to add sub-folders.
+
+![ ](img/prompts-add-folder.png)
 
 ## Delete
 
