@@ -161,6 +161,14 @@ You can find the following action buttons in the configuration screen header:
 | **Forward auth token** | Select a downstream auth token to forward from the user's session (for multi-tenant downstream). |
 | **Max retry attempts** | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors). |
 
+### Tools Overview
+
+**Important**: This section is enabled for application deployments with the **Source Type = Endpoints/MCP**.
+
+[Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are functions supported by an MCP server that can be used by clients to perform specific actions. On this screen, you can discover, manage and try all tools supported by the related MCP server.
+
+> Refer to [Toolsets](/docs/tutorials/3.admin/assets-toolsets.md#try-tools) to learn more about the purpose and functionality of this section.
+
 ### Features
 
 In the Features tab, you can control optional capabilities of the selected application. 

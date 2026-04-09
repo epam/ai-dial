@@ -90,6 +90,14 @@ Once configured, your application is ready to orchestrate models and interceptor
 
 ![](img/entities_app_properties.png)
 
+### Tools Overview
+
+**Important**: This section is enabled for application deployments with the **Source Type = Endpoints/MCP**.
+
+[Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are functions supported by an MCP server that can be used by clients to perform specific actions. On this screen, you can discover, manage and try all tools supported by the related MCP server.
+
+> Refer to [Toolsets](/docs/tutorials/3.admin/entities-toolsets.md#tools-overview) to learn more about the purpose and functionality of this section.
+
 ### Features
 
 In the Features tab, you can control optional capabilities of applications. 
