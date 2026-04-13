@@ -237,9 +237,9 @@ In the **Try out mode**, you can test each enabled tool by sending a request to 
 
 ### Audit
 
-The Audit section enables administrators to monitor usage and consumption, trace calls, view activity history, and roll back changes for each selected toolset. 
+The Audit section enables administrators to monitor usage and consumption metrics for the selected toolset. 
 
-> **TIP**: This section mimics the functionality available in the global [Dashboard, Activities and Usage Log](/docs/tutorials/3.admin/telemetry-dashboard.md) sections, but is scoped specifically to the selected toolset.
+> **TIP**: This section mimics the functionality available in the global [Dashboard](/docs/tutorials/3.admin/telemetry-dashboard.md) section, but is scoped specifically to the selected toolset.
 
 ![](img/assets-toolsets-audit.png)
 

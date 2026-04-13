@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In **Dashboard**, you can monitor system and MCP usage metrics. Monitoring of system metrics is crucial for the health and performance of the system. It helps you to identify and resolve issues before they become critical.
+In **Dashboard**, you can monitor system metrics. Monitoring of system metrics is crucial for the health and performance of the system. It helps you to identify and resolve issues before they become critical.
  
 > Refer to [Observability](/docs/platform/8.observability-intro.md) to learn about observability and system monitoring in DIAL.
 
@@ -94,7 +94,7 @@ This section presents key metrics that offer valuable insights into MCP usage an
 |---------------|------------------|
 | **MCP Consumption** | This dashboard displays the number of calls made to each MCP, allowing administrators to monitor and compare usage across different MCPs. |
 | **Tools Consumption** | This dashboard provides insights into tool usage by showing the number of calls for each tool, grouped by MCP. It helps identify frequently used tools. |
-| **Calls by Deployment** | This dashboard breaks down MCP usage by deployment, showing the number of calls per deployment (such as application or AI model) and MCP. |
+| **Calls by Deployment** | This dashboard breaks down MCP usage by applications, showing the number of calls each application has made to a particular MCP. |
 | **Project Consumption** | This dashboard summarizes MCP and tool usage at the project level, displaying the number of MCP and tool calls for each project. |
 
 ## Grafana

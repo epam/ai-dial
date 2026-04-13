@@ -87,7 +87,7 @@ The MCP tab provides a focused view of MCP-related activity within DIAL Core. Ea
 | **Column**         | **Description** |
 |--------------------|-----------------|
 | **Last activity**  | Timestamp of the most recent MCP call. |
-| **Deployment ID**  | Identifier of the DIAL deployment (application, AI model) which initiated MCP call. |
+| **Deployment ID**  | Identifier of the application which initiated an MCP call. |
 | **Project**        | Project ID associated with the MCP call, based on the DIAL API Key used. |
 | **Tool Name**      | Name of the tool invoked during the MCP call. |
 | **Trace ID**       | OpenTelemetry trace ID uniquely identifying the MCP call and its related sequence of operations. |

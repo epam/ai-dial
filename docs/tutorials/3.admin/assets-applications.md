@@ -163,9 +163,9 @@ You can find the following action buttons in the configuration screen header:
 
 ### Tools Overview
 
-**Important**: This section is enabled for application deployments with the **Source Type = Endpoints/MCP**.
+**Important**: This section is enabled for application deployments with the **Source Type = Endpoints/MCP** or **Source Type = Application Runner** and the related Application Runner has MCP endpoint enabled as the Source Type.
 
-[Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are functions supported by an MCP server that can be used by clients to perform specific actions. On this screen, you can discover, manage and try all tools supported by the related MCP server.
+[Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are functions supported by an MCP server that can be used by clients to perform specific actions. On this screen, you can discover, manage and try all the available tools.
 
 > Refer to [Toolsets](/docs/tutorials/3.admin/assets-toolsets.md#try-tools) to learn more about the purpose and functionality of this section.
 
