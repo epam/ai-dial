@@ -6,25 +6,28 @@ In **Dashboard**, you can monitor system metrics. Monitoring of system metrics i
  
 > Refer to [Observability](/docs/platform/8.observability-intro.md) to learn about observability and system monitoring in DIAL.
 
-![](img/78.png)
+![](img/audit-dashboard.png)
 
 ##### Controls and filters
 
 | Control | Description |
 |---------|-------------|
+| **View by** | Use this filter to display Chat or MCP usage metrics on the dashboard. |
 | **Time Period** | Date range filters for all charts and tables. Users can pick one of the predefined options or set a custom time period. |
 | **+ Add filter** | Filter to drill into specific subsets of Projects and Entities. |
 | **Auto refresh** | Control allowing to pull new data (e.g. every 1 min) or turn off auto-refresh. |
 
-## System Usage Chart
+## Chat Dashboard 
+
+### System Usage Chart
 
 System Usage is a time-series line chart showing the requests throughput over the selected time period for projects or entities. You can use it to identify traffic peaks and valleys, correlate spikes with deployments or feature releases.
 
 ![](img/79.png)
 
-## Metrics
+### Metrics
 
-Metrics are displayed alongside the System Usage Chart. Metrics are calculated for the selected time period for the entire system.
+Metrics are calculated for the selected time period for the entire system.
 
 | Metric | Description |
 |--------|-------------|
@@ -35,7 +38,7 @@ Metrics are displayed alongside the System Usage Chart. Metrics are calculated f
 
 ![](img/80.png)
 
-## Entities Consumption
+### Entities Consumption
 
 Use Entities Consumption table to monitor consumption metrics for deployments: models, applications, toolsets, interceptors and routes. You can use it to compare the tokens usage of different entities, identify cost-inefficient deployments, and optimize your resources.
 
@@ -49,7 +52,7 @@ Use Entities Consumption table to monitor consumption metrics for deployments: m
 
 ![](img/audit-entities-consumption.png)
 
-## Projects Consumption
+### Projects Consumption
 
 Use Projects Consumption table to monitor consumption metrics for projects. You can use it to compare the tokens usage of different projects, identify cost-inefficient projects, and optimize your resources.
 
@@ -62,6 +65,37 @@ Use Projects Consumption table to monitor consumption metrics for projects. You 
 | **Money** | Estimated overall costs in USD. |
 
 ![](img/audit-projects-consumption.png)
+
+## MCP Dashboard
+
+The MCP dashboards give administrators a clear picture of how MCPs and tools are being used. They show important information like user activity, the number of calls, and usage by project or deployment. These dashboards make it easy to track usage, spot trends, and manage resources effectively.
+
+### Request per MCP Usage Chart
+
+This dashboard provides administrators with a comprehensive overview of MCP activity within the system. It displays key metrics such as initialization events, tool calls, and loot list interactions, enabling you to monitor usage patterns, identify trends, and optimize resource allocation effectively. This dashboard is designed to help you gain actionable insights into how MCP resources are utilized across your environment.
+
+![](img/mcp-requests-chart.png)
+
+### Totals Metrics
+
+This section presents key metrics that offer valuable insights into MCP usage and user activity within the selected time period.
+
+| Metric | Description |
+|--------|-------------|
+| **Unique Users** | Displays the count of distinct user IDs or API keys that have interacted with the MCP, helping you understand the breadth of user engagement. |
+| **Total MCP Calls** | Shows the total number of requests to MCP servers, providing insight into overall system activity. |
+| **Total Tool Calls** | Represents the overall interaction with MCP tools, allowing you to track resource consumption and usage intensity. |
+
+![](img/mcp-metrics.png)
+
+### Consumption Metrics
+
+| **Dashboard** | **Description**  |
+|---------------|------------------|
+| **MCP Consumption** | This dashboard displays the number of calls made to each MCP, allowing administrators to monitor and compare usage across different MCPs. |
+| **Tools Consumption** | This dashboard provides insights into tool usage by showing the number of calls for each tool, grouped by MCP. It helps identify frequently used tools. |
+| **Calls by Deployment** | This dashboard breaks down MCP usage by applications, showing the number of calls each application has made to a particular MCP. |
+| **Project Consumption** | This dashboard summarizes MCP and tool usage at the project level, displaying the number of MCP and tool calls for each project. |
 
 ## Grafana
 

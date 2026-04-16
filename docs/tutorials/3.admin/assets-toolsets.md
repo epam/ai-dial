@@ -235,6 +235,14 @@ In the **Try out mode**, you can test each enabled tool by sending a request to 
 
 ![](img/assets_toolset_tryout.png)
 
+### Audit
+
+The Audit section enables administrators to monitor usage and consumption metrics for the selected toolset. 
+
+> **TIP**: This section mimics the functionality available in the global [Dashboard](/docs/tutorials/3.admin/telemetry-dashboard.md) section, but is scoped specifically to the selected toolset.
+
+![](img/assets-toolsets-audit.png)
+
 ### JSON Editor
 
 **Advanced users with technical expertise** can work with the toolset properties in a JSON editor view mode.

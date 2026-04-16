@@ -79,3 +79,16 @@ In **Conversations** you can access metrics of requests that belong to a single 
 | **User title** | Job title of the user (if available) who initiated the given conversation. |
 | **Topic** | Auto-generated subject summarizing the conversation. |
 | **Language** | Detected language in the given conversation (e.g., `en`). |
+
+## MCP
+
+The MCP tab provides a focused view of MCP-related activity within DIAL Core. Each row represents an MCP call, allowing administrators to track when and how MCPs are used across deployments and projects. This tab helps you monitor tool usage, trace individual calls, and analyze integration patterns with MCPs.
+
+| **Column**         | **Description** |
+|--------------------|-----------------|
+| **Last activity**  | Timestamp of the most recent MCP call. |
+| **Deployment ID**  | Identifier of the application which initiated an MCP call. |
+| **Project**        | Project ID associated with the MCP call, based on the DIAL API Key used. |
+| **Tool Name**      | Name of the tool invoked during the MCP call. |
+| **Trace ID**       | OpenTelemetry trace ID uniquely identifying the MCP call and its related sequence of operations. |
+| **Method**         | The method or operation performed by the MCP tool. |

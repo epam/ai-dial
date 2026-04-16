@@ -47,14 +47,14 @@ Follow these steps to add a new application deployment:
     | **Display Name** | Yes | Name of the application (e.g. "Data Clustering Application") rendered on UI. |
     | **Display version** | No | Semantic identifier (e.g., 1.2.0) of an application's version. |
     | **Description** | No | Free-text summary describing the application (e.g. supported inputs, business purpose). |
-    | **Source Type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. In [Builders/Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) you can see all the available runners and add new ones. |
-    | **Completion endpoints** | Conditional | The application's completion endpoint DIAL Core will use to communicate with application. Required if Source Type is **Endpoints**. |
+    | **Source Type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided chat and/or MCP endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. In [Builders/Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) you can see all the available runners and add new ones. |
+    | **Chat Endpoint** | Conditional | The application's chat completion endpoint DIAL Core will use to communicate with application. Available if Source Type is **Endpoints**. |
+    | **MCP Endpoint** | Conditional | The application's MCP endpoint DIAL Core will use to communicate with application. Available if Source Type is **Endpoints**. Transport is HTTP by default. |
     | **Application runner** | Conditional | Select one of the [available application runners](/docs/tutorials/3.admin/builders-application-runners.md). Required if Source Type is **Application runner**. |
-
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#configuration) screen is opened. New application deployment appears immediately in the listing once created. It may take some time for the changes to take effect after saving.
 
-    ![](img/img_12.png)
+    ![](img/create-application.png)
 
 ## Configuration
 
@@ -79,9 +79,7 @@ Once configured, your application is ready to orchestrate models and interceptor
 | **Maintainer** | No | Field used to specify the responsible person or team overseeing the app's configuration. |
 | **Icon** | No | Logo to visually distinguish the app on the UI. |
 | **Topics** | No | Tags that you can assign to apps (e.g. "finance", "support"). Helps to split apps into categories for better navigation on UI. |
-| **Source Type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. In [Builders/Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) you can see all the available runners and add new ones. |
-| **Application runner** | Conditional | Select one of the available application runners. If the application is created based on an application runner, DIAL Core will forward all payloads to endpoints defined in the [application runner configuration](/docs/tutorials/3.admin/builders-application-runners.md#features). Required if Source Type is **Application runner**. |
-| **Completion endpoint** | Conditional | Chat completion endpoint of the application. Required if Source Type is **Endpoints**. |
+| **Source Type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided chat and/or MCP endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. Select one of the available application runners. If the application is created based on an application runner, DIAL Core will forward all payloads to endpoints defined in the [application runner configuration](/docs/tutorials/3.admin/builders-application-runners.md#features). |
 | **Viewer URL** | Optional | URL of the application's custom UI. A custom UI, if enabled, will override the standard DIAL Chat UI. Available if Source Type is **Endpoints**. |
 | **Editor URL** | Optional | URL of the application's custom builder UI. Application builder allows creating instances of apps using a [UI wizard](/docs/tutorials/0.user-guide.md#application-builder). Available if Source Type is **Endpoints**. |
 | **Attachment types** | No | Use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **No attachments**: Disables all attachment types.  <br /> **All attachments types**: Allows all types of file attachments. Optionally specify max number of attachments. <br /> **Specific attachments types**: Enables the user to define/select specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Start typing to see suggestions or use `<type>/<subtype>` format for a manual entry. |
@@ -91,6 +89,14 @@ Once configured, your application is ready to orchestrate models and interceptor
 | **Defaults** | No | Default parameters for the application. Default parameters are applied if a request doesn't contain them in OpenAI chat/completions API call. |
 
 ![](img/entities_app_properties.png)
+
+### Tools Overview
+
+**Important**: This section is enabled for application deployments with the **Source Type = Endpoints/MCP** or **Source Type = Application Runner** and the related Application Runner has MCP endpoint enabled as the Source Type.
+
+[Tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools) are functions supported by an MCP server that can be used by clients to perform specific actions. On this screen, you can discover, manage and try all the available tools.
+
+> Refer to [Toolsets](/docs/tutorials/3.admin/entities-toolsets.md#tools-overview) to learn more about the purpose and functionality of this section.
 
 ### Features
 
