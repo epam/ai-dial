@@ -22,6 +22,7 @@ The improvement work is governed by four companion documents in `docs-planning/`
 - **Improvement Roadmap** (`docs-planning/improvement-roadmap.md`) — four-phase action plan (Foundation → Stop the bleeding → Depth and differentiation → Sustainability)
 - **Recommended Site Structure** (`docs-planning/recommended-site-structure.md`) — target information architecture with page-by-page migration map from current state
 - **Style Guide** (`docs-planning/style-guide.md`) — Diátaxis-based writing rules, terminology glossary, voice/tone per content type, review process
+- **Glossary** (`docs-planning/glossary.md`) — Terminology glossary, use it to be consistent
 
 Key structural changes in progress:
 - Replacing the incoherent Platform/Tutorials split with journey-based sections: Understand DIAL, Building with DIAL, Operating DIAL, Administering DIAL
@@ -137,3 +138,21 @@ See `CONTRIBUTING.md`. Key points:
 - The docs site references pages in sibling repos. Broken links in docs often mean the sibling repo's README changed — check there.
 - URL path `/video demos/` has a space. This is a known issue.
 - Some docs pages link to GitHub as the authoritative source for configuration — this is being migrated to on-site docs (see Documentation Improvement Plan).
+
+## Available tools
+
+### Shell utilities
+- `tree` — directory structure visualization. Use for exploring repo layouts.
+- `git` — full git access. Use for: log, blame, diff, checking file history,
+  finding when a page was last modified, listing contributors.
+
+### Agent browser
+[agent-browser](https://github.com/vercel-labs/agent-browser) is available
+for headless web browsing. Use for:
+- Fetching and parsing docs.dialx.ai pages
+- Browse other github repos, if it's more efficient
+- Verifying external links
+- Crawling site structure
+- Comparing rendered docs against source Markdown
+
+Check capabilities: `agent-browser -h`
