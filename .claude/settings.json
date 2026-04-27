@@ -1,0 +1,19 @@
+{
+    "$schema": "https://json.schemastore.org/claude-code-settings.json",
+    "permissions": {
+        "allow": [
+            "Bash(npm run lint)",
+            "Bash(npm run test *)",
+            "Read(~/.zshrc)",
+            "Bash(tree *)",
+            "Bash(agent-browser *)",
+            "Bash(ls *)",
+            "Bash(grep *)"
+        ],
+        "deny": [
+            "Read(./.env)",
+            "Read(./.env.*)",
+            "Read(./node_modules/**)"
+        ]
+    }
+}
