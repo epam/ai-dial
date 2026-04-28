@@ -30,8 +30,7 @@ This skill gathers technical information from DIAL component repositories and ex
 | Read GitHub files | `Bash` with `gh api` | Fetch individual files: `gh api repos/epam/<repo>/contents/<path> -q .content \| base64 -d` |
 | Browse repo tree | `Bash` with `gh api` | List repo structure: `gh api repos/epam/<repo>/git/trees/main?recursive=1 -q '.tree[].path'` |
 | Fetch rendered content | `WebFetch` | Read docs site pages, GitHub rendered content, or external sources |
-| Deep search (clone) | `Bash` with `git clone` | Shallow clone for grep: `git clone --depth 1 https://github.com/epam/<repo>.git /tmp/dial-research/<repo>` |
-| Search cloned repos | `Bash` with `grep`/`find` | Search source code: env vars, config keys, API endpoints, patterns |
+| Search code on GitHub | `Bash` with `gh api` | Search across repos: `gh api -X GET '/search/code?q=org:epam+repo:ai-dial-core+getenv' -q '.items[].path'` |
 | Browse UI | `agent-browser` | Navigate docs.dialx.ai, dialx.ai/dial_api, or GitHub web UI for complex browsing |
 | Save research brief | `Write` | Write results to `.claude-workspace/research/<date>-<mode>-<slug>.md` |
 | Update research index | `Edit` | Update `.claude-workspace/research/_index.md` |
@@ -116,24 +115,30 @@ WebFetch: https://raw.githubusercontent.com/epam/ai-dial-core/main/README.md
 WebFetch: https://docs.dialx.ai/platform/core/about-core
 ```
 
-### Tier 3: Shallow clone
+### Tier 3: GitHub code search
 
-When grep across many files is needed (e.g., "find all environment variables in DIAL Core"). Clone to `/tmp/dial-research/` — outside the repo, not git-tracked.
+When searching across many files is needed (e.g., "find all environment variables in DIAL Core"). Use the GitHub search API — no cloning required.
 
 ```bash
-git clone --depth 1 https://github.com/epam/ai-dial-core.git /tmp/dial-research/ai-dial-core
+# Search for env vars in a Java repo
+gh api -X GET '/search/code?q=System.getenv+repo:epam/ai-dial-core+language:java' -q '.items[] | "\(.path):\(.name)"'
 
-# Search for env vars in Java
-grep -r 'System\.getenv\|@Value\|@ConfigProperty' /tmp/dial-research/ai-dial-core/src/ --include='*.java'
+# Search for env vars in a Python repo
+gh api -X GET '/search/code?q=os.environ+repo:epam/ai-dial-sdk+language:python' -q '.items[] | "\(.path):\(.name)"'
 
-# Search for env vars in Python
-grep -r 'os\.environ\|os\.getenv\|BaseSettings' /tmp/dial-research/ai-dial-sdk/ --include='*.py'
-
-# Clean up when done
-rm -rf /tmp/dial-research/ai-dial-core
+# Then fetch the specific files you need
+gh api repos/epam/ai-dial-core/contents/src/main/java/com/epam/aidial/core/config/Config.java -q .content | base64 -d
 ```
 
-**Always clean up clones after research completes.**
+If GitHub search rate limits are hit, fall back to listing the repo tree and fetching files individually:
+
+```bash
+# List all files in a repo
+gh api repos/epam/ai-dial-core/git/trees/main?recursive=1 -q '.tree[] | select(.path | test("Config|config|settings")) | .path'
+
+# Read a specific file
+gh api repos/epam/ai-dial-core/contents/<path> -q .content | base64 -d
+```
 
 ### Tier 4: `agent-browser`
 
