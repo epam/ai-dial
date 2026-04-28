@@ -156,3 +156,8 @@ for headless web browsing. Use for:
 - Comparing rendered docs against source Markdown
 
 Check capabilities: `agent-browser -h`
+
+* * *
+
+## When working with Claude Code Skills
+- Always refer to https://code.claude.com/docs/en/skills
