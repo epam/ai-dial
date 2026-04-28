@@ -8,12 +8,17 @@
             "Bash(tree *)",
             "Bash(agent-browser *)",
             "Bash(ls *)",
-            "Bash(grep *)"
+            "Bash(grep *)",
+            "Bash(find *)",
+            "Bash(gh *)",
+            "Bash(git clone *)",
+            "Bash(rm -rf /tmp/dial-research/*)"
         ],
         "deny": [
             "Read(./.env)",
             "Read(./.env.*)",
-            "Read(./node_modules/**)"
+            "Read(./node_modules/**)",
+            "Read(./.docusaurus/**)"
         ]
     }
 }
