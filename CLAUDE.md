@@ -1,5 +1,9 @@
 # CLAUDE.md
 
+## Rules
+
+- **Never commit or push.** Do not run `git commit`, `git push`, or any variant. The user handles all version control operations manually.
+
 ## What this repo is
 
 This is the **documentation and meta repository** for AI DIAL — an open-source, enterprise-grade LLM orchestration platform by EPAM. It is NOT the application code. The platform code lives in 20+ sibling repositories.
