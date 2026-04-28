@@ -7,6 +7,27 @@ description: Use this skill whenever creating, editing, or reviewing Markdown do
 
 This skill ensures every documentation page in `docs/docs/` follows the DIAL Documentation Style Guide and fits correctly into the Recommended Site Structure.
 
+## Editing existing pages vs. writing new ones
+
+Most docs improvement work is editing existing pages, not creating new ones. When editing:
+
+1. Read the current page with the `Read` tool
+2. Compare against the self-check checklist (step 8)
+3. Fix what's broken — don't rewrite what's fine
+4. Preserve any content that's accurate and well-structured
+
+Only follow the full step-by-step process below for new pages or major rewrites.
+
+## Planning documents
+
+Load selectively based on the task:
+
+| Task | Required documents |
+|---|---|
+| Small edit | `docs-planning/glossary.md` (terminology) |
+| New page | `glossary.md` + `style-guide.md` + `recommended-site-structure.md` |
+| Migration / restructure | All of the above + `gap-analysis.md` + `improvement-roadmap.md` |
+
 ## Step 1: Determine the content type
 
 Every page is **exactly one** Diátaxis type. Determine which before writing anything:
@@ -17,8 +38,11 @@ Every page is **exactly one** Diátaxis type. Determine which before writing any
 | **How-to** | "Help me accomplish this task" | Imperative, terse, assumes familiarity | Goal → Prerequisites → Steps → Result → Related tasks |
 | **Reference** | "Give me the details" | Third person, declarative, no opinions | Identifier → Description → Parameters → Returns → Errors → Example |
 | **Explanation** | "Help me understand why" | Essayistic but precise, can use "we" for design intent | Thesis → Background → Discussion → Implications → Further reading |
+| **User guide** | "Show me how to use the UI" | Second person, feature-organized, screenshot-heavy | Feature overview → UI walkthrough → Tips → Next steps |
 
 **If a page feels like two types, split it into two pages.**
+
+User guides document a UI for end users. They are distinct from how-tos (which are task-oriented for technical users) and tutorials (which teach from zero). The Chat User Guide section uses this type.
 
 ## Step 2: Add required frontmatter
 
@@ -27,7 +51,7 @@ Every page must start with:
 ```yaml
 ---
 title: "Configure rate limits"   # imperative for how-tos, noun for reference
-type: how-to                     # tutorial | how-to | reference | explanation
+type: how-to                     # tutorial | how-to | reference | explanation | user-guide
 persona: devops                  # end-user | app-dev | devops | admin | evaluator | architect
 component: core                  # core | chat | admin | sdk | adapters | helm | apps
 last_verified: 2026-04-27
@@ -54,18 +78,15 @@ Read the appropriate template in `references/` before writing:
 
 ## Step 5: Apply terminology rules
 
-### Canonical names (always use these)
+### Canonical names
 
-| Canonical term | Never say |
-|---|---|
-| DIAL | Dial, dial, DiAL |
-| DIAL Core | "the backend," "the server," "dial core" |
-| DIAL Chat | "the frontend," "the UI" (unless explaining) |
-| Unified API | "DIAL API" (too vague) |
-| Application | Addon (deprecated), Assistant (deprecated) |
-| Adapter | "Application" when meaning a model adapter |
-| Interceptor | "Adapter" when meaning middleware |
-| Agent Builder | "application runner," "application builders," "Builders" (use whatever the glossary has canonicalized) |
+Read `docs-planning/glossary.md` for all canonical terms, product names, component names, deprecated terms, and contested names. The glossary is the single source of truth. Key rules:
+
+- **DIAL** in all-caps. Never "Dial" or "dial."
+- Component names capitalized: **DIAL Core**, **DIAL Chat**, **DIAL Admin**, **DIAL SDK**
+- Use the glossary's canonical name for contested terms (e.g., "Agent Builder" not "application runner")
+- Don't use deprecated terms (Assistant, Addon) without a deprecation notice on the page
+- Don't use vague references ("the backend," "the server") — use the glossary's component names
 
 ### Forbidden phrases
 
@@ -75,6 +96,8 @@ Delete these — never use them:
 - "our product" (say "DIAL")
 - "AI-powered" (everything here is AI)
 - "cutting-edge," "best-in-class"
+- "it should be noted that" (start with the thing)
+- "as shown in the video" (text must stand alone)
 - "click here" (describe the destination)
 
 ### Capitalization
@@ -118,7 +141,7 @@ Run through this checklist:
 - [ ] Max heading depth: H3 in tutorials and how-tos, H4 in reference
 - [ ] "Next steps" section at the end with 2–3 links
 - [ ] No links to GitHub READMEs as authoritative source (link to docs site pages)
-- [ ] `last_verified` date is today
+- [ ] `last_verified` date is today (only if you verified all code examples and links on the page)
 
 ## Admonitions
 
@@ -155,3 +178,29 @@ This feature is going away. Use [replacement](/path) instead. Removal planned fo
 ## Where to place the page
 
 Consult `docs-planning/recommended-site-structure.md` to determine the correct section and path. If the page doesn't have a clear home in the structure document, flag it — don't guess.
+
+### Sidebar registration
+
+After creating a new page or moving an existing one, update `docs/sidebars.js` to include the page in the position specified by the structure document. After moving a page, add a redirect in `docs/docusaurus.config.js` if the URL changed.
+
+### Example URLs in templates
+
+The "Next steps" examples in this skill and in the reference templates use target-structure URLs (e.g., `/building/getting-started-api`) that may not exist yet. Before using a path in a real page, verify the target page exists. If it doesn't, link to the closest existing equivalent or omit the link.
+
+## Step 9: Verify the build
+
+After writing or editing, run:
+
+```bash
+cd docs && npm run build
+```
+
+The Docusaurus config has `onBrokenLinks: 'throw'` — the build catches all broken internal links, anchors, and markdown references. Fix any errors before considering the page done.
+
+## Frontmatter validation
+
+The custom frontmatter fields (`type`, `persona`, `component`, `last_verified`, `owner`) are not validated by the Docusaurus build system. Enforcement comes from skill checks, the `docs-auditor` skill, and code review. A missing `type` field won't break the build but will fail audit.
+
+## Quality verification
+
+To verify a page meets all standards after writing, invoke the `docs-auditor` skill. The typical workflow is: write → build → audit → fix → re-audit.
