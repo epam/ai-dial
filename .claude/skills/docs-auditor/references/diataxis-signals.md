@@ -70,6 +70,8 @@ The page IS a user guide if:
 - The reader is an end user, not a developer or operator
 - Screenshots dominate
 
+Use `type: user-guide` in frontmatter. User guides are distinct from how-tos (task-oriented for technical users) and tutorials (learning-oriented from zero). The Chat User Guide section is the primary example in DIAL docs.
+
 ## Common misclassification patterns in DIAL docs
 
 These are the most frequent mistakes found during the Gap Analysis:
