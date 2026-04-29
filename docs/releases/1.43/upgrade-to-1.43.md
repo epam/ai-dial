@@ -8,20 +8,20 @@
    - dial-extension: `-`
    - dial-admin: `-`
 2. Main components versions:
-   - ai-dial-adapter-bedrock: `-`
-   - ai-dial-adapter-openai: `-`
-   - ai-dial-adapter-vertexai: `-`
-   - ai-dial-adapter-dial: `-`
+   - ai-dial-adapter-bedrock: `0.39.0-rc.0`
+   - ai-dial-adapter-openai: `0.39.0-rc.0`
+   - ai-dial-adapter-vertexai: `0.35.0-rc.0`
+   - ai-dial-adapter-dial: `0.14.0-rc.0`
    - ai-dial-chat-themes: `0.14.0`
-   - ai-dial-chat: `-`
+   - ai-dial-chat: `0.45.0-rc.55`
    - ai-dial-core: `0.43.0-rc.0`
-   - ai-dial-analytics-realtime: `-`
-   - ai-dial-rag: `-`
-   - ai-dial-log-parser: `-`
-   - ai-dial-code-interpreter: `-`
-   - ai-dial-app-controller: `-`
-   - ai-dial-app-builder-python: `-`
-   - ai-dial-quickapps-backend: `-`
+   - ai-dial-analytics-realtime: `0.23.0-rc.0`
+   - ai-dial-rag: `0.42.0-rc.0`
+   - ai-dial-log-parser: `0.3.0`
+   - ai-dial-code-interpreter: `0.2.0`
+   - ai-dial-app-controller: `0.4.0`
+   - ai-dial-app-builder-python: `0.1.0`
+   - ai-dial-quickapps-backend: `0.7.0-rc.1`
    - ai-dial-mind-map-backend: `0.13.4`
    - ai-dial-mind-map-frontend: `0.10.0`
    - ai-dial-admin-backend: `0.16.0-rc.0`
