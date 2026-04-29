@@ -42,8 +42,26 @@
 
 ## Config changes
 
+
+### ai-dial-adapter-openai
+
+#### New environment variables
+
+|Variable|Default|Description|
+|-------------|----------|-------------|-----------------|
+|QWEN3_ASR_VLLM_DEPLOYMENTS|``| Comma-separated list of [Qwen3-ASR deployments](#qwen3-asr) served via vLLM. Example: `qwen3-asr`|
+
+
+### ai-dial-chat
+
+#### New environment variables
+
+| Name        | Required | Description | Possible Values |
+|-------------|----------|-------------|-----------------|
+| `ASR_MODEL` | No       | Specifies the model used for automatic speech recognition (ASR). When set together with the `voice-input` feature flag, it enables transcription mode: recorded audio is sent to this model for speech-to-text conversion, and the resulting text is automatically sent as a message. If not set, voice recording works only as a native audio attachment (the selected model must support audio MIME types). | Any string |
+
+
 ### ai-dial-admin-frontend: 
-#### Upgrade Notice
 
 This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-frontend/blob/0.16.0-rc.0/docs/upgrade-plans/0.16.0.md) before proceeding.
 
@@ -55,12 +73,10 @@ This release includes high-priority changes. Please review the [full upgrade gui
 > See the upgrade guide for details.
 
 ### ai-dial-admin-frontend: 
-#### Upgrade Notice
 
 This release includes some changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-backend/blob/release-0.16/docs/upgrade-plans/0.16.0.md) before proceeding.
 
 
 ### ai-dial-admin-deployment-manager-backend: 
-#### Upgrade Notice
 
 This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.16.0-rc.0/docs/upgrade-plans/0.16.0.md) before proceeding.
