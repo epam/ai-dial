@@ -37,6 +37,8 @@ Key structural changes in progress:
 - Consolidating configuration reference on-site (currently redirects to 7+ GitHub READMEs)
 - Splitting integrations by purpose: chatbot, productivity add-ins, workflow automation, orchestration patterns
 
+**Sidebar structure: OLD and NEW sections.** The sidebar (`sidebars.js`) has exactly two top-level categories: `OLD` (legacy docs, being phased out) and `NEW` (restructured docs following the recommended site structure). All new documentation pages must go into the `NEW` section. Never add new content to `OLD`. When migrating an existing page, move or rewrite it into the appropriate place under `NEW`.
+
 When working on docs content, always follow the Style Guide conventions and place content according to the Structure document.
 
 ## Docs site
