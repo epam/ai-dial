@@ -47,10 +47,9 @@
 
 #### New environment variables
 
-|Variable|Default|Description|
-|-------------|----------|-------------|-----------------|
-|QWEN3_ASR_VLLM_DEPLOYMENTS|``| Comma-separated list of [Qwen3-ASR deployments](#qwen3-asr) served via vLLM. Example: `qwen3-asr`|
-
+| Variable                         | Default | Description |
+|----------------------------------|---------|-------------|
+| QWEN3_ASR_VLLM_DEPLOYMENTS       | ``      | Comma-separated list of [Qwen3-ASR deployments](#qwen3-asr) served via vLLM. Example: `qwen3-asr` |
 
 ### ai-dial-chat
 
