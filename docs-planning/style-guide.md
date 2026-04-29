@@ -138,7 +138,7 @@ DIAL has many near-synonyms. Use the canonical term. Define it once in the gloss
 | DIAL Core | The Java service exposing the Unified API. Not "the backend." | DIAL Chat, DIAL Admin |  |  |  |
 | DIAL Chat | The default web UI. | DIAL Overlay, "the frontend" |  |  |  |
 | Application | A first-class extension exposing chat-completion or embedding endpoints via DIAL SDK. | Addon, Assistant |  |  |  |
-| Adapter | An application that translates an external provider's API (Azure OpenAI, Bedrock, Vertex) to the DIAL Unified API. | Application (generic), Interceptor |  |  |  |
+| Adapter | A component that translates an external provider's API (Azure OpenAI, Bedrock, Vertex) to the DIAL Unified API. | Application (generic), Interceptor |  |  |  |
 | Interceptor | Middleware that modifies requests/responses in-flight. | Adapter, Addon |  |  |  |
 | Addon | Deprecated/archived concept (ChatGPT plugin protocol). Do not use in new docs except to describe legacy. | Application, Interceptor |  |  |  |
 | Assistant | Deprecated/archived. Same guidance as Addon. | Application |  |  |  |
