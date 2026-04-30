@@ -12,7 +12,7 @@
    - ai-dial-adapter-openai: `0.39.0-rc.0`
    - ai-dial-adapter-vertexai: `0.35.0-rc.0`
    - ai-dial-adapter-dial: `0.14.0-rc.0`
-   - ai-dial-chat-themes: `0.14.0`
+   - ai-dial-chat-themes: `0.15.0`
    - ai-dial-chat: `0.45.0-rc.55`
    - ai-dial-core: `0.43.0-rc.0`
    - ai-dial-analytics-realtime: `0.23.0-rc.0`
