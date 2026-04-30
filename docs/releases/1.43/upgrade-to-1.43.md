@@ -27,8 +27,6 @@
    - ai-dial-admin-backend: `0.16.0-rc.0`
    - ai-dial-admin-frontend: `0.16.0-rc.0`
    - ai-dial-admin-deployment-manager-backend: `0.16.0-rc.0`
-   - ai-dial-admin-evaluation-framework-backend: `0.1.0`
-   - ai-dial-admin-evaluation-framework-metrics: `0.1.0`
 
 ## Before upgrade
 
