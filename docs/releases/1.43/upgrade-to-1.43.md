@@ -25,7 +25,7 @@
    - ai-dial-mind-map-backend: `0.13.4`
    - ai-dial-mind-map-frontend: `0.10.0`
    - ai-dial-admin-backend: `0.16.0-rc.0`
-   - ai-dial-admin-frontend: `0.16.0-rc.0`
+   - ai-dial-admin-frontend: `0.16.0-rc.1`
    - ai-dial-admin-deployment-manager-backend: `0.16.0-rc.0`
 
 ## Before upgrade
@@ -60,7 +60,7 @@
 
 ### ai-dial-admin-frontend: 
 
-This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-frontend/blob/0.16.0-rc.0/docs/upgrade-plans/0.16.0.md) before proceeding.
+This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-frontend/blob/0.16.0-rc.1/docs/upgrade-plans/0.16.0.md) before proceeding.
 
 > To enable the required preview features, set the following environment variables:
 >
