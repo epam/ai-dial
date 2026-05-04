@@ -58,6 +58,22 @@
 | `ASR_MODEL` | - | No       | Specifies the model used for automatic speech recognition (ASR). When set together with the `voice-input` feature flag, it enables transcription mode: recorded audio is sent to this model for speech-to-text conversion, and the resulting text is automatically sent as a message. If not set, voice recording works only as a native audio attachment (the selected model must support audio MIME types). |
 | `DIAL_CORE_EXTERNAL_URL` | - | No       | DIAL Core external URL (Not used for API calls). |
 
+### ai-dial-quickapps-backend
+
+#### New environment variables
+
+| Variable                       | Default | Description                                                                                                                                                                                                |
+|--------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `DEFAULT_TOOL_TIMEOUT_SECONDS` | `300.0` | Deployment-wide default timeout (seconds, `0 < x ≤ 3600`) applied to every tool call (DIAL deployment, REST API, MCP, Python interpreter). Bounded by app config `tool_defaults.timeout_seconds` when set. |
+
+#### Deprecated environment variables
+
+> [!CAUTION]
+> Still works, but will be removed in future versions.
+
+| Variable                        | Replacement                                                       | Description                                                                                                                  |
+|---------------------------------|-------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| `PY_INTERPRETER_CLIENT_TIMEOUT` | `DEFAULT_TOOL_TIMEOUT_SECONDS` or `tool_defaults.timeout_seconds` | When set, still controls the PyInterpreter client timeout (default `60.0`); the unified tool-timeout settings are preferred. |
 
 ### ai-dial-admin-frontend: 
 
