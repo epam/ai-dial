@@ -45,17 +45,17 @@
 
 #### New environment variables
 
-| Variable                         | Default | Description |
-|----------------------------------|---------|-------------|
-| QWEN3_ASR_VLLM_DEPLOYMENTS       | ``      | Comma-separated list of [Qwen3-ASR deployments](#qwen3-asr) served via vLLM. Example: `qwen3-asr` |
+| Setting                         | Default | Required | Description |
+|----------------------------------|---------|---------|-------------|
+| QWEN3_ASR_VLLM_DEPLOYMENTS       | ``      | No| Comma-separated list of [Qwen3-ASR deployments](#qwen3-asr) served via vLLM. Example: `qwen3-asr` |
 
 ### ai-dial-chat
 
 #### New environment variables
 
-| Name        | Required | Description | Possible Values |
+| Setting        |  Default | Required | Description |
 |-------------|----------|-------------|-----------------|
-| `ASR_MODEL` | No       | Specifies the model used for automatic speech recognition (ASR). When set together with the `voice-input` feature flag, it enables transcription mode: recorded audio is sent to this model for speech-to-text conversion, and the resulting text is automatically sent as a message. If not set, voice recording works only as a native audio attachment (the selected model must support audio MIME types). | Any string |
+| `ASR_MODEL` | - | No       | Specifies the model used for automatic speech recognition (ASR). When set together with the `voice-input` feature flag, it enables transcription mode: recorded audio is sent to this model for speech-to-text conversion, and the resulting text is automatically sent as a message. If not set, voice recording works only as a native audio attachment (the selected model must support audio MIME types). |
 
 
 ### ai-dial-admin-frontend: 
