@@ -815,10 +815,20 @@ const sidebars = {
                   type: 'category',
                   label: 'Docker Compose',
                   items: [
-                    { type: 'doc', id: 'docs/NEW/operating-dial/configuration/docker-compose/index', label: 'Overview & .env' },
-                    { type: 'doc', id: 'docs/NEW/operating-dial/configuration/docker-compose/common-yml', label: 'common.yml' },
-                    { type: 'doc', id: 'docs/NEW/operating-dial/configuration/docker-compose/quickstart-setups', label: 'Quick Start Setups' },
-                    { type: 'doc', id: 'docs/NEW/operating-dial/configuration/docker-compose/advanced-setup', label: 'Advanced Setup' },
+                    { type: 'doc', id: 'docs/NEW/operating-dial/configuration/docker-compose/index', label: 'Overview' },
+                    { type: 'doc', id: 'docs/NEW/operating-dial/configuration/docker-compose/quick-start', label: 'Quick Start' },
+                    {
+                      type: 'category',
+                      label: 'Advanced Setup',
+                      items: [
+                        { type: 'doc', id: 'docs/NEW/operating-dial/configuration/docker-compose/advanced/index', label: 'Overview' },
+                        { type: 'doc', id: 'docs/NEW/operating-dial/configuration/docker-compose/advanced/core-services', label: 'Core, Redis & Themes' },
+                        { type: 'doc', id: 'docs/NEW/operating-dial/configuration/docker-compose/advanced/auth', label: 'Authentication' },
+                        { type: 'doc', id: 'docs/NEW/operating-dial/configuration/docker-compose/advanced/admin', label: 'Admin Panel' },
+                        { type: 'doc', id: 'docs/NEW/operating-dial/configuration/docker-compose/advanced/adapters-and-rag', label: 'Adapters & RAG' },
+                      ],
+                    },
+                    { type: 'doc', id: 'docs/NEW/operating-dial/configuration/docker-compose/env-reference', label: '.env Reference' },
                   ],
                 },
                 {
