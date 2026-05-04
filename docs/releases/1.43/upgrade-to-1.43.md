@@ -56,6 +56,7 @@
 | Setting        |  Default | Required | Description |
 |-------------|----------|-------------|-----------------|
 | `ASR_MODEL` | - | No       | Specifies the model used for automatic speech recognition (ASR). When set together with the `voice-input` feature flag, it enables transcription mode: recorded audio is sent to this model for speech-to-text conversion, and the resulting text is automatically sent as a message. If not set, voice recording works only as a native audio attachment (the selected model must support audio MIME types). |
+| `DIAL_CORE_EXTERNAL_URL` | - | No       | DIAL Core external URL (Not used for API calls). |
 
 
 ### ai-dial-admin-frontend: 
