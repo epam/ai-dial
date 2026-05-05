@@ -10,16 +10,16 @@ In DIAL, toolsets created by users (either using DIAL Core API or UI) are stored
 
 ## Main Screen
 
-The Assets/Toolsets screen displays all toolsets located in the Public folder in DIAL file storage. Toolsets get to the Public folder when published by users or added by administrators.
+The main screen screen displays all toolsets located in the Public folder in DIAL file storage. Toolsets get to the Public folder when published by users or added by administrators.
 
 > **Note**: This screen, does not give access to private toolsets of users.
 
 > * Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about Private and Public logical spaces for objects storage in DIAL.
 > * Refer to [Chat User Guide](/docs/tutorials/0.user-guide.md#to-publish-toolset) to learn how end users can publish toolsets and to [DIAL Core API Publications](https://dialx.ai/dial_api#tag/Publications) to learn how to create and manage publication requests via API.
 
-![ ](img/131.png)
+![ ](img/assets-toolsets.png)
 
-##### Public file storage
+### Folders
 
 Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. 
 
@@ -28,14 +28,36 @@ Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) 
 
 > **Note**, that access rules can be applied to sub-folders (manually or in publication request). You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). The effective authorization rule for an object in a sub-folder includes restrictions applied to all parent sub-folders up to the root folder. Refer to [Tutorials](/docs/tutorials/1.developers/1.work-with-resources/0.work-with-publications.md#effective-rules) to learn about affective rules for folders.
 
+#### Actions
+
+Hover over any folder in the right or left panel to display the actions menu.
+
 | Available Actions | Description |
 |-------------------|-------------|
-| **Create sub-folder + import objects** | Hover over any folder to display the **+** icon. It allows importing objects into new child or sibling sub-folders. <br />The process is similar to [Import](#import), but you’ll need to provide a name for the new folder. <br />Additionally, there’s an optional step where you can define [access rules](/docs/tutorials/3.admin/access-management-folders-storage.md#access-rules) for the new sub-folder. <br />**Note**: New sub-folders can only be created using this method or as part of a publication request if a new folder is specified during that process. |
-| **Actions** | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder. <br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with objects inside it.|
+| **Create sub-folders** |  Use to add new child or sibling sub-folders. |
+| **Move to** | Use to select a target location in the hierarchy to move the selected folder. | 
+| **Export** | Use to download the content of the selected folder with objects inside it as a ZIP archive or raw JSON file. |
+| **Rename** | Use to rename the selected folder. | 
+| **Manage permissions** | Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder. |
+| **Delete** | Use to delete the folder with objects inside it.|
 
-![ ](img/folder-actions.png)
+![ ](img/files-folders-actions.png)
 
-##### Toolsets grid
+#### Add Folders
+
+Toolsets can be placed in sub-folders. 
+
+In the actions menu of each existing folder, select **Add sibling** or **Add child** to create new sub-folders.
+
+> **Note**: The name of the folder must not exceed 160 characters.
+
+![ ](img/assets-apps-folder-actions.png)
+
+You can also navigate to a specific folder and use the **Create** dropdown in the toolbar to add sub-folders.
+
+![ ](img/toolsets-add-folder.png)
+
+### Toolsets
 
 Click any folder to display its content in the toolsets grid.
 
@@ -45,44 +67,40 @@ Click any folder to display its content in the toolsets grid.
 | **Version** | Version of the toolset. |
 | **Author** | Username or system ID associated with the user who created or last updated this toolset. |
 | **Updated time** | Timestamp of the last update. |
-| **Actions** | Actions you can perform on the selected toolset:<br />- **Open in new tab**: Opens the toolset's properties, features, and parameters in a new tab.<br />- **Move to another folder**: Select a target folder in the hierarchy to move the toolset.<br />- **Delete**: Remove the toolset. You can also use **Bulk Actions** in the toolbar to delete multiple toolsets at once.<br />- **Duplicate**: Create a copy of the toolset in one of two ways:<br />**New version**: Creates another version of the selected toolset. You can also quickly add a new version on the [Configuration](#configuration) screen by clicking **Create** in the **Version** dropdown.<br />**New toolset**: Clones the selected toolset as a new one. |
+| **Actions** | Actions you can perform on the selected toolsets:<br />- **Open in a new tab**: Opens the toolset's properties, features, and parameters in a new tab.<br />- **Duplicate**: Create a copy of the toolset in one of two ways:<br />**New version**: Creates another version of the selected toolset. You can also quickly add a new version on the [Configuration](#configuration) screen by clicking **Create** in the **Version** dropdown.<br />**New toolsets**: Clones the selected toolset as a new one.<br />- **Move to**: Select a target folder in the hierarchy to move the toolset.<br />- **Export**: Use to download the selected toolset. Refer to [Export](#export) to learn more.<br />- **Delete**: Remove the toolset. You can also use **Bulk Actions** in the toolbar to delete multiple toolsets at once. |
 
 ![ ](img/assets-toolsets-actions.png)
 
-## Export
+#### Export
 
-Use **Bulk Actions** in the toolbar to download selected toolsets. This is useful for migrating toolsets between environments, sharing sets of toolsets with other users, or keeping a point-in-time backup.
+You can export individual toolsets or folders with toolsets (including nested folders). Assets can be exported as ZIP archive or raw JSON files.
 
-![ ](img/apps_bulk_actions.png)
+* To export a folder, click **Export** in the actions menu of a specific folder to export its content.
+* To export a specific toolset, select it and click **Export** in its actions menu.
+* To export several toolsets (or their specific versions), select them and click **Export** in the top toolbar.
 
-##### To export toolsets:
+![ ](img/export-toolsets-bulk.png)  
 
-1. Click **Bulk Actions** button in the toolbar.
-2. Select toolsets by checking the boxes in each row. You can also select the version you want to export. 
-3. Click **Export** in the bottom to launch the export modal.
-4. In the modal window select the export format: ZIP Archive or JSON.
-5. Click **Export** to generate export file and start downloading.  
+#### Import
 
-## Import
+You can upload ZIP archives or raw JSON files of toolsets. This is essential for migrating, restoring, or sharing toolsets assets between DIAL users.
 
-Use **Import** in the toolbar to upload new or update existing toolsets from ZIP archive. This is essential for migrating, restoring, or sharing toolsets assets between DIAL users.
+![ ](img/import-toolsets.png)
 
 ##### To import toolsets:
 
-1. Click **Import** in the toolbar to launch the import modal.
-2. **Drag & Drop** your DIAL Admin archive into the files area or click **Browse** to open a file picker.
-
-    ![ ](img/140.png)
-
-3. Select a Conflict resolution strategy. It allows you to decide how to handle existing toolsets with the same identifier and version:
+1. Click **Create** in the toolbar and select **Import**.
+2. Select the type of files you want to import. **Drag & Drop** your ZIP archive or JSON files into the files area or click **Browse** to open a file picker.
+   * **Archive**: Select if you want to import a single ZIP or tarball containing multiple JSON files. **Note**: Only 1 archive can be imported at a time.
+   * **JSON**: Select if you want to import JSON files. **Note**: Up to 30 files can be imported at once.
+3. Select a Conflict resolution Strategy. It allows you to decide how to handle existing toolsets with the same name and version in your workspace:
    * **Skip**: Leave existing toolsets untouched, only new ones will be added.
-   * **Override**: Replace toolsets having the same name and version with the imported ones.
-4. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all toolsets will be imported directly into the root folder without recreating the original folder hierarchy.
+   * **Override**: Replace toolsets with the same name and version with the imported ones.
+   * **Edit manually**: Resolve conflicts manually one by one.
+4. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all apps will be imported directly into the root folder without recreating the original folder hierarchy.
 5. Click **Finish** to start.
 
-    ![ ](img/141.png)
-
-## Create
+#### Create
 
 On the main screen you can add new toolsets to the public folder.
 
@@ -90,7 +108,7 @@ On the main screen you can add new toolsets to the public folder.
 
 Follow these steps to add a new toolset: 
 
-1. Click **+ Create** to invoke the **Create Toolset** modal.
+1. Select a folder where you want to add a new toolset, click **Create** in the header's toolbar and select **Toolset** to invoke the **Create Toolset** modal.
 
     | Field | Required | Description |
     |-------|----------|-------------|
@@ -102,11 +120,11 @@ Follow these steps to add a new toolset:
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [toolset configuration](#configuration) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
 
-    ![](img/132.png)
+    ![](img/create-asset-toolset.png)
 
-## Delete
+#### Delete
 
-There are several ways to delete an application or a specific version of it:
+There are several ways to delete a toolset or a specific version of it:
 
 * Click **Delete** in the toolbar on the Configuration screen to permanently remove the selected toolset from your DIAL instance.
 * Use the Delete option in the toolset context menu.

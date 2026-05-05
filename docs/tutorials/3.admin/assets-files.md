@@ -12,7 +12,7 @@ DIAL can be configured to store files in a BLOB storage of the selected cloud pr
 
 ## Main Screen
 
-The Assets/Files screen displays all files located in the Public folder in DIAL file storage. Files get to the Public folder when published by users or added by administrators.
+The main screen displays all files located in the Public folder in DIAL file storage. Files get to the Public folder when published by users or added by administrators.
 
 > **Note**: This screen, does not give access to private files of users.
 
@@ -27,7 +27,7 @@ Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) 
 
 > **Note**, that access rules can be applied to sub-folders (manually or in publication request). You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). The effective authorization rule for an object in a sub-folder includes restrictions applied to all parent sub-folders up to the root folder. Refer to [Tutorials](/docs/tutorials/1.developers/1.work-with-resources/0.work-with-publications.md#effective-rules) to learn about affective rules for folders.
 
-##### Actions
+#### Actions
 
 Hover over any folder in the right or left panel to display the context menu.
 
@@ -41,6 +41,20 @@ Hover over any folder in the right or left panel to display the context menu.
 | **Delete** | Use to delete the folder with objects inside it.|
 
 ![ ](img/files-folders-actions.png)
+
+#### Add Folders
+
+You can place files in sub-folders.
+
+In the actions menu of each existing folder, select **Add sibling** or **Add child** to create new sub-folders.
+
+> **Note**: The name of the folder must not exceed 160 characters.
+
+![ ](img/assets-files-folder-actions.png)
+
+You can also navigate to a specific folder and use the **Add** dropdown in the toolbar to add sub-folders.
+
+![ ](img/assets-files-add-folder.png)
 
 ### Files
 
@@ -65,7 +79,7 @@ Click any file (or select several files) to see the context menu with available 
 
 ![ ](img/files-actions2.png)
 
-## Export 
+#### Export 
 
 You can download selected files or folders as a ZIP archive.
 
@@ -73,7 +87,7 @@ To export, make a selection and click **Export** in the toolbar. You can also ac
 
 ![ ](img/assets-files-export.png)
 
-## Import Files
+#### Import
 
 Use the **Add** dropdown in the toolbar to add new folders or files.
 
@@ -91,21 +105,7 @@ Use the **Add** dropdown in the toolbar to add new folders or files.
 
 ![ ](img/assets-files-import-file.png)
 
-## Add Folders
-
-You can place files in sub-folders.
-
-In the actions menu of each existing folder, select **Add sibling** or **Add child** to create new sub-folders.
-
-> **Note**: The name of the folder must not exceed 160 characters.
-
-![ ](img/assets-files-folder-actions.png)
-
-You can also navigate to a specific folder and use the **Add** dropdown in the toolbar to add sub-folders.
-
-![ ](img/assets-files-add-folder.png)
-
-## Delete 
+#### Delete 
 
 There are several ways to delete a file:
 

@@ -9,7 +9,7 @@ In DIAL, prompts created by users (either using [DIAL Core API](https://dialx.ai
 
 ## Main Screen
 
-The Assets/Prompts screen displays all prompts located in the Public folder in DIAL file storage. Prompts get to the Public folder when published by users or added by administrators.
+The main screen displays all prompts located in the Public folder in DIAL file storage. Prompts get to the Public folder when published by users or added by administrators.
 
 > **Note**: This screen, does not give access to private prompts of users.
 
@@ -27,7 +27,7 @@ Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) 
 
 > **Note**, that access rules can be applied to sub-folders (manually or in publication request). You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). The effective authorization rule for an object in a sub-folder includes restrictions applied to all parent sub-folders up to the root folder. Refer to [Tutorials](/docs/tutorials/1.developers/1.work-with-resources/0.work-with-publications.md#effective-rules) to learn about affective rules for folders.
 
-##### Actions
+#### Actions
 
 Hover over any folder in the right or left panel to display the actions menu.
 
@@ -41,6 +41,20 @@ Hover over any folder in the right or left panel to display the actions menu.
 | **Delete** | Use to delete the folder with objects inside it.|
 
 ![ ](img/files-folders-actions.png)
+
+#### Add Folders
+
+Prompts can be placed in sub-folders. 
+
+In the actions menu of each existing folder, select **Add sibling** or **Add child** to create new sub-folders.
+
+> **Note**: The name of the folder must not exceed 160 characters.
+
+![ ](img/assets-files-folder-actions.png)
+
+You can also navigate to a specific folder and use the **Create** dropdown in the toolbar to add sub-folders.
+
+![ ](img/prompts-add-folder.png)
 
 ### Prompts
 
@@ -58,7 +72,7 @@ Click any folder in the hierarchy to display prompts (and sub-folders) stored in
 
 ![ ](img/assets-prompts-actions.png)
 
-## Export
+#### Export
 
 You can export individual prompts or folders with prompts (including nested folders). Assets can be exported as ZIP archive or raw JSON files.
 
@@ -71,7 +85,7 @@ You can export individual prompts or folders with prompts (including nested fold
 
 ![ ](img/export-prompts-bulk.png)
 
-## Import
+#### Import
 
 You can upload ZIP archives or raw JSON files with prompts. This is essential for migrating, restoring, or sharing prompt assets between DIAL users.
 
@@ -90,7 +104,7 @@ You can upload ZIP archives or raw JSON files with prompts. This is essential fo
 4. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all prompts will be imported directly into the root folder without recreating the original folder hierarchy.
 5. Click **Finish** to start.
 
-## Create
+#### Create
 
 Follow these steps to manually add a single prompt to the Public folder:
 
@@ -108,21 +122,7 @@ Follow these steps to manually add a single prompt to the Public folder:
 
    ![](img/create-prompt.png)
 
-## Add Folders
-
-Prompts can be placed in sub-folders. 
-
-In the actions menu of each existing folder, select **Add sibling** or **Add child** to create new sub-folders.
-
-> **Note**: The name of the folder must not exceed 160 characters.
-
-![ ](img/assets-files-folder-actions.png)
-
-You can also navigate to a specific folder and use the **Create** dropdown in the toolbar to add sub-folders.
-
-![ ](img/prompts-add-folder.png)
-
-## Delete
+#### Delete
 
 There are several ways to delete a prompt or a specific version of it:
 
