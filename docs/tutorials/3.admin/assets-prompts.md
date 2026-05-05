@@ -60,7 +60,7 @@ Click any folder in the hierarchy to display prompts (and sub-folders) stored in
 
 ## Export
 
-You can export individual prompts or folders with prompts. Assets can be exported as ZIP archive or raw JSON files.
+You can export individual prompts or folders with prompts (including nested folders). Assets can be exported as ZIP archive or raw JSON files.
 
 * To export a folder, click **Export** in the actions menu of a specific folder to export its content.
 * To export a specific prompt, select it and click **Export** in its actions menu.

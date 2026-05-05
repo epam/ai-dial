@@ -29,6 +29,8 @@ On this screen, you can access all the available application deployments in your
 | **Attachment types** | Types of attachments this application can accept according to [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types). |
 | **Max attachment number** | Maximum number of attachments allowed in a single request. |
 | **Status** | Current status of the application:<br />- **Valid**: application configuration is compatible with the JSON schema or the related application runner.<br />Only valid entities will be materialized into the DIAL Core configuration.<br />- **Invalid**: application configuration is incompatible with the JSON schema of the related application runner. |
+| **Creation time** | Entity creation timestamp. |
+| **Updated time** | Timestamps of the latest update of the entity. |
 
 ## Create
 

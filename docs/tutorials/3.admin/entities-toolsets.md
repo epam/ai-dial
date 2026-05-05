@@ -25,11 +25,12 @@ On this screen, you can find all toolset deployments existing in your DIAL insta
 | **Display Name** | Name of a toolset displayed on UI (e.g. GitHub, Google Maps). |
 | **Description** | Description of a toolset. |
 | **ID** | Unique key under the toolsets section of DIAL Admin. |
-| **Updated Time** | Date and time when the toolset's configuration was last updated. |
 | **Source Type** | Source type of the toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets. |
 | **Source** | Identifier of a toolset source.<br />- For the [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) source type, it is a container ID.<br /> - For External Endpoint - a URL of the external endpoint. |
 | **Author** | Name of the toolset creator. |
 | **Topics** | Tags or categories assigned for toolsets for discovery, filtering, or grouping on UI (e.g. "finance," "support"). |
+| **Creation time** | Entity creation timestamp. |
+| **Updated time** | Timestamps of the latest update of the entity. |
 
 ## Create Toolset
 

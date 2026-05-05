@@ -22,9 +22,10 @@ On this screen, you can access all rotes added in DIAL Admin or via a direct mod
 | **Display Name** | Name of the route. |
 | **Description** | Brief free-text description of the Route's purpose. |
 | **Paths** | List of paths to be matched request's path. If any path is matched, the request will be processed by this route. A path can be a plain string or a regular expression. |
-| **Updated Time** | Date and time when the route's configuration was last updated. |
 | **Topics** | Tag that associates a route with one or more topics or categories (e.g. "finance", "support"). |
 | **Order** | The value of this parameter determines the order within the global routes. The lower value means the higher priority. The value can't be negative integer. The default one is 2\^31-1. |
+| **Creation time** | Entity creation timestamp. |
+| **Updated time** | Timestamps of the latest update of the entity. |
 
 ## Create
 

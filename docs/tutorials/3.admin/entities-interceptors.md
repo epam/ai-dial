@@ -41,9 +41,10 @@ On this screen, you can access all the available interceptors added via DIAL Adm
 | **Source Type** | Source type of the interceptor:<br />- [Interceptor Template](/docs/tutorials/3.admin/builders-interceptor-templates.md): Interceptor is based on a template.<br />- [Interceptor deployment](/docs/tutorials/3.admin/deployments-interceptors.md): Interceptor is based on a deployed interceptor image.<br />- External Endpoint: Interceptor is based on an external HTTP endpoint. |
 | **Source** | Identifier of the interceptor source: Interceptor's Template, Interceptor Container Id or Completion Endpoint URL, depending on the choice of the Source Type. |
 | **Author** | Information about the interceptor's author. |
-| **Updated time** | Date and time when the interceptor's configuration was last updated. |
 | **Status** | The current status of the interceptor.<br />- **local**: Apply to selected deployments.<br />- [global](/docs/tutorials/3.admin/home.md#system-properties): Apply to all deployments. |
  **Topics** | Tags that associate an interceptor with one or more topics or categories (e.g. "compliance", "logging"). |
+| **Creation time** | Entity creation timestamp. |
+| **Updated time** | Timestamps of the latest update of the entity. |
 
 ## Create
 

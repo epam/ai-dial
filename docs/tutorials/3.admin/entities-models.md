@@ -43,6 +43,8 @@ The grid with models displays the main properties of models which include:
 | **Interaction limit** | The interaction limit parameter in models refers to the maximum number of tokens that can be transmitted in a completion request and response combined. This parameter ensures that the model does not exceed a specified token limit during interactions. |
 | **Prompt price** | Cost per unit (according to **Cost unit**, typically "token" or "request") applied to the *input* portion of each call. Used by the [Dashboard and Usage Logs](/docs/tutorials/3.admin/telemetry-dashboard.md) to estimate spending in real time. |
 | **Completion price** | Cost per unit is charged for the output portion of each call. Combined with the prompt price, it determines your per-model cost calculations. |
+| **Creation time** | Entity creation timestamp. |
+| **Updated time** | Timestamps of the latest update of the entity. |
 
 ## Create Model
 
