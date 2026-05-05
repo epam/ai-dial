@@ -34,7 +34,7 @@ On the main screen, you can add new images for MCP Servers, AI Model Adapters an
 
 ##### To add a new image
 
-1. Click the **+Add** button on the main screen to open the **Adding Image** form.
+1. Click the **Add** button on the main screen and select to create a new image manually or add it from MCP Registry.
 2. Populate the required fields and click **Add** to add the image.
 
 | Field | Required | Description |
@@ -42,10 +42,11 @@ On the main screen, you can add new images for MCP Servers, AI Model Adapters an
 | Name | Yes | Name of the image. |
 | Description | No | Brief description of the image. |
 | Version | Yes | Version of the image. |
-| Type | Yes | Type of the image (MCP, Adapter or Interceptor). |
+| Type | Yes | Type of the image (MCP, Adapter or Interceptor). <br />**Note**: Not available when add **From MCP Registry** is selected.  |
 | Source type | Conditional | **Note**: Required for MCP type.<br />The source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
 | Docker image URI | Conditional | URI of the Docker image.<br/>Applies to all types. |
-| Source code repository parameters | Conditional | Applies if Type = MCP Image and Source type = Source code .<br/>- **Repo URL**: a source code repository URL. **Required**<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository. |
+| MCP server name | Conditional | Name of MCP server from the MCP registry. <br />**Required** when add **From MCP Registry** is selected. |
+| Source code repository parameters | Conditional | Applies if Type = MCP Image and Source type = Source code or when add **From MCP Registry** is selected.<br/>- **Repo URL**: a source code repository URL. **Not Available** when add **From MCP Registry** is selected.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository. |
 
 ![ ](img/add_image.png)
 
@@ -92,14 +93,14 @@ In the Properties tab, you can preview and modify selected image's basic propert
 | Description | No | Yes | Brief description of the image. |
 | Maintainer | No | Yes | Email address of the maintainer of the image. |
 | Topics | No | Yes | List of topics associated with the image. Click to display a list of available topics. <br />You can add your own custom topics to the list following these rules:<br /> - The topic name must not exceed 255 characters. <br /> - The topic name must not contain leading or trailing spaces.|
-| Source type | Conditional | Yes | **Note**: Required for MCP type of image.<br />The source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
+| Source type | Conditional | No | **Note**: Required for MCP type of image.<br />The source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
 | Docker image URI | Conditional | Yes | Valid Docker image URI (validated on backend). If provided, must not start or end with `/`.<br/>Applies to both MCP (if Source type = Docker image) and Interceptor types. |
-| Source code repository parameters | Conditional | Yes | Applies if Type = MCP Image and Source type = Source code .<br/>- **Repo URL** (required): Source code repository URL. If provided, must not start or end with `/`.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository.<br />- **Base directory**: The directory path with the Docker file. If provided, must not start or end with `/`. |
+| Source code repository parameters | Conditional | Yes | Applies if Type = MCP Image and Source type = Source code and when image is created from MCP Registry.<br/>- **Repo URL** (required): Source code repository URL. If provided, must not start or end with `/`.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository.<br />- **Base directory**: The directory path with the Docker file. If provided, must not start or end with `/`. |
+| MCP server name | Conditional | Yes | Applies only to MCP type of image.<br/>The name of the MCP server in the MCP Registry. |
 | MCP transport type | Conditional | Yes | Applies only to MCP type of image.<br/>The transport type used by the MCP image: <br />- **Remote**: HTTP (default), SSE (deprecated)<br />- **Local** (STDIO) |
 | Docker image URI | Conditional | Yes |  Valid Docker image URI (validated on backend). If provided, must not start or end with `/`.<br/>Applies to MCP (if Source type = Docker image), Adapter and Interceptor types. |
-| Source code repository parameters | Conditional | Yes | Applies if Type = MCP Image and Source type = Source code .<br/>- **Repo URL** (required): Source code repository URL. If provided, must not start or end with `/`.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository.<br />- **Base directory**: The directory path with the Docker file. If provided, must not start or end with `/`. |
+| Source code repository parameters | Conditional | Yes | Applies if Type = MCP Image and Source type = Source code and when image is created from MCP Registry.<br/>- **Repo URL** (required): Source code repository URL. If provided, must not start or end with `/`.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository.<br />- **Base directory**: The directory path with the Docker file. If provided, must not start or end with `/`. |
 | Build privileges | Yes | Yes | Use this setting to define permissions level when building image. |
-| MCP transport type | Conditional | Yes | Applies only to MCP type of image.<br/>The transport type used by the MCP image:<br />- **Remote** (HTTP/SSE)<br />- **Local** (STDIO). |
 
 ![ ](img/image_properties.png)
 
