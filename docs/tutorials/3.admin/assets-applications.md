@@ -100,7 +100,8 @@ Follow these steps to add a new application to the Public folder:
     | **Version** | Yes | Semantic identifier (e.g., 1.2.0) of an application's version. |
     | **Description** | No | Description of the application. |
     | **Source Type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided chat and/or MCP endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. In [Builders/Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) you can see all the available runners and add new ones. |
-    | **Chat Endpoint** | Conditional | The application's chat completion endpoint DIAL Core will use to communicate with application. Available if Source Type is **Endpoints**. |
+    | **Completion endpoint** | Yes | Chat completion endpoint URL that DIAL Core will invoke for this application to send user messages to receive AI-generated responses. Available if Source Type is **Endpoints**. |
+    | **Responses endpoint** | No | Responses endpoint URL that DIAL Core will invoke for this application to receive AI-generated replies and related metadata. Available if Source Type is **Endpoints**. |
     | **MCP Endpoint** | Conditional | The application's MCP endpoint DIAL Core will use to communicate with application. Available if Source Type is **Endpoints**. Transport is HTTP by default. |
     | **Application runner** | Conditional | Select one of the [available application runners](/docs/tutorials/3.admin/builders-application-runners.md). Required if Source Type is **Application runner**. |
 
