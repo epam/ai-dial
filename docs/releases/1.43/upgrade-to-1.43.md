@@ -38,6 +38,8 @@
 
 ### Release-specific notes
 
+- Please note that DIAL Core 0.42.x is not compatible with new DIAL Admin Panel 0.16.0. The reason: DIAL Admin Panel produces config with `responsesDefaults` field, which is unknown for DIAL Core 0.42.x and triggers config reload failures.
+
 ## Config changes
 
 
