@@ -19,14 +19,14 @@ On the main screen, you can see all the available and add new images.
 | Name | Name of the image. |
 | Author | Email address of the creator of the image. |
 | Description | Brief description of the image. |
-| Type | Type of the image (MCP, Adapter or Interceptor). |
+| Type | Type of the image (MCP, Adapter, Application or Interceptor). |
 | Source | Image or a Source code. |
 | Status | Current status of the image. |
-| Updated time | Timestamp fo the last update. |
+| Updated time | Timestamp of the last update. |
 | Creation time | Creation timestamp. |
 | Topics | List of topics associated with the image. |
 | Transport type | Transport type used by the MCP image:<br />- **Remote**: HTTP (default), SSE (deprecated)<br />- **Local** (STDIO). |
-| Actions | Buttons to manage the selected image:<br/>- **Delete**: Use to remove the image.<br/>- **Duplicate**: Use to create a copy of the image.<br/>- **Open in a new tab**: Use to open image properties in a new tab in your browser. |
+| Actions | Buttons to manage the selected image:<br/>- **Open in a new tab**: Use to open image properties in a new tab in your browser.<br/>- **Delete**: Use to remove the image.<br/>- **Duplicate**: Use to create a copy of the image. |
 
 ## Add Image
 
@@ -44,7 +44,7 @@ On the main screen, you can add new images for MCP Servers, AI Model Adapters, A
 | Version | Yes | Version of the image. |
 | Type | Yes | Type of the image (MCP, Adapter, Application or Interceptor). <br />**Note**: Not available when add **From MCP Registry** is selected.  |
 | Source type | Conditional | **Note**: Required for MCP type.<br />The source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
-| Docker Image URI | Conditional | URI of the Docker image.<br/>Applies to all source types. |
+| Docker Image URI | Conditional | URI of the Docker image.<br/>Does not apply when add **From MCP Registry** is selected. |
 | MCP server name | Conditional | Name of MCP server from the MCP registry. <br />**Required** when add **From MCP Registry** is selected. |
 | Source code repository parameters | Conditional | Applies if Type = MCP Image and Source type = Source code or when add **From MCP Registry** is selected.<br/>- **Repo URL**: a source code repository URL. **Not Available** when add **From MCP Registry** is selected.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository. |
 
@@ -96,7 +96,7 @@ In the Properties tab, you can preview and modify selected image's basic propert
 | Source type | Conditional | No | **Note**: Required for MCP type of image.<br />The source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
 | MCP server name | Conditional | Yes | Applies only to MCP type of image.<br/>The name of the MCP server in the MCP Registry. |
 | MCP transport type | Conditional | Yes | Applies only to MCP type of image.<br/>The transport type used by the MCP image: <br />- **Remote**: HTTP (default), SSE (deprecated)<br />- **Local** (STDIO) |
-| Docker image URI | Conditional | Yes |  Valid Docker image URI (validated on backend). If provided, must not start or end with `/`.<br/>Applies to MCP (if Source type = Docker image), Adapter, Application and Interceptor source types. |
+| Docker image URI | Conditional | Yes |  Valid Docker image URI (validated on backend). If provided, must not start or end with `/`.<br/>Applies to MCP (if Source type = Docker image), Adapter, Application and Interceptor image types. |
 | Source code repository parameters | Conditional | Yes | Applies if Type = MCP Image and Source type = Source code and when image is created from MCP Registry.<br/>- **Repo URL** (required): Source code repository URL. If provided, must not start or end with `/`.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository.<br />- **Base directory**: The directory path with the Docker file. If provided, must not start or end with `/`. |
 | Build privileges | Yes | Yes | Use this setting to define permissions level when building image. |
 

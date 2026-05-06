@@ -67,7 +67,7 @@ Click any folder to display its content in the toolsets grid.
 | **Version** | Version of the toolset. |
 | **Author** | Username or system ID associated with the user who created or last updated this toolset. |
 | **Updated time** | Timestamp of the last update. |
-| **Actions** | Actions you can perform on the selected toolsets:<br />- **Open in a new tab**: Opens the toolset's properties, features, and parameters in a new tab.<br />- **Duplicate**: Create a copy of the toolset in one of two ways:<br />**New version**: Creates another version of the selected toolset. You can also quickly add a new version on the [Configuration](#configuration) screen by clicking **Create** in the **Version** dropdown.<br />**New toolsets**: Clones the selected toolset as a new one.<br />- **Move to**: Select a target folder in the hierarchy to move the toolset.<br />- **Export**: Use to download the selected toolset. Refer to [Export](#export) to learn more.<br />- **Delete**: Remove the toolset. You can also use **Bulk Actions** in the toolbar to delete multiple toolsets at once. |
+| **Actions** | Actions you can perform on the selected toolsets:<br />**Open in a new tab**: Opens the toolset's properties, features, and parameters in a new tab.<br />**Duplicate**: Creates a copy of the toolset. Refer to [Duplicate](#duplicate) to learn more.<br />**Move to**: Select a target folder in the hierarchy to move the toolset.<br />**Export**: Use to download the selected toolset. Refer to [Export](#export) to learn more.<br />**Delete**: Remove the toolset. Refer to [Delete](#delete) to learn more. |
 
 ![ ](img/assets-toolsets-actions.png)
 
@@ -121,6 +121,24 @@ Follow these steps to add a new toolset:
 3. Once all required fields are filled click **Create**. The dialog closes and the new [toolset configuration](#configuration) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
 
     ![](img/create-asset-toolset.png)
+
+#### Duplicate
+
+You can duplicate an existing toolset to create a copy of it.
+
+> **Note**: When duplicating a toolset that requires authentication, you will be prompted to enter authentication credentials that will apply to a duplicate for security purposes.
+
+##### To create a duplicate of a toolset:
+
+1. Click **Duplicate** in the actions menu of a toolset on the main screen.
+2. In the **Duplicate Toolsets** window:
+    - Select Duplicate type: **New version**: Creates another version of the selected toolset. You can also quickly add a new version on the [Configuration](#configuration) screen by clicking **Create** in the **Version** dropdown. **New toolsets**: Clones the selected toolset as a new entity.
+    - Enter **Display Name**, **Version** and **ID** (disabled for New Version duplication type) for the new toolset.
+    - Enter **OAuth** credentials that will apply for the duplicate.
+    - Select **Folder Storage** where the new toolset will be stored (disabled for New Version duplication type).
+3. Click **Duplicate** to complete the procedure.
+
+![](img/duplicate-asset-toolset.png)
 
 #### Delete
 

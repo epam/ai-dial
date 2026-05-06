@@ -58,7 +58,7 @@ Click any MCP container on the main screen to open its configurations.
 
 On the configurations screen, you can view and edit the selected MCP container settings, start and stop the container, view logs and events, or delete the container.
 
-> **Note**: Configuration fields are disabled when the container is in a transition state (launching or stopping).
+> **Note**: Configuration fields are disabled for editing when the container is in a transition state (launching or stopping).
 
 ### Actions
 

@@ -4,7 +4,7 @@
 
 DIAL enables the use of self-hosted applications by deploying container images within DIAL infrastructure. Once containers are running, you can register applications in DIAL based on the endpoints exposed by these containers.
 
-> Refer to [Applications](/docs/tutorials/3.admin/entities-applications.md#create) to learn more.
+> Refer to [Applications](/docs/tutorials/3.admin/entities-applications.md#create) to learn how to create applications based on Application Containers.
 
 ## Main Screen
 
@@ -31,12 +31,12 @@ In **Application Containers**, you can manage containers for applications deploy
 
 ## Create
 
-On the main screen, you can add new containers based on existing [internal application images](/docs/tutorials/3.admin/deployments-images.md) or using the external Docker image reference. When a new container is created, you can use it as a source type to create [applications](/docs/tutorials/3.admin/entities-applications.md#create).
+On the main screen, you can add new containers based on existing [internal application images](/docs/tutorials/3.admin/deployments-images.md) or using the external Docker image reference. When a new container is created and running, you can use it as a source type to create [applications](/docs/tutorials/3.admin/entities-applications.md#create).
 
 ##### To create a new application container
 
 1. Click **Create** on the main screen and select to create a container from the Internal Application Image or Docker Image Reference.
-    - **Internal Application Image**: Select the desired [image](/docs/tutorials/3.admin/deployments-images.md) from the list and pick its installed version from the list (labeled with green indicator).
+    - **From Internal Application Image**: Select the desired [image](/docs/tutorials/3.admin/deployments-images.md) from the list and pick its installed version from the list (labeled with green indicator).
     - **From Docker Image Reference**: Provide the URI of the external Docker image you want to use.
 2. Specify **ID**, **Display Name** and **Description** properties and click **Finish** to create the container.
 3. The screen with the container configuration is displayed. You can modify the configuration as needed, run, stop or delete the container.
@@ -49,7 +49,7 @@ Click any container on the main screen to open its configuration screen.
 
 On the configuration screen, you can view and edit the selected container settings, start and stop the container, view logs and events, or delete the container.
 
-> **Note**: Configuration fields are disabled when the container is in a transition state (pending or stopping).
+> **Note**: Configuration fields are disabled for editing when the container is in a transition state (pending or stopping).
 
 ### Actions
 
@@ -57,7 +57,7 @@ In the header of the Configuration screen, you can find the following action but
 
 | Action | Description |
 |------- |-------------|
-| Create Application | Available for running containers. <br /> Click to create a new [applications](/docs/tutorials/3.admin/entities-applications.md#create) using this selected container. |
+| Create Application | Available for running containers. <br /> Click to create new [applications](/docs/tutorials/3.admin/entities-applications.md#create) using the selected container. |
 | Run/Stop | Click to start or stop the container. |       
 | Delete | Click to delete the container. **Note**: This will effect applications created based on the deleted container. |
 
@@ -72,7 +72,7 @@ You can use a **running** container to create a new AI application. Once created
     - **ID**: Unique identifier for the application. Auto-populated according to the selected container.
     - **Display Name**: Name of the application displayed on UI. Auto-populated according to the selected container.
     - **Description**: Brief description of the application.
-3. Click **Create** to submit the form and create the application. Repeat these steps to create more application if needed.
+3. Click **Create** to submit the form and create the application. Repeat these steps to create more applications if needed.
 
 ![](img/create_app_from_container.png)
 
@@ -86,16 +86,16 @@ In the Properties tab, you can view and edit the selected container settings.
 |----------|----------|----------|-------------|
 | ID | - | - | Unique read-only identifier for the container. Must be between 2 and 36 characters long. Can contain only lowercase Latin letters, numbers, and hyphens. |
 | Source Type | - | - | Unique read-only source type for the container: Docker Image Reference (for containers created based on external Docker images) or Internal Application Image (for containers created based on DIAL self-hosted images).  |
-| Creation Time | - | No | Container creation timestamp. |
-| Updated Time | - | No | Timestamp of the last update. |
-| Status | - | No | Current status of the container (e.g., Running, Stopped). |
-| URL | - | No | URL to access the running container. |
-| Restarts | - | No | Restart counter for launching containers. Use to identify crash loops. You can find details in the [Execution Log](#execution-log).|
+| Creation Time | - | - | Container creation timestamp. |
+| Updated Time | - | - | Timestamp of the last update. |
+| Status | - | - | Current status of the container (e.g., Running, Stopped). |
+| URL | - | - | URL to access the running container. |
+| Restarts | - | - | Restart counter for launching containers. Use to identify crash loops. You can find details in the [Execution Log](#execution-log).|
 | Display Name | Yes | Yes | Name of the container rendered in UI. Must be between 2 and 255 characters long. |
 | Description | No | Yes | Brief description of the container. |
 | Maintainer | No | Yes | Email address of the maintainer of the container. |
 | Topics | No | Yes | Topics are semantic labels that you can assign to containers (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
-| Application Image | Conditional | Yes | Name of the internal application image used to created the selected container. Disabled if the external Docker image was used to create the container. |
+| Application Image | Conditional | Yes | Name of the internal application image used to create the selected container. Disabled if the external Docker image was used to create the container. |
 | Docker Image Reference | Conditional | Yes | Name of the external Docker image used to created the selected container. Disabled if the internal application image was used to create the container. |
 | Endpoint Configuration | No | Yes | Configuration details for the endpoints exposed by the container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
 | Autoscaling | No | Yes | Parameters to dynamically adjust container replicas based on demand. <br /> - **Automatic scale to zero**: Use to define criteria to reduce replicas to zero to save resources. <br />- **Min and Max Replicas**: Sets the minimum and maximum number of instances that can run, ensuring availability and controlling costs. <br /> - **Pending requests to trigger autoscaling**: Specifies the number of queued requests required to trigger scaling up, helping maintain performance during traffic spikes. |

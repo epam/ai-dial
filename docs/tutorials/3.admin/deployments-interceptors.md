@@ -55,7 +55,7 @@ Click any interceptor container on the main screen to open its configuration scr
 
 On the configuration screen, you can view and edit the selected interceptor container settings, start and stop the container, view logs and events, or delete the container.
 
-> **Note**: Configuration fields are disabled when the container is in a transition state (pending or stopping).
+> **Note**: Configuration fields are disabled for editing  when the container is in a transition state (pending or stopping).
 
 ### Actions
 

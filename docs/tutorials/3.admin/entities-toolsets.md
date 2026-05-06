@@ -31,8 +31,9 @@ On this screen, you can find all toolset deployments existing in your DIAL insta
 | **Topics** | Tags or categories assigned for toolsets for discovery, filtering, or grouping on UI (e.g. "finance," "support"). |
 | **Creation time** | Entity creation timestamp. |
 | **Updated time** | Timestamps of the latest update of the entity. |
+| **Actions** | Actions you can perform on the selected toolsets:<br />- **Open in a new tab**: Opens the toolset's properties, features, and parameters in a new tab.<br />- **Duplicate**: Creates a copy of the toolset. Refer to [Duplicate](#duplicate) to learn more. <br />- **Delete**: Removes the toolset. Refer to [Delete](#delete) to learn more. |
 
-## Create Toolset
+## Create
 
 Follow these steps to add a new toolset definition:
 
@@ -52,6 +53,29 @@ Follow these steps to add a new toolset definition:
 3. Click **Create** to close the dialog and open the [configuration screen](#configuration). When done with toolset configuration, click **Save**. It may take some time for changes to take effect after saving.
 
     ![](img/create_toolsets.png)
+
+## Duplicate 
+
+You can duplicate an existing toolset to create a copy of it.
+
+> **Note**: When duplicating a toolset that requires authentication, you will be prompted to enter authentication credentials that will apply to a duplicate for security purposes.
+
+##### To create a duplicate of a toolset:
+
+1. Click **Duplicate** in the actions menu of a toolset on the main screen.
+2. In the **Duplicate Toolsets** window:
+    - Enter **Display Name** and **ID** for the duplicated toolset.
+    - Enter **OAuth** credentials that will apply for the duplicate.
+3. Click **Duplicate** to complete the procedure.
+
+![](img/duplicate-entity-toolset.png)
+
+## Delete
+
+There are several ways to delete a toolset or a specific version of it:
+
+* Click **Delete** in the toolbar on the Configuration screen to permanently remove the selected toolset from your DIAL instance.
+* Use the Delete option in the toolset context menu.
 
 ## Configuration
 
@@ -239,7 +263,3 @@ In JSON editor, you can use the view dropdown to select between Admin format and
 3. Chose between the Admin and Core format to see and work with properties in the necessary format. **Note**: Core format view mode does not render the actual configuration stored in DIAL Core but the configuration in Admin service displayed in the DIAL Core format.
 4. Make changes and click **Save** to apply them.
 5. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.
-
-### Delete
-
-Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected toolset.
