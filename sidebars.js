@@ -623,6 +623,11 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
+                      id: 'tutorials/admin/deployments-applications',
+                      label: 'Application Containers',
+                    },
+                    {
+                      type: 'doc',
                       id: 'tutorials/admin/deployments-images',
                       label: 'Images',
                     },

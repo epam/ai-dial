@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This page allows you to view, add and manage images for [MCP servers](/docs/tutorials/3.admin/deployments-mcp.md), [AI model adapters](/docs/tutorials/3.admin/deployments-adapters.md) and [Interceptors](/docs/tutorials/3.admin/deployments-interceptors.md) container deployments within the DIAL system.
+This page allows you to view, add and manage images for [MCP servers](/docs/tutorials/3.admin/deployments-mcp.md), [AI model adapters](/docs/tutorials/3.admin/deployments-adapters.md), [Applications](/docs/tutorials/3.admin/deployments-applications.md) and [Interceptors](/docs/tutorials/3.admin/deployments-interceptors.md) container deployments within the DIAL system.
 
 ## Main Screen
 
@@ -30,7 +30,7 @@ On the main screen, you can see all the available and add new images.
 
 ## Add Image
 
-On the main screen, you can add new images for MCP Servers, AI Model Adapters and Interceptors.
+On the main screen, you can add new images for MCP Servers, AI Model Adapters, Applications and Interceptors.
 
 ##### To add a new image
 
@@ -42,9 +42,9 @@ On the main screen, you can add new images for MCP Servers, AI Model Adapters an
 | Name | Yes | Name of the image. |
 | Description | No | Brief description of the image. |
 | Version | Yes | Version of the image. |
-| Type | Yes | Type of the image (MCP, Adapter or Interceptor). <br />**Note**: Not available when add **From MCP Registry** is selected.  |
+| Type | Yes | Type of the image (MCP, Adapter, Application or Interceptor). <br />**Note**: Not available when add **From MCP Registry** is selected.  |
 | Source type | Conditional | **Note**: Required for MCP type.<br />The source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
-| Docker image URI | Conditional | URI of the Docker image.<br/>Applies to all types. |
+| Docker Image URI | Conditional | URI of the Docker image.<br/>Applies to all source types. |
 | MCP server name | Conditional | Name of MCP server from the MCP registry. <br />**Required** when add **From MCP Registry** is selected. |
 | Source code repository parameters | Conditional | Applies if Type = MCP Image and Source type = Source code or when add **From MCP Registry** is selected.<br/>- **Repo URL**: a source code repository URL. **Not Available** when add **From MCP Registry** is selected.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository. |
 
@@ -71,7 +71,7 @@ In the header of the Configuration screen, you can find the following action but
 | Action | Description |
 |--------|-------------|
 | Version | Click to create a new image version or display configuration of a selected version. |
-| Create Interceptor/MCP/Adapter Container | Enabled for the installed images.<br />Click to create a new [MCP](/docs/tutorials/3.admin/deployments-mcp.md), [Adapter](/docs/tutorials/3.admin/deployments-adapters.md) or [Interceptor](/docs/tutorials/3.admin/deployments-interceptors.md) container based on the selected image. |
+| Create Interceptor/MCP/Adapter/Application Container | Enabled for the installed images.<br />Click to create a new [MCP](/docs/tutorials/3.admin/deployments-mcp.md), [Adapter](/docs/tutorials/3.admin/deployments-adapters.md), [Application](/docs/tutorials/3.admin/deployments-applications.md) or [Interceptor](/docs/tutorials/3.admin/deployments-interceptors.md) container based on the selected image. |
 | Install | Enabled for not installed images.<br />Click to install the selected version of an image. |
 | Delete | Click to delete the selected image. **Note**: Deleted image will effect the related containers. |
 
@@ -84,7 +84,7 @@ In the Properties tab, you can preview and modify selected image's basic propert
 | Field | Required | Editable | Description |
 |-------|----------|----------|-------------|
 | ID | - | No | Unique read-only identifier of the image. |
-| Type | - | No | Type of the image (MCP, Adapter or Interceptor). |
+| Type | - | No | Type of the image (MCP, Adapter, Application or Interceptor). |
 | Creation Time | - | No | Creation timestamp. |
 | Updated Time | - | No | Timestamp of the last update. |
 | Source type | - | No | Source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
@@ -94,11 +94,9 @@ In the Properties tab, you can preview and modify selected image's basic propert
 | Maintainer | No | Yes | Email address of the maintainer of the image. |
 | Topics | No | Yes | List of topics associated with the image. Click to display a list of available topics. <br />You can add your own custom topics to the list following these rules:<br /> - The topic name must not exceed 255 characters. <br /> - The topic name must not contain leading or trailing spaces.|
 | Source type | Conditional | No | **Note**: Required for MCP type of image.<br />The source type of the Docker image:<br />- **Docker Image**<br />- **Source Code** |
-| Docker image URI | Conditional | Yes | Valid Docker image URI (validated on backend). If provided, must not start or end with `/`.<br/>Applies to both MCP (if Source type = Docker image) and Interceptor types. |
-| Source code repository parameters | Conditional | Yes | Applies if Type = MCP Image and Source type = Source code and when image is created from MCP Registry.<br/>- **Repo URL** (required): Source code repository URL. If provided, must not start or end with `/`.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository.<br />- **Base directory**: The directory path with the Docker file. If provided, must not start or end with `/`. |
 | MCP server name | Conditional | Yes | Applies only to MCP type of image.<br/>The name of the MCP server in the MCP Registry. |
 | MCP transport type | Conditional | Yes | Applies only to MCP type of image.<br/>The transport type used by the MCP image: <br />- **Remote**: HTTP (default), SSE (deprecated)<br />- **Local** (STDIO) |
-| Docker image URI | Conditional | Yes |  Valid Docker image URI (validated on backend). If provided, must not start or end with `/`.<br/>Applies to MCP (if Source type = Docker image), Adapter and Interceptor types. |
+| Docker image URI | Conditional | Yes |  Valid Docker image URI (validated on backend). If provided, must not start or end with `/`.<br/>Applies to MCP (if Source type = Docker image), Adapter, Application and Interceptor source types. |
 | Source code repository parameters | Conditional | Yes | Applies if Type = MCP Image and Source type = Source code and when image is created from MCP Registry.<br/>- **Repo URL** (required): Source code repository URL. If provided, must not start or end with `/`.<br />- **Branch name**: the name of the branch in the source code repository.<br />- **SHA**: the SHA in the source code repository.<br />- **Base directory**: The directory path with the Docker file. If provided, must not start or end with `/`. |
 | Build privileges | Yes | Yes | Use this setting to define permissions level when building image. |
 
@@ -124,7 +122,7 @@ The allow list domains setting specifies which external resources the image buil
 
 > This tab is enabled for installed images.
 
-The Related Containers tab displays all [MCP](/docs/tutorials/3.admin/deployments-mcp.md), [Adapter](/docs/tutorials/3.admin/deployments-adapters.md) or [Interceptor](/docs/tutorials/3.admin/deployments-interceptors.md) containers related to the selected version of the image.
+The Related Containers tab displays all [MCP](/docs/tutorials/3.admin/deployments-mcp.md), [Adapter](/docs/tutorials/3.admin/deployments-adapters.md), [Application](/docs/tutorials/3.admin/deployments-applications.md) or [Interceptor](/docs/tutorials/3.admin/deployments-interceptors.md) containers related to the selected version of the image.
 
 ##### Add containers
 
