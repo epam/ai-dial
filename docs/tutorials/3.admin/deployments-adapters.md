@@ -16,27 +16,31 @@ In **Adapter Containers**, you can manage containers for AI model adapters deplo
 
 | Column | Description |
 |--------|-------------|
-| Display Name | Name of the adapter container rendered on UI. |
-| Description | Brief description of the adapter container. |
-| Status | Current status of the adapter container (e.g., Running, Stopped). |
-| ID | Unique identifier of the adapter container. |
-| Container URL | URL to access the running adapter container. |
+| Display Name | Name of the container rendered on UI. |
+| Description | Brief description of the container. |
+| Status | Current status of the container (e.g., Running, Stopped). |
+| ID | Unique identifier of the container. |
+| Source type | Type of the container source: Docker Image Reference (for containers created based on external Docker images) or Internal Adapter Image (for containers created based on DIAL self-hosted images). |
+| Source Name | The name of the container source: either Docker image name or ID of the internal image. |
+| Container URL | URL to access the running container. |
 | Author | Email address of the creator of the container. |
-| Create time | Container creation timestamp. |
-| Update time | Timestamp of the last update. |
-| Topics | Tags that associate adapter with one or more topics or categories. |
+| Creation time | Container creation timestamp. |
+| Updated time | Timestamp of the last update. |
+| Topics | Tags that associate the container with one or more topics or categories. |
 | Actions | Buttons to manage the selected adapter container:<br/>- **Open in a new tab**: Use to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: Use to duplicate the adapter container.<br/>- **Stop/Run**: Use to start and stop a container.<br/>- **Delete**: Use to remove the container. |  
 
 ## Create
 
-On the main screen, you can add new adapter containers based on existing [images](/docs/tutorials/3.admin/deployments-images.md). When a new container is created, you can use it as a source type to create [adapters](/docs/tutorials/3.admin/builders-adapters.md).
+On the main screen, you can add new adapter containers based on based on [Internal Adapter images](/docs/tutorials/3.admin/deployments-images.md) or External Docker Image Reference. When a new container is created, you can use it as a source type to create [adapters](/docs/tutorials/3.admin/builders-adapters.md).
+
+![](img/create_adapter_container2.png)
 
 ##### To create a new adapter container
 
-1. Click **Create** on the main screen and select to create a container from the internally-deployed image or an external image.
-    - **From Internal Adapter Image**: Select the desired [image](/docs/tutorials/3.admin/deployments-images.md) from the list and pick its installed version from the list (labeled with green indicator).
-    - **From Docker Image Reference**: Provide the URL of the external Docker image you want to use.
-2. Specify properties and click **Finish** to create the container.
+1. Click **Create** on the main screen and select to create a container from Internal Adapter Images or External Docker Image Reference.
+    - **From Internal Adapter Image**: Select the desired [Adapter image](/docs/tutorials/3.admin/deployments-images.md) from the list and pick its installed version from the list (labeled with green indicator).
+    - **From External Docker Image Reference**: Provide the URI of the external Docker image you want to use.
+2. Specify **ID**, **Display Name** and **Description** properties and click **Create** to create the container.
 3. The screen with the container configuration is displayed. You can modify the configuration as needed, run, stop or delete the container.
 
 ![](img/create_adapter_container.png)
@@ -83,7 +87,7 @@ In the Properties tab, you can view and edit the selected container settings.
 | Property | Required | Editable | Description |
 |----------|----------|----------|-------------|
 | ID | - | No | Unique read-only identifier for the container. Must be between 2 and 36 characters long. Can contain only lowercase Latin letters, numbers, and hyphens. |
-| Adapter Image | - | No | Image from which the container was created. <br />Click to display the list of available images where you can change the source image for the container. <br />**Note**: The container is redeployed when source image changes. |
+| Source Type | - | No | Type of the container source: Docker Image (for containers created based on external Docker images) or Internal Adapter Image (for containers created based on DIAL self-hosted images). | 
 | Creation Time | - | No | Container creation timestamp. |
 | Updated Time | - | No | Timestamp of the last update. |
 | Status | - | No | Current status of the container (e.g., Running, Stopped). |
@@ -93,6 +97,7 @@ In the Properties tab, you can view and edit the selected container settings.
 | Description | No | Yes | Brief description of the container. |
 | Maintainer | No | Yes | Email address of the maintainer of the container. |
 | Topics | No | Yes | Topics are semantic labels that you can assign to containers (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
+| Adapter Image | Conditional | Yes | Internal Adapter image from which the interceptor container was created. <br />Click to display the list of available images where you can change the source image for the container. <br />**Note**: The container is redeployed when source image changes. |
 | Docker Image Reference | Conditional | Yes | Reference of the external Docker image used to create the container. <br /> Available if the external Docker image was used to create the container. Disabled if the internal image was used to create the container. |
 | Endpoint Configuration | No | Yes | Configuration details for the endpoints exposed by the container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
 | Autoscaling | No | Yes | Parameters to dynamically adjust container replicas based on demand. <br /> - **Automatic scale to zero**: Use to define criteria to reduce replicas to zero to save resources. <br />- **Min and Max Replicas**: Sets the minimum and maximum number of instances that can run, ensuring availability and controlling costs. <br /> - **Pending requests to trigger autoscaling**: Specifies the number of queued requests required to trigger scaling up, helping maintain performance during traffic spikes. |

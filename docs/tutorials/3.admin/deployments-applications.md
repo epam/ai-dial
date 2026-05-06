@@ -31,7 +31,9 @@ In **Application Containers**, you can manage containers for applications deploy
 
 ## Create
 
-On the main screen, you can add new containers based on existing [internal application images](/docs/tutorials/3.admin/deployments-images.md) or using the external Docker image reference. When a new container is created and running, you can use it as a source type to create [applications](/docs/tutorials/3.admin/entities-applications.md#create).
+On the main screen, you can add new containers based on [Internal application Images](/docs/tutorials/3.admin/deployments-images.md) or using the External Docker Image Reference. When a new container is created and running, you can use it as a source type to create [applications](/docs/tutorials/3.admin/entities-applications.md#create).
+
+![](img/create_app_container2.png)
 
 ##### To create a new application container
 

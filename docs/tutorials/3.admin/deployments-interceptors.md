@@ -97,7 +97,7 @@ In the Properties tab, you can view and edit the selected interceptor container 
 | Property | Required | Editable | Description |
 |----------|----------|----------|-------------|
 | ID | - | No | Unique read-only identifier for the interceptor container. Must be between 2 and 36 characters long. Can contain only lowercase Latin letters, numbers, and hyphens. |
-| Source Type | - | No | Type of the container source: Docker Image Reference (for containers created based on external Docker images) or Internal Interceptor Image (for containers created based on DIAL self-hosted images). | 
+| Source Type | - | No | Type of the container source: Docker Image (for containers created based on external Docker images) or Internal Interceptor Image (for containers created based on DIAL self-hosted images). | 
 | Creation Time | - | No | Creation timestamp. |
 | Updated Time | - | No | Timestamp of the last update. |
 | Status | - | No | Current status of the interceptor container (e.g., Running, Stopped). |
