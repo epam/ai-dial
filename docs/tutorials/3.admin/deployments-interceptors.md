@@ -16,7 +16,7 @@ DIAL uses interceptors as a middleware that modifies incoming or outgoing reques
 
 ## Main Screen
 
-In **Interceptor Containers**, you can manage containers for interceptors within the DIAL system. You can create new containers based on existing [images](/docs/tutorials/3.admin/deployments-images.md), start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting.
+In **Interceptor Containers**, you can manage containers for interceptors within the DIAL system. You can create new containers based on [Internal Interceptor images](/docs/tutorials/3.admin/deployments-images.md) or External Docker Image Reference, start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting.
 
 ![](img/interceptor_deployments.png)
 
@@ -24,27 +24,33 @@ In **Interceptor Containers**, you can manage containers for interceptors within
 
 | Column | Description |
 |--------|-------------|
-| Display Name | Name of the interceptor container rendered on UI. |
-| Description | Brief description of the interceptor container. |
-| Status | Current status of the interceptor container (e.g., Running, Stopped). |
-| ID | Unique identifier of the interceptor container. |
-| Container URL | URL to access the running interceptor container. |
-| Author | Email address of the creator of the interceptor container. |
-| Topics | Tags that associate interceptor container with one or more topics or categories. |
-| Create time | Container creation timestamp. |
-| Update time | Timestamp of the last update. |
+| Display Name | Name of the container rendered on UI. |
+| Description | Brief description of the container. |
+| Status | Current status of the container (e.g., Running, Stopped). |
+| ID | Unique identifier of the container. |
+| Source type | Type of the container source: Docker Image Reference (for containers created based on external Docker images) or Internal Interceptor Image (for containers created based on DIAL self-hosted images). |
+| Source Name | The name of the container source: either Docker image name or ID of the internal image. |
+| Container URL | URL to access the running container. |
+| Author | Email address of the creator of the container. |
+| Topics | Tags that associate the container with one or more topics or categories. |
+| Creation time | Container creation timestamp. |
+| Updated time | Timestamp of the last update. |
 | Actions | Buttons to manage the selected interceptor container:<br/>- **Open in a new tab**: Use to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: Use to duplicate the interceptor container.<br/>- **Stop/Run**: Use to start and stop a container.<br/>- **Delete**: Use to remove the container. |  
 
 ## Create
 
-On the main screen, you can add new interceptor containers based on existing [images](/docs/tutorials/3.admin/deployments-images.md). When a new container is created, you can use it as a source type to create [interceptors](/docs/tutorials/3.admin/entities-interceptors.md).
+On the main screen, you can add new interceptor containers based on based on [Internal Interceptor images](/docs/tutorials/3.admin/deployments-images.md) or External Docker Image Reference. 
 
-##### To create a new interceptor container
+![](img/create_interceptor_container2.png)
 
-1. Click **Create** on the main screen and select to create a container from the internally-deployed image or an external image.
-    - **From Internal Interceptor Image**: Select the desired [image](/docs/tutorials/3.admin/deployments-images.md) from the list and pick its installed version from the list (labeled with green indicator).
-    - **From Docker Image Reference**: Provide the URL of the external Docker image you want to use.
-2. Specify properties and click **Finish** to create the container.
+When a new container is created, you can use it as a source type to create [interceptors](/docs/tutorials/3.admin/entities-interceptors.md).
+
+##### To create a new interceptor container:
+
+1. Click **Create** on the main screen and select to create a container from Internal Interceptor Image or External Docker Image Reference.
+    - **From Internal Interceptor Image**: Select the desired [Interceptor Image](/docs/tutorials/3.admin/deployments-images.md) from the list and pick its installed version from the list (labeled with green indicator).
+    - **External Docker Image Reference**: Provide the URI of the external Docker image you want to use.
+2. Specify **ID**, **Display Name** and **Description** properties and click **Finish** to create the container.
 3. The screen with the container configuration is displayed. You can modify the configuration as needed, run, stop or delete the container.
 
 ![](img/create_interceptor_container.png)
@@ -91,7 +97,7 @@ In the Properties tab, you can view and edit the selected interceptor container 
 | Property | Required | Editable | Description |
 |----------|----------|----------|-------------|
 | ID | - | No | Unique read-only identifier for the interceptor container. Must be between 2 and 36 characters long. Can contain only lowercase Latin letters, numbers, and hyphens. |
-| Interceptor Image | - | No | Docker image from which the interceptor container was created. <br />Click to display the list of available images where you can change the source image for the container. <br />**Note**: The container is redeployed when source image changes. |
+| Source Type | - | No | Type of the container source: Docker Image Reference (for containers created based on external Docker images) or Internal Interceptor Image (for containers created based on DIAL self-hosted images). | 
 | Creation Time | - | No | Creation timestamp. |
 | Updated Time | - | No | Timestamp of the last update. |
 | Status | - | No | Current status of the interceptor container (e.g., Running, Stopped). |
@@ -102,6 +108,7 @@ In the Properties tab, you can view and edit the selected interceptor container 
 | Maintainer | No | Yes | Email address of the maintainer of the interceptor container. |
 | Topics | No | Yes | Topics are semantic labels that you can assign to containers (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
 | Docker Image Reference | Conditional | Yes | Reference of the external Docker image used to create the container. <br /> Available if the external Docker image was used to create the container. Disabled if the internal image was used to create the container. |
+| Interceptor Image | Conditional | Yes | Internal Interceptor image from which the interceptor container was created. <br />Click to display the list of available images where you can change the source image for the container. <br />**Note**: The container is redeployed when source image changes. |
 | Endpoint Configuration | No | Yes | Configuration details for the endpoints exposed by the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
 | Autoscaling | No | Yes | Parameters to dynamically adjust container replicas based on demand. <br /> - **Automatic scale to zero**: Use to define criteria to reduce replicas to zero to save resources. <br />- **Min and Max Replicas**: Sets the minimum and maximum number of instances that can run, ensuring availability and controlling costs. <br /> - **Pending requests to trigger autoscaling**: Specifies the number of queued requests required to trigger scaling up, helping maintain performance during traffic spikes. |
 | Environment Variables | No | Yes | Environment variables set for the interceptor container. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. <br /> - **Name**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.<br /> - **Value**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`. |

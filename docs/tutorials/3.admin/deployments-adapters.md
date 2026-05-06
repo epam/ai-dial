@@ -8,7 +8,7 @@ DIAL enables the use of self-hosted AI model adapters by deploying container ima
 
 ## Main Screen
 
-In **Adapter Containers**, you can manage containers for AI model adapters deployed within the DIAL system. You can create new containers based on existing [images](/docs/tutorials/3.admin/deployments-images.md), start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting.
+In **Adapter Containers**, you can manage containers for AI model adapters deployed within the DIAL system. You can create new containers based on [Internal Adapter images](/docs/tutorials/3.admin/deployments-images.md) or External Docker Image Reference, start and stop running containers as needed, edit configuration settings, and view logs and events for troubleshooting.
 
 ![](img/adapter-deployments.png)
 
