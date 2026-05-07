@@ -16,7 +16,7 @@
    - ai-dial-chat: `0.45.0`
    - ai-dial-core: `0.43.0`
    - ai-dial-analytics-realtime: `0.23.0`
-   - ai-dial-rag: `0.42.0-rc.0`
+   - ai-dial-rag: `0.42.0`
    - ai-dial-log-parser: `0.3.0`
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.4.0`
@@ -79,7 +79,7 @@
 
 ### ai-dial-admin-frontend: 
 
-This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-frontend/blob/0.16.0-rc.1/docs/upgrade-plans/0.16.0.md) before proceeding.
+This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-frontend/blob/0.16.0/docs/upgrade-plans/0.16.0.md) before proceeding.
 
 > To enable the required preview features, set the following environment variables:
 >
@@ -90,7 +90,7 @@ This release includes high-priority changes. Please review the [full upgrade gui
 
 ### ai-dial-admin-deployment-manager-backend: 
 
-This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.16.0-rc.0/docs/upgrade-plans/0.16.0.md) before proceeding.
+This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.16.0/docs/upgrade-plans/0.16.0.md) before proceeding.
 
 ### ai-dial-admin-backend: 
 
