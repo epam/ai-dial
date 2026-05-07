@@ -94,4 +94,17 @@ This release includes high-priority changes. Please review the [full upgrade gui
 
 ### ai-dial-admin-backend: 
 
-This release includes low-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-backend/blob/release-0.16/docs/upgrade-plans/0.16.0.md) before proceeding.
+This release includes low-priority changes in observability.
+
+#### New environment variables
+
+| Setting                                        | Default              | Required | Description                                    |
+| ---------------------------------------------- | -------------------- | -------- | ---------------------------------------------- |
+| `METRICS_INFLUX_CONNECT_TIMEOUT`               | `10`                 | No       | InfluxDB connection timeout.                   |
+| `METRICS_INFLUX_READ_TIMEOUT`                  | `60`                 | No       | InfluxDB read timeout.                         |
+| `METRICS_INFLUX_WRITE_TIMEOUT`                 | `60`                 | No       | InfluxDB write timeout.                        |
+| `METRICS_STORAGE_ROUTES_ANALYTICS_BUCKET`      | `analytics-realtime` | No       | Storage bucket for routes analytics metrics.   |
+| `METRICS_STORAGE_ROUTES_ANALYTICS_MEASUREMENT` | `routes_analytics`   | No       | Measurement name for routes analytics metrics. |
+| `METRICS_STORAGE_ROUTES_ANALYTICS_TABLE`       | `routes_analytics`   | No       | Table name for routes analytics metrics.       |
+
+
