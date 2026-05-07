@@ -91,3 +91,7 @@ This release includes high-priority changes. Please review the [full upgrade gui
 ### ai-dial-admin-deployment-manager-backend: 
 
 This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.16.0-rc.0/docs/upgrade-plans/0.16.0.md) before proceeding.
+
+### ai-dial-admin-backend: 
+
+This release includes low-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-backend/blob/0.16.0-rc.0/docs/upgrade-plans/0.16.0.md) before proceeding.
