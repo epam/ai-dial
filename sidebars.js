@@ -729,6 +729,117 @@ const sidebars = {
       items: [
         {
           type: 'category',
+          label: 'Building with DIAL',
+          items: [
+            {
+              type: 'doc',
+              id: 'docs/NEW/building-with-dial/index',
+              label: 'Overview',
+            },
+            {
+              type: 'category',
+              label: 'Apps',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/building-with-dial/apps/index',
+                  label: 'DIAL Apps overview',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/building-with-dial/apps/when-to-use-which',
+                  label: 'When to use which',
+                },
+                {
+                  type: 'category',
+                  label: 'Custom Apps',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/index',
+                      label: 'Architecture and lifecycle',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/getting-started-sdk',
+                      label: 'Getting started with DIAL SDK',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/tutorial-translator-app',
+                      label: 'Tutorial: translator app',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/tutorial-rag-app',
+                      label: 'Tutorial: build a RAG app',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/custom-buttons',
+                      label: 'Tutorial: custom buttons app',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/register-app',
+                      label: 'Register an app in DIAL Core',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/deployment',
+                      label: 'Deploy a Custom App',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/examples',
+                      label: 'Examples',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Quick Apps',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/quick-apps/index',
+                      label: 'What are Quick Apps',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/quick-apps/what-is-a-tool-set',
+                      label: 'What is a Tool Set',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Code Apps',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/code-apps/index',
+                      label: 'Overview',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Mind Map Studio',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/mind-map-studio/index',
+                      label: 'Overview',
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
           label: 'Operating DIAL',
           items: [
             {
