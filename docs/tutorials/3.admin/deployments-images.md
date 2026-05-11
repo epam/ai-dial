@@ -34,7 +34,7 @@ On the main screen, you can add new images for MCP Servers, AI Model Adapters, A
 
 ##### To add a new image
 
-1. Click the **Add** button on the main screen and select to create a new image manually or add it from MCP Registry.
+1. Click the **Add** button on the main screen and select to create a new image manually or add it from [MCP Registry](https://registry.modelcontextprotocol.io/).
 2. Populate the required fields and click **Add** to add the image.
 
 | Field | Required | Description |

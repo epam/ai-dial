@@ -16,7 +16,7 @@ MCP Containers can be used as sources to create [Toolsets](/docs/tutorials/3.adm
 
 ## Main Screen
 
-On the main screen, you can see a list of all MCP containers along with their current status and details. On this screen, you can also add new MCP containers based on existing images.
+On the main screen, you can see a list of all MCP containers along with their current status and details. On this screen, you can also add new MCP containers based on [internally deployed MCP images](/docs/tutorials/3.admin/deployments-images.md), external Docker image reference or [MCP Registry](https://registry.modelcontextprotocol.io/).
 
 ![](img/mcp_deployments.png)
 
