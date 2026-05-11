@@ -30,7 +30,7 @@ Usage Log offers two complementary views: **Traces** for granular request-level 
 
 In **Traces** you can access a detailed view into all requests processed by DIAL Core. Each row represents an individual request—whether initiated by an external or internal DIAL client. Use it to investigate specific interactions, troubleshoot issues, or analyze usage patterns.
 
-![](img/119.png)
+![](img/usage-log-traces.png)
 
 | Column | Description |
 |--------|-------------|
@@ -62,7 +62,7 @@ In **Traces** you can access a detailed view into all requests processed by DIAL
 
 In **Conversations** you can access metrics of requests that belong to a single conversation - share the same Conversation ID. Each row in the table represents a conversation session. This view enables you to analyze multi-turn dialogues, track user engagement patterns, and monitor resource utilization across entire conversation flows rather than isolated requests.
 
-![](img/120.png)
+![](img/usage-log-conversations.png)
 
 | Column | Description |
 |--------|-------------|
@@ -84,6 +84,8 @@ In **Conversations** you can access metrics of requests that belong to a single 
 
 The MCP tab provides a focused view of MCP-related activity within DIAL Core. Each row represents an MCP call, allowing administrators to track when and how MCPs are used across deployments and projects. This tab helps you monitor tool usage, trace individual calls, and analyze integration patterns with MCPs.
 
+![](img/usage-log-mcp.png)
+
 | **Column**         | **Description** |
 |--------------------|-----------------|
 | **Last activity**  | Timestamp of the most recent MCP call. |
@@ -92,3 +94,21 @@ The MCP tab provides a focused view of MCP-related activity within DIAL Core. Ea
 | **Tool Name**      | Name of the tool invoked during the MCP call. |
 | **Trace ID**       | OpenTelemetry trace ID uniquely identifying the MCP call and its related sequence of operations. |
 | **Method**         | The method or operation performed by the MCP tool. |
+
+## Routes
+
+The Routes tab provides a focused view into Routes-related activity within DIAL Core. Each row represents a call to a Route, allowing administrators to track when and how Routes are used across deployments and projects. 
+
+> Refer to [Routes](/docs/tutorials/3.admin/entities-routes.md) to learn more about them.
+
+![](img/usage-log-routes.png)
+
+| **Column**         | **Description** |
+|--------------------|-----------------|
+| **Last activity** | Timestamp of the most recent route call. |
+| **Route** | Name of the route invoked during the route call. |
+| **Method** | The method or operation performed by the route. |
+| **Upstream** | The upstream endpoint called during the route call. |
+| **Deployment ID** | Identifier of the application which initiated a route call. |
+| **Project** | Project ID associated with the route call, based on the DIAL API Key used. |
+| **Trace ID** | OpenTelemetry trace ID uniquely identifying the route call and its related sequence of operations. |

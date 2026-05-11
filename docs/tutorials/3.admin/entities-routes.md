@@ -8,6 +8,8 @@ Once a route with a designated endpoint is set up in DIAL Core, it allows client
 
 > You can also define routes for specific application deployments and Application Runners. Refer to [Applications](/docs/tutorials/3.admin/entities-applications.md#app-routes) and [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md#app-routes) to learn how to do this.
 
+> Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/routes.md) to learn more about routes and how to call a route from the application.
+
 ## Main Screen
 
 On this screen, you can access all rotes added in DIAL Admin or via a direct modification of [DIAL Core config file](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/routes.md).
