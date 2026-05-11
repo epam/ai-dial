@@ -45,7 +45,7 @@ Follow these steps to add a new toolset definition:
     | **ID** | Yes | Define a unique identifier of a toolset.|
     | **Display Name** | Yes | Define a name of a toolset shown across the UI (e.g. GitHub, Google Maps).|
     | **Description** | No | Enter a free-text note about the this toolset’s purpose, capabilities, or any other relevant details. |
-    | **Source Type** | Yes |Choose between the available source types of toolset: <br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.<br />- **MCP Registry**: Centralized directory for Model Context Protocol (MCP) servers.|
+    | **Source Type** | Yes |Choose between the available source types of toolset: <br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.<br />- **MCP Registry**: [MCP Registry](https://registry.modelcontextprotocol.io/) for Model Context Protocol (MCP) servers.|
     | **External Endpoint** | Conditional | Define a Toolset API endpoint for MCP calls. Applies for External Endpoint source type. |
     | **Container** | Conditional | Select one of the available [MCP containers](/docs/tutorials/3.admin/deployments-mcp.md) from the list. Applies for MCP Container source type. |
     | **MCP server name** | Conditional | Select one of the available MCP servers in the registry. Applies for MCP Registry source type. |
@@ -102,10 +102,10 @@ In the **Properties** tab, you can view and edit main definitions and settings o
 | **Maintainer** | No | Yes | Name of the user overseeing the toolset's configuration. |
 | **Icon** | No | Yes | Logo to visually distinguish toolsets in the UI. |
 | **Topics** | No | Yes | Tag that associates a toolsets with one or more topics or categories (e.g. "finance", "support"). |
-| **Source Type** | Yes | Yes | The source type of the selected toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.<br />- **MCP Registry**: Centralized directory for Model Context Protocol (MCP) servers. |
+| **Source Type** | Yes | Yes | The source type of the selected toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.<br />- **MCP Registry**: [MCP Registry](https://registry.modelcontextprotocol.io/) for Model Context Protocol (MCP) servers. |
 | **External Endpoint** | Conditional | Yes | Toolset endpoint for MCP calls. Applies for External Endpoint source type. |
 | **Container** | Conditional | Yes | MCP server [container ID](/docs/tutorials/3.admin/deployments-mcp.md). Applies for MCP Container deployment source type. |
-| **MCP server name** | Conditional | Yes | Select one of the available MCP servers in the registry. Applies for MCP Registry source type. |
+| **MCP server name** | Conditional | Yes | Name of MCP server from the [MCP Registry](https://registry.modelcontextprotocol.io/). Start typing in the text box to search for available MCP servers or click **Select from registry** to display a window with a list of available MCP servers and their details. <br />Applies for MCP Registry source type. |
 | **Transport** | Yes | Yes | Transport supported by a related endpoint.<br />Available options: HTTP (default) or SSE (deprecated) |
 | **Forward per request key** | No | Yes | Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. <br />**Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`. |
 | **Max retry attempts** | Yes | Yes | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) routing a failed call to a toolset endpoint (due to timeouts or 5xx errors). |
