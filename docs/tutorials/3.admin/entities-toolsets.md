@@ -25,7 +25,7 @@ On this screen, you can find all toolset deployments existing in your DIAL insta
 | **Display Name** | Name of a toolset displayed on UI (e.g. GitHub, Google Maps). |
 | **Description** | Description of a toolset. |
 | **ID** | Unique key under the toolsets section of DIAL Admin. |
-| **Source Type** | Source type of the toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets. |
+| **Source Type** | Source type of the toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.<br />- [MCP Registry](https://registry.modelcontextprotocol.io/): MCP server from the registry. |
 | **Source** | Identifier of a toolset source.<br />- For the [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) source type, it is a container ID.<br /> - For External Endpoint - a URL of the external endpoint.<br /> - For MCP Registry - MCP server name based on [MCP Registry](https://registry.modelcontextprotocol.io/). |
 | **Author** | Name of the toolset creator. |
 | **Topics** | Tags or categories assigned for toolsets for discovery, filtering, or grouping on UI (e.g. "finance," "support"). |
@@ -46,9 +46,9 @@ Follow these steps to add a new toolset definition:
     | **Display Name** | Yes | Define a name of a toolset shown across the UI (e.g. GitHub, Google Maps).|
     | **Description** | No | Enter a free-text note about the this toolset’s purpose, capabilities, or any other relevant details. |
     | **Source Type** | Yes |Choose between the available source types of toolset: <br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.<br />- **MCP Registry**: [MCP Registry](https://registry.modelcontextprotocol.io/) for Model Context Protocol (MCP) servers.|
-    | **External Endpoint** | Conditional | Define a Toolset API endpoint for MCP calls. Applies for External Endpoint source type. |
-    | **Container** | Conditional | Select one of the available [MCP containers](/docs/tutorials/3.admin/deployments-mcp.md) from the list. Applies for MCP Container source type. |
-    | **MCP server name** | Conditional | Select one of the available MCP servers in the registry. Applies for MCP Registry source type. |
+    | **External Endpoint** | Conditional | Define a Toolset API endpoint for MCP calls. <br />Applies for External Endpoint source type. |
+    | **Container** | Conditional | Select one of the available and running [MCP containers](/docs/tutorials/3.admin/deployments-mcp.md) from the list. <br />Applies for MCP Container source type. |
+    | **MCP server name** | Conditional | Applies for MCP Registry source type. <br />Select one of the available MCP servers in the registry. <br />**Important**: MCP servers must support Remotes `streamable-http` and `sse`. |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#configuration). When done with toolset configuration, click **Save**. It may take some time for changes to take effect after saving.
 
@@ -101,7 +101,7 @@ In the **Properties** tab, you can view and edit main definitions and settings o
 | **Description** | No | Yes | Description of a toolset. |
 | **Maintainer** | No | Yes | Name of the user overseeing the toolset's configuration. |
 | **Icon** | No | Yes | Logo to visually distinguish toolsets in the UI. |
-| **Topics** | No | Yes | Tag that associates a toolsets with one or more topics or categories (e.g. "finance", "support"). |
+| **Topics** | No | Yes | Topics are semantic labels that you can assign to toolsets (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
 | **Source Type** | Yes | Yes | The source type of the selected toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.<br />- **MCP Registry**: [MCP Registry](https://registry.modelcontextprotocol.io/) for Model Context Protocol (MCP) servers. |
 | **External Endpoint** | Conditional | Yes | Toolset endpoint for MCP calls. Applies for External Endpoint source type. |
 | **Container** | Conditional | Yes | MCP server [container ID](/docs/tutorials/3.admin/deployments-mcp.md). Applies for MCP Container deployment source type. |

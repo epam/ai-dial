@@ -45,8 +45,8 @@ On the main screen, you can add new MCP containers based on internally deployed 
 
 1. Click **Create** on the main screen and select one of the options:
     - **From Internal MCP Image**: Select the desired [image](/docs/tutorials/3.admin/deployments-images.md) from the list and pick its installed version from the list (labeled with green indicator).
-    - **From Docker Image Reference**: Provide the URL of the external Docker image you want to use.
-    - **From MCP Registry**: Name of MCP server from the [MCP Registry](https://registry.modelcontextprotocol.io/). Start typing in the text box to search for available MCP servers or click **Select from registry** to display a window with a list of available MCP servers and their details.
+    - **From Docker Image Reference**: Provide the URI of the external Docker image you want to use.
+    - **From MCP Registry**: Name of MCP server from the [MCP Registry](https://registry.modelcontextprotocol.io/). Start typing in the text box to search for available MCP servers or click **Select from registry** to display a window with a list of available MCP servers and their details. <br />**Important**: The selected MCP server must have an OCI package and support Remotes `streamable-http` and `sse`.
 2. Specify **ID**, **Display Name** and **Description** and click **Finish** to create the container.
 3. The screen with the container configuration is displayed. You can modify the configuration as needed, run, stop or delete the container.
 
@@ -112,7 +112,7 @@ In the Properties tab, you can preview and modify selected container's basic pro
 | Property | Required | Editable | Description |
 |----------|----------|----------|-------------|
 | ID | - | No | Unique identifier of the MCP container. Must be between 2 and 36 characters long. Can contain only lowercase Latin letters, numbers, and hyphens. |
-| MCP Image | - | No | Image from which the MCP container was created. <br />Click to display the list of available images where you can change the source image for the container. <br />**Note**: The container is redeployed when source image changes.  |
+| Source Type | - | No | The source type of the MCP container e.g. Internal MCP Image or Docker image. |
 | Creation Time | - | No | Container creation timestamp. |
 | Updated Time | - | No | Timestamp of the last update. |
 | Status | - | No | Current status of the MCP container (e.g., Running, Stopped). |
@@ -120,10 +120,10 @@ In the Properties tab, you can preview and modify selected container's basic pro
 | Restarts | - | No | Restart counter for launching containers. Use to identify crash loops. You can find details in the [Execution Log](#execution-log). |
 | Display Name | Yes | Yes | Display name of the MCP container rendered in UI. Must be between 2 and 255 characters long. |
 | Description | No | Yes | Brief description of the MCP container. |
-| Maintainer | No | Yes | Maintainer of the MCP container. |
-| Endpoint Configuration | No | Yes | Endpoint configuration of the MCP container:<br /> **Transport**: the transport protocol (HTTP (default) or SSE (deprecated)).<br />**Container endpoint path**: the specific endpoint path where the MCP service is accessible.<br />**Port**: the network port the container uses (If provided, must be between 1 and 65535.). <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
+| Maintainer | No | Yes | Email address of the creator and maintainer of the MCP container. |
 | Topics | No | Yes | Topics are semantic labels that you can assign to containers (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
-| Docker Image Reference | Conditional | Yes | Reference of the external Docker image used to create the container. <br /> Available if the external Docker image was used to create the container. Disabled if the internal image was used to create the container. |
+| MCP Image | Conditional | Yes | Internal MCP image name used to create the selected container. <br /> Available for containers created from internal MCP images. |
+| Docker Image Reference | Conditional | Yes | URI of the external Docker image used to create the container. <br /> Available if the external Docker image was used to create the container. |
 | MCP server name | Conditional | Yes | Name of MCP server from the [MCP Registry](https://registry.modelcontextprotocol.io/). Start typing in the text box to search for available MCP servers or click **Select from registry** to display a window with a list of available MCP servers and their details.<br /> Available if the MCP Registry was used to create the container. |
 | Endpoint Configuration | No | Yes | Endpoint configuration of the MCP container:<br /> **Transport**: the transport protocol (HTTP (default) or SSE).<br />**Container endpoint path**: the specific endpoint path where the MCP service is accessible.<br />**Port**: the network port the container uses (If provided, must be between 1 and 65535.). <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
 | Autoscaling | No | Yes | Parameters to dynamically adjust container replicas based on demand. <br /> - **Automatic scale to zero**: Use to define criteria to reduce replicas to zero to save resources. <br />- **Min and Max Replicas**: Sets the minimum and maximum number of instances that can run, ensuring availability and controlling costs. <br /> - **Pending requests to trigger autoscaling**: Specifies the number of queued requests required to trigger scaling up, helping maintain performance during traffic spikes. |
