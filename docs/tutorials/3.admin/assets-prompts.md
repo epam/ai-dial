@@ -67,7 +67,7 @@ Click any folder in the hierarchy to display prompts (and sub-folders) stored in
 | **Display Name** | Prompt name displayed on UI. |
 | **Version** | Version of the prompt (e.g. `1.0.0`). |
 | **Author** | Username or system ID associated with the user who created or last updated this file. |
-| **Updated time** | Timestamp of the last modification of the prompt. |
+| **Updated Time** | Timestamp of the last modification of the prompt. |
 | **Actions** | Actions you can perform on the selected prompt:<br />- **Duplicate**: Create a copy of the prompt in one of two ways:<br />**New version**: Creates another version of the selected prompt. You can also quickly add a new version on the [Properties](#properties) screen by clicking **Create** in the **Version** dropdown.<br />**New prompt**: Clones the selected prompt as a new one.<br />- **Move to**: Select a target folder in the hierarchy to move the prompt. To move more than one prompt, select them and click **Move to** in the toolbar.<br />- **Export**: Use to download the selected prompt. Refer to [Export](#export) to learn more.<br />- **Open in a new tab**: Opens the prompt's properties in a new tab.<br />- **Delete**: Remove the prompt. You can also select prompts you want to delete and click **Delete** in the toolbar to delete them all at once. Refer to [Delete](#delete) to learn more.<br /> |
 
 ![ ](img/assets-prompts-actions.png)

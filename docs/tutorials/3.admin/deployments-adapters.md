@@ -24,8 +24,8 @@ In **Adapter Containers**, you can manage containers for AI model adapters deplo
 | Source Name | The name of the container source: either Docker image name or ID of the internal image. |
 | Container URL | URL to access the running container. |
 | Author | Email address of the creator of the container. |
-| Creation time | Container creation timestamp. |
-| Updated time | Timestamp of the last update. |
+| Creation Time | Container creation timestamp. |
+| Updated Time | Timestamp of the last update. |
 | Topics | Tags that associate the container with one or more topics or categories. |
 | Actions | Buttons to manage the selected adapter container:<br/>- **Open in a new tab**: Use to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: Use to duplicate the adapter container.<br/>- **Stop/Run**: Use to start and stop a container.<br/>- **Delete**: Use to remove the container. |  
 

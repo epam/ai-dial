@@ -29,8 +29,8 @@ On this screen, you can find all toolset deployments existing in your DIAL insta
 | **Source** | Identifier of a toolset source.<br />- For the [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) source type, it is a container ID.<br /> - For External Endpoint - a URL of the external endpoint.<br /> - For MCP Registry - MCP server name based on [MCP Registry](https://registry.modelcontextprotocol.io/). |
 | **Author** | Name of the toolset creator. |
 | **Topics** | Tags or categories assigned for toolsets for discovery, filtering, or grouping on UI (e.g. "finance," "support"). |
-| **Creation time** | Entity creation timestamp. |
-| **Updated time** | Timestamps of the latest update of the entity. |
+| **Creation Time** | Entity creation timestamp. |
+| **Updated Time** | Timestamps of the latest update of the entity. |
 | **Actions** | Actions you can perform on the selected toolsets:<br />- **Open in a new tab**: Opens the toolset's properties, features, and parameters in a new tab.<br />- **Duplicate**: Creates a copy of the toolset. Refer to [Duplicate](#duplicate) to learn more. <br />- **Delete**: Removes the toolset. Refer to [Delete](#delete) to learn more. |
 
 ## Create

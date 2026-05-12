@@ -65,7 +65,7 @@ Click any folder to display its content (files and sub-folders)
 | Column | Description |
 |--------|-------------|
 | **Display Name** | File name displayed on UI. |
-| **Updated time** | Timestamp of the last file update. |
+| **Updated Time** | Timestamp of the last file update. |
 | **Size** | File size in kilobytes. |
 
 Click any file (or select several files) to see the context menu with available actions:

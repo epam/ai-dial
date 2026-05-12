@@ -64,7 +64,7 @@ Click any folder to display its content in the applications grid.
 | **ID** | Unique identifier of the application. |
 | **Version** | Published version of the application. |
 | **Author** | Username or system ID associated with the user who created or last updated this application. |
-| **Updated time** | Timestamp of the last modification of the application. |
+| **Updated Time** | Timestamp of the last modification of the application. |
 | **Actions** | Actions you can perform on the selected application:<br />- **Open in a new tab**: Opens the application's properties, features, and parameters in a new tab.<br />- **Duplicate**: Create a copy of the application in one of two ways:<br />**New version**: Creates another version of the selected application. You can also quickly add a new version on the [Configuration](#configuration) screen by clicking **Create** in the **Version** dropdown.<br />**New application**: Clones the selected application as a new one.<br />- **Move to**: Select a target folder in the hierarchy to move the application.<br />- **Export**: Use to download the selected application. Refer to [Export](#export) to learn more.<br />- **Delete**: Remove the application. You can also use **Bulk Actions** in the toolbar to delete multiple applications at once. |
 
 ![ ](img/assets-apps-actions.png)
@@ -160,7 +160,7 @@ You can find the following action buttons in the configuration screen header:
 | Field | Description |
 |-------|-------------|
 | **ID** | Unique identifier of the application. It is read-only but includes a copy-to-clipboard button for easy reference. |
-| **Updated Time** | Timestamp of the last updated. |
+| **Updated Time** | Timestamp of the last update. |
 | **Creation Time** | Application creation timestamp. |
 | **Folder Storage** | Path to the application's location in the hierarchy of folders. Click to navigate to [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). |
 | **Status** | Current status of the application:<br />**Valid**: application configuration is compatible with the JSON schema or the related application runner.<br />Only valid entities will be materialized into the DIAL Core configuration.<br />**Invalid**: application configuration is incompatible with the JSON schema of the related application runner. |

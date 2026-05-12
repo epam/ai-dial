@@ -25,8 +25,8 @@ On this screen, you can find all API keys defined in your instance of DIAL. Here
 | **ID** | Unique key identifier. |
 | **Display Name** | Name of the key displayed on UI. |
 | **Description** | Description of the key. |
-| **Creation time** | Key's creation timestamp. |
-| **Updated time** | Timestamp of the latest change. |
+| **Creation Time** | Key's creation timestamp. |
+| **Updated Time** | Timestamp of the latest change. |
 | **Key generation time** | Timestamp of the key's secret value generation. |
 | **Expiration time** | Key's expiration timestamp. Setting expirations enforces regular key rotation. |
 | **Status** | Current validity status of the key. A key is **invalid** in cases when there are no roles assigned to it, or its secret value is missing or is expired. |

@@ -38,8 +38,8 @@ On the main screen, you can view existing and add new AI model servings.
 | Container URL | URL of the container where the model is hosted.<br />Available for a running container. |
 | Author | Email address of the creator of the model serving. |
 | Topics | List of topics associated with the model serving. |
-| Create time | Creation timestamp. |
-| Update time | Timestamp of the last update. |
+| Creation Time | Creation timestamp. |
+| Updated Time | Timestamp of the last update. |
 
 ## Create Model Serving
 

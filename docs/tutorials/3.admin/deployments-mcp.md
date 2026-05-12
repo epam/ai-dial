@@ -33,8 +33,8 @@ On the main screen, you can see a list of all MCP containers along with their cu
 | Container URL | URL to access the MCP container. |
 | Author | Email address of the creator of the container. |
 | Topics | Tags that associate MCP container with one or more topics or categories. |
-| Creation time | Creation timestamp. |
-| Updated time | Timestamp of the last update. |
+| Creation Time | Creation timestamp. |
+| Updated Time | Timestamp of the last update. |
 | Actions | Buttons to manage the selected MCP container:<br/>- **Open in a new tab**: Use to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: Use to duplicate the MCP container.<br/>- **Stop/Run**: Use to start and stop a container.<br/>- **Delete**: Use to remove the container. |
 
 ## Create
@@ -46,7 +46,7 @@ On the main screen, you can add new MCP containers based on internally deployed 
 1. Click **Create** on the main screen and select one of the options:
     - **From Internal MCP Image**: Select the desired [image](/docs/tutorials/3.admin/deployments-images.md) from the list and pick its installed version from the list (labeled with green indicator).
     - **From Docker Image Reference**: Provide the URI of the external Docker image you want to use.
-    - **From MCP Registry**: Name of MCP server from the [MCP Registry](https://registry.modelcontextprotocol.io/). Start typing in the text box to search for available MCP servers or click **Select from registry** to display a window with a list of available MCP servers and their details. <br />**Important**: The selected MCP server must have an OCI package and support Remotes `streamable-http` and `sse`.
+    - **From MCP Registry**: Name of MCP server from the [MCP Registry](https://registry.modelcontextprotocol.io/). Start typing in the text box to search for available MCP servers or click **Select from registry** to display a window with a list of available MCP servers and their details. <br />**Important**: The selected MCP server must have an OCI package and support Remotes `streamable-http` or `sse`.
 2. Specify **ID**, **Display Name** and **Description** and click **Finish** to create the container.
 3. The screen with the container configuration is displayed. You can modify the configuration as needed, run, stop or delete the container.
 

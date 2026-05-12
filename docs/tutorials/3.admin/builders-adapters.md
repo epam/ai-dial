@@ -26,7 +26,8 @@ The main screen displays all registered adapters in your DIAL instance.
 | **ID** | Unique identifier of the adapter. |
 | **Display Name** | Name of the adapter displayed on UI. |
 | **Description** | Brief description of the adapter (e.g., "Adapter for OpenAI models"). |
-| **Updated time** | Timestamp of the last update. |
+| **Updated Time** | Timestamp of the last update. |
+| **Creation Time** | Creation timestamp. |
 | **Topics** | Semantic tags associated with adapter. |
 | **Source type** | Type of the adapter source: external endpoint or adapter container. |
 | **Source** | URL for externally-deployed adapters or the name of the adapter container for self-hosted adapters. | 

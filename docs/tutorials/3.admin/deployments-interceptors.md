@@ -33,8 +33,8 @@ In **Interceptor Containers**, you can manage containers for interceptors within
 | Container URL | URL to access the running container. |
 | Author | Email address of the creator of the container. |
 | Topics | Tags that associate the container with one or more topics or categories. |
-| Creation time | Container creation timestamp. |
-| Updated time | Timestamp of the last update. |
+| Creation Time | Container creation timestamp. |
+| Updated Time | Timestamp of the last update. |
 | Actions | Buttons to manage the selected interceptor container:<br/>- **Open in a new tab**: Use to open the container configuration screen in a new tab in your browser.<br/>- **Duplicate**: Use to duplicate the interceptor container.<br/>- **Stop/Run**: Use to start and stop a container.<br/>- **Delete**: Use to remove the container. |  
 
 ## Create

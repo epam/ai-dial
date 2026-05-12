@@ -26,7 +26,7 @@ In Application Runners, you can add and manage Application Runners you have in y
 | **ID** | Unique identifier of the application runner. Typically, it is the base URL of the service (e.g. `https://my-runner.example.com`). DIAL Core uses this endpoint to POST orchestration payloads. |
 | **Description** | Description of the application runner capabilities, cluster location, version, or SLA (e.g. "v2 on GKE, 2 vCPU, 8 GB RAM"). |
 | **Topics** | Tags associated with the application runner for identification and filtering on Admin UI (e.g. "finance", "support"). |
-| **Updated time** | Timestamp of the last update to this runner's configuration. Useful for tracking recent changes. |
+| **Updated Time** | Timestamp of the last update to this runner's configuration. Useful for tracking recent changes. |
 
 ## Create
 

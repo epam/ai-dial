@@ -43,8 +43,8 @@ On this screen, you can access all the available interceptors added via DIAL Adm
 | **Author** | Information about the interceptor's author. |
 | **Status** | The current status of the interceptor.<br />- **local**: Apply to selected deployments.<br />- [global](/docs/tutorials/3.admin/home.md#system-properties): Apply to all deployments. |
  **Topics** | Tags that associate an interceptor with one or more topics or categories (e.g. "compliance", "logging"). |
-| **Creation time** | Entity creation timestamp. |
-| **Updated time** | Timestamps of the latest update of the entity. |
+| **Creation Time** | Entity creation timestamp. |
+| **Updated Time** | Timestamps of the latest update of the entity. |
 
 ## Create
 

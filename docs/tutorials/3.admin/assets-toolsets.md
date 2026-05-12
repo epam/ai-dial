@@ -66,7 +66,7 @@ Click any folder to display its content in the toolsets grid.
 | **ID** | Toolset's unique identified. |
 | **Version** | Version of the toolset. |
 | **Author** | Username or system ID associated with the user who created or last updated this toolset. |
-| **Updated time** | Timestamp of the last update. |
+| **Updated Time** | Timestamp of the last update. |
 | **Actions** | Actions you can perform on the selected toolsets:<br />**Open in a new tab**: Opens the toolset's properties, features, and parameters in a new tab.<br />**Duplicate**: Creates a copy of the toolset. Refer to [Duplicate](#duplicate) to learn more.<br />**Move to**: Select a target folder in the hierarchy to move the toolset.<br />**Export**: Use to download the selected toolset. Refer to [Export](#export) to learn more.<br />**Delete**: Remove the toolset. Refer to [Delete](#delete) to learn more. |
 
 ![ ](img/assets-toolsets-actions.png)
