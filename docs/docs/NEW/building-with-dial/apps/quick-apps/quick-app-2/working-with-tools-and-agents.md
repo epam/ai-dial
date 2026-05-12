@@ -26,6 +26,23 @@ Tools can be combined freely. A single Quick App 2.0 can use multiple tool set t
 
 ---
 
+## Where to use these configurations
+
+The JSON examples on this page are for the **API** and **config.json** methods of creating and managing Quick Apps. The DIAL Chat UI wizard does not have a JSON editor for Quick App 2.0.
+
+**API** — include the `tool_sets` array inside `applicationProperties` in the request body when you [create](./create-via-api) or update an app via `POST /v1/applications/{appId}`.
+
+**config.json** — include the `tool_sets` array inside `applicationProperties` in your application entry in [DIAL Core's config.json](./create-via-config).
+
+**UI wizard** — the [DIAL Chat wizard](./create-via-ui) does not use JSON. Instead, it provides a visual [Agents & Toolsets picker](./create-via-ui#agents--toolsets) where you select pre-registered Tool Sets and agents from a list. This means:
+
+- **DIAL-registered Tool Sets** (`dial-mcp`) and **agents** (`dial-deployment`) can be added through the UI picker *or* via JSON.
+- **REST API tools** (`rest-api`) and **direct MCP server connections** (`mcp`) can only be configured via JSON (API or config.json).
+
+To add tools to an existing app via API, retrieve its current config with `GET /v1/applications/{appId}`, add entries to the `tool_sets` array in `applicationProperties`, and POST the updated config back.
+
+---
+
 ## Add DIAL deployments as tools
 
 Use the `dial-deployment` tool set to call other DIAL applications or models from within your Quick App 2.0. This enables multi-agent patterns: one app can delegate subtasks to specialized apps.
