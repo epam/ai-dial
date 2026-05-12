@@ -378,6 +378,8 @@ Replace `"claude-3-5-haiku"` with any model deployment ID available in your DIAL
 
 ## Next steps
 
-- [Tutorial: Build a Quick App with an agent loop](./tutorial-agent-loop) — step-by-step walkthrough with screenshots
+- [Tutorial: agent loop (UI)](./tutorial-agent-loop-ui) — build a Research Assistant through the DIAL Chat wizard
+- [Tutorial: agent loop (API)](./tutorial-agent-loop-api) — build the same app with a single curl command
+- [Tutorial: agent loop (config.json)](./tutorial-agent-loop-config) — provision the app through infrastructure config
 - [Add tools and agents](./working-with-tools-and-agents) — full how-to for all tool set types
 - [Configuration reference](./tool-sets/reference) — complete schema documentation

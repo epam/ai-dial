@@ -20,7 +20,9 @@ This page tracks what Quick Apps documentation exists and what is still missing 
 | Create via API | Done | [Create via API](./quick-app-2/create-via-api) | Full CRUD with curl examples |
 | Create via config.json | Done | [Create via config.json](./quick-app-2/create-via-config) | Complete config.json with schema + app + roles |
 | Add tools and agents | Done | [Add tools and agents](./quick-app-2/working-with-tools-and-agents) | All 6 tool set types |
-| Tutorial: agent loop | Done | [Tutorial](./quick-app-2/tutorial-agent-loop) | End-to-end Research Assistant build |
+| Tutorial: agent loop (UI) | Done | [Tutorial (UI)](./quick-app-2/tutorial-agent-loop-ui) | UI-based Research Assistant build |
+| Tutorial: agent loop (API) | Done | [Tutorial (API)](./quick-app-2/tutorial-agent-loop-api) | API-based Research Assistant build |
+| Tutorial: agent loop (config.json) | Done | [Tutorial (config.json)](./quick-app-2/tutorial-agent-loop-config) | config.json-based Research Assistant build |
 | Examples | Done | [Examples](./quick-app-2/examples) | 5 copy-pasteable configs |
 | Tool Sets: overview | Done | [What is a Tool Set](./quick-app-2/tool-sets/index) | |
 | Tool Sets: registration | Done | [Define and register](./quick-app-2/tool-sets/define-and-register) | UI + config.json paths |

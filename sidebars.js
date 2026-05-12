@@ -831,8 +831,18 @@ const sidebars = {
                         },
                         {
                           type: 'doc',
-                          id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop',
-                          label: 'Tutorial: Build a Quick App with an agent loop',
+                          id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop-ui',
+                          label: 'Tutorial: agent loop (UI)',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop-api',
+                          label: 'Tutorial: agent loop (API)',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop-config',
+                          label: 'Tutorial: agent loop (config.json)',
                         },
                         {
                           type: 'doc',

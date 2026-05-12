@@ -142,5 +142,5 @@ Co-editing is supported if you grant WRITE access to another user — changes fr
 - [Create via API](./create-via-api) — create Quick App 2.0 instances programmatically
 - [Create via config.json](./create-via-config) — provision Quick App 2.0 through DIAL Core configuration
 - [Add tools and agents](./working-with-tools-and-agents) — connect MCP servers, REST APIs, and DIAL deployments
-- [Tutorial: Build a Quick App with an agent loop](./tutorial-agent-loop) — end-to-end example with copy-pasteable JSON
+- [Tutorial: agent loop (UI)](./tutorial-agent-loop-ui) — end-to-end example building a Research Assistant
 - [Configuration reference](./tool-sets/reference) — full schema documentation

@@ -1,0 +1,256 @@
+---
+title: "Tutorial: Build an agent loop (API)"
+type: tutorial
+persona: app-dev
+component: apps
+last_verified: 2026-05-12
+owner: "@dial-docs-team"
+---
+
+# Tutorial: Build an agent loop (API)
+
+In this tutorial you will build a **Research Assistant** Quick App 2.0 using a single API call. The app combines a REST API tool (weather data) and a DIAL deployment tool (summarization) in an agent loop.
+
+For the same tutorial using the UI, see [Tutorial: agent loop (UI)](./tutorial-agent-loop-ui). For config.json, see [Tutorial: agent loop (config.json)](./tutorial-agent-loop-config).
+
+## What you will build
+
+A Research Assistant that:
+- Accepts a question from the user
+- Calls the weather API if the question involves weather or location
+- Uses a second model to summarize long results into bullet points
+- Returns a composed answer citing the tool results
+
+Each tool call appears as a collapsible stage in DIAL Chat.
+
+![Research Assistant in DIAL Chat — conversation with tool call stages expanded](../img/tutorial-result.png)
+
+---
+
+## Prerequisites
+
+- A running DIAL instance with the Quick Apps 2.0 executor service deployed.
+- **DIAL Core URL** — the base URL of your DIAL Core API (e.g., `https://dial.example.com`). If you access DIAL Chat at `https://chat.dial.example.com`, the Core API is typically at `https://dial.example.com` (without `/chat`). Ask your DIAL administrator for the exact URL.
+- **API key** — your DIAL administrator provides this, or you can find it in the DIAL Admin panel under API keys.
+- At least one language model deployed that supports function calling (e.g., `gpt-4o-mini`).
+- `curl` installed on your machine.
+
+### Set up environment variables
+
+```bash
+export DIAL_URL="https://dial.example.com"
+export DIAL_API_KEY="your-api-key-here"
+```
+
+### Verify your connection
+
+```bash
+curl "$DIAL_URL/v1/models" -H "api-key: $DIAL_API_KEY"
+```
+
+You should see a JSON response listing available models. If you get a `401` error, check your API key. If the connection times out, check the URL with your administrator.
+
+---
+
+## Step 1: Create the Research Assistant
+
+Run the following `curl` command to create the complete app with two tools in a single request:
+
+```bash
+curl -X POST "$DIAL_URL/v1/applications/research-assistant" \
+  -H "Content-Type: application/json" \
+  -H "api-key: $DIAL_API_KEY" \
+  -d '{
+    "displayName": "Research Assistant",
+    "description": "Answers research questions using live data and a summarization agent.",
+    "applicationTypeSchemaId": "https://mydial.epam.com/custom_application_schemas/quickapps2",
+    "applicationProperties": {
+      "orchestrator": {
+        "deployment": {
+          "name": "gpt-4o-mini",
+          "parameters": { "temperature": 0.3 }
+        },
+        "system_prompt": {
+          "type": "custom",
+          "variables": {},
+          "content": "You are a Research Assistant. Your job is to answer user questions accurately using the tools available to you.\n\nGuidelines:\n- For questions involving current weather or climate data for a location, use the get_weather tool.\n- For any response that is more than 200 words, use the summarize tool to condense it before responding to the user.\n- If a tool call fails, tell the user clearly and provide the best answer you can from existing knowledge.\n- Always cite the source of data when you use a tool result.\n- Be concise. Prefer bullet points over paragraphs."
+        },
+        "max_iterations": 10
+      },
+      "contexts": [],
+      "tool_sets": [
+        {
+          "type": "rest-api",
+          "name": "weather",
+          "authorization": null,
+          "tools": [
+            {
+              "type": "restapi-tool",
+              "rest_api_method_info": {
+                "method_url": "https://api.open-meteo.com/v1/forecast",
+                "method_type": "get"
+              },
+              "open_ai_tool": {
+                "type": "function",
+                "function": {
+                  "name": "get_weather",
+                  "description": "Get the current temperature for a geographic location specified by latitude and longitude.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {
+                      "latitude": {
+                        "type": "number",
+                        "description": "Location latitude.",
+                        "parameter_info": { "type": "query", "key": "latitude" }
+                      },
+                      "longitude": {
+                        "type": "number",
+                        "description": "Location longitude.",
+                        "parameter_info": { "type": "query", "key": "longitude" }
+                      },
+                      "current": {
+                        "type": null,
+                        "const": "temperature_2m",
+                        "parameter_info": { "type": "query", "key": "current" }
+                      }
+                    },
+                    "required": ["latitude", "longitude", "current"]
+                  }
+                }
+              },
+              "display": {
+                "stage": {
+                  "name": "Fetching weather for ({latitude}, {longitude})",
+                  "show": true
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "dial-deployment",
+          "name": "summarization",
+          "tools": [
+            {
+              "type": "deployment-tool",
+              "open_ai_tool": {
+                "type": "function",
+                "function": {
+                  "name": "summarize",
+                  "description": "Summarize a long piece of text into 3-5 concise bullet points.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "type": "string",
+                        "description": "The text to summarize."
+                      }
+                    },
+                    "required": ["text"]
+                  }
+                }
+              },
+              "deployment": {
+                "name": "gpt-4o-mini",
+                "parameters": { "temperature": 0.1 }
+              },
+              "system_prompt": {
+                "type": "custom",
+                "variables": {},
+                "content": "You are a summarization expert. Produce exactly 3-5 bullet points. Each bullet must be a complete sentence. Omit filler and padding."
+              },
+              "content_propagation": {
+                "propagate_history": false
+              },
+              "fallback_configuration": {
+                "strategies": [
+                  {
+                    "type": "continue",
+                    "instructions": "The summarization tool is unavailable. Provide a brief summary yourself in 3-5 bullet points."
+                  }
+                ],
+                "display_error_in_stage": true
+              },
+              "display": {
+                "stage": {
+                  "name": "Summarizing",
+                  "show": true
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "starters": [
+        "What is the current temperature in Paris?",
+        "What is the climate difference between London and Madrid?"
+      ]
+    }
+  }'
+```
+
+Replace `gpt-4o-mini` with a model deployment ID available in your DIAL instance.
+
+### What each section does
+
+- **`orchestrator`** — the primary model (`gpt-4o-mini`) that processes user messages and decides when to call tools. `max_iterations: 10` allows up to 10 tool calls per conversation turn.
+- **`tool_sets[0]` (weather)** — a REST API tool that calls the Open-Meteo forecast API. The `current` parameter uses `"type": null` with `"const"` to always request `temperature_2m` without exposing this to the model. The `display.stage` config makes tool calls visible in DIAL Chat with coordinates in the header.
+- **`tool_sets[1]` (summarization)** — a DIAL deployment tool that calls a second model to summarize text. `propagate_history: false` means the summarizer only receives the text argument, not the full conversation. The `fallback_configuration` lets the orchestrator handle summarizer failures gracefully.
+- **`starters`** — suggested prompts shown at the start of conversations.
+
+---
+
+## Step 2: Test in DIAL Chat
+
+1. Open DIAL Chat in your browser.
+2. Find **Research Assistant** in the app list (it may be in **My workspace**).
+3. Send: `What is the current temperature in Paris?`
+
+Expected behavior:
+1. The orchestrator calls `get_weather` with Paris coordinates (~48.85, ~2.35).
+2. A collapsible stage **"Fetching weather for (48.85, 2.35)"** appears.
+3. The orchestrator composes a response with the temperature.
+
+![Research Assistant — tool call stages expanded showing arguments and results](../img/tutorial-tool-stages.png)
+
+Try a more complex query: `What is the climate difference between London and Madrid?`
+
+The orchestrator should call `get_weather` twice (once for each city), then optionally call `summarize` to condense the comparison.
+
+---
+
+## Step 3: (Optional) Update the app
+
+To modify the app (e.g., change the system prompt or add another tool), retrieve the current config and POST the updated version:
+
+```bash
+curl "$DIAL_URL/v1/applications/research-assistant" \
+  -H "api-key: $DIAL_API_KEY"
+```
+
+Edit the JSON response, then POST it back:
+
+```bash
+curl -X POST "$DIAL_URL/v1/applications/research-assistant" \
+  -H "Content-Type: application/json" \
+  -H "api-key: $DIAL_API_KEY" \
+  -d '{ ... updated configuration ... }'
+```
+
+---
+
+## What you learned
+
+- Created a Quick App 2.0 via the API with a complete tool configuration.
+- Added a REST API tool with constant parameters and display configuration.
+- Added a DIAL deployment tool with a dedicated system prompt, content propagation control, and fallback handling.
+- Tested an agent loop where the orchestrator calls multiple tools within one conversation turn.
+
+---
+
+## Next steps
+
+- [Tutorial: agent loop (UI)](./tutorial-agent-loop-ui) — build the same app through the DIAL Chat wizard
+- [Tutorial: agent loop (config.json)](./tutorial-agent-loop-config) — provision the app through infrastructure config
+- [Add tools and agents](./working-with-tools-and-agents) — reference for all seven tool set types
+- [Configuration reference](./tool-sets/reference) — full schema documentation

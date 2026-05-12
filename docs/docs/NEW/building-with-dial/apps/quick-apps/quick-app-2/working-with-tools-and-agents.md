@@ -19,6 +19,7 @@ This guide explains how to connect tools to a Quick App 2.0 using the `tool_sets
 | `dial-deployment` | Other DIAL apps or models | Inherited from DIAL session |
 | `mcp` | External MCP server (direct URL) | bearer, api_key, basic, client_id_secret |
 | `dial-mcp` | MCP Tool Set registered in DIAL Core | Managed by DIAL Core |
+| `dial-app` | DIAL applications selected via the UI picker | Inherited from DIAL session |
 | `internal` | Built-in tools handled by the QA 2.0 backend | N/A |
 | `predefined` | Named tool set templates | N/A |
 
@@ -433,4 +434,6 @@ Use the **Preview** panel to send a message that should trigger the tool. DIAL C
 - [Tool Set examples](./tool-sets/examples) — 5 complete copy-pasteable configurations
 - [Configuration reference](./tool-sets/reference) — full schema documentation for all tool set types
 - [Define and register a Tool Set](./tool-sets/define-and-register) — register an MCP server in DIAL Core for use with `dial-mcp`
-- [Tutorial: Build a Quick App with an agent loop](./tutorial-agent-loop) — end-to-end guide with screenshots
+- [Tutorial: agent loop (UI)](./tutorial-agent-loop-ui) — build the same app through the DIAL Chat wizard
+- [Tutorial: agent loop (API)](./tutorial-agent-loop-api) — build the same app with a single curl command
+- [Tutorial: agent loop (config.json)](./tutorial-agent-loop-config) — provision the app through infrastructure config
