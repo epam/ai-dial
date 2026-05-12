@@ -62,7 +62,7 @@ In the Properties tab, you can define the identity and metadata for the role. Th
 |-------|----------|-------------|
 | **ID** | - | Unique role's identifier. |
 | **Updated Time** | - | Last update timestamp. |
-| **Creation Time** | - | Creation timestamp. |
+| **Creation Time** | - | Creation Timestamp. |
 | **Sync with core** | - | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
 | **Display Name** | Yes | Role's name displayed on UI. |
 | **Description** | No | Description of the given role. |
@@ -106,12 +106,12 @@ In the Keys tab, you can assign [API keys](/docs/tutorials/3.admin/access-manage
 | Display Name | Name of the key displayed on UI. |
 | Description | Description of the key. |
 | ID | Unique key identifier. |
-| Creation time | Key's creation timestamp. |
+| Creation Time | Key's creation timestamp. |
 | Key generation time | Timestamp of the key's secret value generation. |
 | Expiration time | Key's expiration timestamp. Setting expirations enforces regular key rotation. Blank means no expiration (i.e. permanent until manually revoked). |
 | Status | Current validity status of the key. A key is **invalid** in cases when there are no roles assigned to it, or its secret value is missing or is expired. |
 | Topics | Tags assigned to the key (e.g. "admin", "user"). |
-| Updated time | Timestamp of the last update. |
+| Updated Time | Timestamp of the last update. |
 | Project | Name of the project the key was created for. |
 
 ![](img/img_41.png)
