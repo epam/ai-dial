@@ -806,9 +806,97 @@ const sidebars = {
                       label: 'What are Quick Apps',
                     },
                     {
-                      type: 'doc',
-                      id: 'docs/NEW/building-with-dial/apps/quick-apps/what-is-a-tool-set',
-                      label: 'What is a Tool Set',
+                      type: 'category',
+                      label: 'Quick App 2.0',
+                      items: [
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/create-via-ui',
+                          label: 'Create in DIAL Chat',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/create-via-api',
+                          label: 'Create via API',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/create-via-config',
+                          label: 'Create via config.json',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/working-with-tools-and-agents',
+                          label: 'Add tools and agents',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop',
+                          label: 'Tutorial: Build a Quick App with an agent loop',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/examples',
+                          label: 'Quick App 2.0 examples',
+                        },
+                        {
+                          type: 'category',
+                          label: 'Tool Sets',
+                          items: [
+                            {
+                              type: 'doc',
+                              id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/index',
+                              label: 'What is a Tool Set',
+                            },
+                            {
+                              type: 'doc',
+                              id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/define-and-register',
+                              label: 'Define and register a Tool Set',
+                            },
+                            {
+                              type: 'doc',
+                              id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/mcp-server-integration',
+                              label: 'Integrate an MCP server',
+                            },
+                            {
+                              type: 'doc',
+                              id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/sharing-and-permissions',
+                              label: 'Share and manage permissions',
+                            },
+                            {
+                              type: 'doc',
+                              id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/reference',
+                              label: 'Configuration reference',
+                            },
+                            {
+                              type: 'doc',
+                              id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/examples',
+                              label: 'Tool Set examples',
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      type: 'category',
+                      label: 'Quick App (original)',
+                      items: [
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/create-and-configure',
+                          label: 'Create and configure',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/reference',
+                          label: 'Configuration reference',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/migrate-to-2',
+                          label: 'Migrate to Quick App 2.0',
+                        },
+                      ],
                     },
                   ],
                 },
