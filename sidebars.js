@@ -919,6 +919,16 @@ const sidebars = {
                       id: 'docs/NEW/building-with-dial/apps/code-apps/index',
                       label: 'Overview',
                     },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/code-apps/getting-started',
+                      label: 'Getting started',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/code-apps/tutorial-build-deploy',
+                      label: 'Tutorial: build a RAG Code App',
+                    },
                   ],
                 },
                 {
