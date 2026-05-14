@@ -956,6 +956,43 @@ const sidebars = {
             },
             {
               type: 'category',
+              label: 'Extension points',
+              items: [
+                {
+                  type: 'category',
+                  label: 'Interceptors',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/interceptors/index',
+                      label: 'What are interceptors',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/interceptors/tutorial-pii-interceptor',
+                      label: 'Tutorial: PII-redacting interceptor',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/interceptors/sdk-reference',
+                      label: 'Interceptors SDK reference',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/interceptors/configuration-and-assignment',
+                      label: 'Configure and assign',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/interceptors/examples',
+                      label: 'Examples',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
               label: 'Developer tools',
               items: [
                 {
