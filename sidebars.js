@@ -752,52 +752,6 @@ const sidebars = {
                 },
                 {
                   type: 'category',
-                  label: 'Custom Apps',
-                  items: [
-                    {
-                      type: 'doc',
-                      id: 'docs/NEW/building-with-dial/apps/custom-apps/index',
-                      label: 'Architecture and lifecycle',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'docs/NEW/building-with-dial/apps/custom-apps/getting-started-sdk',
-                      label: 'Getting started with DIAL SDK',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'docs/NEW/building-with-dial/apps/custom-apps/tutorial-translator-app',
-                      label: 'Tutorial: translator app',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'docs/NEW/building-with-dial/apps/custom-apps/tutorial-rag-app',
-                      label: 'Tutorial: build a RAG app',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'docs/NEW/building-with-dial/apps/custom-apps/custom-buttons',
-                      label: 'Tutorial: custom buttons app',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'docs/NEW/building-with-dial/apps/custom-apps/register-app',
-                      label: 'Register an app in DIAL Core',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'docs/NEW/building-with-dial/apps/custom-apps/deployment',
-                      label: 'Deploy a Custom App',
-                    },
-                    {
-                      type: 'doc',
-                      id: 'docs/NEW/building-with-dial/apps/custom-apps/examples',
-                      label: 'Examples',
-                    },
-                  ],
-                },
-                {
-                  type: 'category',
                   label: 'Quick Apps',
                   items: [
                     {
@@ -939,6 +893,130 @@ const sidebars = {
                       type: 'doc',
                       id: 'docs/NEW/building-with-dial/apps/mind-map-studio/index',
                       label: 'Overview',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/mind-map-studio/authoring-workflow',
+                      label: 'Authoring workflow',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/mind-map-studio/export-and-publish',
+                      label: 'Export and publish',
+                    },
+                  ],
+                },
+                {
+                  type: 'category',
+                  label: 'Custom Apps',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/index',
+                      label: 'Architecture and lifecycle',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/getting-started-sdk',
+                      label: 'Getting started with DIAL SDK',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/tutorial-translator-app',
+                      label: 'Tutorial: translator app',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/tutorial-rag-app',
+                      label: 'Tutorial: build a RAG app',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/custom-buttons',
+                      label: 'Tutorial: custom buttons app',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/register-app',
+                      label: 'Register an app in DIAL Core',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/deployment',
+                      label: 'Deploy a Custom App',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/apps/custom-apps/examples',
+                      label: 'Examples',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Developer tools',
+              items: [
+                {
+                  type: 'category',
+                  label: 'SDK Reference',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/sdk-reference/index',
+                      label: 'Overview',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/sdk-reference/dial-app',
+                      label: 'DIALApp',
+                    },
+                    {
+                      type: 'category',
+                      label: 'Chat completion',
+                      items: [
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/developer-tools/sdk-reference/chat-completion/index',
+                          label: 'Overview',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/developer-tools/sdk-reference/chat-completion/request',
+                          label: 'Request',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/developer-tools/sdk-reference/chat-completion/response',
+                          label: 'Response',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/developer-tools/sdk-reference/chat-completion/choice',
+                          label: 'Choice',
+                        },
+                        {
+                          type: 'doc',
+                          id: 'docs/NEW/building-with-dial/developer-tools/sdk-reference/chat-completion/stage',
+                          label: 'Stage',
+                        },
+                      ],
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/sdk-reference/embeddings',
+                      label: 'Embeddings',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/sdk-reference/exceptions',
+                      label: 'Exceptions',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/sdk-reference/telemetry',
+                      label: 'Telemetry',
                     },
                   ],
                 },
