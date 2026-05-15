@@ -59,7 +59,7 @@ Follow these steps to add new AI model to your DIAL instance:
     | **Display Name** | Yes | Model name shown across the UI (e.g. "GPT-4 Turbo"). |
     | **Display version** | No | Version is an optional tag to track releases when you register multiple variants of the same model. (e.g. `2024-07-18`, `v1`) |
     | **Description** | No | Free-text note about the model's purpose or distinguishing traits. |
-    | **Source type** | Yes | **Adapter**: Select the corresponding AI model adapter from the list of [available adapters](/docs/tutorials/3.admin/builders-adapters.md). In this case DIAL Core will use the adapter's endpoint URL to communicate with the model.<br />**Model Serving**: Select one of the available [model serving containers](/docs/tutorials/3.admin/deployments-models.md) deployed in DIAL. In this case DIAL Core will use the container URL to communicate with the model.<br />**External Endpoint**: For externally-hosted models, provide the chat completion and responses endpoints' URLs DIAL Core will use to directly (not using model adapters) communicate with the model. In this case, the model API must be compatible with DIAL Core API. |
+    | **Source type** | Yes | **Adapter**: Select the corresponding AI model adapter from the list of [available adapters](/docs/tutorials/3.admin/builders-adapters.md). In this case DIAL Core will use the adapter's endpoint URL to communicate with the model.<br />**Model Serving**: Select one of the available [model serving containers](/docs/tutorials/3.admin/deployments-models.md) deployed in DIAL. In this case DIAL Core will use the Model Serving container URL to communicate with the model.<br />**External Endpoint**: For externally-hosted models, provide the chat completion and responses endpoints' URLs DIAL Core will use to directly (not using model adapters) communicate with the model. In this case, the model API must be compatible with DIAL Core API. |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#configuration). When done with model configuration, click **Save**. It may take some time for the changes to take effect after saving. Once added, the model appears in the **Models** listing and become available to use across the DIAL ecosystem.
 
@@ -83,7 +83,7 @@ In the **Properties** tab, you can view and edit main definitions and runtime se
 * [Source Type](#source-type): Parameters associated with the way the model was created: Adapter, Model Container, or External Endpoint.
 * [Personalization](#personalization): Parameters to customize model's appearance on UI.
 * [Attachments](#attachments): Define attachment types and maximum number of attachments the model can accept.
-* [Default Parameters](#default-parameters): Set default values for model parameters used in chat/completions requests.
+* [Default Parameters](#default-parameters): Set default values for model parameters used in chat/completions and responses requests.
 * [Upstream Configuration](#upstream-configuration): Define upstream endpoints, authentication keys, weights, and extra data.
 * [Advanced Options](#advanced-options): Tokenizer model, forward auth token, interaction limits, retry attempts.
 * [Cost Configuration](#cost-configuration): Set cost unit, prompt price, and completion price for real-time billing.
@@ -122,8 +122,8 @@ The following properties need to be specified if selected Source Type is Adapter
 |-------|----------|-------------|
 | **Adapter** | Yes | [Model adapter](/docs/tutorials/3.admin/builders-adapters.md) that will be used to handle requests to this model deployment (e.g. **OpenAI**, **DIAL**). Adapter defines how to authenticate, format payloads, and parse responses. |
 | **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
-| **Completion endpoint** | Yes | Chat completion endpoint URL that DIAL Core will invoke for this model. The base URL is determined by the selected adapter, while the path can be partially customized. |
-| **Responses endpoint** | Yes | Responses endpoint URL that DIAL Core will invoke for this model to receive AI-generated replies and related metadata. The URL is read-only and is determined by the selected AI model adapter. |
+| **Completion endpoint** | Yes | Endpoint URL that will be invoked to process chat completion requests. The base URL is determined by the selected adapter, while the path can be partially customized. |
+| **Responses endpoint** | Yes | Endpoint URL that will be invoked to process OpenAI Responses API calls. The URL is read-only and is determined by the selected AI model adapter. |
 
 ![](img/source_type_adapter.png)
 
@@ -137,8 +137,8 @@ The following properties need to be specified if selected Source Type is Model S
 |-------|----------|-------------|
 | **Container** | Yes | ID of one of the running [Model Serving](/docs/tutorials/3.admin/deployments-models.md) containers. Click to select among the available containers. |
 | **Type** | Yes | Select **Chat** or **Embedding** type of model. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
-| **Completion endpoint** | Yes | Chat completion endpoint URL that DIAL Core will invoke for this model to send user messages to receive AI-generated responses. The base URL is determined by the selected Model Serving container, while the path can be partially customized: it starts with URL of the Model Serving container and ends with `/chat/completion`. The middle part `openai/v1` can be manually edited. |
-| **Responses endpoint** | Yes | Responses endpoint URL that DIAL Core will invoke for this model to receive AI-generated replies and related metadata. The base URL is determined by the selected Model Serving container, while the path can be partially customized: it starts with URL of the Model Serving container and ends with `/responses`. The middle part  can be manually edited. |
+| **Completion endpoint** | Yes | Endpoint URL that will be invoked to process chat completion requests. The base URL is determined by the selected Model Serving container, while the path can be partially customized: it starts with URL of the Model Serving container and ends with `/chat/completion`. The middle part `openai/v1` can be manually edited. |
+| **Responses endpoint** | Yes | Endpoint URL that will be invoked to process OpenAI Responses API calls. The base URL is determined by the selected Model Serving container, while the path can be partially customized: it starts with URL of the Model Serving container and ends with `/responses`. The middle part  can be manually edited. |
 
 ![](img/source_type_container.png)
 
@@ -151,8 +151,8 @@ The following properties need to be specified if selected Source Type is Externa
 | Field | Required | Description |
 |-------|----------|-------------|
 | **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
-| **Completion endpoint** | Yes | Chat completion endpoint URL that DIAL Core will invoke for this model to send user messages to receive AI-generated responses. |
-| **Responses endpoint** | Yes | Responses endpoint URL that DIAL Core will invoke for this model to receive AI-generated replies and related metadata. |
+| **Completion endpoint** | Yes | Endpoint URL that will be invoked to process chat completion requests. |
+| **Responses endpoint** | Yes | Endpoint URL that will be invoked to process OpenAI Responses API calls. |
 
 ![](img/source_type_endpoint.png)
 
@@ -179,17 +179,25 @@ These parameters help customize how the model is presented in the DIAL UI.
 
 ##### Default Parameters 
 
-Default parameters can be use to pass additional parameters with the chat completion request. 
+Default parameters can be used to pass additional parameters with the chat completion or responses requests. 
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| **Completion Defaults** | No | Default parameters are applied if a chat completion request doesn't contain them. |
+| **Responses Defaults** | No | Default parameters are applied if an OpenAI Responses API call doesn't contain them. <br /> Available if responses endpoint is supported. |
 
 ![](img/model_defaults.png)
 
 ##### Upstream Configuration
 
+You can use upstream endpoints to provide alternative URLs DIAL Core will use to send chat completions and responses requests to. Enables round-robin load balancing or fallback among multiple hosts. Refer to [Load Balancer](/docs/platform/3.core/5.load-balancer.md) to learn more. For example, you can provide a model's Docker container URI if the model's container is deployed in DIAL. Refer to [Model Servings](/docs/tutorials/3.admin/deployments-models.md#to-enable-a-model-in-dial) to learn more about this use case.
+
 | Field | Description |
 |-------|-------------|
-| **Upstream Endpoints** | One or more chat completion and responses endpoints' URLs to send requests to. Enables round-robin load balancing or fallback among multiple hosts. Refer to [Load Balancer](/docs/platform/3.core/5.load-balancer.md) to learn more.<br /> You can use upstream endpoint to provide an alternative URL. For example a model Docker container URL if the model is deployed as a container in DIAL. Refer to [Model Servings](/docs/tutorials/3.admin/deployments-models.md#to-enable-a-model-in-dial) to learn more about this use case.|
-| **Keys** | API key, token, or credential passed to the upstream.  Stored securely and masked—click the eye icon to reveal.|
-| **Weight** | Numeric [weight](/docs/platform/3.core/5.load-balancer.md#weights) for this endpoint in a multi-upstream scenario.  Higher = more traffic share. |
+| **Chat completion endpoint** | Upstream endpoint URL supported by the related AI model adapter that will be invoked to process chat completion requests. Responses API endpoint is recommended to use here for OpenAI models that support Responses API. |
+| **Responses endpoint** | Upstream endpoint URL supported by the related AI model adapter for OpenAI Responses requests. |
+| **Keys** | API key, token, or credential passed to the upstream. Stored securely and masked—click the eye icon to reveal.|
+| **Weight** | Numeric [weight](/docs/platform/3.core/5.load-balancer.md#weights) for this endpoint in a multi-upstream scenario. Higher = more traffic share. |
 | **Tier** | Specifies an endpoint group. In a regular scenario, all requests are routed to endpoints with the lowest tier, but in case of an outage or hitting the limits, the next one in the line helps to handle the load. |
 | **Extra Data** | Free-form JSON or string metadata passed to the model adapter with each request. |
 
