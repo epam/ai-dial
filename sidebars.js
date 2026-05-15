@@ -989,6 +989,27 @@ const sidebars = {
                     },
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Adapters',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/adapters/index',
+                      label: 'What are adapters',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/adapters/tutorial-custom-adapter',
+                      label: 'Tutorial: custom adapter',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/adapters/supported-providers',
+                      label: 'Supported providers',
+                    },
+                  ],
+                },
               ],
             },
             {
