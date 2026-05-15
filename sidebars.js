@@ -1078,6 +1078,47 @@ const sidebars = {
                     },
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Chat customization',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/chat-customization/index',
+                      label: 'Overview',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/chat-customization/custom-content',
+                      label: 'Custom content in Chat',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/chat-customization/data-visualization',
+                      label: 'Data visualization',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/chat-customization/create-custom-visualizer',
+                      label: 'Create a custom visualizer',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/chat-customization/chat-localization',
+                      label: 'Chat localization',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/chat-customization/theming-and-design',
+                      label: 'Theming and design',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/chat-customization/marketplace',
+                      label: 'Marketplace',
+                    },
+                  ],
+                },
               ],
             },
           ],
