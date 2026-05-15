@@ -76,6 +76,22 @@ Read the appropriate template in `references/` before writing:
 - Reference → read `references/template-reference.md`
 - Explanation → read `references/template-explanation.md`
 
+### Tutorial-specific requirements
+
+When writing tutorials, always include:
+
+1. **Project structure diagram.** After the setup step, add a "Project structure" heading with a fenced code block showing the complete directory tree the reader will build. Use `text` as the language tag. Example:
+
+   ```text
+   dial-rag-app/
+   ├── app.py
+   ├── requirements.txt
+   └── config/
+       └── core-config.json
+   ```
+
+2. **Exact file paths.** Every file the reader creates or edits must be referenced by its path relative to the project root. Write `dial-rag-app/app.py`, not just `app.py`. In step headings use the relative path: "Step 2: Create `dial-rag-app/app.py`".
+
 ## Step 5: Apply terminology rules
 
 ### Canonical names
@@ -137,6 +153,7 @@ Run through this checklist:
 - [ ] No forbidden phrases
 - [ ] Code blocks have language specified
 - [ ] Version pins present in runnable examples
+- [ ] Tutorials include a project structure tree diagram and use exact file paths (relative to project root)
 - [ ] Headings are sentence case, self-contained (not "Step 1" alone, but "Step 1: Install the Helm chart")
 - [ ] Max heading depth: H3 in tutorials and how-tos, H4 in reference
 - [ ] "Next steps" section at the end with 2–3 links

@@ -21,6 +21,15 @@ Score each dimension 1–5. Overall score = average, rounded to nearest integer.
 - **Score 3**: Access Control page that covers concepts but doesn't document all object types or configuration options
 - **Score 5**: Chat User Guide that comprehensively covers every UI feature
 
+### Tutorial-specific completeness criteria
+
+For tutorials, Completeness also requires:
+- A project structure tree diagram showing the final directory layout
+- Every file referenced with its exact path from the project root
+- A verification checkpoint after each substantive step
+
+A tutorial missing the project structure diagram cannot score above **3** on Completeness.
+
 ---
 
 ## Accuracy

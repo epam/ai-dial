@@ -10,6 +10,7 @@ Tutorials are **learning-oriented**. They take a newcomer from zero to a working
 - Don't explain *why* mid-step — defer to an Explanation page and link to it.
 - Include a verification check after every meaningful action ("you should see…").
 - Pair with a sample repo: all code, data, and config committed to `github.com/epam/ai-dial-samples/<tutorial-slug>`.
+- Show a **project structure** tree after the setup step so the reader knows what they're building. Use exact paths relative to the project root when referencing files (e.g., `dial-rag-app/app.py`, not just `app.py`).
 - If a tutorial video exists, embed it on this page — videos don't live in a separate section.
 
 ## Structure
@@ -43,6 +44,16 @@ _Screenshot or diagram of the end state._
 A Custom App that takes a user question, retrieves relevant chunks from a
 document store, and generates an answer using a model deployed in DIAL.
 
+## Project structure
+
+By the end of this tutorial, your project will look like this:
+
+    dial-rag-app/
+    ├── app.py
+    ├── requirements.txt
+    └── config/
+        └── core-config.json
+
 ## Step 1: Set up the project
 
 Create a new directory and install DIAL SDK:
@@ -54,7 +65,7 @@ Create a new directory and install DIAL SDK:
 
 ## Step 2: Create the application
 
-Create `app.py` with the following content:
+Create `dial-rag-app/app.py` with the following content:
 
     (complete, runnable code here)
 
@@ -88,3 +99,4 @@ Create `app.py` with the following content:
 - **Assuming environment.** "If you're on Windows…" — link to the Environment Prerequisites page instead.
 - **Skipping verification.** Every step needs a "you should see" checkpoint.
 - **Ending without "What you learned" and "Next steps."**
+- **Omitting the project layout.** Readers need to see the full directory tree to orient themselves. Never reference a file without its path from the project root.

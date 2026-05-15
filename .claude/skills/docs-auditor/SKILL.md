@@ -151,6 +151,14 @@ If the page references or embeds a video:
 - **Is there a paired sample repo, sample data, and config?** If not, flag.
 - **Is this a tutorial video or a demo?** Tutorial videos should be embedded on tutorial pages. Demos should be in the Demos section.
 
+### 11. Tutorial structure (tutorials only)
+
+Skip this check for non-tutorial pages.
+
+- **Project structure diagram**: does the tutorial include a directory/file tree (fenced code block) showing the complete project layout? Flag if missing.
+- **Exact file paths**: are all file references qualified with their path relative to the project root (e.g., `my-app/src/index.ts`, not just `index.ts`)? Scan for bare filenames in step headings and prose. Flag each bare filename without a directory prefix.
+- **Tree-to-content consistency**: do all files shown in the project structure tree actually appear in the tutorial steps? Flag files in the tree that are never created, and files created in steps that are missing from the tree.
+
 ---
 
 ## Output format
@@ -222,6 +230,11 @@ Missing: [list]
 ### Video
 - (assessment or "No video referenced")
 
+### Tutorial structure (tutorials only)
+- **Project structure diagram**: ✅ Present / ❌ Missing
+- **Bare filenames (no path)**: X instances — [list]
+- **Tree-content mismatches**: [list or "None"]
+
 ### Recommended action
 **[KEEP / MOVE / MERGE / SPLIT / REWRITE / DELETE / REDIRECT]**
 [One paragraph explaining the recommendation and what specifically needs to happen.]
@@ -249,6 +262,7 @@ After auditing multiple pages, produce a summary table:
 - Pages flagged as duplicates: X
 - Pages with GitHub-as-authority links: X
 - Pages with stale dependencies: X
+- Tutorials missing project structure diagram: X
 - Recommended actions: X keep, X move, X merge, X split, X rewrite, X delete
 ```
 
