@@ -1117,6 +1117,11 @@ const sidebars = {
                       id: 'docs/NEW/building-with-dial/developer-tools/chat-customization/marketplace',
                       label: 'Marketplace',
                     },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/chat-customization/create-custom-theme',
+                      label: 'Create a custom theme',
+                    },
                   ],
                 },
               ],
