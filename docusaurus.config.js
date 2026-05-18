@@ -21,7 +21,7 @@ const footerLink = (href, path) => {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'DIALX Knowledge Base',
+  title: 'DIAL Knowledge Base',
   favicon: 'img/favicon.svg',
 
   // Set the production url of your site here
@@ -36,18 +36,18 @@ const config = {
   organizationName: 'epam', // Usually your GitHub org/user name.
   projectName: 'ai-dial', // Usually your repo name.
   deploymentBranch: 'gh-pages',
-  onBrokenLinks: 'throw', //'throw', for exceptions
-  onBrokenAnchors: 'throw',
-  markdown: {
-    hooks: {
-      onBrokenMarkdownLinks: 'throw',
-      onBrokenMarkdownImages: 'throw',
-    },
-  },
-  onDuplicateRoutes: 'throw',
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  // onBrokenLinks: 'throw', //'throw', for exceptions
+  // onBrokenAnchors: 'throw',
+  // markdown: {
+  //   hooks: {
+  //     onBrokenMarkdownLinks: 'throw',
+  //     onBrokenMarkdownImages: 'throw',
+  //   },
+  // },
+  // onDuplicateRoutes: 'throw',
+  // // Even if you don't use internationalization, you can use this field to set
+  // // useful metadata like html lang. For example, if your site is Chinese, you
+  // // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
