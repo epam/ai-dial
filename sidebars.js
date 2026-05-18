@@ -1122,6 +1122,16 @@ const sidebars = {
                       id: 'docs/NEW/building-with-dial/developer-tools/chat-customization/create-custom-theme',
                       label: 'Create a custom theme',
                     },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/chat-customization/dial-overlay',
+                      label: 'DIAL Overlay',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/developer-tools/chat-customization/embed-chat-in-web-app',
+                      label: 'Embed Chat with DIAL Overlay',
+                    },
                   ],
                 },
               ],
