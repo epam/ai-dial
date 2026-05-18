@@ -177,8 +177,8 @@ You can find the following action buttons in the configuration screen header:
 | **Viewer URL** | URL of the application's custom UI. A custom UI, if enabled, will override the standard DIAL Chat UI.<br />Available if Source Type is **Endpoints**. |
 | **Attachments types** | Use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have. <br />Available values: <br />- **No attachments**: Disables all attachment types.<br />- **All attachments types**: Allows all types of file attachments. Optionally specify max number of attachments.<br />- **Specific attachments types**: Enables the user to define/select specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).<br />Start typing to see suggestions or use `<type>/<subtype>` format for a manual entry. |
 | **Attachments max number** | Maximum number of input attachments. <br />**Note**: Enabled if attachment types are defined. |
-| **Completion Defaults** | Default parameters are applied if a chat completion request doesn't contain them. |
-| **Responses Defaults** | Default parameters are applied if a request OpenAI Responses API call doesn't contain them. <br /> Available if responses endpoint is supported. |
+| **Completion Defaults** | Default parameters are applied if a request doesn't contain them in OpenAI `chat/completions` API call. |
+| **Responses Defaults** | Default parameters applied if a request doesn't contain them in an OpenAI Responses API call. Works the same way as Completion Defaults for the chat completions API. <br /> Available if responses endpoint is supported. |
 | **Forward auth token** | This parameter allows to determine whether to forward an Auth Token to your apps's endpoint. If enabled, HTTP header with authorization token are forwarded to chat completion endpoint.<br />**Note**: this parameter is not supported for Assets Applications. |
 | **Max retry attempts** | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors). |
 

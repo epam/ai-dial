@@ -123,7 +123,7 @@ The following properties need to be specified if selected Source Type is Adapter
 | **Adapter** | Yes | [Model adapter](/docs/tutorials/3.admin/builders-adapters.md) that will be used to handle requests to this model deployment (e.g. **OpenAI**, **DIAL**). Adapter defines how to authenticate, format payloads, and parse responses. |
 | **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
 | **Completion endpoint** | Yes | Endpoint URL that will be invoked to process chat completion requests. The base URL is determined by the selected adapter, while the path can be partially customized. |
-| **Responses endpoint** | Yes | Endpoint URL that will be invoked to process OpenAI Responses API calls. The URL is read-only and is determined by the selected AI model adapter. |
+| **Responses endpoint** | Yes | Endpoint of the model adapter that supports the OpenAI Responses API. The URL is read-only and is determined by the selected AI model adapter. Currently only OpenAI adapters support this. When set, DIAL Core routes `POST /openai/v1/responses` requests to this endpoint. Only basic Responses API behavior is supported: background requests, `previous_request_id`, conversations, prompts, and files are not supported. |
 
 ![](img/source_type_adapter.png)
 
@@ -138,7 +138,7 @@ The following properties need to be specified if selected Source Type is Model S
 | **Container** | Yes | ID of one of the running [Model Serving](/docs/tutorials/3.admin/deployments-models.md) containers. Click to select among the available containers. |
 | **Type** | Yes | Select **Chat** or **Embedding** type of model. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
 | **Completion endpoint** | Yes | Endpoint URL that will be invoked to process chat completion requests. The base URL is determined by the selected Model Serving container, while the path can be partially customized: it starts with URL of the Model Serving container and ends with `/chat/completion`. The middle part `openai/v1` can be manually edited. |
-| **Responses endpoint** | Yes | Endpoint URL that will be invoked to process OpenAI Responses API calls. The base URL is determined by the selected Model Serving container, while the path can be partially customized: it starts with URL of the Model Serving container and ends with `/responses`. The middle part  can be manually edited. |
+| **Responses endpoint** | Yes | Endpoint URL of the Model Serving container that supports the OpenAI Responses API. When set, DIAL Core routes `POST /openai/v1/responses` requests to this endpoint. Only basic Responses API behavior is supported: background requests, `previous_request_id`, conversations, prompts, and files are not supported. The base URL is determined by the selected Model Serving container, while the path can be partially customized: it starts with URL of the Model Serving container and ends with `/responses`. The middle part  can be manually edited. |
 
 ![](img/source_type_container.png)
 
@@ -152,7 +152,7 @@ The following properties need to be specified if selected Source Type is Externa
 |-------|----------|-------------|
 | **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
 | **Completion endpoint** | Yes | Endpoint URL that will be invoked to process chat completion requests. |
-| **Responses endpoint** | Yes | Endpoint URL that will be invoked to process OpenAI Responses API calls. |
+| **Responses endpoint** | Yes | Endpoint URL that supports the OpenAI Responses API. When set, DIAL Core routes `POST /openai/v1/responses` requests to this endpoint. Only basic Responses API behavior is supported: background requests, `previous_request_id`, conversations, prompts, and files are not supported. |
 
 ![](img/source_type_endpoint.png)
 
@@ -183,8 +183,8 @@ Default parameters can be used to pass additional parameters with the chat compl
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| **Completion Defaults** | No | Default parameters are applied if a chat completion request doesn't contain them. |
-| **Responses Defaults** | No | Default parameters are applied if an OpenAI Responses API call doesn't contain them. <br /> Available if responses endpoint is supported. |
+| **Completion Defaults** | No | Default parameters are applied if a request doesn't contain them in OpenAI `chat/completions` API call. |
+| **Responses Defaults** | No | Default parameters applied if a request doesn't contain them in an OpenAI Responses API call. Works the same way as Completion Defaults for the chat completions API. <br /> Available if responses endpoint is supported. |
 
 ![](img/model_defaults.png)
 
@@ -194,8 +194,8 @@ You can use upstream endpoints to provide alternative URLs DIAL Core will use to
 
 | Field | Description |
 |-------|-------------|
-| **Chat completion endpoint** | Upstream endpoint URL supported by the related AI model adapter that will be invoked to process chat completion requests. Responses API endpoint is recommended to use here for OpenAI models that support Responses API. |
-| **Responses endpoint** | Upstream endpoint URL supported by the related AI model adapter for OpenAI Responses requests. |
+| **Chat completion endpoint** | The upstream backend URL for the chat completions API. Passed to the model adapter in the `X-UPSTREAM-ENDPOINT` header. Responses API endpoint is recommended to use here for OpenAI models that support Responses API. |
+| **Responses endpoint** | The upstream backend URL for the Responses API. Passed to the model adapter in the `X-UPSTREAM-ENDPOINT` header when routing Responses API requests. |
 | **Keys** | API key, token, or credential passed to the upstream. Stored securely and masked—click the eye icon to reveal.|
 | **Weight** | Numeric [weight](/docs/platform/3.core/5.load-balancer.md#weights) for this endpoint in a multi-upstream scenario. Higher = more traffic share. |
 | **Tier** | Specifies an endpoint group. In a regular scenario, all requests are routed to endpoints with the lowest tier, but in case of an outage or hitting the limits, the next one in the line helps to handle the load. |
