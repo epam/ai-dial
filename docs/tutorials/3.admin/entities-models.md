@@ -123,7 +123,7 @@ The following properties need to be specified if selected Source Type is Adapter
 | **Adapter** | Yes | [Model adapter](/docs/tutorials/3.admin/builders-adapters.md) that will be used to handle requests to this model deployment (e.g. **OpenAI**, **DIAL**). Adapter defines how to authenticate, format payloads, and parse responses. |
 | **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
 | **Completion endpoint** | Yes | Endpoint URL that will be invoked to process chat completion requests. The base URL is determined by the selected adapter, while the path can be partially customized. |
-| **Responses endpoint** | Yes | Endpoint of the model adapter that supports the OpenAI Responses API. The URL is read-only and is determined by the selected AI model adapter. Currently only OpenAI adapters support this. When set, DIAL Core routes `POST /openai/v1/responses` requests to this endpoint. Only basic Responses API behavior is supported: background requests, `previous_request_id`, conversations, prompts, and files are not supported. |
+| **Responses endpoint** | Yes | Endpoint of the model adapter that supports the OpenAI Responses API. The URL is read-only and is determined by the selected AI model adapter. Currently only [OpenAI adapters](https://github.com/epam/ai-dial-adapter-openai/blob/development/README.md) support this. When set, DIAL Core routes `POST /openai/v1/responses` requests to this endpoint. Only basic Responses API behavior is supported: background requests, `previous_request_id`, conversations, prompts, and files are not supported. |
 
 ![](img/source_type_adapter.png)
 
@@ -136,7 +136,7 @@ The following properties need to be specified if selected Source Type is Model S
 | Field | Required | Description |
 |-------|----------|-------------|
 | **Container** | Yes | ID of one of the running [Model Serving](/docs/tutorials/3.admin/deployments-models.md) containers. Click to select among the available containers. |
-| **Type** | Yes | Select **Chat** or **Embedding** type of model. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
+| **Type** | Yes | Select **Chat** or **Embedding** type of model. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering).<br />**Note**: This setting is available if Model Serving container is set and running.  |
 | **Completion endpoint** | Yes | Endpoint URL that will be invoked to process chat completion requests. The base URL is determined by the selected Model Serving container, while the path can be partially customized: it starts with URL of the Model Serving container and ends with `/chat/completion`. The middle part `openai/v1` can be manually edited. |
 | **Responses endpoint** | Yes | Endpoint URL of the Model Serving container that supports the OpenAI Responses API. When set, DIAL Core routes `POST /openai/v1/responses` requests to this endpoint. Only basic Responses API behavior is supported: background requests, `previous_request_id`, conversations, prompts, and files are not supported. The base URL is determined by the selected Model Serving container, while the path can be partially customized: it starts with URL of the Model Serving container and ends with `/responses`. The middle part  can be manually edited. |
 

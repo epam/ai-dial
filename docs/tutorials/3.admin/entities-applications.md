@@ -25,7 +25,6 @@ On this screen, you can access all the available application deployments in your
 | **ID** | Unique identifier used in the DIAL [dynamic settings](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/applications.md) (e.g. dca, support-bot). This is the path segment of the Application's HTTP endpoint. |
 | **Source type** | The type of the source used to create application: Endpoints, App Runner or Application Container. |
 | **Source**| Name, URI or other identifier of the source used to create application. | 
-| **Endpoint** | Full URL where the application is exposed. |
 | **Author** | Information about the application's author. |
 | **Topics** | Tags or categories (e.g. "finance," "support," "image-capable") you can assign for discovery, filtering, or grouping in large deployments. Helps end users and admins find the right application by the use case. |
 | **Attachment types** | Types of attachments this application can accept according to [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types). |
