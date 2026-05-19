@@ -30,7 +30,7 @@ On this screen, you can find all toolset deployments existing in your DIAL insta
 | **Author** | Name of the toolset creator. |
 | **Topics** | Tags or categories assigned for toolsets for discovery, filtering, or grouping on UI (e.g. "finance," "support"). |
 | **Creation Time** | Entity creation timestamp. |
-| **Updated Time** | Timestamps of the latest update of the entity. |
+| **Updated Time** | Timestamp of the latest update of the entity. |
 | **Actions** | Actions you can perform on the selected toolsets:<br />- **Open in a new tab**: Opens the toolset's properties, features, and parameters in a new tab.<br />- **Duplicate**: Creates a copy of the toolset. Refer to [Duplicate](#duplicate) to learn more. <br />- **Delete**: Removes the toolset. Refer to [Delete](#delete) to learn more. |
 
 ## Create

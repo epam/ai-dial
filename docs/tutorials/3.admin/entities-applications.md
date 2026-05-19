@@ -24,14 +24,14 @@ On this screen, you can access all the available application deployments in your
 | **Description** | Brief free-text summary describing the application (e.g. "Clusters incoming text into semantic groups"). |
 | **ID** | Unique identifier used in the DIAL [dynamic settings](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/applications.md) (e.g. dca, support-bot). This is the path segment of the Application's HTTP endpoint. |
 | **Source type** | The type of the source used to create application: Endpoints, App Runner or Application Container. |
-| **Source**| Name, URI or other identifier of the source used to create application. | 
+| **Source** | Name, URI or other identifier of the source used to create application. | 
 | **Author** | Information about the application's author. |
 | **Topics** | Tags or categories (e.g. "finance," "support," "image-capable") you can assign for discovery, filtering, or grouping in large deployments. Helps end users and admins find the right application by the use case. |
 | **Attachment types** | Types of attachments this application can accept according to [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types/Common_types). |
 | **Max attachment number** | Maximum number of attachments allowed in a single request. |
 | **Status** | Current status of the application:<br />- **Valid**: application configuration is compatible with the JSON schema or the related application runner.<br />Only valid entities will be materialized into the DIAL Core configuration.<br />- **Invalid**: application configuration is incompatible with the JSON schema of the related application runner. |
 | **Creation Time** | Entity creation timestamp. |
-| **Updated Time** | Timestamps of the latest update of the entity. |
+| **Updated Time** | Timestamp of the latest update of the entity. |
 
 ## Create
 

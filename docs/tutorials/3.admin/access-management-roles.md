@@ -21,7 +21,7 @@ On this screen, you can find all roles defined in your instance of DIAL. Here, y
 
 | Column | Description |
 |--------|-------------|
-| **ID**| Unique role's identifier. |
+| **ID** | Unique role's identifier. |
 | **Display Name** | Role's name displayed on UI. |
 | **Description**  | Description of the given role. |
 | **Updated Time** | Last update timestamp. |

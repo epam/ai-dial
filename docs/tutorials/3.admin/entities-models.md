@@ -44,7 +44,7 @@ The grid with models displays the main properties of models which include:
 | **Prompt price** | Cost per unit (according to **Cost unit**, typically "token" or "request") applied to the *input* portion of each call. Used by the [Dashboard and Usage Logs](/docs/tutorials/3.admin/telemetry-dashboard.md) to estimate spending in real time. |
 | **Completion price** | Cost per unit is charged for the output portion of each call. Combined with the prompt price, it determines your per-model cost calculations. |
 | **Creation Time** | Entity creation timestamp. |
-| **Updated Time** | Timestamps of the latest update of the entity. |
+| **Updated Time** | Timestamp of the latest update of the entity. |
 
 ## Create Model
 
@@ -257,7 +257,7 @@ Each toggle corresponds to a capability in the [Unified Protocol](/docs/platform
 | Toggle | Description |
 |--------|-------------|
 | **System prompt** | Allows injecting a system‐level message (the "agent’s instructions") at the start of every chat. Disable for models that ignore or block system prompts. |
-| **Tools**| Enables the `tools` (a.k.a. functions) feature for safe external API calls. Enable if you plan to use DIAL toolsets or function calling. |
+| **Tools** | Enables the `tools` (a.k.a. functions) feature for safe external API calls. Enable if you plan to use DIAL toolsets or function calling. |
 | **Temperature supported**  | Enables the `temperature` parameter to control randomness in model deployment's output. |
 | **Seed** | Enables the `seed` parameter for deterministic output. If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result. Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend. |
 | **URL Attachments** | Allows passing URLs as attachments (images, docs) to the model. Can be required for image-based or file-referencing prompts. |
@@ -265,7 +265,7 @@ Each toggle corresponds to a capability in the [Unified Protocol](/docs/platform
 | **Assistant attachment in request** | Indicates whether the model deployment supports `attachments` [chat completion request](https://dialx.ai/dial_api#operation/sendChatCompletionRequest) `messages` form the `role=assistant`. When enabled, DIAL Chat must preserve `attachments` in `messages` from assistants, instead of removing them. The feature is especially useful for models that can generate attachments as well as take attachments as an input. A typical example of such a model is an image-editing model. |
 | **Accessible by request key** | Indicates whether the deployment is accessible using a [per-request API key](/docs/platform/3.core/3.per-request-keys.md). |
 | **Content parts** | Indicates whether the model deployment supports requests with content parts or not. Content parts in a chat completion request allow sending to AI model a message consisting of different types of content, such as text, images, or other media, within a single request which enables more rich and flexible interaction with a model.|
-| **Cache**| Whether the deployment supports [LLM caching](/docs/tutorials/1.developers/6.prompt-caching.md). |
+| **Cache** | Whether the deployment supports [LLM caching](/docs/tutorials/1.developers/6.prompt-caching.md). |
 | **Auto caching** | Indicates whether the deployment supports [automatic caching](/docs/tutorials/1.developers/6.prompt-caching.md), where it's possible. |
 | **Parallel tool calls** | Indicates whether the deployment supports `parallel_tool_calls` parameter in a [chat completion request](https://dialx.ai/dial_api#operation/sendChatCompletionRequest) which enables parallel `function` calling when using a `tool`. |
 | **Support comment in rate response** | Indicates whether the model supports the field `comment` in rate response payload. |
