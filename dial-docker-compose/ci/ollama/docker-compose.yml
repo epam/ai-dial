@@ -1,0 +1,16 @@
+include:
+  - path: ../../ollama/docker-compose.yml
+    env_file: ./.env
+
+services:
+  test:
+    build: test
+    environment:
+      DIAL_URL: "http://core:8080"
+      DIAL_API_KEY: "dial_api_key"
+      DIAL_API_VERSION: "2024-02-01"
+    depends_on:
+      ollama-setup:
+        condition: service_healthy
+      core:
+        condition: service_healthy

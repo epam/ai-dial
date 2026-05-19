@@ -1,5 +1,5 @@
 # Overview 
-The [EPAM RAIL team](https://epam-rail.com/about-us) manages [DIAL](https://epam-rail.com/about-us) as a multi-repository project. DIAL is API-first and can function as a headless system. All components, except for DIAL CORE (which exposes APIs), are optional. Each component publishes its own artifacts, which can be used independently. Each component also has a designated owner. The DIAL platform is released as a stable assembly of its components in the form of Helm charts.
+The [EPAM RAIL team](https://dialx.ai/about-us) manages [DIAL](https://dialx.ai/about-us) as a multi-repository project. DIAL is API-first and can function as a headless system. All components, except for DIAL CORE (which exposes APIs), are optional. Each component publishes its own artifacts, which can be used independently. Each component also has a designated owner. The DIAL platform is released as a stable assembly of its components in the form of Helm charts.
 
 This document provides general guidelines for contributing to the project. Please note that some repositories may contain additional, specific recommendations.
 
@@ -25,14 +25,31 @@ Here is the current list of repositories:
     - [DIAL AWS Bedrock Adapter](https://github.com/epam/ai-dial-adapter-bedrock) - plugable Amazon LLMs adapter (Anthropic Claude 1/2 is included)
     - More LLM adapters will be released (you may contribute)
 
-Please see [repository map](https://epam-rail.com/open-source).
+Please see [repository map](https://dialx.ai/open-source).
 
 # Project Vision
+
 AI DIAL is a secure, enterprise-grade, free LLM orchestrator that is API-first and model-agnostic. It is designed to be cloud-agnostic, providing horizontal features that simplify interactions with various models and LLM-centric applications, as well as the development of LLM applications. We strive to avoid dependencies on specific cloud or LLM vendors, compromises on scalability or security, excessive expansion of our tech footprint, or potential licensing risks. We typically design features as APIs, which custom extensions can leverage.
 
-The solution is domain-agnostic. We prioritize use case-agnostic generic features (such as rendering charts in the frontend based on model responses) over features that are overly specific to a single domain (like supporting medical anthologies). However, specific implementations can be built as extensions or derived works. For more information, refer to our [extension framework](https://epam-rail.com/extension-framework) and [API reference](https://epam-rail.com/dial_api).
+The solution is domain-agnostic. We prioritize use case-agnostic generic features (such as rendering charts in the frontend based on model responses) over features that are overly specific to a single domain (like supporting medical anthologies). However, specific implementations can be built as extensions or derived works. For more information, refer to our [extension framework](https://dialx.ai/extension-framework) and [API reference](https://dialx.ai/dial_api).
+
+AI DIAL is a product that is designed to **enhance** or **extend**, rather than replace or compete with:
+ 
+- Model providers such as [Azure](https://azure.microsoft.com/), [AWS](https://aws.amazon.com/), and [GCP](https://cloud.google.com/)
+- Model vendors including [OpenAI](https://openai.com/), [Claude](https://www.anthropic.com/claude), [Google DeepMind](https://deepmind.google/), [Meta](https://ai.meta.com/), and [Mistral](https://mistral.ai/)
+- AI studios like [Azure AI Studio](https://azure.microsoft.com/en-us/products/ai-studio), [Google AI Studio](https://ai.google.dev/aistudio), and [Meta AI Studio](https://ai.meta.com/ai-studio/)
+- Data platforms such as [Databricks](https://www.databricks.com/) and [Dataiku](https://www.dataiku.com/)
+- Application development frameworks including [LangChain](https://www.langchain.com/), [LlamaIndex](https://www.llamaindex.ai/) and [SemanticKernel](https://github.com/microsoft/semantic-kernel)
+- Low-code application designers like [Flowise](https://flowiseai.com/)
+ 
+We aim to complement these services, streamlining the development, deployment, and operation of GenAI applications, as well as facilitating the [interoperability](https://docs.dialx.ai/platform/architecture-and-concepts/architecture) of various applications to achieve specific business objectives. For this purpose we provide:
+ 
+- [Unified API](https://dialx.ai/dial_api) to access multimodal models, assistants, applications, and embedding models.
+- Essential services such as resilient file/chat/prompt//model [storage](https://docs.dialx.ai/platform/architecture-and-concepts/components#persistent-layer) with user-based [access control](https://docs.dialx.ai/platform/core/access-control-intro).
+- Important operational features, including [sharing](https://dialx.ai/dial_api#tag/Sharing), organization-wide [publications](https://dialx.ai/dial_api#tag/Publications), [review processes](https://docs.dialx.ai/tutorials/developers/work-with-resources/work-with-publications), and [rate limits](https://docs.dialx.ai/platform/architecture-and-concepts/components#rate-limits--cost-control).
 
 ## Feature Validation Checklist
+
 Every new feature will be meticulously evaluated for:
 - Overall correctness
 - API-first design, ensuring usefulness for extensions and derived work
@@ -52,7 +69,7 @@ DIAL platform releases occur periodically according to a formal schedule. Typica
 ## Milestones
 Since GitHub only supports milestones within a single repository, we use a custom field called `Milestones` in the [AI DIAL Project](https://github.com/orgs/epam/projects/22). The built-in milestone field is not used. When we refer to a milestone, we mean this custom field.
 
-Milestones are used to indicate the target release version (and date) for a given issue. The milestone name format is `2023-Dec-6`. We maintain the scope of one current and two upcoming milestones. The plan for the current milestone can be considered accurate with minor deviations (subject to changes every Monday). The two upcoming milestones may undergo significant changes, but they provide an indication of our current objectives.
+Milestones are used to indicate the target release version (and date) for a given issue. The milestone name format is `2024-09-04`(yyyy-MM-dd). We maintain the scope of one current and two upcoming milestones. The plan for the current milestone can be considered accurate with minor deviations (subject to changes every Monday). The two upcoming milestones may undergo significant changes, but they provide an indication of our current objectives.
 
 If an issue does not have a milestone, it is in the plan and not expected to be addressed in the near future.
 
