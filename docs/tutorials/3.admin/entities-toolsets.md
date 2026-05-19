@@ -45,7 +45,7 @@ Follow these steps to add a new toolset definition:
     | **ID** | Yes | Define a unique identifier of a toolset.|
     | **Display Name** | Yes | Define a name of a toolset shown across the UI (e.g. GitHub, Google Maps).|
     | **Description** | No | Enter a free-text note about the this toolset’s purpose, capabilities, or any other relevant details. |
-    | **Source Type** | Yes |Choose between the available source types of toolset: <br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.<br />- **MCP Registry**: [MCP Registry](https://registry.modelcontextprotocol.io/) for Model Context Protocol (MCP) servers.|
+    | **Source Type** | Yes | Choose between the available source types of toolset: <br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.<br />- **MCP Registry**: [MCP Registry](https://registry.modelcontextprotocol.io/) for Model Context Protocol (MCP) servers.|
     | **External Endpoint** | Conditional | Define a Toolset API endpoint for MCP calls. <br />Applies for External Endpoint source type. |
     | **Container** | Conditional | Select one of the available and running [MCP containers](/docs/tutorials/3.admin/deployments-mcp.md) from the list. <br />Applies for MCP Container source type. |
     | **MCP server name** | Conditional | Applies for MCP Registry source type. <br />Select one of the available MCP servers in the registry. <br />**Important**: MCP servers must support Remotes `streamable-http` and `sse`. |

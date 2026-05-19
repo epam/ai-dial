@@ -65,7 +65,7 @@ In this tab you can access and modify the selected properties of the application
 | **Attachment types** | Yes | Use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **No attachments**: Disables all attachment types.  <br /> **All attachments types**: Allows all types of file attachments. Optionally specify max number of attachments. <br /> **Specific attachments types**: Enables the user to define/select specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Start typing to see suggestions or use `<type>/<subtype>` format for a manual entry. |
 | **Attachments max number** | Yes | Maximum number of input attachments. Enabled if attachment types are defined. |
 | **Defaults** | Yes | Default parameters for the application. Default parameters are applied if a request doesn't contain them in OpenAI chat/completions API call. |
-| **Forward auth token** | Yes | This parameter allows to determine whether to forward an Auth Token to your apps's endpoint. If enabled, HTTP header with authorization token are forwarded to chat completion endpoint. |
+| **Forward auth token** | Yes | This parameter allows to determine whether to forward an Auth Token to your apps's endpoint. If enabled, HTTP header with authorization token is forwarded to chat completion endpoint. |
 | **Max retry attempts** | Yes | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors). |
 
 ![](img/app-publication-properties.png)

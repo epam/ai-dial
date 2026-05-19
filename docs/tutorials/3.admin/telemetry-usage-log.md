@@ -89,7 +89,7 @@ The MCP tab provides a focused view of MCP-related activity within DIAL Core. Ea
 | **Column**         | **Description** |
 |--------------------|-----------------|
 | **Last activity**  | Timestamp of the most recent MCP call. |
-| **Deployment ID**  | Identifier of the application which initiated an MCP call. |
+| **Deployment ID**  | The deployment name of a DIAL toolset or application corresponding to the MCP call. |
 | **Project**        | Project ID associated with the MCP call, based on the DIAL API Key used. |
 | **Tool Name**      | Name of the tool invoked during the MCP call. |
 | **Trace ID**       | OpenTelemetry trace ID uniquely identifying the MCP call and its related sequence of operations. |
@@ -109,6 +109,6 @@ The Routes tab provides a focused view into Routes-related activity within DIAL 
 | **Route** | Name of the route invoked during the route call. |
 | **Method** | The method or operation performed by the route. |
 | **Upstream** | The upstream endpoint called during the route call. |
-| **Deployment ID** | Identifier of the application which initiated a route call. |
+| **Deployment ID** | The DIAL deployment whose route endpoint has been called. |
 | **Project** | Project ID associated with the route call, based on the DIAL API Key used. |
 | **Trace ID** | OpenTelemetry trace ID uniquely identifying the route call and its related sequence of operations. |

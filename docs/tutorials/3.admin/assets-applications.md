@@ -32,12 +32,13 @@ Hover over any folder in the right or left panel to display the actions menu.
 
 | Available Actions | Description |
 |-------------------|-------------|
-| **Create sub-folders** |  Use to add new child or sibling sub-folders. |
+| **Add sibling** |  Use to add new sibling sub-folders that share the same parent folder as the selected folder. |
+| **Add child** |  Use to add new child sub-folders located within the selected folder. |
 | **Move to** | Use to select a target location in the hierarchy to move the selected folder. | 
 | **Export** | Use to download the content of the selected folder with objects inside it as a ZIP archive or raw JSON file. |
 | **Rename** | Use to rename the selected folder. | 
 | **Manage permissions** | Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder. |
-| **Delete** | Use to delete the folder with objects inside it.|
+| **Delete** | Use to delete the folder with objects inside it. |
 
 ![ ](img/files-folders-actions.png)
 
@@ -116,9 +117,9 @@ Follow these steps to add a new application to the Public folder:
     | **Version** | Yes | Semantic identifier (e.g., 1.2.0) of an application's version. |
     | **Description** | No | Description of the application. |
     | **Source Type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided chat and/or MCP endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. In [Builders/Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) you can see all the available runners and add new ones. |
-    | **Completion endpoint** | Yes | Endpoint URL that will be used to process chat completion requests. |
+    | **Completion endpoint** | Yes | Endpoint URL that will be used to process chat completion requests. Completion endpoint is available/visible if source is Endpoints. |
     | **Responses endpoint** | No | Endpoint URL that will be used to process OpenAI Responses API calls. Available if Source Type is **Endpoints**. |
-    | **MCP Endpoint** | No | The application's MCP endpoint DIAL Core will use to communicate with application. Available if Source Type is **Endpoints** or **Application Container**.<br />-**Transport**: Transport used by MCP server for transmitting MCP messages between client and server. HTTP by default.<br />-**Forward per request key**: Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the MCP endpoint allowing MCP server to access files in the DIAL storage.<br />-**Configuration delivery**: Determines how application properties are sent to the MCP server. Choose `Header` to deliver application properties in Http header. Choose `Meta` to include application properties in `_meta` field within the MCP message payload. |
+    | **MCP Endpoint** | No | The application's MCP endpoint DIAL Core will use to communicate with application. Available if Source Type is **Endpoints**.<br />-**Transport**: Transport used by MCP server for transmitting MCP messages between client and server. HTTP by default.<br />-**Forward per request key**: Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the MCP endpoint allowing MCP server to access files in the DIAL storage.<br />-**Configuration delivery**: Determines how application properties are sent to the MCP server. Choose `Header` to deliver application properties in Http header. Choose `Meta` to include application properties in `_meta` field within the MCP message payload. |
     | **Application runner** | Conditional | Select one of the [available application runners](/docs/tutorials/3.admin/builders-application-runners.md). Required if Source Type is **Application runner**. |
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#configuration) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
@@ -178,8 +179,8 @@ You can find the following action buttons in the configuration screen header:
 | **Attachments types** | Use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have. <br />Available values: <br />- **No attachments**: Disables all attachment types.<br />- **All attachments types**: Allows all types of file attachments. Optionally specify max number of attachments.<br />- **Specific attachments types**: Enables the user to define/select specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).<br />Start typing to see suggestions or use `<type>/<subtype>` format for a manual entry. |
 | **Attachments max number** | Maximum number of input attachments. <br />**Note**: Enabled if attachment types are defined. |
 | **Completion Defaults** | Default parameters are applied if a request doesn't contain them in OpenAI `chat/completions` API call. |
-| **Responses Defaults** | Default parameters applied if a request doesn't contain them in an OpenAI Responses API call. Works the same way as Completion Defaults for the chat completions API. <br /> Available if responses endpoint is supported. |
-| **Forward auth token** | This parameter allows to determine whether to forward an Auth Token to your apps's endpoint. If enabled, HTTP header with authorization token are forwarded to chat completion endpoint.<br />**Note**: this parameter is not supported for Assets Applications. |
+| **Responses Defaults** | Default parameters applied if a request doesn't contain them in an OpenAI Responses API call. Works the same way as Completion Defaults for the chat completions API. <br /> Available if OpenAI Responses API is supported. |
+| **Forward auth token** | This parameter allows to determine whether to forward an Auth Token to your apps's endpoint. If enabled, HTTP header with authorization token is forwarded to chat completion endpoint.<br />**Note**: this parameter is not supported for Assets Applications. |
 | **Max retry attempts** | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors). |
 
 ### Tools Overview
