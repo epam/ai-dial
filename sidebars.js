@@ -37,7 +37,7 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'platform/core/auth-intro',
+              id: 'platform/architecture-and-concepts/unified-api-overview',
               label: 'Unified API Overview',
             },
           ],
@@ -59,33 +59,28 @@ const sidebars = {
             {
               type: 'doc',
               id: 'platform/collaboration-intro',
-              label: 'Collaboration',
+              label: 'Collaboration and Sharing',
             },
           ],
         },
         {
           type: 'category',
-          label: 'Security and governance',
+          label: 'Security and Governance',
           items: [
             {
               type: 'doc',
-              id: 'platform/core/auth-intro',
-              label: 'Authentication',
-            },
-            {
-              type: 'doc',
-              id: 'platform/core/privacy',
-              label: 'Privacy',
-            },
-            {
-              type: 'doc',
-              id: 'platform/architecture-and-concepts/access-control',
-              label: 'Access Control Overview',
+              id: 'platform/architecture-and-concepts/authentication-and-access-control',
+              label: 'Authentication and Access Control',
             },
             {
               type: 'doc',
               id: 'platform/core/token-limits-and-cost-control',
               label: 'Usage Limits and Cost Control',
+            },
+            {
+              type: 'doc',
+              id: 'platform/core/privacy',
+              label: 'Privacy',
             },
           ],
         },
@@ -102,7 +97,7 @@ const sidebars = {
             {
               type: 'doc',
               id: 'platform/core/apps',
-              label: 'DIAL Apps overview',
+              label: 'DIAL Apps Overview',
             },
             {
               type: 'category',
@@ -110,18 +105,13 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'platform/core/apps',
-                  label: 'Architecture and lifecycle',
+                  id: 'tutorials/developers/apps-development/enable-app',
+                  label: 'Registering Apps in DIAL Core',
                 },
                 {
                   type: 'doc',
                   id: 'tutorials/developers/apps-development/custom-buttons',
-                  label: 'Custom buttons in apps',
-                },
-                {
-                  type: 'doc',
-                  id: 'tutorials/developers/apps-development/enable-app',
-                  label: 'Registering apps in DIAL Core',
+                  label: 'Custom Buttons in Apps',
                 },
                 {
                   type: 'category',
@@ -142,7 +132,7 @@ const sidebars = {
                 {
                   type: 'doc',
                   id: 'tutorials/developers/apps-development/quick-app-configuration',
-                  label: 'Quick Apps',
+                  label: 'Authoring Guide',
                 },
               ],
             },
@@ -150,7 +140,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Extension points',
+          label: 'Extension Points',
           items: [
             {
               type: 'doc',
@@ -163,13 +153,13 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'platform/architecture-and-concepts/architecture',
+                  id: 'platform/architecture-and-concepts/adapters',
                   label: 'What are Adapters',
                 },
                 {
                   type: 'doc',
                   id: 'platform/supported-models',
-                  label: 'Supported adapters',
+                  label: 'Supported Adapters',
                 },
               ],
             },
@@ -177,36 +167,36 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Developer tools',
+          label: 'Developer Tools',
           items: [
             {
               type: 'category',
-              label: 'Chat customization',
+              label: 'Chat Customization',
               items: [
                 {
                   type: 'doc',
                   id: 'tutorials/developers/chat/chat-objects',
-                  label: 'Custom content in chat',
+                  label: 'Custom Content in Chat',
                 },
                 {
                   type: 'doc',
                   id: 'platform/chat/data-visualization-intro',
-                  label: 'Data visualization',
+                  label: 'Data Visualization',
                 },
                 {
                   type: 'doc',
                   id: 'tutorials/developers/chat/create-custom-visualizer',
-                  label: 'Create custom visualizer',
+                  label: 'Create Custom Visualizer',
                 },
                 {
                   type: 'doc',
                   id: 'tutorials/developers/chat/localization',
-                  label: 'Chat localization',
+                  label: 'Chat Localization',
                 },
                 {
                   type: 'doc',
                   id: 'tutorials/developers/chat/chat-design',
-                  label: 'Theming and design',
+                  label: 'Theming and Design',
                 },
                 {
                   type: 'doc',
@@ -221,7 +211,7 @@ const sidebars = {
               items: [
                 {
                   type: 'category',
-                  label: 'Chatbot integrations',
+                  label: 'Chatbot Integrations',
                   items: [
                     {
                       type: 'doc',
@@ -237,7 +227,7 @@ const sidebars = {
                 },
                 {
                   type: 'category',
-                  label: 'Productivity add-ins',
+                  label: 'Productivity Add-ins',
                   items: [
                     {
                       type: 'doc',
@@ -248,7 +238,7 @@ const sidebars = {
                 },
                 {
                   type: 'category',
-                  label: 'Workflow automation',
+                  label: 'Workflow Automation',
                   items: [
                     {
                       type: 'doc',
@@ -261,7 +251,7 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: 'Platform APIs and resources',
+              label: 'Platform APIs and Resources',
               items: [
                 {
                   type: 'doc',
@@ -281,23 +271,23 @@ const sidebars = {
                 {
                   type: 'doc',
                   id: 'platform/core/per-request-keys',
-                  label: 'Per-request keys',
+                  label: 'Per-request Keys',
                 },
                 {
                   type: 'doc',
                   id: 'tutorials/developers/apps-development/auth-matrix',
-                  label: 'Auth matrix for apps',
+                  label: 'Auth Matrix for Apps',
                 },
               ],
             },
             {
               type: 'category',
-              label: 'Advanced topics',
+              label: 'Advanced Topics',
               items: [
                 {
                   type: 'doc',
                   id: 'tutorials/developers/prompt-caching',
-                  label: 'Prompt caching',
+                  label: 'Prompt Caching',
                 },
               ],
             },
@@ -311,7 +301,7 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'Local setup',
+          label: 'Local Setup',
           items: [
             {
               type: 'doc',
@@ -331,80 +321,80 @@ const sidebars = {
             {
               type: 'doc',
               id: 'tutorials/developers/local-run/quick-start-with-application',
-              label: 'Docker Compose with application',
+              label: 'Docker Compose with Application',
             },
             {
               type: 'doc',
               id: 'tutorials/developers/apps-development/adapter-dial',
-              label: 'DIAL-to-DIAL Adapter for local dev',
+              label: 'DIAL-to-DIAL Adapter for Local Dev',
             },
           ],
         },
         {
           type: 'category',
-          label: 'Cloud deployment',
+          label: 'Cloud Deployment',
           items: [
             {
               type: 'doc',
               id: 'tutorials/devops/deployment/aws-deployment-guide',
-              label: 'AWS deployment',
+              label: 'AWS Deployment',
             },
             {
               type: 'doc',
               id: 'tutorials/devops/deployment/azure-deployment-guide',
-              label: 'Azure deployment',
+              label: 'Azure Deployment',
             },
             {
               type: 'doc',
               id: 'tutorials/devops/deployment/gcp-deployment-guide',
-              label: 'GCP deployment',
+              label: 'GCP Deployment',
             },
             {
               type: 'doc',
               id: 'tutorials/devops/deployment/azure-secrets',
-              label: 'Azure Secrets deployment',
+              label: 'Azure Secrets Deployment',
             },
             {
               type: 'doc',
               id: 'tutorials/devops/deployment/custom_apps_deployment',
-              label: 'Custom Apps deployment',
+              label: 'Custom Apps Deployment',
             },
             {
               type: 'doc',
               id: 'tutorials/devops/deployment/quick_apps_deployment',
-              label: 'Quick Apps installation',
+              label: 'Quick Apps Deployment',
             },
           ],
         },
         {
           type: 'category',
-          label: 'Model deployment',
+          label: 'Model Deployment',
           items: [
             {
               type: 'doc',
               id: 'tutorials/devops/deployment/deployment-of-models/bedrock-model-deployment',
-              label: 'Bedrock model deployment',
+              label: 'Bedrock Model Deployment',
             },
             {
               type: 'doc',
               id: 'tutorials/devops/deployment/deployment-of-models/openai-model-deployment',
-              label: 'OpenAI model deployment',
+              label: 'OpenAI Model Deployment',
             },
             {
               type: 'doc',
               id: 'tutorials/devops/deployment/deployment-of-models/vertex-model-deployment',
-              label: 'Vertex model deployment',
+              label: 'Vertex Model Deployment',
             },
             {
               type: 'doc',
               id: 'tutorials/devops/use-databricks-model',
-              label: 'Databricks model deployment',
+              label: 'Databricks Model Deployment',
             },
           ],
         },
         {
           type: 'category',
-          label: 'Configuration reference',
+          label: 'Configuration Reference',
           items: [
             {
               type: 'doc',
@@ -413,18 +403,13 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'tutorials/devops/configuration/realtime-analytics-config',
-              label: 'Realtime analytics config',
-            },
-            {
-              type: 'doc',
               id: 'platform/core/load-balancer',
-              label: 'Load balancer',
+              label: 'Load Balancer',
             },
             {
               type: 'doc',
               id: 'tutorials/devops/configuration/enable-publications-chat',
-              label: 'Enable publications',
+              label: 'Enable Publications',
             },
           ],
         },
@@ -435,21 +420,16 @@ const sidebars = {
             {
               type: 'doc',
               id: 'tutorials/devops/auth-and-access-control/api-keys',
-              label: 'API keys',
+              label: 'API Keys',
             },
             {
               type: 'doc',
               id: 'tutorials/devops/auth-and-access-control/jwt',
-              label: 'JWT configuration',
-            },
-            {
-              type: 'doc',
-              id: 'platform/core/token-limits-and-cost-control',
-              label: 'Roles and rate limits',
+              label: 'JWT Configuration',
             },
             {
               type: 'category',
-              label: 'SSO/IDP setup',
+              label: 'SSO/IDP Setup',
               items: [
                 {
                   type: 'doc',
@@ -507,7 +487,23 @@ const sidebars = {
             {
               type: 'doc',
               id: 'tutorials/devops/configuration/realtime-analytics-config',
-              label: 'Analytics Realtime',
+              label: 'Analytics Realtime Setup',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Production Readiness',
+          items: [
+            {
+              type: 'doc',
+              id: 'platform/high-load-performance',
+              label: 'Scaling',
+            },
+            {
+              type: 'doc',
+              id: 'platform/core/privacy',
+              label: 'Security Hardening',
             },
           ],
         },
@@ -519,18 +515,13 @@ const sidebars = {
       items: [
         {
           type: 'doc',
-          id: 'platform/admin-panel',
+          id: 'tutorials/admin/introduction',
           label: 'Admin Panel Overview',
         },
         {
           type: 'category',
           label: 'Admin Panel User Guide',
           items: [
-            {
-              type: 'doc',
-              id: 'tutorials/admin/introduction',
-              label: 'Introduction',
-            },
             {
               type: 'doc',
               id: 'tutorials/admin/home',
@@ -718,7 +709,7 @@ const sidebars = {
         {
           type: 'doc',
           id: 'legal-and-compliance',
-          label: 'Compliance and legal FAQ',
+          label: 'Compliance and Legal FAQ',
         },
       ],
     },
