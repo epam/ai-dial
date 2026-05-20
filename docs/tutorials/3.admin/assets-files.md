@@ -33,8 +33,8 @@ Hover over any folder in the right or left panel to display the context menu.
 
 | Available Actions | Description |
 |-------------------|-------------|
-| **Add sibling** |  Use to add new sibling sub-folders that share the same parent folder as the selected folder. |
-| **Add child** |  Use to add new child sub-folders located within the selected folder. |
+| **Add sibling** | Use to add new sibling sub-folders that share the same parent folder as the selected folder. |
+| **Add child** | Use to add new child sub-folders located within the selected folder. |
 | **Move to** | Use to select a target location in the hierarchy to move the selected folder. | 
 | **Export** | Use to download the content of the selected folder with objects inside it as a ZIP archive. |
 | **Rename** | Use to rename the selected folder. | 

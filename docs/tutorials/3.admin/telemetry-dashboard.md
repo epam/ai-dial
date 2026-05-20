@@ -109,6 +109,10 @@ Click **Open Grafana** to access the Grafana dashboard where you can monitor oth
 
 Route dashboards give administrators a clear picture of how [routes](/docs/tutorials/3.admin/entities-routes.md) are being used. They show important information like user activity, the number of calls, and usage by project or deployment. These dashboards make it easy to track usage, spot trends, and manage resources effectively.
 
+> Note that the route calls are attributed to the DIAL deployment (application) whose route endpoint has been called, not the deployment which initiated the route call.
+> * **Deployment** - DIAL application the route belongs to.
+> * **Parent Deployment** - DIAL application which initiated the route call.
+
 ### Route Requests
 
 This dashboard provides administrators with a comprehensive overview of all requests made to registered routes within the system. It is designed to help you gain actionable insights into how routes are utilized across your environment.
@@ -128,7 +132,7 @@ This section presents key metrics that offer valuable insights into routes usage
 
 | **Dashboard** | **Description**  |
 |---------------|------------------|
-| **Calls by Deployment** | This dashboard displays the total number of calls made to routes by application deployments, allowing administrators to monitor and compare usage across different applications. |
-| **Calls by Route** | This dashboard provides insights into specific routes usage by application deployments. |
-| **Calls from Parent Deployments** | This dashboard breaks down routes usage by parent application deployments. |
+| **Calls by Deployment** | This dashboard displays the total number of calls made to routes of a specific DIAL deployment (application). |
+| **Calls by Route** | This dashboard provides insights into the usage of individual routes within a DIAL deployment. |
+| **Calls from Parent Deployments** | This dashboard displays which DIAL deployment initiated a route call, the deployment the route belongs to, and the total number of calls made. |
 | **Calls by Project** | This dashboard summarizes routes usage at the project level, displaying the number of calls for each project. |

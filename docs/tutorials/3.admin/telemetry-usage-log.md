@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Each request to DIAL Core initiated by external of internal client may trigger a complex sequence of calls all sharing the same **Trace ID**. Additionally, each call within this sequence is assigned a unique **Core Span ID**, so the combination of Trace ID and Core span ID uniquely identifies every request allowing you to track the entire end-to-end interaction.
+Each request to DIAL Core initiated by external of internal client may trigger a complex sequence of calls all sharing the same **Trace ID**. Additionally, each call within this sequence is assigned a unique **Core Span ID**, so the combination of Trace ID and Core Span ID uniquely identifies every request allowing you to track the entire end-to-end interaction.
 
 This graph illustrates the root call made by the DIAL Client to DIAL ChatHub, which triggered calls to AI Model GPT-4, DIAL RAG application and Gemini AI model. The original DIAL Client call, calls to AI models and DIAL RAG all share the same Trace ID.
 

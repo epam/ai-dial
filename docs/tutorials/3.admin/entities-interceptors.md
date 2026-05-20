@@ -147,7 +147,7 @@ In this tab, you can see Application Runners a specific interceptor is currently
 
 On this screen, you can access a detailed preview and revert any changes made to the selected interceptor.
 
-> **TIP**: This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected interceptor.
+> **Note**: This section mimics the functionality available in the global [Activity](/docs/tutorials/3.admin/telemetry-activity-audit.md) section, but is scoped specifically to the selected interceptor.
 
 ![](img/interceptors-audit.png)
 

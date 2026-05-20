@@ -1,4 +1,4 @@
-# Activity Audit
+# Activity
 
 ## Introduction
 

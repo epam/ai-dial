@@ -240,9 +240,9 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 
 ### Audit
 
-The Audit section enables administrators to monitor usage and consumption, trace calls, view activity history, and roll back changes for each selected toolset. 
+In the **Audit** tab, you can monitor key metrics, activities and usage related to the selected toolset. This tab provides comprehensive insights into performance, user interactions, and operational changes. You can track real-time and historical data, identify usage patterns, audit and roll back all modifications made to the selected toolset for compliance and troubleshooting purposes.
 
-> **TIP**: This section mimics the functionality available in the global [Dashboard, Activities and Usage Log](/docs/tutorials/3.admin/telemetry-dashboard.md) sections, but is scoped specifically to the selected toolset.
+> **Note**: This section mimics the functionality available in the global [Dashboard](/docs/tutorials/3.admin/telemetry-dashboard.md), [Activity](/docs/tutorials/3.admin/telemetry-activity-audit.md) and [Usage Log](/docs/tutorials/3.admin/telemetry-usage-log.md) sections, but is scoped specifically to the selected toolset.
 
 ![](img/entities_toolsets_audit.png)
 

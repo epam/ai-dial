@@ -135,7 +135,7 @@ In the **Roles** tab, you can define user groups that can invoke this route.
 
 On this screen, you can access a detailed preview and revert any changes made to the selected route.
 
-> **TIP**: This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected route.
+> **Note**: This section mimics the functionality available in the global [Activity](/docs/tutorials/3.admin/telemetry-activity-audit.md) section, but is scoped specifically to the selected route.
 
 ![](img/routes-audit.png)
 

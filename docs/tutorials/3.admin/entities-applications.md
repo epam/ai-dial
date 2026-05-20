@@ -87,7 +87,7 @@ Once configured, your application is ready to orchestrate models and interceptor
 | **Source Type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided chat completion, responses and/or MCP endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. Select one of the available application runners. If the application is created based on an application runner, DIAL Core will forward all payloads to endpoints defined in the [application runner configuration](/docs/tutorials/3.admin/builders-application-runners.md#features). <br />- **Application Container**: You can create applications based on [running containers](/docs/tutorials/3.admin/deployments-applications.md). |
 | **Container** | Conditional | [Application container](/docs/tutorials/3.admin/deployments-applications.md) used to create application. Required if Source Type is **Application Container**. |
 | **Completion endpoint** | Yes | Endpoint URL that will be used to process chat completion requests. br /> Available if Source Type is **Endpoints** or **Application Container**. <br />Read-only and determined by the selected Application Runner if it is selected as a Source Type for the application. |
-| **Responses endpoint** | No | Endpoint URL that supports OpenAI Responses API. <br /> Available if Source Type is **Endpoints**. If the selected Source Type is **Application Container**, the Responses Endpoint is available only if the selected Application Container supports it. |
+| **Responses endpoint** | No | Endpoint URL that supports OpenAI Responses API. <br /> Available if Source Type is **Endpoints**. Responses Endpoint is available only if the selected Application Container supports it. |
 | **MCP Endpoint** | No | The application's MCP endpoint DIAL Core will use to communicate with application. Available if Source Type is **Endpoints** or **Application Container**.<br />-**Transport**: Transport used by MCP server for transmitting MCP messages between client and server. HTTP by default.<br />-**Forward per request key**: Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the MCP endpoint allowing MCP server to access files in the DIAL storage.<br />-**Configuration delivery**: Determines how application properties are sent to the MCP server. Choose `Header` to deliver application properties in Http header. Choose `Meta` to include application properties in `_meta` field within the MCP message payload. |
 | **Viewer URL** | Optional | URL of the application's custom UI. A custom UI, if enabled, will override the standard DIAL Chat UI. Available if Source Type is **Endpoints**. |
 | **Editor URL** | Optional | URL of the application's custom builder UI. Application builder allows creating instances of apps using a [UI wizard](/docs/tutorials/0.user-guide.md#application-builder). Available if Source Type is **Endpoints**. |
@@ -96,7 +96,7 @@ Once configured, your application is ready to orchestrate models and interceptor
 | **Forward auth token** | No | This parameter allows to determine whether to forward an Auth Token to your apps's endpoint. If enabled, HTTP header with authorization token is forwarded to chat completion endpoint. |
 | **Max retry attempts** | No | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors). |
 | **Completion Defaults** | No | Default parameters are applied if a request doesn't contain them in OpenAI `chat/completions` API call. |
-| **Responses Defaults** | No | Default parameters applied if a request doesn't contain them in an OpenAI Responses API call. Works the same way as Completion Defaults for the chat completions API. <br /> Available if responses endpoint is supported. |
+| **Responses Defaults** | No | Default parameters are applied if a request doesn't contain them in OpenAI `openai/v1/responses` API call. <br /> Available if OpenAI Responses API is supported. |
 
 ![](img/entities_app_properties.png)
 
@@ -355,147 +355,11 @@ In the Roles sub-tab you can configure route-specific role assignments, allowing
 
 ### Audit
 
-In the **Audit** tab, you can monitor key metrics, activities and traces related to the selected application. 
+In the **Audit** tab, you can monitor key metrics, activities and usage related to the selected application. This tab provides comprehensive insights into application performance, user interactions, and operational changes. You can track real-time and historical data, identify usage patterns, audit and roll back all modifications made to the selected application for compliance and troubleshooting purposes.
 
-#### Dashboard
+> **Note**: This section mimics the functionality available in the global [Dashboard](/docs/tutorials/3.admin/telemetry-dashboard.md), [Activity](/docs/tutorials/3.admin/telemetry-activity-audit.md), and [Usage Log](/docs/tutorials/3.admin/telemetry-usage-log.md) sections, but is scoped specifically to the selected application.
 
-In the **Dashboard** tab, you can see real-time and historical metrics for the application. You can use it to monitor usage patterns, enforce SLAs, optimize costs, and troubleshoot anomalies.
-
-![](img/img_17.png)
-
-##### Top Bar Controls
-
-| Control | Description |
-|---------|-------------|
-| **Time Period** | Use to select the date range for all charts and tables (e.g. last 15 min, 2 days, 7 days, 30 days). |
-| **+ Add filter** | Use to drill into specific subsets by adding filters on Projects. |
-| **Auto refresh** | Set the dashboard to poll for new data (e.g. every 1 min) or turn off auto-refresh. |
-
-##### System Usage Chart
-
-A time-series line chart of request throughput over time. You can use it to monitor traffic peaks and valleys, correlate spikes with deployments or feature roll outs.
-
-##### Key Metrics
-
-Four high-level metrics are displayed alongside the chart. All calculated for the user-selected period.
-
-You can use them to:
-
-* Chargeback to internal teams or external customers by "Money".
-* Track adoption via "Unique Users".
-* Monitor burst traffic with "Request Count".
-* Watch token consumption to anticipate quota exhaustion.
-
-| Metric | Description |
-|--------|-------------|
-| **Unique Users** | Count of distinct user IDs or API keys that have called this application. |
-| **Request Count** | Total number of chat or embedding calls routed to this application. |
-| **Total Tokens** | Sum of `prompt + completion` tokens consumed by this application. |
-| **Money** | Estimated spending on this application. |
-
-##### Projects Consumption Table
-
-This table shows the KPIs breakdown by **Project**. You can use it to compare consumption across multiple projects.
-
-| Column | Description |
-|--------|-------------|
-| **Project** | The entity utilizing this application. |
-| **Request Count** | Number of calls directed to the application. |
-| **Prompt tokens** | Total tokens submitted in the prompt portion of requests. |
-| **Completion tokens** | Total tokens returned by the application as responses. |
-| **Money** | Estimated cost. |
-
-#### Traces
-
-> **TIP**: You can monitor the entire system's traces in [Usage Log](/docs/tutorials/3.admin/telemetry-usage-log.md).
-
-In this tab, you can see individual traces, each representing a single end-to-end interaction of a DIAL entity with the selected application.
-
-| Column | Description |
-|--------|-------------|
-| **Completion Time** | Timestamp when the trace finished processing (end-to-end interaction). |
-| **Trace ID** | Unique identifier of the trace (one end-to-end interaction). |
-| **Topic** | Auto-generated subject/title summarizing the trace. |
-| **Reactions** | Indication of user reactions presence (like/dislike) for the trace. |
-| **Cached prompt tokens** | Number of prompt tokens served from cache (prompt-caching). |
-| **Prompt tokens** | Number of tokens in the prompt sent to the model for this trace. |
-| **Completion tokens** | Number of tokens generated by the model as output for this trace. |
-| **Deployment price** | Cost attributed to the selected deployment for this trace. |
-| **Total price** | Total cost of the trace. |
-| **Number of request messages** | Number of discrete request messages that were included in the trace. |
-| **Deployment ID** | Identifier of the DIAL deployment used to serve this trace. |
-| **Parent Deployment ID** | Identifier of the parent deployment (e.g., application that was using the underlying model). |
-| **Model** | Identifier of the underlying model used to carry out the trace. |
-| **Project** | Project to which this trace associated in DIAL. |
-| **Upstream** | Upstream endpoint (e.g., completions endpoint of the model). |
-| **Execution path** | Execution path of the trace. |
-| **User** | Identifier of the end user who initiated the trace. |
-| **User title** | Name of the user (if available). |
-| **Language** | Language detected in the trace (e.g., `en`). |
-| **Duration** | Total end-to-end duration of the trace from first request to completion. |
-| **Response ID** | Identifier of the response object returned by the model for this trace. |
-| **Conversation ID** | Identifier of the conversation/session this trace belongs to. |
-| **Code span ID** | Identifier of a specific code execution span associated with the trace (if any). |
-| **Code span parent ID** | Identifier of the parent span for a code execution span (if any). |
-
-#### Conversations
-
-> **TIP**: You can monitor all usage sessions in [Usage Log](/docs/tutorials/3.admin/telemetry-usage-log.md).
-In Conversations, you can see individual traces grouped into end‑to‑end conversation sessions.
-
-| Column | Description |
-|--------|-------------|
-| **Last activity** | Timestamp of the most recent trace within the conversation. |
-| **Conversation ID** | Unique identifier of the user session that groups related traces. |
-| **Topic** | Auto-generated subject summarizing the conversation. |
-| **Cached prompt tokens** | Count of prompt tokens served from cache across the conversation. |
-| **Prompt tokens** | Total number of request/prompt tokens sent to the model across all traces in the conversation. |
-| **Completion tokens** | Total number of tokens generated by the model across all traces in the conversation. |
-| **Total price** | Aggregated cost for the conversation. |
-| **Number of request messages** | Total number of discrete request messages included in the conversation. |
-| **Deployment ID** | Identifier of the deployment associated with the conversation. |
-| **Project** | Project to which the conversation associated in DIAL. |
-| **User** | Identifier of the end user who initiated the conversation. |
-| **User title** | Name of the user (if available). |
-| **Language** | Detected language for the conversation (e.g., `en`). |
-
-#### Activities
-
-The Activities section provides detailed visibility into all changes made to the selected application. This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected app.
-
-![](img/87.png)
-
-##### List of Activities
-
-| Field | Description |
-|-------|-------------|
-| **Activity type** | The type of action performed on the app (e.g., Create, Update, Delete). |
-| **Time** | Timestamp indicating when the activity occurred. |
-| **Initiated** | Email address of the user who performed the activity. |
-| **Activity ID** | A unique identifier for the logged activity, used for tracking and auditing. |
-| **Actions** | Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details. |
-
-##### Activity Details
-
-The Activity Details view provides a detailed snapshot of a specific change made to an app.
-
-![](img/88.png)
-
-To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select **View Details**.
-
-| Element/Section | Description |
-|-----------------|-------------|
-| **Activity type** | Type of the change performed (e.g., Update, Create, Delete). |
-| **Time** | Timestamp of the change. |
-| **Initiated** | Identifier of the user who made the change. |
-| **Activity ID** | Unique identifier for the specific activity tracking. |
-| **Comparison** | Dropdown to switch between showing all parameter or changed only. |
-| **View** | Dropdown to switch for selection between Before/After and Before/Current state. |
-| **Parameters Diff** | Side-by-side comparison of app fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
-
-##### Resource Rollback
-
-Use Resource Rollback to restore the previous version of the selected activity. A rollback leads to generation of a new entry on the audit activity screen.
+![](img/application-audit.png)
 
 ### JSON Editor
 
