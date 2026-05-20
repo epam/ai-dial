@@ -8,6 +8,8 @@ Once a route with a designated endpoint is set up in DIAL Core, it allows client
 
 > You can also define routes for specific application deployments and Application Runners. Refer to [Applications](/docs/tutorials/3.admin/entities-applications.md#app-routes) and [Application Runners](/docs/tutorials/3.admin/builders-application-runners.md#app-routes) to learn how to do this.
 
+> Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/routes.md) to learn more about routes and how to call a route from the application.
+
 ## Main Screen
 
 On this screen, you can access all rotes added in DIAL Admin or via a direct modification of [DIAL Core config file](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/routes.md).
@@ -22,9 +24,10 @@ On this screen, you can access all rotes added in DIAL Admin or via a direct mod
 | **Display Name** | Name of the route. |
 | **Description** | Brief free-text description of the Route's purpose. |
 | **Paths** | List of paths to be matched request's path. If any path is matched, the request will be processed by this route. A path can be a plain string or a regular expression. |
-| **Updated Time** | Date and time when the route's configuration was last updated. |
 | **Topics** | Tag that associates a route with one or more topics or categories (e.g. "finance", "support"). |
 | **Order** | The value of this parameter determines the order within the global routes. The lower value means the higher priority. The value can't be negative integer. The default one is 2\^31-1. |
+| **Creation Time** | Entity creation timestamp. |
+| **Updated Time** | Timestamp of the latest update of the entity. |
 
 ## Create
 
@@ -132,7 +135,7 @@ In the **Roles** tab, you can define user groups that can invoke this route.
 
 On this screen, you can access a detailed preview and revert any changes made to the selected route.
 
-> **TIP**: This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected route.
+> **Note**: This section mimics the functionality available in the global [Activity](/docs/tutorials/3.admin/telemetry-activity-audit.md) section, but is scoped specifically to the selected route.
 
 ![](img/routes-audit.png)
 

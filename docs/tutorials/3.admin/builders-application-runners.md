@@ -26,7 +26,8 @@ In Application Runners, you can add and manage Application Runners you have in y
 | **ID** | Unique identifier of the application runner. Typically, it is the base URL of the service (e.g. `https://my-runner.example.com`). DIAL Core uses this endpoint to POST orchestration payloads. |
 | **Description** | Description of the application runner capabilities, cluster location, version, or SLA (e.g. "v2 on GKE, 2 vCPU, 8 GB RAM"). |
 | **Topics** | Tags associated with the application runner for identification and filtering on Admin UI (e.g. "finance", "support"). |
-| **Updated time** | Timestamp of the last update to this runner's configuration. Useful for tracking recent changes. |
+| **Creation Time** | Timestamp of when the application runner was created. Useful for tracking and auditing purposes. | 
+| **Updated Time** | Timestamp of the last update to this runner's configuration. Useful for tracking recent changes. |
 
 ## Create
 
@@ -40,7 +41,9 @@ On the main screen, you can add new Application Runners.
     | **ID** | Yes | Unique identifier of the application runner. Typically, it is the base URL of the service (e.g. `https://my-runner.example.com`). DIAL Core uses this endpoint to POST orchestration payloads. |
     | **Display Name** | Yes | Name of the application runner rendered on UI. |
     | **Description** | No | Description of the application runner capabilities, cluster location, version, or SLA (e.g. "v2 on GKE, 2 vCPU, 8 GB RAM"). |
-    | **Source type** | Yes | Provide endpoints DIAL Core will POST orchestration payloads to for any application bound to this runner. <br /> -**Chat Endpoint**: Chat completion endpoint (e.g. `https://my-runner.example.com/v1/execute`).  <br /> -**MCP Endpoint**: MCP endpoint of the application runner. |
+    | **Source type** | Yes | Source type of the Application runner. Must be either or both: Chat Endpoint or MCP Endpoint. Provide endpoints DIAL Core will POST orchestration payloads to for any application bound to this runner. |
+    | **Chat Endpoint** | Optional | -**Completion endpoint**: Endpoint to process chat completion requests (e.g. `https://my-runner.example.com/v1/execute`). <br /> -**Responses endpoint**: Endpoint to process OpenAI Responses API calls. |
+    | **MCP Endpoint** | Optional | MCP endpoint of the application runner. <br />-**Transport**: Transport used by MCP server for transmitting MCP messages between client and server. HTTP by default.<br />-**Forward per request key**: Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the MCP endpoint allowing MCP server to access files in the DIAL storage.<br />-**Configuration delivery**: Determines how application properties are sent to the MCP server. Choose `Header` to deliver application properties in Http header. Choose `Meta` to include application properties in `_meta` field within the MCP message payload. |
 3. Once all required fields are filled, click **Create**. The dialog closes and the new runner [configuration screen](#configuration) is opened. A new runner will appear immediately in the listing once created. It may take some time for the changes to take effect after saving.
 
     ![](img/create-app-runner.png)
@@ -76,8 +79,10 @@ In the **Properties** tab, you can configure the core identity, metadata, and in
 | **Icon** | No | Yes| Icon representing the runner visually in the UI. |
 | **Title** | No | Yes | Title of the application runner. |
 | **Bucket copy** | Yes | Yes | This property determines whether files stored in the application's file storage bucket should be copied when the application is copied, moved, or published. |
-| **Topics** | No | Yes | Tags associating application runner with specific topics or categories (e.g. "finance", "support") for identification and filtering on UI. |
-| **Source type** | Yes | Yes | Provide endpoints DIAL Core will POST orchestration payloads to for any application bound to this runner. <br /> -**Chat Endpoint**: Chat completion endpoint (e.g. `https://my-runner.example.com/v1/execute`).  <br /> -**MCP Endpoint**: MCP endpoint of the application runner. Transport is HTTP by default. |
+| **Topics** | No | Yes | Semantic tags associated with Application Runner. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
+| **Source type** | Yes | Yes | Source type of the Application runner. Must be either or both: Chat Endpoint or MCP Endpoint. Provide endpoints DIAL Core will POST orchestration payloads to for any application bound to this runner. |
+| **Chat Endpoint** | Yes | Yes | -**Completion endpoint**: Endpoint to process chat completion requests (e.g. `https://my-runner.example.com/v1/execute`). <br /> -**Responses endpoint**: Endpoint to process OpenAI Responses API calls. |
+| **MCP Endpoint** | No | Yes | MCP endpoint of the application runner. <br />-**Transport**: Transport used by MCP server for transmitting MCP messages between client and server. HTTP by default.<br />-**Forward per request key**: Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the MCP endpoint allowing MCP server to access files in the DIAL storage.<br />-**Configuration delivery**: Determines how application properties are sent to the MCP server. Choose `Header` to deliver application properties in Http header. Choose `Meta` to include application properties in `_meta` field within the MCP message payload. |
 | **Viewer URL** | No | Yes | URL of an alternative end-user UI (is needed when the default chat interface is not sufficient). If enabled, will override the standard DIAL Chat UI for applications built based on this application runner. |
 | **Editor URL** | No | Yes | URL of a UI screen for configuring application settings when creating or updating a logical application instance. |
 | **Schema endpoint** | No | Yes | Endpoint that returns JSON schema that defines parameters of a specific application type. In case specified, the content of the [Parameters](#parameters) section is populated based on the JSON schema provided by this endpoint and is available in read-only view mode. |
