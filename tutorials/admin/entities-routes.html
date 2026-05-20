@@ -13,8 +13,8 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/ee6eaad1-eb8b-4d84-9528-1c504269dd62?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.3c61bcc8.css">
-<script src="/assets/js/runtime~main.6590277b.js" defer="defer"></script>
-<script src="/assets/js/main.7df87679.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.0e19f7ac.js" defer="defer"></script>
+<script src="/assets/js/main.f53e22f2.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -27,11 +27,14 @@
 <blockquote>
 <p>You can also define routes for specific application deployments and Application Runners. Refer to <a class="" href="/tutorials/admin/entities-applications#app-routes">Applications</a> and <a class="" href="/tutorials/admin/builders-application-runners#app-routes">Application Runners</a> to learn how to do this.</p>
 </blockquote>
+<blockquote>
+<p>Refer to <a href="https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/routes.md" target="_blank" rel="noopener noreferrer" class="">DIAL Core</a> to learn more about routes and how to call a route from the application.</p>
+</blockquote>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="main-screen">Main Screen<a href="#main-screen" class="hash-link" aria-label="Direct link to Main Screen" title="Direct link to Main Screen" translate="no">​</a></h2>
 <p>On this screen, you can access all rotes added in DIAL Admin or via a direct modification of <a href="https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/routes.md" target="_blank" rel="noopener noreferrer" class="">DIAL Core config file</a>.</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/img_19-e4387e05e5c707ed9b0f98b2c58fe690.png" width="1909" height="524" class="img_ev3q"></p>
 <h5 class="anchor anchorTargetStickyNavbar_Vzrq" id="routes-grid">Routes grid<a href="#routes-grid" class="hash-link" aria-label="Direct link to Routes grid" title="Direct link to Routes grid" translate="no">​</a></h5>
-<table><thead><tr><th>Field</th><th>Description</th></tr></thead><tbody><tr><td><strong>ID</strong></td><td>Unique key under the Routes section of DIAL Admin.</td></tr><tr><td><strong>Display Name</strong></td><td>Name of the route.</td></tr><tr><td><strong>Description</strong></td><td>Brief free-text description of the Route&#x27;s purpose.</td></tr><tr><td><strong>Paths</strong></td><td>List of paths to be matched request&#x27;s path. If any path is matched, the request will be processed by this route. A path can be a plain string or a regular expression.</td></tr><tr><td><strong>Updated Time</strong></td><td>Date and time when the route&#x27;s configuration was last updated.</td></tr><tr><td><strong>Topics</strong></td><td>Tag that associates a route with one or more topics or categories (e.g. &quot;finance&quot;, &quot;support&quot;).</td></tr><tr><td><strong>Order</strong></td><td>The value of this parameter determines the order within the global routes. The lower value means the higher priority. The value can&#x27;t be negative integer. The default one is 2^31-1.</td></tr></tbody></table>
+<table><thead><tr><th>Field</th><th>Description</th></tr></thead><tbody><tr><td><strong>ID</strong></td><td>Unique key under the Routes section of DIAL Admin.</td></tr><tr><td><strong>Display Name</strong></td><td>Name of the route.</td></tr><tr><td><strong>Description</strong></td><td>Brief free-text description of the Route&#x27;s purpose.</td></tr><tr><td><strong>Paths</strong></td><td>List of paths to be matched request&#x27;s path. If any path is matched, the request will be processed by this route. A path can be a plain string or a regular expression.</td></tr><tr><td><strong>Topics</strong></td><td>Tag that associates a route with one or more topics or categories (e.g. &quot;finance&quot;, &quot;support&quot;).</td></tr><tr><td><strong>Order</strong></td><td>The value of this parameter determines the order within the global routes. The lower value means the higher priority. The value can&#x27;t be negative integer. The default one is 2^31-1.</td></tr><tr><td><strong>Creation Time</strong></td><td>Entity creation timestamp.</td></tr><tr><td><strong>Updated Time</strong></td><td>Timestamp of the latest update of the entity.</td></tr></tbody></table>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="create">Create<a href="#create" class="hash-link" aria-label="Direct link to Create" title="Direct link to Create" translate="no">​</a></h2>
 <p>Follow these steps to add a new route:</p>
 <ol>
@@ -75,9 +78,9 @@
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="audit">Audit<a href="#audit" class="hash-link" aria-label="Direct link to Audit" title="Direct link to Audit" translate="no">​</a></h3>
 <p>On this screen, you can access a detailed preview and revert any changes made to the selected route.</p>
 <blockquote>
-<p><strong>TIP</strong>: This section mimics the functionality available in the global <a class="" href="/tutorials/admin/telemetry-activity-audit">Audit → Activities</a> menu, but is scoped specifically to the selected route.</p>
+<p><strong>Note</strong>: This section mimics the functionality available in the global <a class="" href="/tutorials/admin/telemetry-activity-audit">Activity</a> section, but is scoped specifically to the selected route.</p>
 </blockquote>
-<p><img decoding="async" loading="lazy" src="/assets/images/routes-audit-4c7cc5fe7eb8cdc8c1ed546b5c44b887.png" width="1908" height="400" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="/assets/images/routes-audit-1dc5e8441750a319c000b0c7367c97fa.png" width="1652" height="389" class="img_ev3q"></p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="json-editor">JSON Editor<a href="#json-editor" class="hash-link" aria-label="Direct link to JSON Editor" title="Direct link to JSON Editor" translate="no">​</a></h3>
 <p><strong>Advanced users with technical expertise</strong> can work with the route properties in a JSON editor view mode. It is useful for advanced scenarios of bulk updates, copy/paste between environments, or tweaking settings not exposed in the form UI.</p>
 <blockquote>
