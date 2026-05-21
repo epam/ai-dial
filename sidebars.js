@@ -1014,6 +1014,33 @@ const sidebars = {
             },
             {
               type: 'category',
+              label: 'Quality and testing',
+              items: [
+                {
+                  type: 'category',
+                  label: 'Evaluations',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/evaluations/index',
+                      label: 'Overview',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/evaluations/rag-eval-toolkit',
+                      label: 'RAG Eval toolkit',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/evaluations/tutorial-eval-driven-dev',
+                      label: 'Tutorial: eval-driven development',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
               label: 'Developer tools',
               items: [
                 {
