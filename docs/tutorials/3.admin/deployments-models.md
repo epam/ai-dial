@@ -158,3 +158,9 @@ In case of issues, health indicators are displayed to help identify problems:
 In the Events tab, you can view the event history related to the selected model serving.
 
 ![ ](img/model_servings_events.png)
+
+## Audit
+
+In the **Audit** tab, you can review activity, usage, and operational metrics for the selected model serving container, including configuration changes and runtime actions.
+
+> **Note**: This tab mimics the functionality available in the global [Activity](/docs/tutorials/3.admin/telemetry-activity-audit.md) section, but is scoped specifically to the selected model serving.

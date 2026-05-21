@@ -165,3 +165,9 @@ You can link containers to this image or a specific version of it. When you add 
 The Build Log tab displays the complete output generated during the image build process. Here you can view the step-by-step execution of build instructions, including command outputs, warnings, and errors that occurred during image creation.
 
 ![ ](img/image_build_log.png)
+
+### Audit
+
+In the **Audit** tab, you can review activity, usage, and operational metrics for the selected image version, including build and configuration change history.
+
+> **Note**: This tab mimics the functionality available in the global [Activity](/docs/tutorials/3.admin/telemetry-activity-audit.md) section, but is scoped specifically to the selected image.

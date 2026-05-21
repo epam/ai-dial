@@ -141,3 +141,9 @@ In case of issues, health indicators are displayed to help identify problems:
 ### Events
 
 In the Events tab, you can view a log of significant events related to the selected container, such as start and stop actions, errors, and other system messages.
+
+### Audit
+
+In the **Audit** tab, you can review activity, usage, and operational metrics for the selected application container, including configuration changes and runtime actions.
+
+> **Note**: This tab mimics the functionality available in the global [Activity](/docs/tutorials/3.admin/telemetry-activity-audit.md) section, but is scoped specifically to the selected application container.

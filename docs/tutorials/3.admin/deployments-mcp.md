@@ -207,3 +207,9 @@ The Events tab displays significant state changes and discrete occurrences withi
 
 ![](img/mcp_container_events.png)
 
+### Audit
+
+In the **Audit** tab, you can review activity, usage, and operational metrics for the selected MCP container, including configuration changes, runtime actions, and toolset-related usage context.
+
+> **Note**: This tab mimics the functionality available in the global [Activity](/docs/tutorials/3.admin/telemetry-activity-audit.md) section, but is scoped specifically to the selected MCP container.
+
