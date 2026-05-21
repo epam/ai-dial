@@ -8,16 +8,16 @@ In DIAL, applications created by users (either using DIAL Core API or UI) are st
 
 ## Main Screen
 
-The Assets/Applications screen displays all applications located in the Public folder in DIAL file storage. Applications get to the Public folder when published by users or added by administrators.
+The main screen displays all applications located in the Public folder in DIAL file storage. Applications get to the Public folder when published by users or added by administrators.
 
 > **Note**: This screen, does not give access to private applications of users.
 
 > * Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about Private and Public logical spaces for objects storage in DIAL.
 > * Refer to [Chat User Guide](/docs/tutorials/0.user-guide.md#publish-2) to learn how end users can publish applications and to [DIAL Core API Publications](https://dialx.ai/dial_api#tag/Publications) to learn how to create and manage publication requests via API.
 
-![ ](img/121.png)
+![ ](img/assets-applications.png)
 
-##### Public file storage
+### Folders
 
 Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. 
 
@@ -26,14 +26,37 @@ Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) 
 
 > **Note**, that access rules can be applied to sub-folders (manually or in publication request). You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). The effective authorization rule for an object in a sub-folder includes restrictions applied to all parent sub-folders up to the root folder. Refer to [Tutorials](/docs/tutorials/1.developers/1.work-with-resources/0.work-with-publications.md#effective-rules) to learn about affective rules for folders.
 
+#### Actions
+
+Hover over any folder in the right or left panel to display the actions menu.
+
 | Available Actions | Description |
 |-------------------|-------------|
-| **Create sub-folder + import objects** | Hover over any folder to display the **+** icon. It allows importing objects into new child or sibling sub-folders. <br />The process is similar to [Import](#import), but you’ll need to provide a name for the new folder. <br />Additionally, there’s an optional step where you can define [access rules](/docs/tutorials/3.admin/access-management-folders-storage.md#access-rules) for the new sub-folder. <br />**Note**: New sub-folders can only be created using this method or as part of a publication request if a new folder is specified during that process. |
-| **Actions** | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br />**Note**, that actions performed to a folder with apps that include attached files will be applied to a related folder in [Assets/Files](/docs/tutorials/3.admin/assets-files.md). <br /> - **Rename**: Use to rename the selected folder. <br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with objects inside it.|
+| **Add sibling** | Use to add new sibling sub-folders that share the same parent folder as the selected folder. |
+| **Add child** | Use to add new child sub-folders located within the selected folder. |
+| **Move to** | Use to select a target location in the hierarchy to move the selected folder. | 
+| **Export** | Use to download the content of the selected folder with objects inside it as a ZIP archive or raw JSON file. |
+| **Rename** | Use to rename the selected folder. | 
+| **Manage permissions** | Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder. |
+| **Delete** | Use to delete the folder with objects inside it. |
 
-![ ](img/folder-actions.png)
+![ ](img/files-folders-actions.png)
 
-##### Applications grid
+#### Add Folders
+
+Applications can be placed in sub-folders. 
+
+In the actions menu of each existing folder, select **Add sibling** or **Add child** to create new sub-folders.
+
+> **Note**: The name of the folder must not exceed 160 characters.
+
+![ ](img/assets-apps-folder-actions.png)
+
+You can also navigate to a specific folder and use the **Create** dropdown in the toolbar to add sub-folders.
+
+![ ](img/apps-add-folder.png)
+
+### Applications
 
 Click any folder to display its content in the applications grid.
 
@@ -42,55 +65,49 @@ Click any folder to display its content in the applications grid.
 | **ID** | Unique identifier of the application. |
 | **Version** | Published version of the application. |
 | **Author** | Username or system ID associated with the user who created or last updated this application. |
-| **Updated time** | Timestamp of the last modification of the application. |
-| **Actions** | Actions you can perform on the selected application:<br />- **Open in new tab**: Opens the application's properties, features, and parameters in a new tab.<br />- **Move to another folder**: Select a target folder in the hierarchy to move the application.<br />- **Delete**: Remove the application. You can also use **Bulk Actions** in the toolbar to delete multiple applications at once.<br />- **Duplicate**: Create a copy of the application in one of two ways:<br />**New version**: Creates another version of the selected application. You can also quickly add a new version on the [Configuration](#configuration) screen by clicking **Create** in the **Version** dropdown.<br />**New application**: Clones the selected application as a new one. |
+| **Updated Time** | Timestamp of the last modification of the application. |
+| **Actions** | Actions you can perform on the selected application:<br />- **Open in a new tab**: Opens the application's properties, features, and parameters in a new tab.<br />- **Duplicate**: Create a copy of the application in one of two ways:<br />**New version**: Creates another version of the selected application. You can also quickly add a new version on the [Configuration](#configuration) screen by clicking **Create** in the **Version** dropdown.<br />**New application**: Clones the selected application as a new one.<br />- **Move to**: Select a target folder in the hierarchy to move the application.<br />- **Export**: Use to download the selected application. Refer to [Export](#export) to learn more.<br />- **Delete**: Remove the application. You can also use **Bulk Actions** in the toolbar to delete multiple applications at once. |
 
 ![ ](img/assets-apps-actions.png)
 
-## Export
+#### Export
 
-Use **Bulk Actions** in the toolbar to download selected applications. This is useful for migrating applications between environments, sharing sets of applications with other users, or keeping a point-in-time backup.
+You can export individual applications or folders with applications (including nested folders). Assets can be exported as ZIP archive or raw JSON files.
 
-![ ](img/apps_bulk_actions.png)
+* To export a folder, click **Export** in the actions menu of a specific folder to export its content.
+* To export a specific application, select it and click **Export** in its actions menu.
+* To export several applications (or their specific versions), select them and click **Export** in the top toolbar.
 
-##### To export applications:
+![ ](img/export-apps-bulk.png)
 
-1. Click **Bulk Actions** button in the toolbar.
-2. Select applications by checking the boxes in each row. You can also select the version you want to export. 
-3. Click **Export** in the bottom to launch the export modal. 
-4. In the modal window select the export format: ZIP archive or JSON file.
-5. Click **Export** to generate export file and start downloading.
+#### Import
 
-    ![ ](img/apps_export2.png)
-
-## Import
-
-Use **Import** in the toolbar to upload new or update existing applications from external JSON files or ZIP archive. This is essential for migrating, restoring, or sharing application assets between DIAL users.
+You can upload ZIP archives or raw JSON files of applications. This is essential for migrating, restoring, or sharing application assets between DIAL users.
 
 ![ ](img/import_apps.png)
 
 ##### To import applications:
 
-1. Click **Import** in the toolbar to launch the import modal.
-2. Select the type of files you want to import. **Drag & Drop** your archive or JSON files into the files area or click **Browse** to open a file picker.
+1. Click **Create** in the toolbar and select **Import**.
+2. Select the type of files you want to import. **Drag & Drop** your ZIP archive or JSON files into the files area or click **Browse** to open a file picker.
    * **Archive**: Select if you want to import a single ZIP or tarball containing multiple JSON files. **Note**: Only 1 archive can be imported at a time.
    * **JSON**: Select if you want to import JSON files. **Note**: Up to 30 files can be imported at once.
-3. Select a Conflict resolution Strategy. It allows you to decide how to handle existing applications with the same name and version in your workspace:
-   * **Skip**: Leave existing applications untouched, only new ones will be added.
-   * **Override**: Replace applications with the same name and version with the imported ones.
+3. Select a Conflict resolution Strategy. It allows you to decide how to handle existing apps with the same name and version in your workspace:
+   * **Skip**: Leave existing apps untouched, only new ones will be added.
+   * **Override**: Replace apps with the same name and version with the imported ones.
    * **Edit manually**: Resolve conflicts manually one by one.
-4. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all applications will be imported directly into the root folder without recreating the original folder hierarchy.
+4. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all apps will be imported directly into the root folder without recreating the original folder hierarchy.
 5. Click **Finish** to start.
 
-## Create
+#### Create
 
-On the main screen you can manually add new DIAL application to the public folder.
+On the main screen you can manually add new assets application to the Public folder.
 
 > **Tip**: You can quickly add new applications by duplicating existing ones. Use the **Duplicate** action in the application's context menu.
 
 Follow these steps to add a new application to the Public folder: 
 
-1. Select a folder where you want to add a new application and click **+ Create** in the header to invoke the **Create Application** modal.
+1. Select a folder where you want to add a new application, click **Create** in the header's toolbar and select **Application** to invoke the **Create Application** modal.
 2. Define application's parameters
 
     | Field | Required | Description |
@@ -100,15 +117,16 @@ Follow these steps to add a new application to the Public folder:
     | **Version** | Yes | Semantic identifier (e.g., 1.2.0) of an application's version. |
     | **Description** | No | Description of the application. |
     | **Source Type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided chat and/or MCP endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. In [Builders/Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) you can see all the available runners and add new ones. |
-    | **Chat Endpoint** | Conditional | The application's chat completion endpoint DIAL Core will use to communicate with application. Available if Source Type is **Endpoints**. |
-    | **MCP Endpoint** | Conditional | The application's MCP endpoint DIAL Core will use to communicate with application. Available if Source Type is **Endpoints**. Transport is HTTP by default. |
+    | **Completion endpoint** | Yes | Endpoint URL that will be used to process chat completion requests.<br /> Available if Source Type is **Endpoints**. |
+    | **Responses endpoint** | No | Endpoint URL that will be used to process OpenAI Responses API calls.<br /> Available if Source Type is **Endpoints**. |
+    | **MCP Endpoint** | No | The application's MCP endpoint DIAL Core will use to communicate with application. Available if Source Type is **Endpoints**.<br />-**Transport**: Transport used by MCP server for transmitting MCP messages between client and server. HTTP by default.<br />-**Forward per request key**: Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the MCP endpoint allowing MCP server to access files in the DIAL storage.<br />-**Configuration delivery**: Determines how application properties are sent to the MCP server. Choose `Header` to deliver application properties in Http header. Choose `Meta` to include application properties in `_meta` field within the MCP message payload. |
     | **Application runner** | Conditional | Select one of the [available application runners](/docs/tutorials/3.admin/builders-application-runners.md). Required if Source Type is **Application runner**. |
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [application configuration](#configuration) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
 
     ![](img/create-app-asset.png)
 
-## Delete
+#### Delete
 
 There are several ways to delete an application or a specific version of it:
 
@@ -127,7 +145,7 @@ Click any application to open a screen with information about the selected appli
 
 In the Properties tab, you can see all and define selected application's basic properties.
 
-![](img/123.png)
+![](img/assets-app-properties.png)
 
 ##### Available actions
 
@@ -138,28 +156,32 @@ You can find the following action buttons in the configuration screen header:
 | **Version**  | Version of the application. Can be selected from the dropdown to display properties for different versions of application. <br /> In the dropdown, click **Create** to add a new version of the application. |
 | **Delete** | Use to delete the selected application. |
 
-##### Fields description
+##### Properties description
 
-| Field | Description |
-|-------|-------------|
-| **ID** | Unique identifier of the application. It is read-only but includes a copy-to-clipboard button for easy reference. |
-| **Updated Time** | Timestamp of the last updated. |
-| **Creation Time** | Application creation timestamp. |
-| **Folder Storage** | Path to the application's location in the hierarchy of folders. Click to navigate to [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). |
-| **Status** | Current status of the application:<br />**Valid**: application configuration is compatible with the JSON schema or the related application runner.<br />Only valid entities will be materialized into the DIAL Core configuration.<br />**Invalid**: application configuration is incompatible with the JSON schema of the related application runner. |
-| **Display Name** | Name of the application displayed on UI. |
-| **Description** | Free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs). |
-| **Icon** | Logo to visually distinguish the app on the UI. Maximum size: 512 MB. Supported types: .jpeg, .jpg, .jpe, .png, .gif, .apng, .webp, .avif, .svg, .svgz, .bmp, .ico. Up to 1 files.|
-| **Topics** | Topics are semantic labels that you can assign to apps (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
-| **Folder Storage** | Path to the application's location in the hierarchy of folders. Use **Move to** to change the application's location. |
-| **Source Type** | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided chat and/or MCP endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. Select one of the available application runners. If the application is created based on an application runner, DIAL Core will forward all payloads to endpoints defined in the [application runner configuration](/docs/tutorials/3.admin/builders-application-runners.md#features). |
-| **Editor URL** | URL of the application's custom builder UI. Application builder allows creating instances of apps using a [UI wizard](/docs/tutorials/0.user-guide.md#application-builder).<br />**Note**:  Enabled if Source Type = Endpoints is selected. |
-| **Viewer URL** | URL of the application's custom UI. A custom UI, if enabled, will override the standard DIAL Chat UI.<br />**Note**: Enabled if Source Type = Endpoints is selected. |
-| **Attachments types** | Use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have. <br />Available values: <br />- **No attachments**: Disables all attachment types.<br />- **All attachments types**: Allows all types of file attachments. Optionally specify max number of attachments.<br />- **Specific attachments types**: Enables the user to define/select specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).<br />Start typing to see suggestions or use `<type>/<subtype>` format for a manual entry. |
-| **Attachments max number** | Maximum number of input attachments. <br />**Note**: Enabled if attachment types are defined. |
-| **Defaults** | Default parameters for the application. Default parameters are applied if a request doesn't contain them in OpenAI chat/completions API call. |
-| **Forward auth token** | Select a downstream auth token to forward from the user's session (for multi-tenant downstream). |
-| **Max retry attempts** | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors). |
+| Field | Required | Editable | Description |
+|-------|----------|----------|-------------|
+| **ID** | - | - |Unique identifier of the application. It is read-only but includes a copy-to-clipboard button for easy reference. |
+| **Updated Time** | - | - |Timestamp of the last update. |
+| **Creation Time** | - | - |Application creation timestamp. |
+| **Folder Storage** | - | - |Path to the application's location in the hierarchy of folders. Click to navigate to [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). |
+| **Status** | - | - |Current status of the application:<br />**Valid**: application configuration is compatible with the JSON schema or the related application runner.<br />Only valid entities will be materialized into the DIAL Core configuration.<br />**Invalid**: application configuration is incompatible with the JSON schema of the related application runner. |
+| **Display Name** | Yes | Yes |Name of the application displayed on UI. |
+| **Description** | No | Yes | Free-text summary describing the application (e.g. tooling, supported inputs/outputs, SLAs). |
+| **Icon** | No | Yes | Logo to visually distinguish the app on the UI. Maximum size: 512 MB. Supported types: .jpeg, .jpg, .jpe, .png, .gif, .apng, .webp, .avif, .svg, .svgz, .bmp, .ico. Up to 1 files.|
+| **Topics** | No | Yes | Topics are semantic labels that you can assign to apps (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
+| **Folder Storage** | Yes | Yes | Path to the application's location in the hierarchy of folders. Use **Move to** to change the application's location. |
+| **Source Type** | Yes | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided chat and/or MCP endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. Select one of the available application runners. If the application is created based on an application runner, DIAL Core will forward all payloads to endpoints defined in the [application runner configuration](/docs/tutorials/3.admin/builders-application-runners.md#features). |
+| **Completion endpoint** | Conditional | Conditional | Endpoint URL that will be used to process chat completion requests. <br />Available and editable if Source Type is **Endpoints**. |
+| **Responses endpoint** | Conditional | Conditional | Endpoint URL that will be used to process OpenAI Responses API calls. <br />Available and editable if Source Type is **Endpoints**. |
+| **MCP Endpoint** | Conditional | Conditional | The application's MCP endpoint DIAL Core will use to communicate with application. <br />Available and editable if Source Type is **Endpoints**.<br />-**Transport**: Transport used by MCP server for transmitting MCP messages between client and server. HTTP by default.<br />-**Forward per request key**: Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the MCP endpoint allowing MCP server to access files in the DIAL storage.<br />-**Configuration delivery**: Determines how application properties are sent to the MCP server. Choose `Header` to deliver application properties in Http header. Choose `Meta` to include application properties in `_meta` field within the MCP message payload. |
+| **Editor URL** | No | Conditional | URL of the application's custom builder UI. Application builder allows creating instances of apps using a [UI wizard](/docs/tutorials/0.user-guide.md#application-builder).<br />Available and editable if Source Type is **Endpoints**. |
+| **Viewer URL** | No | Conditional | URL of the application's custom UI. A custom UI, if enabled, will override the standard DIAL Chat UI.<br />Available and editable if Source Type is **Endpoints**. |
+| **Attachments types** | No | Yes | Use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have. <br />Available values: <br />- **No attachments**: Disables all attachment types.<br />- **All attachments types**: Allows all types of file attachments. Optionally specify max number of attachments.<br />- **Specific attachments types**: Enables the user to define/select specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).<br />Start typing to see suggestions or use `<type>/<subtype>` format for a manual entry. |
+| **Attachments max number** | No | Yes | Maximum number of input attachments. <br />**Note**: Enabled if attachment types are defined. |
+| **Completion Defaults** | No | Yes | Default parameters are applied if a request doesn't contain them in OpenAI `chat/completions` API call. |
+| **Responses Defaults** | No | Conditional | Default parameters are applied if a request doesn't contain them in OpenAI `openai/v1/responses` API call. <br /> Available and editable if OpenAI Responses API is supported. |
+| **Forward auth token** | No | Yes | This parameter allows to determine whether to forward an Auth Token to your apps's endpoint. If enabled, HTTP header with authorization token is forwarded to chat completion endpoint.<br />**Note**: this parameter is not supported for Assets Applications. |
+| **Max retry attempts** | No | Yes | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors). |
 
 ### Tools Overview
 

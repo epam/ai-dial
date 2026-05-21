@@ -19,8 +19,9 @@ On the main screen, you can add and manage Interceptor Templates.
 | **Display name** | Name of the interceptor template displayed on UI (e.g. "PII Obfuscator", "Words Blacklist", etc.). |
 | **ID** | Unique identifier. |
 | **Description** | Description of the interceptor template. |
-| **Updated time** | Timestamp of the latest update. |
 | **Topics** | Semantic tags associated with interceptor template. Topics can be used for identify and filter templates on UI. |
+| **Creation Time** | Creation timestamp. |
+| **Updated Time** | Timestamp of the latest update. |
 
 ![ ](img/97.png)
 

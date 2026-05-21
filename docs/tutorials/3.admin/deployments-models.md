@@ -38,12 +38,14 @@ On the main screen, you can view existing and add new AI model servings.
 | Container URL | URL of the container where the model is hosted.<br />Available for a running container. |
 | Author | Email address of the creator of the model serving. |
 | Topics | List of topics associated with the model serving. |
-| Create time | Creation timestamp. |
-| Update time | Timestamp of the last update. |
+| Creation Time | Creation timestamp. |
+| Updated Time | Timestamp of the last update. |
 
 ## Create Model Serving
 
 On the main screen, use the **Create** button to create Hugging Face or NIM model servings.
+
+> **Note**: Available deployment options depend on the current setup.
 
 ![](img/create-model-serving.png)
 
@@ -64,7 +66,7 @@ On the main screen, use the **Create** button to create Hugging Face or NIM mode
 
 Click any model serving from the main screen to open its configuration.
 
-> **Note**: Configuration fields are disabled when the container is in a transition state (launching or stopping).
+> **Note**: Configuration fields are disabled for editing when the container is in a transition state (launching or stopping).
 
 ### Actions
 

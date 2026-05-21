@@ -43,6 +43,8 @@ The grid with models displays the main properties of models which include:
 | **Interaction limit** | The interaction limit parameter in models refers to the maximum number of tokens that can be transmitted in a completion request and response combined. This parameter ensures that the model does not exceed a specified token limit during interactions. |
 | **Prompt price** | Cost per unit (according to **Cost unit**, typically "token" or "request") applied to the *input* portion of each call. Used by the [Dashboard and Usage Logs](/docs/tutorials/3.admin/telemetry-dashboard.md) to estimate spending in real time. |
 | **Completion price** | Cost per unit is charged for the output portion of each call. Combined with the prompt price, it determines your per-model cost calculations. |
+| **Creation Time** | Entity creation timestamp. |
+| **Updated Time** | Timestamp of the latest update of the entity. |
 
 ## Create Model
 
@@ -57,7 +59,7 @@ Follow these steps to add new AI model to your DIAL instance:
     | **Display Name** | Yes | Model name shown across the UI (e.g. "GPT-4 Turbo"). |
     | **Display version** | No | Version is an optional tag to track releases when you register multiple variants of the same model. (e.g. `2024-07-18`, `v1`) |
     | **Description** | No | Free-text note about the model's purpose or distinguishing traits. |
-    | **Source type** | Yes | **Adapter**: Select the corresponding AI model adapter from the list of [available adapters](/docs/tutorials/3.admin/builders-adapters.md). In this case DIAL Core will use the adapter's endpoint URL to communicate with the model.<br />**Model Serving**: Select one of the available [model serving containers](/docs/tutorials/3.admin/deployments-models.md) deployed in DIAL. In this case DIAL Core will use the container URL to communicate with the model.<br />**External Endpoint**: For externally-hosted models, provide the chat completion endpoint URL DIAL Core will use to directly (not using model adapters) communicate with the model. In this case, the model API must be compatible with DIAL Core API. |
+    | **Source type** | Yes | **Adapter**: Select the corresponding AI model adapter from the list of [available adapters](/docs/tutorials/3.admin/builders-adapters.md). In this case DIAL Core will use the adapter's endpoint URL to communicate with the model.<br />**Model Serving**: Select one of the available [model serving containers](/docs/tutorials/3.admin/deployments-models.md) deployed in DIAL. In this case DIAL Core will use the Model Serving container URL to communicate with the model.<br />**External Endpoint**: For externally-hosted models, provide the chat completion and/or responses endpoints' URLs DIAL Core will use to directly (not using model adapters) communicate with the model. In this case, the model API must be compatible with DIAL Core API. |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#configuration). When done with model configuration, click **Save**. It may take some time for the changes to take effect after saving. Once added, the model appears in the **Models** listing and become available to use across the DIAL ecosystem.
 
@@ -81,7 +83,7 @@ In the **Properties** tab, you can view and edit main definitions and runtime se
 * [Source Type](#source-type): Parameters associated with the way the model was created: Adapter, Model Container, or External Endpoint.
 * [Personalization](#personalization): Parameters to customize model's appearance on UI.
 * [Attachments](#attachments): Define attachment types and maximum number of attachments the model can accept.
-* [Default Parameters](#default-parameters): Set default values for model parameters used in chat/completions requests.
+* [Default Parameters](#default-parameters): Set default values for model parameters used in chat/completions and responses requests.
 * [Upstream Configuration](#upstream-configuration): Define upstream endpoints, authentication keys, weights, and extra data.
 * [Advanced Options](#advanced-options): Tokenizer model, forward auth token, interaction limits, retry attempts.
 * [Cost Configuration](#cost-configuration): Set cost unit, prompt price, and completion price for real-time billing.
@@ -120,7 +122,8 @@ The following properties need to be specified if selected Source Type is Adapter
 |-------|----------|-------------|
 | **Adapter** | Yes | [Model adapter](/docs/tutorials/3.admin/builders-adapters.md) that will be used to handle requests to this model deployment (e.g. **OpenAI**, **DIAL**). Adapter defines how to authenticate, format payloads, and parse responses. |
 | **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
-| **Endpoint** | Yes | Chat completion endpoint URL that DIAL Core will invoke for this model. The base URL is determined by the selected adapter, while the path can be partially customized. |
+| **Completion endpoint** | Yes | Endpoint URL that will be invoked to process chat completion requests. The base URL is determined by the selected adapter, while the path can be partially customized. |
+| **Responses endpoint** | Yes | Endpoint of the model adapter that supports the OpenAI Responses API. The URL is read-only and is determined by the selected AI model adapter. Currently only [OpenAI adapters](https://github.com/epam/ai-dial-adapter-openai/blob/development/README.md) support this. When set, DIAL Core routes `POST /openai/v1/responses` requests to this endpoint. Only basic Responses API behavior is supported: background requests, `previous_request_id`, conversations, prompts, and files are not supported. |
 
 ![](img/source_type_adapter.png)
 
@@ -133,21 +136,23 @@ The following properties need to be specified if selected Source Type is Model S
 | Field | Required | Description |
 |-------|----------|-------------|
 | **Container** | Yes | ID of one of the running [Model Serving](/docs/tutorials/3.admin/deployments-models.md) containers. Click to select among the available containers. |
-| **Type** | Yes | Select **Chat** or **Embedding** type of model. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
-| **Endpoint** | Yes | Chat completion endpoint URL that DIAL Core will invoke for this model deployment. The base URL is determined by the selected Model Serving container, while the path can be partially customized: it starts with URL of the Model Serving container and ends with `/chat/completion`. The middle part `openai/v1` can be manually edited. |
+| **Type** | Yes | Select **Chat** or **Embedding** type of model. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering).<br />**Note**: This setting is available if Model Serving container is set and running.  |
+| **Completion endpoint** | Yes | Endpoint URL that will be invoked to process chat completion requests. The base URL is determined by the selected Model Serving container, while the path can be partially customized: it starts with URL of the Model Serving container and ends with `/chat/completion`. The middle part `openai/v1` can be manually edited. |
+| **Responses endpoint** | Yes | Endpoint URL of the Model Serving container that supports the OpenAI Responses API. When set, DIAL Core routes `POST /openai/v1/responses` requests to this endpoint. Only basic Responses API behavior is supported: background requests, `previous_request_id`, conversations, prompts, and files are not supported. The base URL is determined by the selected Model Serving container, while the path can be partially customized: it starts with URL of the Model Serving container and ends with `/responses`. The middle part can be manually edited. |
 
 ![](img/source_type_container.png)
 
 ##### External Endpoint
 
-If your AI model is deployed elsewhere and is compatible with DIAL Core API, you can add it using its chat completion endpoint for a direct communication between the DIAL Core and the AI model.
+DIAL allows using AI models deployed outside DIAL infrastructure which are compatible with DIAL Core API. External Endpoint source type is used for such AI models.
 
 The following properties need to be specified if selected Source Type is External Endpoint:
 
 | Field | Required | Description |
 |-------|----------|-------------|
 | **Type** | Yes | Select **Chat** or **Embedding** API. <br />**Chat**: Conversational chat completions.<br />**Embedding**: Vector generation (semantic search, clustering). |
-| **Endpoint** | Yes | Chat completion endpoint URL that DIAL Core will invoke for this model. |
+| **Completion endpoint** | Yes | Endpoint URL that will be invoked to process chat completion requests. |
+| **Responses endpoint** | Yes | Endpoint URL that supports the OpenAI Responses API. When set, DIAL Core routes `POST /openai/v1/responses` requests to this endpoint. Only basic Responses API behavior is supported: background requests, `previous_request_id`, conversations, prompts, and files are not supported. |
 
 ![](img/source_type_endpoint.png)
 
@@ -174,17 +179,25 @@ These parameters help customize how the model is presented in the DIAL UI.
 
 ##### Default Parameters 
 
-Default parameters can be use to pass additional parameters with the chat completion request. 
+Default parameters can be used to pass additional parameters with the chat completion or responses requests. 
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| **Completion Defaults** | No | Default parameters are applied if a request doesn't contain them in OpenAI `chat/completions` API call. |
+| **Responses Defaults** | No | Default parameters are applied if a request doesn't contain them in OpenAI `openai/v1/responses` API call. <br /> Available if OpenAI Responses API is supported. |
 
 ![](img/model_defaults.png)
 
 ##### Upstream Configuration
 
+You can use upstream endpoints to provide alternative URLs DIAL Core will use to send chat completions and responses requests to. Enables round-robin load balancing or fallback among multiple hosts. Refer to [Load Balancer](/docs/platform/3.core/5.load-balancer.md) to learn more. For example, you can provide a model's Docker container URI if the model's container is deployed in DIAL. Refer to [Model Servings](/docs/tutorials/3.admin/deployments-models.md#to-enable-a-model-in-dial) to learn more about this use case.
+
 | Field | Description |
 |-------|-------------|
-| **Upstream Endpoints** | One or more backend URLs to send requests to. Enables round-robin load balancing or fallback among multiple hosts. Refer to [Load Balancer](/docs/platform/3.core/5.load-balancer.md) to learn more.<br /> You can use upstream endpoint to provide an alternative URL. For example a model Docker container URL if the model is deployed as a container in DIAL. Refer to [Model Servings](/docs/tutorials/3.admin/deployments-models.md#to-enable-a-model-in-dial) to learn more about this use case.|
-| **Keys** | API key, token, or credential passed to the upstream.  Stored securely and masked—click the eye icon to reveal.|
-| **Weight** | Numeric [weight](/docs/platform/3.core/5.load-balancer.md#weights) for this endpoint in a multi-upstream scenario.  Higher = more traffic share. |
+| **Chat completion endpoint** | The upstream backend URL for the chat completions API. Passed to the model adapter in the `X-UPSTREAM-ENDPOINT` header. Responses API endpoint is recommended to use here for OpenAI models that support Responses API. |
+| **Responses endpoint** | The upstream backend URL for the Responses API. Passed to the model adapter in the `X-UPSTREAM-ENDPOINT` header when routing Responses API requests. |
+| **Keys** | API key, token, or credential passed to the upstream. Stored securely and masked—click the eye icon to reveal.|
+| **Weight** | Numeric [weight](/docs/platform/3.core/5.load-balancer.md#weights) for this endpoint in a multi-upstream scenario. Higher = more traffic share. |
 | **Tier** | Specifies an endpoint group. In a regular scenario, all requests are routed to endpoints with the lowest tier, but in case of an outage or hitting the limits, the next one in the line helps to handle the load. |
 | **Extra Data** | Free-form JSON or string metadata passed to the model adapter with each request. |
 
@@ -195,7 +208,7 @@ Default parameters can be use to pass additional parameters with the chat comple
 | Field | Description |
 |-------|-------------|
 | **Tokenizer Model** | Identifies the specific model whose tokenization algorithm exactly matches that of the referenced model. This is typically the name of the earliest released model in a series of models sharing an identical tokenization algorithm. This parameter is essential for DIAL clients that reimplement tokenization algorithms on their side, instead of utilizing the tokenize endpoint provided by the model. |
-| **Forward auth token** | Select a downstream auth token to forward from the user’s session (for downstream multi-tenant).|
+| **Forward auth token** | This parameter allows to determine whether to forward an Auth Token to your models's endpoint. If enabled, HTTP header with authorization token is forwarded to chat completion endpoint. |
 | **Interaction limit** | This parameter ensures that the model does not exceed a specified token limit during interactions.<br />**Available values**:<br />**None**: DIAL does not apply any additional interaction limits beyond limits that your model enforces natively. Ideal for early prototyping or when you trust the LLM’s built-in safeguards. <br />**Total number of tokens**: Enforces a single, cumulative cap on the sum of all `prompt + completion` tokens across the entire chat. <br />**Separately Prompts & Completions**: Two independent limits: one on the sum of all input (prompt) tokens and another on the sum of all output (completion) tokens over the course of a conversation. |
 | **Max retry attempts** | The number of times DIAL Core will retry a connection in case of upstream errors (e.g. on timeouts or 5xx responses).    |
 | **Hashing Order** | Specifies the order in which parts of a chat completion request—like the `tools` used and the chat `messages` — are combined to create a unique fingerprint (hash) for that request. By default, it checks the `tools` first and then the `messages`. This fingerprint helps the system recognize when different requests share the same beginning, so it can reuse previous work and speed things up through caching, which is especially important because the system can only cache information for requests that start the same way. Refer to [DIAL Core documentation](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/models.md) for details. |
@@ -244,7 +257,7 @@ Each toggle corresponds to a capability in the [Unified Protocol](/docs/platform
 | Toggle | Description |
 |--------|-------------|
 | **System prompt** | Allows injecting a system‐level message (the "agent’s instructions") at the start of every chat. Disable for models that ignore or block system prompts. |
-| **Tools**| Enables the `tools` (a.k.a. functions) feature for safe external API calls. Enable if you plan to use DIAL toolsets or function calling. |
+| **Tools** | Enables the `tools` (a.k.a. functions) feature for safe external API calls. Enable if you plan to use DIAL toolsets or function calling. |
 | **Temperature supported**  | Enables the `temperature` parameter to control randomness in model deployment's output. |
 | **Seed** | Enables the `seed` parameter for deterministic output. If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result. Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend. |
 | **URL Attachments** | Allows passing URLs as attachments (images, docs) to the model. Can be required for image-based or file-referencing prompts. |
@@ -252,7 +265,7 @@ Each toggle corresponds to a capability in the [Unified Protocol](/docs/platform
 | **Assistant attachment in request** | Indicates whether the model deployment supports `attachments` [chat completion request](https://dialx.ai/dial_api#operation/sendChatCompletionRequest) `messages` form the `role=assistant`. When enabled, DIAL Chat must preserve `attachments` in `messages` from assistants, instead of removing them. The feature is especially useful for models that can generate attachments as well as take attachments as an input. A typical example of such a model is an image-editing model. |
 | **Accessible by request key** | Indicates whether the deployment is accessible using a [per-request API key](/docs/platform/3.core/3.per-request-keys.md). |
 | **Content parts** | Indicates whether the model deployment supports requests with content parts or not. Content parts in a chat completion request allow sending to AI model a message consisting of different types of content, such as text, images, or other media, within a single request which enables more rich and flexible interaction with a model.|
-| **Cache**| Whether the deployment supports [LLM caching](/docs/tutorials/1.developers/6.prompt-caching.md). |
+| **Cache** | Whether the deployment supports [LLM caching](/docs/tutorials/1.developers/6.prompt-caching.md). |
 | **Auto caching** | Indicates whether the deployment supports [automatic caching](/docs/tutorials/1.developers/6.prompt-caching.md), where it's possible. |
 | **Parallel tool calls** | Indicates whether the deployment supports `parallel_tool_calls` parameter in a [chat completion request](https://dialx.ai/dial_api#operation/sendChatCompletionRequest) which enables parallel `function` calling when using a `tool`. |
 | **Support comment in rate response** | Indicates whether the model supports the field `comment` in rate response payload. |
@@ -380,152 +393,11 @@ Follow these steps to attach one or more interceptors to the model's configurati
 
 ### Audit
 
-In the **Audit** tab, you can monitor key metrics, activities and traces related to the selected language model.
+In the **Audit** tab, you can monitor key metrics, activities and usage related to the selected AI model. This tab provides comprehensive insights into performance, user interactions, and operational changes. You can track real-time and historical data, identify usage patterns, audit and roll back all modifications made to the selected AI model deployment for compliance and troubleshooting purposes.
 
-#### Dashboard
+> **Note**: This section mimics the functionality available in the global [Dashboard](/docs/tutorials/3.admin/telemetry-dashboard.md), [Activity](/docs/tutorials/3.admin/telemetry-activity-audit.md), and [Usage Log](/docs/tutorials/3.admin/telemetry-usage-log.md) sections, but is scoped specifically to the selected AI model.
 
-> **TIP**: You can monitor the entire system's metrics in [Telemetry](/docs/tutorials/3.admin/telemetry-dashboard.md).
-
-In the **Dashboard** tab, you can monitor real-time and historical metrics for the model. You can use it to monitor usage patterns, enforce SLAs, optimize costs, and troubleshoot anomalies.
-
-![](img/model-dashboard.png)
-
-| Control | Description |
-|---------|-------------|
-| **Time Period** | Select the date range for all charts and tables (e.g. last 15 min, 2 days, 7 days, 30 days). |
-| **+ Add filter** | Filter with options to drill into a specific project. |
-| **Auto refresh** | Set the dashboard to poll for new data (e.g. every 1 min) or turn off auto-refresh. |
-
-##### System Usage Chart
-
-A time-series line chart of requests throughput over time. You can use it to monitor traffic peaks and valleys, correlate spikes with deployments or feature roll outs.
-
-##### Key Metrics
-
-Four high-level metrics are displayed alongside the chart. All calculated for the selected time period.
-
-You can use them to:
-
-* Chargeback to internal teams or external customers by "Money".
-* Track adoption via "Unique Users".
-* Monitor burst traffic with "Request Count".
-* Watch token consumption to anticipate quota exhaustion.
-
-| Metric | Description |
-|--------|-------------|
-| **Unique Users** | Count of distinct user IDs or API keys that have called this model. |
-| **Request Count** | Total number of chat or embedding calls routed to this model. |
-| **Total Tokens** | Sum of `prompt + completion` tokens consumed by this model. |
-| **Money** | Estimated spending on this model. |
-
-##### Projects Consumption Table
-
-This table shows the KPIs breakdown by **Project**. You can use it to compare consumption across multiple projects.
-
-| Column | Description |
-|--------|-------------|
-| **Project** | The project utilizing this model. |
-| **Request Count** | Number of calls directed to the model. |
-| **Prompt tokens** | Total tokens submitted in the prompt portion of requests. |
-| **Completion tokens** | Total tokens returned by the model as responses. |
-| **Money** | Estimated costs. |
-
-#### Traces
-
-> **TIP**: You can monitor the entire system's traces in [Usage Log](/docs/tutorials/3.admin/telemetry-usage-log.md).
-
-In this tab, you can see individual traces, each representing a single end-to-end interaction of a DIAL entity with the selected model.
-
-![](img/model-traces.png)
-
-| Column | Description |
-|--------|-------------|
-| **Completion Time** | Timestamp when the trace finished processing (end-to-end interaction). |
-| **Trace ID** | Unique identifier of the trace (one end-to-end interaction). |
-| **Topic** | Auto-generated subject/title summarizing the trace. |
-| **Reactions** | Indication of user reactions presence (like/dislike) for the trace. |
-| **Cached prompt tokens** | Number of prompt tokens served from cache (prompt-caching). |
-| **Prompt tokens** | Number of tokens in the prompt sent to the model for this trace. |
-| **Completion tokens** | Number of tokens generated by the model as output for this trace. |
-| **Deployment price** | Cost attributed to the selected deployment for this trace. |
-| **Total price** | Total cost of the trace. |
-| **Number of request messages** | Number of discrete request messages that were included in the trace. |
-| **Deployment ID** | Identifier of the DIAL deployment used to serve this trace. |
-| **Parent Deployment ID** | Identifier of the parent deployment (e.g., application that was using the underlying model). |
-| **Model** | Identifier of the underlying model used to carry out the trace. |
-| **Project** | Project to which this trace associated in DIAL. |
-| **Upstream** | The upstream endpoint (e.g., completions endpoint of the model). |
-| **Execution path** | Execution path of the trace. |
-| **User** | Identifier of the end user who initiated the trace. |
-| **User title** | Name of the user (if available). |
-| **Language** | Language detected in the trace (e.g., `en`). |
-| **Duration** | Total end-to-end duration of the trace from first request to completion. |
-| **Response ID** | Identifier of the response object returned by the model for this trace. |
-| **Conversation ID** | Identifier of the conversation/session this trace belongs to. |
-| **Code span ID** | Identifier of a specific code execution span associated with the trace (if any). |
-| **Code span parent ID** | Identifier of the parent span for a code execution span (if any). |
-
-#### Conversations
-
-> **TIP**: You can monitor all usage sessions in [Usage Log](/docs/tutorials/3.admin/telemetry-usage-log.md).
-
-In Conversations, you can see individual traces grouped into end‑to‑end conversation sessions.
-
-![](img/model-conversations.png)
-
-| Column | Description |
-|--------|-------------|
-| **Last activity** | Timestamp of the most recent trace within the conversation. |
-| **Conversation ID** | Unique identifier of the user session that groups related traces. |
-| **Topic** | Auto-generated subject summarizing the conversation. |
-| **Cached prompt tokens** | Count of prompt tokens served from cache across the conversation. |
-| **Prompt tokens** | Total number of request/prompt tokens sent to the model across all traces in the conversation. |
-| **Completion tokens** | Total number of tokens generated by the model across all traces in the conversation. |
-| **Total price** | Aggregated cost for the conversation. |
-| **Number of request messages** | Total number of discrete request messages included in the conversation. |
-| **Deployment ID** | Identifier of the deployment associated with the conversation. |
-| **Project** | Project to which the conversation associated in DIAL. |
-| **User** | Identifier of the end user who initiated the conversation. |
-| **User title** | Name of the user (if available). |
-| **Language** | Detected language for the conversation (e.g., `en`). |
-
-#### Activities
-
-The Activities section provides detailed visibility into all changes made to the selected model. This section mimics the functionality available in the global [Audit → Activities](/docs/tutorials/3.admin/telemetry-activity-audit.md) menu, but is scoped specifically to the selected model.
-
-![85.png](img/85.png)
-
-##### Activities List Table
-
-| Field | Description |
-|-------|-------------|
-| **Activity type** | Action performed on the model (e.g., Create, Update, Delete). |
-| **Time** | Timestamp indicating when the activity occurred. |
-| **Initiated** | Email address of the user who performed the activity. |
-| **Activity ID** | Unique identifier for the logged activity, used for tracking and auditing. |
-| **Actions** | Available actions:<br />- **View details**: Click to open a new screen with activity details. Refer to [Activity Details](#activity-details) to learn more.<br />- **Resource rollback**: click to restore a previous version. Refer to [Resource Rollback](#resource-rollback) for details. |
-
-##### Activity Details
-
-The Activity Details view provides a detailed snapshot of a specific change made to a model.
-
-![86.png](img/86.png)
-
-To open Activity Details, click on the three-dot menu (⋮) at the end of a row in the Activities grid and select “View Details”.
-
-| Element/Section | Description |
-|-----------------|-------------|
-| **Activity type** | Type of the change performed (e.g., Update, Create, Delete). |
-| **Time** | Timestamp of the change. |
-| **Initiated** | Identifier of the user who made the change. |
-| **Activity ID** | Unique identifier for the specific activity tracking. |
-| **Comparison** | Dropdown to switch between showing all parameter or changed only. |
-| **View** | Dropdown to switch for selection between Before/After and Before/Current state. |
-| **Parameters Diff** | Side-by-side comparison of model fields values before and after the change. Color-coding is used to indicate the operation type (Update, Create, Delete). |
-
-##### Resource Rollback
-
-Use Resource Rollback to restore the previous version of the selected activity. A rollback leads to generation of a new entry on the audit activity screen.
+![](img/model-audit.png)
 
 ### JSON Editor
 

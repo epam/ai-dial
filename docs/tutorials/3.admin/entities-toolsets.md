@@ -25,13 +25,15 @@ On this screen, you can find all toolset deployments existing in your DIAL insta
 | **Display Name** | Name of a toolset displayed on UI (e.g. GitHub, Google Maps). |
 | **Description** | Description of a toolset. |
 | **ID** | Unique key under the toolsets section of DIAL Admin. |
-| **Updated Time** | Date and time when the toolset's configuration was last updated. |
-| **Source Type** | Source type of the toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets. |
-| **Source** | Identifier of a toolset source.<br />- For the [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) source type, it is a container ID.<br /> - For External Endpoint - a URL of the external endpoint. |
+| **Source Type** | Source type of the toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.<br />- [MCP Registry](https://registry.modelcontextprotocol.io/): MCP server from the registry. |
+| **Source** | Identifier of a toolset source.<br />- For the [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md) source type, it is a container ID.<br /> - For External Endpoint - a URL of the external endpoint.<br /> - For MCP Registry - MCP server name based on [MCP Registry](https://registry.modelcontextprotocol.io/). |
 | **Author** | Name of the toolset creator. |
 | **Topics** | Tags or categories assigned for toolsets for discovery, filtering, or grouping on UI (e.g. "finance," "support"). |
+| **Creation Time** | Entity creation timestamp. |
+| **Updated Time** | Timestamp of the latest update of the entity. |
+| **Actions** | Actions you can perform on the selected toolsets:<br />- **Open in a new tab**: Opens the toolset's properties, features, and parameters in a new tab.<br />- **Duplicate**: Creates a copy of the toolset. Refer to [Duplicate](#duplicate) to learn more. <br />- **Delete**: Removes the toolset. Refer to [Delete](#delete) to learn more. |
 
-## Create Toolset
+## Create
 
 Follow these steps to add a new toolset definition:
 
@@ -43,13 +45,37 @@ Follow these steps to add a new toolset definition:
     | **ID** | Yes | Define a unique identifier of a toolset.|
     | **Display Name** | Yes | Define a name of a toolset shown across the UI (e.g. GitHub, Google Maps).|
     | **Description** | No | Enter a free-text note about the this toolset’s purpose, capabilities, or any other relevant details. |
-    | **Source Type** | Yes |Choose between the available source types of toolset: <br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.|
-    | **External Endpoint** | Conditional | Define a Toolset API endpoint for MCP calls. Applies for External Endpoint source type. |
-    | **Container** | Conditional | Select one of the available [MCP containers](/docs/tutorials/3.admin/deployments-mcp.md) from the list. Applies for MCP Container source type. |
+    | **Source Type** | Yes | Choose between the available source types of toolset: <br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.<br />- **MCP Registry**: [MCP Registry](https://registry.modelcontextprotocol.io/) for Model Context Protocol (MCP) servers.|
+    | **External Endpoint** | Conditional | Define a Toolset API endpoint for MCP calls. <br />Applies for External Endpoint source type. |
+    | **Container** | Conditional | Select one of the available and running [MCP containers](/docs/tutorials/3.admin/deployments-mcp.md) from the list. <br />Applies for MCP Container source type. |
+    | **MCP server name** | Conditional | Applies for MCP Registry source type. <br />Select one of the available MCP servers in the registry. <br />**Important**: MCP servers must support Remotes `streamable-http` and `sse`. |
 
 3. Click **Create** to close the dialog and open the [configuration screen](#configuration). When done with toolset configuration, click **Save**. It may take some time for changes to take effect after saving.
 
     ![](img/create_toolsets.png)
+
+## Duplicate 
+
+You can duplicate an existing toolset to create a copy of it.
+
+> **Note**: When duplicating a toolset that requires authentication, you will be prompted to enter authentication credentials that will apply to a duplicate for security purposes.
+
+##### To create a duplicate of a toolset:
+
+1. Click **Duplicate** in the actions menu of a toolset on the main screen.
+2. In the **Duplicate Toolsets** window:
+    - Enter **Display Name** and **ID** for the duplicated toolset.
+    - Enter **OAuth** credentials that will apply for the duplicate.
+3. Click **Duplicate** to complete the procedure.
+
+![](img/duplicate-entity-toolset.png)
+
+## Delete
+
+There are several ways to delete a toolset or a specific version of it:
+
+* Click **Delete** in the toolbar on the Configuration screen to permanently remove the selected toolset from your DIAL instance.
+* Use the Delete option in the toolset context menu.
 
 ## Configuration
 
@@ -75,10 +101,11 @@ In the **Properties** tab, you can view and edit main definitions and settings o
 | **Description** | No | Yes | Description of a toolset. |
 | **Maintainer** | No | Yes | Name of the user overseeing the toolset's configuration. |
 | **Icon** | No | Yes | Logo to visually distinguish toolsets in the UI. |
-| **Topics** | No | Yes | Tag that associates a toolsets with one or more topics or categories (e.g. "finance", "support"). |
-| **Source Type** | Yes | Yes | The source type of the selected toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets. |
+| **Topics** | No | Yes | Topics are semantic labels that you can assign to toolsets (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
+| **Source Type** | Yes | Yes | The source type of the selected toolset:<br />- [MCP Container](/docs/tutorials/3.admin/deployments-mcp.md): Toolset is based on a running MCP container.<br />- **External Endpoint**: External API endpoint for externally-deployed custom toolsets.<br />- **MCP Registry**: [MCP Registry](https://registry.modelcontextprotocol.io/) for Model Context Protocol (MCP) servers. |
 | **External Endpoint** | Conditional | Yes | Toolset endpoint for MCP calls. Applies for External Endpoint source type. |
 | **Container** | Conditional | Yes | MCP server [container ID](/docs/tutorials/3.admin/deployments-mcp.md). Applies for MCP Container deployment source type. |
+| **MCP server name** | Conditional | Yes | Name of MCP server from the [MCP Registry](https://registry.modelcontextprotocol.io/). Start typing in the text box to search for available MCP servers or click **Select from registry** to display a window with a list of available MCP servers and their details. <br />Applies for MCP Registry source type. |
 | **Transport** | Yes | Yes | Transport supported by a related endpoint.<br />Available options: HTTP (default) or SSE (deprecated) |
 | **Forward per request key** | No | Yes | Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. <br />**Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`. |
 | **Max retry attempts** | Yes | Yes | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) routing a failed call to a toolset endpoint (due to timeouts or 5xx errors). |
@@ -213,9 +240,9 @@ You can remove a role only if **Make available to specific roles** toggle is **O
 
 ### Audit
 
-The Audit section enables administrators to monitor usage and consumption, trace calls, view activity history, and roll back changes for each selected toolset. 
+In the **Audit** tab, you can monitor key metrics, activities and usage related to the selected toolset. This tab provides comprehensive insights into performance, user interactions, and operational changes. You can track real-time and historical data, identify usage patterns, audit and roll back all modifications made to the selected toolset for compliance and troubleshooting purposes.
 
-> **TIP**: This section mimics the functionality available in the global [Dashboard, Activities and Usage Log](/docs/tutorials/3.admin/telemetry-dashboard.md) sections, but is scoped specifically to the selected toolset.
+> **Note**: This section mimics the functionality available in the global [Dashboard](/docs/tutorials/3.admin/telemetry-dashboard.md), [Activity](/docs/tutorials/3.admin/telemetry-activity-audit.md) and [Usage Log](/docs/tutorials/3.admin/telemetry-usage-log.md) sections, but is scoped specifically to the selected toolset.
 
 ![](img/entities_toolsets_audit.png)
 
@@ -236,7 +263,3 @@ In JSON editor, you can use the view dropdown to select between Admin format and
 3. Chose between the Admin and Core format to see and work with properties in the necessary format. **Note**: Core format view mode does not render the actual configuration stored in DIAL Core but the configuration in Admin service displayed in the DIAL Core format.
 4. Make changes and click **Save** to apply them.
 5. After making changes, the **Sync with core** indicator on the main configuration screen will inform you about the synchronization state with DIAL Core.
-
-### Delete
-
-Use the **Delete** button in the Configuration screen toolbar to permanently remove the selected toolset.
