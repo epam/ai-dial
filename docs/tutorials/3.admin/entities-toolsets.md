@@ -108,6 +108,7 @@ In the **Properties** tab, you can view and edit main definitions and settings o
 | **MCP server name** | Conditional | Yes | Name of MCP server from the [MCP Registry](https://registry.modelcontextprotocol.io/). Start typing in the text box to search for available MCP servers or click **Select from registry** to display a window with a list of available MCP servers and their details. <br />Applies for MCP Registry source type. |
 | **Transport** | Yes | Yes | Transport supported by a related endpoint.<br />Available options: HTTP (default) or SSE (deprecated) |
 | **Forward per request key** | No | Yes | Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the toolset endpoint allowing a toolset to access files in the DIAL storage. <br />**Note**: it is not allowed to create toolsets with `authType.API_KEY` and `forwardPerRequestKey=true`. |
+| **Forward auth token** | No | Yes | This parameter allows to determine whether to forward an Auth Token to your toolset's endpoint. If enabled, HTTP header with authorization token is forwarded to toolset endpoint. |
 | **Max retry attempts** | Yes | Yes | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) routing a failed call to a toolset endpoint (due to timeouts or 5xx errors). |
 | **Authentication** | Yes | Yes | [Toolset authentication configuration](#authentication). |
 
