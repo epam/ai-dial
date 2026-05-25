@@ -95,7 +95,7 @@ In the **Properties** tab, you can view and edit main definitions and settings o
 | **ID** | - | No | Unique key under the toolsets section of DIAL Admin. |
 | **Updated Time** | - | No | Date and time when the toolset's configuration was last updated. |
 | **Creation Time** | - | No | Date and time when the toolset's configuration was created. |
-| **Authentication** | - | No | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset in not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated for your user only. <br />- **Logged in (Organization)**: The toolset is authenticated for all users in your organization. |
+| **Authentication** | - | No | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset is not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated with your personal credentials only. <br />- **Logged in (Organization)**: The toolset is authenticated with organization credentials only. <br />- **Logged in**: The toolset is authenticated at both personal and organization levels. |
 | **Sync with core** | - | No | Indicates the state of the entity's configuration synchronization between Admin and DIAL Core.<br />Synchronization occurs automatically every 2 mins (configurable via `CONFIG_AUTO_RELOAD_SCHEDULE_DELAY_MILLISECONDS`).<br />**Important**: Sync state is not available for sensitive information (API keys/tokens/auth settings).<br />**Synced**:<br />Entity's states are identical in Admin and in Core for valid entities or entity is missing in Core for invalid entities.<br />**In progress...**: <br />If Synced conditions are not met and changes were applied within last 2 mins (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Out of sync**:<br />If Synced conditions are not met and changes were applied more than 2 mins ago (this period is configurable via `CONFIG_EXPORT_SYNC_DURATION_THRESHOLD_MS`).<br />**Unavailable**:<br />Displayed when it is not possible to determine the entity's state in Core. This occurs if:<br />- The config was not received from Core for any reason.<br />- The configuration of entities in Core is not entirely compatible with the one in the Admin service. |
 | **Display Name** | Yes | Yes | Name of a toolset shown across the UI (e.g. GitHub, Google Maps). |
 | **Description** | No | Yes | Description of a toolset. |
@@ -137,16 +137,17 @@ DIAL supports several authentication methods for toolsets:
 
 ![](img/entities_toolsets_auth.png)
 
-##### Step 2: Choose personal or organization authentication
+##### Step 2: Choose authentication level(s)
 
-Having selected and configured any authentication method, click **Save** and **Log In** to authenticate a toolset with the related MCP server. At this step, prior to the actual authentication, you will be prompted to select between **Personal** and **Organization** authentication:
+Having selected and configured any authentication method, click **Save** and **Log In** to authenticate a toolset with the related MCP server. At this step, choose the level you want to authenticate:
 
-* **Personal**: the toolset will be authenticated for your user only with the authentication state labeled **Logged in (Personal)**.
-* **Organization**: the toolset will be authenticated for all users in your organization with the authentication state labeled **Logged in (Organization)**. Any user will be able to log out and log back in with personal credentials. 
+* **Personal**: the toolset is authenticated for your user only with the state **Logged in (Personal)**.
+* **Organization**: the toolset is authenticated for all users in your organization with the state **Logged in (Organization)**.
+* **Both**: You can keep both personal and organization authentication active for the same toolset. In this case, authentication status is displayed as **Logged in**. When you use **Log out**, you can also choose the level to sign out from (Personal, Organization, or both).
 
-**Important**: at this step, for authentication with API keys, you will be prompted to provide a valid API key value.
+> **Tip**: At this step, for authentication with API keys, you will be prompted to provide a valid API key value.
 
-![](img/entities_toolsets_auth2.png)
+![](img/assets_toolsets_auth2.png)
 
 ### Tools Overview
 

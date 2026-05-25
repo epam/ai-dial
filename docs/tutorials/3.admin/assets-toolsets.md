@@ -179,7 +179,7 @@ You can find the following action buttons in the configuration screen header:
 | **Author** | - | No | User who created toolset. |
 | **Updated Time** | - | No | Timestamp of the last update. |
 | **Creation Time** | - | No | Creation timestamp. |
-| **Authentication** | - | No | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset in not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated for your user only. <br />- **Logged in (Organization)**: The toolset is authenticated for all users in your organization. |
+| **Authentication** | - | No | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset is not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated with your personal credentials only. <br />- **Logged in (Organization)**: The toolset is authenticated with organization credentials only. <br />- **Logged in**: The toolset is authenticated at both personal and organization levels. |
 | **Folder Storage** | - | No | Path to the toolset's location in the hierarchy within the public folder. Click to navigate to [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). |
 | **Display Name** | Yes | Yes | The name of the toolset displayed on UI. |
 | **Description** | No | Yes | Toolset description. |
@@ -196,7 +196,7 @@ You can find the following action buttons in the configuration screen header:
 
 If the toolset you have chosen requires authentication at the related MCP server, you will have to sign in before you can use it. For example, if you are using an application that relies on the MCP toolset and authentication is required, you will not be able to access it unless you are logged in. Therefore, make sure you are authenticated with MCP server you are about to use.
 
-**Note**, that toolset can be published with credentials by other users. In this case, a toolset can be already authenticated for all users in the organization - **Logged in (Organization)**. You can use it or log out and log back in with your personal credentials - **Logged in (Personal)**.
+**Note**: A toolset can be published with organization credentials by other users. In this case, it can already have the state **Logged in (Organization)**. You can additionally authenticate with your personal credentials and use both levels at the same time. When both levels are active, authentication status is displayed as **Logged in**.
 
 > Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolset_credentials_api.md) to learn more about toolset authentication
 
@@ -217,14 +217,15 @@ DIAL supports several authentication methods for toolsets:
 
 ![](img/assets_toolsets_auth.png)
 
-##### Step 2: Choose personal or organization authentication
+##### Step 2: Choose authentication level(s)
 
-Having selected and configured any authentication method, click **Save** and **Log In** to authenticate a toolset with the related MCP server. At this step, prior to the actual authentication, you will be prompted to select between **Personal** and **Organization** authentication:
+Having selected and configured any authentication method, click **Save** and **Log In** to authenticate a toolset with the related MCP server. At this step, choose the level you want to authenticate:
 
-* **Personal**: the toolset will be authenticated for your user only with the authentication state labeled **Logged in (Personal)**.
-* **Organization**: the toolset will be authenticated for all users in your organization with the authentication state labeled **Logged in (Organization)**. Any user will be able to log out and log back in with personal credentials.
+* **Personal**: the toolset is authenticated for your user only with the state **Logged in (Personal)**.
+* **Organization**: the toolset is authenticated for all users in your organization with the state **Logged in (Organization)**.
+* **Both**: You can keep both personal and organization authentication active for the same toolset. In this case, authentication status is displayed as **Logged in**. When you use **Log out**, you can also choose the level to sign out from (Personal, Organization, or both).
 
-**Important**: at this step, for authentication with API keys, you will be prompted to provide a valid API key value.
+> **Tip**: At this step, for authentication with API keys, you will be prompted to provide a valid API key value.
 
 ![](img/assets_toolsets_auth2.png)
 
