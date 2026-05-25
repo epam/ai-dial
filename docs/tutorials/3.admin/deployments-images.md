@@ -95,7 +95,7 @@ In the header of the Configuration screen, you can find the following action but
 | Version | Click to create a new image version or display configuration of a selected version. |
 | Save and Save as new version | [Save behavior](#save-behavior) depends on what you changed:<br />- If only **Description**, **Maintainer**, or **Topics** are updated for an installed image, use **Save** to apply updates to the current image.<br />- If **Name** is changed, use **Save as new image** and the modal title is **Save new image**.<br />- If **Name** is unchanged and you create a copy, use **Save as new version** and the modal title is **Save new version**. |
 | Create Interceptor/MCP/Adapter/Application Container | Enabled for the installed images.<br />Click to create a new [MCP](/docs/tutorials/3.admin/deployments-mcp.md), [Adapter](/docs/tutorials/3.admin/deployments-adapters.md), [Application](/docs/tutorials/3.admin/deployments-applications.md) or [Interceptor](/docs/tutorials/3.admin/deployments-interceptors.md) container based on the selected image. |
-| Install | Enabled for not installed images.<br />Click to install the selected version of an image. |
+| Install / Stop | **Install** is enabled for not installed images.<br />Click **Install** to install the selected version of an image.<br />During installation, **Stop** is shown and can be used to interrupt the installation process. |
 | Delete | Click to delete the selected image. **Note**: Deleted image will effect the related containers. |
 
 ![ ](img/image_actions.png)
