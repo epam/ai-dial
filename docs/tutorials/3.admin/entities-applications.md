@@ -332,6 +332,8 @@ In this section, you can defile routes that will be used by DIAL Core for intera
 
 If the application is created based on a [specific application runner](/docs/tutorials/3.admin/builders-application-runners.md#app-routes), tab allows only viewing routes inherited from it. Otherwise, it allows creating, viewing, editing, and deleting routes.
 
+For App Routes, you can choose these HTTP methods: GET, POST, PUT, DELETE, HEAD, and PATCH. OPTIONS and TRACE are not available in App Routes.
+
 > Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/routes.md) to learn more about routes.
 
 #### Properties
