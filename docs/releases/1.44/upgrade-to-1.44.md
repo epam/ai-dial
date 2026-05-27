@@ -40,6 +40,42 @@
 
 ## Config changes
 
+
+### ai-dial-adapter-openai
+
+#### Deprecated environment variables
+
+| Variable | Description |
+|----------|-------------|
+| `DIAL_USE_FILE_STORAGE` | Deprecated. DIAL Storage is now enabled automatically when `DIAL_URL` is set, making this variable redundant. |
+
+**Migration:**
+
+| Previous configuration | Required action |
+|------------------------|-----------------|
+| `DIAL_URL` is set, `DIAL_USE_FILE_STORAGE` is `False` or unset | Remove `DIAL_URL` if you want to keep storage disabled |
+| `DIAL_URL` is unset, `DIAL_USE_FILE_STORAGE=True` | No action needed; storage will be disabled (previously caused an error) |
+| `DIAL_URL` is set, `DIAL_USE_FILE_STORAGE=True` | No changes required; behavior remains unchanged |
+
+### ai-dial-chat
+
+#### New environment variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `NEXT_PUBLIC_RESOURCE_MAX_SEGMENT_BYTES` | `255` | Maximum UTF-8 byte length of a single path segment in entity names (files, folders, conversations). Must be a positive integer less than 1024. Must be set at **build time** (Next.js public env). |
+
+> [!NOTE]
+> Entity name validation has changed: the previous 160-character limit is replaced by a UTF-8 byte-based constraint, configurable via `NEXT_PUBLIC_RESOURCE_MAX_SEGMENT_BYTES`.
+
+### ai-dial-analytics-realtime
+
+#### Removed environment variables
+
+| Variable | Description |
+|----------|-------------|
+| `MODEL_RATES` | Removed. Was used to calculate pricing for chat and embeddings requests when prompt logs were missing pricing information. DIAL Core has reliably provided pricing information in prompt logs since version 0.7.0 (Feb 2024), making this variable redundant. When pricing information is unavailable, the service now defaults to a price of `0.0`. |
+
 ### ai-dial-admin-backend
 This release includes **high-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-backend/blob/0.17.0-rc.0/docs/upgrade-plans/0.17.0.md) before proceeding.
 
