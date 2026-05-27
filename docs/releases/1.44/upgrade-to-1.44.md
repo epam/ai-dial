@@ -61,9 +61,9 @@
 
 #### New environment variables
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `NEXT_PUBLIC_RESOURCE_MAX_SEGMENT_BYTES` | `255` | Maximum UTF-8 byte length of a single path segment in entity names (files, folders, conversations). Must be a positive integer less than 1024. Must be set at **build time** (Next.js public env). |
+| Variable | Default | Required | Description |
+|----------|---------|----------|-------------|
+| `NEXT_PUBLIC_RESOURCE_MAX_SEGMENT_BYTES` | `255` | No | Maximum UTF-8 byte length of a single path segment in entity names (files, folders, conversations). Must be a positive integer less than 1024. Must be set at **build time** (Next.js public env). |
 
 > [!NOTE]
 > Entity name validation has changed: the previous 160-character limit is replaced by a UTF-8 byte-based constraint, configurable via `NEXT_PUBLIC_RESOURCE_MAX_SEGMENT_BYTES`.
@@ -83,11 +83,11 @@ This release includes **high-priority changes**. Please review the [full upgrade
 
 #### New environment variables
 
-| Variable                          | Default    | Description                                                                                                                                              |
-|-----------------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `DEFAULT_FILE_LOADING_SIZE_LIMIT` | `10485760` | Deployment-wide cap (bytes, `> 0`; default 10 MiB) on files the agent downloads. Overridden per-app by `features.file_loading.size_limit` in the manifest. |
-| `DEFAULT_ORCHESTRATOR_DEPLOYMENT_ID` | —       | Default DIAL deployment id used as the orchestrator model when a QuickApp manifest omits `orchestrator.deployment`. Also surfaces as the JSON-schema `default` for that field so DIAL Core can pre-fill new manifests. Apps can override per-app. |
-| `USE_SYSTEM_CA_CERTS`   | unset   | When set to `1`, merges every `*.crt` file under `/certificates/` with the Alpine system CA bundle at container startup and exports `SSL_CERT_FILE` to the merged path so outbound HTTP calls trust private/corporate root CAs. Opt-in; unset keeps existing behaviour. |
+| Variable                          | Default    | Required | Description                                                                                                                                              |
+|-----------------------------------|------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `DEFAULT_FILE_LOADING_SIZE_LIMIT` | `10485760` | No | Deployment-wide cap (bytes, `> 0`; default 10 MiB) on files the agent downloads. Overridden per-app by `features.file_loading.size_limit` in the manifest. |
+| `DEFAULT_ORCHESTRATOR_DEPLOYMENT_ID` | —       | No | Default DIAL deployment id used as the orchestrator model when a QuickApp manifest omits `orchestrator.deployment`. Also surfaces as the JSON-schema `default` for that field so DIAL Core can pre-fill new manifests. Apps can override per-app. |
+| `USE_SYSTEM_CA_CERTS`   | unset   | No | When set to `1`, merges every `*.crt` file under `/certificates/` with the Alpine system CA bundle at container startup and exports `SSL_CERT_FILE` to the merged path so outbound HTTP calls trust private/corporate root CAs. Opt-in; unset keeps existing behavior. |
 
 > [!IMPORTANT]
 > Operators must update DIAL Core's configuration when upgrading to this release. The `/v1/configuration-support/*` endpoints are no longer served via a global DIAL Core `routes` entry — they are declared on the QuickApps application type itself.
