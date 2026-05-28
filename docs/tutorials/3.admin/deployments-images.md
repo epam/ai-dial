@@ -91,30 +91,14 @@ On the configuration screen, you can view and edit the selected image settings.
 In the header of the Configuration screen, you can find the following action buttons:
 
 | Action | Description |
-|--------|-------------|
-| Version | Click to create a new image version or display configuration of a selected version. |
-| Save and Save as new version | [Save behavior](#save-behavior) depends on what you changed:<br />- If only **Description**, **Maintainer**, or **Topics** are updated for an installed image, use **Save** to apply updates to the current image.<br />- If **Name** is changed, use **Save as new image** and the modal title is **Save new image**.<br />- If **Name** is unchanged and you create a copy, use **Save as new version** and the modal title is **Save new version**. |
-| Create Interceptor/MCP/Adapter/Application Container | Enabled for the installed images.<br />Click to create a new [MCP](/docs/tutorials/3.admin/deployments-mcp.md), [Adapter](/docs/tutorials/3.admin/deployments-adapters.md), [Application](/docs/tutorials/3.admin/deployments-applications.md) or [Interceptor](/docs/tutorials/3.admin/deployments-interceptors.md) container based on the selected image. |
-| Install / Stop | **Install** is enabled for not installed images.<br />Click **Install** to install the selected version of an image.<br />During installation, **Stop** is shown and can be used to interrupt the installation process. |
-| Delete | Click to delete the selected image. **Note**: Deleted image will effect the related containers. |
+| :-- | :-- |
+| **Version** | Create a new image version or display configuration of a selected version.<br />Versioning logic:<br />- If creating a new image with a new name, the default version is 1.0.0.<br />- If the new name already exists, the version is patch-bumped from the highest existing version for that name.<br />- For new versions of the same name, the version is patch-bumped from the current image name’s highest version. |
+| **Save / Save as new version / Save as new image** | The available save action depends on your changes:<br />- **Save**: For installed images, if you only update Description, Maintainer, or Topics.<br />- **Save as new image**: If you change the Name of the image. The dialog title will be Save new image.<br />- **Save as new version**: If you keep the Name but want to create a new version. The dialog title will be Save new version.<br />![ ](img/image-save-buttons.png) |
+| **Create Interceptor/MCP/Adapter/Application Container** | Enabled for installed images. Use to create a new [MCP](/docs/tutorials/3.admin/deployments-mcp.md), [Adapter](/docs/tutorials/3.admin/deployments-adapters.md), [Application](/docs/tutorials/3.admin/deployments-applications.md) or [Interceptor](/docs/tutorials/3.admin/deployments-interceptors.md) container based on the selected image. |
+| **Install / Stop** | - **Install**: Install is enabled for images not yet installed. Click to install the selected version. <br />- **Stop**: During installation, Stop appears and can be used to interrupt the process. |
+| **Delete** | Use to delete the selected image. <br />**Note**: Deleting an image affects related containers. |
 
 ![ ](img/image_actions.png)
-
-#### Save behavior
-
-When editing an image, action labels and version defaults are determined by the change type:
-
-- **Metadata-only update** (installed image, only **Description**, **Maintainer**, or **Topics** changed): use **Save**.
-- **Rename image** (**Name** changed): use **Save as new image** and open **Save new image** dialog.
-- **Keep name and create another version**: use **Save as new version** and open **Save new version** dialog.
-
-Version field defaults in save dialogs:
-
-- For **Save as new image**: if the new name has no versions, default is **1.0.0**.
-- For **Save as new image**: if the new name already exists, version is patch-bumped from the highest existing version for that name.
-- For **Save as new version**: version is patch-bumped from the current image name's highest version.
-
-![ ](img/image-save-buttons.png)
 
 ### Properties
 
