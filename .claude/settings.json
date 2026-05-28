@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(gh issue list --repo epam/ai-dial-admin-frontend --limit 20)",
+      "PowerShell($issues = Invoke-RestMethod -Uri \"https://api.github.com/repos/epam/ai-dial-admin-frontend/issues?state=open&per_page=20\" -Headers @{ \"User-Agent\" = \"claude-code\" }; $issues | Select-Object number, title, state, @{N='labels';E={\\($_.labels.name\\) -join ','}} | Format-Table -AutoSize -Wrap)"
+    ]
+  }
+}
