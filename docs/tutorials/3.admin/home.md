@@ -23,6 +23,18 @@ The Home page provides administrators with a comprehensive overview of the syste
 * [Approvals](/docs/tutorials/3.admin/approvals-file-publications.md): In this section, you can view and manage publication requests submitted by DIAL users for applications, files, toolsets and prompts.
 * [Audit](/docs/tutorials/3.admin/telemetry-dashboard.md): In Dashboard, you can monitor real-time system usage, including token consumption, system load, and other telemetry data for performance tracking. Activities give access to changelog and perform rollback if needed. In Usage Log you can monitor usage for traces, conversations and MCPs.
 
+## Read-Only Mode
+
+If your account has read-only permissions in DIAL Admin, the UI shows clear indicators that configuration changes are not allowed in your current session.
+
+- On the Home page, an info banner is displayed: **Read-only mode access**.
+- The banner message explains the restriction: **No changes can be made. Access is managed by administrator**.
+- In the header, a **READ ONLY** badge is displayed and remains visible while you navigate across Admin pages.
+
+In read-only mode, controls that modify configuration are disabled or unavailable. On the Home page, this includes **Import Config** and **Export Config** actions.
+
+![ ](img/read-only-mode.png)
+
 ## Import Config
 
 Use **Import Config** to upload a configuration file. Can be used for migrating between environments or restoring backups.

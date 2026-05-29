@@ -43,7 +43,7 @@ On the main screen, you can add images for MCP Servers, AI Model Adapters, Appli
 | Version | Yes | Version of the image. |
 | Description | No | Brief description of the image. |
 | Type | Yes | Type of the image (MCP, Adapter, Application or Interceptor). |
-| Source type | Conditional | **Note**: Available if **Type=MCP Image**. <br />Available values:<br />- **Docker Image**: To use external Docker image as a source.<br />- **Source Code**: To use source code repository as a source. |
+| Source type | Yes | Available for all image types (MCP, Adapter, Application, Interceptor). <br />Available values:<br />- **Docker Image**: To use external Docker image as a source.<br />- **Source Code**: To use source code repository as a source. |
 | Docker Image URI | Conditional | URI of the Docker image used as a source. <br /> Available if **Source type=Docker Image**. |
 | Repo URL | Conditional | URL of the source code repository. <br /> Available if **Source type=Source Code**. |
 | Branch name | Conditional | The name of the branch in the source code repository. <br /> Available if **Source type=Source Code**. |
@@ -91,11 +91,12 @@ On the configuration screen, you can view and edit the selected image settings.
 In the header of the Configuration screen, you can find the following action buttons:
 
 | Action | Description |
-|--------|-------------|
-| Version | Click to create a new image version or display configuration of a selected version. |
-| Create Interceptor/MCP/Adapter/Application Container | Enabled for the installed images.<br />Click to create a new [MCP](/docs/tutorials/3.admin/deployments-mcp.md), [Adapter](/docs/tutorials/3.admin/deployments-adapters.md), [Application](/docs/tutorials/3.admin/deployments-applications.md) or [Interceptor](/docs/tutorials/3.admin/deployments-interceptors.md) container based on the selected image. |
-| Install | Enabled for not installed images.<br />Click to install the selected version of an image. |
-| Delete | Click to delete the selected image. **Note**: Deleted image will effect the related containers. |
+| :-- | :-- |
+| **Version** | Create a new image version or display configuration of a selected version.<br />Versioning logic:<br />- If creating a new image with a new name, the default version is 1.0.0.<br />- If the new name already exists, the version is patch-bumped from the highest existing version for that name.<br />- For new versions of the same name, the version is patch-bumped from the current image name’s highest version. |
+| **Save / Save as new version / Save as new image** | The available save action depends on your changes:<br />- **Save**: For installed images, if you only update Description, Maintainer, or Topics.<br />- **Save as new image**: If you change the Name of the image. The dialog title will be Save new image.<br />- **Save as new version**: If you keep the Name but want to create a new version. The dialog title will be Save new version.<br />![ ](img/image-save-buttons.png) |
+| **Create Interceptor/MCP/Adapter/Application Container** | Enabled for installed images. Use to create a new [MCP](/docs/tutorials/3.admin/deployments-mcp.md), [Adapter](/docs/tutorials/3.admin/deployments-adapters.md), [Application](/docs/tutorials/3.admin/deployments-applications.md) or [Interceptor](/docs/tutorials/3.admin/deployments-interceptors.md) container based on the selected image. |
+| **Install / Stop** | - **Install**: Install is enabled for images not yet installed. Click to install the selected version. <br />- **Stop**: During installation, Stop appears and can be used to interrupt the process. |
+| **Delete** | Use to delete the selected image. <br />**Note**: Deleting an image affects related containers. |
 
 ![ ](img/image_actions.png)
 
@@ -109,16 +110,15 @@ In the Properties tab, you can preview and modify selected image's basic propert
 | Type | - | No | Type of the image (MCP, Adapter, Application or Interceptor). |
 | Creation Time | - | No | Creation timestamp. |
 | Updated Time | - | No | Timestamp of the last update. |
-| Source type | - | No | Source type of the selected image:<br />- **Docker Image**<br />- **Source Code** |
 | Status | - | No | Current status of the image. |
 | Name | Yes | Yes | Name of the image. <br /> Must be between 2 and 255 characters long. <br /> Can contain only letters, numbers, spaces, underscores, and hyphens. <br /> Special characters are not allowed. |
 | Description | No | Yes | Brief description of the image. |
 | Maintainer | No | Yes | Email address of the maintainer of the image. |
 | Topics | No | Yes | List of topics associated with the image. Click to display a list of available topics. <br />You can add your own custom topics to the list following these rules:<br /> - The topic name must not exceed 255 characters. <br /> - The topic name must not contain leading or trailing spaces.|
 | Build privileges | Yes | Yes | Use this setting to define permissions level when building image. |
-| Source type | Conditional | No | The source type of the selected image required for MCP type of image.<br />Available values: <br />- **Docker Image**<br />- **Source Code** |
+| Source type | Conditional | No | Source type of the selected image.<br />Available values: <br />- **Docker Image**<br />- **Source Code** |
 | Docker image URI | Conditional | Yes |  Valid Docker image URI (validated on backend). If provided, must not start or end with `/`.<br/>Applies to MCP (if Source type = Docker image), Adapter, Application and Interceptor image types. <br />Read-only and auto-populated from the OCI package for images created from MCP Registry. |
-| Source code repository parameters | Conditional | Yes | Parameters of the source code repository used to create the selected image. <br />Applies if Type = MCP Image and Source type = Source code. Also, when the image is created from MCP Registry.<br/>- **Repo URL** (required): Source code repository URL. If provided, must not start or end with `/`. Read-only and auto-populated for images created from MCP Registry.<br />- **Branch name**: Name of the branch in the source code repository.<br />- **SHA**: SHA in the source code repository that uniquely identifies each commit in the repository’s history. This SHA is a 40-character hexadecimal string generated by Git whenever you make a commit.<br />- **Base directory**: Directory path with the Docker file. If provided, must not start or end with `/`. |
+| Source code repository parameters | Conditional | Yes | Parameters of the source code repository used to create the selected image. <br />Applies when Source type = Source code for MCP, Adapter, Application, and Interceptor images. For images created from MCP Registry, some values can be read-only and auto-populated.<br/>- **Repo URL** (required): Source code repository URL. If provided, must not start or end with `/`. Read-only and auto-populated for images created from MCP Registry.<br />- **Branch name**: Name of the branch in the source code repository.<br />- **SHA**: SHA in the source code repository that uniquely identifies each commit in the repository’s history. This SHA is a 40-character hexadecimal string generated by Git whenever you make a commit.<br />- **Base directory**: Directory path with the Docker file. If provided, must not start or end with `/`. |
 | MCP server name | Conditional | Yes | Name of MCP server from the [MCP Registry](https://registry.modelcontextprotocol.io/). Start typing in the text box to search for available MCP servers or click **Select from registry** to display a window with a list of available MCP servers and their details. <br/>Applies only to MCP type of image. |
 | MCP transport type | Conditional | Yes | Applies only to MCP type of image.<br/>The transport type used by the MCP image: <br />- **Remote**: HTTP (default), SSE (deprecated)<br />- **Local** (STDIO) |
 
@@ -165,3 +165,9 @@ You can link containers to this image or a specific version of it. When you add 
 The Build Log tab displays the complete output generated during the image build process. Here you can view the step-by-step execution of build instructions, including command outputs, warnings, and errors that occurred during image creation.
 
 ![ ](img/image_build_log.png)
+
+### Audit
+
+In the **Audit** tab, you can review activity, usage, and operational metrics for the selected image version, including build and configuration change history.
+
+> **Note**: This tab mimics the functionality available in the global [Activity](/docs/tutorials/3.admin/telemetry-activity-audit.md) section, but is scoped specifically to the selected image.
