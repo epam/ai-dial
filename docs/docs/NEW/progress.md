@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 129 | 0 | 89 | 0 | 16 | 0 | 0 |
+| 129 | 0 | 101 | 0 | 16 | 0 | 0 |
 
-**Progress: 0 / 234 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 246 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 164 New, 70 1-to-1
+Mapping types: 171 New, 75 1-to-1
 
 ---
 
@@ -167,10 +167,11 @@ Mapping types: 164 New, 70 1-to-1
 | [Apps > Quick Apps > Quick App 2.0 > Tool Sets > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/reference) | — | reference | New | 🟡 Waiting for review |
 | [Apps > Quick Apps > Quick App (original) > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/reference) | — | reference | New | 🟡 Waiting for review |
 
-## Operating DIAL (83)
+## Operating DIAL (95)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
+| [Auth and access control > Overview](/docs/NEW/operating-dial/auth-and-access-control/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
 | 1 Local setup > Docker Compose with Azure model | — | how-to | New | ⬜ Planned |
 | 1 Local setup > Docker Compose with Ollama | — | how-to | New | ⬜ Planned |
 | 1 Local setup > Docker Compose with vLLM | — | how-to | New | ⬜ Planned |
@@ -192,12 +193,22 @@ Mapping types: 164 New, 70 1-to-1
 | 4 Configuration reference > Load balancer configuration | Platform > Core > Load Balancer | reference | 1-to-1 | ⬜ Planned |
 | 4 Configuration reference > Config precedence rules | — | reference | New | ⬜ Planned |
 | 5 Auth and access control > API keys | — | how-to | New | ⬜ Planned |
+| [Auth and access control > API keys](/docs/NEW/operating-dial/auth-and-access-control/api-keys) | — | how-to | New | 🟡 Waiting for review |
 | 5 Auth and access control > JWT configuration | — | how-to | New | ⬜ Planned |
 | 5 Auth and access control > Roles and rate limits | — | how-to | New | ⬜ Planned |
+| [Auth and access control > Roles and rate limits](/docs/NEW/operating-dial/auth-and-access-control/roles-and-rate-limits) | Demos > dial-roles-and-rate-limits | how-to | 1-to-1 | 🟡 Waiting for review |
+| [Auth and access control > SSO / IdP setup > Overview](/docs/NEW/operating-dial/auth-and-access-control/sso-idp/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | explanation | 1-to-1 | 🟡 Waiting for review |
+| [Auth and access control > SSO / IdP setup > AWS Cognito](/docs/NEW/operating-dial/auth-and-access-control/sso-idp/aws-cognito) | — | how-to | New | 🟡 Waiting for review |
+| [Auth and access control > SSO / IdP setup > Auth0](/docs/NEW/operating-dial/auth-and-access-control/sso-idp/auth0) | — | how-to | New | 🟡 Waiting for review |
+| [Auth and access control > SSO / IdP setup > Okta](/docs/NEW/operating-dial/auth-and-access-control/sso-idp/okta) | — | how-to | New | 🟡 Waiting for review |
+| [Auth and access control > SSO / IdP setup > Keycloak](/docs/NEW/operating-dial/auth-and-access-control/sso-idp/keycloak) | — | how-to | New | 🟡 Waiting for review |
+| [Auth and access control > SSO / IdP setup > Azure AD B2C](/docs/NEW/operating-dial/auth-and-access-control/sso-idp/azure-b2c) | — | how-to | New | 🟡 Waiting for review |
 | 5 Auth and access control > AWS Cognito | — | how-to | New | ⬜ Planned |
 | 5 Auth and access control > Auth0 | — | how-to | New | ⬜ Planned |
 | 5 Auth and access control > Google Identity | — | how-to | New | ⬜ Planned |
+| [Auth and access control > SSO / IdP setup > Google Identity](/docs/NEW/operating-dial/auth-and-access-control/sso-idp/google-identity) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Google Identity | how-to | 1-to-1 | 🟡 Waiting for review |
 | 5 Auth and access control > Microsoft Entra ID | — | how-to | New | ⬜ Planned |
+| [Auth and access control > SSO / IdP setup > Microsoft Entra ID](/docs/NEW/operating-dial/auth-and-access-control/sso-idp/microsoft-entra-id) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Microsoft Entra ID | how-to | 1-to-1 | 🟡 Waiting for review |
 | 5 Auth and access control > Okta | — | how-to | New | ⬜ Planned |
 | 5 Auth and access control > Keycloak | — | how-to | New | ⬜ Planned |
 | 6 Observability > Tracing (OpenTelemetry) | — | how-to | New | ⬜ Planned |
@@ -254,6 +265,7 @@ Mapping types: 164 New, 70 1-to-1
 | [Configuration Reference > Coverage Status](/docs/NEW/operating-dial/configuration/coverage-status) | — | reference | New | 🟡 Waiting for review |
 | 4 Configuration reference > Core configuration | — | reference | New | ⬜ Planned |
 | 4 Configuration reference > Enable publications | Tutorials > DevOps > Configuration > Enable Publications | how-to | 1-to-1 | ⬜ Planned |
+| [Auth and access control > JWT authentication](/docs/NEW/operating-dial/auth-and-access-control/jwt) | — | how-to | New | 🟡 Waiting for review |
 
 ## Administering DIAL (11)
 

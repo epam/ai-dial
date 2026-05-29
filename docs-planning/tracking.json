@@ -876,6 +876,23 @@
     },
     {
       "targetPage": {
+        "pageType": "unknown",
+        "menuPath": "NEW > Operating DIAL > Auth and access control > Overview",
+        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/0.index.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview",
+          "filePath": "docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+    },
+    {
+      "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Code Apps > Getting started",
         "filePath": "docs/docs/NEW/building-with-dial/apps/code-apps/1.getting-started.md"
@@ -1914,6 +1931,17 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Auth and access control > API keys",
+        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/1.api-keys.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 5 Auth and access control > JWT configuration",
         "filePath": "docs/docs/NEW/operating-dial/5-auth-and-access-control/jwt-configuration.md"
       },
@@ -1932,6 +1960,95 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no source annotation in recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Auth and access control > Roles and rate limits",
+        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/3.roles-and-rate-limits.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "explanation",
+          "menuPath": "OLD > Demos > dial-roles-and-rate-limits",
+          "filePath": "docs/video demos/3.Developers/10.dial-roles-and-rate-limits.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/video demos/3.Developers/10.dial-roles-and-rate-limits.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Overview",
+        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/0.index.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview",
+          "filePath": "docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > AWS Cognito",
+        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/1.aws-cognito.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Auth0",
+        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/2.auth0.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Okta",
+        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/5.okta.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Keycloak",
+        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/6.keycloak.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Azure AD B2C",
+        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/7.azure-b2c.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -1969,6 +2086,23 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Google Identity",
+        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/3.google-identity.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Auth & Access Control > Configure IDPs > Google Identity",
+          "filePath": "docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/google.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (MEDIUM): from docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/google.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 5 Auth and access control > Microsoft Entra ID",
         "filePath": "docs/docs/NEW/operating-dial/5-auth-and-access-control/microsoft-entra-id.md"
       },
@@ -1976,6 +2110,23 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no source annotation in recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Microsoft Entra ID",
+        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/4.microsoft-entra-id.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Auth & Access Control > Configure IDPs > Microsoft Entra ID",
+          "filePath": "docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/entraID.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (MEDIUM): from docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/entraID.md"
     },
     {
       "targetPage": {
@@ -2994,6 +3145,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Auth and access control > JWT authentication",
+        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/2.jwt.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     }
   ]
 }
