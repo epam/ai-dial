@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 129 | 0 | 85 | 0 | 16 | 0 | 0 |
+| 129 | 0 | 89 | 0 | 16 | 0 | 0 |
 
-**Progress: 0 / 230 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 234 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 164 New, 66 1-to-1
+Mapping types: 164 New, 70 1-to-1
 
 ---
 
@@ -59,7 +59,7 @@ Mapping types: 164 New, 66 1-to-1
 | Foundations > Core concepts and glossary | — | unknown | New | ⬜ Planned |
 | Foundations > DIAL evolution | — | explanation | New | ⬜ Planned |
 
-## Building with DIAL (99)
+## Building with DIAL (103)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
@@ -148,8 +148,12 @@ Mapping types: 164 New, 66 1-to-1
 | [Quality and testing > Evaluations > RAG Eval toolkit](/docs/NEW/building-with-dial/evaluations/rag-eval-toolkit) | Demos > dial-rag-eval | how-to | 1-to-1 | 🟡 Waiting for review |
 | [Quality and testing > Evaluations > Tutorial: eval-driven development](/docs/NEW/building-with-dial/evaluations/tutorial-eval-driven-dev) | — | tutorial | New | 🟠 Waiting for test |
 | Quality and testing > 12 Evaluations > Tutorial: eval-driven development | — | tutorial | New | ⬜ Planned |
+| [Integrations > Overview](/docs/NEW/building-with-dial/integrations/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
+| [Integrations > Chatbot integrations > Overview](/docs/NEW/building-with-dial/integrations/chatbot-integrations/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
 | Integrations > 13 Integrations > 13.1 Chatbot integrations > Integration with MS Teams | Tutorials > Developers > Run DIAL Locally > Chat with Application | how-to | 1-to-1 | ⬜ Planned |
+| [Integrations > Chatbot integrations > Integration with MS Teams](/docs/NEW/building-with-dial/integrations/chatbot-integrations/ms-teams) | Tutorials > Developers > Examples of Integrations > Integration with MS Teams | explanation | 1-to-1 | 🟡 Waiting for review |
 | Integrations > 13 Integrations > 13.1 Chatbot integrations > Integration with MS Copilot | Tutorials > Developers > Run DIAL Locally > Chat with Application | how-to | 1-to-1 | ⬜ Planned |
+| [Integrations > Chatbot integrations > Integration with MS Copilot](/docs/NEW/building-with-dial/integrations/chatbot-integrations/ms-copilot) | Demos > dial-copilot | how-to | 1-to-1 | 🟡 Waiting for review |
 | Integrations > 13 Integrations > 13.2 Productivity add-ins > Integration with MS Excel | Tutorials > Developers > Run DIAL Locally > Chat with Application | how-to | 1-to-1 | ⬜ Planned |
 | Integrations > 13 Integrations > 13.3 Workflow automation > Integration with n8n | Tutorials > Developers > Run DIAL Locally > Chat with Application | how-to | 1-to-1 | ⬜ Planned |
 | Integrations > 13 Integrations > 13.4 Orchestration patterns > Tutorial: multi-provider routing | — | tutorial | New | ⬜ Planned |

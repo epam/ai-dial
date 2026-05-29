@@ -1168,6 +1168,38 @@ const sidebars = {
                 },
               ],
             },
+            {
+              type: 'category',
+              label: 'Integrations',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/building-with-dial/integrations/index',
+                  label: 'Overview',
+                },
+                {
+                  type: 'category',
+                  label: 'Chatbot integrations',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/integrations/chatbot-integrations/index',
+                      label: 'Overview',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/integrations/chatbot-integrations/ms-teams',
+                      label: 'Integration with MS Teams',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/integrations/chatbot-integrations/ms-copilot',
+                      label: 'Integration with MS Copilot',
+                    },
+                  ],
+                },
+              ],
+            },
           ],
         },
         {
