@@ -413,6 +413,7 @@ The `docker-compose.yml` mounts it as a volume into the `dial-core` container:
 services:
   core:
     image: epam/ai-dial-core:latest
+    platform: linux/amd64
     volumes:
       - ./core/config.json:/opt/config/config.json
 ```

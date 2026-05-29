@@ -5,5 +5,6 @@ include:
 services:
   adapter-openai:
     image: epam/ai-dial-adapter-openai:0.22.0
+    platform: linux/amd64
     environment:
       WEB_CONCURRENCY: "3"
