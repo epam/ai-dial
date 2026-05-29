@@ -728,6 +728,11 @@ const sidebars = {
       label: 'NEW',
       items: [
         {
+          type: 'doc',
+          id: 'docs/NEW/progress',
+          label: 'Documentation Progress',
+        },
+        {
           type: 'category',
           label: 'Building with DIAL',
           items: [

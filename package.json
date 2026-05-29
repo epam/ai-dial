@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "quarto render && docusaurus start",
-    "build": "quarto render && docusaurus build",
+    "build": "quarto render && npm run tracking:sync && npm run tracking:progress && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -14,7 +14,10 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "lint:frontmatter": "npx tsx scripts/check-frontmatter.mts",
     "lint:frontmatter:strict": "npx tsx scripts/check-frontmatter.mts --strict",
-    "lint:frontmatter:fix": "npx tsx scripts/check-frontmatter.mts --fix"
+    "lint:frontmatter:fix": "npx tsx scripts/check-frontmatter.mts --fix",
+    "tracking:validate": "npx tsx scripts/validate-tracking-records.ts",
+    "tracking:sync": "npx tsx scripts/sync-tracking.ts",
+    "tracking:progress": "npx tsx scripts/render-progress-table.ts"
   },
   "dependencies": {
     "@docusaurus/core": "^3.9.2",

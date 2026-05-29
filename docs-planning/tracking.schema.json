@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tracking.schema.json",
+  "title": "DIAL Documentation Tracking File",
+  "description": "Tracks migration progress for the DIAL docs restructuring. Each record maps a target page in the new site structure to its source pages in the old structure.",
+  "type": "object",
+  "required": ["records"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference for IDE validation."
+    },
+    "records": {
+      "type": "array",
+      "description": "Tracking records ordered by the recommended site structure (docs-planning/recommended-site-structure.md). Deleted records go to the end.",
+      "items": {
+        "$ref": "#/$defs/TrackingRecord"
+      }
+    }
+  },
+  "$defs": {
+    "PageType": {
+      "type": "string",
+      "enum": ["tutorial", "how-to", "reference", "explanation", "unknown"],
+      "description": "Diátaxis content type of the page."
+    },
+    "TutorialDocStatus": {
+      "type": "string",
+      "enum": ["planned", "in-progress", "na", "waiting-for-test", "tested"],
+      "description": "Status values for tutorial pages."
+    },
+    "RegularDocStatus": {
+      "type": "string",
+      "enum": ["planned", "in-progress", "na", "waiting-for-review", "reviewed"],
+      "description": "Status values for non-tutorial pages (how-to, reference, explanation, unknown)."
+    },
+    "MappingType": {
+      "type": "string",
+      "enum": ["merged", "split", "new", "1-to-1", "deleted"],
+      "description": "How the target page relates to its source pages. 'new' = no source (brand new content). '1-to-1' = direct migration from one source. 'merged' = combined from 2+ sources. 'split' = one source distributed to multiple targets. 'deleted' = source page retired with no target."
+    },
+    "PageInfo": {
+      "type": "object",
+      "required": ["pageType", "menuPath", "filePath"],
+      "additionalProperties": false,
+      "properties": {
+        "pageType": {
+          "$ref": "#/$defs/PageType"
+        },
+        "menuPath": {
+          "type": "string",
+          "description": "Sidebar menu path using ' > ' separator. For NEW pages: 'NEW > Building with DIAL > Apps > ...'. For OLD pages: 'OLD > Platform > Core > ...'."
+        },
+        "filePath": {
+          "type": "string",
+          "description": "File path relative to the repo root. E.g., 'docs/docs/NEW/building-with-dial/apps/0.index.md' or 'docs/platform/3.core/6.interceptors.md'. Empty string for planned pages without a file yet."
+        }
+      }
+    },
+    "TrackingRecord": {
+      "type": "object",
+      "required": ["targetPage", "sourcePages", "status", "mappingType", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "targetPage": {
+          "$ref": "#/$defs/PageInfo",
+          "description": "The destination page in the new site structure."
+        },
+        "sourcePages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PageInfo"
+          },
+          "description": "Pages being migrated from. Empty array for mappingType 'new'. One item for '1-to-1'. Two or more for 'merged'. One or more for 'split' and 'deleted'."
+        },
+        "status": {
+          "type": "string",
+          "description": "Current migration status. Must be compatible with targetPage.pageType: tutorials use TutorialDocStatus, others use RegularDocStatus. Deleted records must use 'na'.",
+          "oneOf": [
+            { "$ref": "#/$defs/TutorialDocStatus" },
+            { "$ref": "#/$defs/RegularDocStatus" }
+          ]
+        },
+        "mappingType": {
+          "$ref": "#/$defs/MappingType"
+        },
+        "notes": {
+          "type": "string",
+          "description": "How the migration happened or should happen. Include confidence for auto-mapped records (e.g., 'AUTO-MAPPED (HIGH): from ...'). Use 'NEEDS_MAPPING' for records where the source is unknown."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mappingType": { "const": "new" }
+            }
+          },
+          "then": {
+            "properties": {
+              "sourcePages": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mappingType": { "const": "1-to-1" }
+            }
+          },
+          "then": {
+            "properties": {
+              "sourcePages": {
+                "minItems": 1,
+                "maxItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mappingType": { "const": "merged" }
+            }
+          },
+          "then": {
+            "properties": {
+              "sourcePages": {
+                "minItems": 2
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mappingType": { "const": "split" }
+            }
+          },
+          "then": {
+            "properties": {
+              "sourcePages": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mappingType": { "const": "deleted" }
+            }
+          },
+          "then": {
+            "properties": {
+              "sourcePages": {
+                "minItems": 1
+              },
+              "status": {
+                "const": "na"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "targetPage": {
+                "properties": {
+                  "pageType": { "const": "tutorial" }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "status": {
+                "$ref": "#/$defs/TutorialDocStatus"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "targetPage": {
+                "properties": {
+                  "pageType": {
+                    "enum": ["how-to", "reference", "explanation", "unknown"]
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "status": {
+                "$ref": "#/$defs/RegularDocStatus"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
