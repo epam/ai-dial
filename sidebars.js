@@ -1214,6 +1214,22 @@ const sidebars = {
                     },
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Workflow automation',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/integrations/workflow-automation/index',
+                      label: 'Overview',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/integrations/workflow-automation/n8n',
+                      label: 'Integration with n8n',
+                    },
+                  ],
+                },
               ],
             },
           ],

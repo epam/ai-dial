@@ -1478,6 +1478,23 @@
     },
     {
       "targetPage": {
+        "pageType": "unknown",
+        "menuPath": "NEW > Building with DIAL > Integrations > Workflow automation > Overview",
+        "filePath": "docs/docs/NEW/building-with-dial/integrations/workflow-automation/0.index.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview",
+          "filePath": "docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+    },
+    {
+      "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Integrations > 13 Integrations > 13.1 Chatbot integrations > Integration with MS Teams",
         "filePath": "docs/docs/NEW/building-with-dial/integrations/13-integrations/13-1-chatbot-integrations/integration-with-ms-teams.md"
@@ -1588,6 +1605,23 @@
       "status": "planned",
       "mappingType": "1-to-1",
       "notes": "From recommended structure: currently: Tutorials > Developers > Integrations > n8n"
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Building with DIAL > Integrations > Workflow automation > Integration with n8n",
+        "filePath": "docs/docs/NEW/building-with-dial/integrations/workflow-automation/1.n8n.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > Developers > Examples of Integrations > Integration with n8n",
+          "filePath": "docs/tutorials/1.developers/5.integrations/3.n8n-integration.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "Migrated from OLD Tutorials > Developers > Integrations > n8n into NEW Workflow automation subsection."
     },
     {
       "targetPage": {

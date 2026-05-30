@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 129 | 0 | 102 | 0 | 17 | 0 | 0 |
+| 129 | 0 | 104 | 0 | 17 | 0 | 0 |
 
-**Progress: 0 / 248 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 250 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 172 New, 76 1-to-1
+Mapping types: 172 New, 78 1-to-1
 
 ---
 
@@ -59,7 +59,7 @@ Mapping types: 172 New, 76 1-to-1
 | Foundations > Core concepts and glossary | — | unknown | New | ⬜ Planned |
 | Foundations > DIAL evolution | — | explanation | New | ⬜ Planned |
 
-## Building with DIAL (105)
+## Building with DIAL (107)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
@@ -151,6 +151,7 @@ Mapping types: 172 New, 76 1-to-1
 | [Integrations > Overview](/docs/NEW/building-with-dial/integrations/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
 | [Integrations > Chatbot integrations > Overview](/docs/NEW/building-with-dial/integrations/chatbot-integrations/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
 | [Integrations > Productivity add-ins > Overview](/docs/NEW/building-with-dial/integrations/productivity-add-ins/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
+| [Integrations > Workflow automation > Overview](/docs/NEW/building-with-dial/integrations/workflow-automation/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
 | Integrations > 13 Integrations > 13.1 Chatbot integrations > Integration with MS Teams | Tutorials > Developers > Run DIAL Locally > Chat with Application | how-to | 1-to-1 | ⬜ Planned |
 | [Integrations > Chatbot integrations > Integration with MS Teams](/docs/NEW/building-with-dial/integrations/chatbot-integrations/ms-teams) | Tutorials > Developers > Examples of Integrations > Integration with MS Teams | explanation | 1-to-1 | 🟡 Waiting for review |
 | Integrations > 13 Integrations > 13.1 Chatbot integrations > Integration with MS Copilot | Tutorials > Developers > Run DIAL Locally > Chat with Application | how-to | 1-to-1 | ⬜ Planned |
@@ -158,6 +159,7 @@ Mapping types: 172 New, 76 1-to-1
 | Integrations > 13 Integrations > 13.2 Productivity add-ins > Integration with MS Excel | Tutorials > Developers > Run DIAL Locally > Chat with Application | how-to | 1-to-1 | ⬜ Planned |
 | [Integrations > Productivity add-ins > Integration with MS Excel](/docs/NEW/building-with-dial/integrations/productivity-add-ins/ms-excel) | — | tutorial | New | 🟠 Waiting for test |
 | Integrations > 13 Integrations > 13.3 Workflow automation > Integration with n8n | Tutorials > Developers > Run DIAL Locally > Chat with Application | how-to | 1-to-1 | ⬜ Planned |
+| [Integrations > Workflow automation > Integration with n8n](/docs/NEW/building-with-dial/integrations/workflow-automation/n8n) | Tutorials > Developers > Examples of Integrations > Integration with n8n | how-to | 1-to-1 | 🟡 Waiting for review |
 | Integrations > 13 Integrations > 13.4 Orchestration patterns > Tutorial: multi-provider routing | — | tutorial | New | ⬜ Planned |
 | Platform APIs and resources > 14 Working with DIAL resources > File management | — | how-to | New | ⬜ Planned |
 | Platform APIs and resources > 14 Working with DIAL resources > Publications API | Tutorials > Developers > Working with Resources > Publications | how-to | 1-to-1 | ⬜ Planned |
