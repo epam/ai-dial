@@ -248,7 +248,7 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 * Per-request keys `[Reference]` ← *currently: Platform > Core > Per-Request Keys*
 * Auth matrix for apps `[Reference]` ← *currently: Apps Development > Auth Matrix*
 
-##### 3.14 Advanced topics
+##### 3.15 Advanced topics
 
 * Prompt caching `[How-to]` ← *currently: Tutorials > Developers > Prompt Caching*
 
