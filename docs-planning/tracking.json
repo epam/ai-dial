@@ -1461,6 +1461,23 @@
     },
     {
       "targetPage": {
+        "pageType": "unknown",
+        "menuPath": "NEW > Building with DIAL > Integrations > Productivity add-ins > Overview",
+        "filePath": "docs/docs/NEW/building-with-dial/integrations/productivity-add-ins/0.index.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview",
+          "filePath": "docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+    },
+    {
+      "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Integrations > 13 Integrations > 13.1 Chatbot integrations > Integration with MS Teams",
         "filePath": "docs/docs/NEW/building-with-dial/integrations/13-integrations/13-1-chatbot-integrations/integration-with-ms-teams.md"
@@ -1543,6 +1560,17 @@
       "status": "planned",
       "mappingType": "1-to-1",
       "notes": "From recommended structure: currently: Tutorials > Developers > Integrations > MS Excel"
+    },
+    {
+      "targetPage": {
+        "pageType": "tutorial",
+        "menuPath": "NEW > Building with DIAL > Integrations > Productivity add-ins > Integration with MS Excel",
+        "filePath": "docs/docs/NEW/building-with-dial/integrations/productivity-add-ins/1.ms-excel.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-test",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {

@@ -1198,6 +1198,22 @@ const sidebars = {
                     },
                   ],
                 },
+                {
+                  type: 'category',
+                  label: 'Productivity add-ins',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/integrations/productivity-add-ins/index',
+                      label: 'Overview',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/building-with-dial/integrations/productivity-add-ins/ms-excel',
+                      label: 'Integration with MS Excel',
+                    },
+                  ],
+                },
               ],
             },
           ],
