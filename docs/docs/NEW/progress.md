@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 112 | 0 | 129 | 0 | 23 | 0 | 0 |
+| 112 | 0 | 132 | 0 | 23 | 0 | 0 |
 
-**Progress: 0 / 264 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 267 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 181 New, 83 1-to-1
+Mapping types: 183 New, 84 1-to-1
 
 ---
 
@@ -35,7 +35,7 @@ Mapping types: 181 New, 83 1-to-1
 | [End user guide](/docs/NEW/home/end-user-guide) | — | tutorial | New | 🟠 Waiting for test |
 | [Overview](/docs/NEW/home/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
 
-## Understand DIAL (24)
+## Understand DIAL (27)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
@@ -58,7 +58,10 @@ Mapping types: 181 New, 83 1-to-1
 | Capabilities > Collaboration and sharing | Platform > Collaboration | explanation | 1-to-1 | ⬜ Planned |
 | [Capabilities > Collaboration and sharing](/docs/NEW/understand-dial/capabilities/collaboration-and-sharing) | — | explanation | New | 🟡 Waiting for review |
 | Security and governance > Authentication and access control | — | explanation | New | ⬜ Planned |
+| [Security and governance > Authentication and access control](/docs/NEW/understand-dial/security-and-governance/authentication-and-access-control) | — | explanation | New | 🟡 Waiting for review |
+| [Security and governance > Access control reference](/docs/NEW/understand-dial/security-and-governance/access-control-reference) | — | reference | New | 🟡 Waiting for review |
 | Security and governance > Usage limits and cost control | Platform > Architecture & Concepts > Usage Limits and Cost Control | explanation | 1-to-1 | ⬜ Planned |
+| [Security and governance > Usage limits and cost control](/docs/NEW/understand-dial/security-and-governance/usage-limits-and-cost-control) | Platform > Architecture & Concepts > Usage Limits and Cost Control | explanation | 1-to-1 | 🟡 Waiting for review |
 | Foundations > Core concepts and glossary | — | unknown | New | ⬜ Planned |
 | Foundations > Concept map | — | explanation | New | ⬜ Planned |
 | Foundations > Glossary | — | reference | New | ⬜ Planned |

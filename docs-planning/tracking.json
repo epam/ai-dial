@@ -333,6 +333,28 @@
     {
       "targetPage": {
         "pageType": "explanation",
+        "menuPath": "NEW > Understand DIAL > Security and governance > Authentication and access control",
+        "filePath": "docs/docs/NEW/understand-dial/security-and-governance/1.authentication-and-access-control.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "reference",
+        "menuPath": "NEW > Understand DIAL > Security and governance > Access control reference",
+        "filePath": "docs/docs/NEW/understand-dial/security-and-governance/2.access-control-reference.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Security and governance > Usage limits and cost control",
         "filePath": "docs/docs/NEW/understand-dial/usage-limits-and-cost-control.md"
       },
@@ -346,6 +368,23 @@
       "status": "planned",
       "mappingType": "1-to-1",
       "notes": "From recommended structure: currently: Platform > Architecture & Concepts > Usage Limits and Cost Control"
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Understand DIAL > Security and governance > Usage limits and cost control",
+        "filePath": "docs/docs/NEW/understand-dial/security-and-governance/3.usage-limits-and-cost-control.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "explanation",
+          "menuPath": "OLD > Platform > Architecture & Concepts > Usage Limits and Cost Control",
+          "filePath": "docs/platform/3.core/8.token-limits-and-cost-control.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/platform/3.core/8.token-limits-and-cost-control.md"
     },
     {
       "targetPage": {

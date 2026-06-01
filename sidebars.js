@@ -843,6 +843,27 @@ const sidebars = {
                 },
               ],
             },
+            {
+              type: 'category',
+              label: 'Security and governance',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/understand-dial/security-and-governance/authentication-and-access-control',
+                  label: 'Authentication and access control',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/understand-dial/security-and-governance/access-control-reference',
+                  label: 'Access control reference',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/understand-dial/security-and-governance/usage-limits-and-cost-control',
+                  label: 'Usage limits and cost control',
+                },
+              ],
+            },
           ],
         },
         {

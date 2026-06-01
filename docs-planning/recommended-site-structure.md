@@ -75,6 +75,7 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 #### 2.4 Security and governance `[Category]`
 
 * Authentication and access control `[Explanation]` ← *currently: TWO separate pages — merge into one canonical explanation*
+* Access control reference `[Reference]` **🆕** — *split out from the explanation page to keep the ACL permission matrices in a clean reference type per Style Guide §4.4 (no reference details smuggled into an explanation); holds the per-object/per-subject ACL tables, special-object ACLs, Core API ACLs, and authorization-rule notation*
 * Usage limits and cost control `[Explanation]` ← *currently: Platform > Architecture & Concepts > Usage Limits and Cost Control*
 
 #### 2.5 Foundations `[Category]`
@@ -432,9 +433,9 @@ Every page currently on the site is accounted for below. If a page is not listed
 | Platform > Chat > About | Renamed to "DIAL Chat overview," absorbed into §3 Architecture highlights. Generic "About" title eliminated. |  |  |
 | Platform > Architecture & Concepts > Main Concepts | Absorbed into §3 Core concepts and glossary. |  |  |
 | Platform > Architecture & Concepts > Platform Components | Absorbed into §3 Architecture highlights. |  |  |
-| Platform > Architecture & Concepts > Authentication (at /platform/core/auth-intro) | Merged into §3 Authentication and access control. URL mismatch fixed. |  |  |
-| Platform > Architecture & Concepts > Access Control Overview | Merged into §3 Authentication and access control (one page, not two). |  |  |
-| Platform > Core > Access Control | Merged into §3 Authentication and access control (one page, not two). |  |  |
+| Platform > Architecture & Concepts > Authentication (at /platform/core/auth-intro) | Merged into §2.4 Authentication and access control. URL mismatch fixed. |  |  |
+| Platform > Architecture & Concepts > Access Control Overview | Conceptual content merged into §2.4 Authentication and access control; Appendix ACL tables → §2.4 Access control reference. |  |  |
+| Platform > Core > Access Control | Duplicate of Access Control Overview. Conceptual content merged into §2.4 Authentication and access control; Appendix ACL tables → §2.4 Access control reference. |  |  |
 | Platform > Deployment | Absorbed into §5.2 Cloud deployment > Helm chart overview. |  |  |
 | Platform > Observability | Merged with DevOps observability → §5.6 Overview. |  |  |
 | Platform > Analytics | Merged with DevOps analytics config → §5.6 Analytics Realtime setup. |  |  |
