@@ -29,7 +29,7 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 
 ## Full structure
 
-### 1\. Home `[Landing]`
+### 1. Home `[Landing]`
 
 *Persona-routed entry page. Cards with a one-sentence promise and a direct link.*
 
@@ -42,7 +42,7 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 
 * * *
 
-### 2\. Understand DIAL `[Explanation]`
+### 2. Understand DIAL `[Explanation]`
 
 *Concepts and positioning. No setup instructions. Answers "what" and "why," not "how."*
 
