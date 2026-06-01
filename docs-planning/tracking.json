@@ -910,6 +910,17 @@
     },
     {
       "targetPage": {
+        "pageType": "unknown",
+        "menuPath": "NEW > Building with DIAL > Advanced topics > Overview",
+        "filePath": "docs/docs/NEW/building-with-dial/advanced-topics/0.index.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "Section landing for Advanced topics (recommended structure 3.15)."
+    },
+    {
+      "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Code Apps > Getting started",
         "filePath": "docs/docs/NEW/building-with-dial/apps/code-apps/1.getting-started.md"
@@ -1750,28 +1761,11 @@
     {
       "targetPage": {
         "pageType": "how-to",
-        "menuPath": "NEW > Building with DIAL > Platform APIs and resources > 14 Advanced topics > Prompt caching",
-        "filePath": "docs/docs/NEW/building-with-dial/platform-apis-and-resources/14-advanced-topics/prompt-caching.md"
-      },
-      "sourcePages": [
-        {
-          "pageType": "unknown",
-          "menuPath": "OLD > Tutorials > Developers > Prompt Caching",
-          "filePath": "docs/tutorials/1.developers/6.prompt-caching.md"
-        }
-      ],
-      "status": "planned",
-      "mappingType": "1-to-1",
-      "notes": "From recommended structure: currently: Tutorials > Developers > Prompt Caching"
-    },
-    {
-      "targetPage": {
-        "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Working with DIAL resources > File management",
         "filePath": "docs/docs/NEW/building-with-dial/working-with-dial-resources/1.file-management.md"
       },
       "sourcePages": [],
-      "status": "waiting-for-test",
+      "status": "waiting-for-review",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
@@ -1841,6 +1835,40 @@
       "status": "waiting-for-review",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Building with DIAL > Advanced topics > How prompt caching works",
+        "filePath": "docs/docs/NEW/building-with-dial/advanced-topics/1.prompt-caching.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "unknown",
+          "menuPath": "OLD > Tutorials > Developers > Prompt Caching",
+          "filePath": "docs/tutorials/1.developers/6.prompt-caching.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "Conceptual half of the prompt caching migration; the hands-on half is the paired tutorial."
+    },
+    {
+      "targetPage": {
+        "pageType": "tutorial",
+        "menuPath": "NEW > Building with DIAL > Advanced topics > Tutorial: enable and verify prompt caching",
+        "filePath": "docs/docs/NEW/building-with-dial/advanced-topics/2.tutorial-prompt-caching.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "unknown",
+          "menuPath": "OLD > Tutorials > Developers > Prompt Caching",
+          "filePath": "docs/tutorials/1.developers/6.prompt-caching.md"
+        }
+      ],
+      "status": "waiting-for-test",
+      "mappingType": "1-to-1",
+      "notes": "Provider-agnostic hands-on half of the prompt caching migration; paired with the explanation page."
     },
     {
       "targetPage": {

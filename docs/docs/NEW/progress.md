@@ -3,7 +3,7 @@ title: "Documentation progress"
 type: reference
 persona: all
 component: platform
-last_verified: 2026-05-30
+last_verified: 2026-06-01
 owner: "@dial-docs-team"
 ---
 
@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 129 | 0 | 110 | 0 | 18 | 0 | 0 |
+| 128 | 0 | 113 | 0 | 18 | 0 | 0 |
 
-**Progress: 0 / 257 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 259 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 176 New, 81 1-to-1
+Mapping types: 177 New, 82 1-to-1
 
 ---
 
@@ -59,7 +59,7 @@ Mapping types: 176 New, 81 1-to-1
 | Foundations > Core concepts and glossary | — | unknown | New | ⬜ Planned |
 | Foundations > DIAL evolution | — | explanation | New | ⬜ Planned |
 
-## Building with DIAL (114)
+## Building with DIAL (116)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
@@ -107,6 +107,7 @@ Mapping types: 176 New, 81 1-to-1
 | [Apps > Mind Map Studio > Overview](/docs/NEW/building-with-dial/apps/mind-map-studio/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | explanation | 1-to-1 | 🟡 Waiting for review |
 | Apps > 4 Code Apps > Overview | — | explanation | New | ⬜ Planned |
 | [Working with DIAL resources > Overview](/docs/NEW/building-with-dial/working-with-dial-resources/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
+| [Advanced topics > Overview](/docs/NEW/building-with-dial/advanced-topics/index) | — | unknown | New | 🟡 Waiting for review |
 | [Apps > Code Apps > Getting started](/docs/NEW/building-with-dial/apps/code-apps/getting-started) | — | tutorial | New | 🟠 Waiting for test |
 | Apps > 4 Code Apps > Tutorial: build and deploy a Code App | — | tutorial | New | ⬜ Planned |
 | [Apps > Mind Map Studio > Authoring workflow](/docs/NEW/building-with-dial/apps/mind-map-studio/authoring-workflow) | — | how-to | New | 🟡 Waiting for review |
@@ -168,13 +169,14 @@ Mapping types: 176 New, 81 1-to-1
 | Platform APIs and resources > 14 Working with DIAL resources > Notifications | Tutorials > Developers > Working with Resources > Publications | how-to | 1-to-1 | ⬜ Planned |
 | Platform APIs and resources > 14 Working with DIAL resources > Per-request keys | Platform > Core > Per-Request Keys | reference | 1-to-1 | ⬜ Planned |
 | Platform APIs and resources > 14 Working with DIAL resources > Auth matrix for apps | Tutorials > Developers > Apps Development > Auth Matrix | reference | 1-to-1 | ⬜ Planned |
-| Platform APIs and resources > 14 Advanced topics > Prompt caching | Tutorials > Developers > Prompt Caching | how-to | 1-to-1 | ⬜ Planned |
-| [Working with DIAL resources > File management](/docs/NEW/building-with-dial/working-with-dial-resources/file-management) | — | how-to | New | 🟠 Waiting for test |
+| [Working with DIAL resources > File management](/docs/NEW/building-with-dial/working-with-dial-resources/file-management) | — | how-to | New | 🟡 Waiting for review |
 | [Working with DIAL resources > Publications API](/docs/NEW/building-with-dial/working-with-dial-resources/publications-api) | — | how-to | New | 🟡 Waiting for review |
 | [Working with DIAL resources > Sharing API](/docs/NEW/building-with-dial/working-with-dial-resources/sharing-api) | — | how-to | New | 🟡 Waiting for review |
 | [Working with DIAL resources > Notifications](/docs/NEW/building-with-dial/working-with-dial-resources/notifications) | Tutorials > Developers > Working with Resources > Notifications | how-to | 1-to-1 | 🟡 Waiting for review |
 | [Working with DIAL resources > Per-request keys](/docs/NEW/building-with-dial/working-with-dial-resources/per-request-keys) | Platform > Core > Per-Request Keys | reference | 1-to-1 | 🟡 Waiting for review |
 | [Working with DIAL resources > Auth matrix for apps](/docs/NEW/building-with-dial/working-with-dial-resources/auth-matrix-for-apps) | — | reference | New | 🟡 Waiting for review |
+| [Advanced topics > How prompt caching works](/docs/NEW/building-with-dial/advanced-topics/prompt-caching) | Tutorials > Developers > Prompt Caching | explanation | 1-to-1 | 🟡 Waiting for review |
+| [Advanced topics > Tutorial: enable and verify prompt caching](/docs/NEW/building-with-dial/advanced-topics/tutorial-prompt-caching) | Tutorials > Developers > Prompt Caching | tutorial | 1-to-1 | 🟠 Waiting for test |
 | [Apps > Quick Apps > Quick App 2.0 > Tool Sets > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/reference) | — | reference | New | 🟡 Waiting for review |
 | [Apps > Quick Apps > Quick App (original) > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/reference) | — | reference | New | 🟡 Waiting for review |
 
@@ -317,4 +319,4 @@ Mapping types: 176 New, 81 1-to-1
 
 ---
 
-> Last generated: 2026-05-30. Source: [`tracking.json`](https://github.com/epam/ai-dial/blob/main/docs-planning/tracking.json).
+> Last generated: 2026-06-01. Source: [`tracking.json`](https://github.com/epam/ai-dial/blob/main/docs-planning/tracking.json).

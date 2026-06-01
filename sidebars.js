@@ -1273,6 +1273,27 @@ const sidebars = {
                 },
               ],
             },
+            {
+              type: 'category',
+              label: 'Advanced topics',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/building-with-dial/advanced-topics/index',
+                  label: 'Overview',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/building-with-dial/advanced-topics/prompt-caching',
+                  label: 'How prompt caching works',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/building-with-dial/advanced-topics/tutorial-prompt-caching',
+                  label: 'Tutorial: enable prompt caching',
+                },
+              ],
+            },
           ],
         },
         {
