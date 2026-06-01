@@ -39,11 +39,13 @@ const config = {
   onBrokenLinks: 'throw', //'throw', for exceptions
   onBrokenAnchors: 'throw',
   markdown: {
+    mermaid: true,
     hooks: {
       onBrokenMarkdownLinks: 'throw',
       onBrokenMarkdownImages: 'throw',
     },
   },
+  themes: ['@docusaurus/theme-mermaid'],
   onDuplicateRoutes: 'throw',
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
