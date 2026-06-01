@@ -14,7 +14,7 @@
           "filePath": "docs/tutorials/1.developers/0.local-run/0.quick-start-with-application.md"
         }
       ],
-      "status": "planned",
+      "status": "waiting-for-test",
       "mappingType": "1-to-1",
       "notes": "NEEDS_REVIEW: annotation suggests merge. currently: Quick Start + Tutorials > Developers > Run DIAL Locally > Chat with Application (merge into one streamlined path)"
     },
@@ -31,7 +31,7 @@
           "filePath": "docs/tutorials/2.devops/0.deployment/3.quick_apps_deployment.md"
         }
       ],
-      "status": "planned",
+      "status": "waiting-for-test",
       "mappingType": "1-to-1",
       "notes": "NEEDS_REVIEW: annotation suggests merge. currently: fragmented across Quick Start, Tutorials > DevOps (GitHub link), Platform > Deployment"
     },
@@ -42,7 +42,7 @@
         "filePath": "docs/docs/NEW/home/admin-quick-start.md"
       },
       "sourcePages": [],
-      "status": "planned",
+      "status": "waiting-for-test",
       "mappingType": "new",
       "notes": "New page per recommended structure."
     },
@@ -53,7 +53,7 @@
         "filePath": "docs/docs/NEW/home/evaluator-quick-start.md"
       },
       "sourcePages": [],
-      "status": "planned",
+      "status": "waiting-for-test",
       "mappingType": "new",
       "notes": "New page per recommended structure."
     },
@@ -64,7 +64,7 @@
         "filePath": "docs/docs/NEW/home/architect-overview.md"
       },
       "sourcePages": [],
-      "status": "planned",
+      "status": "waiting-for-review",
       "mappingType": "new",
       "notes": "New page per recommended structure."
     },
@@ -75,154 +75,131 @@
         "filePath": "docs/docs/NEW/home/end-user-guide.md"
       },
       "sourcePages": [],
-      "status": "planned",
+      "status": "waiting-for-test",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no source annotation in recommended structure."
     },
     {
       "targetPage": {
-        "pageType": "unknown",
-        "menuPath": "NEW > Understand DIAL > Positioning > Comparisons",
-        "filePath": "docs/docs/NEW/understand-dial/comparisons.md"
-      },
-      "sourcePages": [],
-      "status": "planned",
-      "mappingType": "new",
-      "notes": "New page per recommended structure."
-    },
-    {
-      "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Positioning > What is DIAL",
-        "filePath": "docs/docs/NEW/understand-dial/what-is-dial.md"
+        "filePath": "docs/docs/NEW/understand-dial/positioning/0.what-is-dial.md"
       },
       "sourcePages": [],
-      "status": "planned",
+      "status": "waiting-for-review",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: could not resolve annotation \"currently: Platform > Architecture & Concepts > What is DIAL — rewrite: lead with value, not the acronym\""
     },
     {
       "targetPage": {
         "pageType": "explanation",
-        "menuPath": "NEW > Understand DIAL > Positioning > DIAL vs AI gateways",
-        "filePath": "docs/docs/NEW/understand-dial/dial-vs-ai-gateways.md"
+        "menuPath": "NEW > Understand DIAL > Positioning > Comparisons > Overview",
+        "filePath": "docs/docs/NEW/understand-dial/positioning/1.comparisons.md"
       },
       "sourcePages": [],
-      "status": "planned",
+      "status": "waiting-for-review",
       "mappingType": "new",
       "notes": "New page per recommended structure."
     },
     {
       "targetPage": {
         "pageType": "explanation",
-        "menuPath": "NEW > Understand DIAL > Positioning > DIAL vs app builders",
-        "filePath": "docs/docs/NEW/understand-dial/dial-vs-app-builders.md"
+        "menuPath": "NEW > Understand DIAL > Positioning > Comparisons > DIAL vs AI gateways",
+        "filePath": "docs/docs/NEW/understand-dial/positioning/comparisons/1.dial-vs-ai-gateways.md"
       },
       "sourcePages": [],
-      "status": "planned",
+      "status": "waiting-for-review",
       "mappingType": "new",
       "notes": "New page per recommended structure."
     },
     {
       "targetPage": {
         "pageType": "explanation",
-        "menuPath": "NEW > Understand DIAL > Positioning > DIAL vs frameworks",
-        "filePath": "docs/docs/NEW/understand-dial/dial-vs-frameworks.md"
+        "menuPath": "NEW > Understand DIAL > Positioning > Comparisons > DIAL vs app builders",
+        "filePath": "docs/docs/NEW/understand-dial/positioning/comparisons/2.dial-vs-app-builders.md"
       },
       "sourcePages": [],
-      "status": "planned",
+      "status": "waiting-for-review",
       "mappingType": "new",
       "notes": "New page per recommended structure."
     },
     {
       "targetPage": {
         "pageType": "explanation",
-        "menuPath": "NEW > Understand DIAL > Positioning > DIAL vs AI studios",
-        "filePath": "docs/docs/NEW/understand-dial/dial-vs-ai-studios.md"
+        "menuPath": "NEW > Understand DIAL > Positioning > Comparisons > DIAL vs frameworks",
+        "filePath": "docs/docs/NEW/understand-dial/positioning/comparisons/3.dial-vs-frameworks.md"
       },
       "sourcePages": [],
-      "status": "planned",
+      "status": "waiting-for-review",
       "mappingType": "new",
       "notes": "New page per recommended structure."
     },
     {
       "targetPage": {
-        "pageType": "reference",
-        "menuPath": "NEW > Understand DIAL > Architecture > DIAL Stack",
-        "filePath": "docs/docs/NEW/understand-dial/dial-stack.md"
+        "pageType": "explanation",
+        "menuPath": "NEW > Understand DIAL > Positioning > Comparisons > DIAL vs AI studios",
+        "filePath": "docs/docs/NEW/understand-dial/positioning/comparisons/4.dial-vs-ai-studios.md"
       },
-      "sourcePages": [
-        {
-          "pageType": "unknown",
-          "menuPath": "OLD > Platform > Architecture & Concepts > DIAL Stack",
-          "filePath": "docs/platform/0.architecture-and-concepts/5.stack.md"
-        }
-      ],
-      "status": "planned",
-      "mappingType": "1-to-1",
-      "notes": "From recommended structure: currently: Platform > Architecture & Concepts > DIAL Stack"
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "New page per recommended structure."
     },
     {
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Architecture > Architecture highlights",
-        "filePath": "docs/docs/NEW/understand-dial/architecture-highlights.md"
+        "filePath": "docs/docs/NEW/understand-dial/architecture/1.architecture-highlights.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "reference",
+        "menuPath": "NEW > Understand DIAL > Architecture > DIAL Stack",
+        "filePath": "docs/docs/NEW/understand-dial/architecture/2.dial-stack.md"
       },
       "sourcePages": [
         {
-          "pageType": "unknown",
-          "menuPath": "OLD > Platform > Architecture & Concepts > What is DIAL",
-          "filePath": "docs/platform/0.architecture-and-concepts/0.vision.md"
+          "pageType": "explanation",
+          "menuPath": "OLD > Platform > Architecture & Concepts > DIAL Stack",
+          "filePath": "docs/platform/0.architecture-and-concepts/5.stack.md"
         }
       ],
-      "status": "planned",
+      "status": "waiting-for-review",
       "mappingType": "1-to-1",
-      "notes": "NEEDS_REVIEW: annotation suggests merge. currently: Platform > Architecture & Concepts > Architecture Highlights — absorbs \"Platform Components\" page"
+      "notes": "AUTO-MAPPED (MEDIUM): from docs/platform/0.architecture-and-concepts/5.stack.md"
     },
     {
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Architecture > Application server",
-        "filePath": "docs/docs/NEW/understand-dial/application-server.md"
+        "filePath": "docs/docs/NEW/understand-dial/architecture/3.application-server.md"
       },
       "sourcePages": [
         {
-          "pageType": "unknown",
+          "pageType": "explanation",
           "menuPath": "OLD > Platform > Architecture & Concepts > Application Server",
           "filePath": "docs/platform/0.architecture-and-concepts/5.app-server.md"
         }
       ],
-      "status": "planned",
+      "status": "waiting-for-review",
       "mappingType": "1-to-1",
-      "notes": "From recommended structure: currently: Platform > Architecture & Concepts > Application Server"
+      "notes": "AUTO-MAPPED (MEDIUM): from docs/platform/0.architecture-and-concepts/5.app-server.md"
     },
     {
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Architecture > Unified API overview",
-        "filePath": "docs/docs/NEW/understand-dial/unified-api-overview.md"
-      },
-      "sourcePages": [
-        {
-          "pageType": "unknown",
-          "menuPath": "OLD > Platform > Core > About",
-          "filePath": "docs/platform/3.core/0.about-core.md"
-        }
-      ],
-      "status": "planned",
-      "mappingType": "1-to-1",
-      "notes": "From recommended structure: currently: Platform > Core > About > Unified API section"
-    },
-    {
-      "targetPage": {
-        "pageType": "explanation",
-        "menuPath": "NEW > Understand DIAL > Capabilities > RAG in DIAL",
-        "filePath": "docs/docs/NEW/understand-dial/rag-in-dial.md"
+        "filePath": "docs/docs/NEW/understand-dial/architecture/4.unified-api-overview.md"
       },
       "sourcePages": [],
-      "status": "planned",
+      "status": "waiting-for-review",
       "mappingType": "new",
-      "notes": "New page per recommended structure."
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -240,6 +217,17 @@
       "status": "planned",
       "mappingType": "1-to-1",
       "notes": "From recommended structure: currently: Platform > Architecture & Concepts > Agentic Platform"
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Understand DIAL > Capabilities > RAG in DIAL",
+        "filePath": "docs/docs/NEW/understand-dial/rag-in-dial.md"
+      },
+      "sourcePages": [],
+      "status": "planned",
+      "mappingType": "new",
+      "notes": "New page per recommended structure."
     },
     {
       "targetPage": {
@@ -305,6 +293,17 @@
     },
     {
       "targetPage": {
+        "pageType": "unknown",
+        "menuPath": "NEW > Understand DIAL > Foundations > Core concepts and glossary",
+        "filePath": "docs/docs/NEW/understand-dial/core-concepts-and-glossary.md"
+      },
+      "sourcePages": [],
+      "status": "planned",
+      "mappingType": "new",
+      "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Foundations > Concept map",
         "filePath": "docs/docs/NEW/understand-dial/concept-map.md"
@@ -319,17 +318,6 @@
         "pageType": "reference",
         "menuPath": "NEW > Understand DIAL > Foundations > Glossary",
         "filePath": "docs/docs/NEW/understand-dial/glossary.md"
-      },
-      "sourcePages": [],
-      "status": "planned",
-      "mappingType": "new",
-      "notes": "New page per recommended structure."
-    },
-    {
-      "targetPage": {
-        "pageType": "unknown",
-        "menuPath": "NEW > Understand DIAL > Foundations > Core concepts and glossary",
-        "filePath": "docs/docs/NEW/understand-dial/core-concepts-and-glossary.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -918,6 +906,23 @@
       "status": "waiting-for-review",
       "mappingType": "new",
       "notes": "Section landing for Advanced topics (recommended structure 3.15)."
+    },
+    {
+      "targetPage": {
+        "pageType": "unknown",
+        "menuPath": "NEW > Home > Overview",
+        "filePath": "docs/docs/NEW/home/0.index.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview",
+          "filePath": "docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
     },
     {
       "targetPage": {

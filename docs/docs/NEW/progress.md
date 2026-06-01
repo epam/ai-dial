@@ -15,48 +15,49 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 128 | 0 | 113 | 0 | 18 | 0 | 0 |
+| 112 | 0 | 125 | 0 | 23 | 0 | 0 |
 
-**Progress: 0 / 259 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 260 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 177 New, 82 1-to-1
+Mapping types: 179 New, 81 1-to-1
 
 ---
 
-## Home (6)
+## Home (7)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
-| Developer quick start | Tutorials > Developers > Run DIAL Locally > Chat with Application | tutorial | 1-to-1 | ⬜ Planned |
-| DevOps quick start | Tutorials > DevOps > Deployment > Quick Apps Installation | tutorial | 1-to-1 | ⬜ Planned |
-| Admin quick start | — | tutorial | New | ⬜ Planned |
-| Evaluator quick start | — | tutorial | New | ⬜ Planned |
-| Architect overview | — | explanation | New | ⬜ Planned |
-| End user guide | — | tutorial | New | ⬜ Planned |
+| [Developer quick start](/docs/NEW/home/developer-quick-start) | Tutorials > Developers > Run DIAL Locally > Chat with Application | tutorial | 1-to-1 | 🟠 Waiting for test |
+| [DevOps quick start](/docs/NEW/home/devops-quick-start) | Tutorials > DevOps > Deployment > Quick Apps Installation | tutorial | 1-to-1 | 🟠 Waiting for test |
+| [Admin quick start](/docs/NEW/home/admin-quick-start) | — | tutorial | New | 🟠 Waiting for test |
+| [Evaluator quick start](/docs/NEW/home/evaluator-quick-start) | — | tutorial | New | 🟠 Waiting for test |
+| [Architect overview](/docs/NEW/home/architect-overview) | — | explanation | New | 🟡 Waiting for review |
+| [End user guide](/docs/NEW/home/end-user-guide) | — | tutorial | New | 🟠 Waiting for test |
+| [Overview](/docs/NEW/home/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
 
 ## Understand DIAL (20)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
-| Positioning > Comparisons | — | unknown | New | ⬜ Planned |
-| Positioning > What is DIAL | — | explanation | New | ⬜ Planned |
-| Positioning > DIAL vs AI gateways | — | explanation | New | ⬜ Planned |
-| Positioning > DIAL vs app builders | — | explanation | New | ⬜ Planned |
-| Positioning > DIAL vs frameworks | — | explanation | New | ⬜ Planned |
-| Positioning > DIAL vs AI studios | — | explanation | New | ⬜ Planned |
-| Architecture > DIAL Stack | Platform > Architecture & Concepts > DIAL Stack | reference | 1-to-1 | ⬜ Planned |
-| Architecture > Architecture highlights | Platform > Architecture & Concepts > What is DIAL | explanation | 1-to-1 | ⬜ Planned |
-| Architecture > Application server | Platform > Architecture & Concepts > Application Server | explanation | 1-to-1 | ⬜ Planned |
-| Architecture > Unified API overview | Platform > Core > About | explanation | 1-to-1 | ⬜ Planned |
-| Capabilities > RAG in DIAL | — | explanation | New | ⬜ Planned |
+| [Positioning > What is DIAL](/docs/NEW/understand-dial/positioning/what-is-dial) | — | explanation | New | 🟡 Waiting for review |
+| [Positioning > Comparisons > Overview](/docs/NEW/understand-dial/positioning/comparisons) | — | explanation | New | 🟡 Waiting for review |
+| [Positioning > Comparisons > DIAL vs AI gateways](/docs/NEW/understand-dial/positioning/comparisons/dial-vs-ai-gateways) | — | explanation | New | 🟡 Waiting for review |
+| [Positioning > Comparisons > DIAL vs app builders](/docs/NEW/understand-dial/positioning/comparisons/dial-vs-app-builders) | — | explanation | New | 🟡 Waiting for review |
+| [Positioning > Comparisons > DIAL vs frameworks](/docs/NEW/understand-dial/positioning/comparisons/dial-vs-frameworks) | — | explanation | New | 🟡 Waiting for review |
+| [Positioning > Comparisons > DIAL vs AI studios](/docs/NEW/understand-dial/positioning/comparisons/dial-vs-ai-studios) | — | explanation | New | 🟡 Waiting for review |
+| [Architecture > Architecture highlights](/docs/NEW/understand-dial/architecture/architecture-highlights) | — | explanation | New | 🟡 Waiting for review |
+| [Architecture > DIAL Stack](/docs/NEW/understand-dial/architecture/dial-stack) | Platform > Architecture & Concepts > DIAL Stack | reference | 1-to-1 | 🟡 Waiting for review |
+| [Architecture > Application server](/docs/NEW/understand-dial/architecture/application-server) | Platform > Architecture & Concepts > Application Server | explanation | 1-to-1 | 🟡 Waiting for review |
+| [Architecture > Unified API overview](/docs/NEW/understand-dial/architecture/unified-api-overview) | — | explanation | New | 🟡 Waiting for review |
 | Capabilities > Agentic platform | Platform > Architecture & Concepts > Agentic Platform | explanation | 1-to-1 | ⬜ Planned |
+| Capabilities > RAG in DIAL | — | explanation | New | ⬜ Planned |
 | Capabilities > Multimodality | Platform > Multimodality | explanation | 1-to-1 | ⬜ Planned |
 | Capabilities > Collaboration and sharing | Platform > Collaboration | explanation | 1-to-1 | ⬜ Planned |
 | Security and governance > Authentication and access control | — | explanation | New | ⬜ Planned |
 | Security and governance > Usage limits and cost control | Platform > Architecture & Concepts > Usage Limits and Cost Control | explanation | 1-to-1 | ⬜ Planned |
+| Foundations > Core concepts and glossary | — | unknown | New | ⬜ Planned |
 | Foundations > Concept map | — | explanation | New | ⬜ Planned |
 | Foundations > Glossary | — | reference | New | ⬜ Planned |
-| Foundations > Core concepts and glossary | — | unknown | New | ⬜ Planned |
 | Foundations > DIAL evolution | — | explanation | New | ⬜ Planned |
 
 ## Building with DIAL (116)

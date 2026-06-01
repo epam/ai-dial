@@ -734,6 +734,93 @@ const sidebars = {
         },
         {
           type: 'category',
+          label: 'Home',
+          items: [
+            { type: 'doc', id: 'docs/NEW/home/index', label: 'Overview' },
+            { type: 'doc', id: 'docs/NEW/home/developer-quick-start', label: 'Developer quick start' },
+            { type: 'doc', id: 'docs/NEW/home/devops-quick-start', label: 'DevOps quick start' },
+            { type: 'doc', id: 'docs/NEW/home/admin-quick-start', label: 'Admin quick start' },
+            { type: 'doc', id: 'docs/NEW/home/evaluator-quick-start', label: 'Evaluator quick start' },
+            { type: 'doc', id: 'docs/NEW/home/architect-overview', label: 'Architect overview' },
+            { type: 'doc', id: 'docs/NEW/home/end-user-guide', label: 'End user guide' },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Understand DIAL',
+          items: [
+            {
+              type: 'category',
+              label: 'Positioning',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/understand-dial/positioning/what-is-dial',
+                  label: 'What is DIAL',
+                },
+                {
+                  type: 'category',
+                  label: 'Comparisons',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/understand-dial/positioning/comparisons',
+                      label: 'Overview',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/understand-dial/positioning/comparisons/dial-vs-ai-gateways',
+                      label: 'DIAL vs AI gateways',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/understand-dial/positioning/comparisons/dial-vs-app-builders',
+                      label: 'DIAL vs app builders',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/understand-dial/positioning/comparisons/dial-vs-frameworks',
+                      label: 'DIAL vs frameworks',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/understand-dial/positioning/comparisons/dial-vs-ai-studios',
+                      label: 'DIAL vs AI studios',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Architecture',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/understand-dial/architecture/architecture-highlights',
+                  label: 'Architecture highlights',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/understand-dial/architecture/dial-stack',
+                  label: 'DIAL Stack',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/understand-dial/architecture/application-server',
+                  label: 'Application server',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/understand-dial/architecture/unified-api-overview',
+                  label: 'Unified API overview',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          type: 'category',
           label: 'Building with DIAL',
           items: [
             {

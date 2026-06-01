@@ -13,6 +13,7 @@
 | [Reference] | Lookup-oriented, exhaustive, neutral |  |  |
 | [Explanation] | Understanding-oriented, context and trade-offs |  |  |
 | [Landing] | Navigation/routing page |  |  |
+| [Category] | Collapsible sidebar grouping node |  |  |
 | 🆕 | Does not exist today — new content required |  |  |
 | ← current location | Where this content currently lives on the site |  |  |
 | (italic note) | Design rationale or content guidance |  |  |
@@ -46,9 +47,9 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 
 *Concepts and positioning. No setup instructions. Answers "what" and "why," not "how."*
 
-*Docusaurus sidebar grouping labels (visual only, do not add navigation depth):*
+*The five groupings below are collapsible Docusaurus sidebar categories (each rendered as a `type: 'category'` node), consistent with the rest of the NEW sidebar. Most pages sit at one level inside their category; `Comparisons` and `Core concepts and glossary` nest one level deeper — both within the max-4 depth budget.*
 
-#### Positioning
+#### 2.1 Positioning `[Category]`
 
 * What is DIAL `[Explanation]` ← *currently: Platform > Architecture & Concepts > What is DIAL — rewrite: lead with value, not the acronym*
 * Comparisons **🆕**
@@ -57,26 +58,26 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
   * DIAL vs frameworks `[Explanation]` **🆕** — *LangChain, LlamaIndex, Semantic Kernel*
   * DIAL vs AI studios `[Explanation]` **🆕** — *Azure AI Studio, Google AI Studio*
 
-#### Architecture
+#### 2.2 Architecture `[Category]`
 
 * Architecture highlights `[Explanation]` ← *currently: Platform > Architecture & Concepts > Architecture Highlights — absorbs "Platform Components" page*
 * DIAL Stack `[Reference]` ← *currently: Platform > Architecture & Concepts > DIAL Stack*
 * Application server `[Explanation]` ← *currently: Platform > Architecture & Concepts > Application Server*
 * Unified API overview `[Explanation]` ← *currently: Platform > Core > About > Unified API section*
 
-#### Capabilities
+#### 2.3 Capabilities `[Category]`
 
 * Agentic platform `[Explanation]` ← *currently: Platform > Architecture & Concepts > Agentic Platform*
 * RAG in DIAL `[Explanation]` **🆕** — *DIAL's approach to RAG, component overview (DIAL RAG, RAG Eval), comparison to building RAG with raw frameworks, when to use DIAL RAG vs roll your own*
 * Multimodality `[Explanation]` ← *currently: Platform > Multimodality*
 * Collaboration and sharing `[Explanation]` ← *currently: Platform > Collaboration*
 
-#### Security and governance
+#### 2.4 Security and governance `[Category]`
 
 * Authentication and access control `[Explanation]` ← *currently: TWO separate pages — merge into one canonical explanation*
 * Usage limits and cost control `[Explanation]` ← *currently: Platform > Architecture & Concepts > Usage Limits and Cost Control*
 
-#### Foundations
+#### 2.5 Foundations `[Category]`
 
 * Core concepts and glossary **🆕**
   * Concept map `[Explanation]` **🆕** — *visual: Custom App → Quick App → Code App → Mind Map → Tool Set → MCP Server → Adapter → Interceptor → Overlay → Agent Builder (canonical name) → Deployment*
