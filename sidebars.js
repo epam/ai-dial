@@ -1232,6 +1232,47 @@ const sidebars = {
                 },
               ],
             },
+            {
+              type: 'category',
+              label: 'Working with DIAL resources',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/building-with-dial/working-with-dial-resources/index',
+                  label: 'Overview',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/building-with-dial/working-with-dial-resources/file-management',
+                  label: 'File management',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/building-with-dial/working-with-dial-resources/publications-api',
+                  label: 'Publications API',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/building-with-dial/working-with-dial-resources/sharing-api',
+                  label: 'Sharing API',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/building-with-dial/working-with-dial-resources/notifications',
+                  label: 'Notifications',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/building-with-dial/working-with-dial-resources/per-request-keys',
+                  label: 'Per-request keys',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/building-with-dial/working-with-dial-resources/auth-matrix-for-apps',
+                  label: 'Auth matrix for apps',
+                },
+              ],
+            },
           ],
         },
         {
