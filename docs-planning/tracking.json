@@ -221,6 +221,23 @@
     {
       "targetPage": {
         "pageType": "explanation",
+        "menuPath": "NEW > Understand DIAL > Capabilities > Agentic platform",
+        "filePath": "docs/docs/NEW/understand-dial/capabilities/1.agentic-platform.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "explanation",
+          "menuPath": "OLD > Platform > Architecture & Concepts > Agentic Platform",
+          "filePath": "docs/platform/0.architecture-and-concepts/4.agentic-platform.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (MEDIUM): from docs/platform/0.architecture-and-concepts/4.agentic-platform.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Capabilities > RAG in DIAL",
         "filePath": "docs/docs/NEW/understand-dial/rag-in-dial.md"
       },
@@ -228,6 +245,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Understand DIAL > Capabilities > RAG in DIAL",
+        "filePath": "docs/docs/NEW/understand-dial/capabilities/2.rag-in-dial.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -249,6 +277,23 @@
     {
       "targetPage": {
         "pageType": "explanation",
+        "menuPath": "NEW > Understand DIAL > Capabilities > Multimodality",
+        "filePath": "docs/docs/NEW/understand-dial/capabilities/3.multimodality.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "explanation",
+          "menuPath": "OLD > Platform > Multimodality",
+          "filePath": "docs/platform/5.multimodality.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/platform/5.multimodality.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Capabilities > Collaboration and sharing",
         "filePath": "docs/docs/NEW/understand-dial/collaboration-and-sharing.md"
       },
@@ -262,6 +307,17 @@
       "status": "planned",
       "mappingType": "1-to-1",
       "notes": "From recommended structure: currently: Platform > Collaboration"
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Understand DIAL > Capabilities > Collaboration and sharing",
+        "filePath": "docs/docs/NEW/understand-dial/capabilities/4.collaboration-and-sharing.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {

@@ -817,6 +817,32 @@ const sidebars = {
                 },
               ],
             },
+            {
+              type: 'category',
+              label: 'Capabilities',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/understand-dial/capabilities/agentic-platform',
+                  label: 'Agentic platform',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/understand-dial/capabilities/rag-in-dial',
+                  label: 'RAG in DIAL',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/understand-dial/capabilities/multimodality',
+                  label: 'Multimodality',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/understand-dial/capabilities/collaboration-and-sharing',
+                  label: 'Collaboration and sharing',
+                },
+              ],
+            },
           ],
         },
         {
