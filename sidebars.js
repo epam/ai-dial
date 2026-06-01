@@ -864,6 +864,33 @@ const sidebars = {
                 },
               ],
             },
+            {
+              type: 'category',
+              label: 'Foundations',
+              items: [
+                {
+                  type: 'category',
+                  label: 'Core concepts and glossary',
+                  items: [
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/understand-dial/foundations/core-concepts-and-glossary/concept-map',
+                      label: 'Concept map',
+                    },
+                    {
+                      type: 'doc',
+                      id: 'docs/NEW/understand-dial/foundations/core-concepts-and-glossary/glossary',
+                      label: 'Glossary',
+                    },
+                  ],
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/understand-dial/foundations/dial-evolution',
+                  label: 'DIAL evolution',
+                },
+              ],
+            },
           ],
         },
         {
