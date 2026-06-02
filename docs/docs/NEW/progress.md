@@ -3,7 +3,7 @@ title: "Documentation progress"
 type: reference
 persona: all
 component: platform
-last_verified: 2026-06-01
+last_verified: 2026-06-02
 owner: "@dial-docs-team"
 ---
 
@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 112 | 0 | 144 | 0 | 28 | 0 | 0 |
+| 112 | 0 | 148 | 0 | 28 | 0 | 0 |
 
-**Progress: 0 / 284 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 288 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 194 New, 90 1-to-1
+Mapping types: 197 New, 91 1-to-1
 
 ---
 
@@ -191,7 +191,7 @@ Mapping types: 194 New, 90 1-to-1
 | [Apps > Quick Apps > Quick App 2.0 > Tool Sets > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/reference) | — | reference | New | 🟡 Waiting for review |
 | [Apps > Quick Apps > Quick App (original) > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/reference) | — | reference | New | 🟡 Waiting for review |
 
-## Operating DIAL (109)
+## Operating DIAL (113)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
@@ -223,9 +223,13 @@ Mapping types: 194 New, 90 1-to-1
 | 2 Cloud deployment > Quick Apps installation | — | how-to | New | ⬜ Planned |
 | [Cloud deployment > Quick Apps](/docs/NEW/operating-dial/cloud-deployment/quick-apps-installation) | Demos > quick-apps | how-to | 1-to-1 | 🟡 Waiting for review |
 | 3 Model deployment > Bedrock model deployment | — | how-to | New | ⬜ Planned |
+| [Model deployment > Bedrock models](/docs/NEW/operating-dial/model-deployment/bedrock-model-deployment) | — | how-to | New | 🟡 Waiting for review |
 | 3 Model deployment > OpenAI model deployment | — | how-to | New | ⬜ Planned |
+| [Model deployment > Azure OpenAI models](/docs/NEW/operating-dial/model-deployment/openai-model-deployment) | — | how-to | New | 🟡 Waiting for review |
 | 3 Model deployment > Vertex model deployment | — | how-to | New | ⬜ Planned |
+| [Model deployment > Vertex AI models](/docs/NEW/operating-dial/model-deployment/vertex-model-deployment) | — | how-to | New | 🟡 Waiting for review |
 | 3 Model deployment > Databricks model deployment | Tutorials > DevOps > Use Databricks Models | how-to | 1-to-1 | ⬜ Planned |
+| [Model deployment > Databricks models](/docs/NEW/operating-dial/model-deployment/databricks-model-deployment) | Tutorials > DevOps > Use Databricks Models | how-to | 1-to-1 | 🟡 Waiting for review |
 | [Configuration Reference > Auth Helper](/docs/NEW/operating-dial/configuration/auth-helper-configuration) | — | reference | New | 🟡 Waiting for review |
 | 4 Configuration reference > Load balancer configuration | Platform > Core > Load Balancer | reference | 1-to-1 | ⬜ Planned |
 | 4 Configuration reference > Config precedence rules | — | reference | New | ⬜ Planned |
@@ -344,4 +348,4 @@ Mapping types: 194 New, 90 1-to-1
 
 ---
 
-> Last generated: 2026-06-01. Source: [`tracking.json`](https://github.com/epam/ai-dial/blob/main/docs-planning/tracking.json).
+> Last generated: 2026-06-02. Source: [`tracking.json`](https://github.com/epam/ai-dial/blob/main/docs-planning/tracking.json).

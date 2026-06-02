@@ -2333,6 +2333,17 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Model deployment > Bedrock models",
+        "filePath": "docs/docs/NEW/operating-dial/model-deployment/1.bedrock-model-deployment.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 3 Model deployment > OpenAI model deployment",
         "filePath": "docs/docs/NEW/operating-dial/3-model-deployment/openai-model-deployment.md"
       },
@@ -2344,6 +2355,17 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Model deployment > Azure OpenAI models",
+        "filePath": "docs/docs/NEW/operating-dial/model-deployment/2.openai-model-deployment.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 3 Model deployment > Vertex model deployment",
         "filePath": "docs/docs/NEW/operating-dial/3-model-deployment/vertex-model-deployment.md"
       },
@@ -2351,6 +2373,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no source annotation in recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Model deployment > Vertex AI models",
+        "filePath": "docs/docs/NEW/operating-dial/model-deployment/3.vertex-model-deployment.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -2368,6 +2401,23 @@
       "status": "planned",
       "mappingType": "1-to-1",
       "notes": "From recommended structure: currently: Use Databricks Models"
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Model deployment > Databricks models",
+        "filePath": "docs/docs/NEW/operating-dial/model-deployment/4.databricks-model-deployment.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Use Databricks Models",
+          "filePath": "docs/tutorials/2.devops/4.use-databricks-model.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (MEDIUM): from docs/tutorials/2.devops/4.use-databricks-model.md"
     },
     {
       "targetPage": {

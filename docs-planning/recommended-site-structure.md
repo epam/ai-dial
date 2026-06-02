@@ -354,7 +354,7 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 
 * * *
 
-### 5\. Administering DIAL `[How-to]`
+### 5. Administering DIAL `[How-to]`
 
 *Merges Platform > Admin Panel (overview) with Tutorials > Admins (user guide).*
 

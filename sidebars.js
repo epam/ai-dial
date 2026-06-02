@@ -1489,6 +1489,16 @@ const sidebars = {
             },
             {
               type: 'category',
+              label: 'Model deployment',
+              items: [
+                { type: 'doc', id: 'docs/NEW/operating-dial/model-deployment/bedrock-model-deployment', label: 'Bedrock models' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/model-deployment/openai-model-deployment', label: 'Azure OpenAI models' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/model-deployment/vertex-model-deployment', label: 'Vertex AI models' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/model-deployment/databricks-model-deployment', label: 'Databricks models' },
+              ],
+            },
+            {
+              type: 'category',
               label: 'Configuration Reference',
               items: [
                 {
