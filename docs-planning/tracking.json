@@ -1077,6 +1077,23 @@
     },
     {
       "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Operating DIAL > Observability > Overview",
+        "filePath": "docs/docs/NEW/operating-dial/observability/0.index.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview",
+          "filePath": "docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+    },
+    {
+      "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Code Apps > Getting started",
         "filePath": "docs/docs/NEW/building-with-dial/apps/code-apps/1.getting-started.md"
@@ -2705,6 +2722,17 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Observability > Tracing (OpenTelemetry)",
+        "filePath": "docs/docs/NEW/operating-dial/observability/1.tracing.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 6 Observability > Metrics and monitoring",
         "filePath": "docs/docs/NEW/operating-dial/6-observability/metrics-and-monitoring.md"
       },
@@ -2712,6 +2740,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Observability > Metrics and monitoring",
+        "filePath": "docs/docs/NEW/operating-dial/observability/2.metrics-and-monitoring.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -2727,6 +2766,17 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Observability > Logging",
+        "filePath": "docs/docs/NEW/operating-dial/observability/3.logging.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 6 Observability > Alerting",
         "filePath": "docs/docs/NEW/operating-dial/6-observability/alerting.md"
       },
@@ -2734,6 +2784,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Observability > Alerting",
+        "filePath": "docs/docs/NEW/operating-dial/observability/4.alerting.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -2754,6 +2815,23 @@
     },
     {
       "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Observability > Analytics Realtime setup",
+        "filePath": "docs/docs/NEW/operating-dial/observability/5.analytics-realtime-setup.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Configuration > Analytics Realtime Configuration",
+          "filePath": "docs/tutorials/2.devops/1.configuration/2.realtime-analytics-config.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (MEDIUM): from docs/tutorials/2.devops/1.configuration/2.realtime-analytics-config.md"
+    },
+    {
+      "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Operating DIAL > 6 Observability > Provider-specific guides",
         "filePath": "docs/docs/NEW/operating-dial/6-observability/provider-specific-guides.md"
@@ -2762,6 +2840,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Observability > Provider-specific guides > Grafana + Prometheus",
+        "filePath": "docs/docs/NEW/operating-dial/observability/providers/grafana-prometheus.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {

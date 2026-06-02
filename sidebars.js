@@ -1628,6 +1628,25 @@ const sidebars = {
                 },
               ],
             },
+            {
+              type: 'category',
+              label: 'Observability',
+              items: [
+                { type: 'doc', id: 'docs/NEW/operating-dial/observability/index', label: 'Overview' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/observability/tracing', label: 'Tracing (OpenTelemetry)' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/observability/metrics-and-monitoring', label: 'Metrics and monitoring' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/observability/logging', label: 'Logging' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/observability/alerting', label: 'Alerting' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/observability/analytics-realtime-setup', label: 'Analytics Realtime setup' },
+                {
+                  type: 'category',
+                  label: 'Provider-specific guides',
+                  items: [
+                    { type: 'doc', id: 'docs/NEW/operating-dial/observability/providers/grafana-prometheus', label: 'Grafana + Prometheus' },
+                  ],
+                },
+              ],
+            },
           ],
         },
       ],

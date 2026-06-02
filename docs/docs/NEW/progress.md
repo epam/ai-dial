@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 112 | 0 | 148 | 0 | 28 | 0 | 0 |
+| 112 | 0 | 155 | 0 | 28 | 0 | 0 |
 
-**Progress: 0 / 288 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 295 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 197 New, 91 1-to-1
+Mapping types: 202 New, 93 1-to-1
 
 ---
 
@@ -191,12 +191,13 @@ Mapping types: 197 New, 91 1-to-1
 | [Apps > Quick Apps > Quick App 2.0 > Tool Sets > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/reference) | — | reference | New | 🟡 Waiting for review |
 | [Apps > Quick Apps > Quick App (original) > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/reference) | — | reference | New | 🟡 Waiting for review |
 
-## Operating DIAL (113)
+## Operating DIAL (120)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
 | [Auth and access control > Overview](/docs/NEW/operating-dial/auth-and-access-control/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
 | [Local setup > Overview](/docs/NEW/operating-dial/local-setup/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | explanation | 1-to-1 | 🟡 Waiting for review |
+| [Observability > Overview](/docs/NEW/operating-dial/observability/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | explanation | 1-to-1 | 🟡 Waiting for review |
 | 1 Local setup > Docker Compose with Azure model | — | how-to | New | ⬜ Planned |
 | [Local setup > Azure OpenAI model](/docs/NEW/operating-dial/local-setup/docker-compose-with-azure-model) | — | tutorial | New | 🟠 Waiting for test |
 | 1 Local setup > Docker Compose with Ollama | — | how-to | New | ⬜ Planned |
@@ -253,11 +254,17 @@ Mapping types: 197 New, 91 1-to-1
 | 5 Auth and access control > Okta | — | how-to | New | ⬜ Planned |
 | 5 Auth and access control > Keycloak | — | how-to | New | ⬜ Planned |
 | 6 Observability > Tracing (OpenTelemetry) | — | how-to | New | ⬜ Planned |
+| [Observability > Tracing (OpenTelemetry)](/docs/NEW/operating-dial/observability/tracing) | — | how-to | New | 🟡 Waiting for review |
 | 6 Observability > Metrics and monitoring | — | how-to | New | ⬜ Planned |
+| [Observability > Metrics and monitoring](/docs/NEW/operating-dial/observability/metrics-and-monitoring) | — | how-to | New | 🟡 Waiting for review |
 | 6 Observability > Logging | — | how-to | New | ⬜ Planned |
+| [Observability > Logging](/docs/NEW/operating-dial/observability/logging) | — | how-to | New | 🟡 Waiting for review |
 | 6 Observability > Alerting | — | how-to | New | ⬜ Planned |
+| [Observability > Alerting](/docs/NEW/operating-dial/observability/alerting) | — | how-to | New | 🟡 Waiting for review |
 | 6 Observability > Analytics Realtime setup | Tutorials > DevOps > Configuration > Analytics Realtime Configuration | how-to | 1-to-1 | ⬜ Planned |
+| [Observability > Analytics Realtime setup](/docs/NEW/operating-dial/observability/analytics-realtime-setup) | Tutorials > DevOps > Configuration > Analytics Realtime Configuration | how-to | 1-to-1 | 🟡 Waiting for review |
 | 6 Observability > Provider-specific guides | — | unknown | New | ⬜ Planned |
+| [Observability > Provider-specific guides > Grafana + Prometheus](/docs/NEW/operating-dial/observability/providers/grafana-prometheus) | — | how-to | New | 🟡 Waiting for review |
 | 6 Observability > Datadog | — | how-to | New | ⬜ Planned |
 | 6 Observability > Grafana + Prometheus | — | how-to | New | ⬜ Planned |
 | 6 Observability > ELK Stack | — | how-to | New | ⬜ Planned |
