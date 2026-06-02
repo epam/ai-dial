@@ -3,7 +3,7 @@ title: "When to use which app type"
 type: explanation
 persona: app-dev
 component: apps
-last_verified: 2026-05-08
+last_verified: 2026-05-29
 owner: "@dial-docs-team"
 ---
 
@@ -26,17 +26,21 @@ DIAL offers four app types, each designed for a different development model and 
 
 ## Choosing by use case
 
-**"I need a production-grade service with custom dependencies and external API calls."**
-Use a **Custom App**. You control the container, dependencies, and network. Deploy alongside DIAL Core in Docker Compose or Kubernetes.
+- **"I need a production-grade service with custom dependencies and external API calls."**
 
-**"I want to compose a workflow from existing models, apps, and external APIs — without writing code."**
-Use a **Quick App**. Combine a language model with system instructions and Tool Sets (web APIs, MCP servers, other DIAL apps) to create a workflow in minutes.
+    Use a **Custom App**. You control the container, dependencies, and network. Deploy alongside DIAL Core in Docker Compose or Kubernetes.
 
-**"I want to quickly prototype something in Python without managing infrastructure."**
-Use a **Code App**. Write Python directly in DIAL Chat, deploy with one click. The platform handles hosting and scaling. Be aware of the security restrictions: no internet access and a limited set of pre-approved libraries.
+- **"I want to compose a workflow from existing models, apps, and external APIs — without writing code."**
+    
+    Use a **Quick App**. Combine a language model with system instructions and Tool Sets (web APIs, MCP servers, other DIAL apps) to create a workflow in minutes.
 
-**"I want to create an interactive knowledge graph from documents or URLs."**
-Use **Mind Map Studio**. Upload PDFs or provide URLs, and Mind Map Studio generates a navigable graph grounded in your sources.
+- **"I want to quickly prototype something in Python without managing infrastructure."**
+    
+    Use a **Code App**. Write Python directly in DIAL Chat, deploy with one click. The platform handles hosting and scaling. Be aware of the security restrictions: no internet access and a limited set of pre-approved libraries.
+
+- **"I want to create an interactive knowledge graph from documents or URLs."**
+    
+    Use **Mind Map Studio**. Upload PDFs or provide URLs, and Mind Map Studio generates a navigable graph grounded in your sources.
 
 ## Combining app types
 
@@ -50,7 +54,7 @@ A common pattern is to prototype with a Quick App, then move performance-critica
 
 ## Next steps
 
-- [Custom Apps: architecture and lifecycle](custom-apps/index) — build and deploy a containerized app
-- [What are Quick Apps](quick-apps/index) — no-code orchestration with models and tools
-- [Code Apps overview](code-apps/index) — write and deploy Python in the browser
-- [Mind Map Studio overview](mind-map-studio/index) — knowledge graphs from documents
+- [Custom Apps: architecture and lifecycle](custom-apps/0.index.md) — build and deploy a containerized app
+- [What are Quick Apps](quick-apps/0.index.md) — no-code orchestration with models and tools
+- [Code Apps overview](code-apps/0.index.md) — write and deploy Python in the browser
+- [Mind Map Studio overview](mind-map-studio/0.index.md) — knowledge graphs from documents
