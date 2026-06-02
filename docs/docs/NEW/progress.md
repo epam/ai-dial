@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 112 | 0 | 132 | 0 | 23 | 0 | 0 |
+| 112 | 0 | 144 | 0 | 28 | 0 | 0 |
 
-**Progress: 0 / 267 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 284 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 183 New, 84 1-to-1
+Mapping types: 194 New, 90 1-to-1
 
 ---
 
@@ -35,7 +35,7 @@ Mapping types: 183 New, 84 1-to-1
 | [End user guide](/docs/NEW/home/end-user-guide) | — | tutorial | New | 🟠 Waiting for test |
 | [Overview](/docs/NEW/home/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
 
-## Understand DIAL (27)
+## Understand DIAL (30)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
@@ -63,9 +63,12 @@ Mapping types: 183 New, 84 1-to-1
 | Security and governance > Usage limits and cost control | Platform > Architecture & Concepts > Usage Limits and Cost Control | explanation | 1-to-1 | ⬜ Planned |
 | [Security and governance > Usage limits and cost control](/docs/NEW/understand-dial/security-and-governance/usage-limits-and-cost-control) | Platform > Architecture & Concepts > Usage Limits and Cost Control | explanation | 1-to-1 | 🟡 Waiting for review |
 | Foundations > Core concepts and glossary | — | unknown | New | ⬜ Planned |
+| [Foundations > Core concepts and glossary > Concept map](/docs/NEW/understand-dial/foundations/core-concepts-and-glossary/concept-map) | — | explanation | New | 🟡 Waiting for review |
+| [Foundations > Core concepts and glossary > Glossary](/docs/NEW/understand-dial/foundations/core-concepts-and-glossary/glossary) | — | reference | New | 🟡 Waiting for review |
 | Foundations > Concept map | — | explanation | New | ⬜ Planned |
 | Foundations > Glossary | — | reference | New | ⬜ Planned |
 | Foundations > DIAL evolution | — | explanation | New | ⬜ Planned |
+| [Foundations > DIAL evolution](/docs/NEW/understand-dial/foundations/dial-evolution) | Platform > DIAL Evolution | explanation | 1-to-1 | 🟡 Waiting for review |
 
 ## Building with DIAL (116)
 
@@ -188,24 +191,37 @@ Mapping types: 183 New, 84 1-to-1
 | [Apps > Quick Apps > Quick App 2.0 > Tool Sets > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/reference) | — | reference | New | 🟡 Waiting for review |
 | [Apps > Quick Apps > Quick App (original) > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/reference) | — | reference | New | 🟡 Waiting for review |
 
-## Operating DIAL (95)
+## Operating DIAL (109)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
 | [Auth and access control > Overview](/docs/NEW/operating-dial/auth-and-access-control/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
+| [Local setup > Overview](/docs/NEW/operating-dial/local-setup/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | explanation | 1-to-1 | 🟡 Waiting for review |
 | 1 Local setup > Docker Compose with Azure model | — | how-to | New | ⬜ Planned |
+| [Local setup > Azure OpenAI model](/docs/NEW/operating-dial/local-setup/docker-compose-with-azure-model) | — | tutorial | New | 🟠 Waiting for test |
 | 1 Local setup > Docker Compose with Ollama | — | how-to | New | ⬜ Planned |
+| [Local setup > Ollama model](/docs/NEW/operating-dial/local-setup/docker-compose-with-ollama) | — | tutorial | New | 🟠 Waiting for test |
 | 1 Local setup > Docker Compose with vLLM | — | how-to | New | ⬜ Planned |
+| [Local setup > vLLM model](/docs/NEW/operating-dial/local-setup/docker-compose-with-vllm) | — | tutorial | New | 🟠 Waiting for test |
 | 1 Local setup > Docker Compose with application | — | how-to | New | ⬜ Planned |
+| [Local setup > Echo application](/docs/NEW/operating-dial/local-setup/docker-compose-with-application) | — | tutorial | New | 🟠 Waiting for test |
 | 1 Local setup > DIAL-to-DIAL Adapter for local dev | — | how-to | New | ⬜ Planned |
 | 2 Cloud deployment > Helm chart overview | — | explanation | New | ⬜ Planned |
+| [Cloud deployment > Helm chart overview](/docs/NEW/operating-dial/cloud-deployment/index) | — | explanation | New | 🟡 Waiting for review |
 | 2 Cloud deployment > AWS deployment | — | how-to | New | ⬜ Planned |
+| [Cloud deployment > AWS](/docs/NEW/operating-dial/cloud-deployment/aws-deployment) | — | how-to | New | 🟡 Waiting for review |
 | 2 Cloud deployment > Azure deployment | — | how-to | New | ⬜ Planned |
+| [Cloud deployment > Azure](/docs/NEW/operating-dial/cloud-deployment/azure-deployment) | — | how-to | New | 🟡 Waiting for review |
 | 2 Cloud deployment > GCP deployment | — | how-to | New | ⬜ Planned |
+| [Cloud deployment > GCP](/docs/NEW/operating-dial/cloud-deployment/gcp-deployment) | — | how-to | New | 🟡 Waiting for review |
 | 2 Cloud deployment > Generic Kubernetes | — | how-to | New | ⬜ Planned |
+| [Cloud deployment > Generic Kubernetes](/docs/NEW/operating-dial/cloud-deployment/generic-kubernetes) | — | how-to | New | 🟡 Waiting for review |
 | 2 Cloud deployment > Azure Secrets deployment | — | how-to | New | ⬜ Planned |
+| [Cloud deployment > Azure Secrets](/docs/NEW/operating-dial/cloud-deployment/azure-secrets-deployment) | Tutorials > DevOps > Deployment > Azure Secrets Deployment | how-to | 1-to-1 | 🟡 Waiting for review |
 | 2 Cloud deployment > Custom Apps deployment | — | how-to | New | ⬜ Planned |
+| [Cloud deployment > Custom Apps](/docs/NEW/operating-dial/cloud-deployment/custom-apps-deployment) | Tutorials > Developers > Apps Development > Custom Buttons in Apps | how-to | 1-to-1 | 🟡 Waiting for review |
 | 2 Cloud deployment > Quick Apps installation | — | how-to | New | ⬜ Planned |
+| [Cloud deployment > Quick Apps](/docs/NEW/operating-dial/cloud-deployment/quick-apps-installation) | Demos > quick-apps | how-to | 1-to-1 | 🟡 Waiting for review |
 | 3 Model deployment > Bedrock model deployment | — | how-to | New | ⬜ Planned |
 | 3 Model deployment > OpenAI model deployment | — | how-to | New | ⬜ Planned |
 | 3 Model deployment > Vertex model deployment | — | how-to | New | ⬜ Planned |
@@ -287,6 +303,7 @@ Mapping types: 183 New, 84 1-to-1
 | 4 Configuration reference > Core configuration | — | reference | New | ⬜ Planned |
 | 4 Configuration reference > Enable publications | Tutorials > DevOps > Configuration > Enable Publications | how-to | 1-to-1 | ⬜ Planned |
 | [Auth and access control > JWT authentication](/docs/NEW/operating-dial/auth-and-access-control/jwt) | — | how-to | New | 🟡 Waiting for review |
+| [Local setup > DIAL-to-DIAL adapter](/docs/NEW/operating-dial/local-setup/dial-to-dial-adapter) | Tutorials > Developers > Apps Development > Local Development | tutorial | 1-to-1 | 🟠 Waiting for test |
 
 ## Administering DIAL (11)
 

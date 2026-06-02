@@ -400,6 +400,28 @@
     {
       "targetPage": {
         "pageType": "explanation",
+        "menuPath": "NEW > Understand DIAL > Foundations > Core concepts and glossary > Concept map",
+        "filePath": "docs/docs/NEW/understand-dial/foundations/core-concepts-and-glossary/1.concept-map.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "reference",
+        "menuPath": "NEW > Understand DIAL > Foundations > Core concepts and glossary > Glossary",
+        "filePath": "docs/docs/NEW/understand-dial/foundations/core-concepts-and-glossary/2.glossary.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Foundations > Concept map",
         "filePath": "docs/docs/NEW/understand-dial/concept-map.md"
       },
@@ -429,6 +451,23 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: could not resolve annotation \"currently: Platform > DIAL Evolution — kept for product history and philosophy (\"why DIAL exists, how it got here\"); distinct from the Changelog in Reference (§7) which tracks per-release changes\""
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Understand DIAL > Foundations > DIAL evolution",
+        "filePath": "docs/docs/NEW/understand-dial/foundations/3.dial-evolution.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "explanation",
+          "menuPath": "OLD > Platform > DIAL Evolution",
+          "filePath": "docs/platform/10.history.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (MEDIUM): from docs/platform/10.history.md"
     },
     {
       "targetPage": {
@@ -1007,6 +1046,23 @@
         "pageType": "unknown",
         "menuPath": "NEW > Home > Overview",
         "filePath": "docs/docs/NEW/home/0.index.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview",
+          "filePath": "docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Operating DIAL > Local setup > Overview",
+        "filePath": "docs/docs/NEW/operating-dial/local-setup/0.index.md"
       },
       "sourcePages": [
         {
@@ -1983,6 +2039,17 @@
     },
     {
       "targetPage": {
+        "pageType": "tutorial",
+        "menuPath": "NEW > Operating DIAL > Local setup > Azure OpenAI model",
+        "filePath": "docs/docs/NEW/operating-dial/local-setup/4.docker-compose-with-azure-model.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-test",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 1 Local setup > Docker Compose with Ollama",
         "filePath": "docs/docs/NEW/operating-dial/1-local-setup/docker-compose-with-ollama.md"
@@ -1991,6 +2058,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no source annotation in recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "tutorial",
+        "menuPath": "NEW > Operating DIAL > Local setup > Ollama model",
+        "filePath": "docs/docs/NEW/operating-dial/local-setup/2.docker-compose-with-ollama.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-test",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -2005,6 +2083,17 @@
     },
     {
       "targetPage": {
+        "pageType": "tutorial",
+        "menuPath": "NEW > Operating DIAL > Local setup > vLLM model",
+        "filePath": "docs/docs/NEW/operating-dial/local-setup/3.docker-compose-with-vllm.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-test",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 1 Local setup > Docker Compose with application",
         "filePath": "docs/docs/NEW/operating-dial/1-local-setup/docker-compose-with-application.md"
@@ -2013,6 +2102,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no source annotation in recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "tutorial",
+        "menuPath": "NEW > Operating DIAL > Local setup > Echo application",
+        "filePath": "docs/docs/NEW/operating-dial/local-setup/1.docker-compose-with-application.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-test",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -2038,6 +2138,17 @@
     },
     {
       "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Operating DIAL > Cloud deployment > Helm chart overview",
+        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/0.index.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 2 Cloud deployment > AWS deployment",
         "filePath": "docs/docs/NEW/operating-dial/2-cloud-deployment/aws-deployment.md"
@@ -2046,6 +2157,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no source annotation in recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Cloud deployment > AWS",
+        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/1.aws-deployment.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -2061,6 +2183,17 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Cloud deployment > Azure",
+        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/2.azure-deployment.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 2 Cloud deployment > GCP deployment",
         "filePath": "docs/docs/NEW/operating-dial/2-cloud-deployment/gcp-deployment.md"
       },
@@ -2068,6 +2201,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no source annotation in recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Cloud deployment > GCP",
+        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/3.gcp-deployment.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -2083,6 +2227,17 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Cloud deployment > Generic Kubernetes",
+        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/4.generic-kubernetes.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 2 Cloud deployment > Azure Secrets deployment",
         "filePath": "docs/docs/NEW/operating-dial/2-cloud-deployment/azure-secrets-deployment.md"
       },
@@ -2090,6 +2245,23 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no source annotation in recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Cloud deployment > Azure Secrets",
+        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/5.azure-secrets-deployment.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Deployment > Azure Secrets Deployment",
+          "filePath": "docs/tutorials/2.devops/0.deployment/1.azure-secrets.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (MEDIUM): from docs/tutorials/2.devops/0.deployment/1.azure-secrets.md"
     },
     {
       "targetPage": {
@@ -2105,6 +2277,23 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Cloud deployment > Custom Apps",
+        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/6.custom-apps-deployment.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > Developers > Apps Development > Custom Buttons in Apps",
+          "filePath": "docs/tutorials/1.developers/4.apps-development/1.custom-buttons.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (MEDIUM): from docs/tutorials/1.developers/4.apps-development/1.custom-buttons.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 2 Cloud deployment > Quick Apps installation",
         "filePath": "docs/docs/NEW/operating-dial/2-cloud-deployment/quick-apps-installation.md"
       },
@@ -2112,6 +2301,23 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no source annotation in recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Cloud deployment > Quick Apps",
+        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/7.quick-apps-installation.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "explanation",
+          "menuPath": "OLD > Demos > quick-apps",
+          "filePath": "docs/video demos/2.Applications/5.quick-apps.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/video demos/2.Applications/5.quick-apps.md"
     },
     {
       "targetPage": {
@@ -3441,6 +3647,23 @@
       "status": "waiting-for-review",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "tutorial",
+        "menuPath": "NEW > Operating DIAL > Local setup > DIAL-to-DIAL adapter",
+        "filePath": "docs/docs/NEW/operating-dial/local-setup/5.dial-to-dial-adapter.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > Developers > Apps Development > Local Development",
+          "filePath": "docs/tutorials/1.developers/4.apps-development/0.adapter-dial.md"
+        }
+      ],
+      "status": "waiting-for-test",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/1.developers/4.apps-development/0.adapter-dial.md"
     }
   ]
 }

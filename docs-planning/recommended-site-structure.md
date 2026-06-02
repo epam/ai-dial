@@ -256,7 +256,7 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 
 * * *
 
-### 4\. Operating DIAL `[How-to + Reference]`
+### 4. Operating DIAL `[How-to + Reference]`
 
 *Everything a DevOps / Platform engineer needs.*
 
@@ -337,7 +337,8 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
   * Azure Monitor `[How-to]` **🆕** — *Application Insights integration, Azure Log Analytics, Azure-native OTEL exporter*
   * AWS CloudWatch `[How-to]` **🆕** — *CloudWatch Logs, Container Insights, OTEL Collector → CloudWatch exporter*
 
-#### 4.7 Production readiness **🆕** `[How-to]`
+#### 4.7 Production readiness
+ **🆕** `[How-to]`
 
 *Linear chapter. Read top to bottom.*
 

@@ -1463,6 +1463,32 @@ const sidebars = {
           items: [
             {
               type: 'category',
+              label: 'Local setup',
+              items: [
+                { type: 'doc', id: 'docs/NEW/operating-dial/local-setup/index', label: 'Overview' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/local-setup/docker-compose-with-application', label: 'Echo application' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/local-setup/docker-compose-with-ollama', label: 'Ollama model' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/local-setup/docker-compose-with-vllm', label: 'vLLM model' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/local-setup/docker-compose-with-azure-model', label: 'Azure OpenAI model' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/local-setup/dial-to-dial-adapter', label: 'DIAL-to-DIAL adapter' },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Cloud deployment',
+              items: [
+                { type: 'doc', id: 'docs/NEW/operating-dial/cloud-deployment/index', label: 'Helm chart overview' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/cloud-deployment/aws-deployment', label: 'AWS' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/cloud-deployment/azure-deployment', label: 'Azure' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/cloud-deployment/gcp-deployment', label: 'GCP' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/cloud-deployment/generic-kubernetes', label: 'Generic Kubernetes' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/cloud-deployment/azure-secrets-deployment', label: 'Azure Secrets' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/cloud-deployment/custom-apps-deployment', label: 'Custom Apps' },
+                { type: 'doc', id: 'docs/NEW/operating-dial/cloud-deployment/quick-apps-installation', label: 'Quick Apps' },
+              ],
+            },
+            {
+              type: 'category',
               label: 'Configuration Reference',
               items: [
                 {
