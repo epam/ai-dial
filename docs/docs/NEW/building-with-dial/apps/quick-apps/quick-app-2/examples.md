@@ -3,13 +3,13 @@ title: "Quick App 2.0 examples"
 type: reference
 persona: app-dev
 component: apps
-last_verified: 2026-05-08
+last_verified: 2026-05-29
 owner: "@dial-docs-team"
 ---
 
 # Quick App 2.0 examples
 
-This page contains complete, copy-pasteable Quick App 2.0 configurations for common use cases. Each example is a full `applicationProperties` object suitable for the [DIAL Core API](./create-via-api) or the JSON editor in DIAL Chat.
+This page contains complete, copy-pasteable Quick App 2.0 configurations for common use cases. Each example is a full `applicationProperties` object suitable for the [DIAL Core API](create-via-api.md) or the JSON editor in DIAL Chat.
 
 ---
 
@@ -378,8 +378,8 @@ Replace `"claude-3-5-haiku"` with any model deployment ID available in your DIAL
 
 ## Next steps
 
-- [Tutorial: agent loop (UI)](./tutorial-agent-loop-ui) — build a Research Assistant through the DIAL Chat wizard
-- [Tutorial: agent loop (API)](./tutorial-agent-loop-api) — build the same app with a single curl command
-- [Tutorial: agent loop (config.json)](./tutorial-agent-loop-config) — provision the app through infrastructure config
-- [Add tools and agents](./working-with-tools-and-agents) — full how-to for all tool set types
-- [Configuration reference](./tool-sets/reference) — complete schema documentation
+- [Tutorial: agent loop (UI)](tutorial-agent-loop-ui.md) — build a Research Assistant through the DIAL Chat wizard
+- [Tutorial: agent loop (API)](tutorial-agent-loop-api.md) — build the same app with a single curl command
+- [Tutorial: agent loop (config.json)](tutorial-agent-loop-config.md) — provision the app through infrastructure config
+- [Add tools and agents](working-with-tools-and-agents.md) — full how-to for all tool set types
+- [Configuration reference](./tool-sets/4.reference.md) — complete schema documentation

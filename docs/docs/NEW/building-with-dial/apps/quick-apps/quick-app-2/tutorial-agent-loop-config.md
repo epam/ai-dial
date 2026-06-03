@@ -3,7 +3,7 @@ title: "Tutorial: Build an agent loop (config.json)"
 type: tutorial
 persona: devops
 component: apps
-last_verified: 2026-05-12
+last_verified: 2026-05-29
 owner: "@dial-docs-team"
 ---
 
@@ -11,7 +11,7 @@ owner: "@dial-docs-team"
 
 In this tutorial you will provision a **Research Assistant** Quick App 2.0 through DIAL Core's `config.json`. The app combines a REST API tool (weather data) and a DIAL deployment tool (summarization) in an agent loop, and is available to all users as soon as DIAL Core starts.
 
-For the same tutorial using the UI, see [Tutorial: agent loop (UI)](./tutorial-agent-loop-ui). For the API, see [Tutorial: agent loop (API)](./tutorial-agent-loop-api).
+For the same tutorial using the UI, see [Tutorial: agent loop (UI)](tutorial-agent-loop-ui.md). For the API, see [Tutorial: agent loop (API)](tutorial-agent-loop-api.md).
 
 ## What you will build
 
@@ -269,7 +269,7 @@ Expected behavior:
 
 ## Next steps
 
-- [Tutorial: agent loop (UI)](./tutorial-agent-loop-ui) — build the same app through the DIAL Chat wizard
-- [Tutorial: agent loop (API)](./tutorial-agent-loop-api) — create the app with a single curl command
-- [Add tools and agents](./working-with-tools-and-agents) — reference for all seven tool set types
-- [Configuration reference](./tool-sets/reference) — full schema documentation
+- [Tutorial: agent loop (UI)](tutorial-agent-loop-ui.md) — build the same app through the DIAL Chat wizard
+- [Tutorial: agent loop (API)](tutorial-agent-loop-api.md) — create the app with a single curl command
+- [Add tools and agents](working-with-tools-and-agents.md) — reference for all seven tool set types
+- [Configuration reference](./tool-sets/4.reference.md) — full schema documentation

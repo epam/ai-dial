@@ -3,7 +3,7 @@ title: "Create a Quick App 2.0 via API"
 type: how-to
 persona: app-dev
 component: apps
-last_verified: 2026-05-12
+last_verified: 2026-05-29
 owner: "@dial-docs-team"
 ---
 
@@ -11,7 +11,7 @@ owner: "@dial-docs-team"
 
 This guide covers creating and managing Quick App 2.0 instances programmatically through the DIAL Core API.
 
-To create a Quick App 2.0 using the visual wizard instead, see [Create in DIAL Chat](./create-via-ui). To provision Quick App 2.0 through infrastructure configuration, see [Create via config.json](./create-via-config).
+To create a Quick App 2.0 using the visual wizard instead, see [Create in DIAL Chat](create-via-ui.md). To provision Quick App 2.0 through infrastructure configuration, see [Create via config.json](create-via-config.md).
 
 ## Prerequisites
 
@@ -291,8 +291,8 @@ curl -X DELETE "https://dial.example.com/v1/applications/my-assistant" \
 
 ## Next steps
 
-- [Create in DIAL Chat](./create-via-ui) — visual wizard walkthrough
-- [Create via config.json](./create-via-config) — provision through infrastructure configuration
-- [Add tools and agents](./working-with-tools-and-agents) — connect MCP servers, REST APIs, and DIAL deployments
-- [Configuration reference](./tool-sets/reference) — full schema documentation
+- [Create in DIAL Chat](create-via-ui.md) — visual wizard walkthrough
+- [Create via config.json](create-via-config.md) — provision through infrastructure configuration
+- [Add tools and agents](working-with-tools-and-agents.md) — connect MCP servers, REST APIs, and DIAL deployments
+- [Configuration reference](./tool-sets/4.reference.md) — full schema documentation
 - [DIAL Core API reference](https://dialx.ai/dial_api#tag/Applications) — complete API documentation
