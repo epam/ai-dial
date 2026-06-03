@@ -1094,6 +1094,23 @@
     },
     {
       "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Operating DIAL > Production readiness > Overview",
+        "filePath": "docs/docs/NEW/operating-dial/production-readiness/0.index.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview",
+          "filePath": "docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+    },
+    {
+      "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Code Apps > Getting started",
         "filePath": "docs/docs/NEW/building-with-dial/apps/code-apps/1.getting-started.md"
@@ -2921,6 +2938,17 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Production readiness > High availability",
+        "filePath": "docs/docs/NEW/operating-dial/production-readiness/1.high-availability.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 7 Production readiness > Scaling",
         "filePath": "docs/docs/NEW/operating-dial/7-production-readiness/scaling.md"
       },
@@ -2928,6 +2956,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Production readiness > Scaling",
+        "filePath": "docs/docs/NEW/operating-dial/production-readiness/2.scaling.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -2943,6 +2982,17 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Production readiness > Secrets management",
+        "filePath": "docs/docs/NEW/operating-dial/production-readiness/3.secrets-management.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 7 Production readiness > Backup and restore",
         "filePath": "docs/docs/NEW/operating-dial/7-production-readiness/backup-and-restore.md"
       },
@@ -2950,6 +3000,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Production readiness > Backup and restore",
+        "filePath": "docs/docs/NEW/operating-dial/production-readiness/4.backup-and-restore.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -2965,6 +3026,17 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Production readiness > Upgrade procedure",
+        "filePath": "docs/docs/NEW/operating-dial/production-readiness/5.upgrade-procedure.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 7 Production readiness > Cost control",
         "filePath": "docs/docs/NEW/operating-dial/7-production-readiness/cost-control.md"
       },
@@ -2976,6 +3048,23 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Production readiness > Cost control",
+        "filePath": "docs/docs/NEW/operating-dial/production-readiness/6.cost-control.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "explanation",
+          "menuPath": "OLD > Platform > Architecture & Concepts > Usage Limits and Cost Control",
+          "filePath": "docs/platform/3.core/8.token-limits-and-cost-control.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (MEDIUM): from docs/platform/3.core/8.token-limits-and-cost-control.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 7 Production readiness > Security hardening",
         "filePath": "docs/docs/NEW/operating-dial/7-production-readiness/security-hardening.md"
       },
@@ -2983,6 +3072,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Operating DIAL > Production readiness > Security hardening",
+        "filePath": "docs/docs/NEW/operating-dial/production-readiness/7.security-hardening.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {

@@ -3,7 +3,7 @@ title: "Documentation progress"
 type: reference
 persona: all
 component: platform
-last_verified: 2026-06-02
+last_verified: 2026-06-03
 owner: "@dial-docs-team"
 ---
 
@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 112 | 0 | 155 | 0 | 28 | 0 | 0 |
+| 112 | 0 | 163 | 0 | 28 | 0 | 0 |
 
-**Progress: 0 / 295 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 303 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 202 New, 93 1-to-1
+Mapping types: 208 New, 95 1-to-1
 
 ---
 
@@ -191,13 +191,14 @@ Mapping types: 202 New, 93 1-to-1
 | [Apps > Quick Apps > Quick App 2.0 > Tool Sets > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/reference) | — | reference | New | 🟡 Waiting for review |
 | [Apps > Quick Apps > Quick App (original) > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/reference) | — | reference | New | 🟡 Waiting for review |
 
-## Operating DIAL (120)
+## Operating DIAL (128)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
 | [Auth and access control > Overview](/docs/NEW/operating-dial/auth-and-access-control/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
 | [Local setup > Overview](/docs/NEW/operating-dial/local-setup/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | explanation | 1-to-1 | 🟡 Waiting for review |
 | [Observability > Overview](/docs/NEW/operating-dial/observability/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | explanation | 1-to-1 | 🟡 Waiting for review |
+| [Production readiness > Overview](/docs/NEW/operating-dial/production-readiness/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | explanation | 1-to-1 | 🟡 Waiting for review |
 | 1 Local setup > Docker Compose with Azure model | — | how-to | New | ⬜ Planned |
 | [Local setup > Azure OpenAI model](/docs/NEW/operating-dial/local-setup/docker-compose-with-azure-model) | — | tutorial | New | 🟠 Waiting for test |
 | 1 Local setup > Docker Compose with Ollama | — | how-to | New | ⬜ Planned |
@@ -271,12 +272,19 @@ Mapping types: 202 New, 93 1-to-1
 | 6 Observability > Azure Monitor | — | how-to | New | ⬜ Planned |
 | 6 Observability > AWS CloudWatch | — | how-to | New | ⬜ Planned |
 | 7 Production readiness > High availability | — | how-to | New | ⬜ Planned |
+| [Production readiness > High availability](/docs/NEW/operating-dial/production-readiness/high-availability) | — | how-to | New | 🟡 Waiting for review |
 | 7 Production readiness > Scaling | — | how-to | New | ⬜ Planned |
+| [Production readiness > Scaling](/docs/NEW/operating-dial/production-readiness/scaling) | — | how-to | New | 🟡 Waiting for review |
 | 7 Production readiness > Secrets management | — | how-to | New | ⬜ Planned |
+| [Production readiness > Secrets management](/docs/NEW/operating-dial/production-readiness/secrets-management) | — | how-to | New | 🟡 Waiting for review |
 | 7 Production readiness > Backup and restore | — | how-to | New | ⬜ Planned |
+| [Production readiness > Backup and restore](/docs/NEW/operating-dial/production-readiness/backup-and-restore) | — | how-to | New | 🟡 Waiting for review |
 | 7 Production readiness > Upgrade procedure | — | how-to | New | ⬜ Planned |
+| [Production readiness > Upgrade procedure](/docs/NEW/operating-dial/production-readiness/upgrade-procedure) | — | how-to | New | 🟡 Waiting for review |
 | 7 Production readiness > Cost control | — | how-to | New | ⬜ Planned |
+| [Production readiness > Cost control](/docs/NEW/operating-dial/production-readiness/cost-control) | Platform > Architecture & Concepts > Usage Limits and Cost Control | how-to | 1-to-1 | 🟡 Waiting for review |
 | 7 Production readiness > Security hardening | — | how-to | New | ⬜ Planned |
+| [Production readiness > Security hardening](/docs/NEW/operating-dial/production-readiness/security-hardening) | — | how-to | New | 🟡 Waiting for review |
 | [Configuration Reference > Overview](/docs/NEW/operating-dial/configuration/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | unknown | 1-to-1 | 🟡 Waiting for review |
 | [Configuration Reference > DIAL Core > Overview](/docs/NEW/operating-dial/configuration/core/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | reference | 1-to-1 | 🟡 Waiting for review |
 | [Configuration Reference > DIAL Core > settings.json > Overview](/docs/NEW/operating-dial/configuration/core/settings-json/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | reference | 1-to-1 | 🟡 Waiting for review |
@@ -355,4 +363,4 @@ Mapping types: 202 New, 93 1-to-1
 
 ---
 
-> Last generated: 2026-06-02. Source: [`tracking.json`](https://github.com/epam/ai-dial/blob/main/docs-planning/tracking.json).
+> Last generated: 2026-06-03. Source: [`tracking.json`](https://github.com/epam/ai-dial/blob/main/docs-planning/tracking.json).
