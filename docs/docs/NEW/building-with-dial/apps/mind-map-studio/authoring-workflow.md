@@ -3,7 +3,7 @@ title: "Author a Mind Map app"
 type: how-to
 persona: app-dev
 component: apps
-last_verified: 2026-05-13
+last_verified: 2026-05-29
 owner: "@dial-docs-team"
 ---
 
@@ -83,6 +83,6 @@ When you are satisfied with the result, click **Save and exit** to register the 
 
 ## Next steps
 
-- [Export and publish a Mind Map app](./export-and-publish) — share or publish your completed graph
-- [Mind Map Studio overview](./index) — architecture, use cases, and limitations
-- [When to use which app type](../when-to-use-which) — compare Mind Map Studio with other DIAL app types
+- [Export and publish a Mind Map app](export-and-publish.md) — share or publish your completed graph
+- [Mind Map Studio overview](0.index.md) — architecture, use cases, and limitations
+- [When to use which app type](../when-to-use-which.md) — compare Mind Map Studio with other DIAL app types

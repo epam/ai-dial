@@ -3,7 +3,7 @@ title: "Add tools and agents to a Quick App 2.0"
 type: how-to
 persona: app-dev
 component: apps
-last_verified: 2026-05-08
+last_verified: 2026-05-29
 owner: "@dial-docs-team"
 ---
 
@@ -31,11 +31,11 @@ Tools can be combined freely. A single Quick App 2.0 can use multiple tool set t
 
 The JSON examples on this page are for the **API** and **config.json** methods of creating and managing Quick Apps. The DIAL Chat UI wizard does not have a JSON editor for Quick App 2.0.
 
-**API** — include the `tool_sets` array inside `applicationProperties` in the request body when you [create](./create-via-api) or update an app via `POST /v1/applications/{appId}`.
+**API** — include the `tool_sets` array inside `applicationProperties` in the request body when you [create](create-via-api.md) or update an app via `POST /v1/applications/{appId}`.
 
-**config.json** — include the `tool_sets` array inside `applicationProperties` in your application entry in [DIAL Core's config.json](./create-via-config).
+**config.json** — include the `tool_sets` array inside `applicationProperties` in your application entry in [DIAL Core's config.json](create-via-config.md).
 
-**UI wizard** — the [DIAL Chat wizard](./create-via-ui) does not use JSON. Instead, it provides a visual [Agents & Toolsets picker](./create-via-ui#agents--toolsets) where you select pre-registered Tool Sets and agents from a list. This means:
+**UI wizard** — the [DIAL Chat wizard](create-via-ui.md) does not use JSON. Instead, it provides a visual [Agents & Toolsets picker](create-via-ui#agents--toolsets) where you select pre-registered Tool Sets and agents from a list. This means:
 
 - **DIAL-registered Tool Sets** (`dial-mcp`) and **agents** (`dial-deployment`) can be added through the UI picker *or* via JSON.
 - **REST API tools** (`rest-api`) and **direct MCP server connections** (`mcp`) can only be configured via JSON (API or config.json).
@@ -431,9 +431,9 @@ Use the **Preview** panel to send a message that should trigger the tool. DIAL C
 
 ## Next steps
 
-- [Tool Set examples](./tool-sets/examples) — 5 complete copy-pasteable configurations
-- [Configuration reference](./tool-sets/reference) — full schema documentation for all tool set types
-- [Define and register a Tool Set](./tool-sets/define-and-register) — register an MCP server in DIAL Core for use with `dial-mcp`
-- [Tutorial: agent loop (UI)](./tutorial-agent-loop-ui) — build the same app through the DIAL Chat wizard
-- [Tutorial: agent loop (API)](./tutorial-agent-loop-api) — build the same app with a single curl command
-- [Tutorial: agent loop (config.json)](./tutorial-agent-loop-config) — provision the app through infrastructure config
+- [Tool Set examples](./tool-sets/5.examples.md) — 5 complete copy-pasteable configurations
+- [Configuration reference](./tool-sets/4.reference.md) — full schema documentation for all tool set types
+- [Define and register a Tool Set](./tool-sets/1.define-and-register.md) — register an MCP server in DIAL Core for use with `dial-mcp`
+- [Tutorial: agent loop (UI)](tutorial-agent-loop-ui.md) — build the same app through the DIAL Chat wizard
+- [Tutorial: agent loop (API)](tutorial-agent-loop-api.md) — build the same app with a single curl command
+- [Tutorial: agent loop (config.json)](tutorial-agent-loop-config.md) — provision the app through infrastructure config

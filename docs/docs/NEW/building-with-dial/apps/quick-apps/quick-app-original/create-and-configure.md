@@ -3,7 +3,7 @@ title: "Create and configure a Quick App"
 type: tutorial
 persona: app-dev
 component: apps
-last_verified: 2026-05-12
+last_verified: 2026-05-29
 owner: "@dial-docs-team"
 ---
 
@@ -11,9 +11,9 @@ owner: "@dial-docs-team"
 
 This tutorial walks you through creating a Quick App using the original schema (`$id: https://mydial.epam.com/custom_application_schemas/quickapps`). It covers three methods — UI, API, and config.json — each as a self-contained walkthrough.
 
-:::tip
-For new applications, [Quick App 2.0](../quick-app-2/create-via-ui) is recommended. It offers an orchestrator-based architecture, a richer tool set model, and a full visual editor. The original Quick App is still fully supported for existing applications and use cases that require client-side tools.
-:::
+**Tip**
+> For new applications, [Quick App 2.0](../quick-app-2/create-via-ui.md) is recommended. It offers an orchestrator-based architecture, a richer tool set model, and a full visual editor. The original Quick App is still fully supported for existing applications and use cases that require client-side tools.
+
 
 ## When to use the original Quick App
 
@@ -23,7 +23,7 @@ The original Quick App is the right choice when:
 - You need **condition-based tool selection** (regex matching on deployment ID, display name, or description) — Quick App 2.0 requires explicit deployment IDs.
 - You are maintaining an existing Quick App and do not want to migrate yet.
 
-For all other cases, use [Quick App 2.0](../quick-app-2/create-via-ui).
+For all other cases, use [Quick App 2.0](../quick-app-2/create-via-ui.md).
 
 ---
 
@@ -138,9 +138,9 @@ To add an MCP server connection, click the **MCP** tab and replace `[]` with a J
 
 Replace the `url` with the actual URL of your MCP server, and update the `authorization` with your credentials. If you do not have an MCP server to connect, leave the MCP editor as `[]`.
 
-:::tip
-Both code editors have a fullscreen/expand button for easier editing of large JSON configurations.
-:::
+**Tip**
+> Both code editors have a fullscreen/expand button for easier editing of large JSON configurations.
+
 
 **Instructions** (required) — write the system prompt that guides the model's behavior. For the weather example above, enter:
 
@@ -413,7 +413,6 @@ The `docker-compose.yml` mounts it as a volume into the `dial-core` container:
 services:
   core:
     image: epam/ai-dial-core:latest
-    platform: linux/amd64
     volumes:
       - ./core/config.json:/opt/config/config.json
 ```
@@ -599,7 +598,7 @@ Then open DIAL Chat and verify the app appears in the app list.
 
 ## Next steps
 
-- [Configuration reference](./reference) — full schema documentation for the original Quick App
-- [Migrate to Quick App 2.0](./migrate-to-2) — convert an existing Quick App to the 2.0 schema
-- [Quick App 2.0 documentation](../quick-app-2/create-via-ui) — guides for the recommended Quick App type
-- [Troubleshooting](/docs/NEW/operating-dial/troubleshooting) — platform-wide error codes and operational failure modes
+- [Configuration reference](reference.md) — full schema documentation for the original Quick App
+- [Migrate to Quick App 2.0](migrate-to-2.md) — convert an existing Quick App to the 2.0 schema
+- [Quick App 2.0 documentation](../quick-app-2/create-via-ui.md) — guides for the recommended Quick App type
+- [Troubleshooting](/docs/NEW/operating-dial/troubleshooting.md) — platform-wide error codes and operational failure modes

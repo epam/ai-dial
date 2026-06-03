@@ -3,7 +3,7 @@ title: "Export and publish a Mind Map app"
 type: how-to
 persona: app-dev
 component: apps
-last_verified: 2026-05-13
+last_verified: 2026-05-29
 owner: "@dial-docs-team"
 ---
 
@@ -13,7 +13,7 @@ This guide covers how to save, share, and publish a completed Mind Map Studio kn
 
 ## Prerequisites
 
-- A completed Mind Map app (see [Author a Mind Map app](./authoring-workflow))
+- A completed Mind Map app (see [Author a Mind Map app](authoring-workflow.md))
 - DIAL Chat access with sharing or publication permissions
 
 ## Save the app
@@ -40,9 +40,9 @@ Publication makes your Mind Map app available to all authenticated users (or a r
 6. An administrator reviews and approves or rejects the request through DIAL Admin.
 7. Once approved, the app appears in the Marketplace and is discoverable by other users.
 
-:::note
-Published apps are read-only for consumers. If you need to update the graph, edit the app in Mind Map Studio and resubmit for publication.
-:::
+**Note**
+> Published apps are read-only for consumers. If you need to update the graph, edit the app in Mind Map Studio and resubmit for publication.
+
 
 ## Update a published app
 
@@ -53,12 +53,11 @@ To update a Mind Map app after publication:
 10. Click **Save and exit** to save the updated version.
 11. Resubmit the app for publication to push the changes to the Marketplace.
 
-:::tip
-If your source material has changed, you can update the sources in the Sources section and regenerate the graph without rebuilding from scratch.
-:::
+**Tip**
+> If your source material has changed, you can update the sources in the Sources section and regenerate the graph without rebuilding from scratch.
 
 ## Next steps
 
-- [Author a Mind Map app](./authoring-workflow) — create and customize a knowledge graph
-- [Mind Map Studio overview](./index) — architecture, use cases, and limitations
-- [DIAL Apps overview](../index) — the full app ecosystem
+- [Author a Mind Map app](authoring-workflow.md) — create and customize a knowledge graph
+- [Mind Map Studio overview](0.index.md) — architecture, use cases, and limitations
+- [DIAL Apps overview](../0.index.md) — the full app ecosystem

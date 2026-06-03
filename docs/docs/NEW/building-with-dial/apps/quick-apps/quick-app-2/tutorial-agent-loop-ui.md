@@ -3,7 +3,7 @@ title: "Tutorial: Build an agent loop (UI)"
 type: tutorial
 persona: app-dev
 component: apps
-last_verified: 2026-05-12
+last_verified: 2026-05-29
 owner: "@dial-docs-team"
 ---
 
@@ -11,7 +11,7 @@ owner: "@dial-docs-team"
 
 In this tutorial you will build a **Research Assistant** Quick App 2.0 entirely through the DIAL Chat UI. The app connects to a registered Tool Set (an MCP server) and uses an agent loop to answer questions with live data.
 
-For the same tutorial using the API, see [Tutorial: agent loop (API)](./tutorial-agent-loop-api). For config.json, see [Tutorial: agent loop (config.json)](./tutorial-agent-loop-config).
+For the same tutorial using the API, see [Tutorial: agent loop (API)](tutorial-agent-loop-api.md). For config.json, see [Tutorial: agent loop (config.json)](tutorial-agent-loop-config.md).
 
 ## What you will build
 
@@ -30,9 +30,8 @@ Each tool call appears as a collapsible stage in DIAL Chat, so users can inspect
 - At least one language model deployed in your DIAL instance that supports function calling (e.g., GPT-4o, GPT-5.4 Mini).
 - An MCP server accessible from your DIAL instance. This can be any MCP server your organization runs (e.g., a search service, database tool, or internal API). You need its URL and any required credentials.
 
-:::tip No MCP server available?
-If you don't have an MCP server to connect, use the [API tutorial](./tutorial-agent-loop-api) instead — it builds the same agent loop using a free weather REST API that requires no setup.
-:::
+**Tip: No MCP server available?**
+> If you don't have an MCP server to connect, use the [API tutorial](tutorial-agent-loop-api.md) instead — it builds the same agent loop using a free weather REST API that requires no setup.
 
 ---
 
@@ -67,7 +66,7 @@ Click **Next**.
 
 Click **Save and exit**.
 
-The Tool Set now appears as a card in **My workspace → Toolsets**. For more details on each authentication option, see [Define and register a Tool Set](./tool-sets/define-and-register).
+The Tool Set now appears as a card in **My workspace → Toolsets**. For more details on each authentication option, see [Define and register a Tool Set](./tool-sets/1.define-and-register.md).
 
 ---
 
@@ -165,7 +164,7 @@ Click **Save and exit** in the top-right corner. The app is saved to your person
 
 ## Next steps
 
-- [Tutorial: agent loop (API)](./tutorial-agent-loop-api) — build the same app with REST API tools via curl
-- [Tutorial: agent loop (config.json)](./tutorial-agent-loop-config) — provision the app through infrastructure config
-- [Add tools and agents](./working-with-tools-and-agents) — reference for all seven tool set types
-- [Share and manage Tool Set permissions](./tool-sets/sharing-and-permissions) — publish your Tool Set to the Marketplace
+- [Tutorial: agent loop (API)](tutorial-agent-loop-api.md) — build the same app with REST API tools via curl
+- [Tutorial: agent loop (config.json)](tutorial-agent-loop-config.md) — provision the app through infrastructure config
+- [Add tools and agents](working-with-tools-and-agents.md) — reference for all seven tool set types
+- [Share and manage Tool Set permissions](./tool-sets/3.sharing-and-permissions.md) — publish your Tool Set to the Marketplace
