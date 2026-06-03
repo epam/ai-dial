@@ -3903,6 +3903,17 @@
       "status": "waiting-for-test",
       "mappingType": "1-to-1",
       "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/1.developers/4.apps-development/0.adapter-dial.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "reference",
+        "menuPath": "NEW > Operating DIAL > Troubleshooting",
+        "filePath": "docs/docs/NEW/operating-dial/troubleshooting.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     }
   ]
 }

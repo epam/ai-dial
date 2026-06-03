@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 112 | 0 | 163 | 0 | 28 | 0 | 0 |
+| 112 | 0 | 164 | 0 | 28 | 0 | 0 |
 
-**Progress: 0 / 303 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 304 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 208 New, 95 1-to-1
+Mapping types: 209 New, 95 1-to-1
 
 ---
 
@@ -191,7 +191,7 @@ Mapping types: 208 New, 95 1-to-1
 | [Apps > Quick Apps > Quick App 2.0 > Tool Sets > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/reference) | — | reference | New | 🟡 Waiting for review |
 | [Apps > Quick Apps > Quick App (original) > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/reference) | — | reference | New | 🟡 Waiting for review |
 
-## Operating DIAL (128)
+## Operating DIAL (129)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
@@ -323,6 +323,7 @@ Mapping types: 208 New, 95 1-to-1
 | 4 Configuration reference > Enable publications | Tutorials > DevOps > Configuration > Enable Publications | how-to | 1-to-1 | ⬜ Planned |
 | [Auth and access control > JWT authentication](/docs/NEW/operating-dial/auth-and-access-control/jwt) | — | how-to | New | 🟡 Waiting for review |
 | [Local setup > DIAL-to-DIAL adapter](/docs/NEW/operating-dial/local-setup/dial-to-dial-adapter) | Tutorials > Developers > Apps Development > Local Development | tutorial | 1-to-1 | 🟠 Waiting for test |
+| [Troubleshooting](/docs/NEW/operating-dial/troubleshooting) | — | reference | New | 🟡 Waiting for review |
 
 ## Administering DIAL (11)
 

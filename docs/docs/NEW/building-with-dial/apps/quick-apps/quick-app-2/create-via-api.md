@@ -296,3 +296,4 @@ curl -X DELETE "https://dial.example.com/v1/applications/my-assistant" \
 - [Add tools and agents](./working-with-tools-and-agents) — connect MCP servers, REST APIs, and DIAL deployments
 - [Configuration reference](./tool-sets/reference) — full schema documentation
 - [DIAL Core API reference](https://dialx.ai/dial_api#tag/Applications) — complete API documentation
+- [Troubleshooting](/docs/NEW/operating-dial/troubleshooting) — platform-wide error codes and operational failure modes

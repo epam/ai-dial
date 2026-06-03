@@ -1661,6 +1661,7 @@ const sidebars = {
                 { type: 'doc', id: 'docs/NEW/operating-dial/production-readiness/security-hardening', label: 'Security hardening' },
               ],
             },
+            { type: 'doc', id: 'docs/NEW/operating-dial/troubleshooting', label: 'Troubleshooting' },
           ],
         },
       ],

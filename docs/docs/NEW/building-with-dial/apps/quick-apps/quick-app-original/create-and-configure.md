@@ -602,3 +602,4 @@ Then open DIAL Chat and verify the app appears in the app list.
 - [Configuration reference](./reference) — full schema documentation for the original Quick App
 - [Migrate to Quick App 2.0](./migrate-to-2) — convert an existing Quick App to the 2.0 schema
 - [Quick App 2.0 documentation](../quick-app-2/create-via-ui) — guides for the recommended Quick App type
+- [Troubleshooting](/docs/NEW/operating-dial/troubleshooting) — platform-wide error codes and operational failure modes
