@@ -22,7 +22,7 @@
    - ai-dial-app-controller: `0.4.0`
    - ai-dial-app-builder-python: `0.1.0`
    - ai-dial-quickapps-backend: `0.8.0`
-   - ai-dial-mind-map-backend: `0.14.0-rc.0`
+   - ai-dial-mind-map-backend: `0.14.0`
    - ai-dial-mind-map-frontend: `0.12.0`
    - ai-dial-admin-backend: `0.17.0`
    - ai-dial-admin-frontend: `0.17.0`
