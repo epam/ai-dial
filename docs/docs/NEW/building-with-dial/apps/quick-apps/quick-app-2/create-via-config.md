@@ -3,7 +3,7 @@ title: "Create a Quick App 2.0 via config.json"
 type: how-to
 persona: devops
 component: apps
-last_verified: 2026-05-12
+last_verified: 2026-05-29
 owner: "@dial-docs-team"
 ---
 
@@ -11,7 +11,7 @@ owner: "@dial-docs-team"
 
 This guide covers provisioning Quick App 2.0 instances through DIAL Core's `config.json` file. Use this approach for static deployments, version-controlled infrastructure, and team-wide application provisioning.
 
-To create a Quick App 2.0 through the UI or API instead, see [Create in DIAL Chat](./create-via-ui) or [Create via API](./create-via-api).
+To create a Quick App 2.0 through the UI or API instead, see [Create in DIAL Chat](create-via-ui.md) or [Create via API](create-via-api.md).
 
 ## When to use config.json
 
@@ -22,7 +22,7 @@ Config-based provisioning is the right choice when:
 - You want application definitions under version control.
 - You are deploying apps that should be available immediately after DIAL Core starts.
 
-For one-off app creation by individual users, the [UI wizard](./create-via-ui) or [API](./create-via-api) is simpler.
+For one-off app creation by individual users, the [UI wizard](create-via-ui.md) or [API](create-via-api.md) is simpler.
 
 ## Prerequisites
 
@@ -85,9 +85,8 @@ Add the following to the `applicationTypeSchemas` array. Replace `<quickapps2-ho
 }
 ```
 
-:::note
-The `dial:appendApplicationPropertiesHeader` flag is `false` for Quick App 2.0. This means the executor service fetches the application configuration from DIAL Core via a separate request, rather than receiving it in the request header. This is the preferred approach for Quick App 2.0 because configurations can be large.
-:::
+**Note**
+> The `dial:appendApplicationPropertiesHeader` flag is `false` for Quick App 2.0. This means the executor service fetches the application configuration from DIAL Core via a separate request, rather than receiving it in the request header. This is the preferred approach for Quick App 2.0 because configurations can be large.
 
 ---
 
@@ -253,7 +252,7 @@ To set rate limits, define the application in a role's `limits`:
 }
 ```
 
-See [Roles configuration](../../../../operating-dial/configuration/core/config-json/roles) for full details.
+See [Roles configuration](../../../../operating-dial/configuration/core/config-json/4.roles.md) for full details.
 
 ---
 
@@ -394,7 +393,7 @@ If the app does not appear, check DIAL Core logs for schema validation errors. C
 
 ## Next steps
 
-- [Create in DIAL Chat](./create-via-ui) — visual wizard walkthrough
-- [Create via API](./create-via-api) — programmatic creation
-- [Applications configuration reference](../../../../operating-dial/configuration/core/config-json/applications) — all config.json application attributes
-- [Configuration reference](./tool-sets/reference) — full Quick App 2.0 schema documentation
+- [Create in DIAL Chat](create-via-ui.md) — visual wizard walkthrough
+- [Create via API](create-via-api.md) — programmatic creation
+- [Applications configuration reference](../../../../operating-dial/configuration/core/config-json/2.applications.md) — all config.json application attributes
+- [Configuration reference](./tool-sets/4.reference.md) — full Quick App 2.0 schema documentation

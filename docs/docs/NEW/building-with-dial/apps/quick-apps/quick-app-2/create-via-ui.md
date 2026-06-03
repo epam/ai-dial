@@ -3,7 +3,7 @@ title: "Create a Quick App 2.0 in DIAL Chat"
 type: how-to
 persona: app-dev
 component: apps
-last_verified: 2026-05-12
+last_verified: 2026-05-29
 owner: "@dial-docs-team"
 ---
 
@@ -11,7 +11,7 @@ owner: "@dial-docs-team"
 
 This guide walks through creating a Quick App 2.0 using the visual wizard in DIAL Chat. You will set a model, write a system prompt, add tools, and test the app before saving.
 
-To create a Quick App 2.0 programmatically, see [Create via API](./create-via-api) or [Create via config.json](./create-via-config).
+To create a Quick App 2.0 programmatically, see [Create via API](create-via-api.md) or [Create via config.json](create-via-config.md).
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ Selected agents and Tool Sets appear as chips in the Agents & Toolsets section. 
 
 ![App settings with two agents/toolsets added as chips: Anthropic Claude and Notion Toolset, each with an X button to remove](../img/authoring-agents-added.png)
 
-See [Add tools and agents to a Quick App 2.0](./working-with-tools-and-agents) for a complete walkthrough of all tool types, including REST API and MCP configurations.
+See [Add tools and agents to a Quick App 2.0](working-with-tools-and-agents.md) for a complete walkthrough of all tool types, including REST API and MCP configurations.
 
 ### Instructions
 
@@ -139,8 +139,8 @@ Co-editing is supported if you grant WRITE access to another user — changes fr
 
 ## Next steps
 
-- [Create via API](./create-via-api) — create Quick App 2.0 instances programmatically
-- [Create via config.json](./create-via-config) — provision Quick App 2.0 through DIAL Core configuration
-- [Add tools and agents](./working-with-tools-and-agents) — connect MCP servers, REST APIs, and DIAL deployments
-- [Tutorial: agent loop (UI)](./tutorial-agent-loop-ui) — end-to-end example building a Research Assistant
-- [Configuration reference](./tool-sets/reference) — full schema documentation
+- [Create via API](create-via-api.md) — create Quick App 2.0 instances programmatically
+- [Create via config.json](create-via-config.md) — provision Quick App 2.0 through DIAL Core configuration
+- [Add tools and agents](working-with-tools-and-agents.md) — connect MCP servers, REST APIs, and DIAL deployments
+- [Tutorial: agent loop (UI)](tutorial-agent-loop-ui.md) — end-to-end example building a Research Assistant
+- [Configuration reference](./tool-sets/4.reference.md) — full schema documentation
