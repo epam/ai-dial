@@ -22,7 +22,7 @@ The Prompt Publications screen shows all publish/unpublish requests submitted vi
 |--------|-------------|
 | **Name** | Title of the submitted publication request. |
 | **Author** | The user who has submitted the publication request. |
-| **Creation time** | Publication request submission's timestamp. |
+| **Creation Time** | Publication request submission's timestamp. |
 
 ## Review Publication Request
 

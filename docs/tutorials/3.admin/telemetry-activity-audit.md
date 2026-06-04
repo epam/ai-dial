@@ -1,4 +1,4 @@
-# Activity Audit
+# Activity
 
 ## Introduction
 
@@ -19,11 +19,15 @@ On the main screen, you can view all events that has happened in DIAL Admin Pane
 
 ##### Top Bar Controls
 
-* **Time Period** filter: A dropdown control that scopes the Activity-Audit table to a custom period range.
-* **Refresh** button: Manually refreshes the entries on the page honoring all active filters and the selected **Time Period** to pull the latest audit events
+* **Time Period** filter: A dropdown that scopes the Activity Audit table to a specific time range.
+* **View** filter: A dropdown that scopes the activities grid to one category. Options:
+    * **Config** — Import, Rollback, and changes to configuration entities.
+    * **Assets** — activities on assets (toolsets, prompts, files).
+    * **Deployment** — activities on deployment resources (images, containers).
+* **Refresh** button: Reloads the table, honoring all active filters and the selected **Time Period**.
 * **System Rollback**: Use to restore a specific state of the entire system. Refer to [System Rollback](#system-rollback) to learn more.
 
-![](img/img_66.png)
+![](img/activities.png)
 
 | Name | Description |
 |----- |-------------|
@@ -55,7 +59,7 @@ The Activity Details view serves as both an investigative tool for troubleshooti
 | Initiated | E-mail of a user who performed action. |
 | User ID | Unique identifier of a user who performed action.
 
-![](img/img_67.png)
+![](img/activities-review.png)
 
 #### Review Changes
 
@@ -67,30 +71,32 @@ The Activity Details view serves as both an investigative tool for troubleshooti
     * **Blue** (`Update`). A field's value was **modified** - both Before and After state rows rows are highlighted in blue.
     * **Red** (`Delete`). A field was **removed** - it is present in the *Before* state but absent (or struck-through) in the *After* state.
 
-![](img/resource-audit-table.png)
+![](img/activities-review-coloring.png)
 
 Use the JSON toggle to switch between the form-based UI and raw JSON to view a comprehensive set of parameters or those not rendered on UI.
 
-![](img/img_67_1.png)
+![](img/activities-json-editor.png)
 
 #### Resource Rollback
 
-Use Resource Rollback to restore the previous version of the related resource. A rollback leads to generation of a new entry on the audit activity screen.
+Use Resource Rollback to restore the previous version of a single resource. The rollback itself is recorded as a new entry on the Activity Audit screen, so the action is fully traceable.
 
 ![](img/84.png)
 
 ## System Rollback
 
-Use System Rollback to restore all resources modified during a specified time period to their previous state. This operation performs a bulk revert across multiple resources simultaneously, creating individual rollback entries in the audit log for each affected resource. Use this when you need to undo a batch of related changes or restore system stability after problematic updates.
+Use System Rollback to restore all resources modified during a specified time period to their previous state in a single operation. The action is logged as a parent entry on the Activity Audit screen that captures the rollback parameters (target time range), with a child entry bound to it for every affected resource. This lets you trace the bulk operation as a whole and drill down into each individual resource it touched.
 
 ![](img/system-rollback.png)
 
-On the System Rollback screen, you can see tabs with all the effected resources. Navigate to each tab to preview changes. Use filters to preview only changes or all the parameters and to specify the time range. Click any action to display details in table or JSON view modes.
+On the System Rollback screen, tabs list all affected resources. Open any tab to drill down into the corresponding resource: review the before/after diff, switch between table and JSON view, and apply or skip the rollback for that resource. Use the filters to limit the diff to changed parameters only and to narrow the time range.
 
 ![](img/audit-review.png)
 
-Use the JSON toggle to switch between the form-based UI and raw JSON to view a comprehensive set of parameters or those not rendered on UI.
+Use the JSON toggle to switch between the form-based UI and raw JSON to view a comprehensive set of parameters, including those not rendered on the UI.
 
 ![](img/system-rollback-json.png)
+
+System-wide operations other than rollback are tracked the same way. **Import Config**, for example, is logged as a single parent entry capturing the import action, with a child entry bound for every resource it created or modified. Open the parent entry to drill down into each affected resource and review the changes that were applied at the global level.
 
 

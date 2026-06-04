@@ -24,7 +24,7 @@ The Toolsets Publications screen shows all publish/unpublish requests submitted 
 |--------|--------------|
 | **Name** | Title of the submitted publication request. |
 | **Author** | The user who has submitted the publication request. |
-| **Creation time** | Publication request submission's timestamp. |
+| **Creation Time** | Publication request submission's timestamp. |
 
 ## Review Publication Request
 
@@ -51,7 +51,7 @@ In this tab you can access and modify the selected properties of the toolset bei
 |----------|----------|-------------|
 | **Action** | No | Action to be taken on this request: Publish (to publish toolset) or Unpublish (to remove the toolset form the Public folder in DIAL file system). |
 | **Creation Time** | No | Publication request creation timestamp. |
-| **Authentication** | No | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset in not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated for your user only. <br />- **Logged in (Organization)**: The toolset is authenticated for all users in your organization. | 
+| **Authentication** | No | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset is not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated with personal credentials only. <br />- **Logged in (Organization)**: The toolset is authenticated with organization credentials only. <br />- **Logged in**: The toolset is authenticated at both personal and organization levels. | 
 | **Author** | Yes | Name of the publication request creator. |
 | **Folder Storage** | Yes | The path to the target folder in the Public file storage where the published toolset will be stored. <br /> Use **Move to** to change the initial setting provided in the publication request. |
 | **ID** | Yes |Unique identifier of the toolset. |

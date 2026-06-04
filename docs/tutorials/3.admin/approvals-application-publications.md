@@ -24,7 +24,7 @@ The Application Publications screen shows all publish/unpublish requests submitt
 |--------|--------------|
 | **Name** | Title of the submitted publication request (not the application). |
 | **Author** | The user who has submitted the publication request. |
-| **Creation time** | Publication request submission's timestamp. |
+| **Creation Time** | Publication request submission's timestamp. |
 
 ## Review Publication Request
 
@@ -59,13 +59,16 @@ In this tab you can access and modify the selected properties of the application
 | **Description** | Yes | Description of the application. |
 | **Icon** | Yes | Application's icon that will be rendered on UI. |
 | **Topics** | Yes | Topics are semantic labels that you can assign to apps (e.g. "finance", "support") for better navigation on UI. Click to display a list of available topics. <br /> You can add your own custom topics to the list following these rules:<br />- The topic name must not exceed 255 characters.<br />- The topic name must not contain leading or trailing spaces. |
-| **Source type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. In [Builders/Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) you can see all the available runners and add new ones. |
+| **Source type** | Yes | Source type of application.<br />- **Endpoints**: Application with this source type is a standalone application. DIAL Core communicates with such application via the explicitly-provided chat completion, responses and/or MCP endpoints.<br />- **Application runner**: Application runners can be seen as application factories, allowing users to create logical instances of apps with different configurations. Application runners are based on JSON schemas, which define structure, properties and endpoints for applications. In [Builders/Application Runners](/docs/tutorials/3.admin/builders-application-runners.md) you can see all the available runners and add new ones. |
 | **Application runner** | Yes | Select one of the available application runners. If the application is created based on an application runner, DIAL Core will forward all payloads to endpoints defined in the [application runner configuration](/docs/tutorials/3.admin/builders-application-runners.md#features). Required if Source Type is **Application runner**. |
 | **Completion endpoint** | Yes | Chat completion endpoint of the application. Required if Source Type is **Endpoints**. |
+| **Responses endpoint** | Yes | Endpoint URL that supports OpenAI Responses API. Required if Source Type is **Endpoints**. |
+| **MCP Endpoint** | Yes | The application's MCP endpoint DIAL Core will use to communicate with application. Required if Source Type is **Endpoints**.<br />-**Transport**: Transport used by MCP server for transmitting MCP messages between client and server. HTTP by default.<br />-**Forward per request key**: Set this flag to `true` if you want a [per-request key](/docs/platform/3.core/3.per-request-keys.md) to be forwarded to the MCP endpoint allowing MCP server to access files in the DIAL storage.<br />-**Configuration delivery**: Determines how application properties are sent to the MCP server. Choose `Header` to deliver application properties in Http header. Choose `Meta` to include application properties in `_meta` field within the MCP message payload. |
 | **Attachment types** | Yes | Use to define the [attachment types](/docs/tutorials/1.developers/3.chat/0.chat-objects.md#attachments) (images, files) this app can have:  <br />**Available values**:<br /> **No attachments**: Disables all attachment types.  <br /> **All attachments types**: Allows all types of file attachments. Optionally specify max number of attachments. <br /> **Specific attachments types**: Enables the user to define/select specific [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types). Start typing to see suggestions or use `<type>/<subtype>` format for a manual entry. |
 | **Attachments max number** | Yes | Maximum number of input attachments. Enabled if attachment types are defined. |
-| **Defaults** | Yes | Default parameters for the application. Default parameters are applied if a request doesn't contain them in OpenAI chat/completions API call. |
-| **Forward auth token** | Yes | Select a downstream auth token to forward from the user's session (for multi-tenant downstream). |
+| **Completion Defaults** | Yes | Default parameters for the application. Default parameters are applied if a request doesn't contain them in OpenAI `chat/completions` API call. |
+| **Responses Defaults** | Yes | Default parameters for the application. Default parameters are applied if a request doesn't contain them in OpenAI `openai/v1/responses` API call. |
+| **Forward auth token** | Yes | This parameter allows to determine whether to forward an Auth Token to your apps's endpoint. If enabled, HTTP header with authorization token is forwarded to chat completion endpoint. |
 | **Max retry attempts** | Yes | Number of times DIAL Core will [retry](/docs/platform/3.core/5.load-balancer.md#fallbacks) a failed run (due to timeouts or 5xx errors). |
 
 ![](img/app-publication-properties.png)

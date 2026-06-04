@@ -1,23 +1,25 @@
 {
-    "$schema": "https://json.schemastore.org/claude-code-settings.json",
-    "permissions": {
-        "allow": [
-            "Bash(npm run lint)",
-            "Bash(npm run test *)",
-            "Read(~/.zshrc)",
-            "Bash(tree *)",
-            "Bash(agent-browser *)",
-            "Bash(ls *)",
-            "Bash(grep *)",
-            "Bash(find *)",
-            "Bash(gh *)",
-            "Bash(git clone *)"
-        ],
-        "deny": [
-            "Read(./.env)",
-            "Read(./.env.*)",
-            "Read(./node_modules/**)",
-            "Read(./.docusaurus/**)"
-        ]
-    }
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "PowerShell(gh issue list --repo epam/ai-dial-admin-frontend --limit 20)",
+      "PowerShell($issues = Invoke-RestMethod -Uri \"https://api.github.com/repos/epam/ai-dial-admin-frontend/issues?state=open&per_page=20\" -Headers @{ \"User-Agent\" = \"claude-code\" }; $issues | Select-Object number, title, state, @{N='labels';E={\\($_.labels.name\\) -join ','}} | Format-Table -AutoSize -Wrap)",
+      "Bash(npm run lint)",
+      "Bash(npm run test *)",
+      "Read(~/.zshrc)",
+      "Bash(tree *)",
+      "Bash(agent-browser *)",
+      "Bash(ls *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(gh *)",
+      "Bash(git clone *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./node_modules/**)",
+      "Read(./.docusaurus/**)"
+    ]
+  }
 }

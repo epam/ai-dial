@@ -10,16 +10,16 @@ In DIAL, toolsets created by users (either using DIAL Core API or UI) are stored
 
 ## Main Screen
 
-The Assets/Toolsets screen displays all toolsets located in the Public folder in DIAL file storage. Toolsets get to the Public folder when published by users or added by administrators.
+The main screen screen displays all toolsets located in the Public folder in DIAL file storage. Toolsets get to the Public folder when published by users or added by administrators.
 
 > **Note**: This screen, does not give access to private toolsets of users.
 
 > * Refer to [Access Control](/docs/platform/3.core/2.access-control-intro.md) to learn more about Private and Public logical spaces for objects storage in DIAL.
 > * Refer to [Chat User Guide](/docs/tutorials/0.user-guide.md#to-publish-toolset) to learn how end users can publish toolsets and to [DIAL Core API Publications](https://dialx.ai/dial_api#tag/Publications) to learn how to create and manage publication requests via API.
 
-![ ](img/131.png)
+![ ](img/assets-toolsets.png)
 
-##### Public file storage
+### Folders
 
 Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) are arranged hierarchically, similar to a file system. 
 
@@ -28,14 +28,37 @@ Objects in the [Public folder](/docs/platform/3.core/2.access-control-intro.md) 
 
 > **Note**, that access rules can be applied to sub-folders (manually or in publication request). You can view and manage access rules in [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). The effective authorization rule for an object in a sub-folder includes restrictions applied to all parent sub-folders up to the root folder. Refer to [Tutorials](/docs/tutorials/1.developers/1.work-with-resources/0.work-with-publications.md#effective-rules) to learn about affective rules for folders.
 
+#### Actions
+
+Hover over any folder in the right or left panel to display the actions menu.
+
 | Available Actions | Description |
 |-------------------|-------------|
-| **Create sub-folder + import objects** | Hover over any folder to display the **+** icon. It allows importing objects into new child or sibling sub-folders. <br />The process is similar to [Import](#import), but you’ll need to provide a name for the new folder. <br />Additionally, there’s an optional step where you can define [access rules](/docs/tutorials/3.admin/access-management-folders-storage.md#access-rules) for the new sub-folder. <br />**Note**: New sub-folders can only be created using this method or as part of a publication request if a new folder is specified during that process. |
-| **Actions** | Hover over any folder to view a context menu icon with actions you can perform in relation to the selected folder.<br /> - **Rename**: Use to rename the selected folder. <br />- **Move to**: Use to select a target location in the hierarchy to move the selected folder.<br />- **Manage permissions**: Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder.<br />- **Delete**: Use to delete the folder with objects inside it.|
+| **Add sibling** | Use to add new sibling sub-folders that share the same parent folder as the selected folder. |
+| **Add child** | Use to add new child sub-folders located within the selected folder. |
+| **Move to** | Use to select a target location in the hierarchy to move the selected folder. | 
+| **Export** | Use to download the content of the selected folder with objects inside it as a ZIP archive or raw JSON file. |
+| **Rename** | Use to rename the selected folder. | 
+| **Manage permissions** | Redirects to [Folder Storage](/docs/tutorials/3.admin/access-management-folders-storage.md) to manage access to the folder. |
+| **Delete** | Use to delete the folder with objects inside it.|
 
-![ ](img/folder-actions.png)
+![ ](img/files-folders-actions.png)
 
-##### Toolsets grid
+#### Add Folders
+
+Toolsets can be placed in sub-folders. 
+
+In the actions menu of each existing folder, select **Add sibling** or **Add child** to create new sub-folders.
+
+> **Note**: The name of the folder must not exceed 160 characters.
+
+![ ](img/assets-apps-folder-actions.png)
+
+You can also navigate to a specific folder and use the **Create** dropdown in the toolbar to add sub-folders.
+
+![ ](img/toolsets-add-folder.png)
+
+### Toolsets
 
 Click any folder to display its content in the toolsets grid.
 
@@ -44,45 +67,41 @@ Click any folder to display its content in the toolsets grid.
 | **ID** | Toolset's unique identified. |
 | **Version** | Version of the toolset. |
 | **Author** | Username or system ID associated with the user who created or last updated this toolset. |
-| **Updated time** | Timestamp of the last update. |
-| **Actions** | Actions you can perform on the selected toolset:<br />- **Open in new tab**: Opens the toolset's properties, features, and parameters in a new tab.<br />- **Move to another folder**: Select a target folder in the hierarchy to move the toolset.<br />- **Delete**: Remove the toolset. You can also use **Bulk Actions** in the toolbar to delete multiple toolsets at once.<br />- **Duplicate**: Create a copy of the toolset in one of two ways:<br />**New version**: Creates another version of the selected toolset. You can also quickly add a new version on the [Configuration](#configuration) screen by clicking **Create** in the **Version** dropdown.<br />**New toolset**: Clones the selected toolset as a new one. |
+| **Updated Time** | Timestamp of the last update. |
+| **Actions** | Actions you can perform on the selected toolsets:<br />**Open in a new tab**: Opens the toolset's properties, features, and parameters in a new tab.<br />**Duplicate**: Creates a copy of the toolset. Refer to [Duplicate](#duplicate) to learn more.<br />**Move to**: Select a target folder in the hierarchy to move the toolset.<br />**Export**: Use to download the selected toolset. Refer to [Export](#export) to learn more.<br />**Delete**: Remove the toolset. Refer to [Delete](#delete) to learn more. |
 
 ![ ](img/assets-toolsets-actions.png)
 
-## Export
+#### Export
 
-Use **Bulk Actions** in the toolbar to download selected toolsets. This is useful for migrating toolsets between environments, sharing sets of toolsets with other users, or keeping a point-in-time backup.
+You can export individual toolsets or folders with toolsets (including nested folders). Assets can be exported as ZIP archive or raw JSON files.
 
-![ ](img/apps_bulk_actions.png)
+* To export a folder, click **Export** in the actions menu of a specific folder to export its content.
+* To export a specific toolset, select it and click **Export** in its actions menu.
+* To export several toolsets (or their specific versions), select them and click **Export** in the top toolbar.
 
-##### To export toolsets:
+![ ](img/export-toolsets-bulk.png)  
 
-1. Click **Bulk Actions** button in the toolbar.
-2. Select toolsets by checking the boxes in each row. You can also select the version you want to export. 
-3. Click **Export** in the bottom to launch the export modal.
-4. In the modal window select the export format: ZIP Archive or JSON.
-5. Click **Export** to generate export file and start downloading.  
+#### Import
 
-## Import
+You can upload ZIP archives or raw JSON files of toolsets. This is essential for migrating, restoring, or sharing toolsets assets between DIAL users.
 
-Use **Import** in the toolbar to upload new or update existing toolsets from ZIP archive. This is essential for migrating, restoring, or sharing toolsets assets between DIAL users.
+![ ](img/import-toolsets.png)
 
 ##### To import toolsets:
 
-1. Click **Import** in the toolbar to launch the import modal.
-2. **Drag & Drop** your DIAL Admin archive into the files area or click **Browse** to open a file picker.
-
-    ![ ](img/140.png)
-
-3. Select a Conflict resolution strategy. It allows you to decide how to handle existing toolsets with the same identifier and version:
+1. Click **Create** in the toolbar and select **Import**.
+2. Select the type of files you want to import. **Drag & Drop** your ZIP archive or JSON files into the files area or click **Browse** to open a file picker.
+   * **Archive**: Select if you want to import a single ZIP or tarball containing multiple JSON files. **Note**: Only 1 archive can be imported at a time.
+   * **JSON**: Select if you want to import JSON files. **Note**: Up to 30 files can be imported at once.
+3. Select a Conflict resolution Strategy. It allows you to decide how to handle existing toolsets with the same name and version in your workspace:
    * **Skip**: Leave existing toolsets untouched, only new ones will be added.
-   * **Override**: Replace toolsets having the same name and version with the imported ones.
-4. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all toolsets will be imported directly into the root folder without recreating the original folder hierarchy.
+   * **Override**: Replace toolsets with the same name and version with the imported ones.
+   * **Edit manually**: Resolve conflicts manually one by one.
+4. Use **Ignore paths** toggle to skip folder structure from the imported files. When enabled, all apps will be imported directly into the root folder without recreating the original folder hierarchy.
 5. Click **Finish** to start.
 
-    ![ ](img/141.png)
-
-## Create
+#### Create
 
 On the main screen you can add new toolsets to the public folder.
 
@@ -90,7 +109,7 @@ On the main screen you can add new toolsets to the public folder.
 
 Follow these steps to add a new toolset: 
 
-1. Click **+ Create** to invoke the **Create Toolset** modal.
+1. Select a folder where you want to add a new toolset, click **Create** in the header's toolbar and select **Toolset** to invoke the **Create Toolset** modal.
 
     | Field | Required | Description |
     |-------|----------|-------------|
@@ -102,11 +121,29 @@ Follow these steps to add a new toolset:
 
 3. Once all required fields are filled click **Create**. The dialog closes and the new [toolset configuration](#configuration) screen is opened. This entry will appear immediately in the listing under the selected folder once created.
 
-    ![](img/132.png)
+    ![](img/create-asset-toolset.png)
 
-## Delete
+#### Duplicate
 
-There are several ways to delete an application or a specific version of it:
+You can duplicate an existing toolset to create a copy of it.
+
+> **Note**: When duplicating a toolset that requires authentication, you will be prompted to enter authentication credentials that will apply to a duplicate for security purposes.
+
+##### To create a duplicate of a toolset:
+
+1. Click **Duplicate** in the actions menu of a toolset on the main screen.
+2. In the **Duplicate Toolsets** window:
+    - Select Duplicate type: **New version**: Creates another version of the selected toolset. You can also quickly add a new version on the [Configuration](#configuration) screen by clicking **Create** in the **Version** dropdown. **New toolsets**: Clones the selected toolset as a new entity.
+    - Enter **Display Name**, **Version** and **ID** (disabled for New Version duplication type) for the new toolset.
+    - Enter **OAuth** credentials that will apply for the duplicate.
+    - Select **Folder Storage** where the new toolset will be stored (disabled for New Version duplication type).
+3. Click **Duplicate** to complete the procedure.
+
+![](img/duplicate-asset-toolset.png)
+
+#### Delete
+
+There are several ways to delete a toolset or a specific version of it:
 
 * Click **Delete** in the toolbar on the Configuration screen to permanently remove the selected toolset from your DIAL instance.
 * Use the Delete option in the toolset context menu.
@@ -142,7 +179,7 @@ You can find the following action buttons in the configuration screen header:
 | **Author** | - | No | User who created toolset. |
 | **Updated Time** | - | No | Timestamp of the last update. |
 | **Creation Time** | - | No | Creation timestamp. |
-| **Authentication** | - | No | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset in not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated for your user only. <br />- **Logged in (Organization)**: The toolset is authenticated for all users in your organization. |
+| **Authentication** | - | No | Current authentication status of the selected toolset: <br />- **Logged out**: The toolset is not authenticated with the related MCP server. <br />- **Logged in (Personal)**: The toolset is authenticated with your personal credentials only. <br />- **Logged in (Organization)**: The toolset is authenticated with organization credentials only. <br />- **Logged in**: The toolset is authenticated at both personal and organization levels. |
 | **Folder Storage** | - | No | Path to the toolset's location in the hierarchy within the public folder. Click to navigate to [Folders Storage](/docs/tutorials/3.admin/access-management-folders-storage.md). |
 | **Display Name** | Yes | Yes | The name of the toolset displayed on UI. |
 | **Description** | No | Yes | Toolset description. |
@@ -159,7 +196,7 @@ You can find the following action buttons in the configuration screen header:
 
 If the toolset you have chosen requires authentication at the related MCP server, you will have to sign in before you can use it. For example, if you are using an application that relies on the MCP toolset and authentication is required, you will not be able to access it unless you are logged in. Therefore, make sure you are authenticated with MCP server you are about to use.
 
-**Note**, that toolset can be published with credentials by other users. In this case, a toolset can be already authenticated for all users in the organization - **Logged in (Organization)**. You can use it or log out and log back in with your personal credentials - **Logged in (Personal)**.
+**Note**: A toolset can be published with organization credentials by other users. In this case, it can already have the state **Logged in (Organization)**. You can additionally authenticate with your personal credentials and use both levels at the same time. When both levels are active, authentication status is displayed as **Logged in**.
 
 > Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/toolset_credentials_api.md) to learn more about toolset authentication
 
@@ -180,14 +217,15 @@ DIAL supports several authentication methods for toolsets:
 
 ![](img/assets_toolsets_auth.png)
 
-##### Step 2: Choose personal or organization authentication
+##### Step 2: Choose authentication level(s)
 
-Having selected and configured any authentication method, click **Save** and **Log In** to authenticate a toolset with the related MCP server. At this step, prior to the actual authentication, you will be prompted to select between **Personal** and **Organization** authentication:
+Having selected and configured any authentication method, click **Save** and **Log In** to authenticate a toolset with the related MCP server. At this step, choose the level you want to authenticate:
 
-* **Personal**: the toolset will be authenticated for your user only with the authentication state labeled **Logged in (Personal)**.
-* **Organization**: the toolset will be authenticated for all users in your organization with the authentication state labeled **Logged in (Organization)**. Any user will be able to log out and log back in with personal credentials.
+* **Personal**: the toolset is authenticated for your user only with the state **Logged in (Personal)**.
+* **Organization**: the toolset is authenticated for all users in your organization with the state **Logged in (Organization)**.
+* **Both**: You can keep both personal and organization authentication active for the same toolset. In this case, authentication status is displayed as **Logged in**. When you use **Log out**, you can also choose the level to sign out from (Personal, Organization, or both).
 
-**Important**: at this step, for authentication with API keys, you will be prompted to provide a valid API key value.
+> **Tip**: At this step, for authentication with API keys, you will be prompted to provide a valid API key value.
 
 ![](img/assets_toolsets_auth2.png)
 

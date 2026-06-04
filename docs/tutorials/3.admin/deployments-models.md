@@ -38,12 +38,14 @@ On the main screen, you can view existing and add new AI model servings.
 | Container URL | URL of the container where the model is hosted.<br />Available for a running container. |
 | Author | Email address of the creator of the model serving. |
 | Topics | List of topics associated with the model serving. |
-| Create time | Creation timestamp. |
-| Update time | Timestamp of the last update. |
+| Creation Time | Creation timestamp. |
+| Updated Time | Timestamp of the last update. |
 
 ## Create Model Serving
 
 On the main screen, use the **Create** button to create Hugging Face or NIM model servings.
+
+> **Note**: Available deployment options depend on the current setup.
 
 ![](img/create-model-serving.png)
 
@@ -64,7 +66,7 @@ On the main screen, use the **Create** button to create Hugging Face or NIM mode
 
 Click any model serving from the main screen to open its configuration.
 
-> **Note**: Configuration fields are disabled when the container is in a transition state (launching or stopping).
+> **Note**: Configuration fields are disabled for editing when the container is in a transition state (launching or stopping).
 
 ### Actions
 
@@ -111,7 +113,7 @@ In the Properties tab, you can view and edit the selected model serving containe
 | Hugging Face model name | Conditional | Yes | Applies to Hugging Face models.<br/>The name of the model from Hugging Face. Start typing the name of the model to see suggestions or click **Select from registry** to pick in the pop-up modal window. |
 | Docker Image URI | Conditional | Yes | Applies to NIM models.<br/>The Docker image URI for the model. |
 | Endpoint Configuration | No | Yes | Port configuration for the model serving. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. |
-| Autoscaling | No | Yes | **Note**: Autoscaling is available for Hugging Face models. <br />Parameters to dynamically adjust AI model replicas based on demand. <br /> - **Automatic scale to zero**: Use to define criteria to reduce replicas to zero to save resources. <br />- **Min and Max Replicas**: Sets the minimum and maximum number of model instances that can run, ensuring availability and controlling costs. <br /> - **Pending requests to trigger autoscaling**: Specifies the number of queued requests required to trigger scaling up, helping maintain performance during traffic spikes. |
+| Autoscaling | No | Yes | Parameters to dynamically adjust model serving replicas based on demand. <br />**Note**: Autoscaling controls are available for Hugging Face model servings. <br />- **Automatic scale to zero**: Use to define criteria to reduce replicas to zero to save resources. Model servings are created with always-on defaults, so scale-to-zero is not enabled by default. <br />- **Min and Max Replicas**: Sets the minimum and maximum number of model instances that can run, ensuring availability and controlling costs. For new NIM and Hugging Face model servings, both values default to 1 replica. <br />- **Pending requests to trigger autoscaling**: Specifies the number of queued requests required to trigger scaling up, helping maintain performance during traffic spikes. <br />**Important**: Existing model serving containers keep their current autoscaling configuration. |
 | Environment Variables | No | Yes | List of environment variables for the model serving. <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. <br /> - **Name**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.<br /> - **Value**: Must be between 1 and 253 characters long. Can contain only letters, numbers, dots `(.)`, hyphens `(-)`, and underscores `(_)`.|
 | Resources | No | Yes | Resource allocation settings for the model serving (CPU, Memory, GPU). <br /> **Note**: Changes to these settings can be applied to a running container. Saving changes will trigger a restart in RollingUpdate mode. <br />Validation rules: <br /> - Values must be numeric and greater than 0.<br /> - Maximum allowed values for `cpu`, `memory`, and `nvidia.com/gpu` are defined on the backend via environment variables.<br /> - For each matching resource key (e.g. `cpu`), the value in limits must not be less than the value in `requests`.|
 | Configuration | No | Yes | Command that defines the executable and its options to launch the model serving. Arguments provide extra parameters for customization during startup. |
@@ -156,3 +158,9 @@ In case of issues, health indicators are displayed to help identify problems:
 In the Events tab, you can view the event history related to the selected model serving.
 
 ![ ](img/model_servings_events.png)
+
+## Audit
+
+In the **Audit** tab, you can review activity, usage, and operational metrics for the selected model serving container, including configuration changes and runtime actions.
+
+> **Note**: This tab mimics the functionality available in the global [Activity](/docs/tutorials/3.admin/telemetry-activity-audit.md) section, but is scoped specifically to the selected model serving.
