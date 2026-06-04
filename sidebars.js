@@ -1846,6 +1846,56 @@ const sidebars = {
             { type: 'doc', id: 'docs/NEW/operating-dial/troubleshooting', label: 'Troubleshooting' },
           ],
         },
+        {
+          type: 'category',
+          label: 'Administering DIAL',
+          items: [
+            { type: 'doc', id: 'docs/NEW/administering-dial/index', label: 'Overview' },
+            { type: 'doc', id: 'docs/NEW/administering-dial/config-backup-and-global-settings', label: 'Backup, restore & global settings' },
+            {
+              type: 'category',
+              label: 'Entities',
+              items: [
+                { type: 'doc', id: 'docs/NEW/administering-dial/entities/models', label: 'Models' },
+                { type: 'doc', id: 'docs/NEW/administering-dial/entities/applications', label: 'Applications' },
+                { type: 'doc', id: 'docs/NEW/administering-dial/entities/toolsets', label: 'Tool sets' },
+                { type: 'doc', id: 'docs/NEW/administering-dial/entities/interceptors', label: 'Interceptors' },
+                { type: 'doc', id: 'docs/NEW/administering-dial/entities/routes', label: 'Routes' },
+              ],
+            },
+            { type: 'doc', id: 'docs/NEW/administering-dial/builders', label: 'Builders' },
+            { type: 'doc', id: 'docs/NEW/administering-dial/assets', label: 'Assets' },
+            {
+              type: 'category',
+              label: 'Deployments',
+              items: [
+                { type: 'doc', id: 'docs/NEW/administering-dial/deployments/images', label: 'Images' },
+                { type: 'doc', id: 'docs/NEW/administering-dial/deployments/container-management', label: 'Containers' },
+                { type: 'doc', id: 'docs/NEW/administering-dial/deployments/mcp-containers', label: 'MCP containers' },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Access management',
+              items: [
+                { type: 'doc', id: 'docs/NEW/administering-dial/access-management/roles', label: 'Roles' },
+                { type: 'doc', id: 'docs/NEW/administering-dial/access-management/keys', label: 'Keys' },
+              ],
+            },
+            { type: 'doc', id: 'docs/NEW/administering-dial/publications-and-review', label: 'Publications and review' },
+            {
+              type: 'category',
+              label: 'Audit',
+              items: [
+                { type: 'doc', id: 'docs/NEW/administering-dial/audit/activity-and-rollback', label: 'Activity and rollback' },
+                { type: 'doc', id: 'docs/NEW/administering-dial/audit/monitoring-dashboards', label: 'Monitoring and dashboards' },
+              ],
+            },
+            { type: 'doc', id: 'docs/NEW/administering-dial/user-management', label: 'User management' },
+            { type: 'doc', id: 'docs/NEW/administering-dial/usage-limits-and-cost-control', label: 'Usage limits and cost control' },
+            { type: 'doc', id: 'docs/NEW/administering-dial/compliance-and-legal-faq', label: 'Compliance and legal FAQ' },
+          ],
+        },
       ],
     },
   ],

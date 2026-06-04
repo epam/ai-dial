@@ -354,23 +354,34 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 
 * * *
 
-### 5. Administering DIAL `[How-to]`
+### 5. Administering DIAL `[How-to]` ✅ *built*
 
-*Merges Platform > Admin Panel (overview) with Tutorials > Admins (user guide).*
+*Merges Platform > Admin Panel (overview) with Tutorials > Admins (user guide). Built at `docs/docs/NEW/administering-dial/`; sidebar category sits after Operating DIAL. The 31-page legacy guide (Tutorials > Admins) was migrated and consolidated to 20 pages: granularity kept where objects are distinct (Entities, Access management), collapsed where structure was repetitive (Builders, Assets, container deployments, approvals, audit). The legacy `tutorials/3.admin/` pages are left in place for now and phased out separately.*
 
-* Admin Panel overview `[Explanation]` ← *merged from Platform > Admin Panel + Tutorials > Admins > Introduction*
-* Admin Panel user guide
-  * Entities `[How-to]`
-  * Builders `[How-to]` — *sidebar label aligned to glossary canonical name*
-  * Assets `[How-to]`
-  * Deployments (including MCP servers) `[How-to]`
-  * Access management `[How-to]`
-  * Approvals `[How-to]`
-  * Audit `[How-to]`
-* User management `[How-to]` **🆕**
-* Publications and review `[How-to]`
-* Usage limits and cost control `[How-to]`
-* Compliance and legal FAQ `[Reference]` ← *URL fixed from `/legal-and-compliance` to proper path*
+* Admin Panel overview `[Explanation]` ← *merged from Platform > Admin Panel + Tutorials > Admins > Introduction; absorbs read-only-mode and the section map*
+* Backup, restore, and global settings `[How-to]` **🆕** — *home page operations: import/export config, global interceptors (System Properties), DIAL Core version*
+* Entities `[Category]`
+  * Models `[How-to]` ← *Tutorials > Admins > Entities > Models*
+  * Applications `[How-to]` ← *Entities > Applications*
+  * Tool sets `[How-to]` ← *Entities > Toolsets*
+  * Interceptors `[How-to]` ← *Entities > Interceptors*
+  * Routes `[How-to]` ← *Entities > Routes*
+* Builders `[How-to]` — *sidebar label aligned to glossary canonical name; consolidates Application Runners + Adapters + Interceptor Templates into one page*
+* Assets `[How-to]` — *consolidates Applications + Toolsets + Prompts + Files into one page; the folder-permission/access-rule content from Access Management > Folders Storage is folded into a shared "Working with public folders" section*
+* Deployments `[Category]` — *requires the Deployment Manager Backend*
+  * Images `[How-to]` ← *Deployments > Images*
+  * Containers `[How-to]` — *consolidates Model serving + Application + Adapter + Interceptor container pages (shared lifecycle once, per-type specifics)*
+  * MCP containers `[How-to]` ← *Deployments > MCP Containers (incl. create-tool-set-from-MCP)*
+* Access management `[Category]`
+  * Roles `[How-to]` ← *Access Management > Roles*
+  * Keys `[How-to]` ← *Access Management > Keys*
+* Publications and review `[How-to]` — *consolidates the four Approvals pages (application, file, prompt, tool set publications); covers both the former "Approvals" and "Publications and review" entries*
+* Audit `[Category]`
+  * Activity and rollback `[How-to]` ← *Audit > Activity (incl. resource and system rollback)*
+  * Monitoring and dashboards `[How-to]` — *consolidates Dashboard + Usage Log*
+* User management `[How-to]` **🆕** — *identity is IdP/JWT-delegated; access flows through roles — DIAL has no user CRUD directory*
+* Usage limits and cost control `[How-to]` — *admin task view; mechanics live on Access management > Roles; concept lives in §2.4*
+* Compliance and legal FAQ `[Reference]` ← *rehomed from `/legal-and-compliance` (URL fixed)*
 
 * * *
 

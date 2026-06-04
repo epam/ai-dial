@@ -13,7 +13,7 @@ In this tutorial, you will sign in to DIAL Admin and complete your first adminis
 
 ## Prerequisites
 
-- Access to a running DIAL deployment that includes [DIAL Admin](/docs/tutorials/3.admin/introduction.md). If you do not have one, follow the [DevOps quick start](devops-quick-start) first, or use a deployment provided by your platform team.
+- Access to a running DIAL deployment that includes [DIAL Admin](../administering-dial/0.index.md). If you do not have one, follow the [DevOps quick start](devops-quick-start) first, or use a deployment provided by your platform team.
 - An account with the administrator role in that deployment.
 - The URL of the DIAL Admin interface, provided by your platform team.
 
@@ -27,14 +27,14 @@ Open the DIAL Admin URL in your browser and sign in with your administrator acco
 
 Open the **Entities** section. Entities are the models, applications, routes, and tool sets that DIAL Core exposes through the [Unified API](/docs/platform/3.core/0.about-core.md).
 
-1. Open [Models](/docs/tutorials/3.admin/entities-models.md) and confirm which models are registered.
-2. Open [Applications](/docs/tutorials/3.admin/entities-applications.md) and review the available applications.
+1. Open [Models](../administering-dial/entities/models.md) and confirm which models are registered.
+2. Open [Applications](../administering-dial/entities/applications.md) and review the available applications.
 
 **Verify:** you can see at least one entity and open its configuration.
 
 ## Step 3: Approve a pending publication
 
-[Publication](/docs/tutorials/3.admin/approvals-application-publications.md) is the workflow that promotes a user's resource to the shared Marketplace. Every request needs administrator approval.
+[Publication](../administering-dial/6.publications-and-review.md) is the workflow that promotes a user's resource to the shared Marketplace. Every request needs administrator approval.
 
 1. Open the **Approvals** section.
 2. Select a pending request, review its contents, and approve or reject it.
@@ -49,8 +49,8 @@ If no publication requests are pending, this step is informational. Return to it
 
 Open the **Access Management** section to see how access is granted.
 
-- [Roles](/docs/tutorials/3.admin/access-management-roles.md) define permissions, usage limits, and cost limits.
-- [Keys](/docs/tutorials/3.admin/access-management-keys.md) authenticate API clients and map them to roles.
+- [Roles](../administering-dial/access-management/roles.md) define permissions, usage limits, and cost limits.
+- [Keys](../administering-dial/access-management/keys.md) authenticate API clients and map them to roles.
 
 **Verify:** you can open a role and see the resources and limits it grants.
 
@@ -62,6 +62,6 @@ Open the **Access Management** section to see how access is granted.
 
 ## Next steps
 
-- [Admin Panel user guide](/docs/tutorials/3.admin/introduction.md) — full reference for every DIAL Admin section
+- [Admin Panel overview](../administering-dial/0.index.md) — full reference for every DIAL Admin section
 - [Operating DIAL: auth and access control](../operating-dial/auth-and-access-control/index) — configure roles, keys, and identity providers
 - [Operating DIAL: configuration reference](../operating-dial/configuration/index) — the settings behind the entities you manage

@@ -388,6 +388,23 @@
     },
     {
       "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Usage limits and cost control",
+        "filePath": "docs/docs/NEW/administering-dial/9.usage-limits-and-cost-control.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "explanation",
+          "menuPath": "OLD > Platform > Architecture & Concepts > Usage Limits and Cost Control",
+          "filePath": "docs/platform/3.core/8.token-limits-and-cost-control.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/platform/3.core/8.token-limits-and-cost-control.md"
+    },
+    {
+      "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Understand DIAL > Foundations > Core concepts and glossary",
         "filePath": "docs/docs/NEW/understand-dial/core-concepts-and-glossary.md"
@@ -737,6 +754,51 @@
     },
     {
       "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Deployments > Images",
+        "filePath": "docs/docs/NEW/administering-dial/deployments/images.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > Admins > Admin Panel User Guide > Deployments > Images",
+          "filePath": "docs/tutorials/3.admin/deployments-images.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/3.admin/deployments-images.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Deployments > Containers",
+        "filePath": "docs/docs/NEW/administering-dial/deployments/container-management.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Deployments > MCP containers",
+        "filePath": "docs/docs/NEW/administering-dial/deployments/mcp-containers.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > Admins > Admin Panel User Guide > Deployments > MCP Containers",
+          "filePath": "docs/tutorials/3.admin/deployments-mcp.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/3.admin/deployments-mcp.md"
+    },
+    {
+      "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Quick App 2.0 examples",
         "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/examples.md"
@@ -828,6 +890,23 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Entities > Tool sets",
+        "filePath": "docs/docs/NEW/administering-dial/entities/toolsets.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > Admins > Admin Panel User Guide > Entities > Toolsets",
+          "filePath": "docs/tutorials/3.admin/entities-toolsets.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (MEDIUM): from docs/tutorials/3.admin/entities-toolsets.md"
     },
     {
       "targetPage": {
@@ -1097,6 +1176,23 @@
         "pageType": "explanation",
         "menuPath": "NEW > Operating DIAL > Production readiness > Overview",
         "filePath": "docs/docs/NEW/operating-dial/production-readiness/0.index.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview",
+          "filePath": "docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/2.devops/2.auth-and-access-control/2.configure-idps/0.overview.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Administering DIAL > Overview",
+        "filePath": "docs/docs/NEW/administering-dial/0.index.md"
       },
       "sourcePages": [
         {
@@ -3109,6 +3205,74 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Entities > Models",
+        "filePath": "docs/docs/NEW/administering-dial/entities/models.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > Admins > Admin Panel User Guide > Entities > Models",
+          "filePath": "docs/tutorials/3.admin/entities-models.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/3.admin/entities-models.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Entities > Applications",
+        "filePath": "docs/docs/NEW/administering-dial/entities/applications.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > Admins > Admin Panel User Guide > Entities > Applications",
+          "filePath": "docs/tutorials/3.admin/entities-applications.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/3.admin/entities-applications.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Entities > Interceptors",
+        "filePath": "docs/docs/NEW/administering-dial/entities/interceptors.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "explanation",
+          "menuPath": "OLD > Platform > Core > Interceptors",
+          "filePath": "docs/platform/3.core/6.interceptors.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/platform/3.core/6.interceptors.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Entities > Routes",
+        "filePath": "docs/docs/NEW/administering-dial/entities/routes.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > Admins > Admin Panel User Guide > Entities > Routes",
+          "filePath": "docs/tutorials/3.admin/entities-routes.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/3.admin/entities-routes.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Builders",
         "filePath": "docs/docs/NEW/administering-dial/builders.md"
       },
@@ -3120,6 +3284,17 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Builders",
+        "filePath": "docs/docs/NEW/administering-dial/3.builders.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Assets",
         "filePath": "docs/docs/NEW/administering-dial/assets.md"
       },
@@ -3127,6 +3302,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no source annotation in recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Assets",
+        "filePath": "docs/docs/NEW/administering-dial/4.assets.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -3153,6 +3339,40 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Access management > Roles",
+        "filePath": "docs/docs/NEW/administering-dial/access-management/roles.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > Admins > Admin Panel User Guide > Access Management > Roles",
+          "filePath": "docs/tutorials/3.admin/access-management-roles.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/3.admin/access-management-roles.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Access management > Keys",
+        "filePath": "docs/docs/NEW/administering-dial/access-management/keys.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "how-to",
+          "menuPath": "OLD > Tutorials > Admins > Admin Panel User Guide > Access Management > Keys",
+          "filePath": "docs/tutorials/3.admin/access-management-keys.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (HIGH): from docs/tutorials/3.admin/access-management-keys.md"
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Approvals",
         "filePath": "docs/docs/NEW/administering-dial/approvals.md"
       },
@@ -3175,6 +3395,28 @@
     {
       "targetPage": {
         "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Audit > Activity and rollback",
+        "filePath": "docs/docs/NEW/administering-dial/audit/activity-and-rollback.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Audit > Monitoring and dashboards",
+        "filePath": "docs/docs/NEW/administering-dial/audit/monitoring-dashboards.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > User management",
         "filePath": "docs/docs/NEW/administering-dial/user-management.md"
       },
@@ -3182,6 +3424,17 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > User management",
+        "filePath": "docs/docs/NEW/administering-dial/8.user-management.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     },
     {
       "targetPage": {
@@ -3196,6 +3449,17 @@
     },
     {
       "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Publications and review",
+        "filePath": "docs/docs/NEW/administering-dial/6.publications-and-review.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Administering DIAL > Compliance and legal FAQ",
         "filePath": "docs/docs/NEW/administering-dial/compliance-and-legal-faq.md"
@@ -3204,6 +3468,23 @@
       "status": "planned",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: could not resolve annotation \"URL fixed from `/legal-and-compliance` to proper path\""
+    },
+    {
+      "targetPage": {
+        "pageType": "reference",
+        "menuPath": "NEW > Administering DIAL > Compliance and legal FAQ",
+        "filePath": "docs/docs/NEW/administering-dial/10.compliance-and-legal-faq.md"
+      },
+      "sourcePages": [
+        {
+          "pageType": "explanation",
+          "menuPath": "OLD > Platform > Compliance and Legal Q&A",
+          "filePath": "docs/legal-and-compliance.md"
+        }
+      ],
+      "status": "waiting-for-review",
+      "mappingType": "1-to-1",
+      "notes": "AUTO-MAPPED (MEDIUM): from docs/legal-and-compliance.md"
     },
     {
       "targetPage": {
@@ -3909,6 +4190,17 @@
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Troubleshooting",
         "filePath": "docs/docs/NEW/operating-dial/troubleshooting.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "how-to",
+        "menuPath": "NEW > Administering DIAL > Backup, restore & global settings",
+        "filePath": "docs/docs/NEW/administering-dial/1.config-backup-and-global-settings.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
