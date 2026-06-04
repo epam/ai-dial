@@ -201,12 +201,17 @@ If a reader can't tell from the top of the page whether they're in the right pla
 
 ### 7.4 Admonitions
 
-Use sparingly. Four types, no custom ones:
+Use sparingly. Do **not** use Docusaurus `:::` admonition syntax. Highlight with a **bold label line immediately followed by a blockquote**. Four labels, no custom ones:
 
 * **Note** — incidental information.
 * **Tip** — a shortcut or better-practice pointer.
 * **Warning** — something that could cause data loss, downtime, security exposure, or cost.
 * **Deprecated** — the feature is going away; link to the replacement.
+
+```markdown
+**Warning**
+> Variable names must remain the same when you create a new color scheme.
+```
 
 * * *
 
@@ -217,11 +222,12 @@ Use sparingly. Four types, no custom ones:
 * Target sentence length: 15–20 words. Hard ceiling: 30.
 * Target paragraph length: 2–4 sentences.
 * Break a wall of text with a list only when items are genuinely parallel.
+* A bold lead-in label that introduces a multi-sentence block (`**Verify:**`, `**Result:**`) gets a blank line after it; the content follows as its own paragraph, not inline on the same line.
 
 ### 8.2 Lists
 
 * Use numbered lists for **ordered** sequences (steps).
-* Use bullets for **unordered** sets (options, features).
+* Use bullets for **unordered** sets (options, features). Render a set of consecutive, parallel standalone statements as a bullet list — not as bare back-to-back paragraphs.
 * Every list item starts with a capital and either a period (if a full sentence) or no terminal punctuation (if a fragment) — consistent within the list.
 
 ### 8.3 Numbers, dates, units
@@ -245,6 +251,7 @@ Use sparingly. Four types, no custom ones:
 
 * Always specify the language: ` ```bash `, ` ```json `, ` ```python `, ` ```yaml `.
 * No shell prompts in copyable commands. Not `$ docker compose up`, just `docker compose up`.
+* Use `0.0.0.0`, not `localhost`, in example hosts and URLs: `http://0.0.0.0:8080`, not `http://localhost:8080`.
 * Comments explain *why*, not *what*.
 * Long outputs: truncate with `# …` and explain what was cut.
 
@@ -287,7 +294,7 @@ Provide at minimum: a `curl` example and one SDK example (Python unless the SDK 
 
 ## 10\. Links and cross-references
 
-* **Internal links are relative:** `/platform/core/auth-intro`, never absolute `[https://docs.dialx.ai/](https://docs.dialx.ai/)...`. Makes the site portable and previewable.
+* **Internal links are relative paths ending in `.md`:** `[Authentication overview](../core/auth-intro.md)`, never absolute root paths (`/platform/core/auth-intro`), never extension-less, and never absolute URLs (`https://docs.dialx.ai/...`). Docusaurus resolves and build-validates relative `.md` links, which keeps the site portable and previewable.
 * **Link text describes the destination.** Not "click \[here\]." Yes "see \[Authentication overview\]."
 * **External links** open in the same tab unless going to a non-docs property (GitHub, cloud vendor docs).
 * **GitHub links** are allowed only for:

@@ -57,6 +57,24 @@ These are independent of the glossary. Delete on sight:
 | Config keys in reference docs | Code font | `server.port`, `auth.jwt.jwks-url` |
 | Headings | Sentence case | "Configure the adapter" not "Configure The Adapter" |
 
+### 7. Markdown formatting conventions
+
+Scan for the site's Markdown-output conventions. The first three are exact grep checks; run them from the repo root against the page (or section):
+
+```bash
+grep -nE ':::'        <page>   # admonitions — must be bold label + blockquote
+grep -n  'localhost'  <page>   # must be 0.0.0.0 in example hosts/URLs
+grep -nE '\]\(/'      <page>   # absolute internal links — must be relative + .md
+```
+
+| Convention | Violation | Fix |
+|---|---|---|
+| Highlights | `:::note` / `:::tip` / `:::warning` / `:::info` admonition | Bold label line + blockquote (`**Warning**` then `> ...`) — labels: Note, Tip, Warning, Deprecated |
+| Example host | `localhost` in a URL or code example | `0.0.0.0` (e.g., `http://0.0.0.0:8080`) |
+| Internal links | Absolute root path (`](/section/page)`) or missing `.md` extension | Relative path ending in `.md` (`](../section/page.md)`) |
+| Bold lead-in | Bold label introducing a block inline (`**Verify:** The adapter...`) | Blank line after the label; content as its own paragraph |
+| Lists | Consecutive parallel standalone statements as bare paragraphs | Bullet list (`- ...`) |
+
 ---
 
 ## How to report violations

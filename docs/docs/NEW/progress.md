@@ -3,7 +3,7 @@ title: "Documentation progress"
 type: reference
 persona: all
 component: platform
-last_verified: 2026-06-03
+last_verified: 2026-06-04
 owner: "@dial-docs-team"
 ---
 
@@ -364,4 +364,4 @@ Mapping types: 209 New, 95 1-to-1
 
 ---
 
-> Last generated: 2026-06-03. Source: [`tracking.json`](https://github.com/epam/ai-dial/blob/main/docs-planning/tracking.json).
+> Last generated: 2026-06-04. Source: [`tracking.json`](https://github.com/epam/ai-dial/blob/main/docs-planning/tracking.json).

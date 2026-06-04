@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(gh issue *)"
+      "Bash(gh issue *)",
+      "Read(//Users/Attila_Torda-Pilisi/.claude/**)",
+      "Bash(find / -type d -iname \"docs-page-writer\")",
+      "Bash(find / -type d -iname \"docs-auditor\")"
     ]
   }
 }

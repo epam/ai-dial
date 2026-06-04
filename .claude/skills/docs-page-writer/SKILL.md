@@ -129,6 +129,7 @@ Delete these — never use them:
 - Variable placeholders in `ANGLE_BRACKETS`: `<YOUR_DIAL_API_KEY>`, `<YOUR_DIAL_HOST>`
 - Pin versions in all runnable examples (except Quick Start)
 - Comments explain *why*, not *what*
+- Use `0.0.0.0`, not `localhost`, in example hosts and URLs: `http://0.0.0.0:8080`, not `http://localhost:8080`
 
 ## Step 7: End with "Next steps"
 
@@ -152,6 +153,10 @@ Run through this checklist:
 - [ ] Terminology follows the canonical names table
 - [ ] No forbidden phrases
 - [ ] Code blocks have language specified
+- [ ] Examples use `0.0.0.0`, not `localhost`
+- [ ] Internal links are relative paths ending in `.md` (no absolute `/path`, no missing extension)
+- [ ] No `:::` admonitions — highlights use a bold label + blockquote
+- [ ] Bold lead-in labels introducing a block have a line break before the content
 - [ ] Version pins present in runnable examples
 - [ ] Tutorials include a project structure tree diagram and use exact file paths (relative to project root)
 - [ ] Headings are sentence case, self-contained (not "Step 1" alone, but "Step 1: Install the Helm chart")
@@ -160,33 +165,45 @@ Run through this checklist:
 - [ ] No links to GitHub READMEs as authoritative source (link to docs site pages)
 - [ ] `last_verified` date is today (only if you verified all code examples and links on the page)
 
-## Admonitions
+## Links
 
-Use sparingly. Only four types:
+Internal doc-to-doc links use a **relative path** that ends in the **`.md`
+extension**. Docusaurus resolves these and validates them at build time.
 
 ```markdown
-:::note
-Incidental information.
-:::
+[DIAL SDK reference](../developer-tools/sdk-reference/0.index.md)
+[Configuration precedence](./precedence.md)
+```
 
-:::tip
-A shortcut or better-practice pointer.
-:::
+- Never use an absolute root path (`/building/getting-started-api`).
+- Never omit the extension (`../developer-tools/sdk-reference/0.index`).
+- Link text describes the destination — never "click here."
 
-:::warning
-Something that could cause data loss, downtime, security exposure, or cost.
-:::
+## Admonitions
 
-:::info[Deprecated]
-This feature is going away. Use [replacement](/path) instead. Removal planned for vX.Y.
-:::
+Use sparingly. Do **not** use Docusaurus `:::` admonition syntax. Highlight with a
+**bold label line immediately followed by a blockquote**. Only four labels:
+
+```markdown
+**Note**
+> Incidental information.
+
+**Tip**
+> A shortcut or better-practice pointer.
+
+**Warning**
+> Something that could cause data loss, downtime, security exposure, or cost.
+
+**Deprecated**
+> This feature is going away. Use [replacement](../path/page.md) instead. Removal planned for vX.Y.
 ```
 
 ## Writing mechanics
 
 - Sentence length: target 15–20 words. Hard ceiling: 30.
 - Paragraph length: 2–4 sentences.
-- Numbered lists for **ordered** sequences (steps). Bullets for **unordered** sets.
+- Numbered lists for **ordered** sequences (steps). Bullets for **unordered** sets. Render a set of consecutive, parallel standalone statements as a bullet list — not as bare back-to-back paragraphs.
+- Bold lead-in labels (`**Verify:**`, `**Result:**`, `**Note:**`) that introduce a multi-sentence block get a blank line after the label; the content follows as its own paragraph — not inline on the same line.
 - Oxford comma, always.
 - Dates: `2026-04-27` (ISO). Never `04/27/2026`.
 - No emojis in docs content.

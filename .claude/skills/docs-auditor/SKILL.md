@@ -134,6 +134,7 @@ Consult `docs-planning/recommended-site-structure.md` and assess:
 ### 8. Link health
 
 - **Internal links**: run `cd docs && npm run build` to detect all broken internal links at once (the config has `onBrokenLinks: 'throw'`). For single-page audits, spot-check links manually.
+- **Internal link format**: internal doc-to-doc links must be **relative paths ending in `.md`** (e.g., `../developer-tools/sdk-reference/0.index.md`). Flag absolute root paths (`](/...`) and extension-less internal links (`](../foo/bar)` with no `.md`).
 - **External links**: note but don't validate (too slow for batch audits). Use `WebFetch` selectively for suspicious URLs.
 - **GitHub-as-authority links**: flag any link to a GitHub README that substitutes for on-site documentation (e.g., "Refer to the AI DIAL Core repository for full configuration details")
 
@@ -143,6 +144,17 @@ Consult `docs-planning/recommended-site-structure.md` and assess:
 - **Runnable examples**: could a reader copy-paste and run the code, or are there missing imports, undefined variables, placeholder-only snippets?
 - **Language tags**: do code blocks specify a language (` ```python `, ` ```bash `)?
 - **Shell prompts**: are there `$` prompts in copyable commands? (Should not be.)
+
+### 9b. Markdown formatting conventions
+
+Scan for the site's Markdown-output conventions. Use `grep` for the first two — they are exact and fast.
+
+- **Admonitions**: flag any `:::` admonition syntax (`:::note`, `:::tip`, `:::warning`, `:::info`). Highlights must use a **bold label line + blockquote** instead (`**Warning**` then `> ...`). Four labels only: Note, Tip, Warning, Deprecated.
+- **Host in examples**: flag `localhost` in example URLs and code. Must be `0.0.0.0` (e.g., `http://0.0.0.0:8080`).
+- **Bold lead-in labels**: flag a bold label that introduces a multi-sentence block inline on the same line (e.g., `**Verify:** The adapter translates...`). The content must follow on its own paragraph after a blank line.
+- **Parallel statements as bullets**: flag a set of consecutive, parallel standalone statements rendered as bare back-to-back paragraphs. They should be a bullet list.
+
+See `references/terminology-checklist.md` §7 for the grep patterns and reporting format.
 
 ### 10. Video assessment (if applicable)
 
@@ -220,7 +232,14 @@ Missing: [list]
 
 ### Links
 - Internal: X links, Y broken
+- Non-relative / missing-`.md` internal links: X instances — [list with line numbers]
 - GitHub-as-authority: X instances
+
+### Formatting conventions
+- `:::` admonitions: X instances — [list with line numbers]
+- `localhost` in examples: X instances
+- Bold lead-in labels without line break: X instances
+- Parallel statements not bulleted: [list or "None"]
 
 ### Code freshness
 - Pinned versions: [list with ages]
@@ -261,6 +280,9 @@ After auditing multiple pages, produce a summary table:
 - Pages with "what's next" links: X
 - Pages flagged as duplicates: X
 - Pages with GitHub-as-authority links: X
+- Pages with `:::` admonitions: X
+- Pages with non-relative or missing-`.md` internal links: X
+- Pages using `localhost` in examples: X
 - Pages with stale dependencies: X
 - Tutorials missing project structure diagram: X
 - Recommended actions: X keep, X move, X merge, X split, X rewrite, X delete
