@@ -1760,6 +1760,16 @@ const sidebars = {
                   label: 'Keycloak (realm-config.json)',
                 },
                 {
+                  type: 'doc',
+                  id: 'docs/NEW/operating-dial/configuration/load-balancer',
+                  label: 'Load Balancer',
+                },
+                {
+                  type: 'doc',
+                  id: 'docs/NEW/operating-dial/configuration/enable-publications',
+                  label: 'Enable Publications',
+                },
+                {
                   type: 'category',
                   label: 'Docker Compose',
                   items: [
@@ -1894,6 +1904,20 @@ const sidebars = {
             { type: 'doc', id: 'docs/NEW/administering-dial/user-management', label: 'User management' },
             { type: 'doc', id: 'docs/NEW/administering-dial/usage-limits-and-cost-control', label: 'Usage limits and cost control' },
             { type: 'doc', id: 'docs/NEW/administering-dial/compliance-and-legal-faq', label: 'Compliance and legal FAQ' },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Chat User Guide',
+          items: [
+            { type: 'doc', id: 'docs/NEW/chat-user-guide/index', label: 'Overview and interface' },
+            { type: 'doc', id: 'docs/NEW/chat-user-guide/conversations', label: 'Conversations' },
+            { type: 'doc', id: 'docs/NEW/chat-user-guide/prompts', label: 'Prompts' },
+            { type: 'doc', id: 'docs/NEW/chat-user-guide/marketplace-and-apps', label: 'Marketplace and apps' },
+            { type: 'doc', id: 'docs/NEW/chat-user-guide/tool-sets', label: 'Tool sets' },
+            { type: 'doc', id: 'docs/NEW/chat-user-guide/files', label: 'Files' },
+            { type: 'doc', id: 'docs/NEW/chat-user-guide/sharing-and-publishing', label: 'Sharing and publishing' },
+            { type: 'doc', id: 'docs/NEW/chat-user-guide/settings', label: 'Settings' },
           ],
         },
       ],

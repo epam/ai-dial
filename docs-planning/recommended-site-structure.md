@@ -385,7 +385,7 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 
 * * *
 
-### 6\. Chat User Guide `[Tutorial]`
+### 6. Chat User Guide `[Tutorial]`
 
 *Persona: **End user** — people who use DIAL Chat daily to interact with models and apps. Not developer-facing. Separate top-level entry because end users are the largest audience and should not navigate through developer sections to find the product manual.*
 

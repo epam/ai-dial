@@ -31,7 +31,7 @@ Open your DIAL Chat URL and sign in with your account.
 
 ## Step 3: Find applications in the Marketplace
 
-The [Marketplace](/docs/platform/4.chat/1.marketplace.md) is where you discover applications and agents — ready-made tools for tasks such as document analysis, summarization, and knowledge exploration.
+The [Marketplace](../chat-user-guide/3.marketplace-and-apps.md) is where you discover applications and agents — ready-made tools for tasks such as document analysis, summarization, and knowledge exploration.
 
 1. Open the Marketplace from the sidebar.
 2. Browse or search for an application, then add it to your workspace.
@@ -46,5 +46,5 @@ The [Marketplace](/docs/platform/4.chat/1.marketplace.md) is where you discover 
 
 ## Next steps
 
-- [Chat user guide](/docs/tutorials/0.user-guide.md) — the complete guide to conversations, prompts, sharing, and every DIAL Chat feature
-- [Marketplace](/docs/platform/4.chat/1.marketplace.md) — browse applications, agents, and models
+- [Chat user guide](../chat-user-guide/0.index.md) — the complete guide to conversations, prompts, sharing, and every DIAL Chat feature
+- [Marketplace and apps](../chat-user-guide/3.marketplace-and-apps.md) — browse applications, agents, and models

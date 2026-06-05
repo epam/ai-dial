@@ -3,7 +3,7 @@ title: "Documentation progress"
 type: reference
 persona: all
 component: platform
-last_verified: 2026-06-04
+last_verified: 2026-06-05
 owner: "@dial-docs-team"
 ---
 
@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 112 | 0 | 184 | 0 | 28 | 0 | 0 |
+| 117 | 0 | 194 | 0 | 28 | 0 | 0 |
 
-**Progress: 0 / 324 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 339 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 217 New, 107 1-to-1
+Mapping types: 225 New, 114 1-to-1
 
 ---
 
@@ -75,35 +75,35 @@ Mapping types: 217 New, 107 1-to-1
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
 | [Usage limits and cost control](/docs/NEW/administering-dial/usage-limits-and-cost-control) | Platform > Architecture & Concepts > Usage Limits and Cost Control | how-to | 1-to-1 | 🟡 Waiting for review |
-| [Deployments > Images](/docs/NEW/administering-dial/deployments/images) | Tutorials > Admins > Admin Panel User Guide > Deployments > Images | how-to | 1-to-1 | 🟡 Waiting for review |
-| [Deployments > Containers](/docs/NEW/administering-dial/deployments/container-management) | — | how-to | New | 🟡 Waiting for review |
-| [Deployments > MCP containers](/docs/NEW/administering-dial/deployments/mcp-containers) | Tutorials > Admins > Admin Panel User Guide > Deployments > MCP Containers | how-to | 1-to-1 | 🟡 Waiting for review |
 | [Entities > Tool sets](/docs/NEW/administering-dial/entities/toolsets) | Tutorials > Admins > Admin Panel User Guide > Entities > Toolsets | how-to | 1-to-1 | 🟡 Waiting for review |
 | [Overview](/docs/NEW/administering-dial/index) | Tutorials > DevOps > Auth & Access Control > Configure IDPs > Overview | explanation | 1-to-1 | 🟡 Waiting for review |
 | Admin Panel overview | — | explanation | New | ⬜ Planned |
 | Entities | — | how-to | New | ⬜ Planned |
 | [Entities > Models](/docs/NEW/administering-dial/entities/models) | Tutorials > Admins > Admin Panel User Guide > Entities > Models | how-to | 1-to-1 | 🟡 Waiting for review |
+| [Entities > Routes](/docs/NEW/administering-dial/entities/routes) | Tutorials > Admins > Admin Panel User Guide > Entities > Routes | how-to | 1-to-1 | 🟡 Waiting for review |
 | [Entities > Applications](/docs/NEW/administering-dial/entities/applications) | Tutorials > Admins > Admin Panel User Guide > Entities > Applications | how-to | 1-to-1 | 🟡 Waiting for review |
 | [Entities > Interceptors](/docs/NEW/administering-dial/entities/interceptors) | Platform > Core > Interceptors | how-to | 1-to-1 | 🟡 Waiting for review |
-| [Entities > Routes](/docs/NEW/administering-dial/entities/routes) | Tutorials > Admins > Admin Panel User Guide > Entities > Routes | how-to | 1-to-1 | 🟡 Waiting for review |
 | Builders | — | how-to | New | ⬜ Planned |
 | [Builders](/docs/NEW/administering-dial/builders) | — | how-to | New | 🟡 Waiting for review |
 | Assets | — | how-to | New | ⬜ Planned |
 | [Assets](/docs/NEW/administering-dial/assets) | — | how-to | New | 🟡 Waiting for review |
+| [Deployments > Images](/docs/NEW/administering-dial/deployments/images) | Tutorials > Admins > Admin Panel User Guide > Deployments > Images | how-to | 1-to-1 | 🟡 Waiting for review |
+| [Deployments > Containers](/docs/NEW/administering-dial/deployments/container-management) | — | how-to | New | 🟡 Waiting for review |
 | Deployments (including MCP servers) | — | how-to | New | ⬜ Planned |
+| [Deployments > MCP containers](/docs/NEW/administering-dial/deployments/mcp-containers) | Tutorials > Admins > Admin Panel User Guide > Deployments > MCP Containers | how-to | 1-to-1 | 🟡 Waiting for review |
 | Access management | — | how-to | New | ⬜ Planned |
 | [Access management > Roles](/docs/NEW/administering-dial/access-management/roles) | Tutorials > Admins > Admin Panel User Guide > Access Management > Roles | how-to | 1-to-1 | 🟡 Waiting for review |
 | [Access management > Keys](/docs/NEW/administering-dial/access-management/keys) | Tutorials > Admins > Admin Panel User Guide > Access Management > Keys | how-to | 1-to-1 | 🟡 Waiting for review |
-| Approvals | — | how-to | New | ⬜ Planned |
+| Publications and review | — | how-to | New | ⬜ Planned |
+| [Publications and review](/docs/NEW/administering-dial/publications-and-review) | — | how-to | New | 🟡 Waiting for review |
 | Audit | — | how-to | New | ⬜ Planned |
 | [Audit > Activity and rollback](/docs/NEW/administering-dial/audit/activity-and-rollback) | — | how-to | New | 🟡 Waiting for review |
 | [Audit > Monitoring and dashboards](/docs/NEW/administering-dial/audit/monitoring-dashboards) | — | how-to | New | 🟡 Waiting for review |
 | User management | — | how-to | New | ⬜ Planned |
 | [User management](/docs/NEW/administering-dial/user-management) | — | how-to | New | 🟡 Waiting for review |
-| Publications and review | — | how-to | New | ⬜ Planned |
-| [Publications and review](/docs/NEW/administering-dial/publications-and-review) | — | how-to | New | 🟡 Waiting for review |
 | Compliance and legal FAQ | — | reference | New | ⬜ Planned |
 | [Compliance and legal FAQ](/docs/NEW/administering-dial/compliance-and-legal-faq) | Platform > Compliance and Legal Q&A | reference | 1-to-1 | 🟡 Waiting for review |
+| Approvals | — | how-to | New | ⬜ Planned |
 | [Backup, restore & global settings](/docs/NEW/administering-dial/config-backup-and-global-settings) | — | how-to | New | 🟡 Waiting for review |
 
 ## Building with DIAL (116)
@@ -227,7 +227,20 @@ Mapping types: 217 New, 107 1-to-1
 | [Apps > Quick Apps > Quick App 2.0 > Tool Sets > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/reference) | — | reference | New | 🟡 Waiting for review |
 | [Apps > Quick Apps > Quick App (original) > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/reference) | — | reference | New | 🟡 Waiting for review |
 
-## Operating DIAL (129)
+## Chat User Guide (8)
+
+| Target Page | Source | Type | Mapping | Status |
+|---|---|---|---|---|
+| [Tool sets](/docs/NEW/chat-user-guide/tool-sets) | Tutorials > Admins > Admin Panel User Guide > Entities > Toolsets | unknown | 1-to-1 | 🟡 Waiting for review |
+| [Overview and interface](/docs/NEW/chat-user-guide/index) | — | unknown | New | 🟡 Waiting for review |
+| [Marketplace and apps](/docs/NEW/chat-user-guide/marketplace-and-apps) | — | unknown | New | 🟡 Waiting for review |
+| [Conversations](/docs/NEW/chat-user-guide/conversations) | — | unknown | New | 🟡 Waiting for review |
+| [Prompts](/docs/NEW/chat-user-guide/prompts) | Tutorials > Admins > Admin Panel User Guide > Assets > Prompts | unknown | 1-to-1 | 🟡 Waiting for review |
+| [Files](/docs/NEW/chat-user-guide/files) | Tutorials > Admins > Admin Panel User Guide > Assets > Files | unknown | 1-to-1 | 🟡 Waiting for review |
+| [Sharing and publishing](/docs/NEW/chat-user-guide/sharing-and-publishing) | — | unknown | New | 🟡 Waiting for review |
+| [Settings](/docs/NEW/chat-user-guide/settings) | — | unknown | New | 🟡 Waiting for review |
+
+## Operating DIAL (131)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
@@ -357,9 +370,21 @@ Mapping types: 217 New, 107 1-to-1
 | [Configuration Reference > Coverage Status](/docs/NEW/operating-dial/configuration/coverage-status) | — | reference | New | 🟡 Waiting for review |
 | 4 Configuration reference > Core configuration | — | reference | New | ⬜ Planned |
 | 4 Configuration reference > Enable publications | Tutorials > DevOps > Configuration > Enable Publications | how-to | 1-to-1 | ⬜ Planned |
+| [Configuration Reference > Load Balancer](/docs/NEW/operating-dial/configuration/load-balancer) | Platform > Core > Load Balancer | reference | 1-to-1 | 🟡 Waiting for review |
+| [Configuration Reference > Enable Publications](/docs/NEW/operating-dial/configuration/enable-publications) | Tutorials > DevOps > Configuration > Enable Publications | how-to | 1-to-1 | 🟡 Waiting for review |
 | [Auth and access control > JWT authentication](/docs/NEW/operating-dial/auth-and-access-control/jwt) | — | how-to | New | 🟡 Waiting for review |
 | [Local setup > DIAL-to-DIAL adapter](/docs/NEW/operating-dial/local-setup/dial-to-dial-adapter) | Tutorials > Developers > Apps Development > Local Development | tutorial | 1-to-1 | 🟠 Waiting for test |
 | [Troubleshooting](/docs/NEW/operating-dial/troubleshooting) | — | reference | New | 🟡 Waiting for review |
+
+## Administering DIAL  ✅ (5)
+
+| Target Page | Source | Type | Mapping | Status |
+|---|---|---|---|---|
+| Backup, restore, and global settings | — | how-to | New | ⬜ Planned |
+| Containers | — | how-to | New | ⬜ Planned |
+| Roles | Tutorials > Admins > Admin Panel User Guide > Access Management > Roles | how-to | 1-to-1 | ⬜ Planned |
+| Keys | Tutorials > Admins > Admin Panel User Guide > Access Management > Keys | how-to | 1-to-1 | ⬜ Planned |
+| Monitoring and dashboards | — | how-to | New | ⬜ Planned |
 
 ## Reference (4)
 
@@ -384,4 +409,4 @@ Mapping types: 217 New, 107 1-to-1
 
 ---
 
-> Last generated: 2026-06-04. Source: [`tracking.json`](https://github.com/epam/ai-dial/blob/main/docs-planning/tracking.json).
+> Last generated: 2026-06-05. Source: [`tracking.json`](https://github.com/epam/ai-dial/blob/main/docs-planning/tracking.json).
