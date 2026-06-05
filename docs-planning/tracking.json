@@ -1814,6 +1814,17 @@
     },
     {
       "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Demos > Integrations",
+        "filePath": "docs/docs/NEW/demos/6.integrations.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Integrations > 13 Integrations > 13.1 Chatbot integrations > Integration with MS Teams",
         "filePath": "docs/docs/NEW/building-with-dial/integrations/13-integrations/13-1-chatbot-integrations/integration-with-ms-teams.md"
@@ -4388,6 +4399,50 @@
     {
       "targetPage": {
         "pageType": "explanation",
+        "menuPath": "NEW > Demos > Platform overview",
+        "filePath": "docs/docs/NEW/demos/1.platform-overview.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Demos > Chat capabilities",
+        "filePath": "docs/docs/NEW/demos/2.chat-capabilities.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Demos > Apps and agents showcase",
+        "filePath": "docs/docs/NEW/demos/3.apps-and-agents.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Demos > Deployment and admin walkthrough",
+        "filePath": "docs/docs/NEW/demos/4.deployment-and-admin.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
         "menuPath": "NEW > Use Cases > By use case → features",
         "filePath": "docs/docs/NEW/use-cases/by-use-case-features.md"
       },
@@ -4584,6 +4639,17 @@
         "pageType": "reference",
         "menuPath": "NEW > Reference > Component compatibility matrix",
         "filePath": "docs/docs/NEW/reference/compatibility-matrix.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Demos > Developer features",
+        "filePath": "docs/docs/NEW/demos/5.developer-features.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",

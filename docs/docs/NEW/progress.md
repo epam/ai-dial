@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 123 | 0 | 204 | 0 | 28 | 0 | 0 |
+| 123 | 0 | 210 | 0 | 28 | 0 | 0 |
 
-**Progress: 0 / 355 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 361 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 241 New, 114 1-to-1
+Mapping types: 247 New, 114 1-to-1
 
 ---
 
@@ -396,6 +396,17 @@ Mapping types: 241 New, 114 1-to-1
 | [Auth and access control > JWT authentication](/docs/NEW/operating-dial/auth-and-access-control/jwt) | — | how-to | New | 🟡 Waiting for review |
 | [Local setup > DIAL-to-DIAL adapter](/docs/NEW/operating-dial/local-setup/dial-to-dial-adapter) | Tutorials > Developers > Apps Development > Local Development | tutorial | 1-to-1 | 🟠 Waiting for test |
 | [Troubleshooting](/docs/NEW/operating-dial/troubleshooting) | — | reference | New | 🟡 Waiting for review |
+
+## Demos (6)
+
+| Target Page | Source | Type | Mapping | Status |
+|---|---|---|---|---|
+| [Integrations](/docs/NEW/demos/integrations) | — | explanation | New | 🟡 Waiting for review |
+| [Platform overview](/docs/NEW/demos/platform-overview) | — | explanation | New | 🟡 Waiting for review |
+| [Chat capabilities](/docs/NEW/demos/chat-capabilities) | — | explanation | New | 🟡 Waiting for review |
+| [Apps and agents showcase](/docs/NEW/demos/apps-and-agents) | — | explanation | New | 🟡 Waiting for review |
+| [Deployment and admin walkthrough](/docs/NEW/demos/deployment-and-admin) | — | explanation | New | 🟡 Waiting for review |
+| [Developer features](/docs/NEW/demos/developer-features) | — | explanation | New | 🟡 Waiting for review |
 
 ## Administering DIAL  ✅ (5)
 
