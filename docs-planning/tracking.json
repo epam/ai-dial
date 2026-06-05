@@ -5,7 +5,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Home > Developer quick start",
-        "filePath": "docs/docs/NEW/home/developer-quick-start.md"
+        "filePath": "docs_v2/home/developer-quick-start.md"
       },
       "sourcePages": [
         {
@@ -22,7 +22,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Home > DevOps quick start",
-        "filePath": "docs/docs/NEW/home/devops-quick-start.md"
+        "filePath": "docs_v2/home/devops-quick-start.md"
       },
       "sourcePages": [
         {
@@ -39,7 +39,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Home > Admin quick start",
-        "filePath": "docs/docs/NEW/home/admin-quick-start.md"
+        "filePath": "docs_v2/home/admin-quick-start.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -50,7 +50,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Home > Evaluator quick start",
-        "filePath": "docs/docs/NEW/home/evaluator-quick-start.md"
+        "filePath": "docs_v2/home/evaluator-quick-start.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -61,7 +61,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Home > Architect overview",
-        "filePath": "docs/docs/NEW/home/architect-overview.md"
+        "filePath": "docs_v2/home/architect-overview.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -72,7 +72,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Home > End user guide",
-        "filePath": "docs/docs/NEW/home/end-user-guide.md"
+        "filePath": "docs_v2/home/end-user-guide.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -83,7 +83,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Positioning > What is DIAL",
-        "filePath": "docs/docs/NEW/understand-dial/positioning/0.what-is-dial.md"
+        "filePath": "docs_v2/understand-dial/positioning/0.what-is-dial.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -94,7 +94,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Positioning > Comparisons > Overview",
-        "filePath": "docs/docs/NEW/understand-dial/positioning/1.comparisons.md"
+        "filePath": "docs_v2/understand-dial/positioning/1.comparisons.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -105,7 +105,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Positioning > Comparisons > DIAL vs AI gateways",
-        "filePath": "docs/docs/NEW/understand-dial/positioning/comparisons/1.dial-vs-ai-gateways.md"
+        "filePath": "docs_v2/understand-dial/positioning/comparisons/1.dial-vs-ai-gateways.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -116,7 +116,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Positioning > Comparisons > DIAL vs app builders",
-        "filePath": "docs/docs/NEW/understand-dial/positioning/comparisons/2.dial-vs-app-builders.md"
+        "filePath": "docs_v2/understand-dial/positioning/comparisons/2.dial-vs-app-builders.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -127,7 +127,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Positioning > Comparisons > DIAL vs frameworks",
-        "filePath": "docs/docs/NEW/understand-dial/positioning/comparisons/3.dial-vs-frameworks.md"
+        "filePath": "docs_v2/understand-dial/positioning/comparisons/3.dial-vs-frameworks.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -138,7 +138,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Positioning > Comparisons > DIAL vs AI studios",
-        "filePath": "docs/docs/NEW/understand-dial/positioning/comparisons/4.dial-vs-ai-studios.md"
+        "filePath": "docs_v2/understand-dial/positioning/comparisons/4.dial-vs-ai-studios.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -149,7 +149,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Architecture > Architecture highlights",
-        "filePath": "docs/docs/NEW/understand-dial/architecture/1.architecture-highlights.md"
+        "filePath": "docs_v2/understand-dial/architecture/1.architecture-highlights.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -160,7 +160,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Understand DIAL > Architecture > DIAL Stack",
-        "filePath": "docs/docs/NEW/understand-dial/architecture/2.dial-stack.md"
+        "filePath": "docs_v2/understand-dial/architecture/2.dial-stack.md"
       },
       "sourcePages": [
         {
@@ -177,7 +177,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Architecture > Application server",
-        "filePath": "docs/docs/NEW/understand-dial/architecture/3.application-server.md"
+        "filePath": "docs_v2/understand-dial/architecture/3.application-server.md"
       },
       "sourcePages": [
         {
@@ -194,7 +194,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Architecture > Unified API overview",
-        "filePath": "docs/docs/NEW/understand-dial/architecture/4.unified-api-overview.md"
+        "filePath": "docs_v2/understand-dial/architecture/4.unified-api-overview.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -205,7 +205,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Capabilities > Agentic platform",
-        "filePath": "docs/docs/NEW/understand-dial/agentic-platform.md"
+        "filePath": "docs_v2/understand-dial/agentic-platform.md"
       },
       "sourcePages": [
         {
@@ -222,7 +222,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Capabilities > Agentic platform",
-        "filePath": "docs/docs/NEW/understand-dial/capabilities/1.agentic-platform.md"
+        "filePath": "docs_v2/understand-dial/capabilities/1.agentic-platform.md"
       },
       "sourcePages": [
         {
@@ -239,7 +239,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Capabilities > RAG in DIAL",
-        "filePath": "docs/docs/NEW/understand-dial/rag-in-dial.md"
+        "filePath": "docs_v2/understand-dial/rag-in-dial.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -250,7 +250,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Capabilities > RAG in DIAL",
-        "filePath": "docs/docs/NEW/understand-dial/capabilities/2.rag-in-dial.md"
+        "filePath": "docs_v2/understand-dial/capabilities/2.rag-in-dial.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -261,7 +261,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Capabilities > Multimodality",
-        "filePath": "docs/docs/NEW/understand-dial/multimodality.md"
+        "filePath": "docs_v2/understand-dial/multimodality.md"
       },
       "sourcePages": [
         {
@@ -278,7 +278,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Capabilities > Multimodality",
-        "filePath": "docs/docs/NEW/understand-dial/capabilities/3.multimodality.md"
+        "filePath": "docs_v2/understand-dial/capabilities/3.multimodality.md"
       },
       "sourcePages": [
         {
@@ -295,7 +295,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Capabilities > Collaboration and sharing",
-        "filePath": "docs/docs/NEW/understand-dial/collaboration-and-sharing.md"
+        "filePath": "docs_v2/understand-dial/collaboration-and-sharing.md"
       },
       "sourcePages": [
         {
@@ -312,7 +312,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Capabilities > Collaboration and sharing",
-        "filePath": "docs/docs/NEW/understand-dial/capabilities/4.collaboration-and-sharing.md"
+        "filePath": "docs_v2/understand-dial/capabilities/4.collaboration-and-sharing.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -323,7 +323,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Security and governance > Authentication and access control",
-        "filePath": "docs/docs/NEW/understand-dial/authentication-and-access-control.md"
+        "filePath": "docs_v2/understand-dial/authentication-and-access-control.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -334,7 +334,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Security and governance > Authentication and access control",
-        "filePath": "docs/docs/NEW/understand-dial/security-and-governance/1.authentication-and-access-control.md"
+        "filePath": "docs_v2/understand-dial/security-and-governance/1.authentication-and-access-control.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -345,7 +345,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Understand DIAL > Security and governance > Access control reference",
-        "filePath": "docs/docs/NEW/understand-dial/security-and-governance/2.access-control-reference.md"
+        "filePath": "docs_v2/understand-dial/security-and-governance/2.access-control-reference.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -356,7 +356,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Security and governance > Usage limits and cost control",
-        "filePath": "docs/docs/NEW/understand-dial/usage-limits-and-cost-control.md"
+        "filePath": "docs_v2/understand-dial/usage-limits-and-cost-control.md"
       },
       "sourcePages": [
         {
@@ -373,7 +373,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Security and governance > Usage limits and cost control",
-        "filePath": "docs/docs/NEW/understand-dial/security-and-governance/3.usage-limits-and-cost-control.md"
+        "filePath": "docs_v2/understand-dial/security-and-governance/3.usage-limits-and-cost-control.md"
       },
       "sourcePages": [
         {
@@ -390,7 +390,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Usage limits and cost control",
-        "filePath": "docs/docs/NEW/administering-dial/9.usage-limits-and-cost-control.md"
+        "filePath": "docs_v2/administering-dial/9.usage-limits-and-cost-control.md"
       },
       "sourcePages": [
         {
@@ -407,7 +407,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Understand DIAL > Foundations > Core concepts and glossary",
-        "filePath": "docs/docs/NEW/understand-dial/core-concepts-and-glossary.md"
+        "filePath": "docs_v2/understand-dial/core-concepts-and-glossary.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -418,7 +418,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Foundations > Core concepts and glossary > Concept map",
-        "filePath": "docs/docs/NEW/understand-dial/foundations/core-concepts-and-glossary/1.concept-map.md"
+        "filePath": "docs_v2/understand-dial/foundations/core-concepts-and-glossary/1.concept-map.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -429,7 +429,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Understand DIAL > Foundations > Core concepts and glossary > Glossary",
-        "filePath": "docs/docs/NEW/understand-dial/foundations/core-concepts-and-glossary/2.glossary.md"
+        "filePath": "docs_v2/understand-dial/foundations/core-concepts-and-glossary/2.glossary.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -440,7 +440,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Foundations > Concept map",
-        "filePath": "docs/docs/NEW/understand-dial/concept-map.md"
+        "filePath": "docs_v2/understand-dial/concept-map.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -451,7 +451,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Understand DIAL > Foundations > Glossary",
-        "filePath": "docs/docs/NEW/understand-dial/glossary.md"
+        "filePath": "docs_v2/understand-dial/glossary.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -462,7 +462,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Foundations > DIAL evolution",
-        "filePath": "docs/docs/NEW/understand-dial/dial-evolution.md"
+        "filePath": "docs_v2/understand-dial/dial-evolution.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -473,7 +473,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Understand DIAL > Foundations > DIAL evolution",
-        "filePath": "docs/docs/NEW/understand-dial/foundations/3.dial-evolution.md"
+        "filePath": "docs_v2/understand-dial/foundations/3.dial-evolution.md"
       },
       "sourcePages": [
         {
@@ -490,7 +490,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Create in DIAL Chat",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/create-via-ui.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/create-via-ui.md"
       },
       "sourcePages": [
         {
@@ -507,7 +507,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Create via API",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/create-via-api.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/create-via-api.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -518,7 +518,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Create via config.json",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/create-via-config.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/create-via-config.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -529,7 +529,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Tutorial: agent loop (UI)",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop-ui.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop-ui.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -540,7 +540,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Tutorial: agent loop (API)",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop-api.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop-api.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -551,7 +551,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Tutorial: agent loop (config.json)",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop-config.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop-config.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -562,7 +562,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App (original) > Create and configure",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/create-and-configure.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-original/create-and-configure.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -573,7 +573,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App (original) > Migrate to Quick App 2.0",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/migrate-to-2.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-original/migrate-to-2.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -584,7 +584,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Code Apps > Tutorial: build a RAG Code App",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/code-apps/2.tutorial-build-deploy.md"
+        "filePath": "docs_v2/building-with-dial/apps/code-apps/2.tutorial-build-deploy.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -595,7 +595,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Custom Apps > Tutorial: custom buttons app",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/custom-apps/4.custom-buttons.md"
+        "filePath": "docs_v2/building-with-dial/apps/custom-apps/4.custom-buttons.md"
       },
       "sourcePages": [
         {
@@ -612,7 +612,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > Custom Apps > Register an app in DIAL Core",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/custom-apps/5.register-app.md"
+        "filePath": "docs_v2/building-with-dial/apps/custom-apps/5.register-app.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -623,7 +623,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Apps > When to use which",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/when-to-use-which.md"
+        "filePath": "docs_v2/building-with-dial/apps/when-to-use-which.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -634,7 +634,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Apps > Custom Apps > Architecture and lifecycle",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/custom-apps/0.index.md"
+        "filePath": "docs_v2/building-with-dial/apps/custom-apps/0.index.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -645,7 +645,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Apps > 2 Custom Apps > Architecture and lifecycle",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/2-custom-apps/architecture-and-lifecycle.md"
+        "filePath": "docs_v2/building-with-dial/apps/2-custom-apps/architecture-and-lifecycle.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -656,7 +656,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Custom Apps > Getting started with DIAL SDK",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/custom-apps/1.getting-started-sdk.md"
+        "filePath": "docs_v2/building-with-dial/apps/custom-apps/1.getting-started-sdk.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -667,7 +667,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > 2 Custom Apps > Getting started with DIAL SDK",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/2-custom-apps/getting-started-with-dial-sdk.md"
+        "filePath": "docs_v2/building-with-dial/apps/2-custom-apps/getting-started-with-dial-sdk.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -678,7 +678,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Custom Apps > Tutorial: build a RAG app",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/custom-apps/3.tutorial-rag-app.md"
+        "filePath": "docs_v2/building-with-dial/apps/custom-apps/3.tutorial-rag-app.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -689,7 +689,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > 2 Custom Apps > Tutorial: build a RAG app",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/2-custom-apps/tutorial-build-a-rag-app.md"
+        "filePath": "docs_v2/building-with-dial/apps/2-custom-apps/tutorial-build-a-rag-app.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -700,7 +700,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Custom Apps > Tutorial: translator app",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/custom-apps/2.tutorial-translator-app.md"
+        "filePath": "docs_v2/building-with-dial/apps/custom-apps/2.tutorial-translator-app.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -711,7 +711,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > 2 Custom Apps > Custom buttons in apps",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/2-custom-apps/custom-buttons-in-apps.md"
+        "filePath": "docs_v2/building-with-dial/apps/2-custom-apps/custom-buttons-in-apps.md"
       },
       "sourcePages": [
         {
@@ -728,7 +728,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > 2 Custom Apps > Registering apps in DIAL Core",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/2-custom-apps/registering-apps-in-dial-core.md"
+        "filePath": "docs_v2/building-with-dial/apps/2-custom-apps/registering-apps-in-dial-core.md"
       },
       "sourcePages": [
         {
@@ -745,7 +745,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > Custom Apps > Deploy a Custom App",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/custom-apps/6.deployment.md"
+        "filePath": "docs_v2/building-with-dial/apps/custom-apps/6.deployment.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -756,7 +756,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > Multi-tenant deployment",
-        "filePath": "docs/docs/NEW/use-cases/multi-tenant-deployment.md"
+        "filePath": "docs_v2/use-cases/multi-tenant-deployment.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -767,7 +767,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Quick App 2.0 examples",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/examples.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/examples.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -778,7 +778,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Apps > Custom Apps > Examples",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/custom-apps/7.examples.md"
+        "filePath": "docs_v2/building-with-dial/apps/custom-apps/7.examples.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -789,7 +789,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > What are Quick Apps",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/0.index.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/0.index.md"
       },
       "sourcePages": [
         {
@@ -806,7 +806,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Apps > 3 Quick Apps > What are Quick Apps",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/3-quick-apps/what-are-quick-apps.md"
+        "filePath": "docs_v2/building-with-dial/apps/3-quick-apps/what-are-quick-apps.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -817,7 +817,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > 3 Quick Apps > Authoring guide",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/3-quick-apps/authoring-guide.md"
+        "filePath": "docs_v2/building-with-dial/apps/3-quick-apps/authoring-guide.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -828,7 +828,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Add tools and agents",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/working-with-tools-and-agents.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/working-with-tools-and-agents.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -839,7 +839,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Tool Sets > Tool Set examples",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/5.examples.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/5.examples.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -850,7 +850,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Building with DIAL > Apps > 3 Quick Apps > Tool Sets",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/3-quick-apps/tool-sets.md"
+        "filePath": "docs_v2/building-with-dial/apps/3-quick-apps/tool-sets.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -861,7 +861,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Entities > Tool sets",
-        "filePath": "docs/docs/NEW/administering-dial/entities/toolsets.md"
+        "filePath": "docs_v2/administering-dial/entities/toolsets.md"
       },
       "sourcePages": [
         {
@@ -878,7 +878,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Chat User Guide > Tool sets",
-        "filePath": "docs/docs/NEW/chat-user-guide/4.tool-sets.md"
+        "filePath": "docs_v2/chat-user-guide/4.tool-sets.md"
       },
       "sourcePages": [
         {
@@ -895,7 +895,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Tool Sets > What is a Tool Set",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/0.index.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/0.index.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -906,7 +906,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Apps > 3 Quick Apps > What is a Tool Set",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/3-quick-apps/what-is-a-tool-set.md"
+        "filePath": "docs_v2/building-with-dial/apps/3-quick-apps/what-is-a-tool-set.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -917,7 +917,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Tool Sets > Define and register a Tool Set",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/1.define-and-register.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/1.define-and-register.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -928,7 +928,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > 3 Quick Apps > Define and register a Tool Set",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/3-quick-apps/define-and-register-a-tool-set.md"
+        "filePath": "docs_v2/building-with-dial/apps/3-quick-apps/define-and-register-a-tool-set.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -939,7 +939,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Tool Sets > Integrate an MCP server",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/2.mcp-server-integration.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/2.mcp-server-integration.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -950,7 +950,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Tool Sets > Share and manage permissions",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/3.sharing-and-permissions.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/3.sharing-and-permissions.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -961,7 +961,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Apps > 3 Quick Apps > Tool Set reference",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/3-quick-apps/tool-set-reference.md"
+        "filePath": "docs_v2/building-with-dial/apps/3-quick-apps/tool-set-reference.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -972,7 +972,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > 3 Quick Apps > Tutorial: Quick App with agent loop",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/3-quick-apps/tutorial-quick-app-with-agent-loop.md"
+        "filePath": "docs_v2/building-with-dial/apps/3-quick-apps/tutorial-quick-app-with-agent-loop.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -983,7 +983,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Building with DIAL > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/0.index.md"
+        "filePath": "docs_v2/building-with-dial/0.index.md"
       },
       "sourcePages": [
         {
@@ -1000,7 +1000,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Apps > DIAL Apps overview",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/0.index.md"
+        "filePath": "docs_v2/building-with-dial/apps/0.index.md"
       },
       "sourcePages": [
         {
@@ -1017,7 +1017,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Apps > Code Apps > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/code-apps/0.index.md"
+        "filePath": "docs_v2/building-with-dial/apps/code-apps/0.index.md"
       },
       "sourcePages": [
         {
@@ -1034,7 +1034,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Apps > Mind Map Studio > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/mind-map-studio/0.index.md"
+        "filePath": "docs_v2/building-with-dial/apps/mind-map-studio/0.index.md"
       },
       "sourcePages": [
         {
@@ -1051,7 +1051,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Apps > 4 Code Apps > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/4-code-apps/overview.md"
+        "filePath": "docs_v2/building-with-dial/apps/4-code-apps/overview.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -1062,7 +1062,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Operating DIAL > Auth and access control > Overview",
-        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/0.index.md"
+        "filePath": "docs_v2/operating-dial/auth-and-access-control/0.index.md"
       },
       "sourcePages": [
         {
@@ -1079,7 +1079,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Building with DIAL > Working with DIAL resources > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/working-with-dial-resources/0.index.md"
+        "filePath": "docs_v2/building-with-dial/working-with-dial-resources/0.index.md"
       },
       "sourcePages": [
         {
@@ -1096,7 +1096,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Building with DIAL > Advanced topics > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/advanced-topics/0.index.md"
+        "filePath": "docs_v2/building-with-dial/advanced-topics/0.index.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1107,7 +1107,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Home > Overview",
-        "filePath": "docs/docs/NEW/home/0.index.md"
+        "filePath": "docs_v2/home/0.index.md"
       },
       "sourcePages": [
         {
@@ -1124,7 +1124,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Operating DIAL > Local setup > Overview",
-        "filePath": "docs/docs/NEW/operating-dial/local-setup/0.index.md"
+        "filePath": "docs_v2/operating-dial/local-setup/0.index.md"
       },
       "sourcePages": [
         {
@@ -1141,7 +1141,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Operating DIAL > Observability > Overview",
-        "filePath": "docs/docs/NEW/operating-dial/observability/0.index.md"
+        "filePath": "docs_v2/operating-dial/observability/0.index.md"
       },
       "sourcePages": [
         {
@@ -1158,7 +1158,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Operating DIAL > Production readiness > Overview",
-        "filePath": "docs/docs/NEW/operating-dial/production-readiness/0.index.md"
+        "filePath": "docs_v2/operating-dial/production-readiness/0.index.md"
       },
       "sourcePages": [
         {
@@ -1175,7 +1175,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Administering DIAL > Overview",
-        "filePath": "docs/docs/NEW/administering-dial/0.index.md"
+        "filePath": "docs_v2/administering-dial/0.index.md"
       },
       "sourcePages": [
         {
@@ -1192,7 +1192,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Chat User Guide > Overview and interface",
-        "filePath": "docs/docs/NEW/chat-user-guide/0.index.md"
+        "filePath": "docs_v2/chat-user-guide/0.index.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1203,7 +1203,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > Code Apps > Getting started",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/code-apps/1.getting-started.md"
+        "filePath": "docs_v2/building-with-dial/apps/code-apps/1.getting-started.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -1214,7 +1214,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Apps > 4 Code Apps > Tutorial: build and deploy a Code App",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/4-code-apps/tutorial-build-and-deploy-a-code-app.md"
+        "filePath": "docs_v2/building-with-dial/apps/4-code-apps/tutorial-build-and-deploy-a-code-app.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -1225,7 +1225,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > Mind Map Studio > Authoring workflow",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/mind-map-studio/authoring-workflow.md"
+        "filePath": "docs_v2/building-with-dial/apps/mind-map-studio/authoring-workflow.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1236,7 +1236,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Apps > Mind Map Studio > Export and publish",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/mind-map-studio/export-and-publish.md"
+        "filePath": "docs_v2/building-with-dial/apps/mind-map-studio/export-and-publish.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1247,7 +1247,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Extension points > Interceptors > Examples",
-        "filePath": "docs/docs/NEW/building-with-dial/interceptors/4.examples.md"
+        "filePath": "docs_v2/building-with-dial/interceptors/4.examples.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1258,7 +1258,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Extension points > Interceptors > What are interceptors",
-        "filePath": "docs/docs/NEW/building-with-dial/interceptors/0.index.md"
+        "filePath": "docs_v2/building-with-dial/interceptors/0.index.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1269,7 +1269,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Extension points > 6 Interceptors > What are interceptors",
-        "filePath": "docs/docs/NEW/building-with-dial/extension-points/6-interceptors/what-are-interceptors.md"
+        "filePath": "docs_v2/building-with-dial/extension-points/6-interceptors/what-are-interceptors.md"
       },
       "sourcePages": [
         {
@@ -1286,7 +1286,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Extension points > Interceptors > Tutorial: PII-redacting interceptor",
-        "filePath": "docs/docs/NEW/building-with-dial/interceptors/1.tutorial-pii-interceptor.md"
+        "filePath": "docs_v2/building-with-dial/interceptors/1.tutorial-pii-interceptor.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -1297,7 +1297,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Extension points > 6 Interceptors > Tutorial: PII-redacting interceptor",
-        "filePath": "docs/docs/NEW/building-with-dial/extension-points/6-interceptors/tutorial-pii-redacting-interceptor.md"
+        "filePath": "docs_v2/building-with-dial/extension-points/6-interceptors/tutorial-pii-redacting-interceptor.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -1308,7 +1308,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Extension points > Interceptors > Interceptors SDK reference",
-        "filePath": "docs/docs/NEW/building-with-dial/interceptors/2.sdk-reference.md"
+        "filePath": "docs_v2/building-with-dial/interceptors/2.sdk-reference.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1319,7 +1319,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Extension points > 6 Interceptors > Interceptors SDK reference",
-        "filePath": "docs/docs/NEW/building-with-dial/extension-points/6-interceptors/interceptors-sdk-reference.md"
+        "filePath": "docs_v2/building-with-dial/extension-points/6-interceptors/interceptors-sdk-reference.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -1330,7 +1330,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Extension points > Interceptors > Configure and assign",
-        "filePath": "docs/docs/NEW/building-with-dial/interceptors/3.configuration-and-assignment.md"
+        "filePath": "docs_v2/building-with-dial/interceptors/3.configuration-and-assignment.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1341,7 +1341,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Extension points > Adapters > What are adapters",
-        "filePath": "docs/docs/NEW/building-with-dial/adapters/0.index.md"
+        "filePath": "docs_v2/building-with-dial/adapters/0.index.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1352,7 +1352,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Extension points > 7 Adapters > What are adapters",
-        "filePath": "docs/docs/NEW/building-with-dial/extension-points/7-adapters/what-are-adapters.md"
+        "filePath": "docs_v2/building-with-dial/extension-points/7-adapters/what-are-adapters.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -1363,7 +1363,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Extension points > Adapters > Tutorial: custom adapter",
-        "filePath": "docs/docs/NEW/building-with-dial/adapters/1.tutorial-custom-adapter.md"
+        "filePath": "docs_v2/building-with-dial/adapters/1.tutorial-custom-adapter.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -1374,7 +1374,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Extension points > Adapters > Supported providers",
-        "filePath": "docs/docs/NEW/building-with-dial/adapters/2.supported-providers.md"
+        "filePath": "docs_v2/building-with-dial/adapters/2.supported-providers.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1385,7 +1385,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Developer tools > SDK Reference > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/sdk-reference/0.index.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/sdk-reference/0.index.md"
       },
       "sourcePages": [
         {
@@ -1402,7 +1402,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Developer tools > SDK Reference > DIALApp",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/sdk-reference/1.dial-app.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/sdk-reference/1.dial-app.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1413,7 +1413,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Developer tools > SDK Reference > Chat completion > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/sdk-reference/chat-completion/0.index.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/sdk-reference/chat-completion/0.index.md"
       },
       "sourcePages": [
         {
@@ -1430,7 +1430,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Developer tools > SDK Reference > Chat completion > Request",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/sdk-reference/chat-completion/1.request.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/sdk-reference/chat-completion/1.request.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1441,7 +1441,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Developer tools > SDK Reference > Chat completion > Response",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/sdk-reference/chat-completion/2.response.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/sdk-reference/chat-completion/2.response.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1452,7 +1452,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Developer tools > SDK Reference > Chat completion > Choice",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/sdk-reference/chat-completion/3.choice.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/sdk-reference/chat-completion/3.choice.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1463,7 +1463,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Developer tools > SDK Reference > Chat completion > Stage",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/sdk-reference/chat-completion/4.stage.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/sdk-reference/chat-completion/4.stage.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1474,7 +1474,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Developer tools > SDK Reference > Embeddings",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/sdk-reference/3.embeddings.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/sdk-reference/3.embeddings.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1485,7 +1485,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Developer tools > SDK Reference > Exceptions",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/sdk-reference/4.exceptions.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/sdk-reference/4.exceptions.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1496,7 +1496,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Developer tools > SDK Reference > Telemetry",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/sdk-reference/5.telemetry.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/sdk-reference/5.telemetry.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1507,7 +1507,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Developer tools > Chat customization > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/chat-customization/0.index.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/chat-customization/0.index.md"
       },
       "sourcePages": [
         {
@@ -1524,7 +1524,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Developer tools > Chat customization > Marketplace",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/chat-customization/6.marketplace.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/chat-customization/6.marketplace.md"
       },
       "sourcePages": [
         {
@@ -1541,7 +1541,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Developer tools > Chat customization > Create a custom theme",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/chat-customization/7.create-custom-theme.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/chat-customization/7.create-custom-theme.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -1552,7 +1552,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Developer tools > Chat customization > DIAL Overlay",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/chat-customization/8.dial-overlay.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/chat-customization/8.dial-overlay.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1563,7 +1563,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Developer tools > Chat customization > Embed Chat with DIAL Overlay",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/chat-customization/9.embed-chat-in-web-app.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/chat-customization/9.embed-chat-in-web-app.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -1574,7 +1574,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Developer tools > Chat customization > Custom content in Chat",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/chat-customization/1.custom-content.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/chat-customization/1.custom-content.md"
       },
       "sourcePages": [
         {
@@ -1591,7 +1591,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Developer tools > 9 Chat customization > Custom content in Chat",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/9-chat-customization/custom-content-in-chat.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/9-chat-customization/custom-content-in-chat.md"
       },
       "sourcePages": [
         {
@@ -1608,7 +1608,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Developer tools > Chat customization > Data visualization",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/chat-customization/2.data-visualization.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/chat-customization/2.data-visualization.md"
       },
       "sourcePages": [
         {
@@ -1625,7 +1625,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Developer tools > Chat customization > Create a custom visualizer",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/chat-customization/3.create-custom-visualizer.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/chat-customization/3.create-custom-visualizer.md"
       },
       "sourcePages": [
         {
@@ -1642,7 +1642,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Developer tools > Chat customization > Chat localization",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/chat-customization/4.chat-localization.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/chat-customization/4.chat-localization.md"
       },
       "sourcePages": [
         {
@@ -1659,7 +1659,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Developer tools > Chat customization > Theming and design",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/chat-customization/5.theming-and-design.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/chat-customization/5.theming-and-design.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1670,7 +1670,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Chat User Guide > Marketplace and apps",
-        "filePath": "docs/docs/NEW/chat-user-guide/3.marketplace-and-apps.md"
+        "filePath": "docs_v2/chat-user-guide/3.marketplace-and-apps.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1681,7 +1681,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Developer tools > 11 DIAL Overlay > Tutorial: custom UI with Overlay",
-        "filePath": "docs/docs/NEW/building-with-dial/developer-tools/11-dial-overlay/tutorial-custom-ui-with-overlay.md"
+        "filePath": "docs_v2/building-with-dial/developer-tools/11-dial-overlay/tutorial-custom-ui-with-overlay.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -1692,7 +1692,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Quality and testing > Evaluations > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/evaluations/0.index.md"
+        "filePath": "docs_v2/building-with-dial/evaluations/0.index.md"
       },
       "sourcePages": [
         {
@@ -1709,7 +1709,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Quality and testing > Evaluations > RAG Eval toolkit",
-        "filePath": "docs/docs/NEW/building-with-dial/evaluations/1.rag-eval-toolkit.md"
+        "filePath": "docs_v2/building-with-dial/evaluations/1.rag-eval-toolkit.md"
       },
       "sourcePages": [
         {
@@ -1726,7 +1726,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Quality and testing > Evaluations > Tutorial: eval-driven development",
-        "filePath": "docs/docs/NEW/building-with-dial/evaluations/2.tutorial-eval-driven-dev.md"
+        "filePath": "docs_v2/building-with-dial/evaluations/2.tutorial-eval-driven-dev.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -1737,7 +1737,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Quality and testing > 12 Evaluations > Tutorial: eval-driven development",
-        "filePath": "docs/docs/NEW/building-with-dial/quality-and-testing/12-evaluations/tutorial-eval-driven-development.md"
+        "filePath": "docs_v2/building-with-dial/quality-and-testing/12-evaluations/tutorial-eval-driven-development.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -1748,7 +1748,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Building with DIAL > Integrations > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/integrations/0.index.md"
+        "filePath": "docs_v2/building-with-dial/integrations/0.index.md"
       },
       "sourcePages": [
         {
@@ -1765,7 +1765,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Building with DIAL > Integrations > Chatbot integrations > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/integrations/chatbot-integrations/0.index.md"
+        "filePath": "docs_v2/building-with-dial/integrations/chatbot-integrations/0.index.md"
       },
       "sourcePages": [
         {
@@ -1782,7 +1782,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Building with DIAL > Integrations > Productivity add-ins > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/integrations/productivity-add-ins/0.index.md"
+        "filePath": "docs_v2/building-with-dial/integrations/productivity-add-ins/0.index.md"
       },
       "sourcePages": [
         {
@@ -1799,7 +1799,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Building with DIAL > Integrations > Workflow automation > Overview",
-        "filePath": "docs/docs/NEW/building-with-dial/integrations/workflow-automation/0.index.md"
+        "filePath": "docs_v2/building-with-dial/integrations/workflow-automation/0.index.md"
       },
       "sourcePages": [
         {
@@ -1816,7 +1816,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Demos > Integrations",
-        "filePath": "docs/docs/NEW/demos/6.integrations.md"
+        "filePath": "docs_v2/demos/6.integrations.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -1827,7 +1827,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Integrations > 13 Integrations > 13.1 Chatbot integrations > Integration with MS Teams",
-        "filePath": "docs/docs/NEW/building-with-dial/integrations/13-integrations/13-1-chatbot-integrations/integration-with-ms-teams.md"
+        "filePath": "docs_v2/building-with-dial/integrations/13-integrations/13-1-chatbot-integrations/integration-with-ms-teams.md"
       },
       "sourcePages": [
         {
@@ -1844,7 +1844,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Integrations > Chatbot integrations > Integration with MS Teams",
-        "filePath": "docs/docs/NEW/building-with-dial/integrations/chatbot-integrations/1.ms-teams.md"
+        "filePath": "docs_v2/building-with-dial/integrations/chatbot-integrations/1.ms-teams.md"
       },
       "sourcePages": [
         {
@@ -1861,7 +1861,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Integrations > 13 Integrations > 13.1 Chatbot integrations > Integration with MS Copilot",
-        "filePath": "docs/docs/NEW/building-with-dial/integrations/13-integrations/13-1-chatbot-integrations/integration-with-ms-copilot.md"
+        "filePath": "docs_v2/building-with-dial/integrations/13-integrations/13-1-chatbot-integrations/integration-with-ms-copilot.md"
       },
       "sourcePages": [
         {
@@ -1878,7 +1878,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Integrations > Chatbot integrations > Integration with MS Copilot",
-        "filePath": "docs/docs/NEW/building-with-dial/integrations/chatbot-integrations/2.ms-copilot.md"
+        "filePath": "docs_v2/building-with-dial/integrations/chatbot-integrations/2.ms-copilot.md"
       },
       "sourcePages": [
         {
@@ -1895,7 +1895,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Integrations > 13 Integrations > 13.2 Productivity add-ins > Integration with MS Excel",
-        "filePath": "docs/docs/NEW/building-with-dial/integrations/13-integrations/13-2-productivity-add-ins/integration-with-ms-excel.md"
+        "filePath": "docs_v2/building-with-dial/integrations/13-integrations/13-2-productivity-add-ins/integration-with-ms-excel.md"
       },
       "sourcePages": [
         {
@@ -1912,7 +1912,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Integrations > Productivity add-ins > Integration with MS Excel",
-        "filePath": "docs/docs/NEW/building-with-dial/integrations/productivity-add-ins/1.ms-excel.md"
+        "filePath": "docs_v2/building-with-dial/integrations/productivity-add-ins/1.ms-excel.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -1923,7 +1923,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Integrations > 13 Integrations > 13.3 Workflow automation > Integration with n8n",
-        "filePath": "docs/docs/NEW/building-with-dial/integrations/13-integrations/13-3-workflow-automation/integration-with-n8n.md"
+        "filePath": "docs_v2/building-with-dial/integrations/13-integrations/13-3-workflow-automation/integration-with-n8n.md"
       },
       "sourcePages": [
         {
@@ -1940,7 +1940,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Integrations > Workflow automation > Integration with n8n",
-        "filePath": "docs/docs/NEW/building-with-dial/integrations/workflow-automation/1.n8n.md"
+        "filePath": "docs_v2/building-with-dial/integrations/workflow-automation/1.n8n.md"
       },
       "sourcePages": [
         {
@@ -1957,7 +1957,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Integrations > 13 Integrations > 13.4 Orchestration patterns > Tutorial: multi-provider routing",
-        "filePath": "docs/docs/NEW/building-with-dial/integrations/13-integrations/13-4-orchestration-patterns/tutorial-multi-provider-routing.md"
+        "filePath": "docs_v2/building-with-dial/integrations/13-integrations/13-4-orchestration-patterns/tutorial-multi-provider-routing.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -1968,7 +1968,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Platform APIs and resources > 14 Working with DIAL resources > File management",
-        "filePath": "docs/docs/NEW/building-with-dial/platform-apis-and-resources/14-working-with-dial-resources/file-management.md"
+        "filePath": "docs_v2/building-with-dial/platform-apis-and-resources/14-working-with-dial-resources/file-management.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -1979,7 +1979,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Platform APIs and resources > 14 Working with DIAL resources > Publications API",
-        "filePath": "docs/docs/NEW/building-with-dial/platform-apis-and-resources/14-working-with-dial-resources/publications-api.md"
+        "filePath": "docs_v2/building-with-dial/platform-apis-and-resources/14-working-with-dial-resources/publications-api.md"
       },
       "sourcePages": [
         {
@@ -1996,7 +1996,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Platform APIs and resources > 14 Working with DIAL resources > Sharing API",
-        "filePath": "docs/docs/NEW/building-with-dial/platform-apis-and-resources/14-working-with-dial-resources/sharing-api.md"
+        "filePath": "docs_v2/building-with-dial/platform-apis-and-resources/14-working-with-dial-resources/sharing-api.md"
       },
       "sourcePages": [
         {
@@ -2013,7 +2013,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Platform APIs and resources > 14 Working with DIAL resources > Notifications",
-        "filePath": "docs/docs/NEW/building-with-dial/platform-apis-and-resources/14-working-with-dial-resources/notifications.md"
+        "filePath": "docs_v2/building-with-dial/platform-apis-and-resources/14-working-with-dial-resources/notifications.md"
       },
       "sourcePages": [
         {
@@ -2030,7 +2030,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Platform APIs and resources > 14 Working with DIAL resources > Per-request keys",
-        "filePath": "docs/docs/NEW/building-with-dial/platform-apis-and-resources/14-working-with-dial-resources/per-request-keys.md"
+        "filePath": "docs_v2/building-with-dial/platform-apis-and-resources/14-working-with-dial-resources/per-request-keys.md"
       },
       "sourcePages": [
         {
@@ -2047,7 +2047,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Platform APIs and resources > 14 Working with DIAL resources > Auth matrix for apps",
-        "filePath": "docs/docs/NEW/building-with-dial/platform-apis-and-resources/14-working-with-dial-resources/auth-matrix-for-apps.md"
+        "filePath": "docs_v2/building-with-dial/platform-apis-and-resources/14-working-with-dial-resources/auth-matrix-for-apps.md"
       },
       "sourcePages": [
         {
@@ -2064,7 +2064,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Working with DIAL resources > File management",
-        "filePath": "docs/docs/NEW/building-with-dial/working-with-dial-resources/1.file-management.md"
+        "filePath": "docs_v2/building-with-dial/working-with-dial-resources/1.file-management.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2075,7 +2075,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Working with DIAL resources > Publications API",
-        "filePath": "docs/docs/NEW/building-with-dial/working-with-dial-resources/2.publications-api.md"
+        "filePath": "docs_v2/building-with-dial/working-with-dial-resources/2.publications-api.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2086,7 +2086,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Working with DIAL resources > Sharing API",
-        "filePath": "docs/docs/NEW/building-with-dial/working-with-dial-resources/3.sharing-api.md"
+        "filePath": "docs_v2/building-with-dial/working-with-dial-resources/3.sharing-api.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2097,7 +2097,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Building with DIAL > Working with DIAL resources > Notifications",
-        "filePath": "docs/docs/NEW/building-with-dial/working-with-dial-resources/4.notifications.md"
+        "filePath": "docs_v2/building-with-dial/working-with-dial-resources/4.notifications.md"
       },
       "sourcePages": [
         {
@@ -2114,7 +2114,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Working with DIAL resources > Per-request keys",
-        "filePath": "docs/docs/NEW/building-with-dial/working-with-dial-resources/5.per-request-keys.md"
+        "filePath": "docs_v2/building-with-dial/working-with-dial-resources/5.per-request-keys.md"
       },
       "sourcePages": [
         {
@@ -2131,7 +2131,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Working with DIAL resources > Auth matrix for apps",
-        "filePath": "docs/docs/NEW/building-with-dial/working-with-dial-resources/6.auth-matrix-for-apps.md"
+        "filePath": "docs_v2/building-with-dial/working-with-dial-resources/6.auth-matrix-for-apps.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2142,7 +2142,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Building with DIAL > Advanced topics > How prompt caching works",
-        "filePath": "docs/docs/NEW/building-with-dial/advanced-topics/1.prompt-caching.md"
+        "filePath": "docs_v2/building-with-dial/advanced-topics/1.prompt-caching.md"
       },
       "sourcePages": [
         {
@@ -2159,7 +2159,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Building with DIAL > Advanced topics > Tutorial: enable and verify prompt caching",
-        "filePath": "docs/docs/NEW/building-with-dial/advanced-topics/2.tutorial-prompt-caching.md"
+        "filePath": "docs_v2/building-with-dial/advanced-topics/2.tutorial-prompt-caching.md"
       },
       "sourcePages": [
         {
@@ -2176,7 +2176,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 1 Local setup > Docker Compose with Azure model",
-        "filePath": "docs/docs/NEW/operating-dial/1-local-setup/docker-compose-with-azure-model.md"
+        "filePath": "docs_v2/operating-dial/1-local-setup/docker-compose-with-azure-model.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2187,7 +2187,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Operating DIAL > Local setup > Azure OpenAI model",
-        "filePath": "docs/docs/NEW/operating-dial/local-setup/4.docker-compose-with-azure-model.md"
+        "filePath": "docs_v2/operating-dial/local-setup/4.docker-compose-with-azure-model.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -2198,7 +2198,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 1 Local setup > Docker Compose with Ollama",
-        "filePath": "docs/docs/NEW/operating-dial/1-local-setup/docker-compose-with-ollama.md"
+        "filePath": "docs_v2/operating-dial/1-local-setup/docker-compose-with-ollama.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2209,7 +2209,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Operating DIAL > Local setup > Ollama model",
-        "filePath": "docs/docs/NEW/operating-dial/local-setup/2.docker-compose-with-ollama.md"
+        "filePath": "docs_v2/operating-dial/local-setup/2.docker-compose-with-ollama.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -2220,7 +2220,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 1 Local setup > Docker Compose with vLLM",
-        "filePath": "docs/docs/NEW/operating-dial/1-local-setup/docker-compose-with-vllm.md"
+        "filePath": "docs_v2/operating-dial/1-local-setup/docker-compose-with-vllm.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2231,7 +2231,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Operating DIAL > Local setup > vLLM model",
-        "filePath": "docs/docs/NEW/operating-dial/local-setup/3.docker-compose-with-vllm.md"
+        "filePath": "docs_v2/operating-dial/local-setup/3.docker-compose-with-vllm.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -2242,7 +2242,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 1 Local setup > Docker Compose with application",
-        "filePath": "docs/docs/NEW/operating-dial/1-local-setup/docker-compose-with-application.md"
+        "filePath": "docs_v2/operating-dial/1-local-setup/docker-compose-with-application.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2253,7 +2253,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Operating DIAL > Local setup > Echo application",
-        "filePath": "docs/docs/NEW/operating-dial/local-setup/1.docker-compose-with-application.md"
+        "filePath": "docs_v2/operating-dial/local-setup/1.docker-compose-with-application.md"
       },
       "sourcePages": [],
       "status": "waiting-for-test",
@@ -2264,7 +2264,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 1 Local setup > DIAL-to-DIAL Adapter for local dev",
-        "filePath": "docs/docs/NEW/operating-dial/1-local-setup/dial-to-dial-adapter-for-local-dev.md"
+        "filePath": "docs_v2/operating-dial/1-local-setup/dial-to-dial-adapter-for-local-dev.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2275,7 +2275,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Operating DIAL > 2 Cloud deployment > Helm chart overview",
-        "filePath": "docs/docs/NEW/operating-dial/2-cloud-deployment/helm-chart-overview.md"
+        "filePath": "docs_v2/operating-dial/2-cloud-deployment/helm-chart-overview.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2286,7 +2286,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Operating DIAL > Cloud deployment > Helm chart overview",
-        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/0.index.md"
+        "filePath": "docs_v2/operating-dial/cloud-deployment/0.index.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2297,7 +2297,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 2 Cloud deployment > AWS deployment",
-        "filePath": "docs/docs/NEW/operating-dial/2-cloud-deployment/aws-deployment.md"
+        "filePath": "docs_v2/operating-dial/2-cloud-deployment/aws-deployment.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2308,7 +2308,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Cloud deployment > AWS",
-        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/1.aws-deployment.md"
+        "filePath": "docs_v2/operating-dial/cloud-deployment/1.aws-deployment.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2319,7 +2319,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 2 Cloud deployment > Azure deployment",
-        "filePath": "docs/docs/NEW/operating-dial/2-cloud-deployment/azure-deployment.md"
+        "filePath": "docs_v2/operating-dial/2-cloud-deployment/azure-deployment.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2330,7 +2330,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Cloud deployment > Azure",
-        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/2.azure-deployment.md"
+        "filePath": "docs_v2/operating-dial/cloud-deployment/2.azure-deployment.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2341,7 +2341,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 2 Cloud deployment > GCP deployment",
-        "filePath": "docs/docs/NEW/operating-dial/2-cloud-deployment/gcp-deployment.md"
+        "filePath": "docs_v2/operating-dial/2-cloud-deployment/gcp-deployment.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2352,7 +2352,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Cloud deployment > GCP",
-        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/3.gcp-deployment.md"
+        "filePath": "docs_v2/operating-dial/cloud-deployment/3.gcp-deployment.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2363,7 +2363,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 2 Cloud deployment > Generic Kubernetes",
-        "filePath": "docs/docs/NEW/operating-dial/2-cloud-deployment/generic-kubernetes.md"
+        "filePath": "docs_v2/operating-dial/2-cloud-deployment/generic-kubernetes.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2374,7 +2374,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Cloud deployment > Generic Kubernetes",
-        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/4.generic-kubernetes.md"
+        "filePath": "docs_v2/operating-dial/cloud-deployment/4.generic-kubernetes.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2385,7 +2385,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 2 Cloud deployment > Azure Secrets deployment",
-        "filePath": "docs/docs/NEW/operating-dial/2-cloud-deployment/azure-secrets-deployment.md"
+        "filePath": "docs_v2/operating-dial/2-cloud-deployment/azure-secrets-deployment.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2396,7 +2396,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Cloud deployment > Azure Secrets",
-        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/5.azure-secrets-deployment.md"
+        "filePath": "docs_v2/operating-dial/cloud-deployment/5.azure-secrets-deployment.md"
       },
       "sourcePages": [
         {
@@ -2413,7 +2413,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 2 Cloud deployment > Custom Apps deployment",
-        "filePath": "docs/docs/NEW/operating-dial/2-cloud-deployment/custom-apps-deployment.md"
+        "filePath": "docs_v2/operating-dial/2-cloud-deployment/custom-apps-deployment.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2424,7 +2424,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Cloud deployment > Custom Apps",
-        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/6.custom-apps-deployment.md"
+        "filePath": "docs_v2/operating-dial/cloud-deployment/6.custom-apps-deployment.md"
       },
       "sourcePages": [
         {
@@ -2441,7 +2441,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 2 Cloud deployment > Quick Apps installation",
-        "filePath": "docs/docs/NEW/operating-dial/2-cloud-deployment/quick-apps-installation.md"
+        "filePath": "docs_v2/operating-dial/2-cloud-deployment/quick-apps-installation.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2452,7 +2452,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Cloud deployment > Quick Apps",
-        "filePath": "docs/docs/NEW/operating-dial/cloud-deployment/7.quick-apps-installation.md"
+        "filePath": "docs_v2/operating-dial/cloud-deployment/7.quick-apps-installation.md"
       },
       "sourcePages": [
         {
@@ -2469,7 +2469,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 3 Model deployment > Bedrock model deployment",
-        "filePath": "docs/docs/NEW/operating-dial/3-model-deployment/bedrock-model-deployment.md"
+        "filePath": "docs_v2/operating-dial/3-model-deployment/bedrock-model-deployment.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2480,7 +2480,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Model deployment > Bedrock models",
-        "filePath": "docs/docs/NEW/operating-dial/model-deployment/1.bedrock-model-deployment.md"
+        "filePath": "docs_v2/operating-dial/model-deployment/1.bedrock-model-deployment.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2491,7 +2491,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 3 Model deployment > OpenAI model deployment",
-        "filePath": "docs/docs/NEW/operating-dial/3-model-deployment/openai-model-deployment.md"
+        "filePath": "docs_v2/operating-dial/3-model-deployment/openai-model-deployment.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2502,7 +2502,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Model deployment > Azure OpenAI models",
-        "filePath": "docs/docs/NEW/operating-dial/model-deployment/2.openai-model-deployment.md"
+        "filePath": "docs_v2/operating-dial/model-deployment/2.openai-model-deployment.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2513,7 +2513,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 3 Model deployment > Vertex model deployment",
-        "filePath": "docs/docs/NEW/operating-dial/3-model-deployment/vertex-model-deployment.md"
+        "filePath": "docs_v2/operating-dial/3-model-deployment/vertex-model-deployment.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2524,7 +2524,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Model deployment > Vertex AI models",
-        "filePath": "docs/docs/NEW/operating-dial/model-deployment/3.vertex-model-deployment.md"
+        "filePath": "docs_v2/operating-dial/model-deployment/3.vertex-model-deployment.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2535,7 +2535,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 3 Model deployment > Databricks model deployment",
-        "filePath": "docs/docs/NEW/operating-dial/3-model-deployment/databricks-model-deployment.md"
+        "filePath": "docs_v2/operating-dial/3-model-deployment/databricks-model-deployment.md"
       },
       "sourcePages": [
         {
@@ -2552,7 +2552,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Model deployment > Databricks models",
-        "filePath": "docs/docs/NEW/operating-dial/model-deployment/4.databricks-model-deployment.md"
+        "filePath": "docs_v2/operating-dial/model-deployment/4.databricks-model-deployment.md"
       },
       "sourcePages": [
         {
@@ -2569,7 +2569,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Auth Helper",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/5.auth-helper-configuration.md"
+        "filePath": "docs_v2/operating-dial/configuration/5.auth-helper-configuration.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2580,7 +2580,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > 4 Configuration reference > Load balancer configuration",
-        "filePath": "docs/docs/NEW/operating-dial/4-configuration-reference/load-balancer-configuration.md"
+        "filePath": "docs_v2/operating-dial/4-configuration-reference/load-balancer-configuration.md"
       },
       "sourcePages": [
         {
@@ -2597,7 +2597,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > 4 Configuration reference > Config precedence rules",
-        "filePath": "docs/docs/NEW/operating-dial/4-configuration-reference/config-precedence-rules.md"
+        "filePath": "docs_v2/operating-dial/4-configuration-reference/config-precedence-rules.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2608,7 +2608,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 5 Auth and access control > API keys",
-        "filePath": "docs/docs/NEW/operating-dial/5-auth-and-access-control/api-keys.md"
+        "filePath": "docs_v2/operating-dial/5-auth-and-access-control/api-keys.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2619,7 +2619,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Auth and access control > API keys",
-        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/1.api-keys.md"
+        "filePath": "docs_v2/operating-dial/auth-and-access-control/1.api-keys.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2630,7 +2630,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 5 Auth and access control > JWT configuration",
-        "filePath": "docs/docs/NEW/operating-dial/5-auth-and-access-control/jwt-configuration.md"
+        "filePath": "docs_v2/operating-dial/5-auth-and-access-control/jwt-configuration.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2641,7 +2641,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 5 Auth and access control > Roles and rate limits",
-        "filePath": "docs/docs/NEW/operating-dial/5-auth-and-access-control/roles-and-rate-limits.md"
+        "filePath": "docs_v2/operating-dial/5-auth-and-access-control/roles-and-rate-limits.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2652,7 +2652,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Auth and access control > Roles and rate limits",
-        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/3.roles-and-rate-limits.md"
+        "filePath": "docs_v2/operating-dial/auth-and-access-control/3.roles-and-rate-limits.md"
       },
       "sourcePages": [
         {
@@ -2669,7 +2669,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Overview",
-        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/0.index.md"
+        "filePath": "docs_v2/operating-dial/auth-and-access-control/sso-idp/0.index.md"
       },
       "sourcePages": [
         {
@@ -2686,7 +2686,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > AWS Cognito",
-        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/1.aws-cognito.md"
+        "filePath": "docs_v2/operating-dial/auth-and-access-control/sso-idp/1.aws-cognito.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2697,7 +2697,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Auth0",
-        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/2.auth0.md"
+        "filePath": "docs_v2/operating-dial/auth-and-access-control/sso-idp/2.auth0.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2708,7 +2708,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Okta",
-        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/5.okta.md"
+        "filePath": "docs_v2/operating-dial/auth-and-access-control/sso-idp/5.okta.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2719,7 +2719,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Keycloak",
-        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/6.keycloak.md"
+        "filePath": "docs_v2/operating-dial/auth-and-access-control/sso-idp/6.keycloak.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2730,7 +2730,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Azure AD B2C",
-        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/7.azure-b2c.md"
+        "filePath": "docs_v2/operating-dial/auth-and-access-control/sso-idp/7.azure-b2c.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2741,7 +2741,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 5 Auth and access control > AWS Cognito",
-        "filePath": "docs/docs/NEW/operating-dial/5-auth-and-access-control/aws-cognito.md"
+        "filePath": "docs_v2/operating-dial/5-auth-and-access-control/aws-cognito.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2752,7 +2752,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 5 Auth and access control > Auth0",
-        "filePath": "docs/docs/NEW/operating-dial/5-auth-and-access-control/auth0.md"
+        "filePath": "docs_v2/operating-dial/5-auth-and-access-control/auth0.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2763,7 +2763,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 5 Auth and access control > Google Identity",
-        "filePath": "docs/docs/NEW/operating-dial/5-auth-and-access-control/google-identity.md"
+        "filePath": "docs_v2/operating-dial/5-auth-and-access-control/google-identity.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2774,7 +2774,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Google Identity",
-        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/3.google-identity.md"
+        "filePath": "docs_v2/operating-dial/auth-and-access-control/sso-idp/3.google-identity.md"
       },
       "sourcePages": [
         {
@@ -2791,7 +2791,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 5 Auth and access control > Microsoft Entra ID",
-        "filePath": "docs/docs/NEW/operating-dial/5-auth-and-access-control/microsoft-entra-id.md"
+        "filePath": "docs_v2/operating-dial/5-auth-and-access-control/microsoft-entra-id.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2802,7 +2802,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Auth and access control > SSO / IdP setup > Microsoft Entra ID",
-        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/sso-idp/4.microsoft-entra-id.md"
+        "filePath": "docs_v2/operating-dial/auth-and-access-control/sso-idp/4.microsoft-entra-id.md"
       },
       "sourcePages": [
         {
@@ -2819,7 +2819,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 5 Auth and access control > Okta",
-        "filePath": "docs/docs/NEW/operating-dial/5-auth-and-access-control/okta.md"
+        "filePath": "docs_v2/operating-dial/5-auth-and-access-control/okta.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2830,7 +2830,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 5 Auth and access control > Keycloak",
-        "filePath": "docs/docs/NEW/operating-dial/5-auth-and-access-control/keycloak.md"
+        "filePath": "docs_v2/operating-dial/5-auth-and-access-control/keycloak.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2841,7 +2841,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 6 Observability > Tracing (OpenTelemetry)",
-        "filePath": "docs/docs/NEW/operating-dial/6-observability/tracing-opentelemetry.md"
+        "filePath": "docs_v2/operating-dial/6-observability/tracing-opentelemetry.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2852,7 +2852,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Observability > Tracing (OpenTelemetry)",
-        "filePath": "docs/docs/NEW/operating-dial/observability/1.tracing.md"
+        "filePath": "docs_v2/operating-dial/observability/1.tracing.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2863,7 +2863,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 6 Observability > Metrics and monitoring",
-        "filePath": "docs/docs/NEW/operating-dial/6-observability/metrics-and-monitoring.md"
+        "filePath": "docs_v2/operating-dial/6-observability/metrics-and-monitoring.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2874,7 +2874,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Observability > Metrics and monitoring",
-        "filePath": "docs/docs/NEW/operating-dial/observability/2.metrics-and-monitoring.md"
+        "filePath": "docs_v2/operating-dial/observability/2.metrics-and-monitoring.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2885,7 +2885,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 6 Observability > Logging",
-        "filePath": "docs/docs/NEW/operating-dial/6-observability/logging.md"
+        "filePath": "docs_v2/operating-dial/6-observability/logging.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2896,7 +2896,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Observability > Logging",
-        "filePath": "docs/docs/NEW/operating-dial/observability/3.logging.md"
+        "filePath": "docs_v2/operating-dial/observability/3.logging.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2907,7 +2907,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 6 Observability > Alerting",
-        "filePath": "docs/docs/NEW/operating-dial/6-observability/alerting.md"
+        "filePath": "docs_v2/operating-dial/6-observability/alerting.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2918,7 +2918,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Observability > Alerting",
-        "filePath": "docs/docs/NEW/operating-dial/observability/4.alerting.md"
+        "filePath": "docs_v2/operating-dial/observability/4.alerting.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2929,7 +2929,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 6 Observability > Analytics Realtime setup",
-        "filePath": "docs/docs/NEW/operating-dial/6-observability/analytics-realtime-setup.md"
+        "filePath": "docs_v2/operating-dial/6-observability/analytics-realtime-setup.md"
       },
       "sourcePages": [
         {
@@ -2946,7 +2946,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Observability > Analytics Realtime setup",
-        "filePath": "docs/docs/NEW/operating-dial/observability/5.analytics-realtime-setup.md"
+        "filePath": "docs_v2/operating-dial/observability/5.analytics-realtime-setup.md"
       },
       "sourcePages": [
         {
@@ -2963,7 +2963,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Operating DIAL > 6 Observability > Provider-specific guides",
-        "filePath": "docs/docs/NEW/operating-dial/6-observability/provider-specific-guides.md"
+        "filePath": "docs_v2/operating-dial/6-observability/provider-specific-guides.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2974,7 +2974,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Observability > Provider-specific guides > Grafana + Prometheus",
-        "filePath": "docs/docs/NEW/operating-dial/observability/providers/grafana-prometheus.md"
+        "filePath": "docs_v2/operating-dial/observability/providers/grafana-prometheus.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -2985,7 +2985,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 6 Observability > Datadog",
-        "filePath": "docs/docs/NEW/operating-dial/6-observability/datadog.md"
+        "filePath": "docs_v2/operating-dial/6-observability/datadog.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -2996,7 +2996,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 6 Observability > Grafana + Prometheus",
-        "filePath": "docs/docs/NEW/operating-dial/6-observability/grafana-prometheus.md"
+        "filePath": "docs_v2/operating-dial/6-observability/grafana-prometheus.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3007,7 +3007,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 6 Observability > ELK Stack",
-        "filePath": "docs/docs/NEW/operating-dial/6-observability/elk-stack.md"
+        "filePath": "docs_v2/operating-dial/6-observability/elk-stack.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3018,7 +3018,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 6 Observability > Azure Monitor",
-        "filePath": "docs/docs/NEW/operating-dial/6-observability/azure-monitor.md"
+        "filePath": "docs_v2/operating-dial/6-observability/azure-monitor.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3029,7 +3029,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 6 Observability > AWS CloudWatch",
-        "filePath": "docs/docs/NEW/operating-dial/6-observability/aws-cloudwatch.md"
+        "filePath": "docs_v2/operating-dial/6-observability/aws-cloudwatch.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3040,7 +3040,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 7 Production readiness > High availability",
-        "filePath": "docs/docs/NEW/operating-dial/7-production-readiness/high-availability.md"
+        "filePath": "docs_v2/operating-dial/7-production-readiness/high-availability.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3051,7 +3051,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Production readiness > High availability",
-        "filePath": "docs/docs/NEW/operating-dial/production-readiness/1.high-availability.md"
+        "filePath": "docs_v2/operating-dial/production-readiness/1.high-availability.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3062,7 +3062,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 7 Production readiness > Scaling",
-        "filePath": "docs/docs/NEW/operating-dial/7-production-readiness/scaling.md"
+        "filePath": "docs_v2/operating-dial/7-production-readiness/scaling.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3073,7 +3073,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Production readiness > Scaling",
-        "filePath": "docs/docs/NEW/operating-dial/production-readiness/2.scaling.md"
+        "filePath": "docs_v2/operating-dial/production-readiness/2.scaling.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3084,7 +3084,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 7 Production readiness > Secrets management",
-        "filePath": "docs/docs/NEW/operating-dial/7-production-readiness/secrets-management.md"
+        "filePath": "docs_v2/operating-dial/7-production-readiness/secrets-management.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3095,7 +3095,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Production readiness > Secrets management",
-        "filePath": "docs/docs/NEW/operating-dial/production-readiness/3.secrets-management.md"
+        "filePath": "docs_v2/operating-dial/production-readiness/3.secrets-management.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3106,7 +3106,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 7 Production readiness > Backup and restore",
-        "filePath": "docs/docs/NEW/operating-dial/7-production-readiness/backup-and-restore.md"
+        "filePath": "docs_v2/operating-dial/7-production-readiness/backup-and-restore.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3117,7 +3117,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Production readiness > Backup and restore",
-        "filePath": "docs/docs/NEW/operating-dial/production-readiness/4.backup-and-restore.md"
+        "filePath": "docs_v2/operating-dial/production-readiness/4.backup-and-restore.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3128,7 +3128,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 7 Production readiness > Upgrade procedure",
-        "filePath": "docs/docs/NEW/operating-dial/7-production-readiness/upgrade-procedure.md"
+        "filePath": "docs_v2/operating-dial/7-production-readiness/upgrade-procedure.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3139,7 +3139,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Production readiness > Upgrade procedure",
-        "filePath": "docs/docs/NEW/operating-dial/production-readiness/5.upgrade-procedure.md"
+        "filePath": "docs_v2/operating-dial/production-readiness/5.upgrade-procedure.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3150,7 +3150,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 7 Production readiness > Cost control",
-        "filePath": "docs/docs/NEW/operating-dial/7-production-readiness/cost-control.md"
+        "filePath": "docs_v2/operating-dial/7-production-readiness/cost-control.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3161,7 +3161,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Production readiness > Cost control",
-        "filePath": "docs/docs/NEW/operating-dial/production-readiness/6.cost-control.md"
+        "filePath": "docs_v2/operating-dial/production-readiness/6.cost-control.md"
       },
       "sourcePages": [
         {
@@ -3178,7 +3178,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 7 Production readiness > Security hardening",
-        "filePath": "docs/docs/NEW/operating-dial/7-production-readiness/security-hardening.md"
+        "filePath": "docs_v2/operating-dial/7-production-readiness/security-hardening.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3189,7 +3189,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Production readiness > Security hardening",
-        "filePath": "docs/docs/NEW/operating-dial/production-readiness/7.security-hardening.md"
+        "filePath": "docs_v2/operating-dial/production-readiness/7.security-hardening.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3200,7 +3200,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Administering DIAL > Admin Panel overview",
-        "filePath": "docs/docs/NEW/administering-dial/admin-panel-overview.md"
+        "filePath": "docs_v2/administering-dial/admin-panel-overview.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3211,7 +3211,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL  ✅ > Backup, restore, and global settings",
-        "filePath": "docs/docs/NEW/administering-dial/backup-restore-and-global-settings.md"
+        "filePath": "docs_v2/administering-dial/backup-restore-and-global-settings.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3222,7 +3222,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Entities",
-        "filePath": "docs/docs/NEW/administering-dial/entities.md"
+        "filePath": "docs_v2/administering-dial/entities.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3233,7 +3233,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Entities > Models",
-        "filePath": "docs/docs/NEW/administering-dial/entities/models.md"
+        "filePath": "docs_v2/administering-dial/entities/models.md"
       },
       "sourcePages": [
         {
@@ -3250,7 +3250,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Entities > Routes",
-        "filePath": "docs/docs/NEW/administering-dial/entities/routes.md"
+        "filePath": "docs_v2/administering-dial/entities/routes.md"
       },
       "sourcePages": [
         {
@@ -3267,7 +3267,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Entities > Applications",
-        "filePath": "docs/docs/NEW/administering-dial/entities/applications.md"
+        "filePath": "docs_v2/administering-dial/entities/applications.md"
       },
       "sourcePages": [
         {
@@ -3284,7 +3284,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Entities > Interceptors",
-        "filePath": "docs/docs/NEW/administering-dial/entities/interceptors.md"
+        "filePath": "docs_v2/administering-dial/entities/interceptors.md"
       },
       "sourcePages": [
         {
@@ -3301,7 +3301,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Builders",
-        "filePath": "docs/docs/NEW/administering-dial/builders.md"
+        "filePath": "docs_v2/administering-dial/builders.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3312,7 +3312,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Builders",
-        "filePath": "docs/docs/NEW/administering-dial/3.builders.md"
+        "filePath": "docs_v2/administering-dial/3.builders.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3323,7 +3323,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Assets",
-        "filePath": "docs/docs/NEW/administering-dial/assets.md"
+        "filePath": "docs_v2/administering-dial/assets.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3334,7 +3334,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Assets",
-        "filePath": "docs/docs/NEW/administering-dial/4.assets.md"
+        "filePath": "docs_v2/administering-dial/4.assets.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3345,7 +3345,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Deployments > Images",
-        "filePath": "docs/docs/NEW/administering-dial/deployments/images.md"
+        "filePath": "docs_v2/administering-dial/deployments/images.md"
       },
       "sourcePages": [
         {
@@ -3362,7 +3362,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Deployments > Containers",
-        "filePath": "docs/docs/NEW/administering-dial/deployments/container-management.md"
+        "filePath": "docs_v2/administering-dial/deployments/container-management.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3373,7 +3373,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Deployments (including MCP servers)",
-        "filePath": "docs/docs/NEW/administering-dial/deployments-including-mcp-servers.md"
+        "filePath": "docs_v2/administering-dial/deployments-including-mcp-servers.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3384,7 +3384,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL  ✅ > Containers",
-        "filePath": "docs/docs/NEW/administering-dial/containers.md"
+        "filePath": "docs_v2/administering-dial/containers.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3395,7 +3395,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Deployments > MCP containers",
-        "filePath": "docs/docs/NEW/administering-dial/deployments/mcp-containers.md"
+        "filePath": "docs_v2/administering-dial/deployments/mcp-containers.md"
       },
       "sourcePages": [
         {
@@ -3412,7 +3412,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Access management",
-        "filePath": "docs/docs/NEW/administering-dial/access-management.md"
+        "filePath": "docs_v2/administering-dial/access-management.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3423,7 +3423,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Access management > Roles",
-        "filePath": "docs/docs/NEW/administering-dial/access-management/roles.md"
+        "filePath": "docs_v2/administering-dial/access-management/roles.md"
       },
       "sourcePages": [
         {
@@ -3440,7 +3440,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Access management > Keys",
-        "filePath": "docs/docs/NEW/administering-dial/access-management/keys.md"
+        "filePath": "docs_v2/administering-dial/access-management/keys.md"
       },
       "sourcePages": [
         {
@@ -3457,7 +3457,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL  ✅ > Roles",
-        "filePath": "docs/docs/NEW/administering-dial/roles.md"
+        "filePath": "docs_v2/administering-dial/roles.md"
       },
       "sourcePages": [
         {
@@ -3474,7 +3474,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL  ✅ > Keys",
-        "filePath": "docs/docs/NEW/administering-dial/keys.md"
+        "filePath": "docs_v2/administering-dial/keys.md"
       },
       "sourcePages": [
         {
@@ -3491,7 +3491,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Publications and review",
-        "filePath": "docs/docs/NEW/administering-dial/publications-and-review.md"
+        "filePath": "docs_v2/administering-dial/publications-and-review.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3502,7 +3502,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Publications and review",
-        "filePath": "docs/docs/NEW/administering-dial/6.publications-and-review.md"
+        "filePath": "docs_v2/administering-dial/6.publications-and-review.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3513,7 +3513,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Audit",
-        "filePath": "docs/docs/NEW/administering-dial/audit.md"
+        "filePath": "docs_v2/administering-dial/audit.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3524,7 +3524,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Audit > Activity and rollback",
-        "filePath": "docs/docs/NEW/administering-dial/audit/activity-and-rollback.md"
+        "filePath": "docs_v2/administering-dial/audit/activity-and-rollback.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3535,7 +3535,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Audit > Monitoring and dashboards",
-        "filePath": "docs/docs/NEW/administering-dial/audit/monitoring-dashboards.md"
+        "filePath": "docs_v2/administering-dial/audit/monitoring-dashboards.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3546,7 +3546,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL  ✅ > Monitoring and dashboards",
-        "filePath": "docs/docs/NEW/administering-dial/monitoring-and-dashboards.md"
+        "filePath": "docs_v2/administering-dial/monitoring-and-dashboards.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3557,7 +3557,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > User management",
-        "filePath": "docs/docs/NEW/administering-dial/user-management.md"
+        "filePath": "docs_v2/administering-dial/user-management.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3568,7 +3568,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > User management",
-        "filePath": "docs/docs/NEW/administering-dial/8.user-management.md"
+        "filePath": "docs_v2/administering-dial/8.user-management.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3579,7 +3579,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Administering DIAL > Compliance and legal FAQ",
-        "filePath": "docs/docs/NEW/administering-dial/compliance-and-legal-faq.md"
+        "filePath": "docs_v2/administering-dial/compliance-and-legal-faq.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3590,7 +3590,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Administering DIAL > Compliance and legal FAQ",
-        "filePath": "docs/docs/NEW/administering-dial/10.compliance-and-legal-faq.md"
+        "filePath": "docs_v2/administering-dial/10.compliance-and-legal-faq.md"
       },
       "sourcePages": [
         {
@@ -3607,7 +3607,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Reference > Unified API",
-        "filePath": "docs/docs/NEW/reference/unified-api.md"
+        "filePath": "docs_v2/reference/unified-api.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -3618,7 +3618,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Tool Sets > Configuration reference",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/4.reference.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/4.reference.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3629,7 +3629,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App (original) > Configuration reference",
-        "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/reference.md"
+        "filePath": "docs_v2/building-with-dial/apps/quick-apps/quick-app-original/reference.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3640,7 +3640,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Overview",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/0.index.md"
+        "filePath": "docs_v2/operating-dial/configuration/0.index.md"
       },
       "sourcePages": [
         {
@@ -3657,7 +3657,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > Overview",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/0.index.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/0.index.md"
       },
       "sourcePages": [
         {
@@ -3674,7 +3674,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > settings.json > Overview",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/settings-json/0.index.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/settings-json/0.index.md"
       },
       "sourcePages": [
         {
@@ -3691,7 +3691,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > settings.json > Server & Client",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/settings-json/1.server.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/settings-json/1.server.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3702,7 +3702,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > settings.json > Storage",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/settings-json/2.storage.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/settings-json/2.storage.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3713,7 +3713,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > settings.json > Redis",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/settings-json/3.redis.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/settings-json/3.redis.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3724,7 +3724,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > settings.json > Identity Providers",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/settings-json/4.identity-providers.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/settings-json/4.identity-providers.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3735,7 +3735,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > settings.json > Encryption",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/settings-json/5.encryption.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/settings-json/5.encryption.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3746,7 +3746,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > settings.json > Resources",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/settings-json/6.resources.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/settings-json/6.resources.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3757,7 +3757,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > settings.json > Access Control",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/settings-json/7.access.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/settings-json/7.access.md"
       },
       "sourcePages": [
         {
@@ -3774,7 +3774,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > settings.json > Config Reload",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/settings-json/8.config-reload.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/settings-json/8.config-reload.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3785,7 +3785,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > settings.json > Toolsets & Misc",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/settings-json/9.toolsets-security.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/settings-json/9.toolsets-security.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3796,7 +3796,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > config.json > Overview",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/config-json/0.index.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/config-json/0.index.md"
       },
       "sourcePages": [
         {
@@ -3813,7 +3813,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > config.json > Models",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/config-json/1.models.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/config-json/1.models.md"
       },
       "sourcePages": [
         {
@@ -3830,7 +3830,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > config.json > Applications",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/config-json/2.applications.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/config-json/2.applications.md"
       },
       "sourcePages": [
         {
@@ -3847,7 +3847,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > config.json > Interceptors",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/config-json/3.interceptors.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/config-json/3.interceptors.md"
       },
       "sourcePages": [
         {
@@ -3864,7 +3864,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > config.json > Roles",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/config-json/4.roles.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/config-json/4.roles.md"
       },
       "sourcePages": [
         {
@@ -3881,7 +3881,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > config.json > Keys",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/config-json/5.keys.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/config-json/5.keys.md"
       },
       "sourcePages": [
         {
@@ -3898,7 +3898,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > config.json > Routes",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/config-json/6.routes.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/config-json/6.routes.md"
       },
       "sourcePages": [
         {
@@ -3915,7 +3915,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > config.json > Toolsets",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/config-json/7.toolsets.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/config-json/7.toolsets.md"
       },
       "sourcePages": [
         {
@@ -3932,7 +3932,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Core > gflog.xml",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/core/gflog-xml.md"
+        "filePath": "docs_v2/operating-dial/configuration/core/gflog-xml.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -3943,7 +3943,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > DIAL Chat",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/3.chat-configuration.md"
+        "filePath": "docs_v2/operating-dial/configuration/3.chat-configuration.md"
       },
       "sourcePages": [
         {
@@ -3960,7 +3960,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Adapters",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/4.adapter-configuration.md"
+        "filePath": "docs_v2/operating-dial/configuration/4.adapter-configuration.md"
       },
       "sourcePages": [
         {
@@ -3977,7 +3977,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Admin Panel",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/6.admin-configuration.md"
+        "filePath": "docs_v2/operating-dial/configuration/6.admin-configuration.md"
       },
       "sourcePages": [
         {
@@ -3994,7 +3994,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Keycloak (realm-config.json)",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/realm-config-json.md"
+        "filePath": "docs_v2/operating-dial/configuration/realm-config-json.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4005,7 +4005,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Docker Compose > Overview",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/docker-compose/0.index.md"
+        "filePath": "docs_v2/operating-dial/configuration/docker-compose/0.index.md"
       },
       "sourcePages": [
         {
@@ -4022,7 +4022,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Docker Compose > Quick Start",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/docker-compose/1.quick-start.md"
+        "filePath": "docs_v2/operating-dial/configuration/docker-compose/1.quick-start.md"
       },
       "sourcePages": [
         {
@@ -4039,7 +4039,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Docker Compose > Advanced Setup > Overview",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/docker-compose/advanced/0.index.md"
+        "filePath": "docs_v2/operating-dial/configuration/docker-compose/advanced/0.index.md"
       },
       "sourcePages": [
         {
@@ -4056,7 +4056,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Docker Compose > Advanced Setup > Core, Redis & Themes",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/docker-compose/advanced/1.core-services.md"
+        "filePath": "docs_v2/operating-dial/configuration/docker-compose/advanced/1.core-services.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4067,7 +4067,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Docker Compose > Advanced Setup > Authentication",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/docker-compose/advanced/2.auth.md"
+        "filePath": "docs_v2/operating-dial/configuration/docker-compose/advanced/2.auth.md"
       },
       "sourcePages": [
         {
@@ -4084,7 +4084,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Docker Compose > Advanced Setup > Admin Panel",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/docker-compose/advanced/3.admin.md"
+        "filePath": "docs_v2/operating-dial/configuration/docker-compose/advanced/3.admin.md"
       },
       "sourcePages": [
         {
@@ -4101,7 +4101,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Docker Compose > Advanced Setup > Adapters & RAG",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/docker-compose/advanced/4.adapters-and-rag.md"
+        "filePath": "docs_v2/operating-dial/configuration/docker-compose/advanced/4.adapters-and-rag.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4112,7 +4112,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Docker Compose > .env Reference",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/docker-compose/3.env-reference.md"
+        "filePath": "docs_v2/operating-dial/configuration/docker-compose/3.env-reference.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4123,7 +4123,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Coverage Status",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/8.coverage-status.md"
+        "filePath": "docs_v2/operating-dial/configuration/8.coverage-status.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4134,7 +4134,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > 4 Configuration reference > Core configuration",
-        "filePath": "docs/docs/NEW/operating-dial/4-configuration-reference/core-configuration.md"
+        "filePath": "docs_v2/operating-dial/4-configuration-reference/core-configuration.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4145,7 +4145,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > 4 Configuration reference > Enable publications",
-        "filePath": "docs/docs/NEW/operating-dial/4-configuration-reference/enable-publications.md"
+        "filePath": "docs_v2/operating-dial/4-configuration-reference/enable-publications.md"
       },
       "sourcePages": [
         {
@@ -4162,7 +4162,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Reference > Configuration reference",
-        "filePath": "docs/docs/NEW/reference/configuration-reference.md"
+        "filePath": "docs_v2/reference/configuration-reference.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4173,7 +4173,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Load Balancer",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/7.load-balancer.md"
+        "filePath": "docs_v2/operating-dial/configuration/7.load-balancer.md"
       },
       "sourcePages": [
         {
@@ -4190,7 +4190,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Configuration Reference > Enable Publications",
-        "filePath": "docs/docs/NEW/operating-dial/configuration/1.enable-publications.md"
+        "filePath": "docs_v2/operating-dial/configuration/1.enable-publications.md"
       },
       "sourcePages": [
         {
@@ -4207,7 +4207,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Reference > Supported models and providers",
-        "filePath": "docs/docs/NEW/reference/supported-models-and-providers.md"
+        "filePath": "docs_v2/reference/supported-models-and-providers.md"
       },
       "sourcePages": [
         {
@@ -4224,7 +4224,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Reference > Changelog",
-        "filePath": "docs/docs/NEW/reference/changelog.md"
+        "filePath": "docs_v2/reference/changelog.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4235,7 +4235,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases   ✅ > Use Cases overview",
-        "filePath": "docs/docs/NEW/use-cases/use-cases-overview.md"
+        "filePath": "docs_v2/use-cases/use-cases-overview.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4246,7 +4246,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > Org-wide AI assistant",
-        "filePath": "docs/docs/NEW/use-cases/1.org-wide-ai-assistant.md"
+        "filePath": "docs_v2/use-cases/1.org-wide-ai-assistant.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4257,7 +4257,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > Chat with your knowledge base",
-        "filePath": "docs/docs/NEW/use-cases/2.chat-with-your-knowledge-base.md"
+        "filePath": "docs_v2/use-cases/2.chat-with-your-knowledge-base.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4268,7 +4268,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > No-code AI tools for business teams",
-        "filePath": "docs/docs/NEW/use-cases/3.no-code-ai-tools.md"
+        "filePath": "docs_v2/use-cases/3.no-code-ai-tools.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4279,7 +4279,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases   ✅ > No-code AI tools for business teams",
-        "filePath": "docs/docs/NEW/use-cases/no-code-ai-tools-for-business-teams.md"
+        "filePath": "docs_v2/use-cases/no-code-ai-tools-for-business-teams.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4290,7 +4290,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > One API for every model provider",
-        "filePath": "docs/docs/NEW/use-cases/4.one-api-every-provider.md"
+        "filePath": "docs_v2/use-cases/4.one-api-every-provider.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4301,7 +4301,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases   ✅ > One API for every model provider",
-        "filePath": "docs/docs/NEW/use-cases/one-api-for-every-model-provider.md"
+        "filePath": "docs_v2/use-cases/one-api-for-every-model-provider.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4312,7 +4312,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > Centralized cost and usage governance",
-        "filePath": "docs/docs/NEW/use-cases/5.cost-and-usage-governance.md"
+        "filePath": "docs_v2/use-cases/5.cost-and-usage-governance.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4323,7 +4323,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases   ✅ > Centralized cost and usage governance",
-        "filePath": "docs/docs/NEW/use-cases/centralized-cost-and-usage-governance.md"
+        "filePath": "docs_v2/use-cases/centralized-cost-and-usage-governance.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4334,7 +4334,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > Custom production AI agents",
-        "filePath": "docs/docs/NEW/use-cases/6.custom-production-agents.md"
+        "filePath": "docs_v2/use-cases/6.custom-production-agents.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4345,7 +4345,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases   ✅ > Custom production AI agents",
-        "filePath": "docs/docs/NEW/use-cases/custom-production-ai-agents.md"
+        "filePath": "docs_v2/use-cases/custom-production-ai-agents.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4356,7 +4356,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > Embed AI in existing tools",
-        "filePath": "docs/docs/NEW/use-cases/7.embed-ai-in-existing-tools.md"
+        "filePath": "docs_v2/use-cases/7.embed-ai-in-existing-tools.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4367,7 +4367,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > Measure and improve AI quality",
-        "filePath": "docs/docs/NEW/use-cases/8.measure-and-improve-quality.md"
+        "filePath": "docs_v2/use-cases/8.measure-and-improve-quality.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4378,7 +4378,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases   ✅ > Measure and improve AI quality",
-        "filePath": "docs/docs/NEW/use-cases/measure-and-improve-ai-quality.md"
+        "filePath": "docs_v2/use-cases/measure-and-improve-ai-quality.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4389,7 +4389,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > Compliance and PII-safe AI",
-        "filePath": "docs/docs/NEW/use-cases/9.compliance-and-pii-safe-ai.md"
+        "filePath": "docs_v2/use-cases/9.compliance-and-pii-safe-ai.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4400,7 +4400,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Demos > Platform overview",
-        "filePath": "docs/docs/NEW/demos/1.platform-overview.md"
+        "filePath": "docs_v2/demos/1.platform-overview.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4411,7 +4411,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Demos > Chat capabilities",
-        "filePath": "docs/docs/NEW/demos/2.chat-capabilities.md"
+        "filePath": "docs_v2/demos/2.chat-capabilities.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4422,7 +4422,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Demos > Apps and agents showcase",
-        "filePath": "docs/docs/NEW/demos/3.apps-and-agents.md"
+        "filePath": "docs_v2/demos/3.apps-and-agents.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4433,7 +4433,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Demos > Deployment and admin walkthrough",
-        "filePath": "docs/docs/NEW/demos/4.deployment-and-admin.md"
+        "filePath": "docs_v2/demos/4.deployment-and-admin.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4444,7 +4444,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > By use case → features",
-        "filePath": "docs/docs/NEW/use-cases/by-use-case-features.md"
+        "filePath": "docs_v2/use-cases/by-use-case-features.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4455,7 +4455,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > By feature → use cases",
-        "filePath": "docs/docs/NEW/use-cases/by-feature-use-cases.md"
+        "filePath": "docs_v2/use-cases/by-feature-use-cases.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4466,7 +4466,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Use Cases > Reference architectures",
-        "filePath": "docs/docs/NEW/use-cases/reference-architectures.md"
+        "filePath": "docs_v2/use-cases/reference-architectures.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4477,7 +4477,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > Enterprise RAG with access control",
-        "filePath": "docs/docs/NEW/use-cases/enterprise-rag-with-access-control.md"
+        "filePath": "docs_v2/use-cases/enterprise-rag-with-access-control.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4488,7 +4488,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > Eval-driven app development loop",
-        "filePath": "docs/docs/NEW/use-cases/eval-driven-app-development-loop.md"
+        "filePath": "docs_v2/use-cases/eval-driven-app-development-loop.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4499,7 +4499,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > Hybrid cloud",
-        "filePath": "docs/docs/NEW/use-cases/hybrid-cloud.md"
+        "filePath": "docs_v2/use-cases/hybrid-cloud.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4510,7 +4510,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Approvals",
-        "filePath": "docs/docs/NEW/administering-dial/approvals.md"
+        "filePath": "docs_v2/administering-dial/approvals.md"
       },
       "sourcePages": [],
       "status": "planned",
@@ -4521,7 +4521,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Operating DIAL > Auth and access control > JWT authentication",
-        "filePath": "docs/docs/NEW/operating-dial/auth-and-access-control/2.jwt.md"
+        "filePath": "docs_v2/operating-dial/auth-and-access-control/2.jwt.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4532,7 +4532,7 @@
       "targetPage": {
         "pageType": "tutorial",
         "menuPath": "NEW > Operating DIAL > Local setup > DIAL-to-DIAL adapter",
-        "filePath": "docs/docs/NEW/operating-dial/local-setup/5.dial-to-dial-adapter.md"
+        "filePath": "docs_v2/operating-dial/local-setup/5.dial-to-dial-adapter.md"
       },
       "sourcePages": [
         {
@@ -4549,7 +4549,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Operating DIAL > Troubleshooting",
-        "filePath": "docs/docs/NEW/operating-dial/troubleshooting.md"
+        "filePath": "docs_v2/operating-dial/troubleshooting.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4560,7 +4560,7 @@
       "targetPage": {
         "pageType": "how-to",
         "menuPath": "NEW > Administering DIAL > Backup, restore & global settings",
-        "filePath": "docs/docs/NEW/administering-dial/1.config-backup-and-global-settings.md"
+        "filePath": "docs_v2/administering-dial/1.config-backup-and-global-settings.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4571,7 +4571,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Chat User Guide > Conversations",
-        "filePath": "docs/docs/NEW/chat-user-guide/1.conversations.md"
+        "filePath": "docs_v2/chat-user-guide/1.conversations.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4582,7 +4582,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Chat User Guide > Prompts",
-        "filePath": "docs/docs/NEW/chat-user-guide/2.prompts.md"
+        "filePath": "docs_v2/chat-user-guide/2.prompts.md"
       },
       "sourcePages": [
         {
@@ -4599,7 +4599,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Chat User Guide > Files",
-        "filePath": "docs/docs/NEW/chat-user-guide/5.files.md"
+        "filePath": "docs_v2/chat-user-guide/5.files.md"
       },
       "sourcePages": [
         {
@@ -4616,7 +4616,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Chat User Guide > Sharing and publishing",
-        "filePath": "docs/docs/NEW/chat-user-guide/6.sharing-and-publishing.md"
+        "filePath": "docs_v2/chat-user-guide/6.sharing-and-publishing.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4627,7 +4627,7 @@
       "targetPage": {
         "pageType": "unknown",
         "menuPath": "NEW > Chat User Guide > Settings",
-        "filePath": "docs/docs/NEW/chat-user-guide/7.settings.md"
+        "filePath": "docs_v2/chat-user-guide/7.settings.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4638,7 +4638,7 @@
       "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Reference > Component compatibility matrix",
-        "filePath": "docs/docs/NEW/reference/compatibility-matrix.md"
+        "filePath": "docs_v2/reference/compatibility-matrix.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",
@@ -4649,7 +4649,7 @@
       "targetPage": {
         "pageType": "explanation",
         "menuPath": "NEW > Demos > Developer features",
-        "filePath": "docs/docs/NEW/demos/5.developer-features.md"
+        "filePath": "docs_v2/demos/5.developer-features.md"
       },
       "sourcePages": [],
       "status": "waiting-for-review",

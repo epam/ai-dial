@@ -18,7 +18,7 @@ import {
 
 const OUTPUT_PATH = path.join(
     REPO_ROOT,
-    "docs/docs/NEW/progress.md",
+    "docs_v2/progress.md",
 );
 
 const STATUS_DISPLAY: Record<AnyDocStatus, { emoji: string; label: string }> = {
@@ -56,7 +56,11 @@ function filePathToDocId(filePath: string): string | null {
     if (!fs.existsSync(abs)) return null;
 
     let docPath = filePath;
-    if (docPath.startsWith("docs/")) docPath = docPath.slice(5);
+    // Map instance content roots to their route base:
+    //   docs_v2/ -> v2/ (NEW instance, routeBasePath 'v2')
+    //   docs/    -> ''   (OLD instance, routeBasePath '/')
+    if (docPath.startsWith("docs_v2/")) docPath = "v2/" + docPath.slice("docs_v2/".length);
+    else if (docPath.startsWith("docs/")) docPath = docPath.slice(5);
     docPath = docPath.replace(/\.mdx?$/, "");
     docPath = docPath.replace(/(^|\/)\d+\./g, "$1");
     return docPath;

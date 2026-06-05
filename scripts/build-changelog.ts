@@ -9,7 +9,7 @@
  * from the Docusaurus build (docusaurus.config.js `exclude: ['releases/**']`) because
  * they use repo-relative image/link paths, contain draft + JSON side files, and carry
  * at least one broken intra-doc anchor in the source. This script reads them, normalizes
- * them, and emits clean pages into docs/docs/NEW/reference/changelog/ that pass the
+ * them, and emits clean pages into docs_v2/reference/changelog/ that pass the
  * strict link/anchor/image checks (onBrokenLinks/Anchors/Images: 'throw').
  *
  * No network access. Reads repo files only. Output dir is wiped and rebuilt each run,
@@ -27,7 +27,7 @@ import * as path from "node:path";
 
 const REPO_ROOT = path.join(__dirname, "..");
 const RELEASES_DIR = path.join(REPO_ROOT, "docs", "releases");
-const OUT_DIR = path.join(REPO_ROOT, "docs", "docs", "NEW", "reference", "changelog");
+const OUT_DIR = path.join(REPO_ROOT, "docs_v2", "reference", "changelog");
 const IMG_OUT = path.join(OUT_DIR, "img");
 const dryRun = process.argv.includes("--dry-run");
 

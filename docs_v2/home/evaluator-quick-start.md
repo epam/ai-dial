@@ -1,0 +1,54 @@
+---
+title: "Evaluator quick start"
+type: tutorial
+persona: evaluator
+component: chat
+last_verified: 2026-06-01
+owner: "@dial-docs-team"
+---
+
+# Evaluator quick start
+
+In this tutorial, you will explore what DIAL can do in about 15 minutes, using the hosted DIAL SaaS edition. By the end, you will have chatted with a model, compared two models on the same prompt, and tried a no-code application from the Marketplace. This path is for evaluators and proof-of-concept leads deciding whether DIAL fits. No installation, no cloud account setup, and no code are required.
+
+## Prerequisites
+
+- A modern web browser.
+- Access to the [DIAL SaaS edition](https://chat.dialx.ai/). Sign-in options are shown on the landing page.
+
+## Step 1: Start a conversation
+
+Open [chat.dialx.ai](https://chat.dialx.ai/) and sign in. Select a language model from the model selector, then send a prompt.
+
+**Verify:** the model streams a response back into the conversation.
+
+## Step 2: Compare two models
+
+DIAL lets you send the same prompt to more than one model side by side.
+
+1. Add a second model to the conversation using the model comparison control.
+2. Send a single prompt.
+
+**Verify:** both models respond to the same prompt in parallel, so you can compare quality and style directly.
+
+## Step 3: Try an application from the Marketplace
+
+The [Marketplace](../building-with-dial/developer-tools/chat-customization/6.marketplace.md) lists ready-to-use applications and agents alongside models.
+
+1. Open the Marketplace.
+2. Pick an application — for example, a [Mind Map](../building-with-dial/apps/mind-map-studio/0.index.md) or a Quick App.
+3. Use it with a sample prompt or document.
+
+**Verify:** the application runs and returns a result without any configuration on your part.
+
+## What you saw
+
+- A unified interface to many language models through one gateway
+- Side-by-side model comparison on a single prompt
+- No-code applications and agents that run inside the chat experience
+
+## Where to go next
+
+- [What is DIAL](../understand-dial/positioning/0.what-is-dial.md) — the platform vision and what problems it solves
+- [Architect overview](architect-overview) — how DIAL is structured and where it fits in your stack
+- [Building with DIAL](../building-with-dial/index) — how teams build applications on the platform

@@ -9,7 +9,9 @@
 This is the **documentation and meta repository** for AI DIAL — an open-source, enterprise-grade LLM orchestration platform by EPAM. It is NOT the application code. The platform code lives in 20+ sibling repositories.
 
 This repo contains:
-- `docs/` — Docusaurus 3 documentation site, published to https://docs.dialx.ai/
+- A **Docusaurus 3** documentation site **rooted at the repo root** (`docusaurus.config.js`, `sidebars.js`, `sidebars-v2.js`, `package.json` are all at the top level — NOT inside `docs/`), published to https://docs.dialx.ai/. It serves two doc instances:
+  - `docs/` — **OLD** (legacy) content, served at `/`
+  - `docs_v2/` — **NEW** (restructured) content, served at `/v2`
 - `dial-docker-compose/` — minimal Docker Compose setups for quick start
 - `dial-docker-compose-advanced/` — advanced Docker Compose configs (multiple providers, auth)
 - `dial-cookbook/` — code examples and Jupyter notebooks
@@ -37,23 +39,38 @@ Key structural changes in progress:
 - Consolidating configuration reference on-site (currently redirects to 7+ GitHub READMEs)
 - Splitting integrations by purpose: chatbot, productivity add-ins, workflow automation, orchestration patterns
 
-**Sidebar structure: OLD and NEW sections.** The sidebar (`sidebars.js`) has exactly two top-level categories: `OLD` (legacy docs, being phased out) and `NEW` (restructured docs following the recommended site structure). All new documentation pages must go into the `NEW` section. Never add new content to `OLD`. When migrating an existing page, move or rewrite it into the appropriate place under `NEW`.
+**OLD and NEW are two separate Docusaurus instances.** The legacy site and the restructured site are physically and structurally separated:
+
+| | OLD (legacy, being phased out) | NEW (restructured) |
+|---|---|---|
+| Content folder | `docs/` | `docs_v2/` |
+| Sidebar file | `sidebars.js` (`CustomSideBar`) | `sidebars-v2.js` (`v2Sidebar`) |
+| Served at | `/` | `/v2` |
+| Plugin | classic preset | second `@docusaurus/plugin-content-docs` instance (`id: v2`) in `docusaurus.config.js` |
+
+**All new documentation goes into `docs_v2/`. Never add new content to `docs/` (OLD).** When migrating an existing OLD page, move or rewrite it into the appropriate place under `docs_v2/` per the Structure document. Page ids in `sidebars-v2.js` are relative to `docs_v2/` (e.g. `building-with-dial/apps/index`, no `docs/NEW/` prefix).
 
 When working on docs content, always follow the Style Guide conventions and place content according to the Structure document.
 
 ## Docs site
 
-The docs site is a Docusaurus 3 project in `docs/`.
+The Docusaurus 3 project lives at the **repo root**. Run all commands from there:
 
 ```bash
-cd docs
 npm install
 npm run start      # local dev server at http://localhost:3000
-npm run build      # production build
+npm run build      # production build (also regenerates changelog, tracking.json, progress.md)
 npm run serve      # serve production build locally
 ```
 
-Content lives in `docs/docs/` as Markdown files. Sidebar is configured in `docs/sidebars.js`. Site config is in `docs/docusaurus.config.js`.
+NEW content lives in `docs_v2/` as Markdown files; OLD content in `docs/`. Sidebars: `sidebars.js` (OLD) and `sidebars-v2.js` (NEW). Site config: `docusaurus.config.js`.
+
+### Links
+
+`onBrokenLinks`, `onBrokenAnchors`, `onBrokenMarkdownLinks`, and `onBrokenMarkdownImages` are all set to `throw` — a broken link fails the build. Conventions:
+- Internal doc-to-doc links use a **relative path ending in `.md`**, including the numeric file prefix (e.g. `](../apps/0.index.md)`, `](./3.prompts.md#variables)`). **Never use an absolute root path** (`/v2/...` or `/platform/...`).
+- Keep the NEW tree **self-contained** — `docs_v2/` pages should link to other `docs_v2/` pages, not into OLD `docs/`. Cross-instance links can't be relative `.md` links (Docusaurus won't resolve across instances); avoid creating them.
+- Index docs use a `0.index.md` filename and route to `…/index` (the numeric prefix prevents folder-collapsing).
 
 ## Key conventions
 

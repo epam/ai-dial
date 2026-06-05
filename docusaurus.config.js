@@ -56,6 +56,22 @@ const config = {
   },
   plugins: [
     'docusaurus-plugin-image-zoom', // can also just be 'image-zoom'
+    [
+      '@docusaurus/plugin-content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'v2',
+        path: 'docs_v2',
+        routeBasePath: 'v2',
+        sidebarPath: './sidebars-v2.js',
+        remarkPlugins: [
+          [
+            fauxRemarkEmbedder,
+            { transformers: [oembedTransformer, jupyterTransformer] },
+          ],
+        ],
+      }),
+    ],
   ],
   presets: [
     [
@@ -130,12 +146,18 @@ const config = {
           srcDark: 'img/logo-dk.svg',
         },
         items: [
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'tutorialSidebar',
-          //   position: 'left',
-          //   label: 'Tutorial',
-          // },
+          {
+            to: '/',
+            label: 'Legacy docs',
+            position: 'left',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'v2Sidebar',
+            docsPluginId: 'v2',
+            position: 'left',
+            label: 'Docs (v2)',
+          },
         ],
       },
       footer: {

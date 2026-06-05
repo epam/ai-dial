@@ -24,7 +24,9 @@ import matter from "gray-matter";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const DOCS_ROOT = join(__dirname, "..", "docs");
+const REPO_ROOT = join(__dirname, "..");
+/** Doc instance roots to lint: OLD (docs/) and NEW (docs_v2/). */
+const DOC_ROOTS = [join(REPO_ROOT, "docs"), join(REPO_ROOT, "docs_v2")];
 
 /** Required frontmatter fields and their allowed values (null = any string). */
 const REQUIRED_FIELDS: Record<string, string[] | null> = {
@@ -105,7 +107,7 @@ function daysSince(dateStr: string | Date): number {
 // ─── Validation ─────────────────────────────────────────────────────────────
 
 function validate(filePath: string): Issue[] {
-    const rel = relative(DOCS_ROOT, filePath);
+    const rel = relative(REPO_ROOT, filePath);
     const raw = readFileSync(filePath, "utf-8");
     const issues: Issue[] = [];
 
@@ -297,10 +299,10 @@ function main(): void {
     const fix = args.includes("--fix");
 
     console.log(`\n🔍  DIAL Frontmatter Checker`);
-    console.log(`   docs root: ${DOCS_ROOT}`);
+    console.log(`   docs roots: ${DOC_ROOTS.join(", ")}`);
     console.log(`   mode: ${fix ? "fix" : strict ? "strict" : "default"}\n`);
 
-    const files = collectMarkdownFiles(DOCS_ROOT);
+    const files = DOC_ROOTS.flatMap((r) => collectMarkdownFiles(r));
 
     if (files.length === 0) {
         console.log("No Markdown files found.\n");
@@ -313,7 +315,7 @@ function main(): void {
         for (const file of files) {
             if (insertStubFrontmatter(file)) {
                 fixed++;
-                console.log(`  ✎ Inserted stub frontmatter: ${relative(DOCS_ROOT, file)}`);
+                console.log(`  ✎ Inserted stub frontmatter: ${relative(REPO_ROOT, file)}`);
             }
         }
         console.log(`\n  ${fixed} file(s) updated. Review and fill in the placeholder values.\n`);
