@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 117 | 0 | 194 | 0 | 28 | 0 | 0 |
+| 117 | 0 | 195 | 0 | 28 | 0 | 0 |
 
-**Progress: 0 / 339 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 340 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 225 New, 114 1-to-1
+Mapping types: 226 New, 114 1-to-1
 
 ---
 
@@ -386,14 +386,15 @@ Mapping types: 225 New, 114 1-to-1
 | Keys | Tutorials > Admins > Admin Panel User Guide > Access Management > Keys | how-to | 1-to-1 | ⬜ Planned |
 | Monitoring and dashboards | — | how-to | New | ⬜ Planned |
 
-## Reference (4)
+## Reference (5)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
-| Unified API | — | reference | New | ⬜ Planned |
+| [Unified API](/docs/NEW/reference/unified-api) | — | reference | New | ⬜ Planned |
 | Configuration reference | — | reference | New | ⬜ Planned |
 | Supported models and providers | Platform > AI Model Providers | reference | 1-to-1 | ⬜ Planned |
 | Changelog | — | reference | New | ⬜ Planned |
+| [Component compatibility matrix](/docs/NEW/reference/compatibility-matrix) | — | reference | New | 🟡 Waiting for review |
 
 ## Use Cases (7)
 

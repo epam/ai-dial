@@ -4413,6 +4413,17 @@
       "status": "waiting-for-review",
       "mappingType": "new",
       "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "reference",
+        "menuPath": "NEW > Reference > Component compatibility matrix",
+        "filePath": "docs/docs/NEW/reference/compatibility-matrix.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
     }
   ]
 }
