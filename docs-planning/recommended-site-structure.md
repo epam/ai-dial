@@ -410,19 +410,24 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 
 * * *
 
-### 8\. Use Cases **🆕** `[Explanation]`
+### 8. Use Cases **🆕** `[Explanation]` ✅ *built*
 
-* By use case → features `[Explanation]` **🆕**
-* By feature → use cases `[Explanation]` **🆕**
-* Reference architectures **🆕**
-  * Enterprise RAG with access control `[Explanation]` **🆕** — *links to §3 RAG in DIAL for conceptual context*
-  * Eval-driven app development loop `[Explanation]` **🆕**
-  * Multi-tenant deployment `[Explanation]` **🆕**
-  * Hybrid cloud `[Explanation]` **🆕**
+*Reframed from the original spec. Answers "what can I do with DIAL, and why is it useful?" through real-world scenarios — not abstract lookup matrices or standalone reference architectures. The dropped matrices (use-case→features, feature→use-cases) duplicated `When to use which app type`, `Architect overview`, and the capability pages; their useful kernel survives as a compact "find your scenario by capability" table on the index. The four original reference architectures reappear as scenarios where they carry real value (Enterprise RAG → Chat with your knowledge base; Eval-driven loop → Measure and improve AI quality), avoiding fabricated topology for Multi-tenant and Hybrid cloud that had no canonical source. Each page is layered: value/why-it-matters first (Evaluator persona), then a "How you'd build it" section with components and deep links (Builder persona). Built at `docs/docs/NEW/use-cases/`.*
+
+* Use Cases overview `[Landing]` **🆕** — *scenario index + "find your scenario by capability" table*
+* Org-wide AI assistant `[Explanation]` **🆕** — *governed multi-model access through one interface*
+* Chat with your knowledge base `[Explanation]` **🆕** — *enterprise RAG; links to §2 RAG in DIAL*
+* No-code AI tools for business teams `[Explanation]` **🆕** — *Quick Apps + Tool Sets*
+* One API for every model provider `[Explanation]` **🆕** — *Unified API, provider independence, routing*
+* Centralized cost and usage governance `[Explanation]` **🆕** — *limits, attribution, visibility at the gateway*
+* Custom production AI agents `[Explanation]` **🆕** — *Custom Apps + SDK*
+* Embed AI in existing tools `[Explanation]` **🆕** — *Teams, Copilot, Excel, n8n, Overlay*
+* Measure and improve AI quality `[Explanation]` **🆕** — *eval-driven development loop*
+* Compliance and PII-safe AI `[Explanation]` **🆕** — *interceptors, audit, access boundaries*
 
 * * *
 
-### 9\. Demos `[Landing]`
+### 9. Demos `[Landing]`
 
 *Short (2–5 min) capability showcases for the **Evaluator** persona. No code, no setup instructions, no paired written walkthrough required — these are not tutorials. They answer "what can DIAL do?" not "how do I build with DIAL?"*
 

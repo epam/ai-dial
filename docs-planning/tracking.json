@@ -754,6 +754,17 @@
     },
     {
       "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases > Multi-tenant deployment",
+        "filePath": "docs/docs/NEW/use-cases/multi-tenant-deployment.md"
+      },
+      "sourcePages": [],
+      "status": "planned",
+      "mappingType": "new",
+      "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
         "pageType": "reference",
         "menuPath": "NEW > Building with DIAL > Apps > Quick Apps > Quick App 2.0 > Quick App 2.0 examples",
         "filePath": "docs/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/examples.md"
@@ -4212,6 +4223,171 @@
     {
       "targetPage": {
         "pageType": "explanation",
+        "menuPath": "NEW > Use Cases   ✅ > Use Cases overview",
+        "filePath": "docs/docs/NEW/use-cases/use-cases-overview.md"
+      },
+      "sourcePages": [],
+      "status": "planned",
+      "mappingType": "new",
+      "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases > Org-wide AI assistant",
+        "filePath": "docs/docs/NEW/use-cases/1.org-wide-ai-assistant.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases > Chat with your knowledge base",
+        "filePath": "docs/docs/NEW/use-cases/2.chat-with-your-knowledge-base.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases > No-code AI tools for business teams",
+        "filePath": "docs/docs/NEW/use-cases/3.no-code-ai-tools.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases   ✅ > No-code AI tools for business teams",
+        "filePath": "docs/docs/NEW/use-cases/no-code-ai-tools-for-business-teams.md"
+      },
+      "sourcePages": [],
+      "status": "planned",
+      "mappingType": "new",
+      "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases > One API for every model provider",
+        "filePath": "docs/docs/NEW/use-cases/4.one-api-every-provider.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases   ✅ > One API for every model provider",
+        "filePath": "docs/docs/NEW/use-cases/one-api-for-every-model-provider.md"
+      },
+      "sourcePages": [],
+      "status": "planned",
+      "mappingType": "new",
+      "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases > Centralized cost and usage governance",
+        "filePath": "docs/docs/NEW/use-cases/5.cost-and-usage-governance.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases   ✅ > Centralized cost and usage governance",
+        "filePath": "docs/docs/NEW/use-cases/centralized-cost-and-usage-governance.md"
+      },
+      "sourcePages": [],
+      "status": "planned",
+      "mappingType": "new",
+      "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases > Custom production AI agents",
+        "filePath": "docs/docs/NEW/use-cases/6.custom-production-agents.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases   ✅ > Custom production AI agents",
+        "filePath": "docs/docs/NEW/use-cases/custom-production-ai-agents.md"
+      },
+      "sourcePages": [],
+      "status": "planned",
+      "mappingType": "new",
+      "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases > Embed AI in existing tools",
+        "filePath": "docs/docs/NEW/use-cases/7.embed-ai-in-existing-tools.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases > Measure and improve AI quality",
+        "filePath": "docs/docs/NEW/use-cases/8.measure-and-improve-quality.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases   ✅ > Measure and improve AI quality",
+        "filePath": "docs/docs/NEW/use-cases/measure-and-improve-ai-quality.md"
+      },
+      "sourcePages": [],
+      "status": "planned",
+      "mappingType": "new",
+      "notes": "New page per recommended structure."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
+        "menuPath": "NEW > Use Cases > Compliance and PII-safe AI",
+        "filePath": "docs/docs/NEW/use-cases/9.compliance-and-pii-safe-ai.md"
+      },
+      "sourcePages": [],
+      "status": "waiting-for-review",
+      "mappingType": "new",
+      "notes": "NEEDS_MAPPING: no matching OLD page found. Set sourcePages and mappingType manually."
+    },
+    {
+      "targetPage": {
+        "pageType": "explanation",
         "menuPath": "NEW > Use Cases > By use case → features",
         "filePath": "docs/docs/NEW/use-cases/by-use-case-features.md"
       },
@@ -4258,17 +4434,6 @@
         "pageType": "explanation",
         "menuPath": "NEW > Use Cases > Eval-driven app development loop",
         "filePath": "docs/docs/NEW/use-cases/eval-driven-app-development-loop.md"
-      },
-      "sourcePages": [],
-      "status": "planned",
-      "mappingType": "new",
-      "notes": "New page per recommended structure."
-    },
-    {
-      "targetPage": {
-        "pageType": "explanation",
-        "menuPath": "NEW > Use Cases > Multi-tenant deployment",
-        "filePath": "docs/docs/NEW/use-cases/multi-tenant-deployment.md"
       },
       "sourcePages": [],
       "status": "planned",

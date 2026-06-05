@@ -15,11 +15,11 @@ This page is auto-generated from [`tracking.json`](https://github.com/epam/ai-di
 
 | ⬜ Planned | 🔵 In progress | 🟡 Waiting for review | 🟢 Reviewed | 🟠 Waiting for test | ✅ Tested | ⚫ N/A |
 |---|---|---|---|---|---|---|
-| 117 | 0 | 195 | 0 | 28 | 0 | 0 |
+| 123 | 0 | 204 | 0 | 28 | 0 | 0 |
 
-**Progress: 0 / 340 done** `░░░░░░░░░░░░░░░░░░░░` 0%
+**Progress: 0 / 355 done** `░░░░░░░░░░░░░░░░░░░░` 0%
 
-Mapping types: 226 New, 114 1-to-1
+Mapping types: 241 New, 114 1-to-1
 
 ---
 
@@ -227,6 +227,27 @@ Mapping types: 226 New, 114 1-to-1
 | [Apps > Quick Apps > Quick App 2.0 > Tool Sets > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-2/tool-sets/reference) | — | reference | New | 🟡 Waiting for review |
 | [Apps > Quick Apps > Quick App (original) > Configuration reference](/docs/NEW/building-with-dial/apps/quick-apps/quick-app-original/reference) | — | reference | New | 🟡 Waiting for review |
 
+## Use Cases (16)
+
+| Target Page | Source | Type | Mapping | Status |
+|---|---|---|---|---|
+| Multi-tenant deployment | — | explanation | New | ⬜ Planned |
+| [Org-wide AI assistant](/docs/NEW/use-cases/org-wide-ai-assistant) | — | explanation | New | 🟡 Waiting for review |
+| [Chat with your knowledge base](/docs/NEW/use-cases/chat-with-your-knowledge-base) | — | explanation | New | 🟡 Waiting for review |
+| [No-code AI tools for business teams](/docs/NEW/use-cases/no-code-ai-tools) | — | explanation | New | 🟡 Waiting for review |
+| [One API for every model provider](/docs/NEW/use-cases/one-api-every-provider) | — | explanation | New | 🟡 Waiting for review |
+| [Centralized cost and usage governance](/docs/NEW/use-cases/cost-and-usage-governance) | — | explanation | New | 🟡 Waiting for review |
+| [Custom production AI agents](/docs/NEW/use-cases/custom-production-agents) | — | explanation | New | 🟡 Waiting for review |
+| [Embed AI in existing tools](/docs/NEW/use-cases/embed-ai-in-existing-tools) | — | explanation | New | 🟡 Waiting for review |
+| [Measure and improve AI quality](/docs/NEW/use-cases/measure-and-improve-quality) | — | explanation | New | 🟡 Waiting for review |
+| [Compliance and PII-safe AI](/docs/NEW/use-cases/compliance-and-pii-safe-ai) | — | explanation | New | 🟡 Waiting for review |
+| By use case → features | — | explanation | New | ⬜ Planned |
+| By feature → use cases | — | explanation | New | ⬜ Planned |
+| Reference architectures | — | reference | New | ⬜ Planned |
+| Enterprise RAG with access control | — | explanation | New | ⬜ Planned |
+| Eval-driven app development loop | — | explanation | New | ⬜ Planned |
+| Hybrid cloud | — | explanation | New | ⬜ Planned |
+
 ## Chat User Guide (8)
 
 | Target Page | Source | Type | Mapping | Status |
@@ -396,17 +417,16 @@ Mapping types: 226 New, 114 1-to-1
 | Changelog | — | reference | New | ⬜ Planned |
 | [Component compatibility matrix](/docs/NEW/reference/compatibility-matrix) | — | reference | New | 🟡 Waiting for review |
 
-## Use Cases (7)
+## Use Cases   ✅ (6)
 
 | Target Page | Source | Type | Mapping | Status |
 |---|---|---|---|---|
-| By use case → features | — | explanation | New | ⬜ Planned |
-| By feature → use cases | — | explanation | New | ⬜ Planned |
-| Reference architectures | — | reference | New | ⬜ Planned |
-| Enterprise RAG with access control | — | explanation | New | ⬜ Planned |
-| Eval-driven app development loop | — | explanation | New | ⬜ Planned |
-| Multi-tenant deployment | — | explanation | New | ⬜ Planned |
-| Hybrid cloud | — | explanation | New | ⬜ Planned |
+| Use Cases overview | — | explanation | New | ⬜ Planned |
+| No-code AI tools for business teams | — | explanation | New | ⬜ Planned |
+| One API for every model provider | — | explanation | New | ⬜ Planned |
+| Centralized cost and usage governance | — | explanation | New | ⬜ Planned |
+| Custom production AI agents | — | explanation | New | ⬜ Planned |
+| Measure and improve AI quality | — | explanation | New | ⬜ Planned |
 
 ---
 
