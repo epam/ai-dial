@@ -1,11 +1,13 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   v2Sidebar: [
-    {
-      "type": "doc",
-      "id": "progress",
-      "label": "Documentation Progress"
-    },
+    // Documentation Progress — internal tracking page, hidden from the v2 sidebar.
+    // The page still builds at /v2/progress; it is just not shown in the menu.
+    // {
+    //   "type": "doc",
+    //   "id": "progress",
+    //   "label": "Documentation Progress"
+    // },
     {
       "type": "category",
       "label": "Home",
