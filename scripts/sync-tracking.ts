@@ -140,6 +140,10 @@ async function parseSidebars(): Promise<SidebarDoc[]> {
     walk(oldSidebar, [], "OLD", DOCS_ROOT);
 
     // NEW instance: sidebars-v2.js (v2Sidebar), ids relative to docs_v2/
+    // Tracking must always cover every NEW section, regardless of the
+    // DOCS_V2_SECTIONS visibility filter. Force "all" before importing the
+    // sidebar module so docs.config.js (read at import time) yields every section.
+    process.env.DOCS_V2_SECTIONS = "all";
     const v2Mod = await import(V2_SIDEBARS_PATH);
     const v2Sidebar = (v2Mod.default ?? v2Mod).v2Sidebar;
     if (!Array.isArray(v2Sidebar)) {

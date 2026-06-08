@@ -1,6 +1,7 @@
-/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
-const sidebars = {
-  v2Sidebar: [
+import { V2_SECTIONS, V2_SECTION_KEYS } from './docs.config.js';
+
+/** Full NEW sidebar — every top-level section, unfiltered. */
+const allSections = [
     // Documentation Progress — internal tracking page, hidden from the v2 sidebar.
     // The page still builds at /v2/progress; it is just not shown in the menu.
     // {
@@ -1587,7 +1588,28 @@ const sidebars = {
         }
       ]
     }
-  ],
-};
+];
+
+// Filter top-level sections by the configured visibility (default: all).
+// A section whose label is registered in the V2_SECTIONS catalog shows only when
+// its key is selected. A top-level item NOT in the catalog is kept (so nothing is
+// hidden by accident) but warns — that usually means the catalog and this sidebar
+// drifted apart (add the section to docs.config.js V2_SECTIONS).
+const labelToKey = Object.fromEntries(V2_SECTIONS.map((s) => [s.label, s.key]));
+const v2Sidebar = allSections.filter((item) => {
+  const key = labelToKey[item.label];
+  if (key === undefined) {
+    console.warn(
+      `[sidebars-v2] Top-level section "${item.label}" is not registered in ` +
+        `docs.config.js V2_SECTIONS; showing it unconditionally. ` +
+        `Add it to V2_SECTIONS so it can be toggled.`,
+    );
+    return true;
+  }
+  return V2_SECTION_KEYS.includes(key);
+});
+
+/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
+const sidebars = { v2Sidebar };
 
 export default sidebars;

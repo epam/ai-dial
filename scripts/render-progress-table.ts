@@ -15,6 +15,12 @@ import {
     REPO_ROOT,
     readTrackingFile,
 } from "./tracking-shared";
+// @ts-expect-error - JS config module, no types
+import { NEW_BASE } from "../docs.config.js";
+
+// Route-base prefix for NEW (docs_v2) pages, matching the current build's
+// DOCS_VARIANT: "v2/" when NEW is at '/v2', "" when NEW owns '/'.
+const NEW_PREFIX = NEW_BASE === "/" ? "" : NEW_BASE.replace(/^\//, "") + "/";
 
 const OUTPUT_PATH = path.join(
     REPO_ROOT,
@@ -55,15 +61,26 @@ function filePathToDocId(filePath: string): string | null {
     const abs = path.join(REPO_ROOT, filePath);
     if (!fs.existsSync(abs)) return null;
 
-    let docPath = filePath;
-    // Map instance content roots to their route base:
-    //   docs_v2/ -> v2/ (NEW instance, routeBasePath 'v2')
-    //   docs/    -> ''   (OLD instance, routeBasePath '/')
-    if (docPath.startsWith("docs_v2/")) docPath = "v2/" + docPath.slice("docs_v2/".length);
-    else if (docPath.startsWith("docs/")) docPath = docPath.slice(5);
-    docPath = docPath.replace(/\.mdx?$/, "");
+    // Instance route-base prefix:
+    //   docs_v2/ -> "v2/" (NEW instance, routeBasePath 'v2')
+    //   docs/    -> ""    (OLD instance, routeBasePath '/')
+    let prefix = "";
+    let rest = filePath;
+    if (rest.startsWith("docs_v2/")) { prefix = NEW_PREFIX; rest = rest.slice("docs_v2/".length); }
+    else if (rest.startsWith("docs/")) { rest = rest.slice("docs/".length); }
+
+    // Honor a frontmatter `slug:` override (e.g. the Home Overview uses `slug: /`
+    // to own the instance root), so the link points at the page's real URL.
+    const fm = fs.readFileSync(abs, "utf-8").match(/^---\n([\s\S]*?)\n---/);
+    const slugMatch = fm && fm[1].match(/^slug:\s*["']?(.+?)["']?\s*$/m);
+    if (slugMatch) {
+        const slug = slugMatch[1].trim().replace(/^\//, "").replace(/\/$/, "");
+        return (prefix + slug).replace(/\/$/, "");
+    }
+
+    let docPath = rest.replace(/\.mdx?$/, "");
     docPath = docPath.replace(/(^|\/)\d+\./g, "$1");
-    return docPath;
+    return prefix + docPath;
 }
 
 function extractSection(menuPath: string): string {
