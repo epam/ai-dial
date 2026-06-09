@@ -179,6 +179,8 @@ You can add applications defined in the [Entities](/docs/tutorials/3.admin/entit
 
 In this section, you can defile and manage routes that will be used by DIAL Core for interaction with applications created based on the selected application runner via specified endpoints. Such applications will have the [App Routes section](/docs/tutorials/3.admin/entities-applications.md#app-routes) pre-populated automatically with routes of the related application runner and available in read-only mode.
 
+For App Routes, you can choose these HTTP methods: GET, POST, PUT, DELETE, HEAD, and PATCH. OPTIONS and TRACE are not available in App Routes.
+
 > Refer to [DIAL Core](https://github.com/epam/ai-dial-core/blob/development/docs/dynamic-settings/routes.md) to learn more about routes.
 
 #### Create

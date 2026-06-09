@@ -74,7 +74,7 @@ In the Properties tab, you can define the identity and routing behavior.
 |-------|----------|----------|-------------|
 | **Paths** | Yes | Yes | One or more URL path patterns this route should match (e.g. `/chat`, `/support/**`). Click **+ Add paths** to register additional patterns. Click the trash icon to remove a path. |
 | **Rewrite path** | No | Yes | Use to replace the path to the upstream server with the path of the original request. Use when your upstream service expects a different URL structure (e.g. remove `/api/v1/routes/chat` prefix). |
-| **Methods** | No | Yes | Select one or more HTTP methods the route can accept. <br /> Supported methods for application routes: GET, POST, PUT, DELETE, HEAD and PATCH. |
+| **Methods** | No | Yes | Select one or more HTTP methods the route can accept. <br /> Routes support: GET, POST, PUT, DELETE, HEAD, PATCH, OPTIONS and TRACE. <br /> App Routes support: GET, POST, PUT, DELETE, HEAD and PATCH. |
  
 ##### Output Mode
 
