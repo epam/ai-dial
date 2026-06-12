@@ -5,11 +5,10 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     curl \
     ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN curl -L -o quarto.deb https://quarto.org/download/latest/quarto-linux-amd64.deb \
-    && apt-get update \
+    && curl -L -o quarto.deb https://quarto.org/download/latest/quarto-linux-amd64.deb \
     && apt-get install -y ./quarto.deb \
+    && apt-get clean \
+    && rm -fr /var/lib/apt/lists/ \
     && rm quarto.deb
 
 COPY package*.json ./
