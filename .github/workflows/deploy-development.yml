@@ -2,7 +2,7 @@ name: Deploy development
 
 on:
   push:
-    branches: [feature/doc_improvements_by_section, feature/test-deploy-docs]
+    branches: [feature/doc_improvements_by_section]
 
 jobs:
   gitlab-dev-deploy:
