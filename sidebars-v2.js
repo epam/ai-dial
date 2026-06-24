@@ -2,13 +2,6 @@ import { V2_SECTIONS, V2_SECTION_KEYS } from './docs.config.js';
 
 /** Full NEW sidebar — every top-level section, unfiltered. */
 const allSections = [
-    // Documentation Progress — internal tracking page, hidden from the v2 sidebar.
-    // The page still builds at /v2/progress; it is just not shown in the menu.
-    // {
-    //   "type": "doc",
-    //   "id": "progress",
-    //   "label": "Documentation Progress"
-    // },
     {
       "type": "category",
       "label": "Home",

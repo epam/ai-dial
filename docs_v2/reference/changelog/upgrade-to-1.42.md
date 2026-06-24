@@ -91,6 +91,10 @@ Refer to the [InfluxDB 3 documentation](https://docs.influxdata.com/influxdb3/co
 > [!IMPORTANT]
 > Aggregated Dashboards are only supported for InfluxDB 2.
 
+### ai-dial-chat
+
+Added the `LiveChatInteraction` (`live-chat-interaction`) feature to enable an interactive tool authentication flow during chat completion when agent tools are logged out.
+
 ### ai-dial-rag
 
 #### New environment variables

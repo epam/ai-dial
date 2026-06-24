@@ -59,7 +59,7 @@ The Docusaurus 3 project lives at the **repo root**. Run all commands from there
 ```bash
 npm install
 npm run start      # local dev server at http://localhost:3000
-npm run build      # production build (also regenerates changelog, tracking.json, progress.md)
+npm run build      # production build (also regenerates the changelog)
 npm run serve      # serve production build locally
 ```
 
@@ -70,7 +70,7 @@ NEW content lives in `docs_v2/` as Markdown files; OLD content in `docs/`. Sideb
 `docs.config.js` (repo root) is the single source of truth for what gets built, read by both `docusaurus.config.js` and `sidebars-v2.js`. Override via env vars (defaults reproduce the full site):
 
 - **`DOCS_VARIANT`** = `both` (default) | `old` | `new` — which docs sets to build/serve. With `both`, OLD is at `/` and NEW at `/v2`. With a single set, that set owns `/`. The NEW instance root (`/v2`, or `/` in `new` mode) has no page of its own; an inline redirect plugin (`docusaurus.config.js` → `src/components/RootRedirect.js`, target from `NEW_ROOT_REDIRECT` in `docs.config.js`) sends it to the **first visible section's landing** (catalog order, per each section's `landing` in `V2_SECTIONS`). So hiding the Home section just moves the landing to the next visible section. The navbar OLD/NEW switcher appears only in `both` mode.
-- **`DOCS_V2_SECTIONS`** = `all` (default) | comma-separated section keys — which NEW top-level sections show in the sidebar. Keys: `home, understand-dial, building-with-dial, operating-dial, administering-dial, chat-user-guide, reference, use-cases, demos`. Hiding a section removes it from the menu only; its pages still build and stay reachable (so cross-links don't break). Progress tracking always covers all sections (`scripts/sync-tracking.ts` forces `DOCS_V2_SECTIONS=all` before reading the sidebar).
+- **`DOCS_V2_SECTIONS`** = `all` (default) | comma-separated section keys — which NEW top-level sections show in the sidebar. Keys: `home, understand-dial, building-with-dial, operating-dial, administering-dial, chat-user-guide, reference, use-cases, demos`. Hiding a section removes it from the menu only; its pages still build and stay reachable (so cross-links don't break).
 
 ```bash
 DOCS_VARIANT=new npm run build                          # NEW only, served at /

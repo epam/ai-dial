@@ -12,6 +12,12 @@ description: "Release notes and upgrade guides for each DIAL platform release, n
 
 Release notes and upgrade guides for each DIAL platform (Helm stable-assembly) release, newest first. Each release links to its highlights and to the technical upgrade guide (component versions, configuration changes, and deprecations).
 
+## DIAL 1.44
+
+The highlights of this release include a refreshed DIAL brand identity with new logos and a website re-design, major Quick Apps enhancements including Skills support, pre-configured tool orchestration, and MCP connectivity for connected applications, expanded Evaluation capabilities with run comparison and CSV export, and a new PDF Viewer in Chat.
+
+[Release notes](release-notes-1.44.md) · [Upgrade guide](upgrade-to-1.44.md)
+
 ## DIAL 1.43
 
 The highlights of this release include a new Evaluation Framework for AI quality assessment, expanded MCP ecosystem support with registry integration and application-level MCP endpoints, significant Quick Apps editor improvements, and expanded multimodal capabilities across Vertex and OpenAI adapters including video generation and audio support.
