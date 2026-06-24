@@ -90,16 +90,6 @@ Three breaking changes to OpenTelemetry configuration: (1) OTEL_SDK_DISABLED rep
 
 #### ai-dial-admin-evaluation-framework-backend `0.1.0-rc.0`
 
-##### Breaking changes
-
-**EvalSummary CSV export column-group separator changed from `:` to `::`**
-
-The separator used between hierarchical column families in exported CSV headers has changed. For example: `data:prompt` → `data::prompt`, `metric:Accuracy:score` → `metric::Accuracy::score`. Any downstream consumers or scripts that parse CSV headers by splitting on `:` will break and must be updated to split on `::`.
-
-| Previous configuration | Required action |
-|---|---|
-| CSV header parsing splits on `:` (e.g. `data:prompt`, `metric:Accuracy:score`) | Update all CSV consumers/parsers to split on `::` instead of `:` |
-
 ##### New environment variables
 
 | Variable | Default | Required | Description |
@@ -154,30 +144,13 @@ With IS_IFRAME=true, expired or invalid sessions are now rejected with HTTP 401 
 
 #### ai-dial-quickapps-backend `0.9.0-rc.1`
 
-##### Breaking changes
+## Deployment Changes
 
-**DIAL files tools are now active regardless of ENABLE_PREVIEW_FEATURES**
+### Behavioral changes
 
-The dial_files tool group (list / read_lines / search / find / write / edit / delete / copy / move) and the features.dial_files config field are no longer gated by ENABLE_PREVIEW_FEATURES. Any deployment that had ENABLE_PREVIEW_FEATURES disabled but relies on those tools being inactive will now have them active. Conversely, deployments that enabled ENABLE_PREVIEW_FEATURES solely to use these tools no longer need to do so. The tool_call_result_offload sub-feature (features.dial_files.tool_call_result_offload and its TOOL_CALL_RESULT_OFFLOAD__* env defaults) remains behind the preview flag.
-
-| Previous configuration | Required action |
-|---|---|
-| ENABLE_PREVIEW_FEATURES=false (or unset) — DIAL files tools were inactive | Review whether exposing DIAL files tools to end users is acceptable. If not, disable them via features.dial_files config rather than relying on the preview gate. |
-| ENABLE_PREVIEW_FEATURES=true — DIAL files tools were active | No change in behavior. Verify ENABLE_PREVIEW_FEATURES is still needed for other preview features; if DIAL files was the only reason, it can be removed (but removing it will deactivate tool_call_result_offload). |
-
-##### Config / Helm changes
-
-- **Added** `features.dial_files`: Config field for the DIAL files tool group is now GA and active regardless of ENABLE_PREVIEW_FEATURES. Previously only respected when ENABLE_PREVIEW_FEATURES was enabled.
-
----
-
-#### ai-dial-core `0.45.0-rc.0`
-
-##### Config / Helm changes
-
-- **Added** `reasoningEffortsSupported`: New feature flag to indicate whether a model/deployment supports reasoning efforts.
-- **Added** `features.max_tokens / features.max_completion_tokens / features.temperature`: New feature flags to expose max_tokens, max_completion_tokens, and temperature capability indicators in model listings.
-- **Added** `features.endpoints (available endpoints flags)`: New flags to expose which endpoints are available for a deployment.
-- **Added** `dial-unified-config (Configuration API / MergedConfigStore / secret encryption)`: New server-side Configuration API with MergedConfigStore and secret encryption support introduced.
-
----
+> [!NOTE]
+> The DIAL files tools have graduated to GA and are now active regardless of `ENABLE_PREVIEW_FEATURES`:
+>
+> - **DIAL files tools** — `list` / `read_lines` / `search` / `find` / `write` / `edit` / `delete` / `copy` / `move` and the `features.dial_files` config field (#377)
+>
+> The `tool_call_result_offload` sub-feature (`features.dial_files.tool_call_result_offload`, with its `TOOL_CALL_RESULT_OFFLOAD__*` env defaults) remains preview-gated.
