@@ -152,30 +152,6 @@ With IS_IFRAME=true, expired or invalid sessions are now rejected with HTTP 401 
 
 ---
 
-#### ai-dial-admin-backend `0.18.0-rc.0`
-
-##### Breaking changes
-
-**ApplicationResourceDto and CreateApplicationResourceDto: flat `applicationTypeSchemaId` field replaced by polymorphic `source` field**
-
-The flat string field `applicationTypeSchemaId` on `ApplicationResourceDto` and `CreateApplicationResourceDto` has been removed and replaced with a polymorphic `source` object. The `source` field is `$type`-discriminated with `schema` and `endpoints` variants. Any API client, integration, or tooling that reads or writes `applicationTypeSchemaId` must be updated to use the new `source` structure.
-
-| Previous configuration | Required action |
-|---|---|
-| API payloads include a flat `applicationTypeSchemaId` string field on ApplicationResourceDto / CreateApplicationResourceDto | Replace `applicationTypeSchemaId` with the appropriate `source` object using the `$type` discriminator (`schema` or `endpoints` variant) in all API clients, scripts, and stored payloads before upgrading |
-
-##### Config / Helm changes
-
-- **Default changed** `applicationAssets.applicationProperties`: `unset / null` → `empty map `{}`` — Application assets now default `applicationProperties` to an empty map instead of being absent/null.
-- **Added** `features.maxTokensSupported`: New configuration property introduced in DIAL Core v0.45.0 support. Defaults to `true`.
-- **Added** `features.maxCompletionTokensSupported`: New configuration property introduced in DIAL Core v0.45.0 support.
-- **Added** `features.customTemperatureSupported`: New configuration property introduced in DIAL Core v0.45.0 support. Defaults to `true`.
-- **Added** `features.reasoningEfforts`: New configuration property introduced in DIAL Core v0.45.0 support.
-- **Added** `upstreams.secretExtraData`: New configuration property for upstreams introduced in DIAL Core v0.45.0 support.
-- **Added** `models.embeddingDimensions`: New configuration property for models introduced in DIAL Core v0.45.0 support.
-
----
-
 #### ai-dial-quickapps-backend `0.9.0-rc.1`
 
 ##### Breaking changes
