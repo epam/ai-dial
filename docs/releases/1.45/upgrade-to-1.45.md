@@ -46,45 +46,45 @@
 
 ##### Breaking changes
 
-**Spring Boot upgraded to 4.0.6 (Spring Framework 7, Hibernate 7.2) with Jackson 3 JSON serialization**
+**Spring Boot upgraded from 3.5 to 4.0.6 (Spring Framework 7, Hibernate 7.2) with Jackson 3 JSON serialization**
 
-Major framework upgrade. Jackson 3 migration is known to have caused at least one regression (image entrypoint/cmd binding). Deployments relying on serialization behavior or Hibernate/Spring internals must be validated.
-
-| Previous configuration | Required action |
-|---|---|
-| Running on Spring Boot 3.5 with Jackson 2 | Review the full upgrade guide; validate JSON serialization behavior for all entities; check for any custom Spring/Hibernate configuration that may be incompatible with the new versions. |
-
-**OpenTelemetry env vars renamed/removed and default export behavior changed**
-
-OTEL_SDK_DISABLED replaced by OTEL_EXPORT_ENABLED (inverted logic), OTEL_EXPORTER_OTLP_PROTOCOL replaced by OTEL_EXPORTER_OTLP_TRANSPORT, and OTEL_EXPORTER_OTLP_HEADERS removed. OTel export is now OFF by default. Existing telemetry exporters will stop silently if not migrated.
+Major framework version bump. JSON serialization migrated to Jackson 3. Known regression: image entrypoint/cmd binding from container config blob was broken by Jackson 3 migration (fixed in this release). Full impact of framework upgrade may require review of custom configs or extensions.
 
 | Previous configuration | Required action |
 |---|---|
-| OTEL_SDK_DISABLED=false (or unset) to enable telemetry export | Replace with OTEL_EXPORT_ENABLED=true to re-enable export (inverted logic). |
-| OTEL_SDK_DISABLED=true to disable telemetry export | Remove the variable; export is now off by default. Optionally set OTEL_EXPORT_ENABLED=false explicitly. |
-| OTEL_EXPORTER_OTLP_PROTOCOL set to configure OTLP protocol | Rename to OTEL_EXPORTER_OTLP_TRANSPORT and verify the value is still valid. |
-| OTEL_EXPORTER_OTLP_HEADERS set to pass auth/custom headers to OTLP exporter | Variable removed; review the full upgrade guide for the replacement mechanism. |
+| Running on Spring Boot 3.5 / Jackson 2 | Review the full upgrade guide at the external_upgrade_plan URL before upgrading. Verify any custom Spring/Hibernate/Jackson configuration is compatible with Spring Boot 4.0.6 / Spring Framework 7 / Hibernate 7.2 / Jackson 3. |
+
+**OpenTelemetry env vars renamed/removed and default changed: OTEL export is now OFF by default**
+
+Three breaking changes to OTel configuration: (1) OTEL_SDK_DISABLED replaced by OTEL_EXPORT_ENABLED with inverted semantics; (2) OTEL_EXPORTER_OTLP_PROTOCOL replaced by OTEL_EXPORTER_OTLP_TRANSPORT; (3) OTEL_EXPORTER_OTLP_HEADERS removed entirely. Existing telemetry exporters will stop silently until migrated.
+
+| Previous configuration | Required action |
+|---|---|
+| OTEL_SDK_DISABLED=false (telemetry enabled) | Replace with OTEL_EXPORT_ENABLED=true (inverted logic) |
+| OTEL_SDK_DISABLED=true (telemetry disabled) | Remove OTEL_SDK_DISABLED; telemetry export is now off by default, so no replacement needed unless you want to explicitly set OTEL_EXPORT_ENABLED=false |
+| OTEL_EXPORTER_OTLP_PROTOCOL set to any value | Rename to OTEL_EXPORTER_OTLP_TRANSPORT with the same value |
+| OTEL_EXPORTER_OTLP_HEADERS set with header values | OTEL_EXPORTER_OTLP_HEADERS is removed; review the full upgrade guide for the replacement mechanism |
 
 ##### Removed environment variables
 
 | Variable | Description |
 |---|---|
-| `OTEL_SDK_DISABLED` | Replaced by OTEL_EXPORT_ENABLED with inverted logic. Remove this variable and set OTEL_EXPORT_ENABLED=true if export was previously enabled. |
+| `OTEL_SDK_DISABLED` | Replaced by OTEL_EXPORT_ENABLED with inverted semantics. Existing telemetry exporters will stop silently if not migrated. |
 | `OTEL_EXPORTER_OTLP_PROTOCOL` | Replaced by OTEL_EXPORTER_OTLP_TRANSPORT. |
-| `OTEL_EXPORTER_OTLP_HEADERS` | Removed with no stated replacement in release notes. Review the full upgrade guide for migration path. |
+| `OTEL_EXPORTER_OTLP_HEADERS` | Removed entirely. No direct replacement mentioned in release notes. Review full upgrade guide. |
 
 ##### Environment variables with changed defaults
 
 | Variable | Old default | New default | Description |
 |---|---|---|---|
-| `OTEL_EXPORT_ENABLED` | `enabled (OTEL_SDK_DISABLED defaulted to false, meaning export was on)` | `false (export is now off by default)` | OpenTelemetry export is now disabled by default. Previously the SDK was enabled by default (OTEL_SDK_DISABLED=false). Must explicitly set OTEL_EXPORT_ENABLED=true to restore export. |
+| `OTEL_EXPORT_ENABLED` | `enabled (via OTEL_SDK_DISABLED=false or unset)` | `false (off by default)` | OpenTelemetry export is now off by default. Previously controlled by OTEL_SDK_DISABLED which defaulted to SDK enabled. |
 
 ##### New environment variables
 
 | Variable | Default | Required | Description |
 |---|---|---|---|
-| `OTEL_EXPORT_ENABLED` | `false` | No | Replaces OTEL_SDK_DISABLED with inverted semantics. Set to true to enable OpenTelemetry export. Export is now off by default. |
-| `OTEL_EXPORTER_OTLP_TRANSPORT` | — | No | Replaces OTEL_EXPORTER_OTLP_PROTOCOL. Configures the OTLP exporter transport. |
+| `OTEL_EXPORT_ENABLED` | `false` | No | Replaces OTEL_SDK_DISABLED with inverted semantics. Set to true to enable OpenTelemetry export. Default is now off. |
+| `OTEL_EXPORTER_OTLP_TRANSPORT` | — | No | Replaces OTEL_EXPORTER_OTLP_PROTOCOL. Configures the OTLP exporter transport protocol. |
 
 ---
 
@@ -92,13 +92,13 @@ OTEL_SDK_DISABLED replaced by OTEL_EXPORT_ENABLED (inverted logic), OTEL_EXPORTE
 
 ##### Breaking changes
 
-**EvalSummary CSV column-group separator changed from `:` to `::`**
+**EvalSummary CSV export column-group separator changed from `:` to `::`**
 
-The EvalSummary CSV export now uses `::` to join hierarchical column families instead of `:`. Any downstream consumer that parses exported CSV headers by splitting on `:` must update its parsing logic to split on `::`. Example: `data:prompt` → `data::prompt`, `metric:Accuracy:score` → `metric::Accuracy::score`.
+Any downstream consumer that parses exported CSV headers by splitting on `:` will produce incorrect column mappings. Column names such as `data:prompt` are now `data::prompt` and `metric:Accuracy:score` is now `metric::Accuracy::score`.
 
 | Previous configuration | Required action |
 |---|---|
-| CSV header parser splits on single `:` to extract column family and column name | Update parser to split on `::` instead of `:` |
+| Consumer splits CSV headers on single `:` (e.g. `data:prompt`, `metric:Accuracy:score`) | Update header-parsing logic to split on `::` instead of `:` |
 
 ##### New environment variables
 
@@ -112,23 +112,25 @@ The EvalSummary CSV export now uses `::` to join hierarchical column families in
 
 ##### Breaking changes
 
-**Flat `applicationTypeSchemaId` field replaced by polymorphic `source` field on ApplicationResourceDto and CreateApplicationResourceDto**
+**ApplicationResourceDto: flat `applicationTypeSchemaId` field replaced by polymorphic `source` field**
 
-The flat `applicationTypeSchemaId` field has been removed from `ApplicationResourceDto` and `CreateApplicationResourceDto`. It is replaced by a `source` field — a `$type`-discriminated polymorphic object with `schema` and `endpoints` variants. Any API clients, automation, or integration code that reads or writes `applicationTypeSchemaId` must be updated to use the new `source` structure.
+The flat `applicationTypeSchemaId` field on `ApplicationResourceDto` and `CreateApplicationResourceDto` has been removed. It is replaced by a polymorphic `source` field, which is a `$type`-discriminated object with `schema` and `endpoints` variants. Any API clients, automation scripts, or tooling that reads or writes `applicationTypeSchemaId` must be updated to use the new `source` object structure.
 
 | Previous configuration | Required action |
 |---|---|
-| API payload includes flat `applicationTypeSchemaId` field on ApplicationResourceDto / CreateApplicationResourceDto | Replace `applicationTypeSchemaId` with the new polymorphic `source` field (a `$type`-discriminated object with `schema` and `endpoints` variants) in all API clients and integrations |
+| API payloads include `applicationTypeSchemaId: "<id>"` on ApplicationResourceDto or CreateApplicationResourceDto | Replace `applicationTypeSchemaId` with the new `source` polymorphic object (`$type`-discriminated, with `schema` or `endpoints` variant) in all API clients, scripts, and integrations |
 
 ##### Config / Helm changes
 
-- **Default changed** `applicationProperties (application assets)`: `null / unset` → `empty map `{}`` — `applicationProperties` for application assets now defaults to an empty map instead of being absent/null.
-- **Added** `features.maxTokensSupported`: New configuration property introduced in DIAL Core v0.45.0 support. Defaults to `true`.
-- **Added** `features.maxCompletionTokensSupported`: New configuration property introduced in DIAL Core v0.45.0 support.
-- **Added** `features.customTemperatureSupported`: New configuration property introduced in DIAL Core v0.45.0 support. Defaults to `true`.
-- **Added** `features.reasoningEfforts`: New configuration property introduced in DIAL Core v0.45.0 support.
-- **Added** `upstreams.secretExtraData`: New configuration property for upstreams introduced in DIAL Core v0.45.0 support.
-- **Added** `models.embeddingDimensions`: New configuration property for models introduced in DIAL Core v0.45.0 support.
+- **Default changed** `features.maxTokensSupported`: `unset / not present` → `true` — New field; when not explicitly configured, now defaults to `true`.
+- **Default changed** `features.customTemperatureSupported`: `unset / not present` → `true` — New field; when not explicitly configured, now defaults to `true`.
+- **Default changed** `applicationProperties (application assets)`: `null / absent` → `empty map {}` — `applicationProperties` for application assets now defaults to an empty map instead of being null/absent.
+- **Added** `features.maxTokensSupported`: New configuration property introduced with DIAL Core v0.45.0 support. Defaults to `true`.
+- **Added** `features.maxCompletionTokensSupported`: New configuration property introduced with DIAL Core v0.45.0 support.
+- **Added** `features.customTemperatureSupported`: New configuration property introduced with DIAL Core v0.45.0 support. Defaults to `true`.
+- **Added** `features.reasoningEfforts`: New configuration property introduced with DIAL Core v0.45.0 support.
+- **Added** `upstreams.secretExtraData`: New configuration property for upstreams, introduced with DIAL Core v0.45.0 support.
+- **Added** `models.embeddingDimensions`: New configuration property for models, introduced with DIAL Core v0.45.0 support.
 
 ---
 
@@ -136,19 +138,18 @@ The flat `applicationTypeSchemaId` field has been removed from `ApplicationResou
 
 ##### Breaking changes
 
-**DIAL files tools now active regardless of ENABLE_PREVIEW_FEATURES**
+**DIAL files tools graduated to GA — now active regardless of ENABLE_PREVIEW_FEATURES**
 
-The dial_files tool set (list, read_lines, search, find, write, edit, delete, copy, move) and the features.dial_files config field are no longer gated by ENABLE_PREVIEW_FEATURES. Any deployment that previously relied on ENABLE_PREVIEW_FEATURES=false to suppress these tools will find them active after upgrade. Only the tool_call_result_offload sub-feature remains behind the preview flag.
+The list/read_lines/search/find/write/edit/delete/copy/move tools and the features.dial_files config field are no longer gated by ENABLE_PREVIEW_FEATURES. Any deployment that relied on ENABLE_PREVIEW_FEATURES=false to suppress these tools will find them active after upgrade. The tool_call_result_offload sub-feature (features.dial_files.tool_call_result_offload and its TOOL_CALL_RESULT_OFFLOAD__* env defaults) remains preview-gated.
 
 | Previous configuration | Required action |
 |---|---|
-| ENABLE_PREVIEW_FEATURES=false — dial_files tools were suppressed | Review whether dial_files tools should be active; if not desired, disable them explicitly via features.dial_files config rather than relying on the preview flag |
-| ENABLE_PREVIEW_FEATURES=true — dial_files tools were enabled | No action; behavior unchanged |
+| ENABLE_PREVIEW_FEATURES=false — DIAL files tools were inactive | After upgrade, DIAL files tools will be active regardless of ENABLE_PREVIEW_FEATURES. If you must disable them, use features.dial_files config to control availability explicitly. |
+| ENABLE_PREVIEW_FEATURES=true — DIAL files tools were active | No action required; behavior unchanged. |
 
 ##### Config / Helm changes
 
-- **Added** `features.dial_files`: Previously preview-gated config field for DIAL files tools; now GA and active regardless of ENABLE_PREVIEW_FEATURES. The sub-field features.dial_files.tool_call_result_offload (and its TOOL_CALL_RESULT_OFFLOAD__* env defaults) remains preview-gated.
-- **Added** `internal_attachments_available_context[].max_depth`: [Preview] New field on folder context config entries that bounds recursion depth when a DIAL folder is attached as a folder context.
+- **Added** `features.dial_files`: Config field for DIAL files tools is now GA and respected regardless of ENABLE_PREVIEW_FEATURES. Previously only evaluated when ENABLE_PREVIEW_FEATURES was enabled.
 
 ---
 
@@ -156,10 +157,9 @@ The dial_files tool set (list, read_lines, search, find, write, edit, delete, co
 
 ##### Config / Helm changes
 
-- **Added** `features.reasoningEffortsSupported`: New feature flag to indicate whether reasoning efforts are supported for a model/deployment.
-- **Added** `features.max_tokens / features.max_completion_tokens / features.temperature`: New feature flags to expose max_tokens, max_completion_tokens, and temperature capabilities in model listings.
-- **Added** `features.availableEndpoints`: New flags to expose available endpoints per deployment in feature listings.
-- **Added** `dial-unified-config (Configuration API / MergedConfigStore / secret encryption)`: New server-side configuration API with merged config store and secret encryption support introduced.
+- **Added** `features.reasoningEffortsSupported`: New feature flag to indicate whether a model/deployment supports reasoning efforts configuration.
+- **Added** `features.maxTokensSupported / features.maxCompletionTokensSupported / features.temperatureSupported`: New feature flags to expose max_tokens, max_completion_tokens, and temperature support per model/deployment.
+- **Added** `features (available endpoints flags)`: New flags exposing which endpoints are available for a given deployment.
 - **Added** `roles.readonly-admin`: New readonly-admin role introduced to allow reading user data without write permissions.
 
 ---
