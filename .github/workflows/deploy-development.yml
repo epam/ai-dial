@@ -6,7 +6,7 @@ on:
 
 jobs:
   gitlab-dev-deploy:
-    uses: epam/ai-dial-ci/.github/workflows/deploy-development.yml@4.4.1
+    uses: epam/ai-dial-ci/.github/workflows/deploy-development.yml@4.6.0
     with:
       gitlab-project-id: "3381"
     secrets:
