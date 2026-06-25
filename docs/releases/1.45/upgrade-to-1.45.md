@@ -26,7 +26,7 @@
    - ai-dial-mind-map-frontend: `0.13.0`
    - ai-dial-admin-backend: `0.18.0-rc.0`
    - ai-dial-admin-frontend: `0.18.0-rc.0`
-   - ai-dial-admin-deployment-manager-backend: `0.18.0-rc.0`
+   - ai-dial-admin-deployment-manager-backend: `0.18.0-rc.1`
    - ai-dial-admin-evaluation-framework-backend: `0.1.0-rc.0`
 
 ## Before upgrade
@@ -39,10 +39,10 @@
 
 ### Release-specific notes
 
-#### ai-dial-admin-deployment-manager-backend `0.18.0-rc.0`
+#### ai-dial-admin-deployment-manager-backend `0.18.0-rc.1`
 
 > [!CAUTION]
-> This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.18.0-rc.0/docs/upgrade-plans/0.18.0.md) before proceeding.
+> This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.18.0-rc.1/docs/upgrade-plans/0.18.0.md) before proceeding.
 
 ##### Breaking changes
 
@@ -53,6 +53,9 @@ Major framework version bumps: Spring Boot 3.5 → 4.0.6, Spring Framework 7, Hi
 | Previous configuration | Required action |
 |---|---|
 | Running on Spring Boot 3.5 / Jackson 2 | Review upgrade guide for full list of framework-level migration steps before upgrading. Verify any custom Jackson configuration or serialization expectations. |
+
+**Deployment & Scaling — Chained Text-Classification Transformer**
+> `INFERENCE_TEXT_CLASSIFICATION_TRANSFORMER_IMAGE` has **no default and must be set** before any text-classification model can be deployed. If a text-classification model is detected and the image is unset, the deploy **fails fast with HTTP 5xx**. Set it now if you intend to serve text-classification models; other inference types are unaffected.
 
 **OpenTelemetry env vars renamed/removed and default changed: telemetry export is now OFF by default**
 
@@ -85,6 +88,11 @@ Three breaking changes to OpenTelemetry configuration: (1) OTEL_SDK_DISABLED rep
 |---|---|---|---|
 | `OTEL_EXPORT_ENABLED` | `false` | No | Replaces OTEL_SDK_DISABLED with inverted semantics. Set to true to enable OpenTelemetry export. Default is now off. |
 | `OTEL_EXPORTER_OTLP_TRANSPORT` | — | No | Replaces OTEL_EXPORTER_OTLP_PROTOCOL. Configure the OTLP exporter transport protocol. |
+| `INFERENCE_TEXT_CLASSIFICATION_TRANSFORMER_IMAGE`         | -       | Yes for chained deployments   | Transformer container image. Deploy fails fast if unset for chained mode. |
+| `INFERENCE_TEXT_CLASSIFICATION_TRANSFORMER_CPU_REQUEST`   | `100m`  | No                            | CPU request for the transformer container.           |
+| `INFERENCE_TEXT_CLASSIFICATION_TRANSFORMER_MEMORY_REQUEST`| `256Mi` | No                            | Memory request for the transformer container.        |
+| `INFERENCE_TEXT_CLASSIFICATION_TRANSFORMER_CPU_LIMIT`     | `500m`  | No                            | CPU limit for the transformer container.             |
+| `INFERENCE_TEXT_CLASSIFICATION_TRANSFORMER_MEMORY_LIMIT`  | `512Mi` | No                            | Memory limit for the transformer container.          |
 
 ---
 
