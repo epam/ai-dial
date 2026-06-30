@@ -113,7 +113,7 @@ Run via the npm scripts in `package.json` (all use `npx tsx`).
 
 | Script | npm script(s) | What it does |
 |---|---|---|
-| `build-changelog.ts` | `changelog:build` (also run by `start` / `build`) | Generates the on-site Changelog pages under `docs_v2/reference/changelog/` from `docs/releases/`. Idempotent, no network. |
+| `build-changelog.ts` | `changelog:build` (also run by `start` / `build`) | Generates the on-site Changelog pages under `docs_v2/7.reference/changelog/` from `docs/releases/`. Idempotent, no network. |
 | `check-references.ts` | `check:references`, `check:references:strict` | Scans `docs_v2/` for pinned PyPI/npm versions in sample code, crawls referenced GitHub sample repos, and writes `outdated_references.json`. `--strict` exits 1 on any outdated reference. |
 | `references-shared.ts` | — (imported by the two reference scripts) | Shared types/helpers: resolves pinned versions against PyPI/npm and applies the freshness rule. |
 | `render-outdated-references.ts` | `references:render-md` | Renders `outdated_references.json` into a human-readable `outdated_references.md`. Rendering only, no network. |
