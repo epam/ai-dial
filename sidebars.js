@@ -338,6 +338,188 @@ const sidebars = {
               id: 'tutorials/developers/prompt-caching',
               label: 'Prompt Caching',
             },
+            {
+              type: 'category',
+              label: 'Entities',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/entities-models',
+                  label: 'Models',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/entities-applications',
+                  label: 'Applications',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/entities-toolsets',
+                  label: 'Toolsets',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/entities-interceptors',
+                  label: 'Interceptors',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/entities-routes',
+                  label: 'Routes',
+                },
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Builders',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/builders-application-runners',
+                  label: 'Application Runners',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/builders-interceptor-templates',
+                  label: 'Interceptor Templates',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/builders-adapters',
+                  label: 'Adapters',
+                },
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Assets',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/assets-applications',
+                  label: 'Applications',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/assets-toolsets',
+                  label: 'Toolsets',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/assets-prompts',
+                  label: 'Prompts',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/assets-files',
+                  label: 'Files',
+                },
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Deployments',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/deployments-models',
+                  label: 'Model Servings',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/deployments-mcp',
+                  label: 'MCP Containers',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/deployments-interceptors',
+                  label: 'Interceptor Containers',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/deployments-adapters',
+                  label: 'Adapter Containers',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/deployments-applications',
+                  label: 'Application Containers',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/deployments-images',
+                  label: 'Images',
+                },
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Access Management',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/access-management-roles',
+                  label: 'Roles',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/access-management-keys',
+                  label: 'Keys',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/access-management-folders-storage',
+                  label: 'Folders Storage',
+                },
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Approvals',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/approvals-application-publications',
+                  label: 'Application Publications',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/approvals-toolset-publications',
+                  label: 'Toolset Publications',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/approvals-prompt-publications',
+                  label: 'Prompt Publications',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/approvals-file-publications',
+                  label: 'File Publications',
+                },
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Audit',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/telemetry-dashboard',
+                  label: 'Dashboard',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/telemetry-activity-audit',
+                  label: 'Activities',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/admin/telemetry-usage-log',
+                  label: 'Usage Log',
+                },
+              ]
+            }
           ],
         },
         {
@@ -623,11 +805,6 @@ const sidebars = {
                     },
                     {
                       type: 'doc',
-                      id: 'tutorials/admin/deployments-applications',
-                      label: 'Application Containers',
-                    },
-                    {
-                      type: 'doc',
                       id: 'tutorials/admin/deployments-images',
                       label: 'Images',
                     },
@@ -723,6 +900,5 @@ const sidebars = {
       ],
     },
   ],
-};
-
+}
 export default sidebars;
