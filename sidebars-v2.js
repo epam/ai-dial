@@ -688,6 +688,42 @@ const allSections = [
                   "label": "Integration with n8n"
                 }
               ]
+            },
+            {
+              "type": "category",
+              "label": "Agentic tools",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/integrations/agentic-tools/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/integrations/agentic-tools/codex",
+                  "label": "Connect Codex to DIAL"
+                },
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/integrations/agentic-tools/github-copilot",
+                  "label": "Connect GitHub Copilot to DIAL"
+                },
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/integrations/agentic-tools/open-claw",
+                  "label": "Connect Open Claw to DIAL"
+                },
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/integrations/agentic-tools/opencode",
+                  "label": "Connect OpenCode to DIAL"
+                },
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/integrations/agentic-tools/claude-code",
+                  "label": "Connect Claude Code to DIAL"
+                }
+              ]
             }
           ]
         },
