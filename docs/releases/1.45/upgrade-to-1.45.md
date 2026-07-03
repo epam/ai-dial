@@ -24,9 +24,9 @@
    - ai-dial-quickapps-backend: `0.9.0`
    - ai-dial-mind-map-backend: `0.14.1`
    - ai-dial-mind-map-frontend: `0.13.0`
-   - ai-dial-admin-backend: `0.18.0`
+   - ai-dial-admin-backend: `0.18.1`
    - ai-dial-admin-frontend: `0.18.0`
-   - ai-dial-admin-deployment-manager-backend: `0.18.0`
+   - ai-dial-admin-deployment-manager-backend: `0.18.1`
    - ai-dial-admin-evaluation-framework-backend: `0.1.0`
 
 ## Before upgrade
@@ -39,10 +39,10 @@
 
 ### Release-specific notes
 
-#### ai-dial-admin-deployment-manager-backend `0.18.0`
+#### ai-dial-admin-deployment-manager-backend `0.18.1`
 
 > [!CAUTION]
-> This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.18.0-rc.1/docs/upgrade-plans/0.18.0.md) before proceeding.
+> This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.18.1/docs/upgrade-plans/0.18.0.md) before proceeding.
 
 ##### Breaking changes
 
@@ -189,7 +189,7 @@ Three breaking changes to OpenTelemetry configuration: (1) OTEL_SDK_DISABLED rep
 
 ---
 
-#### ai-dial-admin-backend `0.18.0`
+#### ai-dial-admin-backend `0.18.1`
 
 ##### Breaking changes
 
