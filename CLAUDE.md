@@ -1,0 +1,161 @@
+# CLAUDE.md
+
+## Rules
+
+- **Never commit or push.** Do not run `git commit`, `git push`, or any variant. The user handles all version control operations manually.
+
+## What this repo is
+
+This is the **documentation and meta repository** for AI DIAL — an open-source, enterprise-grade LLM orchestration platform by EPAM. It is NOT the application code. The platform code lives in 20+ sibling repositories.
+
+This repo contains:
+- A **Docusaurus 3** documentation site **rooted at the repo root** (`docusaurus.config.js`, `sidebars.js`, `sidebars-v2.js`, `package.json` are all at the top level — NOT inside `docs/`), published to https://docs.dialx.ai/. It serves two doc instances:
+  - `docs/` — **OLD** (legacy) content, served at `/`
+  - `docs_v2/` — **NEW** (restructured) content, served at `/v2`
+- `dial-docker-compose/` — minimal Docker Compose setups for quick start
+- `dial-docker-compose-advanced/` — advanced Docker Compose configs (multiple providers, auth)
+- `dial-cookbook/` — code examples and Jupyter notebooks
+- `dial-samples/` — sample DIAL applications
+- `dial-sdk` — git submodule pointing to https://github.com/epam/ai-dial-sdk
+
+## Current initiative: documentation improvement
+
+The docs site (https://docs.dialx.ai/) is undergoing a major restructuring. The current site has significant gaps: no in-depth tutorials, duplicate page titles pointing to different content, a mislabeled "Tutorials" section that contains no actual tutorials, canonical content redirected to GitHub READMEs, and the primary value surface (DIAL Apps, Tool Sets) is largely undocumented.
+
+The improvement work is governed by four companion documents in `docs-planning/`:
+
+- **Gap Analysis** (`docs-planning/gap-analysis.md`) — 25 evidenced gaps ranked by severity, with full URLs to every referenced page
+- **Improvement Roadmap** (`docs-planning/improvement-roadmap.md`) — four-phase action plan (Foundation → Stop the bleeding → Depth and differentiation → Sustainability)
+- **Recommended Site Structure** (`docs-planning/recommended-site-structure.md`) — target information architecture with page-by-page migration map from current state
+- **Style Guide** (`docs-planning/style-guide.md`) — Diátaxis-based writing rules, terminology glossary, voice/tone per content type, review process
+- **Glossary** (`docs-planning/glossary.md`) — Terminology glossary, use it to be consistent
+
+Key structural changes in progress:
+- Replacing the incoherent Platform/Tutorials split with journey-based sections: Understand DIAL, Building with DIAL, Operating DIAL, Administering DIAL
+- Eliminating 7 duplicate-title pairs (Access Control ×2, About ×2, Deployment ×2, etc.)
+- Flattening sidebar from 7 levels to max 4
+- Creating the first real tutorials (Getting started with the API, Custom App, Quick App)
+- Shipping DIAL Apps documentation as a unified section (Custom Apps, Quick Apps, Code Apps, Mind Map Studio, Tool Sets)
+- Consolidating configuration reference on-site (currently redirects to 7+ GitHub READMEs)
+- Splitting integrations by purpose: chatbot, productivity add-ins, workflow automation, orchestration patterns
+
+**OLD and NEW are two separate Docusaurus instances.** The legacy site and the restructured site are physically and structurally separated:
+
+| | OLD (legacy, being phased out) | NEW (restructured) |
+|---|---|---|
+| Content folder | `docs/` | `docs_v2/` |
+| Sidebar file | `sidebars.js` (`CustomSideBar`) | `sidebars-v2.js` (`v2Sidebar`) |
+| Served at | `/` | `/v2` |
+| Plugin | classic preset | second `@docusaurus/plugin-content-docs` instance (`id: v2`) in `docusaurus.config.js` |
+
+**All new documentation goes into `docs_v2/`. Never add new content to `docs/` (OLD).** When migrating an existing OLD page, move or rewrite it into the appropriate place under `docs_v2/` per the Structure document. Page ids in `sidebars-v2.js` are relative to `docs_v2/` (e.g. `building-with-dial/apps/index`, no `docs/NEW/` prefix).
+
+When working on docs content, always follow the Style Guide conventions and place content according to the Structure document.
+
+## Docs site
+
+The Docusaurus 3 project lives at the **repo root**. Run all commands from there:
+
+```bash
+npm install
+npm run start      # local dev server at http://localhost:3000
+npm run build      # production build (also regenerates the changelog)
+npm run serve      # serve production build locally
+```
+
+NEW content lives in `docs_v2/` as Markdown files; OLD content in `docs/`. Sidebars: `sidebars.js` (OLD) and `sidebars-v2.js` (NEW). Site config: `docusaurus.config.js`.
+
+### Build-time visibility toggles
+
+`docs.config.js` (repo root) is the single source of truth for what gets built, read by both `docusaurus.config.js` and `sidebars-v2.js`. Override via env vars (defaults reproduce the full site):
+
+- **`DOCS_VARIANT`** = `both` (default) | `old` | `new` — which docs sets to build/serve. With `both`, OLD is at `/` and NEW at `/v2`. With a single set, that set owns `/`. The NEW instance root (`/v2`, or `/` in `new` mode) has no page of its own; an inline redirect plugin (`docusaurus.config.js` → `src/components/RootRedirect.js`, target from `NEW_ROOT_REDIRECT` in `docs.config.js`) sends it to the **first visible section's landing** (catalog order, per each section's `landing` in `V2_SECTIONS`). So hiding the Home section just moves the landing to the next visible section. The navbar OLD/NEW switcher appears only in `both` mode.
+- **`DOCS_V2_SECTIONS`** = `all` (default) | comma-separated section keys — which NEW top-level sections show in the sidebar. Keys: `home, understand-dial, building-with-dial, operating-dial, administering-dial, chat-user-guide, reference, use-cases, demos`. Hiding a section removes it from the menu only; its pages still build and stay reachable (so cross-links don't break).
+
+```bash
+DOCS_VARIANT=new npm run build                          # NEW only, served at /
+DOCS_V2_SECTIONS="home,building-with-dial" npm run start # NEW sidebar shows two sections
+```
+
+### Links
+
+`onBrokenLinks`, `onBrokenAnchors`, `onBrokenMarkdownLinks`, and `onBrokenMarkdownImages` are all set to `throw` — a broken link fails the build. Conventions:
+- Internal doc-to-doc links use a **relative path ending in `.md`**, including the numeric file prefix (e.g. `](../apps/0.index.md)`, `](./3.prompts.md#variables)`). **Never use an absolute root path** (`/v2/...` or `/platform/...`).
+- Keep the NEW tree **self-contained** — `docs_v2/` pages should link to other `docs_v2/` pages, not into OLD `docs/`. Cross-instance links can't be relative `.md` links (Docusaurus won't resolve across instances); avoid creating them.
+- Index docs use a `0.index.md` filename and route to `…/index` (the numeric prefix prevents folder-collapsing).
+
+### File naming and numbering (keep the tree in sync with the menu)
+
+**Invariant: a file's/folder's numeric `N.` prefix MUST equal its position in `sidebars-v2.js`.** Docusaurus strips the leading `N.` from every path segment (file *and* directory) when computing a route id, so the prefix is purely organizational — but the file tree must still read in menu order. Keep them aligned:
+
+- **Every content file and folder under `docs_v2/` carries a numeric prefix that matches its order in the menu**, at every level: top-level sections (`1.home/`, `2.understand-dial/`, … `9.demos/` — in `V2_SECTIONS` catalog order), sub-folders, and files. Numbering is **per parent directory**: files and sub-folders that share a parent draw from one sequence in their first menu appearance order.
+- **`0.index.md`** is the section/category landing (route `…/index`). It is always `0.`.
+- When you **add** a page: give it the prefix of its menu slot and **bump the prefixes of every sibling that comes after it** (files *and* sub-folders in that directory). When you **reorder** the menu, renumber the affected files to match. When you **remove** a page, prefer closing the numeric gap.
+- **Renaming a file's prefix does NOT change its route id** (the prefix is stripped), so `sidebars-v2.js` needs no edit for a pure renumber. But it **does** change any relative `.md`/image link that spells out the old prefixed name — fix those (see Links above) and let the build verify.
+
+**Things that are NOT numbered** (leave them alone):
+- `img/` asset folders and the images inside them.
+- The generator-owned `7.reference/changelog/` folder — its files (`index.md`, `release-notes-*.md`, `upgrade-to-*.md`) are emitted by `scripts/build-changelog.ts` with **no** prefix and are overwritten on every build. Link to them by their real names (e.g. `](changelog/index.md)`), never `changelog/0.index.md`. If the `reference` section's prefix ever changes, update `OUT_DIR` in `scripts/build-changelog.ts` **and** the `autogenerated` `dirName` in `sidebars-v2.js` to match — `dirName` is a filesystem path, not a route id, so it is **not** prefix-stripped.
+- Extension-less links are Docusaurus **route** paths (already prefix-stripped); never add a numeric prefix to them.
+
+**Before finishing any structural change, run `npm run build`** — `onBroken*` are all `throw`, so it is the authoritative check that the tree, the menu, and every link still agree.
+
+## Key conventions
+
+- **Always use "DIAL" in all-caps** when referring to the platform. Not "Dial" or "dial."
+- Component names are capitalized: **DIAL Core**, **DIAL Chat**, **DIAL Admin**, **DIAL SDK**.
+- The API is called the **Unified API** (not "DIAL API" which is too vague).
+- **Application**, **Adapter**, **Interceptor** — these are distinct DIAL concepts with specific meanings. Don't conflate them.
+- Deprecated concepts: **Assistant** (repo archived), **Addon** (ChatGPT plugin protocol, abandoned). Don't use in new content.
+
+## All related repositories
+
+See [`docs-planning/repositories.md`](docs-planning/repositories.md) for the full list of DIAL component repositories.
+
+## Docker Compose quick start
+
+```bash
+cd dial-docker-compose/application
+docker compose up
+```
+
+Opens DIAL Chat with an echo application at http://localhost:3000.
+
+## Contributing
+
+See `CONTRIBUTING.md`. Key points:
+- DIAL is API-first. All components except Core are optional.
+- Each component has its own release cadence and owner.
+- Stable assemblies are published via the Helm chart.
+- Biweekly releases (Wednesdays). Semantic versioning.
+- Branch: `main`. PRs reviewed Thursdays.
+
+## Gotchas
+
+- The `dial-sdk` directory is a **git submodule**, not a regular folder. Run `git submodule update --init` after cloning.
+- The docs site references pages in sibling repos. Broken links in docs often mean the sibling repo's README changed — check there.
+- URL path `/video demos/` has a space. This is a known issue.
+- Some docs pages link to GitHub as the authoritative source for configuration — this is being migrated to on-site docs (see Documentation Improvement Plan).
+
+## Available tools
+
+### Shell utilities
+- `tree` — directory structure visualization. Use for exploring repo layouts.
+- `git` — full git access. Use for: log, blame, diff, checking file history,
+  finding when a page was last modified, listing contributors.
+
+### Agent browser
+[agent-browser](https://github.com/vercel-labs/agent-browser) is available
+for headless web browsing. Use for:
+- Fetching and parsing docs.dialx.ai pages
+- Browse other github repos, if it's more efficient
+- Verifying external links
+- Crawling site structure
+- Comparing rendered docs against source Markdown
+
+Check capabilities: `agent-browser -h`
+
+* * *
+
+## When working with Claude Code Skills
+- Always refer to https://code.claude.com/docs/en/skills
