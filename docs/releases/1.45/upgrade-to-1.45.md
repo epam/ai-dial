@@ -6,7 +6,7 @@
    - dial: `6.5.0`
    - dial-core: `5.2.0`
    - dial-extension: `3.1.1`
-   - dial-admin: `0.16.0`
+   - dial-admin: `0.16.1`
 2. Main components versions:
    - ai-dial-adapter-bedrock: `0.41.0`
    - ai-dial-adapter-openai: `0.41.0`
@@ -25,7 +25,7 @@
    - ai-dial-mind-map-backend: `0.14.1`
    - ai-dial-mind-map-frontend: `0.13.0`
    - ai-dial-admin-backend: `0.18.1`
-   - ai-dial-admin-frontend: `0.18.0`
+   - ai-dial-admin-frontend: `0.18.1`
    - ai-dial-admin-deployment-manager-backend: `0.18.1`
    - ai-dial-admin-evaluation-framework-backend: `0.1.0`
 
