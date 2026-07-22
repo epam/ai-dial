@@ -170,5 +170,6 @@ The field `owner_sub` in the on-behalf-of credentials API response/request has b
 |---|---|---|---|
 | `ANALYTICS_ENABLED` | — | No | Gates the [Preview] Analytics features — Query Builder (visual/SQL queries, AI assistant, charts) and Analytics Tables. Must be set to enable these features. |
 | `CODE_APP_EDITOR_URL` | — | No | Used to surface the new `Code App` source type for Applications — shown when an Endpoints application's `endpoint` and `editorUrl` both match this value. |
+| `DIAL_CORE_API_URL` | — | Yes | Publications and other Core-direct clients (buckets, files, assets, toolset ops, external-service sign-in, query assistant) call DIAL Core directly forwarding the user JWT. These features fail if unset. |
 
 ---
