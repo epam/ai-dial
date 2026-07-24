@@ -26,7 +26,7 @@
    - ai-dial-mind-map-frontend: `0.13.0`
    - ai-dial-admin-backend: `0.19.0-rc.0`
    - ai-dial-admin-frontend: `0.19.0-rc.0`
-   - ai-dial-admin-deployment-manager-backend: `0.19.0-rc.0`
+   - ai-dial-admin-deployment-manager-backend: `0.19.0-rc.1`
    - ai-dial-admin-evaluation-framework-backend: `0.2.0-rc.0`
    - ai-dial-admin-evaluation-metrics: `0.1.0-rc.0`
 
@@ -40,9 +40,9 @@
 
 ### Release-specific notes
 
-#### ai-dial-admin-deployment-manager-backend `0.19.0-rc.0`
+#### ai-dial-admin-deployment-manager-backend `0.19.0-rc.1`
 
-This release includes **high-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.19.0-rc.0/docs/upgrade-plans/0.19.0.md) before proceeding.
+This release includes **high-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.19.0-rc.1/docs/upgrade-plans/0.19.0.md) before proceeding.
 
 ---
 
