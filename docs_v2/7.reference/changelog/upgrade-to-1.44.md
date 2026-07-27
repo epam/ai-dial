@@ -36,7 +36,6 @@ description: "Helm chart and component versions, configuration changes, and depr
    - ai-dial-admin-frontend: `0.17.1`
    - ai-dial-admin-deployment-manager-backend: `0.17.0`
 
- 
 ## Before upgrade
 
 ### General notes
