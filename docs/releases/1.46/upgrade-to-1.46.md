@@ -98,6 +98,15 @@ This release includes **high-priority changes**. Please review the [full upgrade
 | `ALLOWED_IMAGE_SOURCES` | `'self' data: blob: THEMES_CONFIG_HOST` | Whitespace-separated list of origins/hosts permitted to load images. External images in markdown are blocked by default (CSP `img-src`) to prevent data exfiltration; add any external origin that legitimately serves icons, avatars, or theme images. Same-origin, `data:`, `blob:`, and the `THEMES_CONFIG_HOST` origin are always allowed. |
 | `QUICK_APPS_SCHEMA_2_ID` | *(empty)* | `applicationTypeSchemaId` for the Quick App v2 application type. |
 
+### Behavioral changes
+
+> [!NOTE]
+> `ALLOWED_IMAGE_SOURCES` now resolves to the operator-configured value **plus** the product defaults — an explicitly configured value no longer replaces them. No operator action is required.
+
+- **Image CSP and markdown allowlist** — `https://authjs.dev/img/providers/`, `https://s.gravatar.com/`, `https://i1.wp.com/cdn.auth0.com/avatars/`, and `https://cdn.auth0.com/avatars/` are always appended to the `img-src` directive and to the markdown image host allowlist
+
+> [!IMPORTANT]
+> **Theme icons on an external host.** The host configured via `THEMES_CONFIG_HOST` is already allowed by `img-src` automatically. If a theme serves some of its icons from a *different* (external) host while `THEMES_CONFIG_HOST` points at the local cluster, that external source must be added to `ALLOWED_IMAGE_SOURCES` explicitly — otherwise those icons are blocked by the CSP.
 ---
 
 #### ai-dial-quickapps-backend `0.10.0-rc.0`
