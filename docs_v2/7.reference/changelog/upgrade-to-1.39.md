@@ -116,7 +116,7 @@ The Deployment Manager FE is part of the Administration application FE.
 
 ### ai-dial-mind-map
 
-The migration guide: &lt;https://github.com/epam/dial-mind-map-frontend/wiki/Migration-Guide-from-0.2-to-0.3>
+The migration guide: <https://github.com/epam/dial-mind-map-frontend/wiki/Migration-Guide-from-0.2-to-0.3>
 
 ### ai-dial-quick-apps-2.0
 
