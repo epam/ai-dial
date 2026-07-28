@@ -169,6 +169,15 @@ The field `owner_sub` in the on-behalf-of credentials API response/request has b
 |---|---|
 | API consumers using `owner_sub` field in OBO credentials requests/responses | Update all API consumers to use `owner_user_id` instead of `owner_sub` |
 
+##### Configuration changes
+
+| Setting | Default | Required | Description |
+|---|---|---|---|
+| `toolsets.security.allowedRedirectUris` | `[]` | Conditional | List of redirect URIs clients can provide during toolset OAuth sign-in. A URI is accepted only if it is listed here or equals the toolset's own `redirect_uri`; for dynamic client registration, all URIs from this list are registered with the authorization server. |
+
+> [!IMPORTANT]
+> **Required when more than one client can start a toolset sign-in** (e.g. DIAL Chat and the Admin panel), since a toolset can pin only one `redirect_uri` of its own. Leaving it empty in such deployments makes sign-in fail for every client whose callback URL does not match the toolset's pinned `redirect_uri`.
+
 ---
 
 #### ai-dial-admin-frontend `0.19.0-rc.0`
