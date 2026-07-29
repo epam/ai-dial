@@ -9,26 +9,26 @@
    - dial-admin: `-`
 2. Main components versions:
    - ai-dial-adapter-bedrock: `0.42.0-rc.0`
-   - ai-dial-adapter-openai: `0.42.0-rc.0`
+   - ai-dial-adapter-openai: `0.42.0-rc.1`
    - ai-dial-adapter-vertexai: `0.38.0-rc.0`
    - ai-dial-adapter-dial: `0.17.0-rc.0`
    - ai-dial-chat-themes: `0.18.0`
-   - ai-dial-chat: `0.48.0-rc.0`
-   - ai-dial-core: `0.46.0-rc.0`
+   - ai-dial-chat: `1.0.0-rc.2`
+   - ai-dial-core: `0.45.7`
    - ai-dial-analytics-realtime: `0.26.0-rc.0`
    - ai-dial-rag: `0.42.0`
    - ai-dial-log-parser: `0.3.0`
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.4.0`
    - ai-dial-app-builder-python: `0.1.0`
-   - ai-dial-quickapps-backend: `0.10.0-rc.0`
+   - ai-dial-quickapps-backend: `0.10.0`
    - ai-dial-mind-map-backend: `0.14.2`
    - ai-dial-mind-map-frontend: `0.13.0`
-   - ai-dial-admin-backend: `0.19.0-rc.0`
-   - ai-dial-admin-frontend: `0.19.0-rc.2`
-   - ai-dial-admin-deployment-manager-backend: `0.19.0-rc.1`
-   - ai-dial-admin-evaluation-framework-backend: `0.2.0-rc.0`
-   - ai-dial-admin-evaluation-metrics: `0.1.0-rc.0`
+   - ai-dial-admin-backend: `0.19.0`
+   - ai-dial-admin-frontend: `0.19.0`
+   - ai-dial-admin-deployment-manager-backend: `0.19.0`
+   - ai-dial-admin-evaluation-framework-backend: `0.2.0`
+   - ai-dial-admin-evaluation-metrics: `0.1.0`
 
 ## Before upgrade
 
@@ -40,13 +40,15 @@
 
 ### Release-specific notes
 
-#### ai-dial-admin-deployment-manager-backend `0.19.0-rc.1`
+#### ai-dial-admin-deployment-manager-backend `0.19.0`
 
-This release includes **high-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.19.0-rc.1/docs/upgrade-plans/0.19.0.md) before proceeding.
+This release includes **high-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.19.0-rc.0/docs/upgrade-plans/0.19.0.md) before proceeding.
+
+This release includes **high-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.19.0/docs/upgrade-plans/0.19.0.md) before proceeding.
 
 ---
 
-#### ai-dial-admin-evaluation-framework-backend `0.2.0-rc.0`
+#### ai-dial-admin-evaluation-framework-backend `0.2.0`
 
 ### Database migrations
 > [!NOTE]
@@ -60,7 +62,7 @@ This release includes **high-priority changes**. Please review the [full upgrade
 
 ---
 
-#### ai-dial-admin-evaluation-metrics `0.1.0-rc.0`
+#### ai-dial-admin-evaluation-metrics `0.1.0`
 
 ### New environment variables
 
@@ -89,38 +91,98 @@ This release includes **high-priority changes**. Please review the [full upgrade
 
 ---
 
-#### ai-dial-chat `0.48.0-rc.0`
+#### ai-dial-admin-frontend `0.19.0`
+
+##### New environment variables
+
+| Variable | Default | Required | Description |
+|---|---|---|---|
+| `ANALYTICS_ENABLED` | — | No | Gates the [Preview] Analytics features — Query Builder (visual/SQL queries, AI assistant, charts) and Analytics Tables. Must be set to enable these features. |
+| `CODE_APP_EDITOR_URL` | — | No | Used to surface the new `Code App` source type for Applications — shown when an Endpoints application's `endpoint` and `editorUrl` both match this value. |
+| `DIAL_CORE_API_URL` | — | Yes | Publications and other Core-direct clients (buckets, files, assets, toolset ops, external-service sign-in, query assistant) call DIAL Core directly forwarding the user JWT. These features fail if unset. |
+
+---
+
+#### ai-dial-chat `1.0.0-rc.2`
 
 ### New environment variables
 
-| Variable | Default | Description |
-|---|---|---|
-| `ALLOWED_IMAGE_SOURCES` | `'self' data: blob: THEMES_CONFIG_HOST` | Whitespace-separated list of origins/hosts permitted to load images. External images in markdown are blocked by default (CSP `img-src`) to prevent data exfiltration; add any external origin that legitimately serves icons, avatars, or theme images. Same-origin, `data:`, `blob:`, and the `THEMES_CONFIG_HOST` origin are always allowed. |
-| `QUICK_APPS_SCHEMA_2_ID` | *(empty)* | `applicationTypeSchemaId` for the Quick App v2 application type. |
+| Variable | Required | Description | Available Values | Default values |
+|---|---|---|---|---|
+| `ALLOWED_IMAGE_SOURCES` | No | Whitespace-separated list of origins/hosts permitted to load images. External images in markdown are blocked by default (CSP `img-src`) to prevent data exfiltration; add any external origin that legitimately serves icons, avatars, or theme images. Same-origin, `data:`, `blob:`, and the `THEMES_CONFIG_HOST` origin are always allowed. | Any origin valid format. List of space separated URLs/hosts. | `'self' data: blob: THEMES_CONFIG_HOST` |
+| `QUICK_APPS_SCHEMA_2_ID` | No | `applicationTypeSchemaId` for the Quick App v2 application type. | Any string | *(empty)* |
+
+> [!NOTE]
+> 2.0 resolves all runtime configuration server-side in `apps/chat-api`; the frontend reads none of these directly. The full env-var surface (including the per-provider auth tables and archive limits) lives in `apps/chat-api/README.md` and `docs/environment-variables-migration-guide.md`. The key operator-facing variables are listed below.
+
+### Environment variables
+
+| Variable                          | Default                        | Description                                                                                          |
+| --------------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| `DIAL_CORE_URL`                   | — (required)                   | Internal DIAL Core service URL, never exposed to clients                                             |
+| `DIAL_CORE_EXTERNAL_URL`          | —                              | Public DIAL Core URL browsers can reach, used to build client-side MCP endpoint links                |
+| `DIAL_API_VERSION`                | `2024-10-21`                   | API version query parameter sent to DIAL Core (#6996)                                                |
+| `DIAL_API_KEY`                    | —                              | Server-only key for utility-model tasks; not used for user-scoped routes                             |
+| `DEFAULT_DEPLOYMENT`              | —                              | Default deployment shown to users without a persisted selection                                      |
+| `FEATURED_MODEL_IDS`              | `[]`                           | Comma-separated model/application IDs marked featured in the catalog (#7322)                         |
+| `HIDDEN_ENTITY_TAGS`              | `[]`                           | Comma-separated tags that hide catalog entities while keeping them visible in the Quick App 2.0 form (#7324) |
+| `ALLOWED_IFRAME_ORIGINS`          | `[]`                           | Origins allowed to embed / be embedded (CSP `frame-src`); required for Quick Apps editors and the overlay (#7711) |
+| `OVERLAY_ENABLED`                 | `false`                        | Enables the chat-overlay embedded runtime (has no effect unless an origin is also allowlisted)       |
+| `FILE_MANAGER_AVAILABLE_TABS`     | `my_files,shared,organization` | Comma-separated subset controlling which File Manager tabs are shown                                  |
+| `ASR_MODEL`                       | —                              | Deployment ID of a dedicated speech-to-text model for transcription                                  |
+| `UTILITY_MODEL`                   | —                              | Deployment ID of a utility model for server-side tasks such as conversation naming                   |
+| `LLM_CONVERSATION_NAMING_ENABLED` | `false`                        | Auto-rename conversations after the first assistant reply (with `UTILITY_MODEL` + `DIAL_API_KEY`)    |
+| `LOG_LEVEL`                       | environment-dependent          | Minimum backend log level: `debug`, `log`, `warn`, or `error` (#7857)                                |
+
+### New feature flags
+
+| Flag                              | Description                                                                                                                            |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `features.asrEnabled`             | ASR transcription; derived from `ASR_MODEL` presence, restrict to roles via `ASR_ENABLED_ROLES`                                       |
+| `features.llmConversationNaming`  | LLM conversation naming; requires `UTILITY_MODEL` + `DIAL_API_KEY` + `LLM_CONVERSATION_NAMING_ENABLED=true`                            |
+| `features.liveChatInteraction`    | Interactive toolset sign-in mid-completion; toggled via `LIVE_CHAT_INTERACTION_ENABLED` (restrict via `LIVE_CHAT_INTERACTION_ENABLED_ROLES`) |
+
+### New environment variables
+
+| Variable                             | Default              | Description                                                                                                                       |
+| ------------------------------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `CONVERSATION_BODY_SIZE_LIMIT_BYTES` | `10485760` (10 MB)   | Maximum JSON request-body size (in bytes) the API accepts; raised above the framework default so large conversations can be saved |
+| `OVERLAY_SANDBOX_ENABLED`            | `false`              | Serves the overlay sandbox static app at `/overlay-sandbox/`; intended for development/test environments only                     |
 
 ### Behavioral changes
 
 > [!NOTE]
-> `ALLOWED_IMAGE_SOURCES` now resolves to the operator-configured value **plus** the product defaults — an explicitly configured value no longer replaces them. No operator action is required.
+> Security response headers change on upgrade: the Chat backend now sends `Cross-Origin-Opener-Policy: same-origin-allow-popups` instead of Helmet's `same-origin` default so toolset OAuth popups keep their opener reference. Frameguard / `frame-ancestors` framing behavior is unchanged.
 
-- **Image CSP and markdown allowlist** — `https://authjs.dev/img/providers/`, `https://s.gravatar.com/`, `https://i1.wp.com/cdn.auth0.com/avatars/`, and `https://cdn.auth0.com/avatars/` are always appended to the `img-src` directive and to the markdown image host allowlist
-
-> [!IMPORTANT]
-> **Theme icons on an external host.** The host configured via `THEMES_CONFIG_HOST` is already allowed by `img-src` automatically. If a theme serves some of its icons from a *different* (external) host while `THEMES_CONFIG_HOST` points at the local cluster, that external source must be added to `ALLOWED_IMAGE_SOURCES` explicitly — otherwise those icons are blocked by the CSP.
----
-
-#### ai-dial-quickapps-backend `0.10.0-rc.0`
+- COOP header relaxed to `same-origin-allow-popups` to support the toolset OAuth popup flow (#8036)
 
 ### New environment variables
 
-| Variable                   | Default                                                         | Description                                                                                                                                                                                                                            | Required |
-|----------------------------|-----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| `APP_SCHEMA_ID`            | `https://mydial.epam.com/custom_application_schemas/quickapps2` | Full application-type schema `$id` emitted in the generated app schema. Override for DIAL installations using a different hostname or schema name; when unset, the built-in default is kept for backward compatibility.                | No       |
-| `DIAL_SDK_LOG_FORMAT`      | `text`                                                          | Console log output format: `text` (human-readable) or `json` (escape-safe, one record per line). See `docs/logging.md`.                                                                                                                | No       |
-| `DIAL_SDK_TEXT_LOG_FORMAT` | *(built-in format)*                                             | Custom `%`-style format string for `text` output. Unset keeps the built-in format with the conditional OTEL trace block.                                                                                                               | No       |
-| `DIAL_SDK_JSON_LOG_FORMAT` | *(built-in template)*                                           | Custom template for `json` output — a JSON document whose string leaves are `%`-style format strings, escaped via `json.dumps`.                                                                                                        | No       |
-| `LOG_PAYLOADS`             | `false`                                                         | Emit payload content (message bodies, tool-call arguments, tool/LLM response bodies) at DEBUG. When `false`, no payload content is logged at **any** level and `openai`/`httpx`/`httpcore` are capped at INFO. Local development only. | No       |
-| `LOG_PAYLOADS_MAX_LENGTH`  | `2000`                                                          | Per-field character cap applied to each payload value when `LOG_PAYLOADS=true`; longer values are truncated. Inert when `LOG_PAYLOADS=false`.                                                                                          | No       |
+| Variable                  | Default  | Description                                                                                                                                                                                                                    |
+| ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ANNOUNCEMENT_HTML_MESSAGE` | (unset) | Operator-authored HTML shown in a dismissible top-of-app announcement banner; unset/empty hides it. Allowed tags: `a`, `b`, `strong`, `em`, `br`, `span`. Dismissal is keyed by message text, so changing the value re-shows the banner. |
+
+### Behavioral changes
+
+> [!NOTE]
+> The default HTTP server port changed from `3005` to `5000`. Deployments that rely on the default (container port mappings, reverse-proxy upstreams, `AUTH_CALLBACK_BASE_URL`, health checks) must be updated; the image's `EXPOSE` is now `5000`.
+
+- Default `PORT` changed `3005` → `5000` — the `.env.template`, `AUTH_CALLBACK_BASE_URL` example, and Docker `EXPOSE` were updated to match (#8053)
+
+---
+
+#### ai-dial-quickapps-backend `0.10.0`
+
+### New environment variables
+
+| Variable                    | Default                                                          | Description                                                                                                                                                                                                                     |
+|-----------------------------|-----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `APP_SCHEMA_ID`             | `https://mydial.epam.com/custom_application_schemas/quickapps2`  | Full application-type schema `$id` emitted in the generated app schema. Override for DIAL installations using a different hostname or schema name; when unset, the built-in default is kept for backward compatibility.          |
+| `DIAL_SDK_LOG_FORMAT`       | `text`                                                          | Console log output format: `text` (human-readable) or `json` (escape-safe, one record per line). See `docs/logging.md`.                                                                                                        |
+| `DIAL_SDK_TEXT_LOG_FORMAT`  | *(built-in format)*                                             | Custom `%`-style format string for `text` output. Unset keeps the built-in format with the conditional OTEL trace block.                                                                                                       |
+| `DIAL_SDK_JSON_LOG_FORMAT`  | *(built-in template)*                                           | Custom template for `json` output — a JSON document whose string leaves are `%`-style format strings, escaped via `json.dumps`.                                                                                                |
+| `LOG_PAYLOADS`              | `false`                                                        | Emit payload content (message bodies, tool-call arguments, tool/LLM response bodies) at DEBUG. When `false`, no payload content is logged at **any** level and `openai`/`httpx`/`httpcore` are capped at INFO. Local development only. |
+| `LOG_PAYLOADS_MAX_LENGTH`   | `2000`                                                         | Per-field character cap applied to each payload value when `LOG_PAYLOADS=true`; longer values are truncated. Inert when `LOG_PAYLOADS=false`.                                                                                   |
 
 ### Deprecated environment variables
 
@@ -147,47 +209,21 @@ This release includes **high-priority changes**. Please review the [full upgrade
 > - **Logging content policy** — logs now carry structure (roles, counts, sizes, names, ids, sanitized URLs, header **names**) and never payload content at any level, DEBUG included; set `LOG_PAYLOADS=true` for local debugging only (#436, #459).
 > - **Failed turns delivered via the DIAL error protocol** — clients render a real error state instead of a fake assistant reply, error text stays out of LLM history, and monitoring sees a failure rather than a success (#411, #412).
 
----
+### Behavioral changes
 
-#### ai-dial-core `0.46.0-rc.0`
-
-##### Breaking changes
-
-**MODEL and APP_TYPE_SCHEMA moved from public to platform bucket**
-
-Resources previously stored in the public bucket are now stored in the platform bucket. Any tooling, scripts, or integrations that reference these resources by their public-bucket path will break.
-
-| Previous configuration | Required action |
-|---|---|
-| MODEL and APP_TYPE_SCHEMA referenced from public bucket paths | Update references to use the platform bucket paths; verify with the corrected entityId and canonical helpers |
-
-**`owner_sub` renamed to `owner_user_id` in OBO credentials API**
-
-The field `owner_sub` in the on-behalf-of credentials API response/request has been renamed to `owner_user_id`. Any client or integration relying on the old field name will break.
-
-| Previous configuration | Required action |
-|---|---|
-| API consumers using `owner_sub` field in OBO credentials requests/responses | Update all API consumers to use `owner_user_id` instead of `owner_sub` |
-
-##### Configuration changes
-
-| Setting | Default | Required | Description |
-|---|---|---|---|
-| `toolsets.security.allowedRedirectUris` | `[]` | Conditional | List of redirect URIs clients can provide during toolset OAuth sign-in. A URI is accepted only if it is listed here or equals the toolset's own `redirect_uri`; for dynamic client registration, all URIs from this list are registered with the authorization server. |
-
-> [!IMPORTANT]
-> **Required when more than one client can start a toolset sign-in** (e.g. DIAL Chat and the Admin panel), since a toolset can pin only one `redirect_uri` of its own. Leaving it empty in such deployments makes sign-in fail for every client whose callback URL does not match the toolset's pinned `redirect_uri`.
+> [!NOTE]
+> The built-in file-parameter skill now prefers the new `data` prefix over `base64` for inline file content, so existing apps change behaviour on upgrade without any config change. Tools that need a bare base64 payload still work — the skill retries once with `file:base64::` when a `file:data::` call fails.
+>
+> - **Tool-call file parameter formatting** — `config/predefined/skills/tool-call-file-parameter-formatting/SKILL.md` (v1.0 → v1.1) (#479)
 
 ---
 
-#### ai-dial-admin-frontend `0.19.0-rc.0`
+#### ai-dial-core `0.45.7`
 
 ##### New environment variables
 
 | Variable | Default | Required | Description |
 |---|---|---|---|
-| `ANALYTICS_ENABLED` | — | No | Gates the [Preview] Analytics features — Query Builder (visual/SQL queries, AI assistant, charts) and Analytics Tables. Must be set to enable these features. |
-| `CODE_APP_EDITOR_URL` | — | No | Used to surface the new `Code App` source type for Applications — shown when an Endpoints application's `endpoint` and `editorUrl` both match this value. |
-| `DIAL_CORE_API_URL` | — | Yes | Publications and other Core-direct clients (buckets, files, assets, toolset ops, external-service sign-in, query assistant) call DIAL Core directly forwarding the user JWT. These features fail if unset. |
+| `unknown` | — | No | A flag to print the Authorization header in logs was added. Operator should be aware this could expose sensitive credentials if enabled. |
 
 ---
