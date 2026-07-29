@@ -8,14 +8,14 @@
    - dial-extension: `-`
    - dial-admin: `-`
 2. Main components versions:
-   - ai-dial-adapter-bedrock: `0.42.0-rc.0`
-   - ai-dial-adapter-openai: `0.42.0-rc.1`
-   - ai-dial-adapter-vertexai: `0.38.0-rc.0`
-   - ai-dial-adapter-dial: `0.17.0-rc.0`
+   - ai-dial-adapter-bedrock: `0.42.0`
+   - ai-dial-adapter-openai: `0.42.0`
+   - ai-dial-adapter-vertexai: `0.38.0`
+   - ai-dial-adapter-dial: `0.17.0`
    - ai-dial-chat-themes: `0.18.0`
-   - ai-dial-chat: `1.0.0-rc.2`
+   - ai-dial-chat: `0.48.0`
    - ai-dial-core: `0.45.7`
-   - ai-dial-analytics-realtime: `0.26.0-rc.0`
+   - ai-dial-analytics-realtime: `0.26.0`
    - ai-dial-rag: `0.42.0`
    - ai-dial-log-parser: `0.3.0`
    - ai-dial-code-interpreter: `0.2.0`
