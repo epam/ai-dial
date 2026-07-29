@@ -11,7 +11,7 @@
    - ai-dial-adapter-bedrock: `0.42.0`
    - ai-dial-adapter-openai: `0.42.0`
    - ai-dial-adapter-vertexai: `0.38.0`
-   - ai-dial-adapter-dial: `0.17.0`
+   - ai-dial-adapter-dial: `0.17.1`
    - ai-dial-chat-themes: `0.18.0`
    - ai-dial-chat: `0.48.0`
    - ai-dial-core: `0.45.7`
