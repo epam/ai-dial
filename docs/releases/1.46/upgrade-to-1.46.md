@@ -14,7 +14,7 @@
    - ai-dial-adapter-dial: `0.17.1`
    - ai-dial-chat-themes: `0.18.0`
    - ai-dial-chat: `0.48.0`
-   - ai-dial-core: `0.45.7`
+   - ai-dial-core: `0.46.0`
    - ai-dial-analytics-realtime: `0.26.0`
    - ai-dial-rag: `0.42.0`
    - ai-dial-log-parser: `0.3.0`
