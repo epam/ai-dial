@@ -40,8 +40,16 @@
 
 ### Release-specific notes
 
-#### ai-dial-admin-deployment-manager-backend `0.19.0`
+#### dial `7.1.0` Helm chart
+> [!IMPORTANT]
+> Helm chart dial `7.1.0` includes a migration from Redis to Valkey. Please review the [full upgrade guide](https://github.com/epam/ai-dial-helm/tree/dial-7.0.0/charts/dial#to-700) before proceeding to ensure all required migration steps are completed.
 
+---
+
+#### ai-dial-admin-deployment-manager-backend `0.19.0`
+> [!IMPORTANT]
+> If you use the Deployment Manager metrics functionality (`METRICS_SCRAPE_ENABLED`, including resource usage via `METRICS_SCRAPE_RESOURCE_USAGE_ENABLED`), a [metrics-server](https://github.com/kubernetes-sigs/metrics-server) must be installed in the cluster. Without it, resource metrics (`metrics.k8s.io`) requests from the Deployment Manager will fail.
+> 
 This release includes **high-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.19.0-rc.0/docs/upgrade-plans/0.19.0.md) before proceeding.
 
 This release includes **high-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.19.0/docs/upgrade-plans/0.19.0.md) before proceeding.
