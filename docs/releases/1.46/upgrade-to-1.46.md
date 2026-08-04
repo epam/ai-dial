@@ -111,7 +111,7 @@ This release includes **high-priority changes**. Please review the [full upgrade
 
 ---
 
-#### ai-dial-chat
+#### ai-dial-chat `0.48.0`
 
 ### New environment variables
 
