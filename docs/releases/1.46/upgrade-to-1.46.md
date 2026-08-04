@@ -224,14 +224,34 @@ This release includes **high-priority changes**. Please review the [full upgrade
 >
 > - **Tool-call file parameter formatting** — `config/predefined/skills/tool-call-file-parameter-formatting/SKILL.md` (v1.0 → v1.1) (#479)
 
----
+#### ai-dial-core `0.46.0-rc.0`
 
-#### ai-dial-core `0.45.7`
+##### Breaking changes
 
-##### New environment variables
+**MODEL and APP_TYPE_SCHEMA moved from public to platform bucket**
 
-| Variable | Default | Required | Description |
+Resources previously stored in the public bucket are now stored in the platform bucket. Any tooling, scripts, or integrations that reference these resources by their public-bucket path will break.
+
+| Previous configuration | Required action |
+|---|---|
+| MODEL and APP_TYPE_SCHEMA referenced from public bucket paths | Update references to use the platform bucket paths; verify with the corrected entityId and canonical helpers |
+
+**`owner_sub` renamed to `owner_user_id` in OBO credentials API**
+
+The field `owner_sub` in the on-behalf-of credentials API response/request has been renamed to `owner_user_id`. Any client or integration relying on the old field name will break.
+
+| Previous configuration | Required action |
+|---|---|
+| API consumers using `owner_sub` field in OBO credentials requests/responses | Update all API consumers to use `owner_user_id` instead of `owner_sub` |
+
+##### Configuration changes
+
+| Setting | Default | Required | Description |
 |---|---|---|---|
-| `unknown` | — | No | A flag to print the Authorization header in logs was added. Operator should be aware this could expose sensitive credentials if enabled. |
+| `toolsets.security.allowedRedirectUris` | `[]` | Conditional | List of redirect URIs clients can provide during toolset OAuth sign-in. A URI is accepted only if it is listed here or equals the toolset's own `redirect_uri`; for dynamic client registration, all URIs from this list are registered with the authorization server. |
 
+> [!IMPORTANT]
+> **Required when more than one client can start a toolset sign-in** (e.g. DIAL Chat and the Admin panel), since a toolset can pin only one `redirect_uri` of its own. Leaving it empty in such deployments makes sign-in fail for every client whose callback URL does not match the toolset's pinned `redirect_uri`.
+
+---
 ---
