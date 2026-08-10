@@ -304,27 +304,6 @@ const allSections = [
                       ]
                     }
                   ]
-                },
-                {
-                  "type": "category",
-                  "label": "Quick App (original)",
-                  "items": [
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-original/create-and-configure",
-                      "label": "Create and configure"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-original/reference",
-                      "label": "Configuration reference"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-original/migrate-to-2",
-                      "label": "Migrate to Quick App 2.0"
-                    }
-                  ]
                 }
               ]
             },
