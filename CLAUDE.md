@@ -2,7 +2,7 @@
 
 ## Rules
 
-- **Never commit or push.** Do not run `git commit`, `git push`, or any variant. The user handles all version control operations manually.
+- **Do not commit or push without explicit permission.** Only run `git commit` / `git push` (or any variant) when the user has explicitly authorized that specific action. Absent such authorization, the user handles version control manually.
 
 ## What this repo is
 
