@@ -84,7 +84,11 @@ The "truly-trivial, zero-dependency" batch was applied and **committed** to `fea
   - Track remaining vs. done in a checklist to avoid re-capturing already-fixed ones.
 - **Recommended:** maintain a per-image status table; split into "cosmetic (logo/radio)" (do now) vs "blocked on #8073" vs "feature-changed (needs text edit too)".
 
-### A3. "Tool Set" → "Toolset" terminology (~30 comments, VolhaBazhkova; related: siarhei-fedziukovich, andrii-novikov)
+### ~~A3. "Tool Set" → "Toolset" terminology~~ ✅ DONE (~30 comments, VolhaBazhkova; related: siarhei-fedziukovich, andrii-novikov)
+
+> ✅ **Done (2026-08-10)** — canonical form **Toolset / Toolsets** (user decision per VolhaBazhkova). Commits **`db36decf`** (route renames `tool-sets` → `toolsets`) and **`43ac88e4`** (project-wide prose/heading/label/anchor sweep across all of docs_v2 + `docs-planning/glossary.md` + CLAUDE.md convention; client-redirects plugin for old URLs). Build green; 28 VolhaBazhkova Toolset threads answered with commit ids. Code identifiers (`tool_sets`, `client_toolset`, …) and the verbatim upstream schema snapshot `7.reference/changelog/quickapp2-schema.json` left unchanged.
+>
+> **Not part of this pass (tracked under B6):** her non-terminology sub-points — specific `#…` anchor links, "sharing a Toolset is not possible / publish-only", and a dedicated Toolsets section in the Marketplace page. **Deferred bundled step:** the B6.5 sharing/publishing behavior fixes were intentionally kept out of A3 to avoid a half-done B6.5.
 
 - **Files:** `6.chat-user-guide/4.tool-sets.md` (throughout), `6.chat-user-guide/6.sharing-and-publishing.md` (many lines), `6.chat-user-guide/3.marketplace-and-apps.md`, and anywhere "Tool Set(s)" appears.
 - **What's asked:** DIAL Chat UI and Admin app use **Toolset** (one word). Standardize. VolhaBazhkova (4.tool-sets.md:2) explicitly says: pick one form and apply globally via search, and flags that the **Admin user guide uses "Tool set"** (lowercase second word) — so there is an existing inconsistency to resolve.
@@ -235,7 +239,7 @@ This section has the densest factual-accuracy feedback. **Overarching (sr-remsha
 
 ### B6. Chat User Guide (`6.chat-user-guide/`) — VolhaBazhkova (text) + sr-remsha
 
-- **Screenshots:** see **A2**. **"Tool Set"→"Toolset":** see **A3**.
+- **Screenshots:** see **A2**. **~~"Tool Set"→"Toolset":~~ ✅ done — see **A3** (`db36decf`, `43ac88e4`).
 - Substantive text corrections (high accuracy value; VolhaBazhkova knows the product deeply):
 
 | # | Theme | Representative comments | Impact | Caveats |
@@ -296,7 +300,7 @@ Consistent theme: **treat OTEL and Prometheus as two separate paths**, and don't
 5. B2.12 — AuthZ overview restructure (sensitive topic, false impression).
 
 **P1 — Decisions that unblock batches (make these calls early):**
-1. A3 — "Toolset" vs "Tool Set" canonical form (+ update glossary/style guide).
+1. ~~A3 — "Toolset" vs "Tool Set" canonical form (+ update glossary/style guide).~~ ✅ **done** (`db36decf`, `43ac88e4`) — Toolset/Toolsets chosen and swept project-wide.
 2. B1.1/B1.2 — Quick-start strategy (full compose w/ Keycloak+Admin; merge DevOps into Developer).
 3. A6 — SDK-reference scope (keep on-site vs move to source; reconcile with roadmap).
 4. A1 — Redis→Valkey support policy wording (replaced vs compatible).
@@ -305,7 +309,7 @@ Consistent theme: **treat OTEL and Prometheus as two separate paths**, and don't
 **P2 — High-volume mechanical (after P1 decisions):**
 1. A1 — Valkey sweep (~10 files).
 2. A2 — Screenshot re-capture (gate three-dots/bookmark shots on [ai-dial-chat#8073](https://github.com/epam/ai-dial-chat/issues/8073); needs authenticated capture).
-3. A3 — Toolset terminology sweep.
+3. ~~A3 — Toolset terminology sweep.~~ ✅ **done** (`43ac88e4`).
 4. B6.1/B6.3 — Link-anchor precision + naming-convention consolidation.
 5. B5.6–B5.10, B5.9 — Admin UI label/currency passes; split Builders & Assets into per-type pages.
 
