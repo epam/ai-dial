@@ -39,7 +39,7 @@
 
 ## Applied changes log — session 2026-08-10 (trivial batch)
 
-The "truly-trivial, zero-dependency" batch was applied to `feature/doc_improvements`. Not committed (repo rule: user handles version control). Status key: ✅ applied · ⏭️ deferred · ⏸️ already present.
+The "truly-trivial, zero-dependency" batch was applied and **committed** to `feature/doc_improvements` as **`9676ba30`** (the repo-rule change is a separate commit, **`0fc82d0f`**). Build passes (`npm run build`, exit 0). **Threaded replies referencing `9676ba30` were posted to every related PR #555 comment thread.** Status key: ✅ applied · ⏭️ deferred · ⏸️ already present.
 
 | Item | File | Change | Status |
 |---|---|---|---|
@@ -51,9 +51,9 @@ The "truly-trivial, zero-dependency" batch was applied to `feature/doc_improveme
 | B6.6 | `6.chat-user-guide/3.marketplace-and-apps.md:41` | filter label `Source` → `Sources` | ✅ applied |
 | B2.10 | `2.understand-dial/5.foundations/2.dial-evolution.md:46` | "roadmap is not publicly available" → link to https://dialx.ai/roadmap | ✅ applied |
 | B4.5 | `.../sdk-reference/1.dial-app.md:61` | `during streaming responses` → `during SSE streaming responses` | ✅ applied |
-| B5.13 | `5.administering-dial/img/100.png` | rename to meaningful name | ⏭️ deferred — **image is orphaned** (no reference in `docs_v2/`); nothing to re-point, and a meaningful name needs visual inspection. Decide **delete vs keep+wire-in** instead of a blind rename. |
+| B5.13 | `5.administering-dial/img/100.png` | rename to meaningful name | ⏭️ deferred — **image is orphaned** (no reference in `docs_v2/`); nothing to re-point, and a meaningful name needs visual inspection. Replied on the thread asking for a **delete vs keep+wire-in** decision instead of a blind rename. |
 
-> Reminder for the reviewer-reply step: items 1–2 need no code change (already correct) — reply confirming; item 9 needs a delete/keep decision, not a rename.
+> All 10 related threads have been answered on GitHub (6 fixed → `9676ba30`; 2 already-correct suggestions confirmed; 1 orphaned-image awaiting your delete/embed decision).
 
 ---
 
