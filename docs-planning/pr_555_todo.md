@@ -96,12 +96,16 @@ The "truly-trivial, zero-dependency" batch was applied and **committed** to `fea
   - After deciding, sweep filenames/anchors too — `#publish-a-tool-set` anchors are referenced in other comments; changing display text may or may not change slugs.
 - **Blocker:** get sign-off from docs lead before the global sweep.
 
-### A4. Quick Apps 1.0 removal + Quick Apps 2.0 schema correctness (~30 comments, andrii-novikov + others)
+### ~~A4. Quick Apps 1.0 removal + Quick Apps 2.0 schema correctness~~ ✅ DONE (~30 comments, andrii-novikov + others)
+
+> ✅ **Done (2026-08-10)** — commits `1d62515e` (remove 1.0), `497aa105` (schema/config + open items), `049e445a` (API routes + protocol). Build green; 34 andrii-novikov threads answered with commit ids. Verified against `ai-dial-quickapps-backend@development` (generated schema, applications.json) and `ai-dial-core@development` (applications API in `docs/open_api_core.yaml`).
+>
+> **Still open (tracked elsewhere):** glossary "keep both QuickApps" reconcile (B2.11); screenshot re-captures for `1.create-via-ui.md` and the Notion image in `5.tutorial-agent-loop-ui.md` (A2 / B3.5); runtime execution of every example (A5); installation-guide rebuild is **B8.4** (separate). The `{{variable}}` claim removal was applied **per reviewer request** even though the shipped schema still exposes `system_prompt.variables` — flag for re-confirmation with the QuickApps team.
 
 - **Files:** `3.building-with-dial/1.apps/2.quick-apps/0.index.md`, `.../coverage-status.md`, `.../1.quick-app-2/1.create-via-ui.md`, `2.create-via-api.md`, `3.create-via-config.md`, `4.working-with-tools-and-agents.md`, `5.tutorial-agent-loop-ui.md`, `6.tutorial-agent-loop-api.md`, `7.tutorial-agent-loop-config.md`, `8.examples.md`, `9.tool-sets/*`; glossary QuickApps entry.
 - **What's asked (two strands):**
-  1. **Remove Quick Apps 1.0.** andrii-novikov (0.index.md:15) "propose to remove QuickApps 1.0"; (0.index.md:15 again) "cannot say they are fully supported"; YuriyIvon/glossary:280 "check with the team if we keep both QuickApps and QuickApps 2.0."
-  2. **Fix the 2.0 schema/config throughout** — these are factual errors:
+  1. ~~**Remove Quick Apps 1.0.**~~ ✅ **done in `1d62515e`** (2.quick-app-original/ deleted, sidebar + index reframed). YuriyIvon/glossary:280 "keep both QuickApps" reconcile still open — see B2.11.
+  2. ~~**Fix the 2.0 schema/config throughout**~~ ✅ **done in `497aa105` + `049e445a`** — every item below was corrected and source-verified:
      - `name` is **deprecated → use `deployment_id`** (0.index.md:99, 8.examples.md:24)
      - `starters` **deprecated → `conversation_starters`** (8.examples.md:35)
      - `applicationTypeSchemaId` is a **top-level property**, not nested under `reference` (3.create-via-config.md:115 & 263, 7.tutorial-agent-loop-config.md:75)
@@ -188,9 +192,9 @@ The "truly-trivial, zero-dependency" batch was applied and **committed** to `fea
 | # | Comment (author, file:line) | Clear? | Impact | Caveats / notes |
 |---|---|---|---|---|
 | ~~B3.1~~ | ~~create-via-ui: knowledge-base wording — suggested rewrite: "click **+ Add** and select DIAL file or upload; adds file info to app context, lets orchestrator/tools request its content" (andrii-novikov — 1.create-via-ui.md:62)~~ | Yes (suggestion) | Trivial | ✅ **Already present on branch** — no change needed. |
-| B3.2 | create-via-ui:95 "Remove this, not supported"; :99 attachments need explicit types or `*/*`; :1 "guide describes outdated UI" (andrii-novikov) | Yes | Medium | Screenshots already re-uploaded by sr-remsha but prose not yet validated (see A2/A4). |
+| B3.2 | ~~create-via-ui:95 "Remove this, not supported"; :99 attachments need explicit types or `*/*`~~ ✅; :1 "guide describes outdated UI" (andrii-novikov) | Partly | Medium | :95 (`{{variable}}`) and :99 (attachments) **done in `497aa105`**; the full outdated-UI/screenshot refresh (:1) still open (A2). |
 | ~~B3.3~~ | ~~create-via-api:19 suggested Core-URL clarification (andrii-novikov, `suggestion`)~~ | Yes | Trivial | ✅ **Already present on branch** — no change needed. |
-| B3.4 | Tool Sets index: **MCP can be used within a specific Quick App** (andrii-novikov — 9.tool-sets/0.index.md:51); ~~`aud` not "audience" (…/2.mcp-server-integration.md:188)~~ ✅ | Partly | Low | `aud` fix **done in `9676ba30`**; the MCP-in-Quick-App clause still open. |
+| ~~B3.4~~ | ~~Tool Sets index: **MCP can be used within a specific Quick App** (9.tool-sets/0.index.md:51); `aud` not "audience" (…/2.mcp-server-integration.md:188)~~ ✅ | Yes | Low | `aud` **done in `9676ba30`**; MCP-in-Quick-App note **done in `497aa105`**. |
 | B3.5 | tutorial-agent-loop-ui: images show a **Notion toolset** flow — confusing (andrii-novikov — 5...:105) | Yes | Low | Re-capture with a neutral/consistent toolset. |
 | B3.6 | Mind Map Studio supports **PPTX** — file list outdated (valerydluski — 4.mind-map-studio/0.index.md:26 & 1.authoring-workflow.md:41) | Yes | Low | Add PPTX; verify full current format list from source. |
 
@@ -285,7 +289,7 @@ Consistent theme: **treat OTEL and Prometheus as two separate paths**, and don't
 ## Part D — Prioritized action plan
 
 **P0 — Correctness blockers (docs are factually wrong / won't work):**
-1. A4 — Quick Apps 2.0 schema/config/API fixes + 1.0 removal decision (verify against source, execute examples).
+1. ~~A4 — Quick Apps 2.0 schema/config/API fixes + 1.0 removal~~ ✅ **done** (`1d62515e`, `497aa105`, `049e445a`); runtime execution of examples still pending (A5).
 2. B8.4 — Quick Apps installation rebuild (coordinate with the "skip front-end for now" note).
 3. B6.5 — Sharing/publishing behavior errors (toolsets can't be shared, auto-populated fields, default-selected, etc.).
 4. B5.1/B5.2/B5.3 — Admin Panel conceptual + entity errors (blob vs config, cost-vs-token, entities definition).
