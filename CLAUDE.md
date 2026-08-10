@@ -20,7 +20,7 @@ This repo contains:
 
 ## Current initiative: documentation improvement
 
-The docs site (https://docs.dialx.ai/) is undergoing a major restructuring. The current site has significant gaps: no in-depth tutorials, duplicate page titles pointing to different content, a mislabeled "Tutorials" section that contains no actual tutorials, canonical content redirected to GitHub READMEs, and the primary value surface (DIAL Apps, Tool Sets) is largely undocumented.
+The docs site (https://docs.dialx.ai/) is undergoing a major restructuring. The current site has significant gaps: no in-depth tutorials, duplicate page titles pointing to different content, a mislabeled "Tutorials" section that contains no actual tutorials, canonical content redirected to GitHub READMEs, and the primary value surface (DIAL Apps, Toolsets) is largely undocumented.
 
 The improvement work is governed by four companion documents in `docs-planning/`:
 
@@ -35,7 +35,7 @@ Key structural changes in progress:
 - Eliminating 7 duplicate-title pairs (Access Control ×2, About ×2, Deployment ×2, etc.)
 - Flattening sidebar from 7 levels to max 4
 - Creating the first real tutorials (Getting started with the API, Custom App, Quick App)
-- Shipping DIAL Apps documentation as a unified section (Custom Apps, Quick Apps, Code Apps, Mind Map Studio, Tool Sets)
+- Shipping DIAL Apps documentation as a unified section (Custom Apps, Quick Apps, Code Apps, Mind Map Studio, Toolsets)
 - Consolidating configuration reference on-site (currently redirects to 7+ GitHub READMEs)
 - Splitting integrations by purpose: chatbot, productivity add-ins, workflow automation, orchestration patterns
 
@@ -106,6 +106,7 @@ DOCS_V2_SECTIONS="home,building-with-dial" npm run start # NEW sidebar shows two
 - Component names are capitalized: **DIAL Core**, **DIAL Chat**, **DIAL Admin**, **DIAL SDK**.
 - The API is called the **Unified API** (not "DIAL API" which is too vague).
 - **Application**, **Adapter**, **Interceptor** — these are distinct DIAL concepts with specific meanings. Don't conflate them.
+- **Toolset** / **Toolsets** — one word, not "Tool Set". This matches the name used in DIAL Chat and DIAL Admin. Use it consistently (code identifiers such as `tool_sets`, `client_toolset` are unaffected).
 - Deprecated concepts: **Assistant** (repo archived), **Addon** (ChatGPT plugin protocol, abandoned). Don't use in new content.
 
 ## All related repositories
