@@ -59,7 +59,11 @@ The "truly-trivial, zero-dependency" batch was applied and **committed** to `fea
 
 ## Part A — Cross-cutting themes (do these first)
 
-### A1. Redis → Valkey replacement (~30 comments, kamiakou-epam + YuriyIvon + alexey-ban)
+### ~~A1. Redis → Valkey replacement~~ ✅ DONE (~30 comments, kamiakou-epam + YuriyIvon + alexey-ban)
+
+> ✅ **Done (2026-08-10)** — commits **`da868bc9`** (cloud-deployment + production-readiness) and **`931a26cd`** (architecture/glossary/what-is-dial). Verified against `ai-dial-helm@main` (dial-core 6.0.0 → valkey subchart; values `redis:` → `valkey:`). Build green; 30 threads (kamiakou ×28, alexey-ban Bitnami, YuriyIvon dial-stack) answered with commit ids.
+>
+> **Contextual, not a blanket rename:** the bundled component → **Valkey (Redis-compatible)**; **kept** the Redis-protocol config (`aidial.redis.*`, `redis://`, `settings.json` `redis`), the **local docker-compose** Redis image, and **managed-service names** (ElastiCache / Azure Cache for Redis / Memorystore). **Deferred:** the `persistant-layer.svg` diagram still labels the cache "Redis" (regenerate separately); non-Valkey B8 items (ingress, Deployment Manager Backend, scaling limits) remain open.
 
 - **Files:** all of `4.operating-dial/2.cloud-deployment/*` (aws, azure, gcp, generic-kubernetes), `4.operating-dial/7.production-readiness/*` (0.index, 1.high-availability, 3.secrets-management, 4.backup-and-restore, 5.upgrade-procedure), `2.understand-dial/2.architecture/2.dial-stack.md`, `4.operating-dial/2.cloud-deployment/0.index.md:29`.
 - **What's asked:** Redis was replaced by **Valkey** in [dial-core 6.0.0](https://github.com/epam/ai-dial-helm/releases/tag/dial-core-6.0.0) and [dial 7.0.0](https://github.com/epam/ai-dial-helm/releases/tag/dial-7.0.0) Helm charts. Every mention of Redis in deployment/HA/backup context must be reviewed and updated. Separately, YuriyIvon (dial-stack.md:33) asks to note that any Redis-compatible managed PaaS (e.g. Azure Cache for Redis) can also be used; alexey-ban (high-availability.md:67) notes "we no longer use Bitnami Redis."
@@ -179,7 +183,7 @@ The "truly-trivial, zero-dependency" batch was applied and **committed** to `fea
 | B2.2 | DIAL vs frameworks: "No" for **Unified API across providers** is unfair — frameworks *do* abstract across models (YuriyIvon — dial-vs-frameworks:44) | Yes | Low | Soften the comparison table: frameworks offer *code-level* provider abstraction; DIAL offers a *deployed service* boundary. Change cell from "No" to a nuanced value. |
 | B2.3 | DIAL vs AI studios: "**Vendor/cloud-agnostic**" and "**Portability/lock-in**" bullets are the same point (YuriyIvon — :37) | Yes | Low | Merge the two bullets. |
 | B2.4 | DIAL vs AI studios: "No (vendor's own)" for cross-vendor models is unfair — e.g. Vertex AI offers Claude (limited) (YuriyIvon — :46) | Yes | Low | Qualify the cell ("Limited / vendor-curated" rather than flat "No"). |
-| B2.5 | DIAL Stack: note any Redis-compatible PaaS (Azure Cache for Redis) works (YuriyIvon — dial-stack:33) | Yes | Low | See A1 — fold into the Valkey update. |
+| ~~B2.5~~ | ~~DIAL Stack: note any Redis-compatible PaaS (Azure Cache for Redis) works (YuriyIvon — dial-stack:33)~~ | Yes | Low | ✅ **done in `931a26cd`** — folded into the Valkey update. |
 | B2.6 | Application server: verify the **evaluation toolkit is not RAG-only**; whole eval section may need updating (YuriyIvon — application-server:36; PolinaGurinovich97 same line: "Eval for different use cases, NOT ONLY RAGs") | Yes | Medium | Ties to sdryapko's issue-level comments (B6) that the **old eval toolkit is being replaced by Admin Panel evaluation**. Don't just fix "RAG-only" — the section may be obsolete. Confirm current eval story with team before editing. |
 | B2.7 | Unified API overview: "Are **custom renderers** relevant to the Unified API?" (YuriyIvon — :32) | Question | Low | Verify; likely remove if renderers are a Chat concern, not a Unified API concept. |
 | B2.8 | Usage limits: explain limits use a **rolling window** (not calendar), computed **per-user**; no budgets tied to other entities yet (YuriyIvon — usage-limits:22) | Yes | Low-Medium | Important accuracy fix. Cross-check with Admin cost-limit comments (B5) — siarhei-fedziukovich says limits are **cost-based, not token-based**; align both. |
@@ -274,10 +278,10 @@ Consistent theme: **treat OTEL and Prometheus as two separate paths**, and don't
 | # | Comment | Impact | Caveats |
 |---|---|---|---|
 | B8.1 | Update **ingress configuration** per the current Helm examples (AWS/Azure/GCP/generic `simple/values.yaml`, links given) (aws:50, azure:48, gcp:50, generic:44) | Medium | Pin to the referenced commit or track latest — decide. Verify each cloud's example. |
-| B8.2 | Cloud index: Redis→Valkey (:29); stack also includes [DIAL Deployment Manager Backend](https://github.com/epam/ai-dial-admin-deployment-manager-backend) (:31) | Low | Add the component. |
+| B8.2 | Cloud index: ~~Redis→Valkey (:29)~~ ✅ **done in `da868bc9`**; stack also includes [DIAL Deployment Manager Backend](https://github.com/epam/ai-dial-admin-deployment-manager-backend) (:31) | Low | Deployment Manager Backend still to add. |
 | B8.3 | Azure/GCP: text says one thing but "we use **Ingress-NGINX** as stated in Prerequisites" — reconcile (azure:112, gcp:114) | Low | Internal consistency fix. |
 | B8.4 | Quick Apps installation guide describes old Quick Apps, not the public [QA 2.0 Backend](https://github.com/epam/ai-dial-quickapps-backend) / [Frontend](https://github.com/epam/ai-dial-quickapps-frontend) — "rebuild from scratch" (kamiakou — 7.quick-apps-installation.md:1). PolinaGurinovich97: "skip QA front-end for today" | **High** | Ties to A4. **Caveat:** the "skip front-end for today" note suggests a phased/partial approach was agreed — clarify current intent before full rewrite. |
-| B8.5 | Production readiness: HA text about **Bitnami Redis** obsolete (alexey-ban :67); adapter HA covers only OpenAI adapter — add others (e.g. global vs regional endpoints) (:82); scaling example limits **too low**, could mislead (:34); backup-and-restore omits the **Admin application** (:29); upgrade page should **link release notes + version-specific upgrade guides** (alexey-ban :32; kamiakou :10 → [DIAL Upgrade Guides](https://github.com/epam/ai-dial/tree/main/docs/releases)) | Medium | Substantive gaps beyond Valkey. Scaling-limits fix prevents customers copying bad numbers. |
+| B8.5 | Production readiness: ~~HA text about **Bitnami Redis** obsolete (alexey-ban :67)~~ ✅ **done in `da868bc9`**; adapter HA covers only OpenAI adapter — add others (e.g. global vs regional endpoints) (:82); scaling example limits **too low**, could mislead (:34); backup-and-restore omits the **Admin application** (:29); upgrade page should **link release notes + version-specific upgrade guides** (alexey-ban :32; kamiakou :10 → [DIAL Upgrade Guides](https://github.com/epam/ai-dial/tree/main/docs/releases)) | Medium | Substantive gaps beyond Valkey. Scaling-limits fix prevents customers copying bad numbers. |
 
 ---
 
@@ -303,11 +307,11 @@ Consistent theme: **treat OTEL and Prometheus as two separate paths**, and don't
 1. ~~A3 — "Toolset" vs "Tool Set" canonical form (+ update glossary/style guide).~~ ✅ **done** (`db36decf`, `43ac88e4`) — Toolset/Toolsets chosen and swept project-wide.
 2. B1.1/B1.2 — Quick-start strategy (full compose w/ Keycloak+Admin; merge DevOps into Developer).
 3. A6 — SDK-reference scope (keep on-site vs move to source; reconcile with roadmap).
-4. A1 — Redis→Valkey support policy wording (replaced vs compatible).
+4. ~~A1 — Redis→Valkey support policy wording (replaced vs compatible).~~ ✅ **done** (`da868bc9`, `931a26cd`).
 5. B6.6/B6.8 — New sections to create (Toolsets-in-Marketplace, Chat Admin approve flow, Prompt Duplicate) — needed before B6.1 links resolve.
 
 **P2 — High-volume mechanical (after P1 decisions):**
-1. A1 — Valkey sweep (~10 files).
+1. ~~A1 — Valkey sweep (~10 files).~~ ✅ **done** (`da868bc9`, `931a26cd`).
 2. A2 — Screenshot re-capture (gate three-dots/bookmark shots on [ai-dial-chat#8073](https://github.com/epam/ai-dial-chat/issues/8073); needs authenticated capture).
 3. ~~A3 — Toolset terminology sweep.~~ ✅ **done** (`43ac88e4`).
 4. B6.1/B6.3 — Link-anchor precision + naming-convention consolidation.
