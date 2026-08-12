@@ -701,6 +701,11 @@ const allSections = [
                   "type": "doc",
                   "id": "building-with-dial/integrations/agentic-tools/claude-code",
                   "label": "Connect Claude Code to DIAL"
+                },
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/integrations/agentic-tools/claude-cowork",
+                  "label": "Connect Claude Cowork to DIAL"
                 }
               ]
             }
