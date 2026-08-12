@@ -34,23 +34,6 @@ function newRootRedirectPlugin() {
   };
 }
 
-// A3 (PR #555): the NEW-instance `tool-sets` routes were renamed to `toolsets`
-// when "Tool Set" became "Toolset". Redirect the old URLs to the new ones.
-// NEW_BASE is '/v2' when both sets are served, otherwise '/'.
-const newBasePrefix = NEW_BASE === '/' ? '' : NEW_BASE.replace(/\/$/, '');
-const toolsetsRenameRedirects = [
-  'chat-user-guide/tool-sets',
-  'building-with-dial/apps/quick-apps/quick-app-2/tool-sets',
-  'building-with-dial/apps/quick-apps/quick-app-2/tool-sets/define-and-register',
-  'building-with-dial/apps/quick-apps/quick-app-2/tool-sets/mcp-server-integration',
-  'building-with-dial/apps/quick-apps/quick-app-2/tool-sets/sharing-and-permissions',
-  'building-with-dial/apps/quick-apps/quick-app-2/tool-sets/reference',
-  'building-with-dial/apps/quick-apps/quick-app-2/tool-sets/examples',
-].map((p) => ({
-  from: `${newBasePrefix}/${p}`,
-  to: `${newBasePrefix}/${p.replace('tool-sets', 'toolsets')}`,
-}));
-
 // remark plugins shared by both docs instances
 const docsRemarkPlugins = [
   [fauxRemarkEmbedder, { transformers: [oembedTransformer, jupyterTransformer] }],
@@ -119,9 +102,6 @@ const config = {
   plugins: [
     'docusaurus-plugin-image-zoom', // can also just be 'image-zoom'
     ...(SHOW_NEW && NEW_ROOT_REDIRECT ? [newRootRedirectPlugin] : []),
-    ...(SHOW_NEW
-      ? [['@docusaurus/plugin-client-redirects', { redirects: toolsetsRenameRedirects }]]
-      : []),
     // NEW docs instance — included only when SHOW_NEW; routeBasePath is '/v2'
     // when OLD is also served, otherwise '/'.
     ...(SHOW_NEW
