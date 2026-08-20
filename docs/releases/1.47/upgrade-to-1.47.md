@@ -29,7 +29,7 @@
    - ai-dial-admin-backend: `0.20.0-rc.0`
    - ai-dial-admin-frontend: `0.20.0-rc.0`
    - ai-dial-admin-deployment-manager-backend: `0.20.0-rc.0`
-   - ai-dial-admin-evaluation-framework-backend: `0.3.0-rc.0`
+   - ai-dial-admin-evaluation-framework-backend: `0.3.0-rc.1`
    - ai-dial-admin-evaluation-metrics: `0.1.1`
    - ai-dial-openapi-to-mcp: `0.2.1`
 
