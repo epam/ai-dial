@@ -31,6 +31,7 @@
    - ai-dial-admin-deployment-manager-backend: `0.20.0-rc.0`
    - ai-dial-admin-evaluation-framework-backend: `0.3.0-rc.0`
    - ai-dial-admin-evaluation-metrics: `0.1.1`
+   - ai-dial-openapi-to-mcp: `0.2.1`
 
 ## Before upgrade
 
@@ -333,5 +334,48 @@ The breaking change 'ignore usage per model' may alter how per-model usage data 
 | Variable | Default | Required | Description |
 |---|---|---|---|
 | `DIAL_NATIVE` | — | No | New auth type introduced. Enables per-provider offline client config and admin consent endpoint for DIAL_NATIVE services. |
+
+---
+
+#### ai-dial-openapi-to-mcp `0.2.1`
+
+> [!IMPORTANT]
+> New component — it was not shipped in any previous DIAL release. This is a fresh
+> deployment, not an upgrade. Skip this section unless you intend to expose OpenAPI-based
+> services as MCP tools.
+
+A stateless bridge that builds MCP tools on the fly from a client-supplied OpenAPI 3.x
+document (JSON or YAML). The document and the target API base URL arrive in MCP metadata
+(`_meta.openapi` / `X-META`, `_meta.base_url` / `X-BASE-URL`, or the OpenAPI `servers`
+field) — nothing is configured server-side per API. It also exposes two utility tools,
+`openapi_verify` and `openapi_convert` (Swagger 2.0 → OpenAPI 3.0).
+
+##### Deployment
+
+| | |
+|---|---|
+| Endpoint | Streamable HTTP at `/mcp`, port `8080` |
+| Probes | `GET /health` (liveness), `GET /ready` (readiness) |
+| Image | Published to GitHub Container Registry; runs as a non-root container |
+
+> [!CAUTION]
+> The bridge accepts OpenAPI documents, destination URLs, tool arguments and headers from
+> clients and forwards them to arbitrary destinations — all of it untrusted input. Deploy
+> it behind authenticated ingress and grant access only to trusted clients. Do not expose
+> it publicly.
+
+##### Configuration
+
+Full reference: [CONFIGURATION.md](https://github.com/epam/ai-dial-openapi-to-mcp/blob/0.2.1/CONFIGURATION.md).
+
+| Variable | Description |
+|---|---|
+| `OUTBOUND_HEADER_ALLOWLIST` | Controls which client headers are forwarded upstream. Three distinct states: **unset** — every header not covered by the blocklist is forwarded; **explicitly empty** — no client headers are forwarded; **populated** — only the listed names. Set it explicitly rather than relying on the default. |
+| `OUTBOUND_HEADER_BLOCKLIST` | Header names never forwarded upstream |
+| `LOG_LEVEL` | `INFO` by default |
+
+DIAL external-service credentials are resolved per request and the bridge fails closed when
+resolution fails. Forwarded header values and credentials stay request-scoped and are never
+written into cache entries.
 
 ---
