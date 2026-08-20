@@ -97,7 +97,7 @@ to the client.
 - The single `AUTH_PROVIDERS` JSON variable is removed. Identity providers are configured
   through discrete `AUTH_{PROVIDER}_{FIELD}` variables (nine providers supported).
   Field-by-field mapping:
-  [`docs/environment-variables-migration-guide.md`](https://github.com/epam/ai-dial-chat/blob/1.0.0-rc.5/docs/environment-variables-migration-guide.md).
+  [`docs/legacy-chat-migration-guide.md`](https://github.com/epam/ai-dial-chat/blob/1.0.0-rc.5/docs/legacy-chat-migration-guide.md).
 - **Default `PORT` changed `3005` → `5000`**, and the image's `EXPOSE` with it. Update
   container port mappings, reverse-proxy upstreams, health checks and
   `AUTH_CALLBACK_BASE_URL`.
