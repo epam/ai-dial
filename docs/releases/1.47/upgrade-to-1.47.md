@@ -13,7 +13,7 @@
    - ai-dial-adapter-vertexai: `0.39.0-rc.0`
    - ai-dial-adapter-dial: `0.18.0-rc.0`
    - ai-dial-chat-themes: `0.19.0`
-   - ai-dial-chat: `1.0.0-rc.2`
+   - ai-dial-chat: `1.0.0-rc.5`
    - ai-dial-chat: `0.49.0-rc.0` — final release of the `0.4x` line, see [ai-dial-chat: the `0.4x` line ends with this release](#ai-dial-chat-the-04x-line-ends-with-this-release)
    - ai-dial-core: `0.47.0-rc.0`
    - ai-dial-analytics-realtime: `0.27.0-rc.0`
@@ -62,7 +62,7 @@
 
 | Version | Status in 1.47 |
 |---|---|
-| `1.0.0-rc.2` | Shipped and recommended. The only chat version in DIAL 1.48 and later |
+| `1.0.0-rc.5` | Shipped and recommended. The only chat version in DIAL 1.48 and later |
 | `0.49.0-rc.0` | Final release of the `0.4x` line. Maintenance fixes only |
 
 ##### What to do
@@ -97,7 +97,7 @@ to the client.
 - The single `AUTH_PROVIDERS` JSON variable is removed. Identity providers are configured
   through discrete `AUTH_{PROVIDER}_{FIELD}` variables (nine providers supported).
   Field-by-field mapping:
-  [`docs/environment-variables-migration-guide.md`](https://github.com/epam/ai-dial-chat/blob/1.0.0-rc.2/docs/environment-variables-migration-guide.md).
+  [`docs/environment-variables-migration-guide.md`](https://github.com/epam/ai-dial-chat/blob/1.0.0-rc.5/docs/environment-variables-migration-guide.md).
 - **Default `PORT` changed `3005` → `5000`**, and the image's `EXPOSE` with it. Update
   container port mappings, reverse-proxy upstreams, health checks and
   `AUTH_CALLBACK_BASE_URL`.
