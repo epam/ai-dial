@@ -342,16 +342,19 @@ The breaking change 'ignore usage per model' may alter how per-model usage data 
 ##### New environment variables
 
 | Variable | Default | Required | Description |
-| `PROXY_LANGUAGE_HEADER`                    | `accept-language`          | No       | Name of the incoming HTTP request header that carries the locale for UI display (stage name localization). Override when a reverse proxy rewrites the standard `Accept-Language` header before forwarding the request. Shold be in-line with similar env variable of ai-dial-chat|
-| **External URL Egress**                    |                            |          |                                                                   |
-| `EXTERNAL_URL_FETCH_ENABLED`                 | `false`                    | Yes       | Need to be set to `true` to enable the ai-dial-chat delivered feature.  |
+| :----- | :----- | :----- | :----- |
+| `PROXY_LANGUAGE_HEADER` | `accept-language` | No | Name of the incoming HTTP request header that carries the locale for UI display (stage name localization). Override when a reverse proxy rewrites the standard `Accept-Language` header before forwarding the request. Should be in-line with similar env variable of ai-dial-chat. |
+| **External URL Egress** | | | |
+| `EXTERNAL_URL_FETCH_ENABLED` | `false` | Yes | Need to be set to `true` to enable the ai-dial-chat delivered feature. |
+
 
 ##### Behavioral changes
 
 > [!NOTE]
 > These take effect automatically on upgrade — no configuration change is required.
 
-- **Reacts on UI language forwarding** — `PROXY_LANGUAGE_HEADER` should be in-line with similar env varibale on the ai-dial-chat side. Defaults to `accept-language`.
+- **Reacts on UI language forwarding** — `PROXY_LANGUAGE_HEADER` should be in-line with similar env varibale on the
+  ai-dial-chat side. Defaults to `accept-language`.
 
 #### ai-dial-openapi-to-mcp `0.2.1`
 
