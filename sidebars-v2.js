@@ -706,6 +706,11 @@ const allSections = [
                   "type": "doc",
                   "id": "building-with-dial/integrations/agentic-tools/claude-cowork",
                   "label": "Connect Claude Cowork to DIAL"
+                },
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/integrations/agentic-tools/claude-m365-plugin",
+                  "label": "Connect the Claude M365 plugin to DIAL"
                 }
               ]
             }
