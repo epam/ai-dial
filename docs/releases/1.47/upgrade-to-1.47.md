@@ -8,28 +8,28 @@
    - dial-extension: `-`
    - dial-admin: `-`
 2. Main components versions:
-   - ai-dial-adapter-bedrock: `0.43.0-rc.0`
-   - ai-dial-adapter-openai: `0.43.0-rc.0`
-   - ai-dial-adapter-vertexai: `0.39.0-rc.0`
-   - ai-dial-adapter-dial: `0.18.0-rc.0`
+   - ai-dial-adapter-bedrock: `0.43.0`
+   - ai-dial-adapter-openai: `0.43.0`
+   - ai-dial-adapter-vertexai: `0.39.0`
+   - ai-dial-adapter-dial: `0.18.0`
    - ai-dial-chat-themes: `0.19.1`
-   - ai-dial-chat: `1.0.0-rc.5`
-   - ai-dial-chat: `0.49.0-rc.0` — final release of the `0.4x` line, see [ai-dial-chat: the `0.4x` line ends with this release](#ai-dial-chat-the-04x-line-ends-with-this-release)
-   - ai-dial-core: `0.47.0-rc.0`
-   - ai-dial-analytics-realtime: `0.27.0-rc.0`
+   - ai-dial-chat: `1.0.0`
+   - ai-dial-chat: `0.49.0` — final release of the `0.4x` line, see [ai-dial-chat: the `0.4x` line ends with this release](#ai-dial-chat-the-04x-line-ends-with-this-release)
+   - ai-dial-core: `0.47.0`
+   - ai-dial-analytics-realtime: `0.27.0`
    - ai-dial-rag: `0.43.0-rc.0`
    - ai-dial-log-parser: `0.3.0`
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.4.0`
    - ai-dial-app-builder-python: `0.1.0`
-   - ai-dial-quickapps-backend: `0.11.0-rc.6`
-   - ai-dial-quickapps-frontend: `0.1.0-rc.4`
+   - ai-dial-quickapps-backend: `0.11.0`
+   - ai-dial-quickapps-frontend: `0.1.0`
    - ai-dial-mind-map-backend: `0.14.2`
    - ai-dial-mind-map-frontend: `0.13.5`
-   - ai-dial-admin-backend: `0.20.0-rc.1`
+   - ai-dial-admin-backend: `0.20.0`
    - ai-dial-admin-frontend: `0.20.0-rc.0`
-   - ai-dial-admin-deployment-manager-backend: `0.20.0-rc.0`
-   - ai-dial-admin-evaluation-framework-backend: `0.3.0-rc.1`
+   - ai-dial-admin-deployment-manager-backend: `0.20.0`
+   - ai-dial-admin-evaluation-framework-backend: `0.3.0`
    - ai-dial-admin-evaluation-metrics: `0.1.1`
    - ai-dial-openapi-to-mcp: `0.2.1`
 
