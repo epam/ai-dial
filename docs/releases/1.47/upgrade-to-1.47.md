@@ -17,7 +17,7 @@
    - ai-dial-chat: `0.49.0` — final release of the `0.4x` line, see [ai-dial-chat: the `0.4x` line ends with this release](#ai-dial-chat-the-04x-line-ends-with-this-release)
    - ai-dial-core: `0.47.0`
    - ai-dial-analytics-realtime: `0.27.0`
-   - ai-dial-rag: `0.43.0-rc.0`
+   - ai-dial-rag: `0.43.0`
    - ai-dial-log-parser: `0.3.0`
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.4.0`
