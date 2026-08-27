@@ -25,7 +25,7 @@
    - ai-dial-mind-map-backend: `0.14.2`
    - ai-dial-mind-map-frontend: `0.13.5`
    - ai-dial-admin-backend: `0.20.0`
-   - ai-dial-admin-frontend: `0.20.0-rc.2`
+   - ai-dial-admin-frontend: `0.20.0`
    - ai-dial-admin-deployment-manager-backend: `0.20.0`
    - ai-dial-admin-evaluation-framework-backend: `0.3.0`
    - ai-dial-admin-evaluation-metrics: `0.1.1`
