@@ -9,7 +9,7 @@
    - dial-admin: `0.18.0`
 2. Main components versions:
    - ai-dial-adapter-bedrock: `0.43.0`
-   - ai-dial-adapter-openai: `0.43.0`
+   - ai-dial-adapter-openai: `0.43.1`
    - ai-dial-adapter-vertexai: `0.39.0`
    - ai-dial-adapter-dial: `0.18.0`
    - ai-dial-chat-themes: `0.19.1`
