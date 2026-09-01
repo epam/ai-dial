@@ -13,7 +13,7 @@
    - ai-dial-adapter-vertexai: `0.39.0`
    - ai-dial-adapter-dial: `0.18.0`
    - ai-dial-chat-themes: `0.19.1`
-   - ai-dial-chat: `1.0.1`
+   - ai-dial-chat: `1.0.4`
    - ai-dial-chat: `0.49.0` — final release of the `0.4x` line, see [ai-dial-chat: the `0.4x` line ends with this release](#ai-dial-chat-the-04x-line-ends-with-this-release)
    - ai-dial-core: `0.47.0`
    - ai-dial-analytics-realtime: `0.27.0`
@@ -23,7 +23,7 @@
    - ai-dial-app-controller: `0.4.0`
    - ai-dial-app-builder-python: `0.1.0`
    - ai-dial-quickapps-backend: `0.11.0`
-   - ai-dial-quickapps-frontend: `0.1.0`
+   - ai-dial-quickapps-frontend: `0.1.1`
    - ai-dial-mind-map-backend: `0.14.2`
    - ai-dial-mind-map-frontend: `0.13.5`
    - ai-dial-admin-backend: `0.20.0`
