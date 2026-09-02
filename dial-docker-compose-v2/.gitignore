@@ -1,0 +1,7 @@
+# admin-backend runtime data (H2 db, etc.)
+admin/
+
+core-data/
+core-logs/
+
+keycloak/data/
