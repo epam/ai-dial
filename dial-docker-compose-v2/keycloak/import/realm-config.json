@@ -7,6 +7,14 @@
   "ssoSessionIdleTimeout": 86400,
   "ssoSessionMaxLifespan": 86400,
   "sslRequired": "none",
+  "browserSecurityHeaders": {
+    "contentSecurityPolicy": "frame-src 'self'; frame-ancestors 'self'; object-src 'none';",
+    "xContentTypeOptions": "nosniff",
+    "xRobotsTag": "none",
+    "xFrameOptions": "SAMEORIGIN",
+    "referrerPolicy": "no-referrer",
+    "strictTransportSecurity": ""
+  },
   "enabled": true,
   "roles": {
     "client": {
