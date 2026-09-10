@@ -3,6 +3,11 @@ include:
     env_file: ./.env
 
 services:
+  # Pinned below the common.yml default: DIAL Core dropped the legacy top-level
+  # "assistant" config block (used by the todo-assistant deployment below) in 0.38.0.
+  core:
+    image: epam/ai-dial-core:0.37.0
+
   adapter-openai:
     image: epam/ai-dial-adapter-openai:0.43.2
     environment:
