@@ -65,6 +65,26 @@ jobs:
           cd ./dial-docker-compose/ci/ollama
           docker compose up --abort-on-container-exit --exit-code-from test --timeout 300
 
+  run-advanced-v1-smoke-test:
+    name: Docker compose advanced v1 smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - uses: isbang/compose-action@d2bee4f07e8ca410d6b196d00f90c12e7d48c33a # v2.6.0
+        with:
+          cwd: "./dial-docker-compose-advanced-v1/ci"
+          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
+
+  run-advanced-v2-smoke-test:
+    name: Docker compose advanced v2 smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - uses: isbang/compose-action@d2bee4f07e8ca410d6b196d00f90c12e7d48c33a # v2.6.0
+        with:
+          cwd: "./dial-docker-compose-advanced-v2/ci"
+          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
+
   build:
     needs:
       - run-notebooks
@@ -72,6 +92,8 @@ jobs:
       - run-quickstart-application
       - run-quickstart-addon
       - run-quickstart-self-hosted-model
+      - run-advanced-v1-smoke-test
+      - run-advanced-v2-smoke-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3

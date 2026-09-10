@@ -1,0 +1,177 @@
+services:
+
+  # ----------------- #
+  # DIAL Components
+  # ----------------- #
+
+  themes:
+    image: epam/ai-dial-chat-themes:0.19.1
+    platform: linux/amd64
+    ports:
+      - "3101:8080"
+
+  chat:
+    image: epam/ai-dial-chat:1.0.5
+    platform: linux/amd64
+    environment:
+      PORT: ${DIAL_CHAT_HOST_PORT}
+      API_PREFIX: "api"
+      AUTH_SESSION_SECRET: "${AUTH_SESSION_SECRET}"
+      AUTH_CALLBACK_BASE_URL: "http://${COMMON_HOST}:${DIAL_CHAT_HOST_PORT}"
+      AUTH_POST_LOGOUT_REDIRECT_URI: "http://${COMMON_HOST}:${DIAL_CHAT_HOST_PORT}"
+      AUTH_KEYCLOAK_CLIENT_ID: "dial-chat"
+      AUTH_KEYCLOAK_SECRET: "${AUTH_KEYCLOAK_SECRET}"
+      AUTH_KEYCLOAK_HOST: "http://${COMMON_HOST}:${KC_PORT}/realms/dial"
+      AUTH_KEYCLOAK_DIAL_ROLES_FIELD: "resource_access.dial-chat.roles"
+      AUTH_COOKIE_SECURE: "false"
+      DIAL_CORE_URL: "http://core:8080"
+      THEMES_CONFIG_URL: "http://themes:8080"
+      ENABLED_UI_FEATURES: "code-apps,schema-apps,custom-apps,chat-settings,dislike-comment,input-files,likes,live-chat-interaction,attachments-manager,conversations-panel-toggle,conversations-section,header,showConversationsSectionByDefault,catalog,catalog-table-view,file-manager,conversations-publishing,applications-sharing,conversations-sharing,toolsets-sharing,toolsets,prompts,skills,voice-input"
+      LIVE_CHAT_INTERACTION_ENABLED: "true"
+      RESPONSES_API_ENABLED: "true"
+    network_mode: "service:keycloak"
+    depends_on:
+      themes:
+        condition: service_started
+      core:
+        condition: service_started
+      keycloak:
+        condition: service_healthy
+    restart: always
+
+  core:
+    image: epam/ai-dial-core:0.47.0
+    platform: linux/amd64
+    environment:
+      'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
+      'aidial.config.files': '["/app/config/config.json"]'
+      'aidial.identityProviders.keycloak.jwksUrl': 'http://keycloak:${KC_PORT}/realms/dial/protocol/openid-connect/certs'
+      'aidial.identityProviders.keycloak.rolePath': 'roles'
+      'aidial.access.admin.rules': '[{"source": "roles", "function": "CONTAIN", "targets": ["admin"]}]'
+      'aidial.identityProviders.keycloak.loggingKey': 'email'
+      'aidial.identityProviders.keycloak.loggingSalt': 'loggingSalt'
+      'aidial.encryption.secret': '${DIAL_CORE_ENCRYPTION_SECRET}'
+      'aidial.encryption.key': '${DIAL_CORE_ENCRYPTION_KEY}'
+      'aidial.redis.singleServerConfig.address': 'redis://redis:6379'
+      'aidial.storage.provider': 'filesystem'
+      'aidial.storage.prefix': 'core'
+      'aidial.storage.bucket': 'dial'
+      'aidial.storage.createBucket': 'true'
+      'aidial.storage.overrides': '{"jclouds.filesystem.basedir": "data"}'
+      'aidial.applications.includeCustomApps': 'true'
+    ports:
+      - "${DIAL_CORE_HOST_PORT}:8080"
+    volumes:
+      - ${DIAL_DIR:-.}/core:/app/config
+      - ${DIAL_DIR:-.}/core-logs:/app/log
+      - ${DIAL_DIR:-.}/core-data:/app/data
+      - ./settings:/opt/settings
+    depends_on:
+      - redis
+    restart: always
+
+  adapter-openai:
+    image: epam/ai-dial-adapter-openai:0.43.2
+    platform: linux/amd64
+    environment:
+      DIAL_URL: "http://core:8080"
+      WEB_CONCURRENCY: "3"
+      DALLE3_DEPLOYMENTS: "dall-e-3"
+
+  admin-backend:
+    image: epam/ai-dial-admin-backend:0.20.0
+    platform: linux/amd64
+    user: root
+    environment:
+      ENABLE_CORE_CONFIG_VERSION_AUTO_DETECT: "true"
+      CONFIG_EXPORT_OUTPUTFILE_PATH: /app/config/config.json
+      CONFIG_REST_SECURITY_MODE: "oidc"
+      CORE_CLIENT_URL: "http://core:8080"
+      DEBUG_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006"
+      DISABLE_SWAGGER_AUTHORIZATION: true
+      ENABLE_CONFIG_AUTO_IMPORT_ON_BOOTSTRAP: "true"
+      H2_DATASOURCE_ENCRYPTED_FILE_KEY: ${H2_DATASOURCE_ENCRYPTED_FILE_KEY}
+      H2_DATASOURCE_MASTER_KEY: ${H2_DATASOURCE_MASTER_KEY}
+      H2_DATASOURCE_PASSWORD: ${H2_DATASOURCE_PASSWORD}
+      H2_FILE: ./data/testdb
+      METRICS_ENABLED: "false"
+      'providers.keycloak.audiences': 'dial-admin-console'
+      'providers.keycloak.issuer': "http://${COMMON_HOST}:${KC_PORT}/realms/dial"
+      'providers.keycloak.jwk-set-uri': "http://keycloak:${KC_PORT}/realms/dial/protocol/openid-connect/certs"
+      'providers.keycloak.role-claims': roles
+    volumes:
+      - ${DIAL_DIR:-.}/admin/data:/app/data
+      - ${DIAL_DIR:-.}/core:/app/config
+    depends_on:
+      core:
+        condition: service_started
+    restart: always
+
+  admin-frontend:
+    image: epam/ai-dial-admin-frontend:0.20.0
+    platform: linux/amd64
+    environment:
+      DIAL_ADMIN_API_URL: "http://admin-backend:8080/"
+      DIAL_CORE_API_URL: "http://core:8080/"
+      THEMES_CONFIG_URL: "http://themes:8080/"
+      NEXTAUTH_URL: "http://${COMMON_HOST}:${DIAL_ADMIN_FRONTEND_HOST_PORT}"
+      NEXTAUTH_SECRET: "${NEXTAUTH_SECRET}"
+      NEXTAUTH_COOKIE_PREFIX: "admin"
+      AUTH_KEYCLOAK_HOST: "http://${COMMON_HOST}:${KC_PORT}/realms/dial"
+      AUTH_KEYCLOAK_CLIENT_ID: "dial-admin-console"
+      AUTH_KEYCLOAK_SECRET: "${AUTH_KEYCLOAK_SECRET}"
+      AUTH_KEYCLOAK_DIAL_ROLES_FIELD: "roles"
+      ADMIN_ROLE_NAMES: 'ConfigAdmin,admin'
+    network_mode: "service:keycloak"
+    depends_on:
+      keycloak:
+        condition: service_healthy
+      admin-backend:
+        condition: service_started
+    restart: always
+
+  # ----------------- #
+  # Dependencies
+  # ----------------- #
+  redis:
+    image: redis:7.2.4-alpine3.19
+    restart: always
+    ports:
+      - "6600:6379"
+    command: >
+      redis-server
+      --maxmemory 2000mb
+      --maxmemory-policy volatile-lfu
+      --save ""
+      --appendonly no
+      --loglevel warning
+    mem_limit: 2200M
+
+  keycloak:
+    image: keycloak/keycloak:26.7
+    user: root
+    command: ["start-dev", "--import-realm", "--http-port=${KC_PORT}"]
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_ADMIN_PASSWORD}
+      KC_HOSTNAME: http://${COMMON_HOST}:${KC_PORT}
+      KC_HOSTNAME_STRICT: true
+      KC_HTTP_ENABLED: true
+      QUARKUS_HTTP_LIMITS_MAX_HEADER_SIZE: 64k
+      KC_INITIALIZE_EMPTY: 'true'
+      KC_CACHE: local
+      KC_HEALTH_ENABLED: 'true'
+    ports:
+      - "${KC_PORT}:${KC_PORT}"
+      - "${DIAL_CHAT_HOST_PORT}:${DIAL_CHAT_HOST_PORT}"
+      - "${DIAL_ADMIN_FRONTEND_HOST_PORT}:3000"
+    volumes:
+      - ./keycloak/data:/opt/keycloak/data
+      - ./keycloak/import/realm-config.json:/opt/keycloak/data/import/realm-config.json
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/${KC_PORT}'"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 20s

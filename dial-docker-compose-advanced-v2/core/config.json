@@ -1,0 +1,86 @@
+{
+  "routes": {},
+  "applications": {
+      "dial-rag" : {
+          "displayName": "Dial RAG",
+          "description": "RAG (Retrieval Augmented Generation)",
+          "endpoint": "http://dial-rag:5000/openai/deployments/dial-rag/chat/completions",
+          "inputAttachmentTypes": [
+              "*/*"
+          ]
+      }
+  },
+  "models": {
+     "gpt-5": {
+         "type": "chat",
+         "displayName": "GPT-5",
+         "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-5/chat/completions",
+         "features": {
+             "toolsSupported": true
+         },
+         "upstreams": [
+             {
+                 "endpoint": "http://azure_or_dial_deployment_host/openai/deployments/gpt-5/chat/completions",
+                 "key": "AZURE_MODEL_OR_DIAL_API_KEY"
+             }
+         ],
+         "inputAttachmentTypes": [ "*/*" ]
+     },
+     "claude-sonnet-4-5-20250929": {
+         "type": "chat",
+         "displayName": "Claude Sonnet 4.5",
+         "overrideName": "claude-sonnet-4-5-20250929",
+         "endpoint": "http://adapter-openai:5000/openai/deployments/claude-sonnet-4-5-20250929/chat/completions",
+         "interfaces": {
+             "anthropicMessages": {
+                 "base_url": "http://adapter-openai:5000"
+             }
+         },
+         "defaults": {
+             "max_tokens": 4096
+         },
+         "upstreams": [
+             {
+                 "endpoint": "https://api.anthropic.com/v1/messages",
+                 "key": "ANTHROPIC_API_KEY"
+             }
+         ],
+         "inputAttachmentTypes": [ "*/*" ]
+     },
+     "dall-e-3": {
+         "type": "chat",
+         "displayName": "DALL-E 3",
+         "features": {
+             "systemPromptSupported": false
+         },
+         "pricing": {
+             "unit": "token",
+             "prompt": "0",
+             "completion": "0.04"
+         },
+         "endpoint": "http://adapter-openai:5000/openai/deployments/dall-e-3/chat/completions",
+         "upstreams": [
+             {
+                 "endpoint": "http://azure_or_dial_deployment_host/openai/deployments/dall-e-3/images/generations",
+                 "key": "AZURE_MODEL_OR_DIAL_API_KEY"
+             }
+         ]
+     }
+  },
+  "keys": {
+    "dial_api_key": {
+      "project": "TEST-PROJECT",
+      "role": "default"
+    }
+  },
+  "roles": {
+    "default": {
+      "limits": {
+        "gpt-5": {},
+        "claude-sonnet-4-5-20250929": {},
+        "dall-e-3": {},
+        "dial-rag": {}
+      }
+    }
+  }
+}
