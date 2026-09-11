@@ -1,0 +1,15 @@
+include:
+  - path: ../docker-compose-base.yml
+    env_file: ../.env
+
+services:
+  test:
+    build: test
+    environment:
+      CORE_URL: "http://core:8080"
+      KEYCLOAK_URL: "http://keycloak:${KC_PORT:-8900}"
+    depends_on:
+      core:
+        condition: service_started
+      keycloak:
+        condition: service_healthy
