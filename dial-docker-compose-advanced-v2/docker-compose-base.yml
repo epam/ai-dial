@@ -11,7 +11,7 @@ services:
       - "3101:8080"
 
   chat:
-    image: epam/ai-dial-chat:1.0.5
+    image: epam/ai-dial-chat:1.0.15
     platform: linux/amd64
     environment:
       PORT: ${DIAL_CHAT_HOST_PORT}
@@ -40,7 +40,7 @@ services:
     restart: always
 
   core:
-    image: epam/ai-dial-core:0.47.0
+    image: epam/ai-dial-core:0.47.1
     platform: linux/amd64
     environment:
       'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
@@ -79,7 +79,7 @@ services:
       DALLE3_DEPLOYMENTS: "dall-e-3"
 
   admin-backend:
-    image: epam/ai-dial-admin-backend:0.20.0
+    image: epam/ai-dial-admin-backend:0.20.1
     platform: linux/amd64
     user: root
     environment:
@@ -108,7 +108,7 @@ services:
     restart: always
 
   admin-frontend:
-    image: epam/ai-dial-admin-frontend:0.20.0
+    image: epam/ai-dial-admin-frontend:0.20.2
     platform: linux/amd64
     environment:
       DIAL_ADMIN_API_URL: "http://admin-backend:8080/"

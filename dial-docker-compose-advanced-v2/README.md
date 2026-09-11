@@ -1,10 +1,10 @@
 # DIAL Docker Compose (DIAL 2.0)
 
-1. Setup model endpoints and keys
+### 1. Setup model endpoints and keys
 
 Update `./core/config.json` with real upstream model endpoints and keys.
 
-2. Run the Docker Compose file
+### 2. Run the Docker Compose file
 
 ```
 docker compose -f <filename> up
@@ -17,7 +17,7 @@ Choose one of the Compose files depending on your needs:
 |docker-compose-base.yml|Runs Core, Chat, Admin, Keycloak and required underlying services|
 |docker-compose-full.yml|Runs RAG in addition to the base services from above|
 
-3. Start using DIAL
+### 3. Start using DIAL
 
 |URL|Description|
 |---|---|

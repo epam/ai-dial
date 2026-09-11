@@ -4,7 +4,7 @@ include:
 services:
 
   dial-rag:
-    image: ghcr.io/epam/ai-dial-rag:0.32.0
+    image: ghcr.io/epam/ai-dial-rag:0.43.0
     platform: linux/amd64
     env_file: .env
     environment:
