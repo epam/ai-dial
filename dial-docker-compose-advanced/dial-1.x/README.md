@@ -1,4 +1,6 @@
-# DIAL Docker Compose
+# DIAL Docker Compose (Legacy DIAL 1.x)
+
+> **This is the legacy 1.x stack**, kept for existing installations. For new deployments use [`../dial-2.x`](../dial-2.x). Documentation on [docs.dialx.ai](https://docs.dialx.ai) describes the 2.x stack.
 
 1. Setup model endpoints and keys
 
