@@ -13,7 +13,7 @@
 <link rel="search" type="application/opensearchdescription+xml" title="DIALX Knowledge Base" href="/opensearch.xml">
 
 <script src="https://app.termly.io/resource-blocker/ee6eaad1-eb8b-4d84-9528-1c504269dd62?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.3c61bcc8.css">
-<script src="/assets/js/runtime~main.4b38b85f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.eb912f0e.js" defer="defer"></script>
 <script src="/assets/js/main.f9fade20.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -25,8 +25,8 @@
 <p>In this tutorial, you will learn how to quickly launch the full DIAL stack: Core, Chat, the Admin Panel and Keycloak for authentication, all pre-wired together with Docker Compose.</p>
 <p>Two folders are available depending on the DIAL version line you need:</p>
 <ul>
-<li class=""><a href="https://github.com/epam/ai-dial/tree/main/dial-docker-compose-advanced-v1/" target="_blank" rel="noopener noreferrer" class="">1.x (legacy)</a></li>
-<li class=""><a href="https://github.com/epam/ai-dial/tree/main/dial-docker-compose-advanced-v2/" target="_blank" rel="noopener noreferrer" class=""><strong>2.x (current)</strong></a></li>
+<li class=""><a href="https://github.com/epam/ai-dial/tree/main/dial-docker-compose-advanced/dial-1.x/" target="_blank" rel="noopener noreferrer" class="">1.x (legacy)</a></li>
+<li class=""><a href="https://github.com/epam/ai-dial/tree/main/dial-docker-compose-advanced/dial-2.x/" target="_blank" rel="noopener noreferrer" class=""><strong>2.x (current)</strong></a></li>
 </ul>
 <blockquote>
 <p>If you only need Chat with a single sample application or model, see the lighter <a class="" href="/tutorials/developers/local-run/quick-start-with-application">quick starts</a> instead.</p>
@@ -36,11 +36,11 @@
 <li class="">Docker engine (Docker Compose Version 2.20.0 +) installed on your machine. Refer to <a href="https://docs.docker.com/desktop/" target="_blank" rel="noopener noreferrer" class="">Docker</a> documentation.</li>
 </ol>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-1-get-dial">Step 1: Get DIAL<a href="#step-1-get-dial" class="hash-link" aria-label="Direct link to Step 1: Get DIAL" title="Direct link to Step 1: Get DIAL" translate="no">​</a></h2>
-<p><a href="https://github.com/epam/ai-dial/tree/main/dial-docker-compose-advanced-v1/" target="_blank" rel="noopener noreferrer" class="">Download</a> the <code>dial-docker-compose-advanced-v1</code> folder (legacy), or <a href="https://github.com/epam/ai-dial/tree/main/dial-docker-compose-advanced-v2/" target="_blank" rel="noopener noreferrer" class="">download</a> the <code>dial-docker-compose-advanced-v2</code> folder (current) — whichever version line you need.</p>
+<p><a href="https://github.com/epam/ai-dial/tree/main/dial-docker-compose-advanced/dial-1.x/" target="_blank" rel="noopener noreferrer" class="">Download</a> the <code>dial-docker-compose-advanced/dial-1.x</code> folder (legacy), or <a href="https://github.com/epam/ai-dial/tree/main/dial-docker-compose-advanced/dial-2.x/" target="_blank" rel="noopener noreferrer" class="">download</a> the <code>dial-docker-compose-advanced/dial-2.x</code> folder (current) — whichever version line you need.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-2-configuration">Step 2: Configuration<a href="#step-2-configuration" class="hash-link" aria-label="Direct link to Step 2: Configuration" title="Direct link to Step 2: Configuration" translate="no">​</a></h2>
 <p>Update <code>./core/config.json</code> with your upstream model endpoints and keys.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-3-launch-dial">Step 3: Launch DIAL<a href="#step-3-launch-dial" class="hash-link" aria-label="Direct link to Step 3: Launch DIAL" title="Direct link to Step 3: Launch DIAL" translate="no">​</a></h2>
-<p>Follow the steps in the folder&#x27;s README (<a href="https://github.com/epam/ai-dial/blob/main/dial-docker-compose-advanced-v1/README.md" target="_blank" rel="noopener noreferrer" class="">v1</a> / <a href="https://github.com/epam/ai-dial/blob/main/dial-docker-compose-advanced-v2/README.md" target="_blank" rel="noopener noreferrer" class="">v2</a>) to choose between <code>docker-compose-base.yml</code> (Core, Chat, Admin, Keycloak) and <code>docker-compose-full.yml</code> (adds RAG), then run:</p>
+<p>Follow the steps in the folder&#x27;s README (<a href="https://github.com/epam/ai-dial/blob/main/dial-docker-compose-advanced/dial-1.x/README.md" target="_blank" rel="noopener noreferrer" class="">1.x</a> / <a href="https://github.com/epam/ai-dial/blob/main/dial-docker-compose-advanced/dial-2.x/README.md" target="_blank" rel="noopener noreferrer" class="">2.x</a>) to choose between <code>docker-compose-base.yml</code> (Core, Chat, Admin, Keycloak) and <code>docker-compose-full.yml</code> (adds RAG), then run:</p>
 <div class="language-sh codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sh codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">docker compose -f &lt;filename&gt; up</span><br></span></code></pre></div></div>
 <p>Once running,</p>
 <ul>
