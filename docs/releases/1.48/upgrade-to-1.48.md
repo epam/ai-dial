@@ -140,6 +140,17 @@ See the [full logging documentation](https://github.com/epam/ai-dial-sdk/blob/0.
 | `CUSTOM_CLIENT_VARIABLES` | `{}` | Public, client-owned settings returned unchanged in client-config as `config.customVariables`. JSON object only; unset, blank or invalid values fall back to `{}`. Never include secrets. Restart the BFF after changing. |
 | `WELCOME_SCREEN_DESCRIPTION` | unset | Operator-authored plain-text copy shown below the greeting heading on the new-chat start screen. Rendered as text, never as markup. Unset or blank hides it. |
 | `SKILL_USAGE_ENABLED` | `false` | Client-visible kill switch for all skill-usage UI: the catalog skill "Use in chat" action and the composer's Skills menu. Every entry point is hidden while false. |
+| `AUTH_LEGACY_COOKIE_NAMES` | unset | Comma-separated exact names of cookies left over from a previous authentication stack on the same origin. The chat backend expires matching cookies present on incoming requests by sending `Set-Cookie` with `Max-Age=0`. Unset disables cleanup. |
+
+### Legacy authentication cookie cleanup
+
+When upgrading from a NextAuth-based deployment on the same origin, configure `AUTH_LEGACY_COOKIE_NAMES` on the chat backend to clear leftover authentication cookies. For example:
+
+```yaml
+AUTH_LEGACY_COOKIE_NAMES: "__Secure-next-auth.callback-url,__Secure-next-auth.session-token.0,__Secure-next-auth.session-token.1,__Secure-next-auth.session-token.2,__Secure-next-auth.session-token.3,__Secure-next-auth.session-token.4,__Secure-next-auth.session-token.5,__Secure-next-auth.session-token.6,__Secure-next-auth.session-token.7,__Secure-next-auth.session-token.8"
+```
+
+Adjust the list to the exact cookie names used by the previous deployment, including the unchunked `__Secure-next-auth.session-token` or additional chunks if present. Cookie names are matched exactly; wildcards are not supported. The variable can be removed once clients no longer carry the old cookies.
 
 ### Removed environment variables
 
