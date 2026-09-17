@@ -49,7 +49,7 @@ This release includes **medium-priority changes**. Please review the [full upgra
 
 #### ai-dial-admin-evaluation-framework-backend `0.4.0-rc.0`
 
-### New environment variables
+##### New environment variables
 
 > **Required**: ✅ = must be supplied, the service will not start without it. ❌ = ships with a working default. Nothing in this release is required in a default deployment; ⚠️ in a description marks a variable that becomes mandatory once you switch on the feature it belongs to.
 
@@ -60,7 +60,7 @@ This release includes **medium-priority changes**. Please review the [full upgra
 | `DIAL_ADAS_READ_TIMEOUT_MS` | ❌ | `30000` | Read timeout in milliseconds for the dial-adas client. |
 | `SECURITY_JWT_RESOLVE_USER_NAME` | ❌ | `false` | When `true`, `AuthorResolver` calls DIAL Core `GET /v1/user/info` with the caller's bearer token and stores `userDisplayName` in `createdBy` instead of the raw claim value. Applies only when `config.rest.security.mode=oidc`. The stored value is a snapshot taken at creation time. |
 
-### Removed environment variables
+##### Removed environment variables
 
 | Variable | Reason |
 |---|---|
@@ -73,7 +73,7 @@ This release includes **medium-priority changes**. Please review the [full upgra
 > [!NOTE]
 > All five are ignored if still set — a stale value will not fail startup.
 
-### Behavioral changes
+##### Behavioral changes
 > [!NOTE]
 > These take effect automatically on upgrade — no operator action required, but run concurrency and cancellation timing differ from `0.3.0`.
 
@@ -83,7 +83,7 @@ This release includes **medium-priority changes**. Please review the [full upgra
 - **Suite validity on model-selecting endpoints** — a suite whose literal request body sets `model` to something other than its `deploymentRef.id` is now persisted as **invalid** with a `REQUEST_BODY_VALIDATION_ERROR` warning, so it is excluded from runnable selection. Suites saved as valid before this rule existed are caught at run time instead and produce an ERROR row #188 (#193, #195)
 - **Private-dataset double binding** — returns `409 PRIVATE_DATASET_ALREADY_BOUND` from the service layer instead of a `500` carrying the driver message; the PL/pgSQL trigger is demoted to a race backstop #22 (#172)
 
-### Database migrations
+##### Database migrations
 > [!NOTE]
 > Flyway applies these automatically on startup; the service account needs DDL privileges on both schemas.
 
@@ -94,7 +94,7 @@ This release includes **medium-priority changes**. Please review the [full upgra
 > [!CAUTION]
 > `V1.30` converts an existing index to a **unique** index. If `metric_declaration_versions` already holds two rows with the same `(metric_declaration_id, schema_version)` — possible only through direct DB writes — the migration fails and startup aborts; check for duplicates before upgrading. The drop-and-recreate also takes an exclusive lock for the duration of the index build.
 
-### API / contract changes
+##### API / contract changes
 > [!NOTE]
 > Full reference in Swagger UI (`/swagger-ui.html`).
 
@@ -110,7 +110,7 @@ This release includes **medium-priority changes**. Please review the [full upgra
 
 #### ai-dial-admin-evaluation-metrics `0.3.0-rc.0`
 
-### Structured logs support
+##### Structured logs support
 
 This release adds support for structured (JSON) logging, implemented by the `aidial-sdk`. Logging format is now configurable via new environment variables:
 
@@ -133,7 +133,7 @@ See the [full logging documentation](https://github.com/epam/ai-dial-sdk/blob/0.
 
 #### ai-dial-chat `1.1.0-rc.1`
 
-### New environment variables
+##### New environment variables
 
 | Variable | Default | Description |
 | --- | --- | --- |
@@ -142,7 +142,7 @@ See the [full logging documentation](https://github.com/epam/ai-dial-sdk/blob/0.
 | `SKILL_USAGE_ENABLED` | `false` | Client-visible kill switch for all skill-usage UI: the catalog skill "Use in chat" action and the composer's Skills menu. Every entry point is hidden while false. |
 | `AUTH_LEGACY_COOKIE_NAMES` | unset | Comma-separated exact names of cookies left over from a previous authentication stack on the same origin. The chat backend expires matching cookies present on incoming requests by sending `Set-Cookie` with `Max-Age=0`. Unset disables cleanup. |
 
-### Legacy authentication cookie cleanup
+##### Legacy authentication cookie cleanup
 
 When upgrading from a NextAuth-based deployment on the same origin, configure `AUTH_LEGACY_COOKIE_NAMES` on the chat backend to clear leftover authentication cookies. For example:
 
@@ -152,26 +152,26 @@ AUTH_LEGACY_COOKIE_NAMES: "__Secure-next-auth.callback-url,__Secure-next-auth.se
 
 Adjust the list to the exact cookie names used by the previous deployment, including the unchunked `__Secure-next-auth.session-token` or additional chunks if present. Cookie names are matched exactly; wildcards are not supported. The variable can be removed once clients no longer carry the old cookies.
 
-### Removed environment variables
+##### Removed environment variables
 
 | Variable | Reason |
 | --- | --- |
 | `SETTINGS_PAGE_ENABLED` | The Settings page is now always available; the flag that gated it was retired. A value left set is ignored. (#8762) |
 | `SETTINGS_PAGE_ENABLED_ROLES` | Role restriction for the retired Settings page flag. (#8762) |
 
-### New feature flags
+##### New feature flags
 
 | Flag | Description |
 | --- | --- |
 | `features.skillUsageEnabled` | Gates all skill-usage UI in the chat app. Toggled through `SKILL_USAGE_ENABLED`; defaults to `false` because the backend contract for sending skills with completions is not designed yet. Role-based rollout is not implemented. |
 
-### Removed feature flags
+##### Removed feature flags
 
 | Flag | Reason / replacement |
 | --- | --- |
 | `features.settingsPageEnabled` | No replacement — the Settings page and its new Preferences tab are always enabled. (#8762) |
 
-### New `ENABLED_UI_FEATURES` values
+##### New `ENABLED_UI_FEATURES` values
 
 | Value | Description |
 | --- | --- |
@@ -179,7 +179,7 @@ Adjust the list to the exact cookie names used by the previous deployment, inclu
 | `show-all-starters` | Renders every configured conversation starter instead of the default subset. (#8829) |
 | `hide-footer-version` | Hides the version label in the footer. (#8829) |
 
-### Behavioral changes
+##### Behavioral changes
 
 > [!NOTE]
 > These take effect on upgrade with no operator action.
@@ -190,19 +190,19 @@ Adjust the list to the exact cookie names used by the previous deployment, inclu
 
 #### ai-dial-quickapps-backend `0.12.0-rc.2`
 
-### Behavioral changes
+##### Behavioral changes
 
 > [!NOTE]
 > The built-in file-parameter skill narrows when the `data` prefix is used, so existing apps change behaviour on upgrade without any config change. Reference-only parameters (`attachment_urls`) now always take `file:url::`, and a DIAL path is inlined for an off-platform MCP/REST tool unless its schema marks the parameter `"dial_url": true`.
 >
 > - **Tool-call file parameter formatting** — `config/predefined/skills/tool-call-file-parameter-formatting/SKILL.md` (v1.1 → v1.2) (#528)
 
-### Prerequisites
+##### Prerequisites
 
 > [!IMPORTANT]
 > **DIAL Core ≥ 0.48.0** is required to enable skills — the `dial-skill` skill type (#524) and skill invocation from a message (#553).
 
-### New environment variables
+##### New environment variables
 
 | Variable                        | Default  | Description                                                                                                                                                                                                                        | Required |
 |---------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
@@ -212,13 +212,13 @@ Adjust the list to the exact cookie names used by the previous deployment, inclu
 | `DIAL_SKILLS_LISTING_MAX_PAGES` | `10`     | Maximum file-listing pages (`> 0`) followed per DIAL skill resource, bounding a server-supplied cursor. Preview-gated.                                                                                                              | No       |
 | `SKILL_INVOCATION_MAX_SKILLS`   | `10`     | Maximum distinct skills (`> 0`) a user may invoke from the messages of one conversation (`custom_content.skills`), counted newest first; beyond the cap the oldest picks stop being registered. Preview-gated.                    | No       |
 
-### Behavioral changes
+##### Behavioral changes
 
 > [!NOTE]
 > - **Tool errors reach the LLM** — apps change behaviour on upgrade with no config change: a failed tool call now returns `The tool call failed with an error: <text>` to the model, both by default (no `fallback_configuration`) and for every `continue` / `retry` strategy, replacing the canned "try another applicable tool" instructions (#465).
 > - **`reasoning_effort` is forwarded** — a `reasoning_effort` already present under `deployment.parameters` (previously dropped silently) now reaches the deployment; for the orchestrator it is dropped with an *Initialization issues* warning when the deployment does not advertise `features.reasoningEfforts` (#554).
 
-### Schema deprecations
+##### Schema deprecations
 
 > [!CAUTION]
 > Still accepted in app manifests, but will be removed in future versions (#465).
