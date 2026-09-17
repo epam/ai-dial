@@ -1,5 +1,20 @@
 # Instructions
 
+## Table of contents
+
+- [Versions](#versions)
+- [Before upgrade](#before-upgrade)
+  - [General notes](#general-notes)
+  - [Release-specific notes](#release-specific-notes)
+    - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend-0210-rc0)
+    - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-040-rc0)
+    - [ai-dial-admin-evaluation-metrics](#ai-dial-admin-evaluation-metrics-030-rc0)
+    - [ai-dial-admin-frontend](#ai-dial-admin-frontend-0210-rc0)
+    - [ai-dial-chat](#ai-dial-chat-110-rc1)
+    - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend-0120-rc2)
+    - [ai-dial-adapter-bedrock](#ai-dial-adapter-bedrock-0440-rc0)
+    - [ai-dial-adapter-vertexai](#ai-dial-adapter-vertexai-0400-rc0)
+
 ## Versions
 
 1. Helm chart versions:
@@ -51,14 +66,14 @@ This release includes **medium-priority changes**. Please review the [full upgra
 
 ##### New environment variables
 
-> **Required**: ✅ = must be supplied, the service will not start without it. ❌ = ships with a working default. Nothing in this release is required in a default deployment; ⚠️ in a description marks a variable that becomes mandatory once you switch on the feature it belongs to.
+All variables below ship with a working default, so none of them has to be set in a default deployment.
 
 | Variable | Required | Default | Description |
-|---|:-:|---|---|
-| `DIAL_ADAS_URL` | ❌ | `http://localhost:8087` | ⚠️ Base URL for the dial-adas query-execute API, which backs both cost endpoints. The default points at localhost, so it must be overridden before `GET /api/v1/costs/**` returns anything useful. |
-| `DIAL_ADAS_CONNECT_TIMEOUT_MS` | ❌ | `5000` | Connection timeout in milliseconds for the dial-adas client. |
-| `DIAL_ADAS_READ_TIMEOUT_MS` | ❌ | `30000` | Read timeout in milliseconds for the dial-adas client. |
-| `SECURITY_JWT_RESOLVE_USER_NAME` | ❌ | `false` | When `true`, `AuthorResolver` calls DIAL Core `GET /v1/user/info` with the caller's bearer token and stores `userDisplayName` in `createdBy` instead of the raw claim value. Applies only when `config.rest.security.mode=oidc`. The stored value is a snapshot taken at creation time. |
+|---|---|---|---|
+| `DIAL_ADAS_URL` | No | `http://localhost:8087` | Base URL for the dial-adas query-execute API, which backs both cost endpoints. Required once the cost endpoints are used: the default points at localhost, so it must be overridden before `GET /api/v1/costs/**` returns anything useful. |
+| `DIAL_ADAS_CONNECT_TIMEOUT_MS` | No | `5000` | Connection timeout in milliseconds for the dial-adas client. |
+| `DIAL_ADAS_READ_TIMEOUT_MS` | No | `30000` | Read timeout in milliseconds for the dial-adas client. |
+| `SECURITY_JWT_RESOLVE_USER_NAME` | No | `false` | When `true`, `AuthorResolver` calls DIAL Core `GET /v1/user/info` with the caller's bearer token and stores `userDisplayName` in `createdBy` instead of the raw claim value. Applies only when `config.rest.security.mode=oidc`. The stored value is a snapshot taken at creation time. |
 
 ##### Removed environment variables
 
@@ -190,13 +205,6 @@ Adjust the list to the exact cookie names used by the previous deployment, inclu
 
 #### ai-dial-quickapps-backend `0.12.0-rc.2`
 
-##### Behavioral changes
-
-> [!NOTE]
-> The built-in file-parameter skill narrows when the `data` prefix is used, so existing apps change behaviour on upgrade without any config change. Reference-only parameters (`attachment_urls`) now always take `file:url::`, and a DIAL path is inlined for an off-platform MCP/REST tool unless its schema marks the parameter `"dial_url": true`.
->
-> - **Tool-call file parameter formatting** — `config/predefined/skills/tool-call-file-parameter-formatting/SKILL.md` (v1.1 → v1.2) (#528)
-
 ##### Prerequisites
 
 > [!IMPORTANT]
@@ -215,7 +223,10 @@ Adjust the list to the exact cookie names used by the previous deployment, inclu
 ##### Behavioral changes
 
 > [!NOTE]
-> - **Tool errors reach the LLM** — apps change behaviour on upgrade with no config change: a failed tool call now returns `The tool call failed with an error: <text>` to the model, both by default (no `fallback_configuration`) and for every `continue` / `retry` strategy, replacing the canned "try another applicable tool" instructions (#465).
+> These take effect on upgrade with no config change.
+>
+> - **Tool-call file parameter formatting** — the built-in file-parameter skill (`config/predefined/skills/tool-call-file-parameter-formatting/SKILL.md`, v1.1 → v1.2) narrows when the `data` prefix is used. Reference-only parameters (`attachment_urls`) now always take `file:url::`, and a DIAL path is inlined for an off-platform MCP/REST tool unless its schema marks the parameter `"dial_url": true` (#528).
+> - **Tool errors reach the LLM** — a failed tool call now returns `The tool call failed with an error: <text>` to the model, both by default (no `fallback_configuration`) and for every `continue` / `retry` strategy, replacing the canned "try another applicable tool" instructions (#465).
 > - **`reasoning_effort` is forwarded** — a `reasoning_effort` already present under `deployment.parameters` (previously dropped silently) now reaches the deployment; for the orchestrator it is dropped with an *Initialization issues* warning when the deployment does not advertise `features.reasoningEfforts` (#554).
 
 ##### Schema deprecations
