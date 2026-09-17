@@ -21,7 +21,7 @@
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.4.0`
    - ai-dial-app-builder-python: `0.1.0`
-   - ai-dial-quickapps-backend: `0.12.0-rc.0`
+   - ai-dial-quickapps-backend: `0.12.0-rc.2`
    - ai-dial-mind-map-backend: `0.15.0-rc.0`
    - ai-dial-mind-map-frontend: `0.14.0-rc.0`
    - ai-dial-admin-backend: `0.21.0-rc.0`
@@ -188,7 +188,7 @@ Adjust the list to the exact cookie names used by the previous deployment, inclu
 
 ---
 
-#### ai-dial-quickapps-backend `0.12.0-rc.0`
+#### ai-dial-quickapps-backend `0.12.0-rc.2`
 
 ### Behavioral changes
 
