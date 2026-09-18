@@ -75,7 +75,7 @@ All variables below ship with a working default, so none of them has to be set i
 | `DIAL_ADAS_URL` | No | `http://localhost:8087` | Base URL for the dial-adas query-execute API, which backs both cost endpoints. Required once the cost endpoints are used: the default points at localhost, so it must be overridden before `GET /api/v1/costs/**` returns anything useful. |
 | `DIAL_ADAS_CONNECT_TIMEOUT_MS` | No | `5000` | Connection timeout in milliseconds for the dial-adas client. |
 | `DIAL_ADAS_READ_TIMEOUT_MS` | No | `30000` | Read timeout in milliseconds for the dial-adas client. |
-| `SECURITY_JWT_RESOLVE_USER_NAME` | No | `false` | When `true`, `AuthorResolver` calls DIAL Core `GET /v1/user/info` with the caller's bearer token and stores `userDisplayName` in `createdBy` instead of the raw claim value. Applies only when `config.rest.security.mode=oidc`. The stored value is a snapshot taken at creation time. |
+| `SECURITY_JWT_RESOLVE_USER_NAME` | Yes | `true` | When `true`, `AuthorResolver` calls DIAL Core `GET /v1/user/info` with the caller's bearer token and stores `userDisplayName` in `createdBy` instead of the raw claim value. Applies only when `config.rest.security.mode=oidc`. The stored value is a snapshot taken at creation time. |
 
 ##### Removed environment variables
 
