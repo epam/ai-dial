@@ -75,9 +75,10 @@ services:
     image: epam/ai-dial-adapter-openai:0.43.2
     platform: linux/amd64
     environment:
+      DALLE3_DEPLOYMENTS: "dall-e-3"
+      DIAL_USE_FILE_STORAGE: "true"
       DIAL_URL: "http://core:8080"
       WEB_CONCURRENCY: "3"
-      DALLE3_DEPLOYMENTS: "dall-e-3"
 
   admin-backend:
     image: epam/ai-dial-admin-backend:0.20.1
