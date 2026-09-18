@@ -54,6 +54,8 @@
 - Please check if any image tag overrides (`image.tag`) are present and remove them if they are not required anymore.
 - Please check and add `image.repository` to change the image location for `redis`, `postgresql`, `keycloak` and `keycloakConfigCli` components to start using alternative Docker registries (e.g. Amazon ECR Public Gallery) if required.
 
+Environment variable tables below use the same columns: **Required** is `Yes` (the service does not start without the variable) or `No`, and **Default** is the value applied when the variable is not set — `unset` means the variable has no default value.
+
 ### Release-specific notes
 
 #### ai-dial-admin-deployment-manager-backend `0.21.0-rc.0`
@@ -129,11 +131,11 @@ All variables below ship with a working default, so none of them has to be set i
 
 This release adds support for structured (JSON) logging, implemented by the `aidial-sdk`. Logging format is now configurable via new environment variables:
 
-| Variable | Default | Description |
-| --- | --- | --- |
-| `DIAL_SDK_LOG_FORMAT` | `text` | Logging format. Set to `text` or `json`. Implemented by the DIAL SDK. |
-| `DIAL_SDK_TEXT_LOG_FORMAT` | `'%(levelprefix)s \| %(asctime)s \| %(name)s \| %(process)d \| %(message)s'` | Logging format for text logs. Implemented by the DIAL SDK. |
-| `DIAL_SDK_JSON_LOG_FORMAT` | `'{"level": "%(levelname)s", "time": "%(asctime)s", "logger": "%(name)s", "process": "%(process)d", "message": "%(message)s"}'` | Logging format for JSON logs. Implemented by the DIAL SDK. |
+| Variable | Required | Default | Description |
+|---|---|---|---|
+| `DIAL_SDK_LOG_FORMAT` | No | `text` | Logging format. Set to `text` or `json`. Implemented by the DIAL SDK. |
+| `DIAL_SDK_TEXT_LOG_FORMAT` | No | `'%(levelprefix)s \| %(asctime)s \| %(name)s \| %(process)d \| %(message)s'` | Logging format for text logs. Implemented by the DIAL SDK. |
+| `DIAL_SDK_JSON_LOG_FORMAT` | No | `'{"level": "%(levelname)s", "time": "%(asctime)s", "logger": "%(name)s", "process": "%(process)d", "message": "%(message)s"}'` | Logging format for JSON logs. Implemented by the DIAL SDK. |
 
 See the [full logging documentation](https://github.com/epam/ai-dial-sdk/blob/0.39.0/docs/logging.md) for details on logging configuration and available logging modes.
 
@@ -150,12 +152,12 @@ See the [full logging documentation](https://github.com/epam/ai-dial-sdk/blob/0.
 
 ##### New environment variables
 
-| Variable | Default | Description |
-| --- | --- | --- |
-| `CUSTOM_CLIENT_VARIABLES` | `{}` | Public, client-owned settings returned unchanged in client-config as `config.customVariables`. JSON object only; unset, blank or invalid values fall back to `{}`. Never include secrets. Restart the BFF after changing. |
-| `WELCOME_SCREEN_DESCRIPTION` | unset | Operator-authored plain-text copy shown below the greeting heading on the new-chat start screen. Rendered as text, never as markup. Unset or blank hides it. |
-| `SKILL_USAGE_ENABLED` | `false` | Client-visible kill switch for all skill-usage UI: the catalog skill "Use in chat" action and the composer's Skills menu. Every entry point is hidden while false. |
-| `AUTH_LEGACY_COOKIE_NAMES` | unset | Comma-separated exact names of cookies left over from a previous authentication stack on the same origin. The chat backend expires matching cookies present on incoming requests by sending `Set-Cookie` with `Max-Age=0`. Unset disables cleanup. |
+| Variable | Required | Default | Description |
+|---|---|---|---|
+| `CUSTOM_CLIENT_VARIABLES` | No | `{}` | Public, client-owned settings returned unchanged in client-config as `config.customVariables`. JSON object only; unset, blank or invalid values fall back to `{}`. Never include secrets. Restart the BFF after changing. |
+| `WELCOME_SCREEN_DESCRIPTION` | No | unset | Operator-authored plain-text copy shown below the greeting heading on the new-chat start screen. Rendered as text, never as markup. Unset or blank hides it. |
+| `SKILL_USAGE_ENABLED` | No | `false` | Client-visible kill switch for all skill-usage UI: the catalog skill "Use in chat" action and the composer's Skills menu. Every entry point is hidden while false. |
+| `AUTH_LEGACY_COOKIE_NAMES` | No | unset | Comma-separated exact names of cookies left over from a previous authentication stack on the same origin. The chat backend expires matching cookies present on incoming requests by sending `Set-Cookie` with `Max-Age=0`. Unset disables cleanup. |
 
 ##### Legacy authentication cookie cleanup
 
@@ -170,26 +172,26 @@ Adjust the list to the exact cookie names used by the previous deployment, inclu
 ##### Removed environment variables
 
 | Variable | Reason |
-| --- | --- |
+|---|---|
 | `SETTINGS_PAGE_ENABLED` | The Settings page is now always available; the flag that gated it was retired. A value left set is ignored. (#8762) |
 | `SETTINGS_PAGE_ENABLED_ROLES` | Role restriction for the retired Settings page flag. (#8762) |
 
 ##### New feature flags
 
 | Flag | Description |
-| --- | --- |
+|---|---|
 | `features.skillUsageEnabled` | Gates all skill-usage UI in the chat app. Toggled through `SKILL_USAGE_ENABLED`; defaults to `false` because the backend contract for sending skills with completions is not designed yet. Role-based rollout is not implemented. |
 
 ##### Removed feature flags
 
 | Flag | Reason / replacement |
-| --- | --- |
+|---|---|
 | `features.settingsPageEnabled` | No replacement — the Settings page and its new Preferences tab are always enabled. (#8762) |
 
 ##### New `ENABLED_UI_FEATURES` values
 
 | Value | Description |
-| --- | --- |
+|---|---|
 | `removable-tools` | Allows tools selected in the conversation input to be removed. (#8488) |
 | `show-all-starters` | Renders every configured conversation starter instead of the default subset. (#8829) |
 | `hide-footer-version` | Hides the version label in the footer. (#8829) |
@@ -212,13 +214,13 @@ Adjust the list to the exact cookie names used by the previous deployment, inclu
 
 ##### New environment variables
 
-| Variable                        | Default  | Description                                                                                                                                                                                                                        | Required |
-|---------------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| `MIN_TOOLS_FOR_DEFERRAL`        | `10`     | Deployment-wide minimum toolset size (`≥ 1`) for deferral to apply; smaller toolsets are loaded eagerly even when `deferred: true`. Apps override per-app via `orchestrator.tool_discovery.min_tools_for_deferral`. Preview-gated. | No       |
-| `DIAL_SKILLS_FILE_MAX_BYTES`    | `262144` | Cap (bytes, `> 0`) on a single file read from a DIAL skill resource, `SKILL.md` included; an over-cap manifest drops the skill. Preview-gated.                                                                                     | No       |
-| `DIAL_SKILLS_MAX_FILES`         | `200`    | Maximum bundled files (`> 0`) advertised to the agent per DIAL skill resource; beyond it the listing is truncated. Preview-gated.                                                                                                  | No       |
-| `DIAL_SKILLS_LISTING_MAX_PAGES` | `10`     | Maximum file-listing pages (`> 0`) followed per DIAL skill resource, bounding a server-supplied cursor. Preview-gated.                                                                                                              | No       |
-| `SKILL_INVOCATION_MAX_SKILLS`   | `10`     | Maximum distinct skills (`> 0`) a user may invoke from the messages of one conversation (`custom_content.skills`), counted newest first; beyond the cap the oldest picks stop being registered. Preview-gated.                    | No       |
+| Variable | Required | Default | Description |
+|---|---|---|---|
+| `MIN_TOOLS_FOR_DEFERRAL` | No | `10` | Deployment-wide minimum toolset size (`≥ 1`) for deferral to apply; smaller toolsets are loaded eagerly even when `deferred: true`. Apps override per-app via `orchestrator.tool_discovery.min_tools_for_deferral`. Preview-gated. |
+| `DIAL_SKILLS_FILE_MAX_BYTES` | No | `262144` | Cap (bytes, `> 0`) on a single file read from a DIAL skill resource, `SKILL.md` included; an over-cap manifest drops the skill. Preview-gated. |
+| `DIAL_SKILLS_MAX_FILES` | No | `200` | Maximum bundled files (`> 0`) advertised to the agent per DIAL skill resource; beyond it the listing is truncated. Preview-gated. |
+| `DIAL_SKILLS_LISTING_MAX_PAGES` | No | `10` | Maximum file-listing pages (`> 0`) followed per DIAL skill resource, bounding a server-supplied cursor. Preview-gated. |
+| `SKILL_INVOCATION_MAX_SKILLS` | No | `10` | Maximum distinct skills (`> 0`) a user may invoke from the messages of one conversation (`custom_content.skills`), counted newest first; beyond the cap the oldest picks stop being registered. Preview-gated. |
 
 ##### Behavioral changes
 
@@ -234,11 +236,11 @@ Adjust the list to the exact cookie names used by the previous deployment, inclu
 > [!CAUTION]
 > Still accepted in app manifests, but will be removed in future versions (#465).
 
-| Legacy key                                        | Replacement                                 | Affected config model                         |
-|---------------------------------------------------|---------------------------------------------|-----------------------------------------------|
-| `fallback_configuration.strategies[].type: retry` | `type: continue`                            | `RetryStrategyModel`                          |
-| `fallback_configuration.strategies[].type: stop`  | `type: hard_stop`                           | `StopStrategyModel`                           |
-| `forward_tool_error_message`                      | — (no-op; tool errors are always forwarded) | `ContinueStrategyModel`, `RetryStrategyModel` |
+| Legacy key | Replacement | Affected config model |
+|---|---|---|
+| `fallback_configuration.strategies[].type: retry` | `type: continue` | `RetryStrategyModel` |
+| `fallback_configuration.strategies[].type: stop` | `type: hard_stop` | `StopStrategyModel` |
+| `forward_tool_error_message` | none (no-op; tool errors are always forwarded) | `ContinueStrategyModel`, `RetryStrategyModel` |
 
 ---
 
@@ -258,13 +260,13 @@ Previously STS session tags may have only applied to a subset of Bedrock clients
 
 | Variable | Old default | New default | Description |
 |---|---|---|---|
-| `REQUEST_TIMEOUT_SECONDS` | `unknown (implied lower value)` | `600s (read timeout increased to 600s)` | The Bedrock client read timeout was increased to 600s. If REQUEST_TIMEOUT_SECONDS is not set, the effective read timeout is now 600s. |
+| `REQUEST_TIMEOUT_SECONDS` | not configurable (read timeout was hardcoded to a lower value) | `600` | The Bedrock client read timeout, in seconds. When the variable is not set, the effective read timeout is now 600 seconds. |
 
 ##### New environment variables
 
-| Variable | Default | Required | Description |
+| Variable | Required | Default | Description |
 |---|---|---|---|
-| `REQUEST_TIMEOUT_SECONDS` | — | No | Makes the Bedrock request timeout configurable. Previously the read timeout was hardcoded; this var allows operators to tune it. |
+| `REQUEST_TIMEOUT_SECONDS` | No | `600` | Bedrock request timeout in seconds. Previously the read timeout was hardcoded; this variable allows operators to tune it. |
 
 ---
 
@@ -272,8 +274,8 @@ Previously STS session tags may have only applied to a subset of Bedrock clients
 
 ##### New environment variables
 
-| Variable | Default | Required | Description |
+| Variable | Required | Default | Description |
 |---|---|---|---|
-| `AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE` | — | No | Support for EKS Pod Identity token file path; required when using EKS Pod Identity for AWS authentication. |
+| `AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE` | No | unset | Path to the EKS Pod Identity token file. Required when using EKS Pod Identity for AWS authentication. |
 
 ---
