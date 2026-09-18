@@ -28,7 +28,7 @@
    - ai-dial-adapter-vertexai: `0.40.0-rc.0`
    - ai-dial-adapter-dial: `0.19.0-rc.0`
    - ai-dial-chat-themes: `0.20.0`
-   - ai-dial-chat: `1.1.0-rc.2`
+   - ai-dial-chat: `1.1.0-rc.3`
    - ai-dial-core: `0.48.0-rc.0`
    - ai-dial-analytics-realtime: `0.28.0-rc.0`
    - ai-dial-rag: `0.43.0`
