@@ -49,7 +49,7 @@ services:
       'aidial.identityProviders.keycloak.loggingSalt': 'loggingSalt'
       'aidial.encryption.secret': '${DIAL_CORE_ENCRYPTION_SECRET}'
       'aidial.encryption.key': '${DIAL_CORE_ENCRYPTION_KEY}'
-      'aidial.redis.singleServerConfig.address': 'redis://redis:6379'
+      'aidial.redis.singleServerConfig.address': 'redis://valkey:6379'
       'aidial.storage.provider': 'filesystem'
       'aidial.storage.prefix': 'core'
       'aidial.storage.bucket': 'dial'
@@ -64,7 +64,7 @@ services:
       - ${DIAL_DIR:-.}/core-data:/app/data
       - ./settings:/opt/settings
     depends_on:
-      - redis
+      - valkey
     restart: always
 
   adapter-openai:
@@ -134,13 +134,13 @@ services:
   # ----------------- #
   # Dependencies
   # ----------------- #
-  redis:
-    image: redis:7.2.4-alpine3.19
+  valkey:
+    image: valkey/valkey:9.1.2-alpine3.24
     restart: always
     ports:
       - "6600:6379"
     command: >
-      redis-server
+      valkey-server
       --maxmemory 2000mb
       --maxmemory-policy volatile-lfu
       --save ""
@@ -149,20 +149,19 @@ services:
     mem_limit: 2200M
 
   keycloak:
-    image: keycloak/keycloak:26.3
+    image: keycloak/keycloak:26.7.4
     user: root
     command: ["start-dev", "--import-realm", "--http-port=${KC_PORT}", "--hostname-backchannel-dynamic=true"]
     environment:
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_ADMIN_PASSWORD}
-      KC_HOSTNAME: http://localhost:${KC_PORT}
-      KC_HOSTNAME_STRICT: false
-      KC_HOSTNAME_STRICT_HTTPS: false
+      KC_HOSTNAME: http://${COMMON_HOST}:${KC_PORT}
+      KC_HOSTNAME_STRICT: true
       KC_HTTP_ENABLED: true
-      KC_PROXY: edge
       QUARKUS_HTTP_LIMITS_MAX_HEADER_SIZE: 64k
       KC_INITIALIZE_EMPTY: 'true'
-      KC_FEATURE_CACHE_STACK: 'true'
+      KC_CACHE: local
+      KC_HEALTH_ENABLED: 'true'
     ports:
       - "${KC_PORT}:${KC_PORT}"
     volumes:
