@@ -53,7 +53,7 @@ services:
       'aidial.identityProviders.keycloak.loggingSalt': 'loggingSalt'
       'aidial.encryption.secret': '${DIAL_CORE_ENCRYPTION_SECRET}'
       'aidial.encryption.key': '${DIAL_CORE_ENCRYPTION_KEY}'
-      'aidial.redis.singleServerConfig.address': 'redis://redis:6379'
+      'aidial.redis.singleServerConfig.address': 'redis://valkey:6379'
       'aidial.storage.provider': 'filesystem'
       'aidial.storage.prefix': 'core'
       'aidial.storage.bucket': 'dial'
@@ -68,16 +68,17 @@ services:
       - ${DIAL_DIR:-.}/core-data:/app/data
       - ./settings:/opt/settings
     depends_on:
-      - redis
+      - valkey
     restart: always
 
   adapter-openai:
     image: epam/ai-dial-adapter-openai:0.43.2
     platform: linux/amd64
     environment:
+      DALLE3_DEPLOYMENTS: "dall-e-3"
+      DIAL_USE_FILE_STORAGE: "true"
       DIAL_URL: "http://core:8080"
       WEB_CONCURRENCY: "3"
-      DALLE3_DEPLOYMENTS: "dall-e-3"
 
   admin-backend:
     image: epam/ai-dial-admin-backend:0.20.1
@@ -134,13 +135,13 @@ services:
   # ----------------- #
   # Dependencies
   # ----------------- #
-  redis:
-    image: redis:7.2.4-alpine3.19
+  valkey:
+    image: valkey/valkey:9.1.2-alpine3.24
     restart: always
     ports:
       - "6600:6379"
     command: >
-      redis-server
+      valkey-server
       --maxmemory 2000mb
       --maxmemory-policy volatile-lfu
       --save ""
@@ -149,7 +150,7 @@ services:
     mem_limit: 2200M
 
   keycloak:
-    image: keycloak/keycloak:26.7
+    image: keycloak/keycloak:26.7.4
     user: root
     command: ["start-dev", "--import-realm", "--http-port=${KC_PORT}"]
     environment:
