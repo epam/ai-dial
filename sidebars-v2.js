@@ -417,8 +417,8 @@ const allSections = [
                 },
                 {
                   "type": "doc",
-                  "id": "building-with-dial/interceptors/sdk-reference",
-                  "label": "Interceptors SDK reference"
+                  "id": "building-with-dial/interceptors/sdk-integration-reference",
+                  "label": "SDK integration reference"
                 },
                 {
                   "type": "doc",
