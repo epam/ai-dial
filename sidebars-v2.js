@@ -1432,43 +1432,64 @@ const allSections = [
       "items": [
         {
           "type": "doc",
-          "id": "chat-user-guide/index",
+          "id": "chat-user-guide-new/index",
           "label": "Overview and interface"
         },
         {
           "type": "doc",
-          "id": "chat-user-guide/conversations",
+          "id": "chat-user-guide-new/conversations",
           "label": "Conversations"
         },
         {
-          "type": "doc",
-          "id": "chat-user-guide/prompts",
-          "label": "Prompts"
+          "type": "category",
+          "label": "Catalog",
+          "items": [
+            {
+              "type": "doc",
+              "id": "chat-user-guide-new/catalog/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "chat-user-guide-new/catalog/models",
+              "label": "Models"
+            },
+            {
+              "type": "doc",
+              "id": "chat-user-guide-new/catalog/agents",
+              "label": "Agents"
+            },
+            {
+              "type": "doc",
+              "id": "chat-user-guide-new/catalog/toolsets",
+              "label": "Toolsets"
+            },
+            {
+              "type": "doc",
+              "id": "chat-user-guide-new/catalog/skills",
+              "label": "Skills"
+            },
+            {
+              "type": "doc",
+              "id": "chat-user-guide-new/catalog/prompts",
+              "label": "Prompts"
+            }
+          ]
         },
         {
           "type": "doc",
-          "id": "chat-user-guide/marketplace-and-apps",
-          "label": "Marketplace and apps"
+          "id": "chat-user-guide-new/files",
+          "label": "File Manager"
         },
         {
           "type": "doc",
-          "id": "chat-user-guide/tool-sets",
-          "label": "Tool sets"
-        },
-        {
-          "type": "doc",
-          "id": "chat-user-guide/files",
-          "label": "Files"
-        },
-        {
-          "type": "doc",
-          "id": "chat-user-guide/sharing-and-publishing",
+          "id": "chat-user-guide-new/sharing-and-publishing",
           "label": "Sharing and publishing"
         },
         {
           "type": "doc",
-          "id": "chat-user-guide/settings",
-          "label": "Settings"
+          "id": "chat-user-guide-new/usage-and-settings",
+          "label": "Usage and settings"
         }
       ]
     },
