@@ -123,6 +123,12 @@ services:
       core:
         condition: service_healthy
     restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://127.0.0.1:8080/api/v1/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 600s
 
   admin-frontend:
     image: epam/ai-dial-admin-frontend:0.20.4
