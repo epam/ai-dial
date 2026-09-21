@@ -51,6 +51,9 @@ Here is the current list of repositories where you can find more details.
 - [DIAL Helm](https://github.com/epam/ai-dial-helm) - helm chart, find stable assemblies here.
 - [DIAL Admin Frontend](https://github.com/epam/ai-dial-admin-frontend) - DIAL Admin web application repository.
 - [DIAL Admin Backend](https://github.com/epam/ai-dial-admin-backend)- DIAL Admin API for DIAL Core.
+- [Evaluation Framework Backend](https://github.com/epam/ai-dial-admin-evaluation-framework-backend)
+- [Evaluation Metrics](https://github.com/epam/ai-dial-admin-evaluation-metrics)
+- [DIAL Deployment Manager Backend](https://github.com/epam/ai-dial-admin-deployment-manager-backend)
 - [DIAL Core](https://github.com/epam/ai-dial-core) - the main component that exposes API
 - [DIAL SDK](https://github.com/epam/ai-dial-sdk) - development kit for applications and model adapters
 - [DIAL Interceptors Python SDK](https://github.com/epam/ai-dial-interceptors-sdk) - framework for creating DIAL Interceptors in Python for chat completion and embedding models.
