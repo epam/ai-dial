@@ -38,7 +38,10 @@ skills:
   something to interact with (e.g. a conversation to demonstrate a context menu on), create new,
   disposable, synthetic content for that purpose only — never touch what was already there. To
   illustrate a destructive action (e.g. Delete), open the confirmation dialog and Cancel rather
-  than confirming it.
+  than confirming it. The exception is content the user **designates** as disposable: those items
+  are yours to edit, fill in, and delete. Get the list from the user explicitly — names do not
+  reveal it (an account can hold a "Jira agent" that is a throwaway and a "DIALX Landing Mind Map"
+  that must not be touched).
 - **Plan disposable demo content before creating it, itemized, and get the user's go-ahead.**
   Before touching the live UI to create anything (a conversation, prompt, skill, toolset, file,
   folder), list exactly what will be created, what each item is for, and confirm it fits the
@@ -49,10 +52,13 @@ skills:
   the very end of the whole guide): list every demo conversation/prompt/skill/toolset/file/folder
   created for that file's screenshots and wait for the user's go-ahead before deleting each one.
   This keeps any single mistake scoped to one file's worth of throwaway content.
-- **Mask sensitive information in screenshots**: any real name, email, avatar, or API key/secret
-  that appears — even from a test account, e.g. because other real users' content is visible in
-  Marketplace, Publications, or Sharing screens — gets redacted with `scripts/mask.py` before the
-  image is used. `mask.py` **blurs** the region (never a solid fill/black box — the UI is light,
+- **Mask sensitive information in screenshots**: any real name, email, avatar, API key/secret, or
+  **environment hostname** that appears — even from a test account, e.g. because other real users'
+  content is visible in Marketplace, Publications, or Sharing screens — gets redacted with
+  `scripts/mask.py` before the image is used. Hostnames matter on any **Connect**-style panel:
+  endpoint URLs and cURL snippets expose the deployment's internal host (`core.<env>.dial.parts`),
+  which does not belong in public docs — blur the host but leave the path and the `<key>`
+  placeholder visible, since those are the parts the reader needs. `mask.py` **blurs** the region (never a solid fill/black box — the UI is light,
   and a hard box reads as a defect, not a redaction); keep the blurred region tight around just
   the sensitive text itself (e.g. a name), not the whole surrounding sentence. Prefer a
   **scoped/zoomed screenshot** (the `zoom` action) that simply excludes the sensitive area when
@@ -131,12 +137,30 @@ guide feature still applies:
   `raw.githubusercontent.com` file URLs works reliably for public repos and is the fallback.
 - **Terminology**: don't carry old-guide capitalization/spacing forward uninspected — confirm the
   exact live label (e.g. the live UI's Catalog tab and card badge read "Toolset", one word, not
-  the old guide's "Tool Set").
+  the old guide's "Tool Set"). **The live UI and the user's instruction outrank
+  `docs-planning/glossary.md`**, which still reflects the pre-rewrite app (it mandates "tool set"
+  and has no Skill entry at all). Follow the live label, and tell the user the glossary entry is
+  stale rather than silently complying with either side.
+- **After a terminology correction, sweep the whole output folder** —
+  `grep -rn -i "<old spelling>" docs_v2/chat-user-guide-new/` — before replying. Corrected terms
+  reappear in the places prose review skips: link labels, table cells, image alt text, and
+  "Next steps" lists. Being told the same correction twice is the failure mode to avoid.
 
 ## Phase 2 — Harvest the old guide
 
-Read every file under `docs_v2/6.chat-user-guide/` (`0.index.md` … `7.settings.md`). For each
-described feature/section, classify it:
+There are **two** legacy sources, and the second is the better one:
+
+1. `docs_v2/6.chat-user-guide/` (`0.index.md` … `7.settings.md`) — the restructured but outdated
+   copy. Closest to the target file layout.
+2. **`docs/tutorials/0.user-guide.md`** — the original single-file guide (~2000 lines). It is
+   wordier, but it carries the *reasoning* the restructured copy dropped: why a feature exists,
+   what breaks without it, and definitions worth adapting. Read the sections relevant to the file
+   you are writing before drafting it — for example, its Toolsets section explains that an agent
+   using an un-authenticated toolset fails with an authentication error, and distinguishes
+   personal from organization credentials in terms of *who the connection belongs to*. Adapt the
+   substance into the new guide's voice; never paste its prose or its heading style.
+
+For each described feature/section, classify it:
 
 - **Still accurate** — reuse the prose as-is (or nearly) in the new file.
 - **Still present, but changed** — reuse the surrounding structure/wording as a starting point,
@@ -146,13 +170,36 @@ described feature/section, classify it:
 
 ## Phase 3 — File structure for the new guide
 
-**Default to the existing structure and style** — same file breakdown
-(`0.index.md`, `1.conversations.md`, `2.prompts.md`, `3.marketplace-and-apps.md`,
-`4.tool-sets.md`, `5.files.md`, `6.sharing-and-publishing.md`, `7.settings.md`), same heading
-style, tone, and conventions as the current guide. Only deviate where Phase 1/2 show the live UI
-genuinely has no equivalent for an old file (drop or merge it) or a feature area with no home in
-that list (add a file for it). **Propose any such deltas to the user before creating files** —
+Start from the old guide's breakdown and the heading style, tone, and conventions of `docs_v2`.
+Deviate where Phase 1/2 show the live UI has no equivalent for an old file (drop or merge it) or
+a feature area with no home (add one). **Propose any delta to the user before creating files** —
 don't silently redesign the structure.
+
+The structure agreed and built so far:
+
+```
+0.index.md            Overview and interface
+1.conversations.md    Conversations
+2.catalog/            Catalog — a section, not one page
+  0.index.md          what the Catalog is, favorites, browse/filter/sort, Create menu
+  1.models.md  2.agents.md  3.toolsets.md  4.skills.md  5.prompts.md
+  img/
+3.files.md  4.sharing-and-publishing.md  5.usage-and-settings.md
+```
+
+Two lessons behind that shape:
+
+- **One page per entity type, not one page covering all of them.** The Catalog started as a
+  single flat page and had to be split: each entity type has its own details panel, its own
+  actions, and its own builder, so they do not compress into shared sections without going vague.
+  When a page starts needing "this differs by type" qualifiers in several sections, that is the
+  signal to split it — propose the split before writing another long draft.
+- **Renumber downstream files when the shape changes.** This repo requires a file's numeric
+  prefix to equal its position in the menu (`CLAUDE.md`), so inserting or nesting a section
+  renumbers everything after it, and every `./N.name.md` link in already-written pages has to be
+  updated. Verify with a link check (see Phase 4b) rather than by eye.
+- **A section folder keeps its own `img/`** (`2.catalog/img/`), matching how `docs_v2` sections
+  already do it. Pages inside reference `img/...`; pages a level up reference `2.catalog/img/...`.
 
 ## Phase 4 — Per file: capture, then write
 
@@ -166,6 +213,34 @@ Treat "I looked at this earlier while checking something else" as equivalent to 
 captured for this file" unless the resulting image is already saved into `img/` and cited in the
 prose. Before considering a file's capture pass done, walk its planned section list one by one
 and confirm each has either a saved image or an explicit "no screenshot needed" reason.
+
+**Enumerate every type and state before describing a shared surface.** One example is not the
+pattern. The details panel looked like "About / Overview / Connect" from the first agent opened,
+and that went into the draft as "the panel has up to three tabs" — wrong for four of the five
+types (models have 5: About, Overview, Pricing, Limits, Connect; toolsets have 4, including
+Tools; skills and prompts have 2: Details, Overview). The same applies to a panel's buttons:
+they change with ownership and state (an org-published agent offers only **Use in chat**; your
+own adds **Share** and a **...** menu; an unauthenticated toolset shows **Manage credentials**,
+the same toolset signed in shows **Log out**; a skill shows **Download**). Open one of *each*
+type, and both an owned and a not-owned example, before writing the section.
+
+**Choose the example deliberately, and keep it consistent within a section.** Don't tour a panel
+with one item and then switch subjects mid-section. Use a real, richly-filled organization item
+for "what this panel shows" (empty dummy items make the tabs look empty and teach nothing), and
+switch to the user's own disposable item only where ownership-specific actions are the point —
+that contrast is itself worth showing. Ask the user which items are safe to touch rather than
+inferring it from names; and if the dummy items exist but hold placeholder text, ask to fill
+them with meaningful content **before** capturing, not after.
+
+**One screenshot per step or page, not per field.** A builder with six sections needs one shot of
+each wizard step, with the fields themselves in a table. Per-field screenshots bloat the page and
+rot as soon as a label changes.
+
+**Verify that Cancel actually discarded something.** A create flow can persist a draft the moment
+you advance past step 1 — the Quick App builder did, and the item appeared in the Catalog with a
+real id even though Cancel was clicked. Checking the count immediately after the click is not
+enough; the list can still be cached. Reload the Catalog, re-check the count, and if a draft
+survived, delete it and record the behavior in the page as a caution to readers.
 
 For each target file:
 
@@ -182,8 +257,10 @@ For each target file:
      → `zoom` tightly around just that element. A full-page screenshot makes small UI (icon rows,
      menu items) illegible — always zoom for these rather than shipping a full screenshot where
      the actual subject is a few pixels tall.
-   - Either way, double-check the crop bounds don't clip part of a button/control at the edge —
-     look at the result, not just the region numbers, before saving.
+   - Either way, **leave breathing room on all four sides**. A crop that ends flush against the
+     subject looks cut off and often does clip something — a button's edge, the first letters of
+     a label, the last line of a paragraph. Include the surrounding whitespace, then look at the
+     returned image (not just the region numbers) before saving.
    - Use `save_to_disk: true` and read the saved file back to confirm it looks right before using
      it.
 3. **Prefer editing an already-saved capture over re-fetching from the browser.** `zoom` is not
@@ -197,6 +274,18 @@ For each target file:
    `<python-with-pillow> scripts/mask.py <src> <dst> "x,y,w,h" [more regions...]` — this blurs the
    region (see the hard constraints above for what counts as sensitive and how tight to keep it).
    Verify the masked result before moving on.
+
+   **Mind the coordinate convention — the two tools disagree, and this wastes whole passes.**
+   The browser `zoom` action takes a *bounding box*, `[x0, y0, x1, y1]`. `mask.py` and `crop.py`
+   take *origin plus size*, `"x,y,w,h"`. Passing a `zoom`-style box to `mask.py` silently blurs a
+   region far larger than intended (it reads `x1,y1` as width and height) — the giveaway is a
+   blur that swallows neighbouring rows and leaves a hard smear at the image edge. Also note the
+   saved file's pixel size equals the `zoom` region's size, so measure against that, and confirm
+   with `Image.open(path).size` rather than assuming.
+
+   Re-masking an already-masked file to widen a region is fine, and is usually quicker than
+   recapturing. Leftover characters at a blur's edge (the tail of a hostname, say) mean the box
+   was too narrow — widen and re-run.
 5. **Place the image**: move/rename the saved file into `docs_v2/chat-user-guide-new/img/` with a
    short, descriptive name (e.g. `conversation-context-menu.png`), matching the naming style
    already used in `docs_v2/6.chat-user-guide/img/`.
@@ -206,6 +295,58 @@ For each target file:
    inline near the relevant step). Hand off structural/style correctness to the `docs-page-writer`
    skill (`user-guide` type: frontmatter, terminology, "Feature overview → UI walkthrough → Tips →
    Next steps", no forbidden phrases, relative `.md` links, "Next steps" section).
+
+## Phase 4b — Write for a person, then read it back
+
+Capture accuracy is not enough: a page can be entirely correct and still be rejected for reading
+like generated filler. The repeated feedback on the first Catalog draft was "it does not sound
+natural" and "it feels like you do not see your own work". Concrete rules that came out of it:
+
+- **Lead with substance, not a summary of the page's own contents.** An opening that lists what
+  the page will cover ("This page shows you how to find, favorite, and use…") tells the reader
+  nothing they cannot see from the headings. Open with what the thing *is* and what it is *for*.
+- **Don't restate the title as the first section.** `# Catalog` followed by `## The Catalog` is a
+  structural tell that the intro paragraph was filler — if the section under the title says it
+  better, delete the intro and promote the section's text.
+- **Explain a concept before you reference it.** Mentioning **Share** in the Models section when
+  sharing is only introduced two pages later reads as though the pages were written out of order
+  (they were).
+- **State rules by their real cause.** "You can edit and delete only items you created" is the
+  actual rule — ownership. Framing it around publication state ("for an agent you own and haven't
+  published, the menu offers Edit, Publish, Delete") buries the rule and implies things that
+  aren't true.
+- **Say what a thing is for, not what category it belongs to.** "Reusable instruction modules an
+  agent loads on demand" is vocabulary. "Write the procedure once — how your company processes a
+  claim — and the agent picks it up when a task matches" is a definition a user can act on.
+- **Prefer the user's vocabulary over your own paraphrase.** "AI models available in your
+  environment" beat "language and image models"; "all AI agents you can use — your own and those
+  published organization-wide" beat "models and applications configured for conversation".
+
+Then **actually re-read the finished page top to bottom** before reporting it done — as a reader
+who has not seen the app, not as the author checking off sections. Confirm:
+
+1. Every claim about a panel, menu, or field matches a screenshot you captured, for *every* type
+   it applies to (see the enumeration rule in Phase 4).
+2. No term the user has corrected survives anywhere, link labels and tables included.
+3. Links and images resolve. Walk every relative target and report anything unresolved that is
+   not a deliberate forward reference to an unwritten page:
+
+   ```
+   python - <<'EOF'
+   import pathlib, re
+   root = pathlib.Path("docs_v2/chat-user-guide-new")
+   for md in sorted(root.rglob("*.md")):
+       for t in re.findall(r"\]\(([^)]+)\)", md.read_text(encoding="utf-8")):
+           if t.startswith(("http", "#")): continue
+           p = t.split("#")[0]
+           if p and not (md.parent / p).resolve().exists(): print(md, "->", t)
+   EOF
+   ```
+
+   The same script, inverted, finds images in `img/` that nothing references — usually leftovers
+   from a superseded draft that should be deleted.
+4. Anything you could not verify live is either omitted or flagged to the user — never written as
+   though it were confirmed, and never hedged into vagueness inside the page itself.
 
 ## Phase 5 — Audit
 
@@ -221,14 +362,29 @@ the user to request explicitly when ready.
 
 ## Key paths
 
-- New guide: `docs_v2/chat-user-guide-new/*.md` + `docs_v2/chat-user-guide-new/img/`.
+- New guide: `docs_v2/chat-user-guide-new/*.md` + `img/`, with a section folder keeping its own
+  `img/` (e.g. `2.catalog/img/`).
 - Old guide (read-only reference): `docs_v2/6.chat-user-guide/*.md` + its `img/`.
+- Original single-file guide (richer reference): `docs/tutorials/0.user-guide.md`.
 - Source repo for verification: `github.com/epam/ai-dial-chat` (via `docs-researcher`).
 - Companion skills: `docs-researcher` (source investigation), `docs-page-writer`
   (prose/structure/terminology), `docs-auditor` (QA).
 - Bundled scripts (capture itself uses the native browser tools directly):
   - `scripts/mask.py` — redaction (blurs a region; see hard constraints).
   - `scripts/crop.py` — reframe an already-saved screenshot without a live re-fetch.
+
+## Typing into the app's editors
+
+The prompt, skill, and Quick App instruction fields are Markdown editors that **auto-continue
+lists**. Typing your own `1.` / `2.` numbering produces doubled markers (`2. 2.`) and drags the
+following paragraph into the list. Either type the first marker and let the editor number the
+rest, or — simpler when filling demo content — write prose paragraphs and avoid list syntax
+entirely. Always zoom in on the result and read it back; at 0.6 scale the duplication is
+invisible.
+
+Note also that the panel re-renders and shifts horizontally a beat after it opens, so a click
+queued in the same `browser_batch` as the one that opened it often lands on the old position (or
+on a card behind the panel). Take a screenshot, then click, when acting inside a details panel.
 
 ## Uploading a disposable demo file
 

@@ -11,7 +11,11 @@
       "Read(//tmp/ai-dial-chat-research/libs/conversation-input/**)",
       "Read(//tmp/ai-dial-chat-research/**)",
       "Bash(sed -n '1,50p' /tmp/ai-dial-chat-research/libs/conversation-input/src/components/Input/ModelSelectorControl.tsx)",
-      "Read(//tmp/ai-dial-chat-research/libs/conversation-input/src/components/Input/**)"
+      "Read(//tmp/ai-dial-chat-research/libs/conversation-input/src/components/Input/**)",
+      "Bash(cp \"C:\\\\Users\\\\SIARHE~1\\\\AppData\\\\Local\\\\Temp\\\\claude-chrome-screenshots-Koe0Jl\\\\screenshot-1789988603820-10.png\" \"C:/DELTIX/RTCLAB/ai-dial/docs_v2/chat-user-guide-new/img/unpublish-confirm.png\" && echo saved)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\SIARHE~1\\AppData\\Local\\Temp\\claude-chrome-screenshots-Koe0Jl"
     ]
   }
 }
