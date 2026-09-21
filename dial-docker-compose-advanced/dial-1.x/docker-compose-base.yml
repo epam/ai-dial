@@ -79,7 +79,6 @@ services:
     platform: linux/amd64
     environment:
       DALLE3_DEPLOYMENTS: "dall-e-3"
-      DIAL_USE_FILE_STORAGE: "true"
       DIAL_URL: "http://core:8080"
       WEB_CONCURRENCY: "3"
     healthcheck:
