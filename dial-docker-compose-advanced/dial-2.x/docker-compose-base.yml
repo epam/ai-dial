@@ -5,13 +5,20 @@ services:
   # ----------------- #
 
   themes:
-    image: epam/ai-dial-chat-themes:0.19.1
+    image: epam/ai-dial-chat-themes:0.20.0
     platform: linux/amd64
     ports:
       - "3101:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://127.0.0.1:8080/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 10s
 
   chat:
-    image: epam/ai-dial-chat:1.0.15
+    # TODO: update to stable when released
+    image: epam/ai-dial-chat:1.1.0-rc.5
     platform: linux/amd64
     environment:
       PORT: ${DIAL_CHAT_HOST_PORT}
@@ -22,7 +29,7 @@ services:
       AUTH_POST_LOGOUT_REDIRECT_URI: "http://${COMMON_HOST}:${DIAL_CHAT_HOST_PORT}"
       AUTH_KEYCLOAK_CLIENT_ID: "dial-chat"
       AUTH_KEYCLOAK_SECRET: "${AUTH_KEYCLOAK_SECRET}"
-      AUTH_KEYCLOAK_HOST: "http://${COMMON_HOST}:${KC_PORT}/realms/dial"
+      AUTH_KEYCLOAK_HOST: "http://keycloak:${KC_PORT}/realms/dial"
       AUTH_KEYCLOAK_DIAL_ROLES_FIELD: "resource_access.dial-chat.roles"
       AUTH_COOKIE_SECURE: "false"
       DIAL_CORE_URL: "http://core:8080"
@@ -30,18 +37,19 @@ services:
       ENABLED_UI_FEATURES: "code-apps,schema-apps,custom-apps,chat-settings,dislike-comment,input-files,likes,live-chat-interaction,attachments-manager,conversations-panel-toggle,conversations-section,header,showConversationsSectionByDefault,catalog,catalog-table-view,file-manager,conversations-publishing,applications-sharing,conversations-sharing,toolsets-sharing,toolsets,prompts,skills,voice-input"
       LIVE_CHAT_INTERACTION_ENABLED: "true"
       RESPONSES_API_ENABLED: "true"
-    network_mode: "service:keycloak"
+    ports:
+      - "${DIAL_CHAT_HOST_PORT}:${DIAL_CHAT_HOST_PORT}"
     depends_on:
       themes:
-        condition: service_started
+        condition: service_healthy
       core:
-        condition: service_started
+        condition: service_healthy
       keycloak:
         condition: service_healthy
     restart: always
 
   core:
-    image: epam/ai-dial-core:0.47.1
+    image: epam/ai-dial-core:0.47.2
     platform: linux/amd64
     environment:
       'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
@@ -68,17 +76,24 @@ services:
       - ${DIAL_DIR:-.}/core-data:/app/data
       - ./settings:/opt/settings
     depends_on:
-      - valkey
+      valkey:
+        condition: service_healthy
     restart: always
 
   adapter-openai:
-    image: epam/ai-dial-adapter-openai:0.43.2
+    image: epam/ai-dial-adapter-openai:0.43.3
     platform: linux/amd64
     environment:
       DALLE3_DEPLOYMENTS: "dall-e-3"
       DIAL_USE_FILE_STORAGE: "true"
       DIAL_URL: "http://core:8080"
       WEB_CONCURRENCY: "3"
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://127.0.0.1:5000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
 
   admin-backend:
     image: epam/ai-dial-admin-backend:0.20.1
@@ -106,11 +121,11 @@ services:
       - ${DIAL_DIR:-.}/core:/app/config
     depends_on:
       core:
-        condition: service_started
+        condition: service_healthy
     restart: always
 
   admin-frontend:
-    image: epam/ai-dial-admin-frontend:0.20.2
+    image: epam/ai-dial-admin-frontend:0.20.4
     platform: linux/amd64
     environment:
       DIAL_ADMIN_API_URL: "http://admin-backend:8080/"
@@ -119,17 +134,18 @@ services:
       NEXTAUTH_URL: "http://${COMMON_HOST}:${DIAL_ADMIN_FRONTEND_HOST_PORT}"
       NEXTAUTH_SECRET: "${NEXTAUTH_SECRET}"
       NEXTAUTH_COOKIE_PREFIX: "admin"
-      AUTH_KEYCLOAK_HOST: "http://${COMMON_HOST}:${KC_PORT}/realms/dial"
+      AUTH_KEYCLOAK_HOST: "http://keycloak:${KC_PORT}/realms/dial"
       AUTH_KEYCLOAK_CLIENT_ID: "dial-admin-console"
       AUTH_KEYCLOAK_SECRET: "${AUTH_KEYCLOAK_SECRET}"
       AUTH_KEYCLOAK_DIAL_ROLES_FIELD: "roles"
       ADMIN_ROLE_NAMES: 'ConfigAdmin,admin'
-    network_mode: "service:keycloak"
+    ports:
+      - "${DIAL_ADMIN_FRONTEND_HOST_PORT}:3000"
     depends_on:
       keycloak:
         condition: service_healthy
       admin-backend:
-        condition: service_started
+        condition: service_healthy
     restart: always
 
   # ----------------- #
@@ -148,11 +164,17 @@ services:
       --appendonly no
       --loglevel warning
     mem_limit: 2200M
+    healthcheck:
+      test: ["CMD", "valkey-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
 
   keycloak:
     image: keycloak/keycloak:26.7.4
     user: root
-    command: ["start-dev", "--import-realm", "--http-port=${KC_PORT}"]
+    command: ["start-dev", "--import-realm", "--http-port=${KC_PORT}", "--hostname-backchannel-dynamic=true"]
     environment:
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_ADMIN_PASSWORD}
@@ -165,14 +187,12 @@ services:
       KC_HEALTH_ENABLED: 'true'
     ports:
       - "${KC_PORT}:${KC_PORT}"
-      - "${DIAL_CHAT_HOST_PORT}:${DIAL_CHAT_HOST_PORT}"
-      - "${DIAL_ADMIN_FRONTEND_HOST_PORT}:3000"
     volumes:
       - ./keycloak/data:/opt/keycloak/data
       - ./keycloak/import/realm-config.json:/opt/keycloak/data/import/realm-config.json
     restart: always
     healthcheck:
-      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/${KC_PORT}'"]
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/9000'"]
       interval: 5s
       timeout: 5s
       retries: 30
