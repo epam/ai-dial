@@ -11,26 +11,38 @@
       }
   },
   "models": {
-     "gpt-4o": {
+     "gpt-5.6": {
          "type": "chat",
-         "displayName": "GPT-4o",
-         "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-4o/chat/completions",
+         "displayName": "GPT-5.6",
+         "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-5.6/chat/completions",
+         "features": {
+             "toolsSupported": true
+         },
          "upstreams": [
              {
-                 "endpoint": "http://azure_or_dial_deployment_host/openai/deployments/gpt-4o/chat/completions",
+                 "endpoint": "http://azure_or_dial_deployment_host/openai/deployments/gpt-5.6/chat/completions",
                  "key": "AZURE_MODEL_OR_DIAL_API_KEY"
              }
          ],
          "inputAttachmentTypes": [ "*/*" ]
      },
-     "gpt-4o-mini": {
+     "claude-sonnet-5": {
          "type": "chat",
-         "displayName": "GPT-4o (mini)",
-         "endpoint": "http://adapter-openai:5000/openai/deployments/gpt-4o-mini/chat/completions",
+         "displayName": "Claude Sonnet 5",
+         "overrideName": "claude-sonnet-5",
+         "endpoint": "http://adapter-openai:5000/openai/deployments/claude-sonnet-5/chat/completions",
+         "interfaces": {
+             "anthropicMessages": {
+                 "base_url": "http://adapter-openai:5000"
+             }
+         },
+         "defaults": {
+             "max_tokens": 4096
+         },
          "upstreams": [
              {
-                 "endpoint": "http://azure_or_dial_deployment_host/openai/deployments/gpt-4o-mini/chat/completions",
-                 "key": "AZURE_MODEL_OR_DIAL_API_KEY"
+                 "endpoint": "https://api.anthropic.com/v1/messages",
+                 "key": "ANTHROPIC_API_KEY"
              }
          ],
          "inputAttachmentTypes": [ "*/*" ]
@@ -64,8 +76,8 @@
   "roles": {
     "default": {
       "limits": {
-        "gpt-4o": {},
-        "gpt-4o-mini": {},
+        "gpt-5.6": {},
+        "claude-sonnet-5": {},
         "dall-e-3": {},
         "dial-rag": {}
       }

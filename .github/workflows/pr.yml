@@ -73,7 +73,10 @@ jobs:
       - uses: isbang/compose-action@d2bee4f07e8ca410d6b196d00f90c12e7d48c33a # v2.6.0
         with:
           cwd: "./dial-docker-compose-advanced/dial-1.x/ci"
-          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
+          up-flags: "-d --scale test=0"
+      - name: Run smoke test
+        working-directory: ./dial-docker-compose-advanced/dial-1.x/ci
+        run: docker compose run --rm test
 
   run-advanced-2x-smoke-test:
     name: Docker compose advanced 2.x smoke test
@@ -83,7 +86,10 @@ jobs:
       - uses: isbang/compose-action@d2bee4f07e8ca410d6b196d00f90c12e7d48c33a # v2.6.0
         with:
           cwd: "./dial-docker-compose-advanced/dial-2.x/ci"
-          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
+          up-flags: "-d --scale test=0"
+      - name: Run smoke test
+        working-directory: ./dial-docker-compose-advanced/dial-2.x/ci
+        run: docker compose run --rm test
 
   build:
     needs:
