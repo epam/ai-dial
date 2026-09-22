@@ -81,7 +81,7 @@ services:
     restart: always
 
   adapter-openai:
-    image: epam/ai-dial-adapter-openai:0.44.0-rc.0
+    image: epam/ai-dial-adapter-openai:0.44.0
     platform: linux/amd64
     environment:
       DALLE3_DEPLOYMENTS: "dall-e-3"
