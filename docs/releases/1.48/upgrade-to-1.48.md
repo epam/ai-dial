@@ -24,13 +24,13 @@
    - dial-admin: `-`
 2. Main components versions:
    - ai-dial-adapter-bedrock: `0.43.4`
-   - ai-dial-adapter-openai: `0.44.0-rc.0`
-   - ai-dial-adapter-vertexai: `0.40.0-rc.0`
-   - ai-dial-adapter-dial: `0.19.0-rc.0`
+   - ai-dial-adapter-openai: `0.44.0`
+   - ai-dial-adapter-vertexai: `0.40.0`
+   - ai-dial-adapter-dial: `0.19.0`
    - ai-dial-chat-themes: `0.20.0`
    - ai-dial-chat: `1.1.0`
    - ai-dial-core: `0.48.0`
-   - ai-dial-analytics-realtime: `0.28.0-rc.0`
+   - ai-dial-analytics-realtime: `0.28.0`
    - ai-dial-rag: `0.43.0`
    - ai-dial-log-parser: `0.3.0`
    - ai-dial-code-interpreter: `0.2.0`
