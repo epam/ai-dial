@@ -130,7 +130,7 @@ services:
       start_period: 600s
 
   admin-frontend:
-    image: epam/ai-dial-admin-frontend:0.21.0-rc.1
+    image: epam/ai-dial-admin-frontend:0.21.0
     platform: linux/amd64
     environment:
       DIAL_ADMIN_API_URL: "http://admin-backend:8080/"
