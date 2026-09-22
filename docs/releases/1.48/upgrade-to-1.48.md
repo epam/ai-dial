@@ -37,13 +37,14 @@
    - ai-dial-app-controller: `0.4.0`
    - ai-dial-app-builder-python: `0.1.0`
    - ai-dial-quickapps-backend: `0.12.0`
+   - ai-dial-quickapps-frontend: `0.2.0`
    - ai-dial-mind-map-backend: `0.15.0`
    - ai-dial-mind-map-frontend: `0.14.0`
    - ai-dial-admin-backend: `0.21.0`
    - ai-dial-admin-frontend: `0.21.0-rc.1`
    - ai-dial-admin-deployment-manager-backend: `0.21.0-rc.0`
    - ai-dial-admin-evaluation-framework-backend: `0.4.0`
-   - ai-dial-admin-evaluation-metrics: `0.3.0-rc.1`
+   - ai-dial-admin-evaluation-metrics: `0.3.0`
    - ai-dial-openapi-to-mcp: `0.2.1`
 
 ## Before upgrade
@@ -58,13 +59,13 @@ Environment variable tables below use the same columns: **Required** is `Yes` (t
 
 ### Release-specific notes
 
-#### ai-dial-admin-deployment-manager-backend `0.21.0-rc.0`
+#### ai-dial-admin-deployment-manager-backend `0.21.0`
 
 This release includes **medium-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.21.0-rc.0/docs/upgrade-plans/0.21.0.md) before proceeding.
 
 ---
 
-#### ai-dial-admin-evaluation-framework-backend `0.4.0-rc.0`
+#### ai-dial-admin-evaluation-framework-backend `0.4.0`
 
 ##### New environment variables
 
@@ -125,7 +126,7 @@ All variables below ship with a working default, so none of them has to be set i
 
 ---
 
-#### ai-dial-admin-evaluation-metrics `0.3.0-rc.0`
+#### ai-dial-admin-evaluation-metrics `0.3.0`
 
 ##### Structured logs support
 
@@ -141,14 +142,14 @@ See the [full logging documentation](https://github.com/epam/ai-dial-sdk/blob/0.
 
 ---
 
-#### ai-dial-admin-frontend `0.21.0-rc.0`
+#### ai-dial-admin-frontend `0.21.0`
 
 > [!IMPORTANT]
 > This release introduces the full DIAL Core API migration as a Preview — adding `catalog` to `DISABLE_MENU_ITEMS` is recommended so the preview surface is not exposed to every admin user. A new optional `ANALYTICS_CONVERSATIONS_ENABLED` flag gates the Conversations view in Analytics. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-frontend/blob/0.21.0-rc.0/docs/upgrade-plans/0.21.0.md) before proceeding.
 
 ---
 
-#### ai-dial-chat `1.1.0-rc.1`
+#### ai-dial-chat `1.1.0`
 
 ##### New environment variables
 
@@ -205,7 +206,7 @@ Adjust the list to the exact cookie names used by the previous deployment, inclu
 
 ---
 
-#### ai-dial-quickapps-backend `0.12.0-rc.2`
+#### ai-dial-quickapps-backend `0.12.0`
 
 ##### Prerequisites
 
@@ -244,7 +245,7 @@ Adjust the list to the exact cookie names used by the previous deployment, inclu
 
 ---
 
-#### ai-dial-adapter-bedrock `0.44.0-rc.0`
+#### ai-dial-adapter-bedrock `0.44.0`
 
 ##### Breaking changes
 
@@ -270,7 +271,7 @@ Previously STS session tags may have only applied to a subset of Bedrock clients
 
 ---
 
-#### ai-dial-adapter-vertexai `0.40.0-rc.0`
+#### ai-dial-adapter-vertexai `0.40.0`
 
 ##### New environment variables
 
