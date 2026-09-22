@@ -41,7 +41,7 @@
    - ai-dial-mind-map-backend: `0.15.0`
    - ai-dial-mind-map-frontend: `0.14.0`
    - ai-dial-admin-backend: `0.21.0`
-   - ai-dial-admin-frontend: `0.21.0-rc.1`
+   - ai-dial-admin-frontend: `0.21.0`
    - ai-dial-admin-deployment-manager-backend: `0.21.0-rc.0`
    - ai-dial-admin-evaluation-framework-backend: `0.4.0`
    - ai-dial-admin-evaluation-metrics: `0.3.0`
@@ -61,7 +61,7 @@ Environment variable tables below use the same columns: **Required** is `Yes` (t
 
 #### ai-dial-admin-deployment-manager-backend `0.21.0`
 
-This release includes **medium-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.21.0-rc.0/docs/upgrade-plans/0.21.0.md) before proceeding.
+This release includes **medium-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.21.0/docs/upgrade-plans/0.21.0.md) before proceeding.
 
 ---
 
