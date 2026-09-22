@@ -23,7 +23,7 @@
    - dial-extension: `-`
    - dial-admin: `-`
 2. Main components versions:
-   - ai-dial-adapter-bedrock: `0.43.4`
+   - ai-dial-adapter-bedrock: `0.44.0`
    - ai-dial-adapter-openai: `0.44.0`
    - ai-dial-adapter-vertexai: `0.40.0`
    - ai-dial-adapter-dial: `0.19.0`
