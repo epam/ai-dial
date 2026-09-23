@@ -417,8 +417,8 @@ const allSections = [
                 },
                 {
                   "type": "doc",
-                  "id": "building-with-dial/interceptors/sdk-reference",
-                  "label": "Interceptors SDK reference"
+                  "id": "building-with-dial/interceptors/sdk-integration-reference",
+                  "label": "SDK integration reference"
                 },
                 {
                   "type": "doc",
@@ -535,11 +535,6 @@ const allSections = [
                   "type": "doc",
                   "id": "building-with-dial/developer-tools/sdk-reference/embeddings",
                   "label": "Embeddings"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/developer-tools/sdk-reference/exceptions",
-                  "label": "Exceptions"
                 },
                 {
                   "type": "doc",
