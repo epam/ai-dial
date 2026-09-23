@@ -1201,8 +1201,8 @@ const allSections = [
             },
             {
               "type": "doc",
-              "id": "operating-dial/observability/metrics-and-monitoring",
-              "label": "Metrics and monitoring"
+              "id": "operating-dial/observability/configure-metrics",
+              "label": "Configure metrics"
             },
             {
               "type": "doc",
