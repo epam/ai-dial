@@ -26,5 +26,4 @@ services:
     environment:
       WEB_CONCURRENCY: "3"
       DIAL_URL: "http://core:8080"
-      DIAL_USE_FILE_STORAGE: "True"
       GPT4_VISION_DEPLOYMENTS: "vision-model"
