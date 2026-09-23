@@ -538,11 +538,6 @@ const allSections = [
                 },
                 {
                   "type": "doc",
-                  "id": "building-with-dial/developer-tools/sdk-reference/exceptions",
-                  "label": "Exceptions"
-                },
-                {
-                  "type": "doc",
                   "id": "building-with-dial/developer-tools/sdk-reference/telemetry",
                   "label": "Telemetry"
                 }
