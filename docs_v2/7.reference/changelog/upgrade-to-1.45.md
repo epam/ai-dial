@@ -130,7 +130,7 @@ Three breaking changes to OpenTelemetry configuration: (1) OTEL_SDK_DISABLED rep
 | Variable | Default | Description |
 |---|---|---|
 | `AVAILABLE_LOCALES` | Auto-detected from `public/locales` at build time, falls back to `en` | Comma-separated list of locale codes to enable at runtime. Use this when locales are injected after the image is built. |
-| `ADDITIONAL_CSS_DIR` | `<cwd>/additional_css` | Absolute path to a directory of `.css` files injected into every page. See [Theme Customization](../../docs/THEME-CUSTOMIZATION.md#additional-css). |
+| `ADDITIONAL_CSS_DIR` | `<cwd>/additional_css` | Absolute path to a directory of `.css` files injected into every page. See [Theme Customization](https://github.com/epam/ai-dial-chat/blob/development/docs/THEME-CUSTOMIZATION.md#additional-css). |
 | `AUTH_ADDITIONAL_PARAMS` | (none) | JSON array of key/value objects appended to the body of both the initial and refresh OAuth token exchanges. Example: `[{"organization_id":"some-id"},{"tenant_id":"some other id"}]`. |
 
 ### Deprecated environment variables
