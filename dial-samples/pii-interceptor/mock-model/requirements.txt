@@ -1,0 +1,2 @@
+aidial-sdk==0.42.0
+uvicorn==0.53.0

@@ -1,36 +1,19 @@
-# DIAL Docker Compose
+# DIAL Advanced Docker Compose
 
-1. Setup model endpoints and keys
+Production-like Docker Compose stacks with Keycloak authentication, an Admin Panel, and multiple model adapters.
 
-Update `./core/config.json` with real upstream model endpoints and keys.
+Two release lines are kept side by side:
 
-2. Run the Docker Compose file
-
-```
-docker compose -f <filename> up
-```
-
-Choose one of the Compose files depending on your needs:
-
-|File|Description|
-|---|---|
-|docker-compose-base.yml|Runs Core, Chat, Admin, Keycloak and required underlying services|
-|docker-compose-full.yml|Runs RAG in addition to the base services from above|
-
-3. Start using DIAL
-
-|URL|Description|
-|---|---|
-|http://localhost:3100|DIAL Chat|
-|http://localhost:3102|DIAL Admin|
-|http://localhost:8900|Keycloak|
-
-There are three default DIAL users pre-defined in Keycloak:
-
-|Username|Password|Description|
+| Folder | Release line | Status |
 |---|---|---|
-|user|dial|Has only basic access to DIAL Chat|
-|dial|dial|Has admin access to DIAL Chat|
-|dial-admin|dial|Has access to DIAL Admin console|
+| [`dial-2.x/`](./dial-2.x) | DIAL 2.x | **Current — use this one** |
+| [`dial-1.x/`](./dial-1.x) | DIAL 1.x | Legacy — kept for existing 1.x installations |
 
-Use `admin` as a user and a password to login to Keycloak as administrator.
+Each folder is self-contained: its own `.env`, `core/config.json`, Keycloak realm, and compose files. Run them from inside the folder.
+
+```bash
+cd dial-2.x
+docker compose -f docker-compose-base.yml up
+```
+
+For the minimal quick-start setup (no auth, no Admin Panel), see [`dial-docker-compose/`](../dial-docker-compose) instead.
