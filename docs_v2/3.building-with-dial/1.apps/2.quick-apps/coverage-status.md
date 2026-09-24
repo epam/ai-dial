@@ -15,8 +15,8 @@ This page tracks what Quick Apps documentation exists and what is still missing 
 
 | Topic | Status | Location | Notes |
 |---|---|---|---|
-| Overview / concepts | Done | [What are Quick Apps](./index) | Quick App 2.0 concepts, tools, and configuration model |
-| Create via UI | Done | [Create in DIAL Chat](./quick-app-2/create-via-ui) | 6-step wizard with screenshots |
+| Overview / concepts | Done | [What are Quick Apps](./index) | Covers both types |
+| Create via UI | Done | [Create in DIAL Chat](./quick-app-2/create-via-ui) | Developer summary; links to the Chat User Guide's [Build a Quick App](../../../chat-user-guide-new/2.catalog/2.agents.md#build-a-quick-app) for the full walkthrough with screenshots |
 | Create via API | Done | [Create via API](./quick-app-2/create-via-api) | Full CRUD with curl examples |
 | Create via config.json | Done | [Create via config.json](./quick-app-2/create-via-config) | Complete config.json with schema + app + roles |
 | Add tools and agents | Done | [Add tools and agents](./quick-app-2/working-with-tools-and-agents) | All toolset types |

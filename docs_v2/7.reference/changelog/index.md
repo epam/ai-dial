@@ -12,6 +12,18 @@ description: "Release notes and upgrade guides for each DIAL platform release, n
 
 Release notes and upgrade guides for each DIAL platform (Helm stable-assembly) release, newest first. Each release links to its highlights and to the technical upgrade guide (component versions, configuration changes, and deprecations).
 
+## DIAL 1.46
+
+The highlights of this release on the DIAL core side include native support of agent skills, redesigned and unified configuration of application endpoints, and major improvements to OAuth Recovery capabiltiies for MCP Toolset connectivity. The release also focused on continued improvements to the DIAL Admin with features like new analytics, and Evaluation Framework was improved with aggregated metrics and run comparisons.
+
+[Release notes](release-notes-1.46.md) · [Upgrade guide](upgrade-to-1.46.md)
+
+## DIAL 1.45
+
+The highlights of this release include significant improvements to Evaluation in the Admin Panel including run comparisons and reusable datasets, additional connecting protocols for applications, support for long-running sessions via Responses API, and several adapter enhancements. This release completes Q2 of our 2026 Roadmap.
+
+[Release notes](release-notes-1.45.md) · [Upgrade guide](upgrade-to-1.45.md)
+
 ## DIAL 1.44
 
 The highlights of this release include a refreshed DIAL brand identity with new logos and a website re-design, major Quick Apps enhancements including Skills support, pre-configured tool orchestration, and MCP connectivity for connected applications, expanded Evaluation capabilities with run comparison and CSV export, and a new PDF Viewer in Chat.
