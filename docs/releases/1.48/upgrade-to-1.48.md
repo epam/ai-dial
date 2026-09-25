@@ -18,10 +18,10 @@
 ## Versions
 
 1. Helm chart versions:
-   - dial: `-`
-   - dial-core: `-`
-   - dial-extension: `-`
-   - dial-admin: `-`
+   - dial: `8.0.0`
+   - dial-core: `6.0.0`
+   - dial-extension: `3.1.1`
+   - dial-admin: `0.19.0`
 2. Main components versions:
    - ai-dial-adapter-bedrock: `0.44.0`
    - ai-dial-adapter-openai: `0.44.0`
