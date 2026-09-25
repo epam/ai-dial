@@ -13,33 +13,23 @@ const allSections = [
         },
         {
           "type": "doc",
-          "id": "home/developer-quick-start",
-          "label": "Developer quick start"
+          "id": "home/run-dial-locally",
+          "label": "Run DIAL locally"
         },
         {
           "type": "doc",
-          "id": "home/devops-quick-start",
-          "label": "DevOps quick start"
+          "id": "home/build-an-app-on-dial",
+          "label": "Build an app on DIAL"
         },
         {
           "type": "doc",
-          "id": "home/admin-quick-start",
-          "label": "Admin quick start"
-        },
-        {
-          "type": "doc",
-          "id": "home/evaluator-quick-start",
-          "label": "Evaluator quick start"
+          "id": "home/connect-to-existing-dial",
+          "label": "Connect to an existing DIAL"
         },
         {
           "type": "doc",
           "id": "home/architect-overview",
           "label": "Architect overview"
-        },
-        {
-          "type": "doc",
-          "id": "home/end-user-guide",
-          "label": "End user guide"
         }
       ]
     },
