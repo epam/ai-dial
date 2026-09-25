@@ -4,18 +4,26 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "quarto render && docusaurus start",
-    "build": "quarto render && docusaurus build",
+    "start": "quarto render && npm run changelog:build && docusaurus start",
+    "build": "quarto render && npm run changelog:build && docusaurus build",
+    "changelog:build": "npx tsx scripts/build-changelog.ts",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "lint:frontmatter": "npx tsx scripts/check-frontmatter.mts",
+    "lint:frontmatter:strict": "npx tsx scripts/check-frontmatter.mts --strict",
+    "lint:frontmatter:fix": "npx tsx scripts/check-frontmatter.mts --fix",
+    "check:references": "npx tsx scripts/check-references.ts",
+    "check:references:strict": "npx tsx scripts/check-references.ts --strict",
+    "references:render-md": "npx tsx scripts/render-outdated-references.ts"
   },
   "dependencies": {
     "@docusaurus/core": "^3.9.2",
     "@docusaurus/preset-classic": "^3.9.2",
+    "@docusaurus/theme-mermaid": "^3.9.2",
     "@mdx-js/react": "^3.0.0",
     "@remark-embedder/transformer-oembed": "^5.0.1",
     "clsx": "^1.2.1",
@@ -26,7 +34,10 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.9.2",
-    "@docusaurus/types": "^3.9.2"
+    "@docusaurus/types": "^3.9.2",
+    "@types/node": "^25.6.0",
+    "gray-matter": "^4.0.3",
+    "tsx": "^4.21.0"
   },
   "overrides": {
     "picomatch": "4.0.4",

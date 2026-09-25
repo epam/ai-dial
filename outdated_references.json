@@ -1,0 +1,304 @@
+{
+  "generatedAt": "2026-06-08T14:42:52.195Z",
+  "thresholdDays": 183,
+  "warnings": [],
+  "summary": {
+    "total": 28,
+    "pass": 6,
+    "fail": 22,
+    "error": 0,
+    "byEcosystem": {
+      "pypi": 25,
+      "npm": 3
+    }
+  },
+  "references": [
+    {
+      "name": "aidial-sdk",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.36.0",
+      "location": "docs_v2/building-with-dial/adapters/1.tutorial-custom-adapter.md:176",
+      "latestVersion": "0.37.0",
+      "result": "pass",
+      "reason": "0.36.0 released 2026-04-24 (45d ago, <6mo)"
+    },
+    {
+      "name": "httpx",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.27.0",
+      "location": "docs_v2/building-with-dial/adapters/1.tutorial-custom-adapter.md:177",
+      "latestVersion": "0.28.1",
+      "result": "fail",
+      "reason": "0.27.0 released 2024-02-21 (838d ago, >6mo) and is not the latest; latest 0.28.1 released 2024-12-06"
+    },
+    {
+      "name": "uvicorn",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.30.0",
+      "location": "docs_v2/building-with-dial/adapters/1.tutorial-custom-adapter.md:178",
+      "latestVersion": "0.49.0",
+      "result": "fail",
+      "reason": "0.30.0 released 2024-05-28 (741d ago, >6mo) and is not the latest; latest 0.49.0 released 2026-06-03"
+    },
+    {
+      "name": "fastapi",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.115.0",
+      "location": "docs_v2/building-with-dial/adapters/1.tutorial-custom-adapter.md:92",
+      "latestVersion": "0.136.3",
+      "result": "fail",
+      "reason": "0.115.0 released 2024-09-17 (629d ago, >6mo) and is not the latest; latest 0.136.3 released 2026-05-23"
+    },
+    {
+      "name": "uvicorn",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.30.0",
+      "location": "docs_v2/building-with-dial/adapters/1.tutorial-custom-adapter.md:93",
+      "latestVersion": "0.49.0",
+      "result": "fail",
+      "reason": "0.30.0 released 2024-05-28 (741d ago, >6mo) and is not the latest; latest 0.49.0 released 2026-06-03"
+    },
+    {
+      "name": "aidial-sdk",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.27.0",
+      "location": "docs_v2/building-with-dial/apps/custom-apps/1.getting-started-sdk.md:93",
+      "latestVersion": "0.37.0",
+      "result": "fail",
+      "reason": "0.27.0 released 2025-10-22 (229d ago, >6mo) and is not the latest; latest 0.37.0 released 2026-05-21"
+    },
+    {
+      "name": "uvicorn",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.34.0",
+      "location": "docs_v2/building-with-dial/apps/custom-apps/1.getting-started-sdk.md:94",
+      "latestVersion": "0.49.0",
+      "result": "fail",
+      "reason": "0.34.0 released 2024-12-15 (540d ago, >6mo) and is not the latest; latest 0.49.0 released 2026-06-03"
+    },
+    {
+      "name": "aidial-sdk",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.27.0",
+      "location": "docs_v2/building-with-dial/apps/custom-apps/2.tutorial-translator-app.md:144",
+      "latestVersion": "0.37.0",
+      "result": "fail",
+      "reason": "0.27.0 released 2025-10-22 (229d ago, >6mo) and is not the latest; latest 0.37.0 released 2026-05-21"
+    },
+    {
+      "name": "uvicorn",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.34.0",
+      "location": "docs_v2/building-with-dial/apps/custom-apps/2.tutorial-translator-app.md:145",
+      "latestVersion": "0.49.0",
+      "result": "fail",
+      "reason": "0.34.0 released 2024-12-15 (540d ago, >6mo) and is not the latest; latest 0.49.0 released 2026-06-03"
+    },
+    {
+      "name": "aidial-sdk",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.27.0",
+      "location": "docs_v2/building-with-dial/apps/custom-apps/3.tutorial-rag-app.md:249",
+      "latestVersion": "0.37.0",
+      "result": "fail",
+      "reason": "0.27.0 released 2025-10-22 (229d ago, >6mo) and is not the latest; latest 0.37.0 released 2026-05-21"
+    },
+    {
+      "name": "uvicorn",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.34.0",
+      "location": "docs_v2/building-with-dial/apps/custom-apps/3.tutorial-rag-app.md:250",
+      "latestVersion": "0.49.0",
+      "result": "fail",
+      "reason": "0.34.0 released 2024-12-15 (540d ago, >6mo) and is not the latest; latest 0.49.0 released 2026-06-03"
+    },
+    {
+      "name": "httpx",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.28.1",
+      "location": "docs_v2/building-with-dial/apps/custom-apps/3.tutorial-rag-app.md:251",
+      "latestVersion": "0.28.1",
+      "result": "pass",
+      "reason": "0.28.1 is the current latest (released 2024-12-06, 549d ago; library not updated since)"
+    },
+    {
+      "name": "aidial-sdk",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.27.0",
+      "location": "docs_v2/building-with-dial/apps/custom-apps/4.custom-buttons.md:232",
+      "latestVersion": "0.37.0",
+      "result": "fail",
+      "reason": "0.27.0 released 2025-10-22 (229d ago, >6mo) and is not the latest; latest 0.37.0 released 2026-05-21"
+    },
+    {
+      "name": "uvicorn",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.34.0",
+      "location": "docs_v2/building-with-dial/apps/custom-apps/4.custom-buttons.md:233",
+      "latestVersion": "0.49.0",
+      "result": "fail",
+      "reason": "0.34.0 released 2024-12-15 (540d ago, >6mo) and is not the latest; latest 0.49.0 released 2026-06-03"
+    },
+    {
+      "name": "@epam/ai-dial-overlay",
+      "type": "npm",
+      "kind": "inline",
+      "referencedVersion": "0.9.0",
+      "location": "docs_v2/building-with-dial/developer-tools/chat-customization/9.embed-chat-in-web-app.md:72",
+      "latestVersion": "0.46.0",
+      "result": "fail",
+      "reason": "0.9.0 released 2024-04-10 (789d ago, >6mo) and is not the latest; latest 0.46.0 released 2026-06-02"
+    },
+    {
+      "name": "typescript",
+      "type": "npm",
+      "kind": "inline",
+      "referencedVersion": "5.8.3",
+      "location": "docs_v2/building-with-dial/developer-tools/chat-customization/9.embed-chat-in-web-app.md:73",
+      "latestVersion": "6.0.3",
+      "result": "fail",
+      "reason": "5.8.3 released 2025-04-05 (430d ago, >6mo) and is not the latest; latest 6.0.3 released 2026-04-16"
+    },
+    {
+      "name": "vite",
+      "type": "npm",
+      "kind": "inline",
+      "referencedVersion": "6.3.5",
+      "location": "docs_v2/building-with-dial/developer-tools/chat-customization/9.embed-chat-in-web-app.md:73",
+      "latestVersion": "8.0.16",
+      "result": "fail",
+      "reason": "6.3.5 released 2025-05-05 (399d ago, >6mo) and is not the latest; latest 8.0.16 released 2026-06-01"
+    },
+    {
+      "name": "aidial-rag-eval",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.6.0",
+      "location": "docs_v2/building-with-dial/evaluations/1.rag-eval-toolkit.md:26",
+      "latestVersion": "0.6.0",
+      "result": "pass",
+      "reason": "0.6.0 released 2026-05-15 (24d ago, <6mo)"
+    },
+    {
+      "name": "aidial-rag-eval",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.6.0",
+      "location": "docs_v2/building-with-dial/evaluations/2.tutorial-eval-driven-dev.md:49",
+      "latestVersion": "0.6.0",
+      "result": "pass",
+      "reason": "0.6.0 released 2026-05-15 (24d ago, <6mo)"
+    },
+    {
+      "name": "langchain-openai",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "0.2.1",
+      "location": "docs_v2/building-with-dial/evaluations/2.tutorial-eval-driven-dev.md:50",
+      "latestVersion": "1.2.2",
+      "result": "fail",
+      "reason": "0.2.1 released 2024-09-26 (620d ago, >6mo) and is not the latest; latest 1.2.2 released 2026-05-21"
+    },
+    {
+      "name": "pandas",
+      "type": "pypi",
+      "kind": "inline",
+      "referencedVersion": "2.2.3",
+      "location": "docs_v2/building-with-dial/evaluations/2.tutorial-eval-driven-dev.md:51",
+      "latestVersion": "3.0.3",
+      "result": "fail",
+      "reason": "2.2.3 released 2024-09-20 (626d ago, >6mo) and is not the latest; latest 3.0.3 released 2026-05-11"
+    },
+    {
+      "name": "aiostream",
+      "type": "pypi",
+      "kind": "github-repo",
+      "referencedVersion": "0.6.2",
+      "location": "docs_v2/building-with-dial/interceptors/2.sdk-reference.md",
+      "source": "https://github.com/epam/ai-dial-interceptors-sdk/blob/development/pyproject.toml",
+      "latestVersion": "0.7.1",
+      "result": "fail",
+      "reason": "0.6.2 released 2024-07-21 (687d ago, >6mo) and is not the latest; latest 0.7.1 released 2025-10-13"
+    },
+    {
+      "name": "google-cloud-dlp",
+      "type": "pypi",
+      "kind": "github-repo",
+      "referencedVersion": "3.30.0",
+      "location": "docs_v2/building-with-dial/interceptors/2.sdk-reference.md",
+      "source": "https://github.com/epam/ai-dial-interceptors-sdk/blob/development/pyproject.toml",
+      "latestVersion": "3.37.0",
+      "result": "fail",
+      "reason": "3.30.0 released 2025-05-29 (375d ago, >6mo) and is not the latest; latest 3.37.0 released 2026-06-03"
+    },
+    {
+      "name": "langfuse",
+      "type": "pypi",
+      "kind": "github-repo",
+      "referencedVersion": "2.60.2",
+      "location": "docs_v2/building-with-dial/interceptors/2.sdk-reference.md",
+      "source": "https://github.com/epam/ai-dial-interceptors-sdk/blob/development/pyproject.toml",
+      "latestVersion": "4.7.1",
+      "result": "fail",
+      "reason": "2.60.2 released 2025-03-24 (441d ago, >6mo) and is not the latest; latest 4.7.1 released 2026-05-29"
+    },
+    {
+      "name": "numpy",
+      "type": "pypi",
+      "kind": "github-repo",
+      "referencedVersion": "1.26.4",
+      "location": "docs_v2/building-with-dial/interceptors/2.sdk-reference.md",
+      "source": "https://github.com/epam/ai-dial-interceptors-sdk/blob/development/pyproject.toml",
+      "latestVersion": "2.4.6",
+      "result": "fail",
+      "reason": "1.26.4 released 2024-02-05 (854d ago, >6mo) and is not the latest; latest 2.4.6 released 2026-05-18"
+    },
+    {
+      "name": "pillow",
+      "type": "pypi",
+      "kind": "github-repo",
+      "referencedVersion": "12.2.0",
+      "location": "docs_v2/building-with-dial/interceptors/2.sdk-reference.md",
+      "source": "https://github.com/epam/ai-dial-interceptors-sdk/blob/development/pyproject.toml",
+      "latestVersion": "12.2.0",
+      "result": "pass",
+      "reason": "12.2.0 released 2026-04-01 (68d ago, <6mo)"
+    },
+    {
+      "name": "protobuf",
+      "type": "pypi",
+      "kind": "github-repo",
+      "referencedVersion": "6.33.5",
+      "location": "docs_v2/building-with-dial/interceptors/2.sdk-reference.md",
+      "source": "https://github.com/epam/ai-dial-interceptors-sdk/blob/development/pyproject.toml",
+      "latestVersion": "7.35.0",
+      "result": "pass",
+      "reason": "6.33.5 released 2026-01-29 (130d ago, <6mo)"
+    },
+    {
+      "name": "spacy",
+      "type": "pypi",
+      "kind": "github-repo",
+      "referencedVersion": "3.7.5",
+      "location": "docs_v2/building-with-dial/interceptors/2.sdk-reference.md",
+      "source": "https://github.com/epam/ai-dial-interceptors-sdk/blob/development/pyproject.toml",
+      "latestVersion": "3.8.14",
+      "result": "fail",
+      "reason": "3.7.5 released 2024-06-05 (733d ago, >6mo) and is not the latest; latest 3.8.14 released 2026-03-29"
+    }
+  ]
+}
