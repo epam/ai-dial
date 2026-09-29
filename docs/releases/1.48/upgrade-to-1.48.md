@@ -59,6 +59,12 @@ Environment variable tables below use the same columns: **Required** is `Yes` (t
 
 ### Release-specific notes
 
+#### dial `8.0.0` Helm chart
+> [!IMPORTANT]
+> Helm chart dial `8.0.0` removes the Keycloak Helm chart dependency and upgrades the bundled ai-dial-chat image from 0.49.0 (old) to 1.1.0 (new). Please review the [full upgrade guide](https://github.com/epam/ai-dial-helm/tree/dial-8.0.0/charts/dial#to-800) before proceeding to ensure all required migration steps are completed.
+
+---
+
 #### ai-dial-admin-deployment-manager-backend `0.21.0`
 
 This release includes **medium-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.21.0/docs/upgrade-plans/0.21.0.md) before proceeding.
