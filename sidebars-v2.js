@@ -13,33 +13,23 @@ const allSections = [
         },
         {
           "type": "doc",
-          "id": "home/developer-quick-start",
-          "label": "Developer quick start"
+          "id": "home/run-dial-locally",
+          "label": "Run DIAL locally"
         },
         {
           "type": "doc",
-          "id": "home/devops-quick-start",
-          "label": "DevOps quick start"
+          "id": "home/build-an-app-on-dial",
+          "label": "Build an app on DIAL"
         },
         {
           "type": "doc",
-          "id": "home/admin-quick-start",
-          "label": "Admin quick start"
-        },
-        {
-          "type": "doc",
-          "id": "home/evaluator-quick-start",
-          "label": "Evaluator quick start"
+          "id": "home/connect-to-existing-dial",
+          "label": "Connect to an existing DIAL"
         },
         {
           "type": "doc",
           "id": "home/architect-overview",
           "label": "Architect overview"
-        },
-        {
-          "type": "doc",
-          "id": "home/end-user-guide",
-          "label": "End user guide"
         }
       ]
     },
@@ -269,60 +259,39 @@ const allSections = [
                     },
                     {
                       "type": "category",
-                      "label": "Tool Sets",
+                      "label": "Toolsets",
                       "items": [
                         {
                           "type": "doc",
-                          "id": "building-with-dial/apps/quick-apps/quick-app-2/tool-sets/index",
-                          "label": "What is a Tool Set"
+                          "id": "building-with-dial/apps/quick-apps/quick-app-2/toolsets/index",
+                          "label": "What is a Toolset"
                         },
                         {
                           "type": "doc",
-                          "id": "building-with-dial/apps/quick-apps/quick-app-2/tool-sets/define-and-register",
-                          "label": "Define and register a Tool Set"
+                          "id": "building-with-dial/apps/quick-apps/quick-app-2/toolsets/define-and-register",
+                          "label": "Define and register a Toolset"
                         },
                         {
                           "type": "doc",
-                          "id": "building-with-dial/apps/quick-apps/quick-app-2/tool-sets/mcp-server-integration",
+                          "id": "building-with-dial/apps/quick-apps/quick-app-2/toolsets/mcp-server-integration",
                           "label": "Integrate an MCP server"
                         },
                         {
                           "type": "doc",
-                          "id": "building-with-dial/apps/quick-apps/quick-app-2/tool-sets/sharing-and-permissions",
+                          "id": "building-with-dial/apps/quick-apps/quick-app-2/toolsets/sharing-and-permissions",
                           "label": "Share and manage permissions"
                         },
                         {
                           "type": "doc",
-                          "id": "building-with-dial/apps/quick-apps/quick-app-2/tool-sets/reference",
+                          "id": "building-with-dial/apps/quick-apps/quick-app-2/toolsets/reference",
                           "label": "Configuration reference"
                         },
                         {
                           "type": "doc",
-                          "id": "building-with-dial/apps/quick-apps/quick-app-2/tool-sets/examples",
-                          "label": "Tool Set examples"
+                          "id": "building-with-dial/apps/quick-apps/quick-app-2/toolsets/examples",
+                          "label": "Toolset examples"
                         }
                       ]
-                    }
-                  ]
-                },
-                {
-                  "type": "category",
-                  "label": "Quick App (original)",
-                  "items": [
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-original/create-and-configure",
-                      "label": "Create and configure"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-original/reference",
-                      "label": "Configuration reference"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-original/migrate-to-2",
-                      "label": "Migrate to Quick App 2.0"
                     }
                   ]
                 }
@@ -438,8 +407,8 @@ const allSections = [
                 },
                 {
                   "type": "doc",
-                  "id": "building-with-dial/interceptors/sdk-reference",
-                  "label": "Interceptors SDK reference"
+                  "id": "building-with-dial/interceptors/sdk-integration-reference",
+                  "label": "SDK integration reference"
                 },
                 {
                   "type": "doc",
@@ -556,11 +525,6 @@ const allSections = [
                   "type": "doc",
                   "id": "building-with-dial/developer-tools/sdk-reference/embeddings",
                   "label": "Embeddings"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/developer-tools/sdk-reference/exceptions",
-                  "label": "Exceptions"
                 },
                 {
                   "type": "doc",
@@ -722,6 +686,16 @@ const allSections = [
                   "type": "doc",
                   "id": "building-with-dial/integrations/agentic-tools/claude-code",
                   "label": "Connect Claude Code to DIAL"
+                },
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/integrations/agentic-tools/claude-cowork",
+                  "label": "Connect Claude Cowork to DIAL"
+                },
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/integrations/agentic-tools/claude-m365-plugin",
+                  "label": "Connect the Claude M365 plugin to DIAL"
                 }
               ]
             }
@@ -1212,8 +1186,8 @@ const allSections = [
             },
             {
               "type": "doc",
-              "id": "operating-dial/observability/metrics-and-monitoring",
-              "label": "Metrics and monitoring"
+              "id": "operating-dial/observability/configure-metrics",
+              "label": "Configure metrics"
             },
             {
               "type": "doc",
@@ -1327,7 +1301,7 @@ const allSections = [
             {
               "type": "doc",
               "id": "administering-dial/entities/toolsets",
-              "label": "Tool sets"
+              "label": "Toolsets"
             },
             {
               "type": "doc",
@@ -1432,43 +1406,64 @@ const allSections = [
       "items": [
         {
           "type": "doc",
-          "id": "chat-user-guide/index",
+          "id": "chat-user-guide-new/index",
           "label": "Overview and interface"
         },
         {
           "type": "doc",
-          "id": "chat-user-guide/conversations",
+          "id": "chat-user-guide-new/conversations",
           "label": "Conversations"
         },
         {
-          "type": "doc",
-          "id": "chat-user-guide/prompts",
-          "label": "Prompts"
+          "type": "category",
+          "label": "Catalog",
+          "items": [
+            {
+              "type": "doc",
+              "id": "chat-user-guide-new/catalog/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "chat-user-guide-new/catalog/models",
+              "label": "Models"
+            },
+            {
+              "type": "doc",
+              "id": "chat-user-guide-new/catalog/agents",
+              "label": "Agents"
+            },
+            {
+              "type": "doc",
+              "id": "chat-user-guide-new/catalog/toolsets",
+              "label": "Toolsets"
+            },
+            {
+              "type": "doc",
+              "id": "chat-user-guide-new/catalog/skills",
+              "label": "Skills"
+            },
+            {
+              "type": "doc",
+              "id": "chat-user-guide-new/catalog/prompts",
+              "label": "Prompts"
+            }
+          ]
         },
         {
           "type": "doc",
-          "id": "chat-user-guide/marketplace-and-apps",
-          "label": "Marketplace and apps"
+          "id": "chat-user-guide-new/files",
+          "label": "File Manager"
         },
         {
           "type": "doc",
-          "id": "chat-user-guide/tool-sets",
-          "label": "Tool sets"
-        },
-        {
-          "type": "doc",
-          "id": "chat-user-guide/files",
-          "label": "Files"
-        },
-        {
-          "type": "doc",
-          "id": "chat-user-guide/sharing-and-publishing",
+          "id": "chat-user-guide-new/sharing-and-publishing",
           "label": "Sharing and publishing"
         },
         {
           "type": "doc",
-          "id": "chat-user-guide/settings",
-          "label": "Settings"
+          "id": "chat-user-guide-new/usage-and-settings",
+          "label": "Usage and settings"
         }
       ]
     },

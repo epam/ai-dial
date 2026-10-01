@@ -5,6 +5,7 @@ Follow this tutorial to launch DIAL Chat locally with Echo application. As a res
 > * **Follow this link to [Try DIAL SaaS](https://chat.dialx.ai/) edition**.
 > * To learn more, watch a [demo video](/docs/video%20demos/3.Developers/Deployment/4.deploy-ollama.md) to see how to deploy a chat application with a self-hosted model.
 > * Refer to other quick start instructions in [Tutorials](/docs/tutorials/1.developers/0.local-run\0.quick-start-with-application.md).
+> * Need the full stack with Admin and Keycloak instead? See [Launch the Full DIAL Stack](/docs/tutorials/1.developers/0.local-run/2.quick-start-full-stack-advanced.md).
 
 ## Prerequisites
 

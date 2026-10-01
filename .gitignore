@@ -14,6 +14,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+tmp/
 
 npm-debug.log*
 yarn-debug.log*
@@ -45,3 +46,4 @@ docs/tutorials/1.developers/4.apps-development/3.multimodality/dial-cookbook/exa
 ~*
 **/*.quarto_ipynb
 .vscode/spellright.dict
+.claude/settings.local.json

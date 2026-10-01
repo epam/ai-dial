@@ -242,6 +242,52 @@ const sidebars = {
             },
             {
               type: 'category',
+              label: 'Agentic Tools',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/agentic-tools/overview',
+                  label: 'Overview',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/agentic-tools/codex',
+                  label: 'Connect Codex to DIAL',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/agentic-tools/github-copilot',
+                  label: 'Connect GitHub Copilot to DIAL',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/agentic-tools/open-claw',
+                  label: 'Connect Open Claw to DIAL',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/agentic-tools/opencode',
+                  label: 'Connect OpenCode to DIAL',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/agentic-tools/claude-code',
+                  label: 'Connect Claude Code to DIAL',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/agentic-tools/claude-cowork',
+                  label: 'Connect Claude Cowork to DIAL',
+                },
+                {
+                  type: 'doc',
+                  id: 'tutorials/developers/agentic-tools/claude-m365-plugin',
+                  label: 'Connect the Claude M365 plugin to DIAL',
+                },
+              ],
+            },
+            {
+              type: 'category',
               label: 'Chat',
               items: [
                 {

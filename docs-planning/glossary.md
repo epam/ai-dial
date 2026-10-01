@@ -27,7 +27,7 @@ Not to be confused with: [Application](#application) (generic), [Interceptor](#i
 
 ### Addon
 
-**Deprecated.** A legacy extension mechanism based on the ChatGPT plugin protocol. The Addon concept has been abandoned and the [DIAL Assistant](#assistant-deprecated) repository that implemented it is archived. Do not use in new documentation. Modern equivalents are [Application](#application), [Interceptor](#interceptor), and [Tool Set](#tool-set).
+**Deprecated.** A legacy extension mechanism based on the ChatGPT plugin protocol. The Addon concept has been abandoned and the [DIAL Assistant](#assistant-deprecated) repository that implemented it is archived. Do not use in new documentation. Modern equivalents are [Application](#application), [Interceptor](#interceptor), and [Toolset](#toolset).
 
 ### Agent
 
@@ -215,7 +215,7 @@ Configuration is defined through `upstream` parameters in [dynamic settings](#dy
 
 ### Marketplace
 
-The single-entry point in [DIAL Chat](#dial-chat) for browsing and accessing all available [agents](#agent), [applications](#application), models, and [tool sets](#tool-set). The Marketplace respects [role](#role)-based access control, so each user sees only the resources available to their permissions. Resources can be filtered by type, topic, and source.
+The single-entry point in [DIAL Chat](#dial-chat) for browsing and accessing all available [agents](#agent), [applications](#application), models, and [toolsets](#toolset). The Marketplace respects [role](#role)-based access control, so each user sees only the resources available to their permissions. Resources can be filtered by type, topic, and source.
 
 The Marketplace also serves as a collaboration hub where users can [share](#sharing) and [publish](#publication) their creations.
 
@@ -223,7 +223,7 @@ The Marketplace also serves as a collaboration hub where users can [share](#shar
 
 A service conforming to the [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) that extends AI application capabilities with external tools and data sources. DIAL supports two integration approaches: connecting to external MCP servers hosted outside the platform, and deploying custom MCP servers as Docker containers through [DIAL Admin](#dial-admin).
 
-MCP servers are used through [tool sets](#tool-set) in [Quick Apps](#quick-app) and other applications.
+MCP servers are used through [toolsets](#toolset) in [Quick Apps](#quick-app) and other applications.
 
 ### Mind Map Studio
 
@@ -237,7 +237,7 @@ The ability of DIAL applications and models to handle non-textual content alongs
 
 ### My Workspace
 
-The personal area in [DIAL Chat](#dial-chat) where a user manages their bookmarked [agents](#agent), [tool sets](#tool-set), and [agent builders](#agent-builder). Resources added from the [Marketplace](#marketplace) appear here. My Workspace also provides access to no-code application creation tools.
+The personal area in [DIAL Chat](#dial-chat) where a user manages their bookmarked [agents](#agent), [toolsets](#toolset), and [agent builders](#agent-builder). Resources added from the [Marketplace](#marketplace) appear here. My Workspace also provides access to no-code application creation tools.
 
 ## P
 
@@ -265,7 +265,7 @@ A reusable text template stored in DIAL that users can invoke in conversations. 
 
 ### Publication
 
-The workflow through which a user submits [resources](#resource) from their [private space](#private-space) to the [public space](#public-space), making them available to all authenticated users or a restricted audience. All publication requests require administrator approval. Published [applications](#application) and [tool sets](#tool-set) appear in the [Marketplace](#marketplace).
+The workflow through which a user submits [resources](#resource) from their [private space](#private-space) to the [public space](#public-space), making them available to all authenticated users or a restricted audience. All publication requests require administrator approval. Published [applications](#application) and [toolsets](#toolset) appear in the [Marketplace](#marketplace).
 
 Not to be confused with: [Sharing](#sharing) (user-to-user, no approval required).
 
@@ -279,9 +279,9 @@ See also: [Private Space](#private-space).
 
 ### Quick App
 
-An [application type](#application-type) and no-code orchestrator, conceptually similar to OpenAI's GPTs, that simplifies the creation of multi-agent workflows. Quick Apps can use [agents](#agent), [tool sets](#tool-set), REST APIs, language models, and other DIAL resources as building blocks. Configuration is defined through a JSON schema and can be managed via API or the [DIAL Chat](#dial-chat) UI wizard.
+An [application type](#application-type) and no-code orchestrator, conceptually similar to OpenAI's GPTs, that simplifies the creation of multi-agent workflows. Quick Apps can use [agents](#agent), [toolsets](#toolset), REST APIs, language models, and other DIAL resources as building blocks. Configuration is defined through a JSON schema and can be managed via API or the [DIAL Chat](#dial-chat) UI wizard.
 
-Common use cases: RAG-like applications with predefined sources, applications that call external APIs via [MCP tool sets](#tool-set), and multi-step workflows combining multiple agents.
+Common use cases: RAG-like applications with predefined sources, applications that call external APIs via [MCP toolsets](#toolset), and multi-step workflows combining multiple agents.
 
 See also: [Quick App 2.0](#quick-app-20), [Code App](#code-app), [Mind Map Studio](#mind-map-studio).
 
@@ -299,7 +299,7 @@ Not to be confused with: [Playback](#playback) (exact reproduction without model
 
 ### Resource
 
-Any object managed by [DIAL Core](#dial-core): applications, conversations, prompts, files, and tool sets. Resources can reside in [private space](#private-space) or [public space](#public-space) and are subject to access control rules. Resources can be [shared](#sharing) and [published](#publication).
+Any object managed by [DIAL Core](#dial-core): applications, conversations, prompts, files, and toolsets. Resources can reside in [private space](#private-space) or [public space](#public-space) and are subject to access control rules. Resources can be [shared](#sharing) and [published](#publication).
 
 ### Role
 
@@ -341,15 +341,15 @@ A predefined prompt button displayed at the beginning of a conversation in [DIAL
 
 A capability that an AI model can invoke during a conversation to perform a specific action — such as calling an external API, querying a database, or executing a computation. Tools are declared as part of a chat completion request and conform to the OpenAI function calling convention.
 
-In DIAL, tools can be provided by [MCP servers](#mcp-server), other [applications](#application), or models deployed in DIAL Core. See also: [Tool Set](#tool-set).
+In DIAL, tools can be provided by [MCP servers](#mcp-server), other [applications](#application), or models deployed in DIAL Core. See also: [Toolset](#toolset).
 
-### Tool Set
+### Toolset
 
-A named collection of [tools](#tool) exposed through an [MCP server](#mcp-server) connection. Tool sets serve as connectors between [Quick Apps](#quick-app) (and other applications) and external services. Users can browse available tool sets in the [Marketplace](#marketplace), add them to [My Workspace](#my-workspace), and use them in their applications.
+A named collection of [tools](#tool) exposed through an [MCP server](#mcp-server) connection. Toolsets serve as connectors between [Quick Apps](#quick-app) (and other applications) and external services. Users can browse available toolsets in the [Marketplace](#marketplace), add them to [My Workspace](#my-workspace), and use them in their applications.
 
-Tool sets support authentication (user credentials or organization-wide credentials) and can be [shared](#sharing) or [published](#publication).
+Toolsets support authentication (user credentials or organization-wide credentials) and can be [shared](#sharing) or [published](#publication).
 
-Also written as: "toolset" (single word, used in API field names and some UI labels). In documentation, use **tool set** (two words) in prose.
+Also written as: "toolset" (single word, used in API field names and some UI labels). In documentation, use **toolset** (two words) in prose.
 
 ## U
 
@@ -395,7 +395,7 @@ DIAL Core (required)
 │   │   │   └── Mind Map Studio
 │   │   └── Applications without Schemas
 │   └── Interceptors
-├── Tool Sets (via MCP Servers)
+├── Toolsets (via MCP Servers)
 ├── Resources
 │   ├── Conversations
 │   ├── Prompts
@@ -438,7 +438,7 @@ SDKs
 
 | Term | Status | Replacement |
 |---|---|---|
-| Addon | Archived. ChatGPT plugin protocol, abandoned. | [Application](#application), [Interceptor](#interceptor), [Tool Set](#tool-set) |
+| Addon | Archived. ChatGPT plugin protocol, abandoned. | [Application](#application), [Interceptor](#interceptor), [Toolset](#toolset) |
 | Assistant | Archived. Repository [ai-dial-assistant](https://github.com/epam/ai-dial-assistant). | [Application](#application) |
 | "the backend" | Informal. Too vague. | [DIAL Core](#dial-core) |
 | "the frontend" | Informal. Too vague. | [DIAL Chat](#dial-chat) |
