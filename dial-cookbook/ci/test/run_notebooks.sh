@@ -7,6 +7,8 @@ NOTEBOOKS="
 how_to_call_image_to_text_applications
 how_to_call_text_to_image_applications
 how_to_call_text_to_text_applications
+how_to_use_an_interceptor
+how_to_use_a_custom_adapter
 "
 
 for nb in $NOTEBOOKS; do
