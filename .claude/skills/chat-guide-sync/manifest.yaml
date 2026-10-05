@@ -1,0 +1,140 @@
+# Dependency manifest for the DIAL Chat User Guide sync pipeline.
+#
+# Maps each guide page to the ai-dial-chat source that decides whether the page
+# is still correct. Used by both modes of the chat-guide-sync skill:
+#   - auto:   a DIAL release pins a chat version -> diff source -> changed paths
+#             intersect these deps -> the work list of pages to re-check.
+#   - manual: "verify the guide" runs the same diff interactively.
+#
+# Rule: OVER-INCLUDE, never under-include. A false alarm costs one extra
+# re-check; a miss ships a stale page. Globs (spec/namespace prefixes) catch NEW
+# entries automatically, so a new feature flags the right page without a map edit.
+#
+# This map is a TRIGGER HINT, not proof. It tells the agent WHERE to look; the
+# agent still reads source@tag to confirm WHAT changed.
+#
+# NOT covered here: screenshots and visual drift. A file-diff cannot see that a
+# panel looks different. Those are handled by the capture/screenshot-diff step,
+# added later. `screenshots:` and `fixtures:` keys are reserved for that phase.
+
+guide_root: docs_v2/chat-user-guide-new
+
+# Everything is fetched from these sources at run time. No local clone assumed.
+chat_repo: epam/ai-dial-chat
+chat_repo_url: https://github.com/epam/ai-dial-chat.git
+# Where DIAL platform releases live, inside THIS repo. The latest release's
+# upgrade doc names the ai-dial-chat version that release ships -- that version
+# is the "--to" the detector diffs toward.
+dial_releases_path: docs/releases
+dial_releases_url: https://github.com/epam/ai-dial/tree/main/docs/releases
+
+# The ai-dial-chat version this guide currently matches. The detector diffs
+# source between this and the version a new DIAL release pins. Bump on each
+# verified sync.
+last_verified_chat_version: "1.0.4"
+
+# Source roots inside ai-dial-chat, for diff scoping. Verified against tag 1.0.4.
+source_roots:
+  specs: openspec/specs          # ~250 feature-scoped spec folders; best signal
+  libs: libs                     # feature libraries
+  labels: apps/chat/src/i18n/locales/en.json  # all UI strings, 50 namespaces
+  backend: apps/chat-api         # server behavior (naming, transcription, usage)
+
+# Per-page dependencies. Each list is matched with fnmatch globs.
+#   specs:  openspec/specs/<name> folders
+#   libs:   libs/<name> folders
+#   labels: en.json top-level namespaces (routed by key-level diff, so a label
+#           change flags only the pages owning the changed namespace -- not all 12)
+#   code:   raw UI folder names -- page folders (apps/chat/src/pages/<X>),
+#           component folders (apps/chat/src/components/<X>), and chat-hooks areas
+#           (libs/chat-hooks/src/<area>). Catches code-only changes a spec misses.
+#           Matched case-insensitively.
+#   backend: true -> any change under apps/chat-api/ flags this page
+pages:
+  - file: 0.index.md
+    title: Overview and interface
+    specs: [start-view-greeting, "starter-buttons*", "navigation-*", themes-module, user-menu, footer-message, "mobile-navigation-*"]
+    libs: [sidebar, navigation-panel]
+    labels: [basic, buttons, navigation, sidebar, footerMessage, "announcement*", appUpdate, errorBoundary, notFound, notification, entityNotifications]
+    code: [Navigation, Header, ChatLayout, FooterMessage, "Announcement*", ErrorBoundary, NotFound, Notification, StarterButtons, AlertShell, "*Fallback", Icons, "*Icon"]
+
+  - file: 1.conversations.md
+    title: Conversations
+    specs: ["conversation-*", "conversations-*", "chat-hooks-conversation*", edit-message, message-rating, "input-history-*", "voice-*", llm-conversation-naming, ai-conversation-rename, completion-mode, "citation-*", "quotations-*", "message-*", "markdown-*", stage-visualization]
+    libs: [conversation-input, conversation-messages, conversation-panel, conversation-stages, quotations]
+    backend: true   # conversation naming, title generation, voice transcription
+    labels: [chat, conversation, conversationPanel, conversationInput, conversationExport, conversationImport, deploymentSelector, promptSelector, rate, citations, attachments, voiceRecording, tools, attachmentCanvas]
+    code: [Conversation, ConversationRoute, ConversationView, ConversationPanel, ConversationSourcesPanel, NewConversationComposer, DeploymentSelector, PromptSelector, "conversation", "conversation-sources", useToolsMenu]
+
+  - file: 2.scheduled-tasks.md
+    title: Scheduled tasks
+    specs: ["scheduled-task*"]
+    libs: [scheduled-tasks]
+    backend: true
+    labels: [scheduledTasks]
+    code: ["ScheduledTask*", "scheduled-task"]
+
+  - file: 3.catalog/0.index.md
+    title: Catalog
+    specs: ["catalog-*", unified-catalog, "*-favorites*", "chat-hooks-catalog*", "ui-feature-toggles", "feature-flags-service"]
+    libs: [catalog]
+    labels: [catalog, favorites]
+    code: [CatalogView, catalog]
+
+  - file: 3.catalog/1.models.md
+    title: Models
+    specs: ["model-*", "deployment-limits*", "deployment-details*", catalog-model-selector, "deployment-icon-*", deployment-schema-icons]
+    libs: [catalog]
+    labels: [catalog, deploymentSelector]
+    code: [CatalogView, DeploymentSelector, catalog]
+
+  - file: 3.catalog/2.agents.md
+    title: Agents
+    specs: [deployment-creation-form, app-editor-flow, custom-app-editor, quick-app-authoring, catalog-create-app, "deployments-*", "application-*", "applications-*", deployment-configuration, "catalog-quickapp-*"]
+    libs: [deployment-creation-form, builder-form]
+    labels: [catalog, appsEditor, customApp, editor, deploymentSelector]
+    code: [AppsEditor, EditorHeader]
+
+  - file: 3.catalog/3.toolsets.md
+    title: Toolsets
+    specs: ["toolset-*", "catalog-toolset*", "*-toolset-management", "deployments-toolsets-*"]
+    libs: [builder-form]
+    labels: [catalog, toolsetEditor, toolsetSignin, tools]
+    code: ["Toolset*", ConnectMcpUrlContent, OfflineCredentialsLoginModal, SigninInterruptDialog, oauth]
+
+  - file: 3.catalog/4.skills.md
+    title: Skills
+    specs: ["skill-*", "skills-*", "chat-hooks-skills*"]
+    libs: [skill-editor]
+    labels: [catalog, skillEditor, skillArchiveImport]
+    code: [SkillEditor, SkillFilePreview, skill]
+
+  - file: 3.catalog/5.prompts.md
+    title: Prompts
+    specs: ["prompt-*", "prompts-*", "chat-hooks-prompts*"]
+    libs: [prompt-editor, prompts]
+    labels: [catalog, promptEditor, promptSelector]
+    code: [PromptEditor, PromptSelector, prompt]
+
+  - file: 4.files.md
+    title: File Manager
+    specs: ["file-*", "file-manager-*", "dial-file-*", "files-service*", "attachment-*", "chat-hooks-file-manager*", "chat-hooks-attachment*", canvas]
+    libs: [attachment-input, attachment-canvas, chat-shared]
+    backend: true   # file storage
+    labels: [dialFileManager, fileDnd, attachments, attachmentCanvas]
+    code: ["DialFileManager*", FileTypeIcon, files, attachment, usePageFileDrag]
+
+  - file: 5.sharing-and-publishing.md
+    title: Sharing and publishing
+    specs: ["*-share*", "*-unshare*", "*-publish*", "*-unpublish*", "publish-*", "share-*", "chat-hooks-sharing*"]
+    libs: [share, publish-panel]
+    labels: [share, publish, publishAccessRules, conversationPublish, conversationUnpublish]
+    code: ["*Share*", "*Publish*", "*Invitation", "useShare*"]
+
+  - file: 6.usage-and-settings.md
+    title: Usage and settings
+    specs: ["usage-*", "settings-*", "*-config-*", language-selector, "keyboard-shortcut*", chat-settings, user-menu]
+    libs: [settings-panel, usage-dashboard]
+    backend: true   # usage data
+    labels: [settings, chatSettings, usage, auth, userConfig]
+    code: [SettingsPage, UsageLimitsControl, usage, useChatSettingsFormConfig, auth, RequireAuth, OverlayLoginGate]
