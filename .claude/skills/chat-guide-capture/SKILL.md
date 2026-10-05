@@ -78,6 +78,16 @@ skills:
   subfolder). Don't edit `docs_v2/6.chat-user-guide/` or `sidebars-v2.js` — wiring the new folder
   into the site is a separate, later, explicit step the user decides on.
 
+- **Propose structural and wording changes before writing them.** Describe the change compactly
+  in chat and wait for a go-ahead. Keep the proposal readable in a terminal: a short list, not a
+  before/after dump of the file ("I cannot read this — output without scroll").
+- **Push back instead of just complying.** Asked for directly: "don't just follow my lead —
+  challenge what I say, we need a good doc." When a requested addition would hurt the page, say so
+  with a reason and a recommendation. Several requested additions to an overview page (deep
+  research, scheduled tasks, multimodality, time-zone awareness) were correctly argued down to one
+  line about access control, and the argument was accepted. Agreeing to everything is what
+  produced the drafts that got rejected.
+
 ## Connecting the browser tools
 
 The `mcp__claude-in-chrome__*` tools are usually deferred — load them in one `ToolSearch` call
@@ -109,10 +119,31 @@ Confirm before starting:
 
 Don't rely on clicking alone for behavioral details (limits, validation rules, exact logic) —
 verify them against the source. Use the `docs-researcher` skill's approach for `epam/ai-dial-chat`
-(already catalogued in its `references/repo-map.md`: TypeScript, NX monorepo, main app under
-`apps/chat/`, shared libs under `libs/`, including `libs/overlay/` and `libs/theming/`). A quick
-lookup (a few files) can be answered inline; anything broader is worth a real `docs-researcher`
-brief, since later phases will keep needing to check specific claims against it.
+(already catalogued in its `references/repo-map.md`: TypeScript, NX monorepo). A quick lookup (a
+few files) can be answered inline; anything broader is worth a real `docs-researcher` brief, since
+later phases will keep needing to check specific claims against it.
+
+**Verified layout of `epam/ai-dial-chat` (branch `development`).** Don't re-derive these from
+guesses; correct them here if the repo moves:
+
+- `apps/` holds exactly `chat`, `chat-api`, `chat-overlay-sandbox`, `mcp-app-sandbox`. **There is
+  no `chat-ng` app** — don't go looking for one.
+- **Exact UI labels live in `apps/chat/src/i18n/locales/en.json`**, not `apps/chat/public/locales/`
+  (that path does not exist). This file is the fastest authoritative source for a label, tooltip,
+  placeholder or error string — it settled `Dictate`, `Record voice` and
+  `Rename with AI`.
+- `apps/chat-api/` is the NestJS backend. Server-side behavior — conversation naming,
+  audio transcription, title generation — lives there, not in the React app.
+- `libs/conversation-input/` owns the message composer; `libs/conversation-panel/` owns the chat
+  list and its dialogs.
+- **`openspec/specs/<feature>/spec.md` holds written feature specs**, and
+  `openspec/changes/archive/<date>-<slug>/` holds dated change proposals. Both proved
+  authoritative. The archive folder names alone work as a feature changelog:
+  `2026-07-07-ai-conversation-rename` and `2026-08-04-fix-rename-with-ai-502` show when a feature
+  landed and what later broke.
+- **A feature's existence can be settled by file name before reading anything.** Turning up
+  `conversation-naming.service.ts` and `dto/generate-title.dto.ts` resolved a disputed claim about
+  LLM-generated conversation titles in a single grep.
 
 **Check migration status before writing anything down as current.** `ai-dial-chat` (routes under
 `chat-ng` in some deployments) is a ground-up rewrite, not just a UI refresh — plenty of
@@ -135,6 +166,11 @@ guide feature still applies:
   may not authenticate against `api.github.com` (observed: "Bad credentials" even against
   `/user`) — don't spend long debugging that. `WebFetch` against `github.com` HTML pages and
   `raw.githubusercontent.com` file URLs works reliably for public repos and is the fallback.
+  **For anything beyond one or two lookups, `git clone --depth 1` into the scratchpad and grep
+  locally** — much cheaper than repeated fetches, and it makes whole-repo greps
+  possible. The clone then **survives in the scratchpad for the rest of the session**, so later
+  questions can be answered directly instead of by spawning another research agent. Check whether
+  one is already there before cloning again.
 - **Terminology**: don't carry old-guide capitalization/spacing forward uninspected — confirm the
   exact live label (e.g. the live UI's Catalog tab and card badge read "Toolset", one word, not
   the old guide's "Tool Set"). **The live UI and the user's instruction outrank
@@ -145,6 +181,26 @@ guide feature still applies:
   `grep -rn -i "<old spelling>" docs_v2/chat-user-guide-new/` — before replying. Corrected terms
   reappear in the places prose review skips: link labels, table cells, image alt text, and
   "Next steps" lists. Being told the same correction twice is the failure mode to avoid.
+- **Don't assume a concept from one entity type applies to all types.** The "preconfigured"
+  concept exists for agents and toolsets (set up by administrators, read-only, Featured label) but
+  does NOT exist for skills or prompts — their source enums have only Personal, SharedWithMe, and
+  Public. Verify each entity type's data model in the source before writing a section by analogy.
+- **"Either X or Y, depending on your deployment" is a smell that two features were merged.** A
+  draft described one microphone control that "either transcribes into the text box or attaches an
+  audio file, depending on the deployment". Source showed two separate features with different
+  controls, placements, triggers and availability rules: **Dictate** (mic button in the composer;
+  speech becomes editable text, appended to the current draft, never auto-sent) and **Record
+  voice** (an Add-menu item; attaches the audio itself, untranscribed). Whenever a sentence hedges
+  between two behaviors, suspect it is describing two things and go find both.
+- **A reviewer's correction can be as incomplete as the text it corrects — verify both.** A
+  page claimed a conversation is "named automatically based on your first prompt"; the reviewer
+  said the name is generated semantically from the topic. Source showed both were half right: the
+  name is taken from the first message immediately, then an LLM replaces it **once**, after the
+  first reply. Don't swap the old claim for the new one — establish the real mechanism,
+  which is usually what explains the behavior the reviewer noticed in the first place.
+- **A killed research agent's last line is a lead, not a conclusion.** A stopped agent reported
+  finding `getConversationName('New chat', firstMessage)`, which looked like it disproved the
+  reviewer outright. It was one of two code paths. Finish the investigation before writing.
 
 ## Phase 2 — Harvest the old guide
 
@@ -167,6 +223,11 @@ For each described feature/section, classify it:
   rewrite the parts that no longer match, and verify against Phase 1 findings.
 - **No longer exists** — drop it; note it so it isn't accidentally reintroduced.
 - **New in the app, no old equivalent** — write fresh; nothing to reuse.
+
+Watch for old-guide concepts that are admin-only and don't belong in a user guide. Example: the
+original guide's "personal vs. organization credentials" for toolsets — the `ManageCredentials` UI
+state only appears for administrators managing public toolset keys, not for end users. Drop it from
+the user guide; it belongs in admin docs if anywhere.
 
 ## Phase 3 — File structure for the new guide
 
@@ -194,6 +255,12 @@ Two lessons behind that shape:
   actions, and its own builder, so they do not compress into shared sections without going vague.
   When a page starts needing "this differs by type" qualifiers in several sections, that is the
   signal to split it — propose the split before writing another long draft.
+- **Each entity page follows a consistent action structure.** Group available actions by how the
+  item reached the user's Catalog — Preconfigured (agents/toolsets only), Published, Shared with
+  you, Your own — with an explicit bullet list of actions per group. Split Edit and Delete into
+  separate sections: Edit covers own items AND shared-with-editing-rights; Delete is creator-only
+  (editing rights do not grant delete access). This structure is validated across all five entity
+  pages (models, agents, toolsets, skills, prompts) and should be maintained for consistency.
 - **Renumber downstream files when the shape changes.** This repo requires a file's numeric
   prefix to equal its position in the menu (`CLAUDE.md`), so inserting or nesting a section
   renumbers everything after it, and every `./N.name.md` link in already-written pages has to be
@@ -220,8 +287,9 @@ and that went into the draft as "the panel has up to three tabs" — wrong for f
 types (models have 5: About, Overview, Pricing, Limits, Connect; toolsets have 4, including
 Tools; skills and prompts have 2: Details, Overview). The same applies to a panel's buttons:
 they change with ownership and state (an org-published agent offers only **Use in chat**; your
-own adds **Share** and a **...** menu; an unauthenticated toolset shows **Manage credentials**,
-the same toolset signed in shows **Log out**; a skill shows **Download**). Open one of *each*
+own adds **Share** and a **...** menu; an unauthenticated OAuth toolset shows **Log in**, the
+same toolset signed in shows **Log out**; an API key toolset shows **API key** before a key is
+saved and **Change API key** after; a skill shows **Download**). Open one of *each*
 type, and both an owned and a not-owned example, before writing the section.
 
 **Choose the example deliberately, and keep it consistent within a section.** Don't tour a panel
@@ -314,13 +382,37 @@ natural" and "it feels like you do not see your own work". Concrete rules that c
 - **State rules by their real cause.** "You can edit and delete only items you created" is the
   actual rule — ownership. Framing it around publication state ("for an agent you own and haven't
   published, the menu offers Edit, Publish, Delete") buries the rule and implies things that
-  aren't true.
+  aren't true. The verified rules from the current app (`Header.tsx`): **Edit** = owner OR
+  shared-with-editing-rights (`isEditable`). **Delete** = owner only (`isMyApp`). **Share** =
+  owner only. These apply uniformly to agents, toolsets, skills, and prompts — don't invent
+  per-type exceptions.
 - **Say what a thing is for, not what category it belongs to.** "Reusable instruction modules an
   agent loads on demand" is vocabulary. "Write the procedure once — how your company processes a
   claim — and the agent picks it up when a task matches" is a definition a user can act on.
 - **Prefer the user's vocabulary over your own paraphrase.** "AI models available in your
   environment" beat "language and image models"; "all AI agents you can use — your own and those
   published organization-wide" beat "models and applications configured for conversation".
+- **"Use in chat" does different things by entity type — describe the actual behavior, not the
+  button label.** For a model or agent, it starts a conversation with that item as the responder.
+  For a skill, it opens a new conversation and adds the skill to the composer (the agent applies
+  the skill's instructions to the next message). For a prompt, it places the prompt text in the
+  composer without changing the selected agent — and if the prompt has variables, a parameter form
+  opens first. State what happens, not just "click Use in chat."
+
+- **No em dashes.** Use a period, a comma or a colon. Avoid the paired-dash aside in particular
+  ("it combines A, B and C — X, Y, Z — in a single application"), which was
+  called out as reading like generated text. A plain list of what the reader can do beats it.
+- **Keep screenshot density uniform inside a list.** Like and Dislike each carried an image while
+  Copy, Regenerate and Copy as Markdown did not, which made one row of five icons read as five
+  unrelated features. Illustrate every item or none, and prefer a single image of the whole row.
+- **When the user supplies a screenshot, write the section from the image, not from a prose
+  description of the feature.** A citations section drafted from a feature blurb said only that
+  sources are cited with precise locations. The screenshot showed what actually mattered: citation
+  chips inline after each individual claim, and a card carrying the quoted source passage and a
+  **Preview** button. Read the file, then write.
+- **When prose gains a menu item, confirm the cited screenshot shows it.** Adding **Record voice**
+  to the Add menu left the page describing an item its own image did not contain. Recapture, or
+  tell the user it needs recapturing — never leave the mismatch silent.
 
 Then **actually re-read the finished page top to bottom** before reporting it done — as a reader
 who has not seen the app, not as the author checking off sections. Confirm:
@@ -347,6 +439,53 @@ who has not seen the app, not as the author checking off sections. Confirm:
    from a superseded draft that should be deleted.
 4. Anything you could not verify live is either omitted or flagged to the user — never written as
    though it were confirmed, and never hedged into vagueness inside the page itself.
+
+## Phase 4c — Structure the page itself
+
+Phase 3 decides which files exist; this decides the sections inside one. Drafts that were factually
+correct still came back as "cumbersome" and "chaotic", and one page's structure was rejected and
+redone twice — so treat page structure as a deliverable in its own right, not a
+by-product of the order you happened to capture things in.
+
+**The TOC renders only `##` and `###`.** Docusaurus defaults to `minHeadingLevel: 2`,
+`maxHeadingLevel: 3`, so anything documented as a list item or an `####` has no TOC entry and no
+anchor to link to. **Every action a reader might arrive looking for must therefore be an `##` or
+`###` heading.** Import, Delete, Duplicate and Export were all invisible as list items, and the
+objection was exactly that: "not all users will think of searching the page or looking inside
+nested sections."
+
+**The fix is one `##` parent with an `###` per action** — not a flat run of `##`s. A
+page with an `##` per action was the original "chaotic" complaint; burying them in lists was the
+opposite failure. One level down under a single parent satisfies both: every action is in the TOC,
+and the page still reads as a few coherent blocks.
+
+**Don't organize a page by journey phase when its surfaces span every phase.** A "Start a
+conversation → Compose a message → In a conversation → Manage"
+shape collapsed on contact: agent selection, the Add menu and attachments all apply equally to the
+first message and the fiftieth, so "start" and "compose" inevitably overlapped and the reader could
+not tell which to read. Organize by **the thing being acted on** instead.
+
+**Five section-name tests, each of which caught a real defect:**
+
+- **Does the name describe one unambiguous thing?** "Compose a message" actually contained the Add
+  menu, agent selection, voice input and attachments — a reader expecting composition
+  guidance got a menu reference.
+- **Is it a catch-all?** "In a conversation" means nothing on a page where everything happens in a
+  conversation. If a heading could host almost any section on the page, delete it and promote its
+  children.
+- **Are two sections the same action twice?** "Start a conversation" and "Enter a prompt" were one
+  thing described twice — starting a conversation *is* sending the first message.
+- **Does it earn its place, or just narrate the screenshot?** A "The chat area" section explaining
+  that the chat is in the center and the list is on the left was cut: it told the reader nothing the
+  adjacent image didn't. Fold that orientation into the first section that needs it.
+- **Does it sit where the reader needs it, not where the UI puts it?** Search and filter belongs
+  with list management, after the reader has conversations worth finding — not wedged
+  between starting a conversation and sending a message.
+
+**Keep a one-sentence scope line, but don't pad it.** Removing "this page covers..." entirely was
+rejected — the reader does want the page's span. What makes it filler is the padding
+around it: audience, prerequisites and "no technical background required" restated on every subpage
+when the section index already says it once.
 
 ## Phase 5 — Audit
 
