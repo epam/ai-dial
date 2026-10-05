@@ -3,3 +3,9 @@ contact_links:
   - name: 📝 Talk in Discord
     url: https://discord.com/channels/831132799535939614/1172686875299950683
     about: Discuss your question in Discord
+  # SECURITY.md asks that a vulnerability never be a public issue. Private
+  # vulnerability reporting is enabled, so the private route belongs in the
+  # issue chooser next to the other contact links.
+  - name: Report a security vulnerability
+    url: https://github.com/epam/ai-dial/security/advisories/new
+    about: Do not open a public issue. Report it privately here. See SECURITY.md.
