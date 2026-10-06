@@ -68,6 +68,9 @@ DIAL release  ->  chat version  ->  fetch chat repo  ->  diff  ->  work list  ->
 3. **Output** — a selective work list: the pages to re-check, each with the reason,
    plus changed files that matched no page (coverage gaps to review).
 
+**Important**: The diff is the primary targeting signal, but it is NOT the only
+source. See the **three-source completeness check** in Stage 2.
+
 Zero required arguments; `--to`, `--from`, `--cache`, `--json` available. See the
 script headers for usage.
 
@@ -80,6 +83,34 @@ flag screenshots for recapture. Then open a concise PR.
 **Follow `references/m2-verify-and-write.md` exactly** — it is the agreed V1
 contract: the five verdicts, the new-feature rule (draft + hard flag), the
 stale-screenshot marker, the three-bucket PR format, and the boundaries.
+
+### Stage 3 — Three-source completeness check (mandatory)
+
+After all page edits are written, reconcile the work against ALL THREE sources
+before declaring the sync complete. Every item across all three must reach a
+verdict (done / no-op / flag / recapture / defer). Advancing to "open PR" without
+this check is not allowed.
+
+| # | Source | What it catches | Where to find it |
+|---|--------|-----------------|------------------|
+| 1 | **Git diff** (M1 detector output) | Code-level changes: renamed labels, new specs, removed components, backend behavior | `detect.py` output — already used in M2 |
+| 2 | **DIAL Chat release notes** | User-facing features, breaking changes, behavioral changes the diff may under-represent | GitHub release page for `epam/ai-dial-chat` at the `to` tag (e.g. `https://github.com/epam/ai-dial-chat/releases/tag/<version>`) |
+| 3 | **DIAL platform release notes** | Chat-relevant features highlighted at the platform level; cross-component features involving Chat | `docs/releases/<dial-version>/` in this repo — both the release notes and the upgrade guide |
+
+**Why all three**: The diff catches everything that changed in code but can miss
+the *significance* of a change (a one-line config flag that enables a major
+feature). Chat release notes catch user-facing features the diff under-represents.
+Platform release notes catch cross-component features (e.g. a Core change that
+surfaces new UI in Chat). Any single source alone will miss things.
+
+**Process**:
+1. After M2 edits, read the Chat release notes for every chat version between
+   `from` and `to` (inclusive of `to`, exclusive of `from`).
+2. Read the DIAL platform release notes for the target DIAL release.
+3. For each item in sources 2 and 3 that is chat-relevant: check whether the M2
+   edits already cover it. If not, investigate and write/flag/no-op it.
+4. Record the final reconciliation in the PR or scratchpad — every item with a
+   verdict.
 
 ## Hard constraints
 

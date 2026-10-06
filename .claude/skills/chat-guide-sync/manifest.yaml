@@ -27,6 +27,8 @@ chat_repo_url: https://github.com/epam/ai-dial-chat.git
 # is the "--to" the detector diffs toward.
 dial_releases_path: docs/releases
 dial_releases_url: https://github.com/epam/ai-dial/tree/main/docs/releases
+# Chat release notes (GitHub releases) — used in the three-source completeness check.
+chat_releases_url: https://github.com/epam/ai-dial-chat/releases
 
 # The ai-dial-chat version this guide currently matches. The detector diffs
 # source between this and the version a new DIAL release pins. Bump on each

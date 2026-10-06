@@ -139,6 +139,35 @@ N pages updated · M need screenshots · K flagged
 Reviewer's job is a 30-second scan: read Done, recapture the flagged shots, decide
 on the flags. Depth is in the diff for anyone who wants it.
 
+## 6. Three-source completeness audit (mandatory, after all edits)
+
+After all page edits are written, cross-check against two additional sources
+beyond the git diff that drove the work list. Every item must reach a verdict
+before the PR can be opened.
+
+### Source 2: DIAL Chat release notes
+
+Read the GitHub release page for `epam/ai-dial-chat` at the `to` tag. For each
+user-facing item listed:
+- If already covered by an M2 edit → **done**
+- If chat-relevant but not in the diff (e.g. a config-flag feature) → investigate,
+  then **write** / **flag** / **no-op**
+- If not chat-guide-relevant (adapter, SDK, infra) → **no-op** with reason
+
+### Source 3: DIAL platform release notes
+
+Read `docs/releases/<dial-version>/` (both the release notes and upgrade guide).
+For each item that mentions Chat or affects the Chat UI:
+- Same verdict logic as Source 2.
+
+### Recording
+
+Append the audit results to the reconciliation scratchpad. The PR body's Done /
+Recapture / Flag lists must reflect ALL three sources, not just the diff.
+
+**The sync is not complete until every item across all three sources has a
+verdict.** This is a hard gate, not optional polish.
+
 ## Boundaries (restate before building)
 
 - **Text only.** Visual judgment is out of V1 → Recapture list.
@@ -148,6 +177,9 @@ on the flags. Depth is in the diff for anyone who wants it.
   `docs-researcher`.
 - **No commit/push beyond the PR branch** the pipeline is explicitly allowed to
   open; per repo `CLAUDE.md`, humans own merges.
+- **Three-source completeness check is mandatory.** Do not open the PR until every
+  item from the diff, the Chat release notes, and the DIAL platform release notes
+  has a verdict.
 
 ## Harvest-before-delete
 
