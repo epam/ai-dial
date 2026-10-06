@@ -251,17 +251,22 @@ PR #3945, Code App from FE PR #3795, Model Serving from FE PR #3815).
 
 ## Next step
 
-**Phase 3, fourth slice: 1.46 → 1.47.**
+**Phase 3, final slices: 1.46 → 1.47 → 1.48 (hybrid approach).**
+
+Instead of writing edits release-by-release (which touches the same pages multiple
+times), use a hybrid: build reconciliation tables for BOTH 1.47 and 1.48, then batch
+all page edits in one pass against the 1.48 final state. This gives completeness from
+the three-source check without the repeated page churn.
 
 1. Resolve 1.47 component versions from `docs/releases/1.47/upgrade-to-1.47.md`.
 2. Run `changelog.py` per repo for the 1.46→1.47 diff (frontend 0.19.0→?, DM 0.19.0→?,
    BE 0.19.0→?, eval-fw 0.2.0→?, eval-metrics 0.1.0→?).
-3. Read the DIAL 1.47 platform release notes.
-4. Fetch component upgrade guides if available.
-5. Build the reconciliation table (three-source check).
-6. Write page updates, following admin guide page patterns.
-7. Run `npm run build` to verify.
-8. Then advance to 1.48 (final).
+3. Read the DIAL 1.47 platform release notes + component upgrade guides.
+4. Build the 1.47 reconciliation table (three-source check, verdicts only — no edits yet).
+5. Repeat steps 1-4 for 1.48.
+6. Merge both reconciliation tables into a per-page edit plan.
+7. Write all page updates once, against the 1.48 final state.
+8. Run `npm run build` to verify.
 
 ## Gotchas / environment
 - Repo rule: **never commit/push** without explicit permission (user handles git).
