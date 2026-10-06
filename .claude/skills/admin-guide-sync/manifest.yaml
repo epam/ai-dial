@@ -1,0 +1,219 @@
+# Dependency manifest for the DIAL Admin User Guide sync pipeline.
+#
+# Same idea as chat-guide-sync, with one structural difference: DIAL Admin spans
+# FIVE source repositories, not one. So versions, baselines, and per-page source
+# maps are all keyed BY REPO.
+#
+# Rule (unchanged): OVER-INCLUDE, never under-include. A trigger hint, not proof.
+#
+# STATUS: skeleton. Two things are deliberately unfilled and are the subject of the
+# first work phases (see references/catch-up-plan.md):
+#   1. `baseline` versions per repo  -> set during baseline discovery (Phase 0).
+#   2. per-page `sources`            -> set during source mapping (Phase 2),
+#      by investigating each repo's layout the way chat's specs/libs were mapped.
+
+guide_root: docs_v2/5.administering-dial
+
+# DIAL platform releases live in THIS repo; the latest release's upgrade doc names
+# the version of EACH admin component that release ships.
+dial_releases_path: docs/releases
+dial_releases_url: https://github.com/epam/ai-dial/tree/main/docs/releases
+
+# The five source repositories. `key` is how the upgrade doc labels the component
+# (e.g. "ai-dial-admin-frontend: `0.20.0`"). `baseline` is the version the current
+# guide content matches -- to be discovered in Phase 0 and bumped on each sync.
+# Baselines confirmed in Phase 0: the guide covers DIAL 1.43 (content dated
+# 2026-06-04; 1.43's MCP Registry is documented, 1.44's HuggingFace auto-detect /
+# Evaluation Run Comparison / CSV export are not). 1.43 admin versions are all 0.16.0;
+# the evaluation repos did not exist as separate components at 1.43.
+repos:
+  - key: ai-dial-admin-frontend
+    url: https://github.com/epam/ai-dial-admin-frontend.git
+    baseline: "0.16.0"        # DIAL 1.43
+    note: "Admin UI. Primary source for user-facing labels/screens. NX/Next monorepo,
+           same shape as ai-dial-chat."
+    # Richest signals, like chat:
+    signals:
+      specs: openspec/specs                               # 164 feature-named specs
+      labels: apps/ai-dial-admin/src/locales/en.ts        # TS object (NOT json) -- see label note below
+      code: apps/ai-dial-admin/src                        # app/, components/, hooks/, models/, ...
+  - key: ai-dial-admin-deployment-manager-backend
+    url: https://github.com/epam/ai-dial-admin-deployment-manager-backend.git
+    baseline: "0.16.0"        # DIAL 1.43
+    note: "Deployments / container management behavior. Java/Gradle, NO openspec."
+    signals:
+      code: src                                           # map by Java package/path globs
+  - key: ai-dial-admin-evaluation-framework-backend
+    url: https://github.com/epam/ai-dial-admin-evaluation-framework-backend.git
+    baseline: null            # did NOT exist at 1.43; everything is new when it first ships
+    note: "Evaluation framework. DECIDED IN SCOPE: the guide should gain an
+           evaluation section (new area, no 1.43 baseline, no old-guide equivalent).
+           Diff from the repo's first shipped version during catch-up. Java/Gradle."
+    signals:
+      specs: openspec/specs                               # 73 specs -- good evaluation signal
+      code: src
+  - key: ai-dial-admin-evaluation-metrics
+    url: https://github.com/epam/ai-dial-admin-evaluation-metrics.git
+    baseline: null            # did NOT exist at 1.43
+    note: "Evaluation metrics. In scope, feeds the new evaluation section. Python."
+    signals:
+      code: src                                           # Python modules
+  - key: ai-dial-admin-backend
+    url: https://github.com/epam/ai-dial-admin-backend.git
+    baseline: "0.16.0"        # DIAL 1.43
+    deprecated: true
+    note: "Being deprecated -- track for now, drop when the platform stops shipping it.
+           Java/Gradle, NO openspec."
+    signals:
+      code: src
+
+# LABEL NOTE: the frontend's label file is en.ts (a TypeScript default-export object
+# with nested namespaces like Home/Auth/SettingsModal), NOT en.json. Chat's key-level
+# label routing used json.loads -- that won't parse en.ts. For admin V1 either (a) a
+# light brace/regex parse of the top-level namespaces, or (b) treat en.ts coarsely
+# (any change flags its mapped pages) and lean on specs/code, which are the stronger
+# signals anyway. Decide in the Phase 1 script generalization.
+
+# Per-page source dependencies. Each page maps to one or more repos; within a repo,
+# globs per signal kind (specs by folder name; code by path relative to the repo's
+# `signals.code` root; labels = true for a coarse en.ts flag).
+# Phase 2 DONE: all 20 existing pages mapped. (The new Evaluation page is created and
+# mapped in Phase 3.) Globs verified against the repos at their current tags.
+pages:
+  - file: 0.index.md
+    title: "Overview"
+    sources:
+      ai-dial-admin-frontend:
+        specs: [menu-group-visibility, admin-api-availability, initial-theme-rendering]
+        code: ["components/WelcomeView*", "components/SideBar*", "components/Menu*", "components/Header*", "components/Breadcrumbs*", "components/Footer*"]
+        labels: true
+  - file: 1.config-backup-and-global-settings.md
+    title: "Config backup & global settings"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["deployment-export*", "deployment-import*", system-properties, direct-core-version, config-file-entity-views]
+        code: ["components/ExportConfig*", "components/ImportConfig*", "components/SystemProperties*", "components/SettingsModal*"]
+  - file: 2.entities/1.models.md
+    title: "Models"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["model-*", platform-models, model-resources-core-api]
+        code: ["components/Models*", "components/ModelView*"]
+  - file: 2.entities/2.applications.md
+    title: "Applications"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["application-*", "app-*", approute-validation, platform-applications]
+        code: ["components/Applications*"]
+  - file: 2.entities/3.toolsets.md
+    title: "Toolsets"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["toolset-*", platform-toolsets, mcp-registry-toolsets, change-tool-modal-selection]
+        code: ["components/Toolsets*", "components/Tools*"]
+  - file: 2.entities/4.interceptors.md
+    title: "Interceptors"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["interceptor-*", platform-interceptors, docker-image-ref-adapter-interceptor]
+        code: ["components/Interceptors*", "components/InterceptorTemplates*"]
+  - file: 2.entities/5.routes.md
+    title: "Routes"
+    sources:
+      ai-dial-admin-frontend:
+        specs: [platform-routes, platform-entity-routes]
+        code: ["components/Routes*"]
+  - file: 3.builders.md
+    title: "Builders"   # = Application Runners (+ adapters); App Runner builder/config
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["app-runner*", platform-app-runners, argument-template-editor]
+        code: ["components/ApplicationRunners*", "components/Adapter*"]
+  - file: 4.assets.md
+    title: "Assets"
+    sources:
+      ai-dial-admin-frontend:
+        # Assets shows the Public + platform buckets of each asset type, so it owns
+        # the platform-* asset entity specs too (they appear in BOTH entities and
+        # assets views -- route to both, over-include).
+        specs: ["asset*", core-asset-client, platform-applications, platform-toolsets, platform-translators, platform-catalog-schemas]
+        code: ["components/Assets*"]
+  - file: 5.deployments/1.images.md
+    title: "Images"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["image-*", change-image-button, save-as-new-image-on-rename, stop-image-build, inline-save-installed-image-metadata, container-image-dependencies]
+        code: ["components/Images*"]
+      ai-dial-admin-deployment-manager-backend:
+        code: ["*image*", "*docker*"]
+  - file: 5.deployments/2.container-management.md
+    title: "Container management"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["container-*", "deployments-*", stopped-container-display, pod-termination-message, "model-serving*", "model-servings-*", add-model-serving-toolset-source, unified-container-source, source-type-switch-cleanup, inline-source-field-warnings, container-source-field-layout]
+        code: ["components/Containers*", "components/Deployments*"]
+      ai-dial-admin-deployment-manager-backend:
+        code: ["*huggingface*", "*container*", "*docker*", "*/service/*"]
+  - file: 5.deployments/3.mcp-containers.md
+    title: "MCP containers"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["mcp-*", "container-*"]
+        code: ["components/Containers*", "components/Tools*"]
+      ai-dial-admin-deployment-manager-backend:
+        code: ["*registry/mcp*", "*mcp*"]
+  - file: 6.access-management/1.roles.md
+    title: "Roles"
+    sources:
+      ai-dial-admin-frontend:
+        specs: [platform-roles]
+        code: ["components/Roles*"]
+  - file: 6.access-management/2.keys.md
+    title: "Keys"
+    sources:
+      ai-dial-admin-frontend:
+        specs: [platform-keys, oauth-client-validation, oidc-refresh-client-recovery]
+        code: ["components/Keys*"]
+  - file: 7.publications-and-review.md
+    title: "Publications & review"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["publication*", "publications-*", skill-publications]
+        code: ["components/Publications*"]
+  - file: 8.audit/1.activity-and-rollback.md
+    title: "Activity & rollback"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["activity-audit-*", "audit-*", entity-audit-action-column, deployment-entity-rollback]
+        code: ["components/ActivityAudit*"]
+  - file: 8.audit/2.monitoring-dashboards.md
+    title: "Monitoring dashboards"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["analytics*", dashboard-total-tokens-chart, mcp-dashboard-view, "telemetry-*", "consumption-*", entities-consumption-tree, "usage-log-*"]
+        code: ["components/Analytics*", "components/Telemetry*", "components/UsageLog*"]
+  - file: 9.user-management.md
+    title: "User management"   # conceptual: identity->roles/keys (DIAL stores no accounts)
+    sources:
+      ai-dial-admin-frontend:
+        specs: [platform-roles, platform-keys, oauth-client-validation, oidc-refresh-client-recovery]
+        code: ["components/Roles*", "components/Keys*"]
+  - file: 10.usage-limits-and-cost-control.md
+    title: "Usage limits & cost control"   # limits attach to roles
+    sources:
+      ai-dial-admin-frontend:
+        specs: [platform-roles, model-cache-pricing, analytics-deployment-price]
+        code: ["components/Roles*"]
+  - file: 11.compliance-and-legal-faq.md
+    title: "Compliance & legal FAQ"   # static policy content -- no app-source dependency
+    sources: {}
+  # PLANNED (does not exist yet) -- new evaluation section, created during catch-up
+  # (Phase 3). Exact file/slot in the guide structure TBD. Maps to the two evaluation
+  # repos. Not an active page entry until the file exists.
+  # - { file: 12.evaluation.md, title: "Evaluation", sources: {} }
+
+# Old guide: CONSULTATION REFERENCE ONLY (never updated). Check it when source or
+# the app leaves something unclear or a feature seems missing; adapt the
+# understanding into the new guide's own structure. Do NOT port it page-by-page --
+# the new guide is structured differently. Deprecate later by explicit decision.
+old_guide_path: docs/tutorials/3.admin
