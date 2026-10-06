@@ -108,7 +108,12 @@ same PR. That is what makes the next run incremental.
   and the pinned `last_verified_chat_version`. The keystone both stages read.
 - `scripts/resolve_version.py` — latest DIAL release -> chat version.
 - `scripts/detect.py` — fetch + diff + selective work list (M1).
+- `scripts/gather.py` — per-page evidence bundles for M2.
+- `scripts/assemble_pr.py` — agent records -> the fixed 3-bucket PR body.
+- `scripts/crop.py`, `scripts/mask.py` — screenshot reframe / redaction (for M3 capture).
 - `references/m2-verify-and-write.md` — the V1 verify-and-write contract and PR format.
+- `references/capture-and-prose.md` — screenshot capture discipline (M3) + write/structure
+  lessons (apply now). Harvested from the retired `chat-guide-capture`.
 - Guide content: `docs_v2/chat-user-guide-new/*.md` + `img/` (and `3.catalog/img/`).
 - Companion skill: `docs-page-writer` (prose/terminology/structure).
 
@@ -117,4 +122,6 @@ same PR. That is what makes the next run incremental.
 - **M2 code** — the verify-and-write stage. Blueprint is agreed; implement to it.
 - **M3** — the GitHub Action trigger and screenshot capture (headless or
   human-assisted). V1 leaves screenshots to a human via the PR's Recapture list.
+  The capture discipline for M3 is already preserved in
+  `references/capture-and-prose.md` (plus `scripts/crop.py`, `scripts/mask.py`).
 - **Fixtures** — pre-authorized disposable demo content for capture (M3).
