@@ -79,6 +79,25 @@ rewrite, so an absent feature may be "coming later," not "gone"):
 
 ## 2. Reconcile — the verdicts
 
+### Three-source completeness check
+
+Every release is reconciled against THREE independently-authored sources. Each
+changelog line / release-note item must reach a verdict; any item present in a
+source but missing a verdict is a gap to investigate before advancing.
+
+| Source | Script / location | What it catches |
+|---|---|---|
+| **Git tag annotation** | `changelog.py` per repo | Developer's per-component feature list — primary targeting signal |
+| **Component release notes** | Each repo's own `CHANGELOG.md` or `RELEASE_NOTES.md` (read at the target tag) | Detailed items the tag summary omitted — bug fixes, minor UI changes, deprecations |
+| **DIAL platform release notes** | `docs/releases/<version>/release-notes-*.md` in this repo | Cross-component features, user-facing framing, items that span repos |
+
+**Order:** reconcile the tag changelog first (it scopes the diff reading), then
+cross-check against the component release notes, then against the DIAL platform
+release notes. Items found only in the second or third source get the same
+verdict treatment as any other changelog line.
+
+### Verdict assignment
+
 For each changed thing, compare source-truth to the current page text:
 
 | Source says | Page says | Verdict | Action |
@@ -102,6 +121,22 @@ that is always a recapture flag, never a verdict here.
 - **Prose conventions**: follow the `docs-page-writer` skill (frontmatter,
   terminology, forbidden words, sentence-case headings, relative `.md` links). Bump
   the page's `last_verified`.
+- **Admin guide page patterns**: every admin guide page follows a consistent
+  structure. Match these patterns exactly when writing new sections or pages:
+  - **Grids** — every data grid gets a heading (`### … grid`) followed by a
+    `| Column | Description |` table. Never describe grid columns in prose.
+  - **Detail views** — organized by tabs, each with a `### Tab name` heading.
+  - **Properties** — use a `| Field | Required | Editable | Description |` table.
+  - **Create flows** — numbered steps with a
+    `| Field | Required | Description |` table for the modal fields.
+  - **Top bar controls** — `| Control | Description |` table.
+  - **Actions** — `| Action | Description |` table (per-row actions, bulk actions,
+    context menu items).
+  - **Feature toggles** — `| Toggle | Description |` table.
+  - **Binding types / source types** — `| Source type | Description |` table.
+  See existing pages (`2.entities/2.applications.md`, `2.entities/1.models.md`,
+  `4.assets.md`, `8.audit/2.monitoring-dashboards.md`) as the reference
+  implementation. When in doubt, open the nearest sibling page and match its shape.
 - **Stale-screenshot marker**: wherever an edit changes something a nearby
   screenshot shows, insert an HTML comment by the image so the divergence is visible
   in the diff and nothing silently contradicts an image:

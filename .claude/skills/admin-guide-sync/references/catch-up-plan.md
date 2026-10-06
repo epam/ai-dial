@@ -150,12 +150,20 @@ A single 5-release diff buries changes (a test on Toolsets surfaced one field an
 missed a whole auth rework). Per step:
 
 1. **Read the component changelog for that version** (`changelog.py` per repo) — the
-   developer-written, feature-scoped list of what shipped. THIS is the targeting
-   signal; the diff/evidence is read guided by it, not blind.
+   developer-written, feature-scoped list of what shipped. THIS is the primary
+   targeting signal; the diff/evidence is read guided by it, not blind.
 2. `detect.py` / `gather.py` for that release to get the work list + evidence.
-3. Reconcile + write **page by page**, reviewing each. Cross-check every changelog
-   line reaches a verdict (write / no-op / wrong-page / recapture) so nothing is
-   skimmed.
+3. Reconcile + write **page by page**, reviewing each, using the **three-source
+   completeness check** (see `m2-verify-and-write.md § Reconcile`):
+   - **Git tag annotation** (changelog.py) — primary targeting, reconcile first.
+   - **Component release notes** (each repo's own CHANGELOG/RELEASE_NOTES at the
+     target tag) — catches bug fixes, minor UI changes, deprecations the tag
+     summary glosses over.
+   - **DIAL platform release notes** (`docs/releases/<version>/release-notes-*.md`)
+     — catches cross-component features and user-facing framing.
+   Every item across all three sources must reach a verdict (write / no-op /
+   wrong-page / recapture / flag). Any item present in a source but missing a
+   verdict is a gap — investigate before advancing to the next release.
 
 - Because the span is large, do it **page by page**, reviewing each, not all 20 at
   once. Same reconcile/write/flag discipline as steady state.

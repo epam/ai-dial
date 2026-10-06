@@ -207,10 +207,48 @@ pages:
   - file: 11.compliance-and-legal-faq.md
     title: "Compliance & legal FAQ"   # static policy content -- no app-source dependency
     sources: {}
-  # PLANNED (does not exist yet) -- new evaluation section, created during catch-up
-  # (Phase 3). Exact file/slot in the guide structure TBD. Maps to the two evaluation
-  # repos. Not an active page entry until the file exists.
-  # - { file: 12.evaluation.md, title: "Evaluation", sources: {} }
+  - file: 12.evaluation/0.index.md
+    title: "Evaluation overview"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["runs-analytics-*", "run-compare-*", "run-csv-export", "test-cases-*", "testcase-schema-*", "analytics-metric-bindings-*", "dataset-*", "playground-*"]
+        code: ["components/ListView/Evaluation*", "components/Runs/*", "components/TestSuites/*", "components/Datasets/*", "components/Playground/*"]
+        labels: true
+  - file: 12.evaluation/1.metrics.md
+    title: "Metrics"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["analytics-metric-bindings-*"]
+        code: ["components/TestSuites/Metrics/*", "components/Containers/View/Metrics/*"]
+      ai-dial-admin-evaluation-metrics:
+        code: ["src/*"]
+  - file: 12.evaluation/2.datasets.md
+    title: "Datasets"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["dataset-*", "test-cases-*", "testcase-schema-*"]
+        code: ["components/Datasets/*", "components/TestSuites/TestCases/*"]
+      ai-dial-admin-evaluation-framework-backend:
+        specs: ["openspec/specs/*"]
+        code: ["src/*dataset*", "src/*testcase*"]
+  - file: 12.evaluation/3.test-suites.md
+    title: "Test suites"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["test-cases-*", "testcase-schema-*"]
+        code: ["components/TestSuites/*"]
+      ai-dial-admin-evaluation-framework-backend:
+        specs: ["openspec/specs/*"]
+        code: ["src/*"]
+  - file: 12.evaluation/4.runs.md
+    title: "Runs"
+    sources:
+      ai-dial-admin-frontend:
+        specs: ["runs-analytics-*", "run-compare-*", "run-csv-export", "analytics-metric-bindings-*", "playground-*"]
+        code: ["components/Runs/*", "components/Playground/*"]
+      ai-dial-admin-evaluation-framework-backend:
+        specs: ["openspec/specs/*"]
+        code: ["src/*"]
 
 # Old guide: CONSULTATION REFERENCE ONLY (never updated). Check it when source or
 # the app leaves something unclear or a feature seems missing; adapt the

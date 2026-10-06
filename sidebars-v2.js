@@ -1397,6 +1397,36 @@ const allSections = [
           "type": "doc",
           "id": "administering-dial/compliance-and-legal-faq",
           "label": "Compliance and legal FAQ"
+        },
+        {
+          "type": "category",
+          "label": "Evaluation",
+          "link": {
+            "type": "doc",
+            "id": "administering-dial/evaluation/index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial/evaluation/metrics",
+              "label": "Metrics"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/evaluation/datasets",
+              "label": "Datasets"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/evaluation/test-suites",
+              "label": "Test suites"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/evaluation/runs",
+              "label": "Runs"
+            }
+          ]
         }
       ]
     },
