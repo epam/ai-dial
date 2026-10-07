@@ -108,6 +108,25 @@ the changelog-driven flow misses quiet additions; these rules close the gap):
   (stale-screenshot markers, prose conventions, never-write-unverified) are easy
   to skip when focused on content. Treat this document as a pre-flight checklist,
   not background reading.
+- **Walk EVERY tab in the live UI before proposing edits.** When the user
+  grants browser access, screenshot every tab top-to-bottom with all
+  collapsible sections expanded. Do not skip tabs you "expect" are fine. Source-code
+  analysis biases toward fields you already suspect; the UI walk catches what
+  you didn't think to look for. Collect ALL findings across ALL tabs before
+  proposing any changes — partial evidence leads to partial (wrong) conclusions.
+- **Source analysis narrows; the UI walk completes.** Never let FE source
+  investigation replace the full UI walk. Doing source first and then
+  cherry-picking UI tabs to "confirm" is how you miss things (learned from the
+  Applications page: checked only Properties/Features/Audit, skipped
+  Parameters/Dependencies/App Routes/Roles/Interceptors).
+- **Changelog-driven additions can land on the WRONG page.** A feature that
+  ships in the Admin frontend may apply only to a specific view (Entities vs
+  Assets vs Catalog). The changelog doesn't distinguish which view owns a
+  feature. Learned from the Applications page: Code App source type, Catalog
+  fields (vendorWebsite, catalogProperties, catalogSchemas), Interfaces section,
+  and Skills supported toggle were all written into the Entities→Applications
+  doc during catch-up, but they belong to Assets→Applications or don't exist
+  at all. The UI-vs-docs walk catches these view-level misplacements.
 
 ## 2. Reconcile — the verdicts
 

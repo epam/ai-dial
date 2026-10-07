@@ -332,9 +332,35 @@ Compared `2.entities/1.models.md` against live Entities→Models UI.
 - FE repo uses `development` branch (not `main`) — important for raw file URLs.
 - `$GITHUB_TOKEN` env var is available for API calls; `gh` CLI is not installed.
 
+### Applications page — COMPLETED
+
+Compared `2.entities/2.applications.md` against live Entities→Applications UI
+(both App Runner and Endpoint type apps) + FE source code.
+
+**Changes written (13 findings):**
+- Removed ID from grid columns — not in `APPLICATIONS_COLUMNS`.
+- Removed Vendor website, Catalog properties, Catalog schemas from Properties
+  table — only in Assets/Toolsets views, not Entities→Applications.
+- Removed Code App from Create modal source types — only in
+  `ASSET_APPLICATION_SOURCE_ITEMS`, not Entities view.
+- Removed Skills supported toggle — zero hits for `skillsSupported` in FE repo.
+- Removed Caching from feature groups list — not in `applicationSwitchGroups`.
+- Removed Interfaces section from Properties — not rendered in Entities→Applications
+  UI (confirmed by both UI walk and FE source: no Interfaces editor in admin-BE view).
+- Added Temperature supported toggle (Sampling & Output Control).
+- Added Parallel tool calls toggle (Tools / Function Calling).
+- Added Allow resume toggle (Session & Access).
+- Updated Audit tab to list 4 sub-tabs: Dashboard, Traces, Conversations, Activities.
+- Removed ID from Roles grid columns — not visible in UI.
+
+**Key discovery:**
+- Changelog-driven catch-up put 5 items on the wrong page: Code App, Catalog fields,
+  Interfaces, Skills supported were written into Entities→Applications during 1.46-1.48
+  catch-up but belong to Assets→Applications or don't exist. Lesson recorded in
+  `m2-verify-and-write.md`.
+
 ### Pages remaining
-- Entities/Applications — NEXT
-- Entities/Toolsets
+- Entities/Toolsets — NEXT
 - Entities/Interceptors
 - Entities/Routes
 - Builders
@@ -352,7 +378,7 @@ Compared `2.entities/1.models.md` against live Entities→Models UI.
 **Phase 3 is COMPLETE.** The guide now covers DIAL 1.48.
 
 Remaining work:
-- **UI-vs-docs comparison** — IN PROGRESS (see above). Models done, Applications next.
+- **UI-vs-docs comparison** — IN PROGRESS (see above). Models done, Applications done, Toolsets next.
 - **Build verification** — run `npm run build` to confirm all links resolve (ask user
   first — they may have it running).
 - **Screenshot recapture** — nearly all updated pages need screenshots refreshed. Full
