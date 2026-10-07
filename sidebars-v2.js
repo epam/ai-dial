@@ -1427,6 +1427,86 @@ const allSections = [
               "label": "Runs"
             }
           ]
+        },
+        {
+          "type": "category",
+          "label": "Catalog [Preview]",
+          "link": {
+            "type": "doc",
+            "id": "administering-dial/catalog/index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/models",
+              "label": "Models"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/interceptors",
+              "label": "Interceptors"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/translators",
+              "label": "Translators"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/routes",
+              "label": "Routes"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/app-runners",
+              "label": "App Runners"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/roles",
+              "label": "Roles"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/keys",
+              "label": "Keys"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Analytics [Preview]",
+          "link": {
+            "type": "doc",
+            "id": "administering-dial/analytics/index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial/analytics/tables",
+              "label": "Tables"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/analytics/pipelines",
+              "label": "Pipelines"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/analytics/evaluators",
+              "label": "Evaluators"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/analytics/queries",
+              "label": "Queries"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/analytics/conversations",
+              "label": "Conversations"
+            }
+          ]
         }
       ]
     },

@@ -29,7 +29,7 @@ dial_releases_url: https://github.com/epam/ai-dial/tree/main/docs/releases
 repos:
   - key: ai-dial-admin-frontend
     url: https://github.com/epam/ai-dial-admin-frontend.git
-    baseline: "0.16.0"        # DIAL 1.43
+    baseline: "0.21.0"        # DIAL 1.48
     note: "Admin UI. Primary source for user-facing labels/screens. NX/Next monorepo,
            same shape as ai-dial-chat."
     # Richest signals, like chat:
@@ -39,13 +39,13 @@ repos:
       code: apps/ai-dial-admin/src                        # app/, components/, hooks/, models/, ...
   - key: ai-dial-admin-deployment-manager-backend
     url: https://github.com/epam/ai-dial-admin-deployment-manager-backend.git
-    baseline: "0.16.0"        # DIAL 1.43
+    baseline: "0.21.0"        # DIAL 1.48
     note: "Deployments / container management behavior. Java/Gradle, NO openspec."
     signals:
       code: src                                           # map by Java package/path globs
   - key: ai-dial-admin-evaluation-framework-backend
     url: https://github.com/epam/ai-dial-admin-evaluation-framework-backend.git
-    baseline: null            # did NOT exist at 1.43; everything is new when it first ships
+    baseline: "0.4.0"         # DIAL 1.48
     note: "Evaluation framework. DECIDED IN SCOPE: the guide should gain an
            evaluation section (new area, no 1.43 baseline, no old-guide equivalent).
            Diff from the repo's first shipped version during catch-up. Java/Gradle."
@@ -54,13 +54,13 @@ repos:
       code: src
   - key: ai-dial-admin-evaluation-metrics
     url: https://github.com/epam/ai-dial-admin-evaluation-metrics.git
-    baseline: null            # did NOT exist at 1.43
+    baseline: "0.3.0"         # DIAL 1.48
     note: "Evaluation metrics. In scope, feeds the new evaluation section. Python."
     signals:
       code: src                                           # Python modules
   - key: ai-dial-admin-backend
     url: https://github.com/epam/ai-dial-admin-backend.git
-    baseline: "0.16.0"        # DIAL 1.43
+    baseline: "0.21.0"        # DIAL 1.48
     deprecated: true
     note: "Being deprecated -- track for now, drop when the platform stops shipping it.
            Java/Gradle, NO openspec."
@@ -79,6 +79,14 @@ repos:
 # `signals.code` root; labels = true for a coarse en.ts flag).
 # Phase 2 DONE: all 20 existing pages mapped. (The new Evaluation page is created and
 # mapped in Phase 3.) Globs verified against the repos at their current tags.
+#
+# COMPONENT-LEVEL MAPPING (added after UI-vs-docs pass):
+# The coarse `code` globs are enough for changelog-driven detection, but they miss
+# quiet additions. For thorough verification, each page should also have granular
+# component paths (as comments under the `code` key) pointing to the specific FE
+# files that render each tab/section/field group. This makes future scans targeted:
+# read those files, enumerate every field, compare against docs. See 1.models.md
+# entry for the reference pattern. Add granular paths as each page is verified.
 pages:
   - file: 0.index.md
     title: "Overview"
@@ -99,6 +107,14 @@ pages:
       ai-dial-admin-frontend:
         specs: ["model-*", platform-models, model-resources-core-api]
         code: ["components/Models*", "components/ModelView*"]
+        # Granular component paths (for component-level verification scans):
+        # - components/Models/View/Properties.tsx — main properties tab
+        # - components/Models/View/TokenizerModel/Tokenizer.tsx — DialSwitch toggle + selector
+        # - components/UpstreamEndpoints/Endpoint/Endpoint.tsx — upstream fields + isInterfacesHidden
+        # - components/Models/View/Features/ — feature flag toggles by group
+        # - components/Models/View/Audit/ — audit sub-tabs (Dashboard, Traces, Conversations, Activities)
+        # - components/Models/View/Roles/ — roles grid + rate limits
+        # - components/Models/View/Interceptors/ — interceptors grid
   - file: 2.entities/2.applications.md
     title: "Applications"
     sources:

@@ -77,6 +77,38 @@ rewrite, so an absent feature may be "coming later," not "gone"):
   establish the real mechanism, don't just swap one claim for another.
 - **A partial finding is a lead, not a conclusion.** Finish reading before writing.
 
+**Component-level verification** (learned from the Models page UI-vs-docs pass —
+the changelog-driven flow misses quiet additions; these rules close the gap):
+
+- **Changelogs have blind spots.** Silent additions, conditional-visibility
+  changes, and field-type reworks are invisible to the three-source check.
+  After the changelog reconciliation, do a full component scan per page to
+  catch what the changelogs missed.
+- **Read the FULL FE component tree, not just the top-level render.** Collapsible
+  sections, toggle-reveal patterns (e.g. `DialSwitch` that shows a sub-selector),
+  and conditional sub-components all live deeper in the tree. Follow every
+  child import.
+- **Fields are NOT universal across entity types.** The same component (e.g.
+  `Endpoint.tsx`) renders differently depending on props the parent passes
+  (e.g. `isInterfacesHidden`). Check each view's parent component to see what
+  props it sends.
+- **Always grep the full FE repo before confirming a removal.** "Not visible on
+  this page" ≠ "removed from the product." A zero-hit grep across the repo is
+  definitive; a missing field in one component is just a per-view decision.
+- **Verify field types from source.** A `DialSwitch` toggle that reveals a
+  selector popup is not a "text field." The docs must describe what the user
+  actually interacts with. Read the component's JSX, not just its label.
+- **The live UI is NOT part of the automated flow.** The FE source code + release
+  notes are the complete verification source. The live UI is a secondary
+  confirmation available only when the user explicitly grants access.
+- **FE repo uses the `development` branch** (not `main`). Use this for raw file
+  fetches and GitHub API calls. `$GITHUB_TOKEN` env var is available; `gh` CLI
+  is not installed.
+- **Before executing edits, re-read section 3–4 of THIS file.** The write rules
+  (stale-screenshot markers, prose conventions, never-write-unverified) are easy
+  to skip when focused on content. Treat this document as a pre-flight checklist,
+  not background reading.
+
 ## 2. Reconcile — the verdicts
 
 ### Three-source completeness check

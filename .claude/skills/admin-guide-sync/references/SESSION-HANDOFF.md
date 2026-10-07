@@ -58,22 +58,20 @@ Files in `.claude/skills/admin-guide-sync/`:
   page patterns (table conventions for grids, properties, actions, etc.).
 - `references/capture-and-prose.md` — screenshot discipline (later) + write lessons.
 
-The 5 repos and baselines (guide currently covers through **DIAL 1.46**):
-| repo | baseline (1.43) | 1.44 version | 1.45 version | 1.46 version |
-|---|---|---|---|---|
-| ai-dial-admin-frontend | 0.16.0 | 0.17.1 | 0.18.1 | 0.19.0 |
-| ai-dial-admin-deployment-manager-backend | 0.16.0 | 0.17.0 | 0.18.1 | 0.19.0 |
-| ai-dial-admin-backend | 0.16.0 | 0.17.0 | 0.18.1 | 0.19.0 |
-| ai-dial-admin-evaluation-framework-backend | null | — | 0.1.0 (first named component) | 0.2.0 |
-| ai-dial-admin-evaluation-metrics | null | — | not listed | 0.1.0 (first named component) |
-
-Latest release is **1.48** (admin components 0.21.0; eval 0.4.0 / 0.3.0).
+The 5 repos and baselines (guide currently covers through **DIAL 1.48**):
+| repo | baseline (1.43) | 1.44 | 1.45 | 1.46 | 1.47 | 1.48 (current) |
+|---|---|---|---|---|---|---|
+| ai-dial-admin-frontend | 0.16.0 | 0.17.1 | 0.18.1 | 0.19.0 | 0.20.0 | 0.21.0 |
+| ai-dial-admin-deployment-manager-backend | 0.16.0 | 0.17.0 | 0.18.1 | 0.19.0 | 0.20.0 | 0.21.0 |
+| ai-dial-admin-backend | 0.16.0 | 0.17.0 | 0.18.1 | 0.19.0 | 0.20.0 | 0.21.0 |
+| ai-dial-admin-evaluation-framework-backend | null | — | 0.1.0 | 0.2.0 | 0.3.0 | 0.4.0 |
+| ai-dial-admin-evaluation-metrics | null | — | not listed | 0.1.0 | 0.1.1 | 0.3.0 |
 
 ### Phases
 - Phase 0 (confirm baseline) — DONE: guide covers 1.43.
 - Phase 1 (multi-repo engine) — DONE + validated (resolve/changelog/detect/gather).
 - Phase 2 (map 20 pages) — DONE + validated.
-- Phase 3 (the actual catch-up 1.43->1.48) — **IN PROGRESS. 1.44 COMPLETE. 1.45 COMPLETE. 1.46 COMPLETE. Next: 1.47.**
+- Phase 3 (the actual catch-up 1.43->1.48) — **COMPLETE. 1.44 COMPLETE. 1.45 COMPLETE. 1.46 COMPLETE. 1.47+1.48 COMPLETE (hybrid approach).**
 - Phase 4 (automation: trigger, PR open, agent-in-CI) — NOT STARTED.
 
 ### Decisions made
@@ -249,24 +247,117 @@ PR #3945, Code App from FE PR #3795, Model Serving from FE PR #3815).
 - Eval-metrics 0.1.0 is the first named component release — backend service only.
 - Build verification still pending (user may be running it in their own console).
 
+## 1.47 + 1.48 catch-up — COMPLETED (hybrid approach)
+
+### What was done
+
+Used a hybrid approach: built reconciliation tables for BOTH 1.47 (41 items) and 1.48
+(50 items), then merged into a per-page edit plan and wrote all edits once against the
+1.48 final state. This avoided touching the same pages twice.
+
+**Reconciliation tables:** `<scratchpad>/reconciliation-1.47.md` (41 items) and
+`<scratchpad>/reconciliation-1.48.md` (50 items). Per-page edit plan at
+`<scratchpad>/per-page-edit-plan.md`.
+
+**Pages updated (16 of 25 pages needed edits):**
+- `0.index.md` — Catalog menu group, config file visibility, updated asset/publication lists
+- `2.entities/1.models.md` — Cache pricing, OpenAI Embeddings, Translator mode, catalog fields, vendor website
+- `2.entities/2.applications.md` — Override name, catalog fields, skills supported, DIAL Native auth
+- `2.entities/3.toolsets.md` — Catalog fields
+- `2.entities/4.interceptors.md` — Override name
+- `4.assets.md` — Skills section, Models section, Catalog section, role-based access for apps/toolsets
+- `5.deployments/1.images.md` — Scoped git credentials
+- `5.deployments/2.container-management.md` — GPU utilization metrics
+- `7.publications-and-review.md` — Skills in publication types
+- `8.audit/1.activity-and-rollback.md` — Platform model audit tabs, Since Creation time range
+- `10.usage-limits-and-cost-control.md` — Cache pricing, calendar-period limits
+- `12.evaluation/0.index.md` — Multi-turn, multi-request, overall score, cancellation, API support
+- `12.evaluation/1.metrics.md` — Metric providers
+- `12.evaluation/2.datasets.md` — Multi-turn schema type, Valid column (was Enabled), tags
+- `12.evaluation/3.test-suites.md` — API support, overall score, test case overall score, multi-turn,
+  multi-request, tags filter, null polarity, deployment validation, username resolution, metric
+  table view, trends cards, try-out improvements
+- `12.evaluation/4.runs.md` — Cancel/stop, import results, overall score, aggregated metrics,
+  comparison Summary tab, only-matching mode, metric eval latency
+
+**Deferred (not documented):**
+- Analytics v2 (all items): Still [Preview], gated by ANALYTICS_ENABLED.
+- Platform Translators standalone page: [Preview] in 1.48. Translator concept documented in Models Interfaces section.
+- Cost cards in evaluation runs: FE #4554 temporarily hides them in 0.21.0.
+
+**Baselines updated:** manifest.yaml baselines now at FE/DM/BE 0.21.0, eval-fw 0.4.0, eval-metrics 0.3.0.
+
+### Key learnings from 1.47+1.48
+- Hybrid approach (reconcile two releases, write once) is effective — avoids page churn
+  while maintaining three-source completeness per release.
+- Enabled/Disabled test case model is replaced by Valid/Invalid schema validation.
+  `disabledTestCaseIds` removed entirely.
+- Skills are a major new asset type spanning Assets, Publications, and the entity system.
+- Catalog menu group consolidates platform-level entities alongside user assets.
+- Calendar-period limits are a behavioral change (rolling → calendar windows).
+
+## UI-vs-docs comparison (live admin at admin.eks.uat.dial.parts)
+
+Phase 3 covered changes via git-tag reconciliation but missed quiet UI additions.
+This phase walks every admin page on the live UAT instance (FE 0.21.2, BE 0.21.0,
+Core 0.48.0) and compares field-by-field against the docs.
+
+### Models page — COMPLETED
+
+Compared `2.entities/1.models.md` against live Entities→Models UI.
+
+**Changes written:**
+- Removed Vendor Website, Catalog Properties, Catalog Schemas from Personalization
+  table — confirmed NOT in Entities→Models FE code (only in Assets/Toolsets and
+  Platform Models).
+- Removed Hashing Order from Advanced Options — 0 hits in entire FE repo; removed
+  from product.
+- Removed Interfaces section — FE code explicitly sets `isInterfacesHidden = true`
+  for Entities→Models view (only shown on Applications, Interceptors, Platform Models).
+- Added "Allow resume" toggle to Feature Flags (Session & Access group).
+- Updated Upstream Configuration: renamed "Chat completion endpoint" → "Upstream
+  Endpoints", documented expandable fields (Base URL, Responses endpoint, Keys,
+  Extra Data, Secret Extra Data).
+- Updated Tokenizer Model: changed from text field to toggle + selector description.
+- Updated Cost Unit: added scale qualifier mention.
+- Updated Audit tab: documented 4 sub-sections (Dashboard, Traces, Conversations,
+  Activities).
+
+**Key discoveries:**
+- `isInterfacesHidden` in `UpstreamEndpoints/Endpoint/Endpoint.tsx` — Interfaces
+  rendering is controlled per-view. Hidden for Entities→Models and Routes.
+- `catalogProperties`/`catalogSchemas` — only on Platform Models, Applications,
+  Toolsets (via Catalog section), NOT Entities→Models.
+- `vendorWebsite` — only in `Assets/Toolsets/View/Properties.tsx`.
+- FE repo uses `development` branch (not `main`) — important for raw file URLs.
+- `$GITHUB_TOKEN` env var is available for API calls; `gh` CLI is not installed.
+
+### Pages remaining
+- Entities/Applications — NEXT
+- Entities/Toolsets
+- Entities/Interceptors
+- Entities/Routes
+- Builders
+- Catalog (Platform Models, Interceptors, Translators, Routes, App Runners, Roles, Keys)
+- Assets
+- Deployments (Model Servings, MCP Containers, Interceptor/Adapter/Application Containers, Images)
+- Access Management
+- Approvals
+- Audit
+- Evaluation
+- Analytics (Dashboards, Tables, Pipelines, Queries, Sessions)
+
 ## Next step
 
-**Phase 3, final slices: 1.46 → 1.47 → 1.48 (hybrid approach).**
+**Phase 3 is COMPLETE.** The guide now covers DIAL 1.48.
 
-Instead of writing edits release-by-release (which touches the same pages multiple
-times), use a hybrid: build reconciliation tables for BOTH 1.47 and 1.48, then batch
-all page edits in one pass against the 1.48 final state. This gives completeness from
-the three-source check without the repeated page churn.
-
-1. Resolve 1.47 component versions from `docs/releases/1.47/upgrade-to-1.47.md`.
-2. Run `changelog.py` per repo for the 1.46→1.47 diff (frontend 0.19.0→?, DM 0.19.0→?,
-   BE 0.19.0→?, eval-fw 0.2.0→?, eval-metrics 0.1.0→?).
-3. Read the DIAL 1.47 platform release notes + component upgrade guides.
-4. Build the 1.47 reconciliation table (three-source check, verdicts only — no edits yet).
-5. Repeat steps 1-4 for 1.48.
-6. Merge both reconciliation tables into a per-page edit plan.
-7. Write all page updates once, against the 1.48 final state.
-8. Run `npm run build` to verify.
+Remaining work:
+- **UI-vs-docs comparison** — IN PROGRESS (see above). Models done, Applications next.
+- **Build verification** — run `npm run build` to confirm all links resolve (ask user
+  first — they may have it running).
+- **Screenshot recapture** — nearly all updated pages need screenshots refreshed. Full
+  recapture list to be compiled.
+- **Phase 4 (automation)** — trigger/PR/agent-in-CI. NOT STARTED.
 
 ## Gotchas / environment
 - Repo rule: **never commit/push** without explicit permission (user handles git).
