@@ -80,6 +80,17 @@ rewrite, so an absent feature may be "coming later," not "gone"):
 **Component-level verification** (learned from the Models page UI-vs-docs pass —
 the changelog-driven flow misses quiet additions; these rules close the gap):
 
+- **For a UI-vs-docs review pass, the live UI walk is MANDATORY — never ship a
+  source-only reconciliation.** This is distinct from the automated changelog-driven
+  sync (where the live UI isn't available). In a review pass the walk and the source
+  play different, complementary roles: the **live walk is the completeness check**
+  (what actually renders, in what control type, in what order), and **source confirms
+  mechanics, conditionality, and removals.** Neither alone is enough. Learned the hard
+  way on the Toolsets page (2026-10-07): a source-only pass was shipped, the user pushed
+  back ("why didn't u check the UI"), and the live walk then caught 4 findings source
+  had missed or under-reported — Forward-auth-token is a confirmation-popup selector
+  (not a toggle), OAuth gained Client Registration Type + Token Endpoint Authentication
+  Method, and Redirect URI is no longer a form field.
 - **Changelogs have blind spots.** Silent additions, conditional-visibility
   changes, and field-type reworks are invisible to the three-source check.
   After the changelog reconciliation, do a full component scan per page to
@@ -98,9 +109,10 @@ the changelog-driven flow misses quiet additions; these rules close the gap):
 - **Verify field types from source.** A `DialSwitch` toggle that reveals a
   selector popup is not a "text field." The docs must describe what the user
   actually interacts with. Read the component's JSX, not just its label.
-- **The live UI is NOT part of the automated flow.** The FE source code + release
-  notes are the complete verification source. The live UI is a secondary
-  confirmation available only when the user explicitly grants access.
+- **The live UI is not part of the AUTOMATED flow** (changelog-driven sync) — there,
+  FE source + release notes are the verification source. But this does NOT apply to a
+  UI-vs-docs review pass, where the live walk is mandatory (see the first bullet above).
+  Do not cite this line to justify skipping the walk.
 - **FE repo uses the `development` branch** (not `main`). Use this for raw file
   fetches and GitHub API calls. `$GITHUB_TOKEN` env var is available; `gh` CLI
   is not installed.

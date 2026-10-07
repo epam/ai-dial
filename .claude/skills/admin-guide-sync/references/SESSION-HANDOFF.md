@@ -359,9 +359,63 @@ Compared `2.entities/2.applications.md` against live Entities→Applications UI
   catch-up but belong to Assets→Applications or don't exist. Lesson recorded in
   `m2-verify-and-write.md`.
 
+### Toolsets page — COMPLETED
+
+Compared `2.entities/3.toolsets.md` against Entities→Toolsets FE source at **0.21.2**
+(matches live UAT). Component tree: `components/Toolsets/View/{View,TabsContent}`,
+`Properties/Properties` → `EntityMainProperties/.../DeploymentProperties` +
+`AdditionalProperties` + `VendorWebsiteControl` + `Auth/Authentication` + forward
+switches + `MaxRetryAttempts`.
+
+Verified against FE source AND a full live UI walk (Chrome extension, logged-in UAT
+session) — every tab top-to-bottom plus the Create modal. The live walk caught several
+things the source-only pass missed (per the "UI walk completes" rule).
+
+**Changes written (8 findings):**
+- Removed **ID** from the Toolsets grid — not in `TOOLSETS_COLUMNS`; live Columns panel
+  confirms available columns are Display Name, Description, Source type, Source, Author,
+  Topics, Creation/Updated time (no ID). Source/Author are optional (off by default).
+- Removed **Catalog properties** and **Catalog schemas** from the Properties table —
+  no catalog control anywhere in the Entities→Toolsets tree, confirmed absent in the live
+  Properties tab (same changelog-driven misplacement as Applications).
+- Scoped **Transport** — rendered only by `ToolsetEndpoint` (External Endpoint source
+  type); marked Conditional, noted the source type, dropped inaccurate "HTTP (default)"
+  (code fallback is SSE; live value was HTTP for the sample toolset).
+- **Forward auth token** — rewrote from "toggle" to the real control: a selector (None /
+  forward) backed by a confirmation popup that requires typing the toolset's display name
+  (`ForwardAuthTokenField` = `DialRadioGroupPopupField`). Caught in the UI walk.
+- **OAuth fields (`OAuthSection.tsx`)** — removed **Redirect URI** (not a form field; it's
+  auto-set to `<origin>/toolset-signin` at sign-in in `Authentication.tsx`). Added
+  **Client Registration Type** ("Existing client") and **Token Endpoint Authentication
+  Method** ("Client secret (HTTP Basic)" default / "(POST body)" / "None"). Caught in walk.
+- Added a note: **auth settings are locked while the toolset is logged in** (log out to edit).
+- Removed **ID** from the **Roles** grid table — live Roles grid shows Display Name +
+  Description only (same as Applications-page Roles finding).
+- Expanded **Audit** — listed its three sub-sections (Dashboard, Traces, Activities; no
+  Conversations, unlike Models/Applications). Dashboard cards are MCP/tool-scoped.
+
+**Confirmed correct (kept):**
+- **Vendor Website** — `VendorWebsiteControl` IS in `ToolsetProperties` and present in the
+  live Properties tab (differs from Applications, where it was removed). Kept.
+- Tabs: Properties, Tools Overview, Roles, Audit.
+- Read-only header: ID (copyable title), SYNCED badge, Updated/Creation Time, Auth status.
+- Source types (live Create dropdown): External Endpoint, MCP Container, Model Serving,
+  MCP Registry.
+- Auth methods: OAuth, API Key, Without authentication.
+- Tools Overview: "Use all available tools" toggle, count, search, expandable tools.
+- Create modal: ID, Display Name, Description, Source type + source field. No Transport/Intro.
+
+**PROCESS NOTE:** First attempt did source-only and the user correctly pushed back
+("why didn't u check the UI"). The live walk then surfaced 4 findings the source scan
+missed/under-reported (Forward-auth-token control type, 2 new OAuth fields, Redirect URI
+removal). **Always do the live UI walk for these UI-vs-docs passes — do not ship a
+source-only reconciliation.**
+
+Screenshots likely need recapture (toolset_properties.png / entities_toolsets_auth.png
+no longer match: new OAuth fields, forward-auth-token control). Flag for human recapture.
+
 ### Pages remaining
-- Entities/Toolsets — NEXT
-- Entities/Interceptors
+- Entities/Interceptors — NEXT
 - Entities/Routes
 - Builders
 - Catalog (Platform Models, Interceptors, Translators, Routes, App Runners, Roles, Keys)
