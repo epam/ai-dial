@@ -1316,14 +1316,74 @@ const allSections = [
           ]
         },
         {
-          "type": "doc",
-          "id": "administering-dial/builders",
-          "label": "Builders"
+          "type": "category",
+          "label": "Builders",
+          "link": {
+            "type": "doc",
+            "id": "administering-dial/builders/index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial/builders/application-runners",
+              "label": "Application Runners"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/builders/interceptor-templates",
+              "label": "Interceptor Templates"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/builders/adapters",
+              "label": "Adapters"
+            }
+          ]
         },
         {
-          "type": "doc",
-          "id": "administering-dial/assets",
-          "label": "Assets"
+          "type": "category",
+          "label": "Assets",
+          "link": {
+            "type": "doc",
+            "id": "administering-dial/assets/index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial/assets/applications",
+              "label": "Applications"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/assets/toolsets",
+              "label": "Toolsets"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/assets/prompts",
+              "label": "Prompts"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/assets/conversations",
+              "label": "Conversations"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/assets/files",
+              "label": "Files"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/assets/skills",
+              "label": "Skills"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/assets/folders-storage",
+              "label": "Folders Storage"
+            }
+          ]
         },
         {
           "type": "category",
@@ -1374,12 +1434,12 @@ const allSections = [
             {
               "type": "doc",
               "id": "administering-dial/audit/activity-and-rollback",
-              "label": "Activity and rollback"
+              "label": "Activities"
             },
             {
               "type": "doc",
               "id": "administering-dial/audit/monitoring-dashboards",
-              "label": "Monitoring and dashboards"
+              "label": "Usage Log"
             }
           ]
         },
@@ -1397,6 +1457,116 @@ const allSections = [
           "type": "doc",
           "id": "administering-dial/compliance-and-legal-faq",
           "label": "Compliance and legal FAQ"
+        },
+        {
+          "type": "category",
+          "label": "Evaluation",
+          "link": {
+            "type": "doc",
+            "id": "administering-dial/evaluation/index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial/evaluation/metrics",
+              "label": "Metrics"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/evaluation/datasets",
+              "label": "Datasets"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/evaluation/test-suites",
+              "label": "Test suites"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/evaluation/runs",
+              "label": "Runs"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Catalog [Preview]",
+          "link": {
+            "type": "doc",
+            "id": "administering-dial/catalog/index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/models",
+              "label": "Models"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/interceptors",
+              "label": "Interceptors"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/translators",
+              "label": "Translators"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/routes",
+              "label": "Routes"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/app-runners",
+              "label": "App Runners"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/roles",
+              "label": "Roles"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/catalog/keys",
+              "label": "Keys"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Analytics [Preview]",
+          "link": {
+            "type": "doc",
+            "id": "administering-dial/analytics/index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial/analytics/dashboards",
+              "label": "Dashboards"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/analytics/tables",
+              "label": "Tables"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/analytics/pipelines",
+              "label": "Pipelines"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/analytics/queries",
+              "label": "Queries"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial/analytics/sessions",
+              "label": "Sessions"
+            }
+          ]
         }
       ]
     },
