@@ -97,6 +97,9 @@ the same PR.
   (baselines and sources are filled during catch-up).
 - `references/catch-up-plan.md` — THE plan to run first: baseline discovery + the
   one-time catch-up to the current app.
+- `references/page-review-checklist.md` — **the enforced per-page GATE for UI-vs-docs
+  review passes.** Open it and work through it before touching any page (load lessons →
+  live UI walk → reconcile → write → mark screenshots → record).
 - `scripts/changelog.py` — per-version component changelog (primary targeting signal).
 - `references/m2-verify-and-write.md` — verify-and-write contract + PR format (generic;
   reads "chat" in places — treat as the pattern, applies here too).

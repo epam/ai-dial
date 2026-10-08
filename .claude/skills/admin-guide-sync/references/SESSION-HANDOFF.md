@@ -2,6 +2,11 @@
 
 Context for picking this up in a new session.
 
+> **Before starting ANY page in the UI-vs-docs review: open
+> `references/page-review-checklist.md` and work through it as a gate.** It is the
+> enforced pre-flight (load lessons → live walk → reconcile → write → mark screenshots →
+> record). Skipping it is what caused the Toolsets slips.
+
 ## The big picture
 
 Goal: keep two DIAL user guides in sync with the apps they document, eventually
@@ -414,9 +419,90 @@ source-only reconciliation.**
 Screenshots likely need recapture (toolset_properties.png / entities_toolsets_auth.png
 no longer match: new OAuth fields, forward-auth-token control). Flag for human recapture.
 
+### Interceptors page — COMPLETED
+
+Compared `2.entities/4.interceptors.md` against live Entities→Interceptors (FE 0.21.2)
++ FE source. Full tab walk: Properties, Parameter Scheme, Entities, Application Runners,
+Audit, plus grid + Columns panel + Create modal (all 3 source types).
+
+**Changes written (7 findings):**
+- Removed **ID** from the Interceptors grid — not in the Columns panel (available cols:
+  Display Name, Description, Source type, Source, Author, Topics, Creation/Updated time,
+  Status). Same pattern as Toolsets/Applications.
+- Fixed source-type label **"Interceptor deployment" → "Interceptor Container"** (the real
+  Create-dropdown/grid label) in all 3 tables (grid, Create, Properties) + the Container row.
+- Removed the **Interfaces** subsection from Properties — not composed into the
+  Entities→Interceptors view at all (confirmed by source: `Interceptors/View/Properties`
+  renders no InterfacesField/UpstreamEndpoints; the Interfaces+base_url editor lives only
+  on the Catalog interceptor asset page, `Assets/Platform/Interceptors/Properties.tsx`,
+  route `PlatformInterceptors`). Not hidden by a flag — categorically absent.
+- Removed the **Intro** field from Properties — not in `InterceptorProperties`, absent on live.
+- Rewrote **Forward auth token** from a boolean/"if enabled" description to the real control:
+  a selector (**- None -** / **Use for this interceptor**) in a popup confirmed with **Apply**.
+  NOTE: unlike the Toolsets forward-auth control, the interceptor popup does NOT require
+  typing the display name — just radio + Apply. Set Required to No.
+- Removed **ID** from the Entities-tab columns table and reordered to Type, Display Name,
+  Description (ID renders as a subtitle under Display Name, not a column).
+
+**Confirmed correct (kept):** tabs list; Parameter Scheme "No Configuration Scheme" empty
+state; Application Runners empty state + Add; Audit = single Activities sub-section (activity
+log scoped to the interceptor — NO Dashboard/Traces, unlike Models/Applications/Toolsets);
+JSON editor toggle; Create modal fields + conditional source fields.
+
+### Toolsets Duplicate flow — CORRECTED (user-reported)
+
+`3.toolsets.md` Duplicate section claimed the modal prompts for "OAuth credentials." Verified
+in source (`Toolsets/Modals/DuplicateToolset.tsx`) AND live (duplicated `github-oauth`): the
+modal renders only **ID + Display Name**; for API_KEY toolsets it adds an **API key header**
+field; for OAuth toolsets auth is **reset to None** on duplicate (no OAuth fields, no re-auth
+step in the modal). Rewrote the note + steps; flagged `duplicate-entity-toolset.png` for recapture.
+
+**Durable lesson:** the `ForwardAuthTokenField` control differs by entity — Toolsets require
+typing the display name to confirm the sensitive forward; Interceptors use a plain
+None/"Use for this interceptor" radio popup + Apply. Don't copy one page's wording to the other.
+
+### Routes page — COMPLETED
+
+Compared `2.entities/5.routes.md` against live Entities→Routes (FE 0.21.2) + grid/Columns
+panel + Create modal + full tab walk (Properties, Roles, Audit).
+
+**Changes written (7 findings):**
+- Removed **ID** from the Routes grid (not in Columns panel; available cols: Display Name,
+  Description, Paths, Order, Topics, Creation/Updated time).
+- **Methods:** corrected the supported list to **GET, POST, PUT, PATCH, DELETE, HEAD** —
+  the live popup offers only these six; dropped the bogus OPTIONS/TRACE and the
+  global-vs-app-routes split (both are the same six now). Chosen via popup + Apply.
+- **Rewrite path:** clarified it is a **toggle** (was described as a field).
+- **Upstream configuration:** added **Base URL**, **Secret Extra Data**, and **Interfaces**
+  (+ Add interface) — all revealed by the row's expand chevron, previously undocumented.
+  Reordered to main-row fields (Upstream Endpoints, Weight, Tier) then expand fields, mirroring
+  the Models upstream table. NOTE: the Routes upstream DOES render an **Interfaces** editor —
+  this contradicts the earlier handoff note that Interfaces is hidden for Routes. Live UI is
+  authoritative; the `isInterfacesHidden` claim applies to the model-endpoint completion row,
+  not the route upstream's own Interfaces list.
+- **Response output:** Status and Body are **required** when Response mode is selected
+  (were documented as optional).
+- **Roles:** removed phantom **ID** column; added a **Role-specific access** subsection for
+  the **Make available to specific roles** toggle (off = any authenticated user; on =
+  restricted to added roles), mirroring Toolsets; rewrote the Actions cell accordingly.
+
+**Confirmed correct (kept):** tabs (Properties, Roles, Audit); Create modal (ID, Display Name,
+Description, Paths); Output mode radios (Upstreams/Response); Order (default 2^31-1) + Max retry
+attempts; Audit = single Activities sub-section; JSON editor.
+
+**Screenshots flagged:** `img_21.png` (Properties — toggle/methods/upstream expand) and
+`routes_roles.png` (toggle + no ID column) marked outdated inline.
+
 ### Pages remaining
-- Entities/Interceptors — NEXT
-- Entities/Routes
+- Builders — NEXT
+- Catalog (Platform Models, Interceptors, Translators, Routes, App Runners, Roles, Keys)
+- Assets
+- Deployments (Model Servings, MCP Containers, Interceptor/Adapter/Application Containers, Images)
+- Access Management
+- Approvals
+- Audit
+- Evaluation
+- Analytics (Dashboards, Tables, Pipelines, Queries, Sessions)
 - Builders
 - Catalog (Platform Models, Interceptors, Translators, Routes, App Runners, Roles, Keys)
 - Assets
