@@ -1,0 +1,2 @@
+aidial-interceptors-sdk==0.8.0
+uvicorn==0.53.0
