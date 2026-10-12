@@ -176,21 +176,21 @@ All variables below ship with a working default;
 
 | Variable | Required | Default | Set to | Description |
 |---|---|---|---|---|
-| `DIAL_ADAS_URL` | Yes | `http://localhost:8087` | <url of ai-dial-analytics-realtime API> | Base URL for the ai-dial-analytics-realtime query-execute API, which backs both cost endpoints. The default points at localhost, so it must be overridden before `GET /api/v1/costs/**` returns anything useful. |
+| `DIAL_ADAS_URL` | Yes | `http://localhost:8087` | `<url of ai-dial-analytics-realtime API>` | Base URL for the ai-dial-analytics-realtime query-execute API, which backs both cost endpoints. The default points at localhost, so it must be overridden before `GET /api/v1/costs/**` returns anything useful. |
 | `DIAL_ADAS_CONNECT_TIMEOUT_MS` | No | `5000` | - | Connection timeout in milliseconds for the dial-adas client. |
 | `DIAL_ADAS_READ_TIMEOUT_MS` | No | `30000` | - | Read timeout in milliseconds for the dial-adas client. |
 | `QUERY_DSL_EXTENSION_TEST_SUITE_RUN_COST_ENABLED` | Yes | `false` | `true` | Adds a derived `total_cost` to `test_suite_runs` query results, fetched from dial-adas (#222) |
 | `QUERY_DSL_EXTENSION_TEST_SUITE_RUN_COST_TIMEOUT_SEC` | No | `2` | - | Deadline in seconds (min `1`) for the cost lookup (#222) |
-| `DIAL_APP_PROXY_ENABLED` | No | `false` | `true` | DIAL Application mode: runs are started through a DIAL Core Application Route and use DIAL Core's per-request key instead of the user's JWT. **Requires `config.rest.security.api-key.enabled=true`**, otherwise startup fails. EF must be registered in DIAL Core (see `docs/configuration.md` §5.7) (#236) |
+| `DIAL_APP_PROXY_ENABLED` | Yes | `false` | `true` | DIAL Application mode: runs are started through a DIAL Core Application Route and use DIAL Core's per-request key instead of the user's JWT. **Requires `config.rest.security.api-key.enabled=true`**, otherwise startup fails. EF must be registered in DIAL Core (see `docs/configuration.md` §5.7) (#236) |
 | `DIAL_APP_PROXY_DEPLOYMENT_NAME` | No | `EF` | - | Name of the DIAL Core deployment EF is registered under (#236) |
 | `DIAL_APP_PROXY_HEARTBEAT_INTERVAL_MS` | No | `30000` | - | SSE heartbeat interval of the internal execute endpoint (#236) |
 | `DIAL_APP_PROXY_TRIGGER_READ_TIMEOUT_MS` | No | `43200000` | - | Read timeout (12 h) for EF's call to the DIAL Core Application Route (#236) |
 | `API_KEY_ENABLED` | Yes | `false` | `true` | Enables DIAL API-Key authentication via the `Api-Key` request header. Must be `true` before `DIAL_APP_PROXY_ENABLED` can be set. EF fails fast at startup otherwise. |
 | `API_KEY_CORE_URL` | Yes | - | `<url of DIAL Core>` | Base URL of the DIAL Core instance used to introspect API keys via `GET /v1/user/info`. |
-| `API_KEY_ROLES_MAPPING` | Conditional | - (empty) | `{"admin":["FULL_ADMIN"],"default":["READ_ONLY_ADMIN"]}` | JSON object mapping DIAL Core project-key role names to EF authority strings. At least one of this or `API_KEY_DEFAULT_ROLES_MAPPING` must be non-empty. |
-| `API_KEY_DEFAULT_ROLES_MAPPING` | Conditional | - (empty) | `{"admin":["FULL_ADMIN"],"default":["READ_ONLY_ADMIN"]}` | JSON object mapping DIAL Core roles from the JWT-rooted `userClaims` response shape to EF authority strings. |
-| `API_KEY_USER_CLAIMS_ROLE_CLAIM` | No | `roles` | `dial_roles` | Claim name read from the introspection response's `userClaims` object to obtain the caller's raw roles. Set to `dial_roles` to match the claim naming in Core. |
-| `TEST_SUITE_RUN_SSE_TIMEOUT_MINUTES` | No | `30` | `720` | SSE client connection timeout, in minutes. Raise it under Application mode (`720` = 12 hours) so the status stream doesn't time out before a long-running eval completes. |
+| `API_KEY_ROLES_MAPPING` | Yes | - (empty) | `{"admin":["FULL_ADMIN"],"default":["READ_ONLY_ADMIN"]}` | JSON object mapping DIAL Core project-key role names to EF authority strings. At least one of this or `API_KEY_DEFAULT_ROLES_MAPPING` must be non-empty. |
+| `API_KEY_DEFAULT_ROLES_MAPPING` | Yes | - (empty) | `{"admin":["FULL_ADMIN"],"default":["READ_ONLY_ADMIN"]}` | JSON object mapping DIAL Core roles from the JWT-rooted `userClaims` response shape to EF authority strings. |
+| `API_KEY_USER_CLAIMS_ROLE_CLAIM` | Yes | `roles` | `dial_roles` | Claim name read from the introspection response's `userClaims` object to obtain the caller's raw roles. Set to `dial_roles` to match the claim naming in Core. |
+| `TEST_SUITE_RUN_SSE_TIMEOUT_MINUTES` | Yes | `30` | `720` | SSE client connection timeout, in minutes. Raise it under Application mode (`720` = 12 hours) so the status stream doesn't time out before a long-running eval completes. |
 
 
 ### DIAL Configuration changes
