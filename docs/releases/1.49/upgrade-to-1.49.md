@@ -9,7 +9,7 @@
     - [ai-dial-core](#ai-dial-core-0490-rc0)
     - [ai-dial-admin-backend](#ai-dial-admin-backend-0220-rc0)
     - [ai-dial-admin-frontend](#ai-dial-admin-frontend-0220-rc0)
-    - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-050-rc0)
+    - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-050-rc1)
     - [ai-dial-chat](#ai-dial-chat-120-rc0)
     - [ai-dial-chat-themes](#ai-dial-chat-themes-0210)
     - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend-0130-rc0)
@@ -48,7 +48,7 @@
    - ai-dial-admin-backend: `0.22.0-rc.0`
    - ai-dial-admin-frontend: `0.22.0-rc.0`
    - ai-dial-admin-deployment-manager-backend: `0.22.0-rc.0`
-   - ai-dial-admin-evaluation-framework-backend: `0.5.0-rc.0`
+   - ai-dial-admin-evaluation-framework-backend: `0.5.0-rc.1`
    - ai-dial-admin-evaluation-metrics: `0.3.0`
    - ai-dial-openapi-to-mcp: `0.2.1`
 
@@ -168,7 +168,17 @@ Set in `aidial.settings.json` or as environment variables with the `aidial.` pre
 
 ---
 
-#### ai-dial-admin-evaluation-framework-backend `0.5.0-rc.0`
+#### ai-dial-admin-evaluation-framework-backend `0.5.0-rc.1`
+
+##### Removed environment variables
+
+> [!CAUTION]
+> Renamed without fallback; affects every deployment with `API_KEY_ENABLED=true` since 0.3.0. Keeping both old names fails startup; renaming only one leaves the other mapping empty, so callers on that path get no authorities.
+
+| Variable | Reason |
+|---|---|
+| `API_KEY_ROLES_MAPPING` | Renamed to `API_KEY_KEY_ROLES_MAPPING` — project-key role mapping (#256) |
+| `API_KEY_DEFAULT_ROLES_MAPPING` | Renamed to `API_KEY_JWT_ROLES_MAPPING` — JWT-rooted per-request-key (`userClaims`) role mapping (#256) |
 
 ##### New environment variables
 
@@ -202,7 +212,7 @@ All variables below ship with a working default;
   {                                                                                                                                                                                                                                 
     "applications": {                                                                                                                                                                                                               
       "EF": {                                                                                                                                                                                                                       
-        "endpoint": "http://xxx",                                                                                                                                                                                                   
+        "endpoint": "http://unused",                                                                                                                                                                                                   
         "display_name": "EF",                                                                                                                                                                                                       
         "routes": {                                                                                                                                                                                                                 
           "runs": {                                                                                                                                                                                                                 
@@ -239,7 +249,7 @@ All variables below ship with a working default;
 ##### Required checks
 
 - **dial-adas** — the instance at `DIAL_ADAS_URL` must expose `POST /v1/queries/execute-sql`, otherwise the run-costs endpoints return `502` (#207)
-- **API-key role resolution** — with `config.rest.security.mode=oidc`, API-key callers now get roles from the matching provider's `roleClaims`; `API_KEY_USER_CLAIMS_ROLE_CLAIM` is only a fallback. Re-check `API_KEY_DEFAULT_ROLES_MAPPING` (#241, #248)
+- **API-key role resolution** — with `config.rest.security.mode=oidc`, API-key callers now get roles from the matching provider's `roleClaims`; `API_KEY_USER_CLAIMS_ROLE_CLAIM` is only a fallback. Re-check `API_KEY_KEY_ROLES_MAPPING` & `API_KEY_JWT_ROLES_MAPPING` (#241, #248, #256)
 - **Ephemeral storage** — ZIP import/export is staged in temp files; the container temp directory must be writable and large enough for the biggest archive (#227, #228, #232)
 
 ##### Database migrations
