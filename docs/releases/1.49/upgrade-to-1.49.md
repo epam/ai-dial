@@ -33,7 +33,7 @@
    - ai-dial-adapter-vertexai: `0.41.0-rc.0`
    - ai-dial-adapter-dial: `0.20.0-rc.0`
    - ai-dial-chat-themes: `0.21.0`
-   - ai-dial-chat: `1.2.0-rc.0`
+   - ai-dial-chat: `1.2.0-rc.1`
    - ai-dial-core: `0.49.0-rc.0`
    - ai-dial-analytics-realtime: `0.29.0-rc.0`
    - ai-dial-rag: `0.43.0`
@@ -65,414 +65,257 @@ Environment variable tables below use the same columns: **Required** is `Yes` (t
 
 ### Release-specific notes
 
-#### ai-dial-core `0.49.0-rc.0`
+#### ai-dial-rag `0.43.0`
 
-##### Breaking changes
+### Structured logs support
 
-> [!IMPORTANT]
-> **`temperature` deployment feature now defaults to `false`.** A model or application that doesn't set `features.temperatureSupported` is now reported as not supporting temperature, so clients (for example, the chat temperature control) stop offering it for those deployments (#2097).
+This release adds support for structured (JSON) logging, implemented by the `aidial-sdk`. Logging format is now configurable via new environment variables:
 
-| Previous configuration | Required action |
-|---|---|
-| Deployment without `features.temperatureSupported` (implicitly `temperature: true`) | Add `"features": {"temperatureSupported": true}` to every deployment where temperature must stay available |
+| Variable | Default | Description |
+| --- | --- | --- |
+| `DIAL_SDK_LOG_FORMAT` | `text` | Logging format. Set to `text` or `json`. Implemented by the DIAL SDK. |
+| `DIAL_SDK_TEXT_LOG_FORMAT` | `'%(levelprefix)s \| %(asctime)s \| %(name)s \| %(process)d \| %(message)s'` | Logging format for text logs. Implemented by the DIAL SDK. |
+| `DIAL_SDK_JSON_LOG_FORMAT` | `'{"level": "%(levelname)s", "time": "%(asctime)s", "logger": "%(name)s", "process": "%(process)d", "message": "%(message)s"}'` | Logging format for JSON logs. Implemented by the DIAL SDK. |
 
-> [!CAUTION]
-> **snake_case interface-type aliases removed.** Only `openaiChatCompletions`, `openaiEmbeddings`, `openaiResponses` and `anthropicMessages` are accepted; the aliases `openai_chat_completions`, `openai_embeddings`, `openai_responses` and `anthropic_messages` are rejected. Check translator `in` / `out` values in the dynamic config and in Admin-managed entities before upgrading (#2000).
-
-##### New static settings
-
-Set in `aidial.settings.json` or as environment variables with the `aidial.` prefix. Static settings require a restart; a `tracing` block placed in the dynamic config is ignored.
-
-| Variable | Required | Default | Description |
-|---|---|---|---|
-| `tracing.genAiSpanAttributes` | No | `true` | Adds OTel GenAI `gen_ai.*` and `dial.*` attributes to the request span and OTel log records. Prompts, completions and tool payloads are never published. Set `false` to opt out (#1973, #2021) |
-| `tracing.responseTraceHeaders` | No | `true` | Adds `traceparent`, `X-DIAL-TRACE-ID` and `X-DIAL-SPAN-ID` headers to every response (exposed via CORS). Set `false` to opt out (#1973, #2021) |
-| `tracing.conversationIdHeaders` | No | `["x-claude-code-session-id", "thread-id", "x-session-id", "x-dial-client-channel-id", "X-CONVERSATION-ID"]` | Request headers, in priority order, whose value is published as `gen_ai.conversation.id`. A configured array replaces the default (#1973) |
-| `proxy.additionalHopByHopHeaders` | No | `[]` | Extra header names stripped from proxied requests and responses on top of the built-in hop-by-hop list (#2008) |
-
-##### Settings with changed behavior
-
-| Variable | Old behavior | New behavior |
-|---|---|---|
-| `invitations.ttlInSeconds` | Ignored for share invitations (hardcoded 72 h when a role had no `share.<RESOURCE_TYPE>.invitation_ttl`) | Used as the default invitation TTL, rounded up to whole hours. `0` or a negative value now **fails startup** (#2067) |
-| `client.proxyOptions.*` / `client.nonProxyHosts` | Not applied to identity-provider JWKS fetching | JWKS (`identityProviders.*.jwksUrl`) is fetched through the configured outbound proxy. Make sure the proxy can reach the IdP, or add the IdP host to `client.nonProxyHosts` (#2035) |
-
-##### New dynamic settings
-
-| Setting | Description |
-|---|---|
-| `routes.<name>.upstreams[].authType` | How `key` is sent upstream: `API_KEY` (default, `API-KEY: <key>`) or `BEARER` (`Authorization: Bearer <key>`). Honored only on top-level `routes` (#2085) |
-
-##### New endpoints
-
-> [!NOTE]
-> If ingress or an API gateway allows only listed paths, add: `POST /openai/v1/chat/completions` (#2005), `POST /openai/responses` (#2068), `GET /v1/deployment-names` (#2075), `GET /v1/deployments/{deployment_name}/usage` (#2073).
+See the [full logging documentation](https://github.com/epam/ai-dial-sdk/blob/0.39.0/docs/logging.md) for details on logging configuration and available logging modes.
 
 ---
 
-#### ai-dial-admin-backend `0.22.0-rc.0`
+#### ai-dial-quickapps-backend `0.13.0-rc.0`
 
-##### Prerequisites
+### Prerequisites
 
 > [!IMPORTANT]
-> Conditional (decision-tree) pricing requires **DIAL Core ≥ 0.48.0** for `cacheRead` / `cacheWrite` (#1160) and **DIAL Core ≥ 0.49.0** for `prompt` / `completion` (#1175).
+> **DIAL Core ≥ 0.49.0** (`GET /v1/deployment-names`) is required for the tool access filter (#624); on older Core the filter fails open and offers every configured tool. Tools pointing at custom (user-owned) applications are treated as inaccessible unless Core's `includeCustomApps` is on.
 
-##### Database migrations
+### New environment variables
+
+| Variable                                  | Default | Description                                                                                                                                                                                 | Required |
+|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| `SKILL_INVOCATION_MAX_SKILLS_PER_MESSAGE` | `5`     | Maximum skills (`> 0`) honoured on one message (`custom_content.skills`); extra picks are dropped and reported in the *Initialization issues* stage. Clamped to `SKILL_INVOCATION_MAX_SKILLS`. Preview-gated. | No       |
+
+### Behavioral changes
+
 > [!NOTE]
-> Flyway applies these automatically on startup; the service account needs DDL privileges.
+> - **Nested sub-app stages are on by default** — apps that call another QuickApp as a deployment tool now show the sub-app's stages under the `Calling X` stage with no config change; set `features.stage_display.propagate_sub_stages: false` to turn it off (#537).
+> - **Hook `arguments` are templates `[Preview]`** — a literal `${` in existing hook `arguments` is now interpolated (escape it as `$${`), and `on_request_start` hooks time out after 15 s by default unless `timeout_seconds` is set (#607).
 
-- `V1.123__AddResponsesEndpointToInterceptorTables.sql` (PostgreSQL, MS SQL Server, H2) — adds the nullable `responses_endpoint` column to `interceptor_entity` and `interceptor_entity_aud` (#1165)
+---
 
-##### Behavioral changes
+#### ai-dial-quickapps-frontend `0.3.0-rc.0`
 
-- **Config export to Kubernetes** — `CONFIG_EXPORT_CREATE_RESOURCES=true` now really creates a missing target Secret / ConfigMap (previously the export failed). With `false` (the default) a missing resource still fails the export (#1169)
+### New environment variables
+
+| Variable | Required | Default | Description |
+| --- | :---: | --- | --- |
+| `CORS_ORIGIN` | Yes | — | Origin(s) allowed to call the API cross-origin; usually the same as `AUTH_CALLBACK_BASE_URL` |
+| `AUTH_SESSION_SECRET` | Yes | — | 64 hex characters; `AUTH_SESSION_PREV_SECRET` allows zero-downtime rotation |
+| `AUTH_CALLBACK_BASE_URL` | Yes | — | This app's own origin |
+| `AUTH_POST_LOGOUT_REDIRECT_URI` | Yes | — | Set to the same value as `CORS_ORIGIN` and `AUTH_CALLBACK_BASE_URL` (per `CHANGELOG.md`) |
+| `AUTH_SESSION_COOKIE_NAME` | No | `__Host-quickapps.sess` | Session cookie name |
+| `AUTH_TRANSACTION_COOKIE_NAME` | No | `__Host-quickapps.tx` | OAuth handshake cookie name |
+| `AUTH_LEGACY_COOKIE_NAMES` | No | — | Old next-auth cookie names to expire; avoids `HTTP ERROR 431` after upgrade |
+| `CSP_MODE` | No | `report-only` | Set to `enforce` once there are no violation reports |
+| `ALLOWED_CONNECT_ORIGINS` | No | none | Extra `fetch`/`XHR` origins permitted by CSP |
+| `OVERLAY_ENABLED` | No | unset | Only when the session cookie needs `SameSite=None` |
+| `API_PREFIX` | No | `api` | Prefix for API and health-check routes |
+| `OTEL_SDK_DISABLED` | No | `true` | Set to `false` plus the `OTEL_*` variables to enable OpenTelemetry |
+
+### Renamed / deprecated environment variables
+
+> [!CAUTION]
+> The old names are no longer read.
+
+| Old variable | New variable or location | Notes |
+| --- | --- | --- |
+| `NEXTAUTH_SECRET` | `AUTH_SESSION_SECRET` | |
+| `NEXTAUTH_URL` | `AUTH_CALLBACK_BASE_URL` | `CORS_ORIGIN` is set separately |
+| `THEMES_URL` | `THEMES_CONFIG_URL` | Now the base URL; `/config.json` is appended |
+| `ALLOWED_FRAME_ANCESTORS` | `ALLOWED_IFRAME_ORIGINS` | |
+| `QUICK_APPS_DEFAULT_MODEL` | `DEFAULT_DEPLOYMENT` | |
+| `AUTH_<PROVIDER>_ISSUER` / `_CLIENT_SECRET` | `AUTH_<PROVIDER>_HOST` / `_SECRET` | Keycloak, Auth0, Azure AD secret; see `CHANGELOG.md` |
+| `CODE_INTERPRETER_ENABLED`, `WEB_FETCH_ENABLED`, `ADD_ATTACHMENT_ENABLED` | `CUSTOM_CLIENT_VARIABLES` keys | See `CHANGELOG.md` |
+| `ALLOWED_ORIGIN`, `DIAL_ADMIN_URL`, `DIAL_CHAT_URL` | `CUSTOM_CLIENT_VARIABLES` keys `allowedOrigin`, `dialAdminHost`, `dialChatHost` | |
+| `QUICK_APPS_APPLICATION_NAME` | `applicationName` entry-URL query parameter | No env fallback |
+
+### Settings keys (`CUSTOM_CLIENT_VARIABLES`)
+
+| Key | Change | Description |
+| --- | --- | --- |
+| `allowedOrigin` | New location, accepts several values | One origin, a comma-separated list or a JSON array; unset or `*` accepts any origin (unsafe outside local dev) |
+| `dialAdminHost`, `dialChatHost` | New location | Host origins for the visualizer connector |
+| `applicationName` | Removed | Passed by the host as the entry-URL query parameter |
+
+### Host integration changes
+
+> [!IMPORTANT]
+> Upgrade `ai-dial-chat` first: it must send `applicationName` in the QuickApps entry URL, otherwise `readyToSave` is never sent and Save/Preview stay disabled. The admin host does not send it yet. Application credentials additionally need a host advertising `applicationCredentials=true` and handling `REQUEST_APPLICATION_CREDENTIALS`; older hosts just hide the action. Update every identity provider's redirect URI to `/api/v1/auth/callback/<provider>`.
+
+### Behavioral changes
+
+> [!NOTE]
+> New apps default the orchestrator temperature to `0.5`; saved values are unchanged.
+
+- **Image** — now `chat-api` plus this app's static build, amd64-only, default port `5000` (#149, #179)
+- **Health check** — `HEALTHCHECK` calls `/<API_PREFIX>/health` (#149)
 
 ---
 
 #### ai-dial-admin-frontend `0.22.0-rc.0`
 
 > [!IMPORTANT]
-> Deploy together with ai-dial-admin-backend `0.22.0`. See the [infrastructure changelog](https://github.com/epam/ai-dial-admin-frontend/blob/0.22.0-rc.0/docs/INFRA-CHANGELOG.md) for details.
-
-##### Renamed environment variables
-
-| Old variable | New variable | Notes |
-|---|---|---|
-| `ANALYTICS_CONVERSATIONS_ENABLED` | `ANALYTICS_SESSIONS_ENABLED` | The old name is no longer read — if it is not renamed, the Sessions item stays hidden. Takes effect only when `ANALYTICS_ENABLED` is `true` (#4633) |
-
-##### New environment variables
+> `ANALYTICS_CONVERSATIONS_ENABLED` is renamed to `ANALYTICS_SESSIONS_ENABLED` with no fallback — deployments that enabled the Analytics trace view must rename it (0.21.1 and later already read the new name). A custom themes config at `THEMES_CONFIG_URL` must now define the ui-kit 2.0 color tokens (`bg-layer-base`, `bg-layer-raised`, `bg-layer-sunken`, `bg-control-*`, `text-control-*`, `stroke-*`, `bg-gradient-*`, `shadow-*`) in every theme; the app no longer ships dark defaults for them, so a config carrying only the legacy set renders ui-kit controls light.
 
 | Variable | Required | Default | Description |
 |---|---|---|---|
-| `ANALYTICS_USAGE_ENABLED` [Preview] | No | `false` | Enables the analytics Dashboards page (built on the usage log) at `/dashboards` and the usage dashboard on Audit tabs. Takes effect only when `ANALYTICS_ENABLED` is `true` (#4625, #4675, #4818, #4821) |
-| `DIAL_ANALYTICS_RUNNER_API_URL` [Preview] | No | unset | Base URL of the Analytics enrichment runner (pipeline Runtime tab, pause/resume, Failures, Groups). Unset hides every runtime control (#4789, #4827, #4849) |
+| `ANALYTICS_SESSIONS_ENABLED` [Preview] | No | `false` | Replaces `ANALYTICS_CONVERSATIONS_ENABLED`; shows the Sessions sub-item in Analytics; needs `ANALYTICS_ENABLED` |
+| `ANALYTICS_USAGE_ENABLED` [Preview] | No | `false` | Serves the analytics Dashboards page at `/dashboards` and moves `Dashboards` to the top of Analytics; needs `ANALYTICS_ENABLED` |
+| `DIAL_ANALYTICS_RUNNER_API_URL` [Preview] | No | unset | Enrichment runner endpoint behind pipeline pause/resume and the Runtime, Failures, and Groups views; unset hides every runtime control |
 
-##### Changed `DISABLE_MENU_ITEMS` values
-
-| Value | Change |
-|---|---|
-| `analyticsconversations` | Replaced by `analyticssessions` (#4633) |
-| `evaluators` | Removed — the Evaluators page is folded into pipelines (#4641) |
-| `platformcatalogschemas` | New — Catalog Schemas item (#4556) |
-
-##### Prerequisites
-
-- **Admin backend** — deploy with ai-dial-admin-backend `0.22.0` (#4609, #4899)
-- **Analytics data-access service** — requires a build with the evaluator-to-pipeline fold; the frontend no longer calls `/v1/evaluators*` (#4641, #4851, #4890, #4898)
-- **Themes config** — the config served at `THEMES_CONFIG_URL` must define the ui-kit 2.0 color tokens. ai-dial-chat-themes `0.21.0` already defines them; custom theme configs must be updated (#4869)
-
-##### Container image
-
-> [!IMPORTANT]
-> `npm` / `npx` are removed from the runtime image; the entrypoint is `node node_modules/next/dist/bin/next start`. Deployments that override the container `command` / `args` with `npm …` must be updated (#4882)
+* The telemetry dashboard moves from `/dashboard` to `/dashboards` and its menu item is renamed `Dashboards`; `/dashboard` redirects, and the `dashboard` token of `DISABLE_MENU_ITEMS` still hides it
+* The container image no longer ships `npm` or `npx` and starts with `node node_modules/next/dist/bin/next start` — update any container command override that calls `npm run start`
+* [Preview] Companion service versions — Catalog Schemas need DIAL Core 0.47.1 or later; Analytics pipelines need an ADAS release with the evaluator fold and the `on_ingest` retirement, and an enrichment runner at or past `5a01391` with its `improve-group-endpoints` change; multi-request Try Out needs the evaluation backend contract from epam/ai-dial-admin-evaluation-framework-backend#235
 
 ---
 
 #### ai-dial-admin-evaluation-framework-backend `0.5.0-rc.0`
 
-##### New environment variables
-
-All variables below ship with a working default; every new feature they control is **off** by default.
+### New environment variables
 
 | Variable | Required | Default | Description |
 |---|---|---|---|
-| `SPRING_AI_MCP_SERVER_ENABLED` | No | `false` | Turns on the inbound MCP server at `/mcp` (same authentication as `/api/v1/**`) (#208) |
-| `SPRING_AI_MCP_SERVER_PROTOCOL` | No | `STATELESS` | `STATELESS` works with any replica; `STREAMABLE` keeps in-memory sessions and needs a single replica or sticky sessions. `SSE` is not supported (#208) |
-| `DIAL_APP_PROXY_ENABLED` | No | `false` | DIAL Application mode: runs are started through a DIAL Core Application Route and use DIAL Core's per-request key instead of the user's JWT. **Requires `config.rest.security.api-key.enabled=true`**, otherwise startup fails. EF must be registered in DIAL Core (see `docs/configuration.md` §5.7) (#236) |
-| `DIAL_APP_PROXY_DEPLOYMENT_NAME` | No | `EF` | Name of the DIAL Core deployment EF is registered under (#236) |
-| `DIAL_APP_PROXY_HEARTBEAT_INTERVAL_MS` | No | `30000` | SSE heartbeat interval of the internal execute endpoint (#236) |
-| `DIAL_APP_PROXY_TRIGGER_READ_TIMEOUT_MS` | No | `43200000` | Read timeout (12 h) for EF's call to the DIAL Core Application Route (#236) |
-| `QUERY_DSL_EXTENSION_TEST_SUITE_RUN_COST_ENABLED` | No | `false` | Adds a derived `total_cost` to `test_suite_runs` query results, fetched from dial-adas (#222) |
-| `QUERY_DSL_EXTENSION_TEST_SUITE_RUN_COST_TIMEOUT_SEC` | No | `2` | Deadline in seconds (min `1`) for the cost lookup (#222) |
-| `CSV_IMPORT_ZIP_MAX_ENTRIES` | No | `1000` | Maximum number of entries in an imported ZIP archive (#227, #228) |
-| `CSV_IMPORT_ZIP_MAX_TOTAL_UNCOMPRESSED_SIZE` | No | `1GB` | Maximum total uncompressed size of an imported ZIP (#227, #228) |
-| `CSV_IMPORT_ZIP_MAX_MANIFEST_SIZE` | No | `1MB` | Maximum size of the archive's `manifest.json` (#227, #228) |
+| `QUERY_DSL_EXTENSION_TEST_SUITE_RUN_COST_ENABLED` | No | `false` | Adds `total_cost` to row-mode `test_suite_runs` query results. |
+| `QUERY_DSL_EXTENSION_TEST_SUITE_RUN_COST_TIMEOUT_SEC` | Conditional | `2` | End-to-end cost lookup deadline; minimum `1`. |
+| `CSV_IMPORT_ZIP_MAX_ENTRIES` | No | `1000` | Maximum ZIP entries accepted during test-case import. |
+| `CSV_IMPORT_ZIP_MAX_TOTAL_UNCOMPRESSED_SIZE` | No | `1GB` | Maximum total uncompressed ZIP size. |
+| `CSV_IMPORT_ZIP_MAX_MANIFEST_SIZE` | No | `1MB` | Maximum `manifest.json` size. |
+| `SPRING_AI_MCP_SERVER_ENABLED` | No | `false` | Enables the inbound MCP server; `/mcp` returns 404 when disabled. |
+| `SPRING_AI_MCP_SERVER_STDIO` | No | `false` | Enables local stdio transport; HTTP is the deployment default. |
+| `SPRING_AI_MCP_SERVER_NAME` | No | `ai-dial-admin-evaluation-framework-backend` | Server name returned by MCP initialization. |
+| `SPRING_AI_MCP_SERVER_VERSION` | No | Project version | Server version returned by MCP initialization. |
+| `SPRING_AI_MCP_SERVER_TYPE` | No | `SYNC` | MCP implementation type; `SYNC` preserves request-thread caller identity. |
+| `SPRING_AI_MCP_SERVER_PROTOCOL` | No | `STATELESS` | HTTP protocol; `STREAMABLE` requires one replica or sticky sessions. |
+| `SPRING_AI_MCP_SERVER_CAPABILITIES_TOOL` | No | `true` | Advertises MCP tools. |
+| `SPRING_AI_MCP_SERVER_CAPABILITIES_RESOURCE` | No | `false` | Advertises MCP resources; none ship in this release. |
+| `SPRING_AI_MCP_SERVER_CAPABILITIES_PROMPT` | No | `false` | Advertises MCP prompts; none ship in this release. |
+| `SPRING_AI_MCP_SERVER_CAPABILITIES_COMPLETION` | No | `false` | Advertises MCP completions; none ship in this release. |
+| `SPRING_AI_MCP_SERVER_STREAMABLE_HTTP_MCP_ENDPOINT` | No | `/mcp` | Sets the authenticated MCP HTTP path. |
+| `SPRING_AI_MCP_SERVER_STREAMABLE_HTTP_DISALLOW_DELETE` | No | `false` | Disables session termination by `DELETE` in `STREAMABLE` mode. |
+| `SPRING_AI_MCP_SERVER_ANNOTATION_SCANNER_ENABLED` | No | `true` | Discovers `@McpTool` methods. |
+| `SPRING_AI_MCP_SERVER_INSTRUCTIONS` | No | Built-in workflow guidance | Instructions returned by MCP initialization. |
 
-##### Required checks
+### Enabling Application mode for test suite runs
 
-- **dial-adas** — the instance at `DIAL_ADAS_URL` must expose `POST /v1/queries/execute-sql`, otherwise the run-costs endpoints return `502` (#207)
-- **API-key role resolution** — with `config.rest.security.mode=oidc`, API-key callers now get roles from the matching provider's `roleClaims`; `API_KEY_USER_CLAIMS_ROLE_CLAIM` is only a fallback. Re-check `API_KEY_DEFAULT_ROLES_MAPPING` (#241, #248)
-- **Ephemeral storage** — ZIP import/export is staged in temp files; the container temp directory must be writable and large enough for the biggest archive (#227, #228, #232)
+Application mode (see **DIAL Configuration changes** below) routes long-running evals through a DIAL
+Application Route instead of the user's JWT, so a run no longer fails when the JWT expires mid-run.
+It is off by default. To turn it on:
 
-##### Database migrations
+**1. Enable DIAL API-Key authentication first** — the internal run-execution endpoint is authenticated
+via the `Api-Key` header, not the user's JWT, so Application mode cannot start without it:
+
+| Environment Variable | Default | Required | Description |
+|---|---|---|---|
+| `API_KEY_ENABLED` | `false` | Yes | Enables DIAL API-Key authentication via the `Api-Key` request header. Must be `true` before `DIAL_APP_PROXY_ENABLED` can be set — EF fails fast at startup otherwise. |
+| `API_KEY_CORE_URL` | - | Yes | Base URL of the DIAL Core instance used to introspect API keys via `GET /v1/user/info`. |
+| `API_KEY_ROLES_MAPPING` | - (empty) | Conditional | JSON object mapping DIAL Core project-key role names to EF authority strings, e.g. `{"admin":["FULL_ADMIN"],"default":["READ_ONLY_ADMIN"]}`. At least one of this or `API_KEY_DEFAULT_ROLES_MAPPING` must be non-empty. |
+| `API_KEY_DEFAULT_ROLES_MAPPING` | - (empty) | Conditional | JSON object mapping DIAL Core roles from the JWT-rooted `userClaims` response shape to EF authority strings, e.g. `{"admin":["FULL_ADMIN"],"default":["READ_ONLY_ADMIN"]}`. |
+| `API_KEY_USER_CLAIMS_ROLE_CLAIM` | `roles` | No | Claim name read from the introspection response's `userClaims` object to obtain the caller's raw roles. Set to `dial_roles` to match this claim naming in Core. |
+
+**2. Turn on the Application Route flag:**
+
+| Environment Variable | Default | Required | Description |
+|---|---|---|---|
+| `DIAL_APP_PROXY_ENABLED` | `false` | No | Enables DIAL Application Routes mode for run execution — eval runs are triggered via DIAL Core's Application Route using a per-request key instead of the user's JWT. Requires `API_KEY_ENABLED=true`. |
+| `DIAL_APP_PROXY_DEPLOYMENT_NAME` | `EF` | No | DIAL Core application deployment name. Must match the `applications.<name>` key used in the DIAL Core config snippet in **DIAL Configuration changes** below. |
+| `DIAL_APP_PROXY_HEARTBEAT_INTERVAL_MS` | `30000` | No | Heartbeat interval for the internal run SSE connection. |
+| `DIAL_APP_PROXY_TRIGGER_READ_TIMEOUT_MS` | `43200000` | No | DIAL Application Route trigger timeout in milliseconds. |
+
+**3. Recommended tuning (not required to enable the mode, but needed for long evals):**
+
+| Environment Variable | Default | Required | Description |
+|---|---|---|---|
+| `TEST_SUITE_RUN_SSE_TIMEOUT_MINUTES` | `30` | No | SSE client connection timeout, in minutes. Raise this under Application mode (e.g. `720` for up to 12 hours) so the status stream doesn't time out before a long-running eval completes. |
+
+
+### Behavioral changes
+
 > [!NOTE]
-> Flyway applies these automatically on startup; the service account needs DDL privileges on both schemas. The meta Flyway now runs **after** the analytics Flyway and opens a read connection to the analytics datasource (for `V1_33`).
+> These take effect automatically on upgrade unless noted otherwise.
 
-- **analytics** — `V1.20__CreateTestCaseMetricScoresAggregatedTable.sql` — creates `test_case_metric_scores_aggregated` (#231)
-- **analytics** — `V1.21__AddRunCaseContextToTestCaseEvalScores.sql` — **drops and recreates** `test_case_eval_scores` (#231)
-- **meta** — `V1.32__CreateRunMetricSnapshotsTable.sql` — creates `run_metric_snapshots` in meta (#199)
-- **meta** — `V1_33__CopyRunMetricSnapshotsFromAnalytics` (Java migration) — copies `run_metric_snapshots` from analytics into meta (#199)
-- **meta** — `V1.34__ReplaceRunMetricSnapshotsRunIndex.sql` — replaces the run index on `run_metric_snapshots` (#201)
-- **meta** — `V1.35__AddMetricScoreAggregationToTestSuites.sql` — adds `test_suites.metric_score_aggregation` (default `'AVG'`) (#231)
+- **API-key role mapping** — with OIDC providers configured, introspection matches `userClaims.iss` and unions the provider's `roleClaims`; `API_KEY_USER_CLAIMS_ROLE_CLAIM` is now the fallback (#241, #248)
+- **dial-adas compatibility** — run-cost averages now call `POST /v1/queries/execute-sql`; verify the deployed dial-adas version exposes this endpoint (#207)
+
+### DIAL Configuration changes
+
+> [!IMPORTANT]
+> DIAL Core registration is required only when `DIAL_APP_PROXY_ENABLED=true`; direct JWT execution remains the default.
+>
+> **Required setup** (#236):
+>
+> 1. **Add** the `applications.EF` block to DIAL Core configuration, or use the application name set by `DIAL_APP_PROXY_DEPLOYMENT_NAME`, and grant it access to the EF file bucket. Apply the snippet with `http://eval-framework-url` replacement:
+
+ ```json                                                                                                                                                                                                                           
+  {                                                                                                                                                                                                                                 
+    "applications": {                                                                                                                                                                                                               
+      "EF": {                                                                                                                                                                                                                       
+        "endpoint": "http://xxx",                                                                                                                                                                                                   
+        "display_name": "EF",                                                                                                                                                                                                       
+        "routes": {                                                                                                                                                                                                                 
+          "runs": {                                                                                                                                                                                                                 
+            "name": "runs",                                                                                                                                                                                                         
+            "rewritePath": true,                                                                                                                                                                                                    
+            "paths": [                                                                                                                                                                                                              
+              "/api/internal/runs/[^/]+/execute$"                                                                                                                                                                                   
+            ],                                                                                                                                                                                                                      
+            "methods": [                                                                                                                                                                                                            
+              "POST"                                                                                                                                                                                                                
+            ],                                                                                                                                                                                                                      
+            "upstreams": [                                                                                                                                                                                                          
+              {                                                                                                                                                                                                                     
+                "endpoint": "http://eval-framework-url",                                                                                                                                 
+                "weight": 1,                                                                                                                                                                                                        
+                "tier": 0                                                                                                                                                                                                           
+              }                                                                                                                                                                                                                     
+            ],                                                                                                                                                                                                                      
+            "maxRetryAttempts": 1,                                                                                                                                                                                                  
+            "order": 2147483647,                                                                                                                                                                                                    
+            "permissions": [],                                                                                                                                                                                                      
+            "attachmentPaths": {                                                                                                                                                                                                    
+              "requestBody": ["$.attachments[*].url"],                                                                                                                                                                              
+              "responseBody": []                                                                                                                                                                                                    
+            }                                                                                                                                                                                                                       
+          }                                                                                                                                                                                                                         
+        }                                                                                                                                                                                                                           
+      }                                                                                                                                                                                                                             
+    }                                                                                                                                                                                                                               
+  } 
+```
+
+### Database migrations
+
+> [!NOTE]
+> Flyway applies these automatically on startup; the service account needs DDL privileges on both schemas, and the analytics datasource must be reachable while meta `V1.33` copies historical snapshots.
+
+- **meta** — `V1.32__CreateRunMetricSnapshotsTable.sql` — creates the canonical snapshot table with cascading run deletion #197 (#199)
+- **meta** — `V1_33__CopyRunMetricSnapshotsFromAnalytics.java` — copies historical snapshots from analytics and skips orphaned rows #197 (#199)
+- **meta** — `V1.34__ReplaceRunMetricSnapshotsRunIndex.sql` — replaces the run-only index with latest-computation ordering #197 (#199)
+- **meta** — `V1.35__AddMetricScoreAggregationToTestSuites.sql` — adds `metric_score_aggregation` with default `AVG` (#231)
+- **analytics** — `V1.20__CreateTestCaseMetricScoresAggregatedTable.sql` — stores per-test-case metric aggregates by computation (#231)
+- **analytics** — `V1.21__AddRunCaseContextToTestCaseEvalScores.sql` — rebuilds test-case scores as one row per case and computation (#231)
 
 > [!CAUTION]
-> `V1.21` runs `DROP TABLE IF EXISTS test_case_eval_scores`. **When upgrading from `0.4.0`, all stored per-test-case `score` / `passed` values are deleted.** Back up the table first if you need those values.
->
-> `V1_33` copies every snapshot row during startup, so startup takes longer when the analytics table is large. `V1.34` holds an exclusive lock on `run_metric_snapshots` until the migration commits.
+> Analytics `V1.21` drops and recreates `test_case_eval_scores`, deleting existing derived scores until recomputed. Meta `V1.34` takes an access-exclusive lock while replacing its index; consider a maintenance window for large snapshot tables.
 
----
-
-#### ai-dial-chat `1.2.0-rc.0`
-
-> [!IMPORTANT]
-> The session cookie format changes (payload v2): **all existing user sessions are invalidated on upgrade and users have to sign in again.** Upgrade all chat replicas at once (#8990).
-
-##### Prerequisites
-
-> [!IMPORTANT]
-> **DIAL Core ≥ 0.48.0** is required to enable `RESPONSES_BACKGROUND_ENABLED` (#9236).
-
-##### New environment variables
-
-| Variable | Required | Default | Description |
-|---|---|---|---|
-| `AUTH_SESSION_MAX_AGE_SECONDS` | No | `2592000` (30 days) | Rolling session lifetime in seconds; a successful token refresh resets it. An invalid value fails startup. (#8990) |
-| `ALLOWED_CONNECT_ORIGINS` | No | unset | Comma-separated HTTP(S) origins added to CSP `connect-src` for external PDF and Office previews. An invalid entry fails startup. (#9012, #9023) |
-| `USER_USAGE_DEPLOYMENT_TYPES` | No | `model,application` | Deployment kinds reported by the user usage/limits APIs. Set `model` to keep the `1.1.0` behavior. (#9147) |
-| `CUSTOM_CORE_API_CONFIG` | No | unset | Server-only JSON allowlist of GET DIAL Core paths exposed through `GET /api/v1/custom-api/:operationId`. An invalid value fails startup. (#9266) |
-| `RESPONSES_BACKGROUND_ENABLED` | No | `false` | Runs eligible Responses generations as DIAL Core background jobs. Requires `RESPONSES_API_ENABLED=true` and DIAL Core ≥ 0.48.0. (#9236) |
-| `GENERATION_FINALIZE_TIMEOUT_MS` | No | `60000` | Timeout in ms for releasing a generation whose final write never settles (min `1000`). (#8953) |
-| `ALLOW_VISUALIZER_SEND_MESSAGES` | No | `false` | Lets visualizer iframes send messages as the user. Enable only for trusted visualizers. (#9246) |
-| `UI_EVENT` | No | unset | Start-page celebration: `halloween` or `new-year`. (#9033) |
-| `MCP_APP_HOST_NAME` | No | unset (`ai-dial-chat`) | Identifier sent to MCP Apps as `hostInfo.name`. (#8919) |
-| `TEXT_REFINEMENT_SKILL_DESCRIPTION_PROMPT`, `TEXT_REFINEMENT_SKILL_INSTRUCTIONS_PROMPT`, `TEXT_REFINEMENT_SCHEDULED_TASK_DESCRIPTION_PROMPT`, `TEXT_REFINEMENT_SCHEDULED_TASK_INSTRUCTIONS_PROMPT`, `TEXT_REFINEMENT_APPLICATION_DESCRIPTION_PROMPT`, `TEXT_REFINEMENT_TOOLSET_DESCRIPTION_PROMPT`, `TEXT_REFINEMENT_PROMPT_DESCRIPTION_PROMPT` | No | unset (built-in prompt) | Override the built-in "Refine with AI" prompts. "Refine with AI" is available whenever `UTILITY_MODEL` is set. (#9034, #9286) |
-| `CONVERSATION_NAMING_SYSTEM_PROMPT` | No | unset (built-in prompt) | Overrides the conversation naming system prompt. (#9034) |
-| `TRANSCRIPTION_PROMPT` | No | unset (built-in prompt) | Overrides the prompt for audio transcription through `ASR_MODEL`. (#9034) |
-| `HTTP_PROXY` / `HTTPS_PROXY` / `NO_PROXY` | No | unset | Now applied to outbound OIDC, themes and DIAL Core calls. If a proxy is set in the pod environment, add in-cluster hosts (e.g. the DIAL Core service) to `NO_PROXY`. (#9038, #9084) |
-
-##### Environment variables with changed defaults
-
-| Variable | Old default | New default | Description |
-|---|---|---|---|
-| `CORS_ORIGIN` | `http://localhost:4207` | value of `AUTH_CALLBACK_BASE_URL` | Set explicitly only when the frontend is served from a different origin. (#9022) |
-| `AUTH_POST_LOGOUT_REDIRECT_URI` | unset | value of `AUTH_CALLBACK_BASE_URL` | Must still be registered in each IdP client. (#9022) |
-| `FILE_MANAGER_AVAILABLE_TABS` | `my_files,shared,organization` | `all,my_files,shared,organization` | Deployments that set this variable explicitly must add `all` to get the new tab. (#9117) |
-
-##### Removed environment variables
-
-| Variable | Reason |
-|---|---|
-| `SKILL_USAGE_ENABLED` | The skill-usage UI is always available. A value left set is ignored. (#9119) |
-
-##### New `ENABLED_UI_FEATURES` values
-
-| Value | Description |
-|---|---|
-| `starters-below-greeting` | Moves conversation starters between the greeting and the input. (#9155) |
-| `hide-greeting` | Hides the greeting and the welcome-screen description. (#9155) |
-| `show-agent-description` | Shows the selected agent's `description` on the empty-chat screen. (#8883) |
-| `disable-input-history-navigation` | Disables Up/Down history navigation in the chat input. (#9037) |
-| `hide-conversation-export` | Hides the "Export" and "Export all" entries. (#9037) |
-| `hide-settings-page` | Hides the Settings page entry. (#9037) |
-| `show-header-logo` | Shows the theme logo in the top bar. (#9051, #9155) |
-
-##### New container images
-
-| Image | Contents |
-|---|---|
-| `epam/ai-dial-chat-bff` | BFF only, for a frontend hosted elsewhere (used by ai-dial-quickapps-frontend `0.3.0`). Same environment variables as the full image. (#9212) |
-| `epam/ai-dial-chat-mcp-app-sandbox` | Separate-origin MCP Apps sandbox proxy. Requires `MCP_APP_SANDBOX_ALLOWED_HOST_ORIGINS`; point chat's `MCP_APP_SANDBOX_URL` at it. (#8890) |
-
-##### Behavioral changes
-
-> [!WARNING]
-> **Boolean env parsing fixed** — `SCHEDULED_TASKS_ENABLED`, `LIVE_CHAT_INTERACTION_ENABLED` and `LLM_CONVERSATION_NAMING_ENABLED` set to `"false"` were previously read as `true` and are now read as `false`. Check these values before upgrading. (#9142)
-
----
-
-#### ai-dial-chat-themes `0.21.0`
+### API / contract changes
 
 > [!NOTE]
-> If you override the bundled `static/config.json`, merge in the new ui-kit 2.0 tokens (required by ai-dial-admin-frontend `0.22.0`): dark theme `bg-layer-*`, `bg-control-*`, `text-*`, `stroke-*`, `shadow-*`; light theme `stroke-accent-focus`, `shadow-*`, `bg-control-error-alpha`, `bg-control-accent-muted`, `bg-control-accent-alpha-*-subtle`. `bg-layer-6` and `bg-layer-7` were removed from the light theme (#156, #158).
+> Coordinate consumers for the breaking items below; full REST reference is available in Swagger UI (`/swagger-ui.html`).
 
----
-
-#### ai-dial-quickapps-backend `0.13.0-rc.0`
-
-##### Prerequisites
-
-> [!IMPORTANT]
-> **DIAL Core ≥ 0.49.0** is required for the per-user tool access filter (`features.tool_access_filter`) (#598, #624). On an older DIAL Core the filter fails open and all configured tools are offered.
-
-##### New environment variables
-
-| Variable | Required | Default | Description |
-|---|---|---|---|
-| `SKILL_INVOCATION_MAX_SKILLS_PER_MESSAGE` | No | `5` | Maximum skills (`> 0`) honoured on one user message; clamped to `SKILL_INVOCATION_MAX_SKILLS`. Preview-gated. (#574) |
-
-##### Schema changes
-
-> [!NOTE]
-> All additions are optional; existing manifests stay valid.
-
-| Key | Affected config model | Description |
-|---|---|---|
-| `features.tool_access_filter.enabled` | `ToolAccessFilterConfig` (new) | Default `false`. Limits DIAL deployment tools, `dial-app` and `dial-mcp` toolsets to those accessible to the calling user. Requires DIAL Core ≥ 0.49.0 (#598, #624) |
-| `features.stage_display.propagate_sub_stages` | `StageDisplayConfig` | Default `true` — stages of a Quick App called as a deployment tool are shown nested under the `Calling X` stage (#537) |
-| `hidden_from_model` | `MCPToolSet`, `DialMCPToolSet`, `DialAppToolSet` | Preview. MCP tools callable by hooks but never shown to the model (#619) |
-| `orchestrator.attachment_strategy.accepted_types` | `LazyOnDemandAttachmentStrategy` | Optional MIME allowlist narrower than the deployment's `input_attachment_types` (#558) |
-| `hooks[].event: on_completion` | `HookEvent` | New event, runs after the orchestrator loop ends (#607) |
-| `hooks[].timeout_seconds` | `ToolCallHookConfig` | Optional per-hook timeout (default `15` s for `on_request_start`, `30` s for `on_completion`) (#607) |
-
-> [!WARNING]
-> Hook `arguments` are now rendered as a [JSON-e](https://json-e.js.org) template: literal `${` sequences in existing hook arguments must be escaped as `$${` (#607).
-
----
-
-#### ai-dial-quickapps-frontend `0.3.0-rc.0`
-
-> [!IMPORTANT]
-> The editor moves from a standalone Next.js server with `next-auth` to a static React build served by the ai-dial-chat BFF (`epam/ai-dial-chat-bff`), which also handles authentication. The Docker image is different and **the runtime environment variables have changed** — an existing `0.2.0` configuration will not work unchanged (#149, #155, #162). Please review the [full changelog](https://github.com/epam/ai-dial-quickapps-frontend/blob/0.3.0-rc.0/CHANGELOG.md) before proceeding.
-
-##### Prerequisites
-
-> [!IMPORTANT]
-> **ai-dial-chat ≥ 1.2.0** must be deployed **before** this version. Without it, **Save & Exit** and **Preview** stay disabled with no error (#232).
-
-##### Renamed environment variables
-
-| Old variable | New variable / location |
-|---|---|
-| `NEXTAUTH_SECRET` | `AUTH_SESSION_SECRET` (64 hex chars; `AUTH_SESSION_PREV_SECRET` for rotation) |
-| `NEXTAUTH_URL` | `AUTH_CALLBACK_BASE_URL` |
-| `THEMES_URL` | `THEMES_CONFIG_URL` (base URL; `/config.json` is appended automatically) |
-| `ALLOWED_FRAME_ANCESTORS` | `ALLOWED_IFRAME_ORIGINS` |
-| `QUICK_APPS_DEFAULT_MODEL` | `DEFAULT_DEPLOYMENT` |
-| `CODE_INTERPRETER_ENABLED` | `CUSTOM_CLIENT_VARIABLES.codeInterpreterEnabled` (JSON boolean) |
-| `WEB_FETCH_ENABLED` | `CUSTOM_CLIENT_VARIABLES.webFetchEnabled` (JSON boolean) |
-| `ADD_ATTACHMENT_ENABLED` | `CUSTOM_CLIENT_VARIABLES.addAttachmentEnabled` (JSON boolean) |
-| `ALLOWED_ORIGIN` | `CUSTOM_CLIENT_VARIABLES.allowedOrigin` (one origin, a comma- or space-separated list, or a JSON array) (#198) |
-| `DIAL_ADMIN_URL` | `CUSTOM_CLIENT_VARIABLES.dialAdminHost` |
-| `DIAL_CHAT_URL` | `CUSTOM_CLIENT_VARIABLES.dialChatHost` |
-| `AUTH_KEYCLOAK_ISSUER` / `AUTH_KEYCLOAK_CLIENT_SECRET` | `AUTH_KEYCLOAK_HOST` / `AUTH_KEYCLOAK_SECRET` |
-| `AUTH_AUTH0_ISSUER` / `AUTH_AUTH0_CLIENT_SECRET` | `AUTH_AUTH0_HOST` / `AUTH_AUTH0_SECRET` |
-| `AUTH_AZURE_AD_CLIENT_SECRET` | `AUTH_AZURE_AD_SECRET` |
-
-> [!NOTE]
-> For other identity providers, apply the same renames; the authoritative names are in the ai-dial-chat BFF documentation.
-
-##### Removed environment variables
-
-| Variable | Reason |
-|---|---|
-| `QUICK_APPS_APPLICATION_NAME` | The host passes the application name as the `applicationName` URL query parameter (#232) |
-
-##### New environment variables
-
-| Variable | Required | Default | Description |
-|---|---|---|---|
-| `CORS_ORIGIN` | Yes | unset | Origin(s) allowed to call the app's API. Usually the same as `AUTH_CALLBACK_BASE_URL` |
-| `AUTH_POST_LOGOUT_REDIRECT_URI` | Yes | unset | Post-logout redirect. Usually the same as `AUTH_CALLBACK_BASE_URL` |
-| `AUTH_SESSION_PREV_SECRET` | No | unset | Previous session secret for zero-downtime rotation |
-| `AUTH_SESSION_COOKIE_NAME` | No | `__Host-quickapps.sess` | Session cookie name. Must differ from chat's own cookie names |
-| `AUTH_TRANSACTION_COOKIE_NAME` | No | `__Host-quickapps.tx` | OAuth/OIDC handshake cookie name |
-| `AUTH_LEGACY_COOKIE_NAMES` | No | unset | Comma-separated old cookie names to expire. List the previous `next-auth` cookie names to avoid `HTTP 431 Request Header Fields Too Large` |
-| `CUSTOM_CLIENT_VARIABLES` | No | unset | JSON object with the editor-specific settings listed above. Feature toggles default to `false` |
-| `API_PREFIX` | No | `api` | Path prefix for the API and health-check routes |
-| `CSP_MODE` | No | `report-only` | Set `enforce` only after `report-only` shows no violations |
-| `ALLOWED_CONNECT_ORIGINS` | No | unset | Extra origins allowed by CSP `connect-src` |
-| `OTEL_SDK_DISABLED` | No | `true` | OpenTelemetry is off by default. Set `false` with the standard `OTEL_*` variables to enable it |
-
-##### Environment variables with changed defaults
-
-| Variable | Old default | New default | Description |
-|---|---|---|---|
-| `ALLOWED_IFRAME_ORIGINS` (was `ALLOWED_FRAME_ANCESTORS`) | `'self'` | unset | CSP `frame-ancestors`. Set it to the exact chat/admin origin(s) |
-| `DEFAULT_DEPLOYMENT` (was `QUICK_APPS_DEFAULT_MODEL`) | `gpt-4o` | unset | When unset or not available to the user, the first tool-capable model is pre-selected |
-| `allowedOrigin` (was `ALLOWED_ORIGIN`) | `*` | unset (any origin) | Set it to the exact chat/admin origins in production |
-
-##### OAuth redirect URI changed
-
-The callback path moved from `/api/auth/callback/<provider>` to `/api/v1/auth/callback/<provider>`. Register `${AUTH_CALLBACK_BASE_URL}/api/v1/auth/callback/<provider>` with every identity provider, otherwise sign-in fails.
-
----
-
-#### ai-dial-analytics-realtime `0.29.0-rc.0`
-
-##### New environment variables
-
-| Variable | Required | Default | Description |
-|---|---|---|---|
-| `TIMEOUT_KEEP_ALIVE` | No | `5` | Uvicorn `--timeout-keep-alive`, in seconds, read by the new Docker entrypoint (#309) |
-
-> [!IMPORTANT]
-> The image now uses `ENTRYPOINT ["/docker_entrypoint.sh"]` instead of a `CMD` running `uvicorn`. A deployment that passes only extra uvicorn flags as container `args` must pass the full `uvicorn …` command (#309).
-
----
-
-#### ai-dial-adapter-bedrock `0.45.0-rc.0`
-
-##### New environment variables
-
-| Variable | Required | Default | Description |
-|---|---|---|---|
-| `TIMEOUT_KEEP_ALIVE` | No | `70` | Idle HTTP keep-alive timeout of the adapter server in seconds. Must be greater than DIAL Core's `client.keepAliveTimeout` (default `60`). Previously not configurable (uvicorn default `5`) (#517) |
-| `ANTHROPIC_POOL_TIMEOUT` | No | `10` | Time in seconds a request waits for a free connection when `ANTHROPIC_MAX_CONNECTIONS` is reached; on timeout the adapter returns `503` (#519) |
-| `THREAD_POOL_SIZE` | No | `512` | Size of the shared thread pool for blocking AWS SDK calls (#510) |
-
-##### Environment variables with changed behavior
-
-| Variable | Old behavior | New behavior |
-|---|---|---|
-| `REQUEST_TIMEOUT_SECONDS` | Applied to read, write **and pool** | Applied to read and write only; the pool wait is `ANTHROPIC_POOL_TIMEOUT` (#519) |
-| `ANTHROPIC_MAX_CONNECTIONS` / `ANTHROPIC_MAX_KEEPALIVE_CONNECTIONS` | Per Anthropic client | Per worker process — all Anthropic clients share one connection pool (#507) |
-
-> [!IMPORTANT]
-> The Docker image no longer has a `CMD`. `/docker_entrypoint.sh` starts uvicorn only when the container gets no arguments. If your deployment overrides the container `command` / `args` with its own uvicorn command line, `TIMEOUT_KEEP_ALIVE` is not applied — remove the override or add `--timeout-keep-alive` to it (#517)
-
----
-
-#### ai-dial-adapter-openai `0.45.0-rc.0`
-
-##### New environment variables
-
-| Variable | Required | Default | Description |
-|---|---|---|---|
-| `HTTP_MAX_CONNECTIONS` | No | `1000` | Maximum number of concurrent upstream connections per worker process (#581) |
-| `HTTP_MAX_KEEPALIVE_CONNECTIONS` | No | `100` | Maximum number of idle upstream connections kept open for reuse (#581) |
-| `HTTP_POOL_TIMEOUT` | No | `10` | Time in seconds a request waits for a free upstream connection; on timeout the adapter returns `503` (#581) |
-
-##### Environment variables with changed defaults
-
-| Variable | Old default | New default | Description |
-|---|---|---|---|
-| `TIMEOUT_KEEP_ALIVE` | `5` | `70` | Must be greater than DIAL Core's `client.keepAliveTimeout` (default `60`). If you set `5` explicitly, remove it or raise it (#577) |
-
----
-
-#### ai-dial-adapter-vertexai `0.41.0-rc.0`
-
-##### New environment variables
-
-| Variable | Required | Default | Description |
-|---|---|---|---|
-| `TIMEOUT_KEEP_ALIVE` | No | `70` | Idle HTTP keep-alive timeout of the adapter server in seconds. Must be greater than DIAL Core's `client.keepAliveTimeout` (default `60`). Previously not configurable (uvicorn default `5`) (#553) |
-| `HTTP_MAX_CONNECTIONS` | No | `250` | Maximum number of concurrent upstream connections per worker process. All SDK clients (Google GenAI, Anthropic, Mistral) now share one pool, so this caps the total upstream concurrency — raise it under high load (#549, #557, #558) |
-| `HTTP_MAX_KEEPALIVE_CONNECTIONS` | No | `75` | Maximum number of idle connections kept open for reuse (#557) |
-| `HTTP_POOL_TIMEOUT` | No | `10` | Time in seconds a request waits for a free upstream connection; on timeout the adapter returns `503` (#557) |
-
-> [!IMPORTANT]
-> The Docker image no longer has a `CMD`. `/docker_entrypoint.sh` starts uvicorn only when the container gets no arguments. If your deployment overrides the container `command` / `args` with its own uvicorn command line, `TIMEOUT_KEEP_ALIVE` is not applied — remove the override or add `--timeout-keep-alive` to it (#553)
-
----
-
-#### ai-dial-adapter-dial `0.20.0-rc.0`
-
-##### New environment variables
-
-| Variable | Required | Default | Description |
-|---|---|---|---|
-| `HTTP_MAX_CONNECTIONS` | No | `1000` | Maximum number of concurrent upstream connections (#167) |
-| `HTTP_MAX_KEEPALIVE_CONNECTIONS` | No | `100` | Maximum number of idle upstream connections kept open for reuse (#167) |
-| `HTTP_POOL_TIMEOUT` | No | `10` | Time in seconds a request waits for a free upstream connection; on timeout the adapter returns `503` (#167) |
-
-##### Environment variables with changed defaults
-
-| Variable | Old default | New default | Description |
-|---|---|---|---|
-| `TIMEOUT_KEEP_ALIVE` | `5` | `70` | Must be greater than DIAL Core's `client.keepAliveTimeout` (default `60`). If you set `5` explicitly, remove it or raise it (#165) |
-
-> [!IMPORTANT]
-> The Docker image no longer has a `CMD`; uvicorn is started by `/docker_entrypoint.sh` only when the container gets no arguments. If your deployment overrides the container `command` / `args`, `TIMEOUT_KEEP_ALIVE` handling is no longer supplied by the image (#165)
-
----
+- **Breaking — template variables** — both template-variable GET endpoints now return request-indexed maps instead of flat arrays, and try-out `variables` is now a request-indexed map #217 (#235)
+- **Breaking — score read surface** — eval-summary list/detail responses remove per-row `score` and `passed`; deduplicated scores now come from the `test_case_eval_scores` Query DSL entity (#231)
+- **New endpoints** — authenticated `POST /mcp` #209 (#208), batch costs at `POST /api/v1/costs/test-suite-runs` (#205), and aggregated metrics at `GET /api/v1/test-suites/{testSuiteId}/metric-definitions/aggregated` #224 (#226)
+- **Run snapshots** — `GET|POST /api/v1/run-metric-snapshots` is canonical; `/api/v1/analytics/run-metric-snapshots` remains a deprecated alias #197 (#199)
+- **Structured Query DSL** — adds `test_suite_runs`, `test_case_metric_scores`, and `test_case_eval_scores`; `test_suite_runs` gains `number_of_runs` plus result-only score and optional cost keys #197 (#201, #206, #221, #222; #231)
+- **Test-suite scoring** — request/response snapshots gain `metricScoreAggregation` (`AVG`, `MIN`, `MAX`), and `custom_function` is rejected for `testCaseOverallScore` (#231)
+- **ZIP archives** — exports gain version-1 `manifest.json`; broken referenced files now return HTTP 502 JSON without a partial archive #225 (#227, #228, #232)
+- **Pricing payloads** — full model-deployment responses may expose `pricing.prompt` and `pricing.completion` as either scalars or JSON objects; strict clients must accept both #243 (#244, #247)
