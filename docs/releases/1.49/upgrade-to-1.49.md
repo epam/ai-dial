@@ -172,21 +172,19 @@ Set in `aidial.settings.json` or as environment variables with the `aidial.` pre
 
 ##### New environment variables
 
-All variables below ship with a working default; every new feature they control is **off** by default.
+All variables below ship with a working default;
 
-| Variable | Required | Default | Description |
-|---|---|---|---|
-| `SPRING_AI_MCP_SERVER_ENABLED` | No | `false` | Turns on the inbound MCP server at `/mcp` (same authentication as `/api/v1/**`) (#208) |
-| `SPRING_AI_MCP_SERVER_PROTOCOL` | No | `STATELESS` | `STATELESS` works with any replica; `STREAMABLE` keeps in-memory sessions and needs a single replica or sticky sessions. `SSE` is not supported (#208) |
-| `DIAL_APP_PROXY_ENABLED` | No | `false` | DIAL Application mode: runs are started through a DIAL Core Application Route and use DIAL Core's per-request key instead of the user's JWT. **Requires `config.rest.security.api-key.enabled=true`**, otherwise startup fails. EF must be registered in DIAL Core (see `docs/configuration.md` §5.7) (#236) |
-| `DIAL_APP_PROXY_DEPLOYMENT_NAME` | No | `EF` | Name of the DIAL Core deployment EF is registered under (#236) |
-| `DIAL_APP_PROXY_HEARTBEAT_INTERVAL_MS` | No | `30000` | SSE heartbeat interval of the internal execute endpoint (#236) |
-| `DIAL_APP_PROXY_TRIGGER_READ_TIMEOUT_MS` | No | `43200000` | Read timeout (12 h) for EF's call to the DIAL Core Application Route (#236) |
-| `QUERY_DSL_EXTENSION_TEST_SUITE_RUN_COST_ENABLED` | No | `false` | Adds a derived `total_cost` to `test_suite_runs` query results, fetched from dial-adas (#222) |
-| `QUERY_DSL_EXTENSION_TEST_SUITE_RUN_COST_TIMEOUT_SEC` | No | `2` | Deadline in seconds (min `1`) for the cost lookup (#222) |
-| `CSV_IMPORT_ZIP_MAX_ENTRIES` | No | `1000` | Maximum number of entries in an imported ZIP archive (#227, #228) |
-| `CSV_IMPORT_ZIP_MAX_TOTAL_UNCOMPRESSED_SIZE` | No | `1GB` | Maximum total uncompressed size of an imported ZIP (#227, #228) |
-| `CSV_IMPORT_ZIP_MAX_MANIFEST_SIZE` | No | `1MB` | Maximum size of the archive's `manifest.json` (#227, #228) |
+| Variable | Required | Default | Set to | Description |
+|---|---|---|---|---|
+| `DIAL_ADAS_URL` | Yes | `http://localhost:8087` | <url of ai-dial-analytics-realtime API> | Base URL for the ai-dial-analytics-realtime query-execute API, which backs both cost endpoints. The default points at localhost, so it must be overridden before `GET /api/v1/costs/**` returns anything useful. |
+| `DIAL_ADAS_CONNECT_TIMEOUT_MS` | No | `5000` | - | Connection timeout in milliseconds for the dial-adas client. |
+| `DIAL_ADAS_READ_TIMEOUT_MS` | No | `30000` | - | Read timeout in milliseconds for the dial-adas client. |
+| `QUERY_DSL_EXTENSION_TEST_SUITE_RUN_COST_ENABLED` | Yes | `false` | `true` | Adds a derived `total_cost` to `test_suite_runs` query results, fetched from dial-adas (#222) |
+| `QUERY_DSL_EXTENSION_TEST_SUITE_RUN_COST_TIMEOUT_SEC` | No | `2` | - | Deadline in seconds (min `1`) for the cost lookup (#222) |
+| `DIAL_APP_PROXY_ENABLED` | No | `false` | `true` | DIAL Application mode: runs are started through a DIAL Core Application Route and use DIAL Core's per-request key instead of the user's JWT. **Requires `config.rest.security.api-key.enabled=true`**, otherwise startup fails. EF must be registered in DIAL Core (see `docs/configuration.md` §5.7) (#236) |
+| `DIAL_APP_PROXY_DEPLOYMENT_NAME` | No | `EF` | - | Name of the DIAL Core deployment EF is registered under (#236) |
+| `DIAL_APP_PROXY_HEARTBEAT_INTERVAL_MS` | No | `30000` | - | SSE heartbeat interval of the internal execute endpoint (#236) |
+| `DIAL_APP_PROXY_TRIGGER_READ_TIMEOUT_MS` | No | `43200000` | - | Read timeout (12 h) for EF's call to the DIAL Core Application Route (#236) |
 
 ##### Required checks
 
