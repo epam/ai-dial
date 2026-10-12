@@ -29,14 +29,21 @@ is visible that the gate ran.
       fetch/checkout the matching tag. Live is the target, not the pinned baseline.
 - [ ] Identify the page's FE component tree (View → TabsContent → per-tab components).
 
-## 2. Walk the LIVE UI — mandatory, first, complete
+## 2. Walk the LIVE UI — mandatory, first, complete, DEEP
+
+**This is a user guide: document everything the user sees. Depth is the #1 recurring
+complaint — shallow walks miss things. Open EVERYTHING, not a sample.**
 
 - [ ] Open the page in the logged-in UAT instance (Chrome extension).
-- [ ] Walk **every tab** top-to-bottom. Expand every collapsible/accordion.
-- [ ] Walk the **grid** (+ the Columns panel to see all available/optional columns).
-- [ ] Open the **Create** modal and every source-type / sub-form it branches into.
+- [ ] Walk **every tab AND every sub-tab** top-to-bottom.
+- [ ] **Expand every** collapsible/accordion and every **row-expand chevron**.
+- [ ] **Open every dropdown/selector** and read **all** its options (not just the current value).
+- [ ] **Open every popup, modal, confirmation, info tooltip, and overflow/actions menu.**
+- [ ] Walk the **grid** + the **Columns panel** (all available/optional columns).
+- [ ] Open the **Create** flow and **every source-type / sub-form branch** it opens.
+- [ ] If a control opens, reveals, or navigates to something — **open it.** No control left unopened.
 - [ ] Note the **control type** of each field (toggle vs selector vs popup vs text),
-      not just its label. A screenshot per tab.
+      not just its label. A screenshot per tab/state.
 - [ ] Do NOT cherry-pick tabs you "expect are fine." Source biases you toward what you
       already suspect; the walk catches what you didn't.
 
@@ -65,6 +72,18 @@ Rules:
 
 ## 4. Write (now, and only now)
 
+- [ ] **NO-LOSS RULE — this is a review, not a rewrite-from-scratch.** When you replace or
+      reorder a section, diff the NEW text against the OLD: every item that was in the doc
+      must still be present, OR verified absent from the live UI/source, OR deliberately
+      relocated (and you say where). Never let a correct existing item silently disappear
+      because you rebuilt a table from your walk. After editing a section, re-read the
+      pre-edit version and account for every removed line. (Lost Updated/Creation Time on
+      the Application Runners Properties rewrite, 2026-10-12.)
+- [ ] **Explain, don't just list.** For every element document (a) what it is, (b) its
+      purpose / what it controls, (c) how the user works with it. A field name + one-liner
+      is not enough for a user guide.
+- [ ] **Section/heading naming: do NOT use the word "tab"** in headings or section names
+      (write "Properties", not "Properties tab"). User preference (2026-10-12).
 - [ ] Apply edits following the admin-guide page patterns (grids/properties/actions tables).
 - [ ] **For every edit that changes something a nearby screenshot shows, add the inline
       `<!-- SCREENSHOT OUTDATED: … -->` marker right then** — not as an afterthought.
