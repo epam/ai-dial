@@ -185,6 +185,60 @@ All variables below ship with a working default;
 | `DIAL_APP_PROXY_DEPLOYMENT_NAME` | No | `EF` | - | Name of the DIAL Core deployment EF is registered under (#236) |
 | `DIAL_APP_PROXY_HEARTBEAT_INTERVAL_MS` | No | `30000` | - | SSE heartbeat interval of the internal execute endpoint (#236) |
 | `DIAL_APP_PROXY_TRIGGER_READ_TIMEOUT_MS` | No | `43200000` | - | Read timeout (12 h) for EF's call to the DIAL Core Application Route (#236) |
+| `API_KEY_ENABLED` | Yes | `false` | `true` | Enables DIAL API-Key authentication via the `Api-Key` request header. Must be `true` before `DIAL_APP_PROXY_ENABLED` can be set. EF fails fast at startup otherwise. |
+| `API_KEY_CORE_URL` | Yes | - | `<url of DIAL Core>` | Base URL of the DIAL Core instance used to introspect API keys via `GET /v1/user/info`. |
+| `API_KEY_ROLES_MAPPING` | Conditional | - (empty) | `{"admin":["FULL_ADMIN"],"default":["READ_ONLY_ADMIN"]}` | JSON object mapping DIAL Core project-key role names to EF authority strings. At least one of this or `API_KEY_DEFAULT_ROLES_MAPPING` must be non-empty. |
+| `API_KEY_DEFAULT_ROLES_MAPPING` | Conditional | - (empty) | `{"admin":["FULL_ADMIN"],"default":["READ_ONLY_ADMIN"]}` | JSON object mapping DIAL Core roles from the JWT-rooted `userClaims` response shape to EF authority strings. |
+| `API_KEY_USER_CLAIMS_ROLE_CLAIM` | No | `roles` | `dial_roles` | Claim name read from the introspection response's `userClaims` object to obtain the caller's raw roles. Set to `dial_roles` to match the claim naming in Core. |
+| `TEST_SUITE_RUN_SSE_TIMEOUT_MINUTES` | No | `30` | `720` | SSE client connection timeout, in minutes. Raise it under Application mode (`720` = 12 hours) so the status stream doesn't time out before a long-running eval completes. |
+
+
+### DIAL Configuration changes
+
+> [!IMPORTANT]
+> DIAL Core registration is required only when `DIAL_APP_PROXY_ENABLED=true`; direct JWT execution remains the default.
+>
+> **Required setup** (#236):
+>
+> 1. **Add** the `applications.EF` block to DIAL Core configuration, or use the application name set by `DIAL_APP_PROXY_DEPLOYMENT_NAME`, and grant it access to the EF file bucket. Apply the snippet with `http://eval-framework-url` replacement:
+
+ ```json                                                                                                                                                                                                                           
+  {                                                                                                                                                                                                                                 
+    "applications": {                                                                                                                                                                                                               
+      "EF": {                                                                                                                                                                                                                       
+        "endpoint": "http://xxx",                                                                                                                                                                                                   
+        "display_name": "EF",                                                                                                                                                                                                       
+        "routes": {                                                                                                                                                                                                                 
+          "runs": {                                                                                                                                                                                                                 
+            "name": "runs",                                                                                                                                                                                                         
+            "rewritePath": true,                                                                                                                                                                                                    
+            "paths": [                                                                                                                                                                                                              
+              "/api/internal/runs/[^/]+/execute$"                                                                                                                                                                                   
+            ],                                                                                                                                                                                                                      
+            "methods": [                                                                                                                                                                                                            
+              "POST"                                                                                                                                                                                                                
+            ],                                                                                                                                                                                                                      
+            "upstreams": [                                                                                                                                                                                                          
+              {                                                                                                                                                                                                                     
+                "endpoint": "http://eval-framework-url",                                                                                                                                 
+                "weight": 1,                                                                                                                                                                                                        
+                "tier": 0                                                                                                                                                                                                           
+              }                                                                                                                                                                                                                     
+            ],                                                                                                                                                                                                                      
+            "maxRetryAttempts": 1,                                                                                                                                                                                                  
+            "order": 2147483647,                                                                                                                                                                                                    
+            "permissions": [],                                                                                                                                                                                                      
+            "attachmentPaths": {                                                                                                                                                                                                    
+              "requestBody": ["$.attachments[*].url"],                                                                                                                                                                              
+              "responseBody": []                                                                                                                                                                                                    
+            }                                                                                                                                                                                                                       
+          }                                                                                                                                                                                                                         
+        }                                                                                                                                                                                                                           
+      }                                                                                                                                                                                                                             
+    }                                                                                                                                                                                                                               
+  } 
+```
+
 
 ##### Required checks
 
