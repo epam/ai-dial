@@ -81,14 +81,48 @@ Rules:
       the Application Runners Properties rewrite, 2026-10-12.)
 - [ ] **Explain, don't just list.** For every element document (a) what it is, (b) its
       purpose / what it controls, (c) how the user works with it. A field name + one-liner
-      is not enough for a user guide.
+      is not enough for a user guide. A bare list of control names (row actions, toggles,
+      columns) with no description is a FAIL.
+- [ ] **NEVER write a claim from the source agent / source code alone.** The source inventory
+      is a research aid, NOT the text's source of truth. Every field, column, action, toggle,
+      form, and especially every CONDITIONAL/CAUSAL claim ("appears when X", "only for Y
+      bucket") must be SEEN on the live UI before it is written. If the UI and source disagree
+      (e.g. source says no Roles tab but a platform app shows one), STOP and resolve it — do
+      not publish either version. (Shipped wrong Properties "Source Type fields" logic + an
+      unverified "Roles = platform bucket" claim this way, 2026-10-12.)
+- [ ] **Capture every form/modal in FULL** — every field, its required marker, and its
+      default — verified live. (Missed the required ID field in the Create Application form,
+      2026-10-12.)
 - [ ] **Section/heading naming: do NOT use the word "tab"** in headings or section names
       (write "Properties", not "Properties tab"). User preference (2026-10-12).
 - [ ] Apply edits following the admin-guide page patterns (grids/properties/actions tables).
+- [ ] **Present enumerable element sets as TABLES, not inline prose.** Grid columns, form
+      fields, actions, toggles → a `| Item | Description |` table. Never a run-on sentence
+      listing columns. (User feedback 2026-10-12.)
+- [ ] **Write descriptions that read at a glance.** Keep each short; when a control has
+      modes/states (toggle on/off, radio options), use short bullets per state — do NOT cram
+      the conditions into one dense sentence. (User feedback 2026-10-12.)
 - [ ] **For every edit that changes something a nearby screenshot shows, add the inline
       `<!-- SCREENSHOT OUTDATED: … -->` marker right then** — not as an afterthought.
 - [ ] Never write an unverified claim as fact — live-only uncertainties go to the Flag list.
 - [ ] Bump the page's `last_verified`.
+
+## 4.5 Quality gate — the enforced LAST step before done (do not skip)
+
+Re-read the finished page top to bottom against the reconciliation table and confirm EACH:
+- [ ] **Completeness:** every element on the live UI (every form field incl. required markers,
+      every grid column, every row/bulk action, every toggle, every tab/section, every
+      dropdown option) is present in the doc. Nothing on screen is missing.
+- [ ] **Explained:** every element has what-it-is / purpose / how-to — no bare name lists.
+- [ ] **Traceable:** every claim maps to something you saw on the live UI AND confirmed in
+      source. No sentence survives that you cannot point to on the screen.
+- [ ] **No vague filler:** no description that just restates the label ("Base endpoint URL for
+      the application"). If you don't know what a field does, go find out or flag it.
+- [ ] **Conditionals verified:** every "appears when / only for" claim was checked on the
+      actual cases, not inferred.
+- [ ] **No-loss:** diffed against the pre-edit version; nothing correct was dropped.
+Skipping this gate is what let unexplained toggles, a missing required field, and unverified
+logic ship on the first Assets→Applications pass (2026-10-12).
 
 ## 5. Record & close
 

@@ -493,19 +493,17 @@ attempts; Audit = single Activities sub-section; JSON editor.
 **Screenshots flagged:** `img_21.png` (Properties — toggle/methods/upstream expand) and
 `routes_roles.png` (toggle + no ID column) marked outdated inline.
 
-### Pages remaining
-- Builders — NEXT
+### UI-vs-docs review progress (FE 0.21.2 live walk)
+**Done (committed):** Entities (Models, Applications, Toolsets, Interceptors, Routes);
+Builders (Application Runners, Interceptor Templates, Adapters).
+**Assets → Applications:** full element-by-element rewrite, verified UI + source, passed the
+§4.5 quality gate. (Per-page scratchpad recon notes are session-local and do not carry over —
+the finished page is the record.)
+
+### Pages remaining (review order)
+- **Assets — NEXT: Toolsets** (`4.assets/2.toolsets.md`), then Prompts, Conversations,
+  Files, Skills, Folders Storage.
 - Catalog (Platform Models, Interceptors, Translators, Routes, App Runners, Roles, Keys)
-- Assets
-- Deployments (Model Servings, MCP Containers, Interceptor/Adapter/Application Containers, Images)
-- Access Management
-- Approvals
-- Audit
-- Evaluation
-- Analytics (Dashboards, Tables, Pipelines, Queries, Sessions)
-- Builders
-- Catalog (Platform Models, Interceptors, Translators, Routes, App Runners, Roles, Keys)
-- Assets
 - Deployments (Model Servings, MCP Containers, Interceptor/Adapter/Application Containers, Images)
 - Access Management
 - Approvals
@@ -515,15 +513,23 @@ attempts; Audit = single Activities sub-section; JSON editor.
 
 ## Next step
 
-**Phase 3 is COMPLETE.** The guide now covers DIAL 1.48.
+**Phase 3 COMPLETE** (guide covers DIAL 1.48). **Phase: UI-vs-docs review IN PROGRESS.**
 
-Remaining work:
-- **UI-vs-docs comparison** — IN PROGRESS (see above). Models done, Applications done, Toolsets next.
-- **Build verification** — run `npm run build` to confirm all links resolve (ask user
-  first — they may have it running).
-- **Screenshot recapture** — nearly all updated pages need screenshots refreshed. Full
-  recapture list to be compiled.
-- **Phase 4 (automation)** — trigger/PR/agent-in-CI. NOT STARTED.
+Next file: **Assets → Toolsets** (`docs_v2/5.administering-dial/4.assets/2.toolsets.md`).
+Run the per-page gate in `page-review-checklist.md` — the review quality bar tightened
+on 2026-10-12 after the Assets→Applications pass:
+- Walk EVERYTHING live (every tab, dropdown, popup, collapsible, row/bulk menu, each
+  source-type branch, each bucket). Depth is the recurring complaint.
+- **Never write a field/behavior/conditional from the source agent alone — see it on the
+  live UI first.** Capture every form in full (required markers, defaults).
+- **Explain every element** (what/why/how). Enumerable sets → tables. Descriptions must read
+  at a glance (bullet per toggle state, no dense run-ons).
+- Run the **§4.5 quality gate** as the enforced last step before "done".
+- Expect the Assets dual-bucket pattern (public vs platform), the "Show config entities"
+  toggle, and the Create dropdown (Folder/Item/Import) on Toolsets too — Toolsets is the
+  other dual-bucket view (per the Applications source agent).
+
+Also outstanding: screenshot recapture across updated pages; Phase 4 automation (not started).
 
 ## Gotchas / environment
 - Repo rule: **never commit/push** without explicit permission (user handles git).
