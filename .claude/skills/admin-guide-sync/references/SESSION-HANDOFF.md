@@ -493,15 +493,48 @@ attempts; Audit = single Activities sub-section; JSON editor.
 **Screenshots flagged:** `img_21.png` (Properties — toggle/methods/upstream expand) and
 `routes_roles.png` (toggle + no ID column) marked outdated inline.
 
-### UI-vs-docs review progress (FE 0.21.2 live walk)
+### UI-vs-docs review progress (FE 0.21.2 live walk; Assets now at 0.22.0-rc.0)
 **Done (committed):** Entities (Models, Applications, Toolsets, Interceptors, Routes);
 Builders (Application Runners, Interceptor Templates, Adapters).
 **Assets → Applications:** full element-by-element rewrite, verified UI + source, passed the
-§4.5 quality gate. (Per-page scratchpad recon notes are session-local and do not carry over —
-the finished page is the record.)
+§4.5 quality gate. **Updated again for 0.22.0-rc.0** (see below).
+**Assets → Toolsets:** full rewrite, verified against live UI (FE 0.22.0-rc.0) + source at
+tags 0.21.2 AND 0.22.0-rc.0. (Per-page scratchpad recon notes are session-local — the
+finished page is the record.)
+
+### 0.22.0-rc.0 change (UAT upgraded mid-session) — applied to Toolsets + Applications
+The UAT instance jumped from FE 0.21.2 to **0.22.0-rc.0** during the Toolsets pass. The
+dual-bucket Assets views (Applications, Toolsets) changed:
+- **Folder tree now has THREE roots: `file`, `platform`, `public`** (file prepended; platform
+  gated by `catalogEnabled`). The **"Show config entities" toggle is GONE** — its keys
+  (`Basic.ShowConfigFiles`) are orphaned; config entities are now the dedicated **`file`**
+  bucket. Source: `utils/files/root-folder.ts` `getRootDescriptors`, `fileRoot()`,
+  `isFileRootPath`.
+- **`file` bucket** = read-only config-file entities: names-only grid (Name column only), no
+  Create/row/bulk/folder actions; detail opens `?configFile=true` with a **READ ONLY** badge
+  and suppressed action buttons (`PlatformToolsetView`/`PlatformApplicationView` +
+  `setEntityReadOnly`). Roles tab present on **platform AND file** buckets (not public).
+- **NEW "Catalog metadata" tab** on ALL buckets of both views (unconditional in
+  `getTabsForAsset`). Driven by a NEW **Catalog schema** field (`CatalogSchemaField`,
+  "Select catalog schema" + Browse) at the end of Properties. Empty state: "Select a catalog
+  schema on the Properties tab to edit its catalog metadata." Selected → Form/JSON views
+  (`CatalogPropertiesEditor`) + undeclared-properties banner.
+- Cache: `admin-guide-sync-cache/ai-dial-admin-frontend` was fetched/checked out to tag
+  **0.22.0-rc.0** for this verification.
+
+Durable lesson: **the UAT instance can be upgraded mid-review** — re-check the footer FE
+version each page and re-point the source cache; do not assume the pinned tag still matches live.
+
+### Screenshots to recapture (Toolsets + Applications, FE 0.22.0-rc.0)
+Inline `SCREENSHOT OUTDATED` markers added in both pages: main-screen tree (3 roots, no
+toggle), Toolsets Properties (`134.png` — Intro/Vendor Website/Catalog schema), Toolsets auth
+(`assets_toolsets_auth.png` OAuth fields, `assets_toolsets_auth2.png` login checkboxes),
+Duplicate (`duplicate-asset-toolset.png` no OAuth), Applications Properties (Catalog schema).
+New captures still needed: `file` bucket list + read-only detail, Catalog metadata tab, Roles
+(platform/file).
 
 ### Pages remaining (review order)
-- **Assets — NEXT: Toolsets** (`4.assets/2.toolsets.md`), then Prompts, Conversations,
+- **Assets — NEXT: Prompts** (`4.assets/3.prompts.md`), then Conversations,
   Files, Skills, Folders Storage.
 - Catalog (Platform Models, Interceptors, Translators, Routes, App Runners, Roles, Keys)
 - Deployments (Model Servings, MCP Containers, Interceptor/Adapter/Application Containers, Images)
