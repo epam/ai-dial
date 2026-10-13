@@ -12,7 +12,7 @@
     - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-050-rc1)
     - [ai-dial-chat](#ai-dial-chat-120-rc0)
     - [ai-dial-chat-themes](#ai-dial-chat-themes-0210)
-    - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend-0130-rc0)
+    - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend-0130-rc1)
     - [ai-dial-quickapps-frontend](#ai-dial-quickapps-frontend-030-rc0)
     - [ai-dial-analytics-realtime](#ai-dial-analytics-realtime-0290-rc0)
     - [ai-dial-adapter-bedrock](#ai-dial-adapter-bedrock-0450-rc0)
@@ -41,7 +41,7 @@
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.4.0`
    - ai-dial-app-builder-python: `0.1.0`
-   - ai-dial-quickapps-backend: `0.13.0-rc.0`
+   - ai-dial-quickapps-backend: `0.13.0-rc.1`
    - ai-dial-quickapps-frontend: `0.3.0-rc.0`
    - ai-dial-mind-map-backend: `0.15.0`
    - ai-dial-mind-map-frontend: `0.14.1`
@@ -338,18 +338,28 @@ All variables below ship with a working default;
 
 ---
 
-#### ai-dial-quickapps-backend `0.13.0-rc.0`
+#### ai-dial-quickapps-backend `0.13.0-rc.1`
 
 ##### Prerequisites
 
 > [!IMPORTANT]
 > **DIAL Core ≥ 0.49.0** is required for the per-user tool access filter (`features.tool_access_filter`) (#598, #624). On an older DIAL Core the filter fails open and all configured tools are offered.
 
+##### Breaking changes
+
+> [!CAUTION]
+> **Inbound system messages are rejected by default.** A request whose leading `system` message has text now fails with HTTP 400, because the application uses its own configured system prompt. A system message without text is still accepted (#633, #640).
+
+| Previous configuration | Required action |
+|---|---|
+| Clients send their own `system` message to a Quick App | Remove the `system` message from client requests, or set `ALLOW_OVERRIDE_SYSTEM_MESSAGE=true` to let it replace the configured system prompt |
+
 ##### New environment variables
 
 | Variable | Required | Default | Description |
 |---|---|---|---|
 | `SKILL_INVOCATION_MAX_SKILLS_PER_MESSAGE` | No | `5` | Maximum skills (`> 0`) honoured on one user message; clamped to `SKILL_INVOCATION_MAX_SKILLS`. Preview-gated. (#574) |
+| `ALLOW_OVERRIDE_SYSTEM_MESSAGE` | No | `false` | Deployment-wide; apps cannot opt out once it is enabled. `false`: a request with a non-empty `system` message is rejected with HTTP 400. `true`: the inbound system message replaces only the configured system prompt, and skills, MCP resources and other injected parts are still appended. (#633, #640) |
 
 ##### Schema changes
 
