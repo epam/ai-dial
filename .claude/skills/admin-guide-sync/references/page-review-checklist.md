@@ -47,6 +47,28 @@ complaint — shallow walks miss things. Open EVERYTHING, not a sample.**
 - [ ] Do NOT cherry-pick tabs you "expect are fine." Source biases you toward what you
       already suspect; the walk catches what you didn't.
 
+**Token efficiency — standing defaults for the walk (screenshots are the #1 cost).**
+The "open everything" depth bar stays; make it cheap, not shallow:
+- [ ] **Read text, not pixels, to enumerate.** For column lists, dropdown options,
+      menu items, and form-field labels use `read_page` / `get_page_text` / `find` —
+      far cheaper than a screenshot and usually sufficient. Reserve screenshots for
+      (a) confirming a control's *type/layout* and (b) captures destined for the docs.
+- [ ] **Scale screenshots to `0.5` by default** (≈¼ the tokens, still readable); use
+      full resolution only when fine detail matters. Use `zoom` on the *small region*
+      you need (a menu, one field) instead of a full-page capture.
+- [ ] **Do not screenshot after every click.** `find`/`read_page` confirms a menu or
+      modal opened for a fraction of the cost.
+- [ ] **Batch browser actions** (`browser_batch`) — click→read sequences in one call
+      cut round-trips and intermediate images.
+- [ ] **Delegate the mechanical walk to a cheaper-model subagent** (general-purpose on
+      Sonnet/Haiku) that drives the browser and hands back a compact text inventory +
+      only the few screenshots worth keeping; reserve the main (Opus) thread for
+      reconciliation and writing. Rule of thumb: cheaper models walk & grep, Opus writes.
+- [ ] **Review against a pinned shipped release, not a moving RC** — re-check the live
+      footer FE version at the start of each page; if the instance was upgraded
+      mid-review, re-point the source cache, but avoid re-walking a target that is still
+      changing under you.
+
 ## 3. Reconcile — the triangulation table (REQUIRED OUTPUT)
 
 Build ONE table for the page, one row per item (every grid column, every property
