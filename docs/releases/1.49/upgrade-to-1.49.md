@@ -280,6 +280,19 @@ All variables below ship with a working default;
 > [!IMPORTANT]
 > **DIAL Core ≥ 0.48.0** is required to enable `RESPONSES_BACKGROUND_ENABLED` (#9236).
 
+##### Behavioral changes
+
+> [!NOTE]
+> Applies on upgrade without any configuration change.
+
+- **Usage-limits control off by default** — the token/cost usage-limits control the conversation input has shown since `1.1.0` now renders only while `USAGE_LIMITS_CONTROL_ENABLED` is on; set it to `true` to keep it. (#9387)
+
+
+> [!NOTE]
+> Applies on upgrade without any configuration change.
+
+- **Usage-limit banner on by default** — while `USAGE_LIMITS_CONTROL_ENABLED` stays `false`, both composers request the selected deployment's limits again and show the banner from 75% of a capped limit; setting the flag to `true` swaps it for the usage dial, and no setting turns both off. (#9397)
+- 
 ##### New environment variables
 
 | Variable | Required | Default | Description |
@@ -297,6 +310,8 @@ All variables below ship with a working default;
 | `CONVERSATION_NAMING_SYSTEM_PROMPT` | No | unset (built-in prompt) | Overrides the conversation naming system prompt. (#9034) |
 | `TRANSCRIPTION_PROMPT` | No | unset (built-in prompt) | Overrides the prompt for audio transcription through `ASR_MODEL`. (#9034) |
 | `HTTP_PROXY` / `HTTPS_PROXY` / `NO_PROXY` | No | unset | Now applied to outbound OIDC, themes and DIAL Core calls. If a proxy is set in the pod environment, add in-cluster hosts (e.g. the DIAL Core service) to `NO_PROXY`. (#9038, #9084) |
+| `USAGE_LIMITS_CONTROL_ENABLED` | No | `false` | Client-visible feature flag, exposed as `features.usageLimitsControl`. When `true`, the conversation input shows the token/cost usage-limits control next to the model selector in both the new-chat composer and an open conversation. When `false`, the control is not rendered and its usage request is not made. Any value other than `false`, `0` or `no` (case-insensitive), including an empty one, turns it on. Takes effect on the next service restart. |
+| `USAGE_LIMITS_WARNING_THRESHOLD_PERCENT` | No | `75` | Client-visible config, exposed as `config.usageLimitsWarningThresholdPercent`. Integer 1–99; a value outside that range or a non-integer fails validation at boot. The percentage of a capped day/week/month token or cost limit at which the usage banner appears above the conversation input, while `USAGE_LIMITS_CONTROL_ENABLED` is `false`. Governs the banner only: the usage dial and the Settings → Usage page keep their fixed 75% running-low mark. |
 
 ##### Environment variables with changed defaults
 
@@ -323,6 +338,7 @@ All variables below ship with a working default;
 | `hide-conversation-export` | Hides the "Export" and "Export all" entries. (#9037) |
 | `hide-settings-page` | Hides the Settings page entry. (#9037) |
 | `show-header-logo` | Shows the theme logo in the top bar. (#9051, #9155) |
+| `usageLimitsControl` | Whether the conversation input shows the token/cost usage-limits control next to the model selector. Toggled through `USAGE_LIMITS_CONTROL_ENABLED`; defaults to `false`. No role restriction. |
 
 ##### New container images
 
