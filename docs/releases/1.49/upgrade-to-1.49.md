@@ -7,7 +7,7 @@
   - [General notes](#general-notes)
   - [Release-specific notes](#release-specific-notes)
     - [ai-dial-core](#ai-dial-core-0490-rc0)
-    - [ai-dial-admin-backend](#ai-dial-admin-backend-0220-rc0)
+    - [ai-dial-admin-backend](#ai-dial-admin-backend-0220-rc1)
     - [ai-dial-admin-frontend](#ai-dial-admin-frontend-0220-rc0)
     - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-050-rc1)
     - [ai-dial-chat](#ai-dial-chat-120-rc0)
@@ -45,7 +45,7 @@
    - ai-dial-quickapps-frontend: `0.3.0-rc.0`
    - ai-dial-mind-map-backend: `0.15.0`
    - ai-dial-mind-map-frontend: `0.14.1`
-   - ai-dial-admin-backend: `0.22.0-rc.0`
+   - ai-dial-admin-backend: `0.22.0-rc.1`
    - ai-dial-admin-frontend: `0.22.0-rc.0`
    - ai-dial-admin-deployment-manager-backend: `0.22.0-rc.0`
    - ai-dial-admin-evaluation-framework-backend: `0.5.0-rc.1`
@@ -115,7 +115,7 @@ Set in `aidial.settings.json` or as environment variables with the `aidial.` pre
 
 ---
 
-#### ai-dial-admin-backend `0.22.0-rc.0`
+#### ai-dial-admin-backend `0.22.0-rc.1`
 
 ##### Prerequisites
 
@@ -137,7 +137,7 @@ Set in `aidial.settings.json` or as environment variables with the `aidial.` pre
 #### ai-dial-admin-frontend `0.22.0-rc.0`
 
 > [!IMPORTANT]
-> Deploy together with ai-dial-admin-backend `0.22.0-rc.0`. See the [infrastructure changelog](https://github.com/epam/ai-dial-admin-frontend/blob/0.22.0-rc.0/docs/INFRA-CHANGELOG.md) for details.
+> Deploy together with ai-dial-admin-backend `0.22.0-rc.1`. See the [infrastructure changelog](https://github.com/epam/ai-dial-admin-frontend/blob/0.22.0-rc.0/docs/INFRA-CHANGELOG.md) for details.
 
 ##### Renamed environment variables
 
