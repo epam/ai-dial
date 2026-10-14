@@ -1290,6 +1290,11 @@ const allSections = [
           "items": [
             {
               "type": "doc",
+              "id": "administering-dial-new/entities/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
               "id": "administering-dial-new/entities/models",
               "label": "Models"
             },
@@ -1328,11 +1333,12 @@ const allSections = [
         {
           "type": "category",
           "label": "Artifacts",
-          "link": {
-            "type": "doc",
-            "id": "administering-dial-new/assets/index"
-          },
           "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial-new/assets/index",
+              "label": "Overview"
+            },
             {
               "type": "doc",
               "id": "administering-dial-new/assets/skills",
@@ -1361,6 +1367,11 @@ const allSections = [
           "items": [
             {
               "type": "doc",
+              "id": "administering-dial-new/deployments/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
               "id": "administering-dial-new/deployments/model-servings",
               "label": "Model Servings"
             },
@@ -1380,11 +1391,12 @@ const allSections = [
         {
           "type": "category",
           "label": "Evaluation",
-          "link": {
-            "type": "doc",
-            "id": "administering-dial-new/evaluation/index"
-          },
           "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial-new/evaluation/index",
+              "label": "Overview"
+            },
             {
               "type": "doc",
               "id": "administering-dial-new/evaluation/test-suites",
