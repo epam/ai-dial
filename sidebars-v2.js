@@ -1387,16 +1387,6 @@ const allSections = [
           "items": [
             {
               "type": "doc",
-              "id": "administering-dial-new/evaluation/metrics",
-              "label": "Metrics"
-            },
-            {
-              "type": "doc",
-              "id": "administering-dial-new/evaluation/datasets",
-              "label": "Datasets"
-            },
-            {
-              "type": "doc",
               "id": "administering-dial-new/evaluation/test-suites",
               "label": "Test suites"
             },
@@ -1404,6 +1394,11 @@ const allSections = [
               "type": "doc",
               "id": "administering-dial-new/evaluation/runs",
               "label": "Runs"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/evaluation/datasets",
+              "label": "Datasets"
             }
           ]
         },
