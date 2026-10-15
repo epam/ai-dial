@@ -18,7 +18,7 @@ services:
 
   chat:
     # TODO: update to stable when released
-    image: epam/ai-dial-chat:1.2.0
+    image: epam/ai-dial-chat:1.2.3
     platform: linux/amd64
     environment:
       PORT: ${DIAL_CHAT_HOST_PORT}
