@@ -1320,7 +1320,7 @@ const allSections = [
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/entities/toolsets",
+              "id": "administering-dial-new/assets/toolsets",
               "label": "Toolsets"
             },
             {
