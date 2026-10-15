@@ -10,7 +10,51 @@
       ]
     }
   },
+  "interceptors": {
+    "pii-redactor": {
+      "endpoint": "http://pii-interceptor:5000/openai/deployments/pii-redactor/chat/completions",
+      "displayName": "PII Redaction",
+      "description": "Anonymizes PII in requests and restores it in responses"
+    }
+  },
   "models": {
+    "protected-model": {
+      "type": "chat",
+      "displayName": "Mock model (PII-protected)",
+      "description": "Stand-in model with the PII redaction interceptor attached.",
+      "endpoint": "http://mock-model:5000/openai/deployments/mock-model/chat/completions",
+      "interceptors": ["pii-redactor"]
+    },
+    "mock-model": {
+      "type": "chat",
+      "displayName": "Mock Provider Model",
+      "description": "Custom adapter in front of two mock provider upstreams.",
+      "endpoint": "http://adapter:5000/openai/deployments/my-adapter/chat/completions",
+      "upstreams": [
+        {
+          "endpoint": "http://provider-eu:8080/generate",
+          "key": "eu-provider-key",
+          "weight": 1
+        },
+        {
+          "endpoint": "http://provider-us:8080/generate",
+          "key": "us-provider-key",
+          "weight": 1
+        }
+      ]
+    },
+    "mock-model-bad-key": {
+      "type": "chat",
+      "displayName": "Mock Provider Model (wrong key)",
+      "description": "Same adapter, deliberately misconfigured key. The provider rejects it.",
+      "endpoint": "http://adapter:5000/openai/deployments/my-adapter/chat/completions",
+      "upstreams": [
+        {
+          "endpoint": "http://provider-eu:8080/generate",
+          "key": "wrong-key"
+        }
+      ]
+    },
     "render-text": {
       "type": "chat",
       "endpoint": "http://render-text:5000/openai/deployments/render-text/chat/completions",
@@ -38,7 +82,10 @@
       "limits": {
         "echo": {},
         "render-text": {},
-        "image-size": {}
+        "image-size": {},
+        "protected-model": {},
+        "mock-model": {},
+        "mock-model-bad-key": {}
       }
     }
   }
