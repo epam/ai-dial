@@ -1290,42 +1290,42 @@ const allSections = [
           "items": [
             {
               "type": "doc",
-              "id": "administering-dial-new/entities/index",
+              "id": "administering-dial-new/ai-gateway/index",
               "label": "Overview"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/entities/models",
+              "id": "administering-dial-new/ai-gateway/models",
               "label": "Models"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/assets/toolsets",
+              "id": "administering-dial-new/ai-gateway/toolsets",
               "label": "Toolsets"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/catalog/translators",
+              "id": "administering-dial-new/ai-gateway/translators",
               "label": "Translators"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/entities/routes",
+              "id": "administering-dial-new/ai-gateway/routes",
               "label": "Routes"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/entities/applications",
+              "id": "administering-dial-new/ai-gateway/applications",
               "label": "Applications"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/builders/application-runners",
+              "id": "administering-dial-new/ai-gateway/application-runners",
               "label": "App Runners"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/catalog/catalog-schemas",
+              "id": "administering-dial-new/ai-gateway/catalog-schemas",
               "label": "Catalog Schemas"
             },
           ]
@@ -1336,27 +1336,27 @@ const allSections = [
           "items": [
             {
               "type": "doc",
-              "id": "administering-dial-new/assets/index",
+              "id": "administering-dial-new/artifacts/index",
               "label": "Overview"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/assets/skills",
+              "id": "administering-dial-new/artifacts/skills",
               "label": "Skills"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/assets/files",
+              "id": "administering-dial-new/artifacts/files",
               "label": "Files"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/assets/conversations",
+              "id": "administering-dial-new/artifacts/conversations",
               "label": "Conversations"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/assets/prompts",
+              "id": "administering-dial-new/artifacts/prompts",
               "label": "Prompts"
             }
           ]
@@ -1418,11 +1418,12 @@ const allSections = [
         {
           "type": "category",
           "label": "Analytics",
-          "link": {
-            "type": "doc",
-            "id": "administering-dial-new/analytics/index"
-          },
           "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial-new/analytics/index",
+              "label": "Overview"
+            },
             {
               "type": "doc",
               "id": "administering-dial-new/analytics/dashboards",
@@ -1456,42 +1457,42 @@ const allSections = [
           "items": [
             {
               "type": "doc",
-              "id": "administering-dial-new/access-management/roles",
+              "id": "administering-dial-new/governance/roles",
               "label": "Roles"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/access-management/keys",
+              "id": "administering-dial-new/governance/keys",
               "label": "Keys"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/assets/folders-storage",
+              "id": "administering-dial-new/governance/folders-storage",
               "label": "Folder Permissions"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/entities/interceptors",
+              "id": "administering-dial-new/governance/interceptors",
               "label": "Interceptors"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/publications-and-review",
+              "id": "administering-dial-new/governance/publications-and-review",
               "label": "Approvals"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/user-management",
+              "id": "administering-dial-new/governance/user-management",
               "label": "User management"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/usage-limits-and-cost-control",
+              "id": "administering-dial-new/governance/usage-limits-and-cost-control",
               "label": "Usage limits and cost control"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/compliance-and-legal-faq",
+              "id": "administering-dial-new/governance/compliance-and-legal-faq",
               "label": "Compliance and legal FAQ"
             },
           ]
