@@ -29,10 +29,10 @@
 2. Main components versions:
    - ai-dial-adapter-bedrock: `0.45.0`
    - ai-dial-adapter-openai: `0.45.0`
-   - ai-dial-adapter-vertexai: `0.41.0`
+   - ai-dial-adapter-vertexai: `0.41.1`
    - ai-dial-adapter-dial: `0.20.0`
    - ai-dial-chat-themes: `0.21.0`
-   - ai-dial-chat: `1.2.3`
+   - ai-dial-chat: `1.2.4`
    - ai-dial-core: `0.49.0`
    - ai-dial-analytics-realtime: `0.29.0`
    - ai-dial-rag: `0.43.0`
@@ -554,7 +554,7 @@ This release adds optional limits for uploaded zip archives. An archive over any
 
 ---
 
-#### ai-dial-chat `1.2.3`
+#### ai-dial-chat `1.2.4`
 
 ### New environment variables
 
@@ -1055,7 +1055,7 @@ HTTP connection limits are now configurable, and when the pool is exhausted the 
 
 ---
 
-#### ai-dial-adapter-vertexai `0.41.0`
+#### ai-dial-adapter-vertexai `0.41.1`
 
 ##### Breaking changes
 
