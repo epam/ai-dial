@@ -13,7 +13,7 @@
     - [ai-dial-quickapps-frontend](#ai-dial-quickapps-frontend-030)
     - [ai-dial-adapter-openai](#ai-dial-adapter-openai-0450)
     - [ai-dial-adapter-vertexai](#ai-dial-adapter-vertexai-0410)
-    - [ai-dial-admin-backend](#ai-dial-admin-backend-0220)
+    - [ai-dial-admin-backend](#ai-dial-admin-backend-0221)
     - [ai-dial-adapter-bedrock](#ai-dial-adapter-bedrock-0450)
     - [ai-dial-adapter-dial](#ai-dial-adapter-dial-0200)
     - [ai-dial-analytics-realtime](#ai-dial-analytics-realtime-0290)
@@ -44,7 +44,7 @@
    - ai-dial-quickapps-frontend: `0.3.0`
    - ai-dial-mind-map-backend: `0.15.0`
    - ai-dial-mind-map-frontend: `0.14.1`
-   - ai-dial-admin-backend: `0.22.0`
+   - ai-dial-admin-backend: `0.22.1`
    - ai-dial-admin-frontend: `0.22.0`
    - ai-dial-admin-deployment-manager-backend: `0.22.0`
    - ai-dial-admin-evaluation-framework-backend: `0.5.0`
@@ -1075,7 +1075,7 @@ Upstream HTTP connection pool limits are now configurable. When the pool is exha
 
 ---
 
-#### ai-dial-admin-backend `0.22.0`
+#### ai-dial-admin-backend `0.22.1`
 
 ##### Breaking changes
 
