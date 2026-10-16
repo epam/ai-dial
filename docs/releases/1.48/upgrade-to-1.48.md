@@ -6,14 +6,15 @@
 - [Before upgrade](#before-upgrade)
   - [General notes](#general-notes)
   - [Release-specific notes](#release-specific-notes)
-    - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend-0210-rc0)
-    - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-040-rc0)
-    - [ai-dial-admin-evaluation-metrics](#ai-dial-admin-evaluation-metrics-030-rc0)
-    - [ai-dial-admin-frontend](#ai-dial-admin-frontend-0210-rc0)
-    - [ai-dial-chat](#ai-dial-chat-110-rc1)
-    - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend-0120-rc2)
-    - [ai-dial-adapter-bedrock](#ai-dial-adapter-bedrock-0440-rc0)
-    - [ai-dial-adapter-vertexai](#ai-dial-adapter-vertexai-0400-rc0)
+    - [dial `8.0.0` Helm chart](#dial-800-helm-chart)
+    - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend-0210)
+    - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-040)
+    - [ai-dial-admin-evaluation-metrics](#ai-dial-admin-evaluation-metrics-030)
+    - [ai-dial-admin-frontend](#ai-dial-admin-frontend-0210)
+    - [ai-dial-chat](#ai-dial-chat-110)
+    - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend-0120)
+    - [ai-dial-adapter-bedrock](#ai-dial-adapter-bedrock-0440)
+    - [ai-dial-adapter-vertexai](#ai-dial-adapter-vertexai-0400)
 
 ## Versions
 
