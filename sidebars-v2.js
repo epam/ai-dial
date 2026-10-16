@@ -1276,54 +1276,90 @@ const allSections = [
       "items": [
         {
           "type": "doc",
-          "id": "administering-dial/index",
+          "id": "administering-dial-new/index",
           "label": "Overview"
         },
         {
           "type": "doc",
-          "id": "administering-dial/config-backup-and-global-settings",
+          "id": "administering-dial-new/config-backup-and-global-settings",
           "label": "Backup, restore & global settings"
         },
         {
           "type": "category",
-          "label": "Entities",
+          "label": "AI Gateway",
           "items": [
             {
               "type": "doc",
-              "id": "administering-dial/entities/models",
+              "id": "administering-dial-new/entities/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/entities/models",
               "label": "Models"
             },
             {
               "type": "doc",
-              "id": "administering-dial/entities/applications",
-              "label": "Applications"
-            },
-            {
-              "type": "doc",
-              "id": "administering-dial/entities/toolsets",
+              "id": "administering-dial-new/assets/toolsets",
               "label": "Toolsets"
             },
             {
               "type": "doc",
-              "id": "administering-dial/entities/interceptors",
-              "label": "Interceptors"
+              "id": "administering-dial-new/catalog/translators",
+              "label": "Translators"
             },
             {
               "type": "doc",
-              "id": "administering-dial/entities/routes",
+              "id": "administering-dial-new/entities/routes",
               "label": "Routes"
-            }
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/entities/applications",
+              "label": "Applications"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/builders/application-runners",
+              "label": "App Runners"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/catalog/catalog-schemas",
+              "label": "Catalog Schemas"
+            },
           ]
         },
         {
-          "type": "doc",
-          "id": "administering-dial/builders",
-          "label": "Builders"
-        },
-        {
-          "type": "doc",
-          "id": "administering-dial/assets",
-          "label": "Assets"
+          "type": "category",
+          "label": "Artifacts",
+          "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial-new/assets/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/assets/skills",
+              "label": "Skills"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/assets/files",
+              "label": "Files"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/assets/conversations",
+              "label": "Conversations"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/assets/prompts",
+              "label": "Prompts"
+            }
+          ]
         },
         {
           "type": "category",
@@ -1331,73 +1367,135 @@ const allSections = [
           "items": [
             {
               "type": "doc",
-              "id": "administering-dial/deployments/images",
-              "label": "Images"
+              "id": "administering-dial-new/deployments/index",
+              "label": "Overview"
             },
             {
               "type": "doc",
-              "id": "administering-dial/deployments/container-management",
+              "id": "administering-dial-new/deployments/model-servings",
+              "label": "Model Servings"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/deployments/container-management",
               "label": "Containers"
             },
             {
               "type": "doc",
-              "id": "administering-dial/deployments/mcp-containers",
-              "label": "MCP containers"
+              "id": "administering-dial-new/deployments/images",
+              "label": "Images"
+            }
+          ]
+        },
+
+        {
+          "type": "category",
+          "label": "Evaluation",
+          "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial-new/evaluation/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/evaluation/test-suites",
+              "label": "Test suites"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/evaluation/runs",
+              "label": "Runs"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/evaluation/datasets",
+              "label": "Datasets"
+            }
+          ]
+        },
+
+        {
+          "type": "category",
+          "label": "Analytics",
+          "link": {
+            "type": "doc",
+            "id": "administering-dial-new/analytics/index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "administering-dial-new/analytics/dashboards",
+              "label": "Dashboards"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/analytics/tables",
+              "label": "Tables"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/analytics/pipelines",
+              "label": "Pipelines"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/analytics/queries",
+              "label": "Queries"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/analytics/sessions",
+              "label": "Sessions"
             }
           ]
         },
         {
           "type": "category",
-          "label": "Access management",
+          "label": "Governance",
           "items": [
             {
               "type": "doc",
-              "id": "administering-dial/access-management/roles",
+              "id": "administering-dial-new/access-management/roles",
               "label": "Roles"
             },
             {
               "type": "doc",
-              "id": "administering-dial/access-management/keys",
+              "id": "administering-dial-new/access-management/keys",
               "label": "Keys"
-            }
-          ]
-        },
-        {
-          "type": "doc",
-          "id": "administering-dial/publications-and-review",
-          "label": "Publications and review"
-        },
-        {
-          "type": "category",
-          "label": "Audit",
-          "items": [
-            {
-              "type": "doc",
-              "id": "administering-dial/audit/activity-and-rollback",
-              "label": "Activity and rollback"
             },
             {
               "type": "doc",
-              "id": "administering-dial/audit/monitoring-dashboards",
-              "label": "Monitoring and dashboards"
-            }
+              "id": "administering-dial-new/assets/folders-storage",
+              "label": "Folder Permissions"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/entities/interceptors",
+              "label": "Interceptors"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/publications-and-review",
+              "label": "Approvals"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/user-management",
+              "label": "User management"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/usage-limits-and-cost-control",
+              "label": "Usage limits and cost control"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/compliance-and-legal-faq",
+              "label": "Compliance and legal FAQ"
+            },
           ]
         },
-        {
-          "type": "doc",
-          "id": "administering-dial/user-management",
-          "label": "User management"
-        },
-        {
-          "type": "doc",
-          "id": "administering-dial/usage-limits-and-cost-control",
-          "label": "Usage limits and cost control"
-        },
-        {
-          "type": "doc",
-          "id": "administering-dial/compliance-and-legal-faq",
-          "label": "Compliance and legal FAQ"
-        }
       ]
     },
     {
