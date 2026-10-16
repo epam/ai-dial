@@ -33,7 +33,7 @@
    - ai-dial-adapter-dial: `0.20.0`
    - ai-dial-chat-themes: `0.21.0`
    - ai-dial-chat: `1.2.4`
-   - ai-dial-core: `0.49.0`
+   - ai-dial-core: `0.49.2`
    - ai-dial-analytics-realtime: `0.29.0`
    - ai-dial-rag: `0.43.0`
    - ai-dial-log-parser: `0.3.0`
@@ -1136,7 +1136,7 @@ With the new `authType` field on upstreams, route create and update will reject 
 
 ---
 
-#### ai-dial-core `0.49.0`
+#### ai-dial-core `0.49.2`
 
 ##### Environment variables with changed defaults
 
