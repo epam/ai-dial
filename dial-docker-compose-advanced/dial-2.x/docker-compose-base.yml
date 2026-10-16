@@ -95,7 +95,7 @@ services:
       start_period: 30s
 
   admin-backend:
-    image: epam/ai-dial-admin-backend:0.22.0
+    image: epam/ai-dial-admin-backend:0.22.1
     platform: linux/amd64
     user: root
     environment:
