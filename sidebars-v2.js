@@ -1300,8 +1300,18 @@ const allSections = [
             },
             {
               "type": "doc",
+              "id": "administering-dial-new/assets/toolsets",
+              "label": "Toolsets"
+            },
+            {
+              "type": "doc",
               "id": "administering-dial-new/catalog/translators",
               "label": "Translators"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/entities/routes",
+              "label": "Routes"
             },
             {
               "type": "doc",
@@ -1311,23 +1321,13 @@ const allSections = [
             {
               "type": "doc",
               "id": "administering-dial-new/builders/application-runners",
-              "label": "Application Runners"
+              "label": "App Runners"
             },
             {
               "type": "doc",
               "id": "administering-dial-new/catalog/catalog-schemas",
               "label": "Catalog Schemas"
             },
-            {
-              "type": "doc",
-              "id": "administering-dial-new/assets/toolsets",
-              "label": "Toolsets"
-            },
-            {
-              "type": "doc",
-              "id": "administering-dial-new/entities/routes",
-              "label": "Routes"
-            }
           ]
         },
         {
