@@ -25,11 +25,6 @@ const allSections = [
           "type": "doc",
           "id": "home/connect-to-existing-dial",
           "label": "Connect to an existing DIAL"
-        },
-        {
-          "type": "doc",
-          "id": "home/architect-overview",
-          "label": "Architect overview"
         }
       ]
     },
@@ -45,37 +40,6 @@ const allSections = [
               "type": "doc",
               "id": "understand-dial/positioning/what-is-dial",
               "label": "What is DIAL"
-            },
-            {
-              "type": "category",
-              "label": "Comparisons",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "understand-dial/positioning/comparisons",
-                  "label": "Overview"
-                },
-                {
-                  "type": "doc",
-                  "id": "understand-dial/positioning/comparisons/dial-vs-ai-gateways",
-                  "label": "DIAL vs AI gateways"
-                },
-                {
-                  "type": "doc",
-                  "id": "understand-dial/positioning/comparisons/dial-vs-app-builders",
-                  "label": "DIAL vs app builders"
-                },
-                {
-                  "type": "doc",
-                  "id": "understand-dial/positioning/comparisons/dial-vs-frameworks",
-                  "label": "DIAL vs frameworks"
-                },
-                {
-                  "type": "doc",
-                  "id": "understand-dial/positioning/comparisons/dial-vs-ai-studios",
-                  "label": "DIAL vs AI studios"
-                }
-              ]
             }
           ]
         },
@@ -90,18 +54,43 @@ const allSections = [
             },
             {
               "type": "doc",
-              "id": "understand-dial/architecture/dial-stack",
-              "label": "DIAL Stack"
+              "id": "understand-dial/architecture/request-flow",
+              "label": "Request flow"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/architecture/deployment-profiles",
+              "label": "Deployment profiles"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/architecture/state-and-data-lifecycle",
+              "label": "State and data lifecycle"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/architecture/reliability-and-performance",
+              "label": "Reliability and performance"
             },
             {
               "type": "doc",
               "id": "understand-dial/architecture/application-server",
-              "label": "Application server"
+              "label": "Application hosting and lifecycle"
             },
             {
               "type": "doc",
-              "id": "understand-dial/architecture/unified-api-overview",
-              "label": "Unified API overview"
+              "id": "understand-dial/architecture/ai-api-overview",
+              "label": "AI API overview"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/architecture/trade-offs-and-limitations",
+              "label": "Trade-offs and limitations"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/architecture/dial-stack",
+              "label": "DIAL Stack"
             }
           ]
         },
@@ -149,6 +138,11 @@ const allSections = [
               "type": "doc",
               "id": "understand-dial/security-and-governance/usage-limits-and-cost-control",
               "label": "Usage limits and cost control"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/security-and-governance/data-protection-and-isolation",
+              "label": "Data protection and isolation"
             }
           ]
         },
