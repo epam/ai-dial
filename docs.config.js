@@ -53,7 +53,7 @@ export const V2_SECTIONS = [
   { key: 'operating-dial', label: 'Operating DIAL', landing: 'operating-dial/local-setup/index' },
   { key: 'administering-dial', label: 'Administering DIAL', landing: 'administering-dial/index' },
   { key: 'chat-user-guide', label: 'Chat User Guide', landing: 'chat-user-guide/index' },
-  { key: 'reference', label: 'Reference', landing: 'reference' },
+  { key: 'reference', label: 'Reference', landing: 'reference/index' },
   { key: 'use-cases', label: 'Use Cases', landing: 'use-cases/index' },
   { key: 'demos', label: 'Demos', landing: 'demos/index' },
 ];
