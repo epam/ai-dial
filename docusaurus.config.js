@@ -19,17 +19,50 @@ import {
 
 // Inline plugin: redirect the NEW instance root (no doc owns it) to the first
 // visible section's landing page. See docs.config.js NEW_ROOT_REDIRECT.
-function newRootRedirectPlugin() {
+function newRootRedirectPlugin({ siteConfig }) {
   return {
     name: 'new-root-redirect',
     async contentLoaded({ actions }) {
       if (!NEW_ROOT_REDIRECT) return;
-      actions.setGlobalData({ to: NEW_ROOT_REDIRECT.to });
+      const baseUrl = siteConfig.baseUrl.replace(/\/$/, '');
+      actions.setGlobalData({ to: `${baseUrl}${NEW_ROOT_REDIRECT.to}` });
       actions.addRoute({
-        path: NEW_ROOT_REDIRECT.from,
+        path: `${baseUrl}${NEW_ROOT_REDIRECT.from}`,
         component: '@site/src/components/RootRedirect.js',
         exact: true,
       });
+    },
+  };
+}
+
+// Preserve published URLs when v2 pages are removed or renamed.
+function v2DocRedirectsPlugin({ siteConfig }) {
+  return {
+    name: 'v2-doc-redirects',
+    async contentLoaded({ actions }) {
+      const docsBase = `${siteConfig.baseUrl.replace(/\/$/, '')}${NEW_BASE === '/' ? '' : NEW_BASE}`;
+      const tradeOffs = 'understand-dial/architecture/trade-offs-and-limitations';
+      const redirects = {
+        'home/architect-overview': 'understand-dial/architecture/architecture-highlights',
+        'understand-dial/architecture/unified-api-overview': 'understand-dial/architecture/ai-api-overview',
+        'understand-dial/positioning/comparisons': tradeOffs,
+        'understand-dial/positioning/comparisons/dial-vs-ai-gateways': tradeOffs,
+        'understand-dial/positioning/comparisons/dial-vs-app-builders': tradeOffs,
+        'understand-dial/positioning/comparisons/dial-vs-frameworks': tradeOffs,
+        'understand-dial/positioning/comparisons/dial-vs-ai-studios': tradeOffs,
+      };
+      for (const [from, to] of Object.entries(redirects)) {
+        const redirect = await actions.createData(
+          `${from.replace(/\//g, '-')}-redirect.json`,
+          JSON.stringify({ to: `${docsBase}/${to}` }),
+        );
+        actions.addRoute({
+          path: `${docsBase}/${from}`,
+          component: '@site/src/components/DocRedirect.js',
+          modules: { redirect },
+          exact: true,
+        });
+      }
     },
   };
 }
@@ -102,6 +135,7 @@ const config = {
   plugins: [
     'docusaurus-plugin-image-zoom', // can also just be 'image-zoom'
     ...(SHOW_NEW && NEW_ROOT_REDIRECT ? [newRootRedirectPlugin] : []),
+    ...(SHOW_NEW ? [v2DocRedirectsPlugin] : []),
     // NEW docs instance — included only when SHOW_NEW; routeBasePath is '/v2'
     // when OLD is also served, otherwise '/'.
     ...(SHOW_NEW
