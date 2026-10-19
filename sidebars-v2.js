@@ -1431,6 +1431,16 @@ const allSections = [
             },
             {
               "type": "doc",
+              "id": "administering-dial-new/analytics/queries",
+              "label": "Queries"
+            },
+            {
+              "type": "doc",
+              "id": "administering-dial-new/analytics/sessions",
+              "label": "Sessions"
+            },
+            {
+              "type": "doc",
               "id": "administering-dial-new/analytics/tables",
               "label": "Tables"
             },
@@ -1439,16 +1449,6 @@ const allSections = [
               "id": "administering-dial-new/analytics/pipelines",
               "label": "Pipelines"
             },
-            {
-              "type": "doc",
-              "id": "administering-dial-new/analytics/queries",
-              "label": "Queries"
-            },
-            {
-              "type": "doc",
-              "id": "administering-dial-new/analytics/sessions",
-              "label": "Sessions"
-            }
           ]
         },
         {
