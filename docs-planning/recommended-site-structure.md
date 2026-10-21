@@ -391,7 +391,7 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 
 ← *currently: Tutorials > Chat User Guide (keep structure largely as-is, updated for current UI)*
 
-*Includes end-user documentation for all features accessible within DIAL Chat: conversations, prompts, marketplace, Quick Apps (user perspective), Code Apps (user perspective), Mind Maps (user perspective), files, sharing, publications, toolsets, settings.*
+*Includes end-user documentation for all features accessible within DIAL Chat: conversations, scheduled tasks, prompts, marketplace, Quick Apps (user perspective), Code Apps (user perspective), Mind Maps (user perspective), files, sharing, publications, toolsets, settings.*
 
 *The current standalone "Mind Map Studio" page under Tutorials is merged here for end-user content. Developer-facing Mind Map content goes to Building with DIAL > DIAL Apps > Mind Map Studio.*
 

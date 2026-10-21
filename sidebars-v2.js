@@ -1514,6 +1514,11 @@ const allSections = [
           "label": "Conversations"
         },
         {
+          "type": "doc",
+          "id": "chat-user-guide-new/scheduled-tasks",
+          "label": "Scheduled tasks"
+        },
+        {
           "type": "category",
           "label": "Catalog",
           "items": [
