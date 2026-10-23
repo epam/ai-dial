@@ -1,5 +1,18 @@
 # Instructions
 
+## Table of contents
+
+- [Versions](#versions)
+- [Before upgrade](#before-upgrade)
+  - [General notes](#general-notes)
+  - [Release-specific notes](#release-specific-notes)
+    - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend-0181)
+    - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-010)
+    - [ai-dial-chat](#ai-dial-chat-0470)
+    - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend-090)
+    - [ai-dial-admin-backend](#ai-dial-admin-backend-0181)
+    - [ai-dial-mind-map-backend](#ai-dial-mind-map-backend-0141)
+
 ## Versions
 
 1. Helm chart versions:
@@ -98,13 +111,13 @@ Three breaking changes to OpenTelemetry configuration: (1) OTEL_SDK_DISABLED rep
 
 #### ai-dial-admin-evaluation-framework-backend `0.1.0`
 
-### New environment variables
+##### New environment variables
 
 | Variable | Default | Description |
 |---|---|---|
 | `TEST_CASE_BULK_MAX_DELETE_IDS` | `10000` | Maximum number of IDs accepted in a single bulk-delete-by-IDs request (`DELETE /test-cases:bulk`). Required: No. |
 
-### Behavioral changes
+##### Behavioral changes
 > [!NOTE]
 > On upgrade, the migration converts every existing test suite's inline test cases into a **private-scoped dataset**. Each suite gets its own new `PRIVATE` dataset (created with the suite's UUID and named `DATASET_<suite name>`), and all of that suite's test cases are rebound to it — one dataset per suite, not shareable until explicitly made `PUBLIC`. Per-test-case `is_enabled` state is preserved as the suite's `disabled_test_case_ids`; the `request_template_override` and `input_bindings_override` columns are dropped (values discarded), and any in-flight revalidation tasks are marked `FAILED` and must be resubmitted against the new dataset.
 - **Test-case migration** — all test cases within existing test suites are migrated to private-scoped datasets (one private dataset per suite) (`V1.22`, initial commit `ab5d0b3`)
@@ -117,7 +130,7 @@ Three breaking changes to OpenTelemetry configuration: (1) OTEL_SDK_DISABLED rep
 
 #### ai-dial-chat `0.47.0`
 
-### New environment variables
+##### New environment variables
 
 | Variable | Default | Description |
 |---|---|---|
@@ -125,7 +138,7 @@ Three breaking changes to OpenTelemetry configuration: (1) OTEL_SDK_DISABLED rep
 | `ADDITIONAL_CSS_DIR` | `<cwd>/additional_css` | Absolute path to a directory of `.css` files injected into every page. See [Theme Customization](../../docs/THEME-CUSTOMIZATION.md#additional-css). |
 | `AUTH_ADDITIONAL_PARAMS` | (none) | JSON array of key/value objects appended to the body of both the initial and refresh OAuth token exchanges. Example: `[{"organization_id":"some-id"},{"tenant_id":"some other id"}]`. |
 
-### Deprecated environment variables
+##### Deprecated environment variables
 
 > [!CAUTION]
 > Still works, but will be removed in future versions.
@@ -134,13 +147,13 @@ Three breaking changes to OpenTelemetry configuration: (1) OTEL_SDK_DISABLED rep
 |---|---|---|
 | `QUICK_APPS_MODEL` | Quick App 2 schema default model | Quick Apps now take the default model from the schema; `QUICK_APPS_MODEL` is kept only as a fallback when the schema does not specify one (Issue #6807) (#6963). |
 
-### Removed environment variables
+##### Removed environment variables
 
 | Variable | Reason |
 |---|---|
 | `NEXT_PUBLIC_USE_MD_SIDEBAR_OVERLAY_BREAKPOINT` | Replaced by the runtime `md-sidebar-overlay-breakpoint` feature flag; enable it via `ENABLED_FEATURES` or `ChatOverlayOptions.enabledFeatures` (Issue #6980) (#6984). |
 
-### New feature flags
+##### New feature flags
 
 | Flag | Description |
 |---|---|
@@ -148,14 +161,14 @@ Three breaking changes to OpenTelemetry configuration: (1) OTEL_SDK_DISABLED rep
 | `compare-mode-disabled` | Disable compare mode (sidebar button and conversation context menu). Enabled by default. |
 | `marketplace-hide-my-apps` | Hide user-created and shared-with-me entities in the Marketplace. |
 
-### Behavioral changes
+##### Behavioral changes
 
 > [!NOTE]
 > Overlay API routes now validate sessions strictly. With `IS_IFRAME=true`, expired or invalid sessions are rejected with `401` at the Chat layer rather than proxied to DIAL Core. Standard overlay usage is unaffected and behaves better after OAuth token refresh.
 
 - **Overlay strict session validation** — `validateServerSession()` and refresh-aware token resolution (Issue #6887) (#6888)
 
-### New environment variables
+##### New environment variables
 
 | Variable | Default | Description |
 |---|---|---|
@@ -165,7 +178,7 @@ Three breaking changes to OpenTelemetry configuration: (1) OTEL_SDK_DISABLED rep
 
 #### ai-dial-quickapps-backend `0.9.0`
 
-### New environment variables
+##### New environment variables
 
 | Variable                                       | Default    | Description                                                                                                                                                                                                                                                                            |
 |------------------------------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -178,7 +191,7 @@ Three breaking changes to OpenTelemetry configuration: (1) OTEL_SDK_DISABLED rep
 | `TOOL_CALL_RESULT_OFFLOAD__SIZE_THRESHOLD`     | `40000`    | Default byte threshold above which a tool-call response is offloaded to a DIAL file. Apps override per-app via `features.dial_files.tool_call_result_offload.size_threshold`.                                                                                                           |
 | `TOOL_CALL_RESULT_OFFLOAD__EXCLUDED_TOOLS`     | `[]`       | Default JSON list of **additional** tool names exempt from offloading. The read-back tools (`internal_file_read_lines`, `internal_file_search`) are always excluded so a read-back slice is never re-offloaded. Apps add more per-app.                                                  |
 
-### Behavioral changes
+##### Behavioral changes
 
 > [!NOTE]
 > The DIAL files tools have graduated to GA and are now active regardless of `ENABLE_PREVIEW_FEATURES`:
