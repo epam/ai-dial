@@ -15,3 +15,31 @@ services:
     build: ../dial-sdk/examples/render_text
     environment:
       'DIAL_URL': 'http://core:8080'
+
+  # Interceptor sample (see dial-samples/pii-interceptor)
+  pii-interceptor:
+    build: ../dial-samples/pii-interceptor
+    environment:
+      'DIAL_URL': 'http://core:8080'
+
+  mock-model:
+    build: ../dial-samples/pii-interceptor/mock-model
+
+  # Custom adapter sample (see dial-samples/custom-adapter)
+  adapter:
+    build: ../dial-samples/custom-adapter
+    depends_on:
+      - provider-eu
+      - provider-us
+
+  provider-eu:
+    build: ../dial-samples/custom-adapter/mock-provider
+    environment:
+      UPSTREAM_NAME: "provider-eu"
+      EXPECTED_KEY: "eu-provider-key"
+
+  provider-us:
+    build: ../dial-samples/custom-adapter/mock-provider
+    environment:
+      UPSTREAM_NAME: "provider-us"
+      EXPECTED_KEY: "us-provider-key"
