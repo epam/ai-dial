@@ -9,6 +9,51 @@ import fauxRemarkEmbedder from '@remark-embedder/core';
 import { readFileSync } from 'fs';
 import oembedTransformer from './src/transformers/oembed.js';
 import jupyterTransformer from './src/transformers/jupyter.js';
+import {
+  SHOW_OLD,
+  SHOW_NEW,
+  OLD_BASE,
+  NEW_BASE,
+  NEW_ROOT_REDIRECT,
+} from './docs.config.js';
+
+// Inline plugin: redirect the NEW instance root (no doc owns it) to the first
+// visible section's landing page. See docs.config.js NEW_ROOT_REDIRECT.
+function newRootRedirectPlugin() {
+  return {
+    name: 'new-root-redirect',
+    async contentLoaded({ actions }) {
+      if (!NEW_ROOT_REDIRECT) return;
+      actions.setGlobalData({ to: NEW_ROOT_REDIRECT.to });
+      actions.addRoute({
+        path: NEW_ROOT_REDIRECT.from,
+        component: '@site/src/components/RootRedirect.js',
+        exact: true,
+      });
+    },
+  };
+}
+
+// remark plugins shared by both docs instances
+const docsRemarkPlugins = [
+  [fauxRemarkEmbedder, { transformers: [oembedTransformer, jupyterTransformer] }],
+];
+
+// Navbar switcher only makes sense when both sets are served; otherwise the
+// whole site IS the single shown set, served at '/'.
+const docsNavItems =
+  SHOW_OLD && SHOW_NEW
+    ? [
+        { to: '/', label: 'Legacy docs', position: 'left' },
+        {
+          type: 'docSidebar',
+          sidebarId: 'v2Sidebar',
+          docsPluginId: 'v2',
+          position: 'left',
+          label: 'Docs (v2)',
+        },
+      ]
+    : [];
 
 const footerLink = (href, path) => {
   return `<a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="${href}">${readFileSync(
@@ -39,11 +84,13 @@ const config = {
   onBrokenLinks: 'throw', //'throw', for exceptions
   onBrokenAnchors: 'throw',
   markdown: {
+    mermaid: true,
     hooks: {
       onBrokenMarkdownLinks: 'throw',
       onBrokenMarkdownImages: 'throw',
     },
   },
+  themes: ['@docusaurus/theme-mermaid'],
   onDuplicateRoutes: 'throw',
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -54,27 +101,43 @@ const config = {
   },
   plugins: [
     'docusaurus-plugin-image-zoom', // can also just be 'image-zoom'
+    ...(SHOW_NEW && NEW_ROOT_REDIRECT ? [newRootRedirectPlugin] : []),
+    // NEW docs instance — included only when SHOW_NEW; routeBasePath is '/v2'
+    // when OLD is also served, otherwise '/'.
+    ...(SHOW_NEW
+      ? [
+          [
+            '@docusaurus/plugin-content-docs',
+            /** @type {import('@docusaurus/plugin-content-docs').Options} */
+            ({
+              id: 'v2',
+              path: 'docs_v2',
+              routeBasePath: NEW_BASE,
+              sidebarPath: './sidebars-v2.js',
+              remarkPlugins: docsRemarkPlugins,
+            }),
+          ],
+        ]
+      : []),
   ],
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          routeBasePath: '/',
-          sidebarPath: './sidebars.js',
-          exclude: ['releases/**'],
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          //editUrl:
-          //  'https://github.com/epam/ai-dial/tree/main/',
-          remarkPlugins: [
-            [
-              fauxRemarkEmbedder,
-              { transformers: [oembedTransformer, jupyterTransformer] },
-            ],
-          ],
-        },
+        // OLD docs instance — disabled entirely when SHOW_OLD is false.
+        docs: SHOW_OLD
+          ? {
+              routeBasePath: OLD_BASE,
+              sidebarPath: './sidebars.js',
+              exclude: ['releases/**'],
+              // Please change this to your repo.
+              // Remove this to remove the "edit this page" links.
+              //editUrl:
+              //  'https://github.com/epam/ai-dial/tree/main/',
+              remarkPlugins: docsRemarkPlugins,
+            }
+          : false,
         blog: false,
         theme: {
           customCss: './src/css/custom.css',
@@ -127,14 +190,7 @@ const config = {
           src: 'img/logo-lt.svg',
           srcDark: 'img/logo-dk.svg',
         },
-        items: [
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'tutorialSidebar',
-          //   position: 'left',
-          //   label: 'Tutorial',
-          // },
-        ],
+        items: docsNavItems,
       },
       footer: {
         links: [
