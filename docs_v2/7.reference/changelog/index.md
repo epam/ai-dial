@@ -12,6 +12,12 @@ description: "Release notes and upgrade guides for each DIAL platform release, n
 
 Release notes and upgrade guides for each DIAL platform (Helm stable-assembly) release, newest first. Each release links to its highlights and to the technical upgrade guide (component versions, configuration changes, and deprecations).
 
+## DIAL 1.47
+
+This release is headlined by DIAL Chat 2.0, the ground-up rebuild of the chat experience. Please see the below video for a brief walkthrough. Additionally, DIAL now supports full governance to the Agent Skills standard, Quick Apps agents work with richer context, improvements to Token Accounting makes cached and reasoning token usage visible for chargeback, and an OpenAPI-to-MCP Bridge turns any existing REST API into a live set of MCP-ready tools.
+
+[Release notes](release-notes-1.47.md) · [Upgrade guide](upgrade-to-1.47.md)
+
 ## DIAL 1.46
 
 The highlights of this release on the DIAL core side include native support of agent skills, redesigned and unified configuration of application endpoints, and major improvements to OAuth Recovery capabiltiies for MCP Toolset connectivity. The release also focused on continued improvements to the DIAL Admin with features like new analytics, and Evaluation Framework was improved with aggregated metrics and run comparisons.
