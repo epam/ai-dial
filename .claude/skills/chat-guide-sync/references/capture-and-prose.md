@@ -55,7 +55,7 @@ Captured against the **live** app with a logged-in account. The scripts
   exist on disk, reframe locally with `scripts/crop.py`.
 - **One screenshot per step/page, not per field.** A builder with six sections gets
   one shot per step, fields in a table.
-- Save to `docs_v2/chat-user-guide-new/img/` (and a section's own `img/`, e.g.
+- Save to `docs_v2/6.chat-user-guide/img/` (and a section's own `img/`, e.g.
   `3.catalog/img/`), short descriptive names.
 
 ### The coordinate-convention trap (wastes whole passes)

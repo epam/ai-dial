@@ -1,7 +1,7 @@
 ---
 name: chat-guide-sync
 description: >-
-  Keep the DIAL Chat User Guide (docs_v2/chat-user-guide-new/) in sync with the
+  Keep the DIAL Chat User Guide (docs_v2/6.chat-user-guide/) in sync with the
   ai-dial-chat version each DIAL platform release ships. Detects what changed
   between the guide's pinned chat version and a new release, verifies the change
   against chat source at the pinned tag, writes the text updates, flags
@@ -17,7 +17,7 @@ compatibility: >-
 
 # DIAL Chat User Guide Sync
 
-Keeps `docs_v2/chat-user-guide-new/` current against the ai-dial-chat version a
+Keeps `docs_v2/6.chat-user-guide/` current against the ai-dial-chat version a
 DIAL release ships. Built to run unattended in CI and open a PR for human review,
 and to run the same logic interactively.
 
@@ -125,7 +125,7 @@ surfaces new UI in Chat). Any single source alone will miss things.
 - **Text only in V1.** The agent does not capture or edit screenshots; it flags them.
 - **Never write an unverified claim as fact.** Live-only confirmations go in the PR's
   Flag list, never into the page as settled text.
-- **Output stays inside `docs_v2/chat-user-guide-new/`.** Wiring the folder into
+- **Output stays inside `docs_v2/6.chat-user-guide/`.** Wiring the folder into
   `sidebars-v2.js` is a separate, explicit human step.
 
 ## After a successful sync
@@ -145,7 +145,7 @@ same PR. That is what makes the next run incremental.
 - `references/m2-verify-and-write.md` — the V1 verify-and-write contract and PR format.
 - `references/capture-and-prose.md` — screenshot capture discipline (M3) + write/structure
   lessons (apply now). Harvested from the retired `chat-guide-capture`.
-- Guide content: `docs_v2/chat-user-guide-new/*.md` + `img/` (and `3.catalog/img/`).
+- Guide content: `docs_v2/6.chat-user-guide/*.md` + `img/` (and `3.catalog/img/`).
 - Companion skill: `docs-page-writer` (prose/terminology/structure).
 
 ## Not yet built
