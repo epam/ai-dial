@@ -5,6 +5,9 @@
 - **Do not commit or push without explicit permission.** Only run `git commit` / `git push` (or any variant) when the user has explicitly authorized that specific action. Absent such authorization, the user handles version control manually.
 - **Never upgrade or install packages without explicit permission.** Do not run `npm install` / `npm ci` / `npm update` (or any variant) to add, upgrade, or change dependencies, and do not edit `package.json` / `package-lock.json`, unless the user has explicitly authorized it. A build that fails on a dependency issue is a finding to report, not a license to change packages.
 - **Never assume redirects are necessary after a rename or path change.** Renaming files/folders or changing routes does not automatically require adding redirects (e.g. `@docusaurus/plugin-client-redirects`). Only add redirects when the user explicitly asks for them, and if you do, wire the targets to real, existing routes and verify with a full build.
+- **Never edit or create files without explicit approval.** Propose the change first — what you'll change and the exact source line that backs it — then wait for the go-ahead before touching any file.
+- **Never make things up. Prove everything in the source.** Ground every statement and change in solid evidence from source code or authoritative docs. Cite the exact source. Clearly separate what is proven from what is inferred; never state an inference as fact.
+- **Keep replies concise and precise — no walls of text, no visible reasoning dumps.** Give the informative result, not the thought process behind it.
 
 ## What this repo is
 

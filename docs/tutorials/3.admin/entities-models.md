@@ -18,7 +18,7 @@ On this page, you can find all AI models deployments available on your DIAL inst
 
 When a model deployment is successfully added, it can be accessed across the DIAL ecosystem including, [DIAL Chat](https://dialx.ai/features/dial-chat), [DIAL Marketplace](https://dialx.ai/features/dial-marketplace) and via [API](https://dialx.ai/dial_api#operation/sendChatCompletionRequest) for authorized [user roles](/docs/tutorials/3.admin/access-management-roles.md).
 
-> You can use DIAL Core API to [access](https://dialx.ai/dial_api#tag/Deployment-listing/operation/getModels) available model deployments and to [send chat completion](https://dialx.ai/dial_api#operation/sendChatCompletionRequest) requests.
+> You can use DIAL Core API to [access](https://dialx.ai/dial_api#tag/Deployment-listing/operation/getModels) available model deployments and to [send chat completion](https://dialx.ai/dial_api#tag/LLM/operation/sendChatCompletionRequest) requests.
 
 ![](img/entities_models.png)
 
