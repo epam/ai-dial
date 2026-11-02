@@ -17,7 +17,7 @@
 # panel looks different. Those are handled by the capture/screenshot-diff step,
 # added later. `screenshots:` and `fixtures:` keys are reserved for that phase.
 
-guide_root: docs_v2/chat-user-guide-new
+guide_root: docs_v2/6.chat-user-guide
 
 # Everything is fetched from these sources at run time. No local clone assumed.
 chat_repo: epam/ai-dial-chat

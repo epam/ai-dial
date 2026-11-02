@@ -16,7 +16,7 @@ This page tracks what Quick Apps documentation exists and what is still missing 
 | Topic | Status | Location | Notes |
 |---|---|---|---|
 | Overview / concepts | Done | [What are Quick Apps](./index) | Covers both types |
-| Create via UI | Done | [Create in DIAL Chat](./quick-app-2/create-via-ui) | Developer summary; links to the Chat User Guide's [Build a Quick App](../../../chat-user-guide-new/3.catalog/2.agents.md#build-a-quick-app) for the full walkthrough with screenshots |
+| Create via UI | Done | [Create in DIAL Chat](./quick-app-2/create-via-ui) | Developer summary; links to the Chat User Guide's [Build a Quick App](../../../6.chat-user-guide/3.catalog/2.agents.md#build-a-quick-app) for the full walkthrough with screenshots |
 | Create via API | Done | [Create via API](./quick-app-2/create-via-api) | Full CRUD with curl examples |
 | Create via config.json | Done | [Create via config.json](./quick-app-2/create-via-config) | Complete config.json with schema + app + roles |
 | Add tools and agents | Done | [Add tools and agents](./quick-app-2/working-with-tools-and-agents) | All toolset types |
@@ -34,5 +34,5 @@ This page tracks what Quick Apps documentation exists and what is still missing 
 | Troubleshooting | Missing | — | Common errors, agent loop debugging, tool call failures |
 | RAG how-to | Missing | — | Dedicated guide for grounding answers with the predefined `dial_rag` tool and document contexts |
 | Agent loop iteration tuning | Missing | — | When to adjust `max_iterations`, what happens at the limit |
-| Marketplace publishing (apps) | Missing | — | Toolset publishing is documented, Quick App publishing is not |
+| Catalog publishing (apps) | Missing | — | Toolset publishing is documented, Quick App publishing is not |
 | Conversation mode explained | Missing | — | `conversation_mode.resumable` behavior (replaces the deprecated `propagate_history`) for DIAL deployment tools |

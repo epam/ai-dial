@@ -13,7 +13,7 @@ Goal: keep two DIAL user guides in sync with the apps they document, eventually
 automatically (a DIAL release triggers a GitHub Action that updates the guide and
 opens a PR for human review). Two skills, same design:
 
-- **`chat-guide-sync`** — for the Chat guide (`docs_v2/chat-user-guide-new/`).
+- **`chat-guide-sync`** — for the Chat guide (`docs_v2/6.chat-user-guide/`).
   Lives on branch **`chat-userguide-review`** (committed). Single source repo
   (`epam/ai-dial-chat`). Engine built + validated; guide is current, so it only
   needs steady-state syncing. Automation (trigger/PR/agent-in-CI) not built —

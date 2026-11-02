@@ -320,27 +320,6 @@ const allSections = [
             },
             {
               "type": "category",
-              "label": "Mind Map Studio",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/apps/mind-map-studio/index",
-                  "label": "Overview"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/apps/mind-map-studio/authoring-workflow",
-                  "label": "Authoring workflow"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/apps/mind-map-studio/export-and-publish",
-                  "label": "Export and publish"
-                }
-              ]
-            },
-            {
-              "type": "category",
               "label": "Custom Apps",
               "items": [
                 {
@@ -569,8 +548,8 @@ const allSections = [
                 },
                 {
                   "type": "doc",
-                  "id": "building-with-dial/developer-tools/chat-customization/marketplace",
-                  "label": "Marketplace"
+                  "id": "building-with-dial/developer-tools/chat-customization/catalog",
+                  "label": "Catalog"
                 },
                 {
                   "type": "doc",
@@ -1505,17 +1484,17 @@ const allSections = [
       "items": [
         {
           "type": "doc",
-          "id": "chat-user-guide-new/index",
+          "id": "chat-user-guide/index",
           "label": "Overview and interface"
         },
         {
           "type": "doc",
-          "id": "chat-user-guide-new/conversations",
+          "id": "chat-user-guide/conversations",
           "label": "Conversations"
         },
         {
           "type": "doc",
-          "id": "chat-user-guide-new/scheduled-tasks",
+          "id": "chat-user-guide/scheduled-tasks",
           "label": "Scheduled tasks"
         },
         {
@@ -1524,49 +1503,49 @@ const allSections = [
           "items": [
             {
               "type": "doc",
-              "id": "chat-user-guide-new/catalog/index",
+              "id": "chat-user-guide/catalog/index",
               "label": "Overview"
             },
             {
               "type": "doc",
-              "id": "chat-user-guide-new/catalog/models",
+              "id": "chat-user-guide/catalog/models",
               "label": "Models"
             },
             {
               "type": "doc",
-              "id": "chat-user-guide-new/catalog/agents",
+              "id": "chat-user-guide/catalog/agents",
               "label": "Agents"
             },
             {
               "type": "doc",
-              "id": "chat-user-guide-new/catalog/toolsets",
+              "id": "chat-user-guide/catalog/toolsets",
               "label": "Toolsets"
             },
             {
               "type": "doc",
-              "id": "chat-user-guide-new/catalog/skills",
+              "id": "chat-user-guide/catalog/skills",
               "label": "Skills"
             },
             {
               "type": "doc",
-              "id": "chat-user-guide-new/catalog/prompts",
+              "id": "chat-user-guide/catalog/prompts",
               "label": "Prompts"
             }
           ]
         },
         {
           "type": "doc",
-          "id": "chat-user-guide-new/files",
+          "id": "chat-user-guide/files",
           "label": "File Manager"
         },
         {
           "type": "doc",
-          "id": "chat-user-guide-new/sharing-and-publishing",
+          "id": "chat-user-guide/sharing-and-publishing",
           "label": "Sharing and publishing"
         },
         {
           "type": "doc",
-          "id": "chat-user-guide-new/usage-and-settings",
+          "id": "chat-user-guide/usage-and-settings",
           "label": "Usage and settings"
         }
       ]
