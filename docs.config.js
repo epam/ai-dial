@@ -48,7 +48,7 @@ export const NEW_BASE = SHOW_OLD ? '/v2' : '/';
 // visible section. Verify against the sitemap if a section's first page moves.
 export const V2_SECTIONS = [
   { key: 'home', label: 'Home', landing: 'home/index' },
-  { key: 'understand-dial', label: 'Understand DIAL', landing: 'understand-dial/positioning/what-is-dial' },
+  { key: 'understand-dial', label: 'Understand DIAL', landing: 'understand-dial/index' },
   { key: 'building-with-dial', label: 'Building with DIAL', landing: 'building-with-dial/index' },
   { key: 'operating-dial', label: 'Operating DIAL', landing: 'operating-dial/local-setup/index' },
   { key: 'administering-dial', label: 'Administering DIAL', landing: 'administering-dial-new/index' },

@@ -10,21 +10,6 @@ const allSections = [
           "type": "doc",
           "id": "home/index",
           "label": "Overview"
-        },
-        {
-          "type": "doc",
-          "id": "home/run-dial-locally",
-          "label": "Run DIAL locally"
-        },
-        {
-          "type": "doc",
-          "id": "home/build-an-app-on-dial",
-          "label": "Build an app on DIAL"
-        },
-        {
-          "type": "doc",
-          "id": "home/connect-to-existing-dial",
-          "label": "Connect to an existing DIAL"
         }
       ]
     },
@@ -33,13 +18,99 @@ const allSections = [
       "label": "Understand DIAL",
       "items": [
         {
+          "type": "doc",
+          "id": "understand-dial/index",
+          "label": "Overview"
+        },
+        {
+          "type": "doc",
+          "id": "understand-dial/what-is-dial",
+          "label": "What is DIAL"
+        },
+        {
           "type": "category",
-          "label": "Positioning",
+          "label": "Foundations",
           "items": [
             {
               "type": "doc",
-              "id": "understand-dial/positioning/what-is-dial",
-              "label": "What is DIAL"
+              "id": "understand-dial/foundations/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/foundations/concept-map",
+              "label": "Concept map"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/foundations/glossary",
+              "label": "Glossary"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/foundations/dial-evolution",
+              "label": "DIAL evolution"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Capabilities",
+          "items": [
+            {
+              "type": "doc",
+              "id": "understand-dial/capabilities/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/capabilities/model-access-and-ai-apis",
+              "label": "Model access and AI APIs"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/capabilities/multimodality",
+              "label": "Multimodality"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/capabilities/load-balancing-and-failover",
+              "label": "Load balancing and failover"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/capabilities/guardrails",
+              "label": "Guardrails"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/capabilities/analytics-and-observability",
+              "label": "Analytics and observability"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/capabilities/tools-and-enterprise-data",
+              "label": "Tools and enterprise data"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/capabilities/agentic-platform",
+              "label": "Agentic platform"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/capabilities/coding-agents-and-harnesses",
+              "label": "Coding agents and harnesses"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/capabilities/evaluations",
+              "label": "Evaluations"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/capabilities/collaboration-and-sharing",
+              "label": "Collaboration and sharing"
             }
           ]
         },
@@ -47,6 +118,11 @@ const allSections = [
           "type": "category",
           "label": "Architecture",
           "items": [
+            {
+              "type": "doc",
+              "id": "understand-dial/architecture/index",
+              "label": "Overview"
+            },
             {
               "type": "doc",
               "id": "understand-dial/architecture/architecture-highlights",
@@ -96,34 +172,13 @@ const allSections = [
         },
         {
           "type": "category",
-          "label": "Capabilities",
-          "items": [
-            {
-              "type": "doc",
-              "id": "understand-dial/capabilities/agentic-platform",
-              "label": "Agentic platform"
-            },
-            {
-              "type": "doc",
-              "id": "understand-dial/capabilities/rag-in-dial",
-              "label": "RAG in DIAL"
-            },
-            {
-              "type": "doc",
-              "id": "understand-dial/capabilities/multimodality",
-              "label": "Multimodality"
-            },
-            {
-              "type": "doc",
-              "id": "understand-dial/capabilities/collaboration-and-sharing",
-              "label": "Collaboration and sharing"
-            }
-          ]
-        },
-        {
-          "type": "category",
           "label": "Security and governance",
           "items": [
+            {
+              "type": "doc",
+              "id": "understand-dial/security-and-governance/index",
+              "label": "Overview"
+            },
             {
               "type": "doc",
               "id": "understand-dial/security-and-governance/authentication-and-access-control",
@@ -143,33 +198,6 @@ const allSections = [
               "type": "doc",
               "id": "understand-dial/security-and-governance/data-protection-and-isolation",
               "label": "Data protection and isolation"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Foundations",
-          "items": [
-            {
-              "type": "category",
-              "label": "Core concepts and glossary",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "understand-dial/foundations/core-concepts-and-glossary/concept-map",
-                  "label": "Concept map"
-                },
-                {
-                  "type": "doc",
-                  "id": "understand-dial/foundations/core-concepts-and-glossary/glossary",
-                  "label": "Glossary"
-                }
-              ]
-            },
-            {
-              "type": "doc",
-              "id": "understand-dial/foundations/dial-evolution",
-              "label": "DIAL evolution"
             }
           ]
         }
@@ -1569,7 +1597,7 @@ const allSections = [
         },
         {
           "type": "ref",
-          "id": "understand-dial/foundations/core-concepts-and-glossary/glossary",
+          "id": "understand-dial/foundations/glossary",
           "label": "Glossary"
         },
         {
