@@ -323,6 +323,11 @@ const allSections = [
                   "label": "Examples"
                 }
               ]
+            },
+            {
+              "type": "doc",
+              "id": "building-with-dial/apps/generic-rag-document-qa",
+              "label": "Build a document Q&A app with Generic RAG"
             }
           ]
         },
@@ -2021,6 +2026,85 @@ const allSections = [
                   "type": "doc",
                   "id": "services/openapi-to-mcp/configuration/environment-variables",
                   "label": "Environment variables"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL RAG",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/rag/index",
+              "label": "Overview"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/rag/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/rag/configuration/environment-variables",
+                  "label": "Environment variables"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "services/rag/api",
+              "label": "API"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Generic RAG",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/generic-rag/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "services/generic-rag/channel-configuration",
+              "label": "Channel configuration"
+            },
+            {
+              "type": "doc",
+              "id": "services/generic-rag/channel-api",
+              "label": "Channel API"
+            },
+            {
+              "type": "doc",
+              "id": "services/generic-rag/mcp-server",
+              "label": "MCP server"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/generic-rag/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/generic-rag/configuration/backend",
+                  "label": "Backend"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/generic-rag/configuration/frontend",
+                  "label": "Frontend"
                 }
               ]
             }

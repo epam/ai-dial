@@ -143,9 +143,9 @@ Documentation: [DIAL Chat Overlay](https://github.com/epam/ai-dial-chat/blob/dev
 
 ### DIAL RAG
 
-A retrieval-augmented generation component for the DIAL platform. DIAL RAG provides document ingestion, chunking, embedding, and retrieval capabilities that can be used as building blocks in RAG applications.
+A retrieval-augmented generation application for the DIAL platform. DIAL RAG answers questions about the documents attached to a request. It indexes each document on first use and combines keyword, semantic, and page image retrieval.
 
-Repository: [ai-dial-rag](https://github.com/epam/ai-dial-rag). See also: [DIAL RAG Eval](#dial-rag-eval).
+Repository: [ai-dial-rag](https://github.com/epam/ai-dial-rag). See also: [Generic RAG](#generic-rag), [DIAL RAG Eval](#dial-rag-eval).
 
 ### DIAL RAG Eval
 
@@ -184,6 +184,16 @@ A DIAL API endpoint that provides unified access to embedding models from any su
 The persistent storage layer for DIAL, used to store conversations, prompts, applications, user files, and other [resources](#resource). DIAL supports cloud blob storage (AWS S3, Google Cloud Storage, Azure Blob Storage) or a local file system. Redis is deployed on top as an in-memory cache.
 
 DIAL does not require a centralized database — file storage and Redis are the only persistence dependencies.
+
+## G
+
+### Generic RAG
+
+An [application type](#application-type) that answers questions over a collection of documents uploaded and indexed in advance. Each application of the type has its own documents, indexes, and pipeline settings, and is also an MCP server.
+
+Also known as: "channel", the backend's term for one application's documents and settings. Use **Generic RAG** for the type, and **DIAL Generic RAG** for the service.
+
+Repositories: [ai-dial-generic-rag-backend](https://github.com/epam/ai-dial-generic-rag-backend), [ai-dial-generic-rag-frontend](https://github.com/epam/ai-dial-generic-rag-frontend). See also: [DIAL RAG](#dial-rag).
 
 ## I
 
