@@ -186,6 +186,16 @@ const allSections = [
             },
             {
               "type": "doc",
+              "id": "understand-dial/security-and-governance/authorization-rules-and-spaces",
+              "label": "Authorization rules and spaces"
+            },
+            {
+              "type": "doc",
+              "id": "understand-dial/security-and-governance/public-and-private-access",
+              "label": "Public and private access"
+            },
+            {
+              "type": "doc",
               "id": "understand-dial/security-and-governance/access-control-reference",
               "label": "Access control reference"
             },
