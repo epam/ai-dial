@@ -329,6 +329,11 @@ const allSections = [
               "type": "doc",
               "id": "building-with-dial/toolsets/mcp-server-integration",
               "label": "Integrate an MCP server"
+            },
+            {
+              "type": "doc",
+              "id": "building-with-dial/toolsets/rest-api-as-mcp-tools",
+              "label": "Expose a REST API as MCP tools"
             }
           ]
         },
@@ -2185,6 +2190,44 @@ const allSections = [
                   "type": "doc",
                   "id": "services/helm/releases/component-charts",
                   "label": "Component charts"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL OpenAPI to MCP",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/openapi-to-mcp/index",
+              "label": "Overview"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/openapi-to-mcp/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/openapi-to-mcp/configuration/environment-variables",
+                  "label": "Environment variables"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Releases",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/openapi-to-mcp/releases/v0.2.0",
+                  "label": "0.2.0"
                 }
               ]
             }
