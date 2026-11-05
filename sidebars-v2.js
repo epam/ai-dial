@@ -236,86 +236,14 @@ const allSections = [
                   "label": "What are Quick Apps"
                 },
                 {
-                  "type": "category",
-                  "label": "Quick App 2.0",
-                  "items": [
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-2/create-via-ui",
-                      "label": "Create in DIAL Chat"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-2/create-via-api",
-                      "label": "Create via API"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-2/create-via-config",
-                      "label": "Create via config.json"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-2/working-with-tools-and-agents",
-                      "label": "Add tools and agents"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop-ui",
-                      "label": "Tutorial: agent loop (UI)"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop-api",
-                      "label": "Tutorial: agent loop (API)"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-2/tutorial-agent-loop-config",
-                      "label": "Tutorial: agent loop (config.json)"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "building-with-dial/apps/quick-apps/quick-app-2/examples",
-                      "label": "Quick App 2.0 examples"
-                    },
-                    {
-                      "type": "category",
-                      "label": "Toolsets",
-                      "items": [
-                        {
-                          "type": "doc",
-                          "id": "building-with-dial/apps/quick-apps/quick-app-2/toolsets/index",
-                          "label": "What is a Toolset"
-                        },
-                        {
-                          "type": "doc",
-                          "id": "building-with-dial/apps/quick-apps/quick-app-2/toolsets/define-and-register",
-                          "label": "Define and register a Toolset"
-                        },
-                        {
-                          "type": "doc",
-                          "id": "building-with-dial/apps/quick-apps/quick-app-2/toolsets/mcp-server-integration",
-                          "label": "Integrate an MCP server"
-                        },
-                        {
-                          "type": "doc",
-                          "id": "building-with-dial/apps/quick-apps/quick-app-2/toolsets/sharing-and-permissions",
-                          "label": "Share and manage permissions"
-                        },
-                        {
-                          "type": "doc",
-                          "id": "building-with-dial/apps/quick-apps/quick-app-2/toolsets/reference",
-                          "label": "Configuration reference"
-                        },
-                        {
-                          "type": "doc",
-                          "id": "building-with-dial/apps/quick-apps/quick-app-2/toolsets/examples",
-                          "label": "Toolset examples"
-                        }
-                      ]
-                    }
-                  ]
+                  "type": "doc",
+                  "id": "building-with-dial/apps/quick-apps/tutorial-build-an-agent",
+                  "label": "Tutorial: build an agent"
+                },
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/apps/quick-apps/create-via-api",
+                  "label": "Create through the API"
                 }
               ]
             },
@@ -385,6 +313,22 @@ const allSections = [
                   "label": "Examples"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Toolsets",
+          "items": [
+            {
+              "type": "doc",
+              "id": "building-with-dial/toolsets/index",
+              "label": "What is a Toolset"
+            },
+            {
+              "type": "doc",
+              "id": "building-with-dial/toolsets/mcp-server-integration",
+              "label": "Integrate an MCP server"
             }
           ]
         },
@@ -587,6 +531,68 @@ const allSections = [
                   "type": "doc",
                   "id": "building-with-dial/developer-tools/chat-customization/embed-chat-in-web-app",
                   "label": "Embed Chat with DIAL Overlay"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "UI libraries",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/developer-tools/ui-libraries/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/developer-tools/ui-libraries/ui-kit",
+                  "label": "UI Kit"
+                },
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/developer-tools/ui-libraries/file-manager",
+                  "label": "File Manager"
+                },
+                {
+                  "type": "doc",
+                  "id": "building-with-dial/developer-tools/ui-libraries/pdf-highlighter",
+                  "label": "PDF Highlighter"
+                },
+                {
+                  "type": "category",
+                  "label": "Releases",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "building-with-dial/developer-tools/ui-libraries/releases/ui-kit-v0.16.0",
+                      "label": "UI Kit 0.16.0"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "building-with-dial/developer-tools/ui-libraries/releases/ui-kit-v0.15.0",
+                      "label": "UI Kit 0.15.0"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "building-with-dial/developer-tools/ui-libraries/releases/file-manager-v0.4.0",
+                      "label": "File Manager 0.4.0"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "building-with-dial/developer-tools/ui-libraries/releases/file-manager-v0.3.0",
+                      "label": "File Manager 0.3.0"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "building-with-dial/developer-tools/ui-libraries/releases/pdf-highlighter-v0.3.0",
+                      "label": "PDF Highlighter 0.3.0"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "building-with-dial/developer-tools/ui-libraries/releases/pdf-highlighter-v0.2.0",
+                      "label": "PDF Highlighter 0.2.0"
+                    }
+                  ]
                 }
               ]
             }
@@ -849,6 +855,11 @@ const allSections = [
               "type": "doc",
               "id": "operating-dial/cloud-deployment/quick-apps-installation",
               "label": "Quick Apps"
+            },
+            {
+              "type": "doc",
+              "id": "operating-dial/cloud-deployment/admin-installation",
+              "label": "DIAL Admin"
             }
           ]
         },
@@ -888,152 +899,14 @@ const allSections = [
               "label": "Overview"
             },
             {
-              "type": "category",
-              "label": "DIAL Core",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "operating-dial/configuration/core/index",
-                  "label": "Overview"
-                },
-                {
-                  "type": "category",
-                  "label": "settings.json",
-                  "items": [
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/settings-json/index",
-                      "label": "Overview"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/settings-json/server",
-                      "label": "Server & Client"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/settings-json/storage",
-                      "label": "Storage"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/settings-json/redis",
-                      "label": "Redis"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/settings-json/identity-providers",
-                      "label": "Identity Providers"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/settings-json/encryption",
-                      "label": "Encryption"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/settings-json/resources",
-                      "label": "Resources"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/settings-json/access",
-                      "label": "Access Control"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/settings-json/config-reload",
-                      "label": "Config Reload"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/settings-json/toolsets-security",
-                      "label": "Toolsets & Misc"
-                    }
-                  ]
-                },
-                {
-                  "type": "category",
-                  "label": "config.json",
-                  "items": [
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/config-json/index",
-                      "label": "Overview"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/config-json/models",
-                      "label": "Models"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/config-json/applications",
-                      "label": "Applications"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/config-json/interceptors",
-                      "label": "Interceptors"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/config-json/roles",
-                      "label": "Roles"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/config-json/keys",
-                      "label": "Keys"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/config-json/routes",
-                      "label": "Routes"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/core/config-json/toolsets",
-                      "label": "Toolsets"
-                    }
-                  ]
-                },
-                {
-                  "type": "doc",
-                  "id": "operating-dial/configuration/core/gflog-xml",
-                  "label": "gflog.xml"
-                }
-              ]
-            },
-            {
-              "type": "doc",
-              "id": "operating-dial/configuration/chat-configuration",
-              "label": "DIAL Chat"
-            },
-            {
-              "type": "doc",
-              "id": "operating-dial/configuration/adapter-configuration",
-              "label": "Adapters"
-            },
-            {
               "type": "doc",
               "id": "operating-dial/configuration/auth-helper-configuration",
               "label": "Auth Helper"
             },
             {
               "type": "doc",
-              "id": "operating-dial/configuration/admin-configuration",
-              "label": "Admin Panel"
-            },
-            {
-              "type": "doc",
               "id": "operating-dial/configuration/realm-config-json",
               "label": "Keycloak (realm-config.json)"
-            },
-            {
-              "type": "doc",
-              "id": "operating-dial/configuration/load-balancer",
-              "label": "Load Balancer"
             },
             {
               "type": "doc",
@@ -1502,6 +1375,825 @@ const allSections = [
     },
     {
       "type": "category",
+      "label": "Services",
+      "items": [
+        {
+          "type": "doc",
+          "id": "services/index",
+          "label": "Overview"
+        },
+        {
+          "type": "category",
+          "label": "DIAL Core",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/core/index",
+              "label": "Overview"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/configuration-api",
+                  "label": "Configuration API"
+                },
+                {
+                  "type": "category",
+                  "label": "Static settings",
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "services/core/configuration/settings/index",
+                      "label": "Overview"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "services/core/configuration/settings/server-and-client",
+                      "label": "Server and client"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "services/core/configuration/settings/storage",
+                      "label": "Storage"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "services/core/configuration/settings/redis",
+                      "label": "Redis"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "services/core/configuration/settings/identity-providers",
+                      "label": "Identity providers"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "services/core/configuration/settings/encryption",
+                      "label": "Encryption"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "services/core/configuration/settings/resources",
+                      "label": "Resources"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "services/core/configuration/settings/access",
+                      "label": "Access"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "services/core/configuration/settings/applications-and-code-interpreter",
+                      "label": "Applications and Code Interpreter"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "services/core/configuration/settings/config-loading",
+                      "label": "Config loading"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "services/core/configuration/settings/toolsets-security",
+                      "label": "Toolsets security"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "services/core/configuration/settings/analytics-and-tracing",
+                      "label": "Analytics and tracing"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "services/core/configuration/settings/background-jobs",
+                      "label": "Background jobs"
+                    }
+                  ]
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/gflog-xml",
+                  "label": "gflog.xml"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/models",
+                  "label": "Models"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/load-balancing",
+                  "label": "Load balancing and upstreams"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/translators",
+                  "label": "Translators"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/applications",
+                  "label": "Applications"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/application-type-schemas",
+                  "label": "Application type schemas"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/interceptors",
+                  "label": "Interceptors"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/routes",
+                  "label": "Routes"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/toolsets",
+                  "label": "Toolsets"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/roles",
+                  "label": "Roles"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/keys",
+                  "label": "Keys"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/global-settings",
+                  "label": "Global settings"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/catalog-schemas",
+                  "label": "Catalog schemas"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Releases",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/core/releases/v0.49.0",
+                  "label": "0.49.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/releases/v0.48.0",
+                  "label": "0.48.0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Chat",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/chat/index",
+              "label": "Overview"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/chat/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/chat/configuration/server-and-dial-core",
+                  "label": "Server and DIAL Core"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/chat/configuration/authentication",
+                  "label": "Authentication"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/chat/configuration/features-and-ui",
+                  "label": "Features and UI"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/chat/configuration/models-and-generation",
+                  "label": "Models and generation"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/chat/configuration/files-and-limits",
+                  "label": "Files and limits"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/chat/configuration/security-and-embedding",
+                  "label": "Security and embedding"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/chat/configuration/observability",
+                  "label": "Observability"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Chat Overlay",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/chat/chat-overlay/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/chat/chat-overlay/embed-dial-chat",
+                  "label": "Embed DIAL Chat in a web page"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/chat/chat-overlay/overlay-api",
+                  "label": "Chat Overlay API"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Releases",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/chat/releases/v1.2.0",
+                  "label": "1.2.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/chat/releases/v1.1.0",
+                  "label": "1.1.0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Chat Themes",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/chat-themes/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "services/chat-themes/configuration",
+              "label": "Themes configuration"
+            },
+            {
+              "type": "doc",
+              "id": "services/chat-themes/create-a-custom-theme",
+              "label": "Create a custom theme"
+            },
+            {
+              "type": "category",
+              "label": "Releases",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/chat-themes/releases/v0.21.0",
+                  "label": "0.21.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/chat-themes/releases/v0.20.0",
+                  "label": "0.20.0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL OpenAI Adapter",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/openai-adapter/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "services/openai-adapter/supported-upstreams",
+              "label": "Supported upstreams"
+            },
+            {
+              "type": "doc",
+              "id": "services/openai-adapter/capabilities",
+              "label": "Capabilities"
+            },
+            {
+              "type": "doc",
+              "id": "services/openai-adapter/configuration",
+              "label": "Configuration"
+            },
+            {
+              "type": "category",
+              "label": "Releases",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/openai-adapter/releases/v0.45.0",
+                  "label": "0.45.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/openai-adapter/releases/v0.44.0",
+                  "label": "0.44.0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Bedrock Adapter",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/bedrock-adapter/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "services/bedrock-adapter/supported-models",
+              "label": "Supported models"
+            },
+            {
+              "type": "doc",
+              "id": "services/bedrock-adapter/capabilities",
+              "label": "Capabilities"
+            },
+            {
+              "type": "doc",
+              "id": "services/bedrock-adapter/configuration",
+              "label": "Configuration"
+            },
+            {
+              "type": "category",
+              "label": "Releases",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/bedrock-adapter/releases/v0.45.0",
+                  "label": "0.45.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/bedrock-adapter/releases/v0.44.0",
+                  "label": "0.44.0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Vertex AI Adapter",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/vertex-ai-adapter/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "services/vertex-ai-adapter/supported-models",
+              "label": "Supported models"
+            },
+            {
+              "type": "doc",
+              "id": "services/vertex-ai-adapter/capabilities",
+              "label": "Capabilities"
+            },
+            {
+              "type": "doc",
+              "id": "services/vertex-ai-adapter/configuration",
+              "label": "Configuration"
+            },
+            {
+              "type": "category",
+              "label": "Releases",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/vertex-ai-adapter/releases/v0.41.0",
+                  "label": "0.41.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/vertex-ai-adapter/releases/v0.40.0",
+                  "label": "0.40.0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Quick Apps",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/quick-apps/index",
+              "label": "Overview"
+            },
+            {
+              "type": "category",
+              "label": "Capabilities",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/capabilities/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/capabilities/orchestration",
+                  "label": "Orchestration"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/capabilities/tools",
+                  "label": "Tools"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/capabilities/contexts-and-files",
+                  "label": "Contexts and files"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/capabilities/skills",
+                  "label": "Skills"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/capabilities/hooks",
+                  "label": "Hooks"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/capabilities/time-awareness",
+                  "label": "Time awareness"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/capabilities/errors",
+                  "label": "Errors"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Manifest",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/manifest/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/manifest/orchestrator",
+                  "label": "Orchestrator"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/manifest/tool-sets",
+                  "label": "Tool sets"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/manifest/tools",
+                  "label": "Tools"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/manifest/examples",
+                  "label": "Examples"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/configuration/backend",
+                  "label": "Backend"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/configuration/frontend",
+                  "label": "Frontend"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/configuration/dial-core-and-chat",
+                  "label": "DIAL Core and DIAL Chat"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "services/quick-apps/chathub",
+              "label": "ChatHub"
+            },
+            {
+              "type": "category",
+              "label": "Releases",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/releases/backend-v0.13.0",
+                  "label": "Backend 0.13.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/releases/backend-v0.12.0",
+                  "label": "Backend 0.12.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/releases/frontend-v0.3.0",
+                  "label": "Frontend 0.3.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/quick-apps/releases/frontend-v0.2.0",
+                  "label": "Frontend 0.2.0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Admin",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/admin/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "services/admin/capabilities",
+              "label": "Capabilities"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/admin/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/admin/configuration/frontend",
+                  "label": "Admin Frontend"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/admin/configuration/backend",
+                  "label": "Admin Backend (optional)"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Releases",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/admin/releases/v0.22.0",
+                  "label": "0.22.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/admin/releases/v0.21.0",
+                  "label": "0.21.0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Evaluations",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/evaluations/index",
+              "label": "Overview"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/evaluations/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/evaluations/configuration/framework-backend",
+                  "label": "Framework Backend"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/evaluations/configuration/metrics",
+                  "label": "Metrics"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Releases",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/evaluations/releases/framework-backend-v0.5.0",
+                  "label": "Framework Backend 0.5.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/evaluations/releases/framework-backend-v0.4.0",
+                  "label": "Framework Backend 0.4.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/evaluations/releases/metrics-v0.3.0",
+                  "label": "Metrics 0.3.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/evaluations/releases/metrics-v0.1.0",
+                  "label": "Metrics 0.1.0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Deployment Manager",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/deployment-manager/index",
+              "label": "Overview"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/deployment-manager/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/deployment-manager/configuration/backend",
+                  "label": "Backend"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/deployment-manager/configuration/mcp-proxy",
+                  "label": "MCP proxy"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Releases",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/deployment-manager/releases/backend-v0.22.0",
+                  "label": "Backend 0.22.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/deployment-manager/releases/backend-v0.21.0",
+                  "label": "Backend 0.21.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/deployment-manager/releases/mcp-proxy-v0.1.0",
+                  "label": "MCP proxy 0.1.0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Helm",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/helm/index",
+              "label": "Overview"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/helm/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/helm/configuration/dial",
+                  "label": "Platform chart"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/helm/configuration/dial-core",
+                  "label": "Core chart"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/helm/configuration/dial-extension",
+                  "label": "Extension chart"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/helm/configuration/dial-admin",
+                  "label": "Admin chart"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Releases",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/helm/releases/dial-v8.1.0",
+                  "label": "Platform chart 8.1.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/helm/releases/dial-v8.0.0",
+                  "label": "Platform chart 8.0.0"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/helm/releases/component-charts",
+                  "label": "Component charts"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
       "label": "Chat User Guide",
       "items": [
         {
@@ -1597,6 +2289,11 @@ const allSections = [
         },
         {
           "type": "ref",
+          "id": "services/core/configuration/index",
+          "label": "DIAL Core configuration"
+        },
+        {
+          "type": "ref",
           "id": "understand-dial/foundations/glossary",
           "label": "Glossary"
         },
@@ -1611,7 +2308,7 @@ const allSections = [
           "items": [
             {
               "type": "autogenerated",
-              "dirName": "7.reference/changelog"
+              "dirName": "8.reference/changelog"
             }
           ]
         },

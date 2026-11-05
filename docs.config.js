@@ -52,6 +52,7 @@ export const V2_SECTIONS = [
   { key: 'building-with-dial', label: 'Building with DIAL', landing: 'building-with-dial/index' },
   { key: 'operating-dial', label: 'Operating DIAL', landing: 'operating-dial/local-setup/index' },
   { key: 'administering-dial', label: 'Administering DIAL', landing: 'administering-dial-new/index' },
+  { key: 'services', label: 'Services', landing: 'services/index' },
   { key: 'chat-user-guide', label: 'Chat User Guide', landing: 'chat-user-guide/index' },
   { key: 'reference', label: 'Reference', landing: 'reference/index' },
   { key: 'use-cases', label: 'Use Cases', landing: 'use-cases/index' },
