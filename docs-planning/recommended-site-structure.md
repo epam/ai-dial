@@ -128,7 +128,7 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 
 ##### 3.3 Quick Apps **🆕**
 
-*Builder tasks only. The editor, control by control, lives in the Chat User Guide (Catalog > Agents > Build a Quick App). The service itself (capabilities, the manifest reference and examples, configuration, ChatHub, releases) lives in Services > DIAL Quick Apps.*
+*Builder tasks only. The editor, control by control, lives in the Chat User Guide (Catalog > Agents > Build a Quick App). The service itself (capabilities, the manifest reference and examples, configuration, ChatHub, upstream links) lives in Services > DIAL Quick Apps.*
 
 * What are Quick Apps `[Explanation]` **🆕**
 * Tutorial: build an agent with a Toolset `[Tutorial]` **🆕** — *in DIAL Chat*

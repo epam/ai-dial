@@ -1557,22 +1557,6 @@ const allSections = [
                   "label": "Catalog schemas"
                 }
               ]
-            },
-            {
-              "type": "category",
-              "label": "Releases",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "services/core/releases/v0.49.0",
-                  "label": "0.49.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/core/releases/v0.48.0",
-                  "label": "0.48.0"
-                }
-              ]
             }
           ]
         },
@@ -1651,22 +1635,6 @@ const allSections = [
                   "label": "Chat Overlay API"
                 }
               ]
-            },
-            {
-              "type": "category",
-              "label": "Releases",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "services/chat/releases/v1.2.0",
-                  "label": "1.2.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/chat/releases/v1.1.0",
-                  "label": "1.1.0"
-                }
-              ]
             }
           ]
         },
@@ -1688,22 +1656,6 @@ const allSections = [
               "type": "doc",
               "id": "services/chat-themes/create-a-custom-theme",
               "label": "Create a custom theme"
-            },
-            {
-              "type": "category",
-              "label": "Releases",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "services/chat-themes/releases/v0.21.0",
-                  "label": "0.21.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/chat-themes/releases/v0.20.0",
-                  "label": "0.20.0"
-                }
-              ]
             }
           ]
         },
@@ -1730,22 +1682,6 @@ const allSections = [
               "type": "doc",
               "id": "services/openai-adapter/configuration",
               "label": "Configuration"
-            },
-            {
-              "type": "category",
-              "label": "Releases",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "services/openai-adapter/releases/v0.45.0",
-                  "label": "0.45.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/openai-adapter/releases/v0.44.0",
-                  "label": "0.44.0"
-                }
-              ]
             }
           ]
         },
@@ -1772,22 +1708,6 @@ const allSections = [
               "type": "doc",
               "id": "services/bedrock-adapter/configuration",
               "label": "Configuration"
-            },
-            {
-              "type": "category",
-              "label": "Releases",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "services/bedrock-adapter/releases/v0.45.0",
-                  "label": "0.45.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/bedrock-adapter/releases/v0.44.0",
-                  "label": "0.44.0"
-                }
-              ]
             }
           ]
         },
@@ -1814,22 +1734,6 @@ const allSections = [
               "type": "doc",
               "id": "services/vertex-ai-adapter/configuration",
               "label": "Configuration"
-            },
-            {
-              "type": "category",
-              "label": "Releases",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "services/vertex-ai-adapter/releases/v0.41.0",
-                  "label": "0.41.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/vertex-ai-adapter/releases/v0.40.0",
-                  "label": "0.40.0"
-                }
-              ]
             }
           ]
         },
@@ -1949,32 +1853,6 @@ const allSections = [
               "type": "doc",
               "id": "services/quick-apps/chathub",
               "label": "ChatHub"
-            },
-            {
-              "type": "category",
-              "label": "Releases",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "services/quick-apps/releases/backend-v0.13.0",
-                  "label": "Backend 0.13.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/quick-apps/releases/backend-v0.12.0",
-                  "label": "Backend 0.12.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/quick-apps/releases/frontend-v0.3.0",
-                  "label": "Frontend 0.3.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/quick-apps/releases/frontend-v0.2.0",
-                  "label": "Frontend 0.2.0"
-                }
-              ]
             }
           ]
         },
@@ -2012,22 +1890,6 @@ const allSections = [
                   "label": "Admin Backend (optional)"
                 }
               ]
-            },
-            {
-              "type": "category",
-              "label": "Releases",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "services/admin/releases/v0.22.0",
-                  "label": "0.22.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/admin/releases/v0.21.0",
-                  "label": "0.21.0"
-                }
-              ]
             }
           ]
         },
@@ -2060,32 +1922,6 @@ const allSections = [
                   "label": "Metrics"
                 }
               ]
-            },
-            {
-              "type": "category",
-              "label": "Releases",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "services/evaluations/releases/framework-backend-v0.5.0",
-                  "label": "Framework Backend 0.5.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/evaluations/releases/framework-backend-v0.4.0",
-                  "label": "Framework Backend 0.4.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/evaluations/releases/metrics-v0.3.0",
-                  "label": "Metrics 0.3.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/evaluations/releases/metrics-v0.1.0",
-                  "label": "Metrics 0.1.0"
-                }
-              ]
             }
           ]
         },
@@ -2116,27 +1952,6 @@ const allSections = [
                   "type": "doc",
                   "id": "services/deployment-manager/configuration/mcp-proxy",
                   "label": "MCP proxy"
-                }
-              ]
-            },
-            {
-              "type": "category",
-              "label": "Releases",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "services/deployment-manager/releases/backend-v0.22.0",
-                  "label": "Backend 0.22.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/deployment-manager/releases/backend-v0.21.0",
-                  "label": "Backend 0.21.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/deployment-manager/releases/mcp-proxy-v0.1.0",
-                  "label": "MCP proxy 0.1.0"
                 }
               ]
             }
@@ -2181,27 +1996,6 @@ const allSections = [
                   "label": "Admin chart"
                 }
               ]
-            },
-            {
-              "type": "category",
-              "label": "Releases",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "services/helm/releases/dial-v8.1.0",
-                  "label": "Platform chart 8.1.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/helm/releases/dial-v8.0.0",
-                  "label": "Platform chart 8.0.0"
-                },
-                {
-                  "type": "doc",
-                  "id": "services/helm/releases/component-charts",
-                  "label": "Component charts"
-                }
-              ]
             }
           ]
         },
@@ -2227,17 +2021,6 @@ const allSections = [
                   "type": "doc",
                   "id": "services/openapi-to-mcp/configuration/environment-variables",
                   "label": "Environment variables"
-                }
-              ]
-            },
-            {
-              "type": "category",
-              "label": "Releases",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "services/openapi-to-mcp/releases/v0.2.0",
-                  "label": "0.2.0"
                 }
               ]
             }
