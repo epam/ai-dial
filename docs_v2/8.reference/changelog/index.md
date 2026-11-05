@@ -77,3 +77,13 @@ This month's release prioritized security- and performance-related tasks such as
 The highlights of this release are significant improvements to DIAL's Quick Apps functionality, multimodality enhancements with Sora and TTS/STT support, global interceptors, and improved feedback collection. Feel free to watch a video showcase of the past month's biggest changes below:
 
 [Release notes](release-notes-1.38.md) · [Upgrade guide](upgrade-to-1.38.md)
+
+## Further reading
+
+- [Component compatibility matrix](../2.compatibility-matrix.md) — find the component versions published with platform releases
+- [DIAL Helm](../../6.services/11.helm/0.index.md) — understand the chart assembly and service version boundaries
+
+## Next steps
+
+- [Upgrade DIAL](../../4.operating-dial/7.production-readiness/5.upgrade-procedure.md) — plan backups, rollout, verification, and rollback alongside the release guide
+- [Back up and restore DIAL](../../4.operating-dial/7.production-readiness/4.backup-and-restore.md) — protect data and configuration before changing releases
