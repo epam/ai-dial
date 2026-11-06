@@ -39,11 +39,6 @@ const allSections = [
               "type": "doc",
               "id": "understand-dial/foundations/glossary",
               "label": "Glossary"
-            },
-            {
-              "type": "doc",
-              "id": "understand-dial/foundations/dial-evolution",
-              "label": "DIAL evolution"
             }
           ]
         },
@@ -1660,6 +1655,27 @@ const allSections = [
               "type": "doc",
               "id": "services/chat-themes/create-a-custom-theme",
               "label": "Create a custom theme"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Model Provider",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/model-provider/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "services/model-provider/configuration",
+              "label": "Configuration"
+            },
+            {
+              "type": "doc",
+              "id": "services/model-provider/migration",
+              "label": "Migrate from the standalone adapters"
             }
           ]
         },
