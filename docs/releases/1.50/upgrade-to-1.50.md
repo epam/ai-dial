@@ -362,3 +362,18 @@ Route-upstream secrets for Application routes are now encrypted at rest. Existin
 | `GCP_DEFAULT_REGION` | No | unset | New preferred replacement for DEFAULT_REGION. Operators should migrate to this variable as DEFAULT_REGION is being deprecated. |
 
 ---
+
+#### ai-dial-model-provider `0.1.0-rc.0`
+
+> [!IMPORTANT]
+> This is the **initial release** of Model Provider — a unified image that consolidates all four adapter images into a single deployable component. Starting from DIAL 1.50, deploy `ai-dial-model-provider` instead of the individual adapter images.
+
+**Consolidated adapters:**
+- `ai-dial-adapter-bedrock` `0.46.0-rc.0`
+- `ai-dial-adapter-openai` `0.46.0-rc.0`
+- `ai-dial-adapter-vertexai` `0.42.0-rc.0`
+- `ai-dial-adapter-dial` `0.21.0-rc.0`
+
+The environment variables for each adapter remain unchanged — no configuration migration is required. Apply any adapter-specific changes from the sections above to your Model Provider deployment.
+
+---
