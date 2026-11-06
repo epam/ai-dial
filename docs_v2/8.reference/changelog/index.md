@@ -80,8 +80,8 @@ The highlights of this release are significant improvements to DIAL's Quick Apps
 
 ## Further reading
 
-- [Component compatibility matrix](../2.compatibility-matrix.md) — find the component versions published with platform releases
 - [DIAL Helm](../../6.services/11.helm/0.index.md) — understand the chart assembly and service version boundaries
+- [Services](../../6.services/0.index.md) — find each service's GitHub releases and image tags
 
 ## Next steps
 

@@ -324,7 +324,20 @@ function buildIndex(releases: ReleaseFile[]): string {
         "newest first. Each release links to its highlights and to the technical upgrade guide " +
         "(component versions, configuration changes, and deprecations).";
 
-    return `${fm}# Changelog\n\n${intro}\n\n${sections.join("\n\n")}\n`;
+    // Links are relative to docs_v2/8.reference/changelog/.
+    const outro = [
+        "## Further reading",
+        "",
+        "- [DIAL Helm](../../6.services/11.helm/0.index.md) — understand the chart assembly and service version boundaries",
+        "- [Services](../../6.services/0.index.md) — find each service's GitHub releases and image tags",
+        "",
+        "## Next steps",
+        "",
+        "- [Upgrade DIAL](../../4.operating-dial/7.production-readiness/5.upgrade-procedure.md) — plan backups, rollout, verification, and rollback alongside the release guide",
+        "- [Back up and restore DIAL](../../4.operating-dial/7.production-readiness/4.backup-and-restore.md) — protect data and configuration before changing releases",
+    ].join("\n");
+
+    return `${fm}# Changelog\n\n${intro}\n\n${sections.join("\n\n")}\n\n${outro}\n`;
 }
 
 function versionNum(v: string): number {
