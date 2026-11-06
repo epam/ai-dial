@@ -74,12 +74,12 @@ NEW content lives in `docs_v2/` as Markdown files; OLD content in `docs/`. Sideb
 
 `docs.config.js` (repo root) is the single source of truth for what gets built, read by both `docusaurus.config.js` and `sidebars-v2.js`. Override via env vars (defaults reproduce the full site):
 
-- **`DOCS_VARIANT`** = `both` (default) | `old` | `new` — which docs sets to build/serve. With `both`, OLD is at `/` and NEW at `/v2`. With a single set, that set owns `/`. The NEW instance root (`/v2`, or `/` in `new` mode) has no page of its own; an inline redirect plugin (`docusaurus.config.js` → `src/components/RootRedirect.js`, target from `NEW_ROOT_REDIRECT` in `docs.config.js`) sends it to the **first visible section's landing** (catalog order, per each section's `landing` in `V2_SECTIONS`). So hiding the Home section just moves the landing to the next visible section. The navbar OLD/NEW switcher appears only in `both` mode.
-- **`DOCS_V2_SECTIONS`** = `all` (default) | comma-separated section keys — which NEW top-level sections show in the sidebar. Keys: `home, understand-dial, building-with-dial, operating-dial, administering-dial, services, chat-user-guide, reference, use-cases, demos`. Hiding a section removes it from the menu only; its pages still build and stay reachable (so cross-links don't break).
+- **`DOCS_VARIANT`** = `both` (default) | `old` | `new` — which docs sets to build/serve. With `both`, OLD is at `/` and NEW at `/v2`. With a single set, that set owns `/`. The NEW instance root (`/v2`, or `/` in `new` mode) has no page of its own; an inline redirect plugin (`docusaurus.config.js` → `src/components/RootRedirect.js`, target from `NEW_ROOT_REDIRECT` in `docs.config.js`) sends it to the **first visible section's landing** (catalog order, per each section's `landing` in `V2_SECTIONS`). So hiding the Overview entry just moves the landing to the next visible section. The navbar OLD/NEW switcher appears only in `both` mode.
+- **`DOCS_V2_SECTIONS`** = `all` (default) | comma-separated section keys — which NEW top-level sections show in the sidebar. Keys: `overview, understand-dial, building-with-dial, operating-dial, administering-dial, services, chat-user-guide, reference, use-cases, demos`. Hiding a section removes it from the menu only; its pages still build and stay reachable (so cross-links don't break).
 
 ```bash
 DOCS_VARIANT=new npm run build                          # NEW only, served at /
-DOCS_V2_SECTIONS="home,building-with-dial" npm run start # NEW sidebar shows two sections
+DOCS_V2_SECTIONS="overview,building-with-dial" npm run start # NEW sidebar shows two sections
 ```
 
 ### Links
@@ -93,7 +93,7 @@ DOCS_V2_SECTIONS="home,building-with-dial" npm run start # NEW sidebar shows two
 
 **Invariant: a file's/folder's numeric `N.` prefix MUST equal its position in `sidebars-v2.js`.** Docusaurus strips the leading `N.` from every path segment (file *and* directory) when computing a route id, so the prefix is purely organizational — but the file tree must still read in menu order. Keep them aligned:
 
-- **Every content file and folder under `docs_v2/` carries a numeric prefix that matches its order in the menu**, at every level: top-level sections (`1.home/`, `2.understand-dial/`, … `10.demos/` — in `V2_SECTIONS` catalog order), sub-folders, and files. Numbering is **per parent directory**: files and sub-folders that share a parent draw from one sequence in their first menu appearance order.
+- **Every content file and folder under `docs_v2/` carries a numeric prefix that matches its order in the menu**, at every level: the entry page (`1.overview.md`) and the top-level sections (`2.understand-dial/`, … `10.demos/` — in `V2_SECTIONS` catalog order), sub-folders, and files. Numbering is **per parent directory**: files and sub-folders that share a parent draw from one sequence in their first menu appearance order.
 - **`0.index.md`** is the section/category landing (route `…/index`). It is always `0.`.
 - When you **add** a page: give it the prefix of its menu slot and **bump the prefixes of every sibling that comes after it** (files *and* sub-folders in that directory). When you **reorder** the menu, renumber the affected files to match. When you **remove** a page, prefer closing the numeric gap.
 - **Renaming a file's prefix does NOT change its route id** (the prefix is stripped), so `sidebars-v2.js` needs no edit for a pure renumber. But it **does** change any relative `.md`/image link that spells out the old prefixed name — fix those (see Links above) and let the build verify.
@@ -113,6 +113,7 @@ DOCS_V2_SECTIONS="home,building-with-dial" npm run start # NEW sidebar shows two
 - **Application**, **Adapter**, **Interceptor** — these are distinct DIAL concepts with specific meanings. Don't conflate them.
 - **Toolset** / **Toolsets** — one word, not "Tool Set". This matches the name used in DIAL Chat and DIAL Admin. Use it consistently (code identifiers such as `tool_sets`, `client_toolset` are unaffected).
 - Deprecated concepts: **Assistant** (repo archived), **Addon** (ChatGPT plugin protocol, abandoned). Don't use in new content.
+- **Closing links:** a page ends with at most one `## Further reading` block (2–6 relevant links, `./x.md` format); `0.index.md` pages have none. No `Next steps` / `Related tasks`. Rules: `docs-planning/style-guide.md` §7.5.
 
 ## All related repositories
 

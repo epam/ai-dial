@@ -3,15 +3,9 @@ import { V2_SECTIONS, V2_SECTION_KEYS } from './docs.config.js';
 /** Full NEW sidebar — every top-level section, unfiltered. */
 const allSections = [
     {
-      "type": "category",
-      "label": "Home",
-      "items": [
-        {
-          "type": "doc",
-          "id": "home/index",
-          "label": "Overview"
-        }
-      ]
+      "type": "doc",
+      "id": "overview",
+      "label": "Overview"
     },
     {
       "type": "category",

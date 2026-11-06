@@ -34,11 +34,11 @@ Every page is **exactly one** Diátaxis type. Determine which before writing any
 
 | Type | Reader's question | Voice | Structure |
 |---|---|---|---|
-| **Tutorial** | "Teach me to do this" | Second person, encouraging, low assumption | Prerequisites → Goal → Numbered steps → Verification → What you learned → Next steps |
-| **How-to** | "Help me accomplish this task" | Imperative, terse, assumes familiarity | Goal → Prerequisites → Steps → Result → Related tasks |
-| **Reference** | "Give me the details" | Third person, declarative, no opinions | Identifier → Description → Parameters → Returns → Errors → Example |
-| **Explanation** | "Help me understand why" | Essayistic but precise, can use "we" for design intent | Thesis → Background → Discussion → Implications → Further reading |
-| **User guide** | "Show me how to use the UI" | Second person, feature-organized, screenshot-heavy | Feature overview → UI walkthrough → Tips → Next steps |
+| **Tutorial** | "Teach me to do this" | Second person, encouraging, low assumption | Prerequisites → Goal → Numbered steps → Verification → What you learned → Further reading (optional) |
+| **How-to** | "Help me accomplish this task" | Imperative, terse, assumes familiarity | Goal → Prerequisites → Steps → Result → Further reading (optional) |
+| **Reference** | "Give me the details" | Third person, declarative, no opinions | Identifier → Description → Parameters → Returns → Errors → Example → Further reading (optional) |
+| **Explanation** | "Help me understand why" | Essayistic but precise, can use "we" for design intent | Thesis → Background → Discussion → Implications → Further reading (optional) |
+| **User guide** | "Show me how to use the UI" | Second person, feature-organized, screenshot-heavy | Feature overview → UI walkthrough → Tips → Further reading (optional) |
 
 **If a page feels like two types, split it into two pages.**
 
@@ -131,16 +131,18 @@ Delete these — never use them:
 - Comments explain *why*, not *what*
 - Use `0.0.0.0`, not `localhost`, in example hosts and URLs: `http://0.0.0.0:8080`, not `http://localhost:8080`
 
-## Step 7: End with "Next steps"
+## Step 7: End with "Further reading" (optional)
 
-**Every page must end with a "Next steps" or "What's next" section** containing 2–3 links to logical follow-up pages. No dead ends. Examples:
+Every page except `0.index.md` ends with **one** optional `## Further reading` block: 2–6 links to docs that are relevant to what the page covers, formatted `- [Title](./relative.md) — what the reader gets`. Omit the block when fewer than 2 docs are relevant. `0.index.md` pages have no closing link block, because the overview itself links to related docs. Do not write `## Next steps`, `## Where to go next`, `## Related tasks`, `## Related pages` or `## Related troubleshooting`.
+
+A link belongs here only if the page itself explains or uses what the target covers, and the target deepens, applies, or looks up what the reader just learned. Do not link the page itself, its own folder's `0.index.md`, or a bare next action unrelated to the page's subject. Order the links from the closest peer, to reference or configuration, to concept pages, to broader hubs; put external links last. Write each description in at most 14 words, in lower case unless it starts with a proper noun, with no trailing period, and describe what the target gives the reader, not an instruction to continue. When several pages share a title (for example "Models"), qualify the link text ("DIAL Admin: Models"). Example:
 
 ```markdown
-## Next steps
+## Further reading
 
-- [Getting started with the DIAL API](/building/getting-started-api) — learn to call the Unified API programmatically
-- [Build a RAG app](/building/custom-apps/tutorial-rag) — create your first Custom App with retrieval
-- [Configuration reference](/operating/configuration/) — all configuration options for DIAL Core
+- [Configure roles and rate limits](./3.roles-and-rate-limits.md) — define roles with request, token, cost, and sharing limits
+- [Roles](../../6.services/1.core/1.configuration/12.roles.md) — role fields for access, limits, and sharing
+- [Usage limits and cost control](../../2.understand-dial/5.security-and-governance/5.usage-limits-and-cost-control.md) — token, request, and cost limits and how DIAL enforces them
 ```
 
 ## Step 8: Self-check before finishing
@@ -161,7 +163,7 @@ Run through this checklist:
 - [ ] Tutorials include a project structure tree diagram and use exact file paths (relative to project root)
 - [ ] Headings are sentence case, self-contained (not "Step 1" alone, but "Step 1: Install the Helm chart")
 - [ ] Max heading depth: H3 in tutorials and how-tos, H4 in reference
-- [ ] "Next steps" section at the end with 2–3 links
+- [ ] Optional "Further reading" at the end: 2–6 relevant links (none on 0.index.md); no "Next steps" or "Related tasks"
 - [ ] No links to GitHub READMEs as authoritative source (link to docs site pages)
 - [ ] `last_verified` date is today (only if you verified all code examples and links on the page)
 
@@ -219,7 +221,7 @@ After creating a new page or moving an existing one, update `docs/sidebars.js` t
 
 ### Example URLs in templates
 
-The "Next steps" examples in this skill and in the reference templates use target-structure URLs (e.g., `/building/getting-started-api`) that may not exist yet. Before using a path in a real page, verify the target page exists. If it doesn't, link to the closest existing equivalent or omit the link.
+The "Further reading" examples in this skill and in the reference templates use target-structure URLs (e.g., `/building/getting-started-api`) that may not exist yet. Before using a path in a real page, verify the target page exists. If it doesn't, link to the closest existing equivalent or omit the link.
 
 ## Step 9: Verify the build
 

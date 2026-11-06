@@ -85,12 +85,14 @@ Create `dial-rag-app/app.py` with the following content:
 - How to register an application in DIAL Core
 - How to connect a retriever to the chat completion flow
 
-## Next steps
+## Further reading
 
-- [Tool Sets](/building/quick-apps/tool-sets/) — add tools to your app for dynamic data access
-- [Evaluations](/building/evaluations/) — measure your RAG app's quality
-- [Deploy to Kubernetes](/operating/cloud-deployment/) — take your app to production
+- [Toolsets](../../2.toolsets/1.mcp-server-integration.md) — transport and authentication options for connecting an MCP server
+- [Evaluate RAG quality](../../5.evaluations/1.rag-eval-toolkit.md) — measure retrieval and generation quality with DIAL RAG Eval
+- [Deploy a Custom App](./6.deployment.md) — deploy a Custom App with Docker Compose or Helm
 ```
+
+(Optional. 2–6 relevant links, no `Next steps` heading. Omit the block if fewer than 2 docs are relevant.)
 
 ## Anti-patterns to avoid
 
@@ -98,5 +100,5 @@ Create `dial-rag-app/app.py` with the following content:
 - **Offering alternatives.** "You could also use X instead." Tutorials have one path. How-tos have alternatives.
 - **Assuming environment.** "If you're on Windows…" — link to the Environment Prerequisites page instead.
 - **Skipping verification.** Every step needs a "you should see" checkpoint.
-- **Ending without "What you learned" and "Next steps."**
+- **Ending without "What you learned."**
 - **Omitting the project layout.** Readers need to see the full directory tree to orient themselves. Never reference a file without its path from the project root.

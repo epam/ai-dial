@@ -126,8 +126,8 @@ Consult `docs-planning/recommended-site-structure.md` and assess:
 ### 7. Navigation quality
 
 - **Sidebar depth**: count the levels from root to this page. Flag if > 4.
-- **"What's next" links**: does the page end with follow-up links? (Almost certainly not — flag as missing.)
-- **Dead-end check**: does the page link forward to any other docs page, or does it just... stop?
+- **Further reading**: a non-index page ends with one `## Further reading` block of 2–6 links that are relevant to what the page covers, or with none when fewer than 2 docs are relevant; `0.index.md` pages have none. Flag a missing block when 2+ relevant docs exist, any `Next steps` / `Where to go next` / `Related tasks` block, links the page does not explain or use, and blocks over 6 links.
+- **Dead-end check**: does the page link to any other docs page in its body or its Further reading block, or does it just... stop?
 - **Misleading title**: does the sidebar label accurately describe the content? (See Gap Analysis §1.5 for known offenders.)
 - **GitHub redirect**: does the page link to GitHub as the authoritative source for content that should be on-site?
 
@@ -225,8 +225,8 @@ Missing: [list]
 
 ### Navigation
 - **Sidebar depth**: 3 ✅
-- **"What's next" links**: ❌ Missing
-- **Dead end?**: Yes — no forward links
+- **Further reading**: ❌ Missing (relevant docs exist)
+- **Legacy closing blocks**: ❌ "Next steps" present
 - **Misleading title?**: Yes — "About" is generic
 - **GitHub redirects**: 0
 
@@ -277,7 +277,7 @@ After auditing multiple pages, produce a summary table:
 - Average quality score: X/5
 - Pages with type mismatch: X
 - Pages with missing frontmatter: X (expected: all)
-- Pages with "what's next" links: X
+- Pages with a Further reading block: X
 - Pages flagged as duplicates: X
 - Pages with GitHub-as-authority links: X
 - Pages with `:::` admonitions: X

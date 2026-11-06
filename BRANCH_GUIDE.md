@@ -39,14 +39,14 @@ The NEW instance has no page of its own at its root. An inline redirect plugin
 (`docusaurus.config.js` → `src/components/RootRedirect.js`, target computed as
 `NEW_ROOT_REDIRECT` in `docs.config.js`) sends the NEW root to the **first visible
 section's landing page** (catalog order, per each section's `landing` in `V2_SECTIONS`).
-So hiding the Home section just moves the landing to the next visible section.
+So hiding the Overview entry just moves the landing to the next visible section.
 
 ### `DOCS_V2_SECTIONS` — which NEW sections show in the sidebar
 
 Comma-separated **section keys** (catalog in `V2_SECTIONS` in `docs.config.js`):
 
 ```
-home, understand-dial, building-with-dial, operating-dial,
+overview, understand-dial, building-with-dial, operating-dial,
 administering-dial, chat-user-guide, reference, use-cases, demos
 ```
 
@@ -71,7 +71,7 @@ npm run start
 DOCS_VARIANT=new npm run build
 
 # NEW sidebar shows just two sections:
-DOCS_V2_SECTIONS="home,building-with-dial" npm run start
+DOCS_V2_SECTIONS="overview,building-with-dial" npm run start
 ```
 
 ---

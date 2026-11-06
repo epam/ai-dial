@@ -61,19 +61,16 @@ Add the following to `rate-limits.json` in the Core config directory:
 
 Restart DIAL Core for changes to take effect.
 
-## Related tasks
+## Further reading
 
-- [Roles and rate limits](/operating/auth/roles-rate-limits) — understand the role model
-- [Usage limits and cost control](/administering/usage-limits) — set cost caps per user
-
-## Next steps
-
-- [Monitoring](/operating/observability/metrics) — track rate limit hits in your dashboards
-- [Alerting](/operating/observability/alerting) — set up alerts for rate limit exhaustion
+- [Roles](../../6.services/1.core/1.configuration/12.roles.md) — role fields for access, limits, and sharing
+- [Usage limits and cost control](../../2.understand-dial/5.security-and-governance/5.usage-limits-and-cost-control.md) — token, request, and cost limits and how DIAL enforces them
+- [Configure alerting](../6.observability/4.alerting.md) — Prometheus alert rules for common DIAL failure modes
 ```
+
+(Optional. 2–6 relevant links, no `Related tasks` or `Next steps` heading. Omit the block if fewer than 2 docs are relevant.)
 
 ## Anti-patterns to avoid
 
 - **Turning into a tutorial** by explaining basics. The reader knows what rate limits are.
 - **Burying the steps** under three paragraphs of context. Goal → Prerequisites → Steps.
-- **Missing the "Related tasks" section.** How-tos connect to each other.
