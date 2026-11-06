@@ -797,6 +797,11 @@ const allSections = [
       "label": "Operating DIAL",
       "items": [
         {
+          "type": "doc",
+          "id": "operating-dial/index",
+          "label": "Overview"
+        },
+        {
           "type": "category",
           "label": "Local setup",
           "items": [
@@ -2107,6 +2112,64 @@ const allSections = [
                   "label": "Frontend"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL App Controller",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/app-controller/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "services/app-controller/configuration",
+              "label": "Configuration"
+            },
+            {
+              "type": "doc",
+              "id": "services/app-controller/api",
+              "label": "API"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL App Builder Python",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/app-builder-python/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "services/app-builder-python/configuration",
+              "label": "Configuration"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Code Interpreter",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/code-interpreter/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "services/code-interpreter/configuration",
+              "label": "Configuration"
+            },
+            {
+              "type": "doc",
+              "id": "services/code-interpreter/api",
+              "label": "API"
             }
           ]
         }

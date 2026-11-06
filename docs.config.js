@@ -50,7 +50,7 @@ export const V2_SECTIONS = [
   { key: 'home', label: 'Home', landing: 'home/index' },
   { key: 'understand-dial', label: 'Understand DIAL', landing: 'understand-dial/index' },
   { key: 'building-with-dial', label: 'Building with DIAL', landing: 'building-with-dial/index' },
-  { key: 'operating-dial', label: 'Operating DIAL', landing: 'operating-dial/local-setup/index' },
+  { key: 'operating-dial', label: 'Operating DIAL', landing: 'operating-dial/index' },
   { key: 'administering-dial', label: 'Administering DIAL', landing: 'administering-dial-new/index' },
   { key: 'services', label: 'Services', landing: 'services/index' },
   { key: 'chat-user-guide', label: 'Chat User Guide', landing: 'chat-user-guide/index' },
