@@ -2172,6 +2172,43 @@ const allSections = [
               "label": "API"
             }
           ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Deep Research",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/deep-research/index",
+              "label": "Overview"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/deep-research/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/deep-research/configuration/environment-variables",
+                  "label": "Environment variables"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/deep-research/configuration/application-properties",
+                  "label": "Application properties"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "services/deep-research/api",
+              "label": "API and request flow"
+            }
+          ]
         }
       ]
     },
