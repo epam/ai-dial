@@ -20,7 +20,7 @@
    - ai-dial-adapter-vertexai: `0.42.0-rc.0`
    - ai-dial-adapter-dial: `0.21.0-rc.0`
    - ai-dial-chat-themes: `0.22.0`
-   - ai-dial-chat: `1.3.0-rc.0`
+   - ai-dial-chat: `1.3.0-rc.1`
    - ai-dial-core: `0.50.0-rc.0`
    - ai-dial-analytics-realtime: `0.30.0-rc.0`
    - ai-dial-analytics: `0.23.0-rc.0`
@@ -141,7 +141,7 @@ Upgrade together with ADAS 0.23: the ADAS ↔ Enrichment Runner contract version
 
 ---
 
-#### ai-dial-chat `1.3.0-rc.0`
+#### ai-dial-chat `1.3.0-rc.1`
 
 ### New environment variables
 
