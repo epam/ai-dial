@@ -1088,11 +1088,6 @@ const allSections = [
               "label": "Alerting"
             },
             {
-              "type": "doc",
-              "id": "operating-dial/observability/analytics-realtime-setup",
-              "label": "Analytics Realtime setup"
-            },
-            {
               "type": "category",
               "label": "Provider-specific guides",
               "items": [
@@ -1915,6 +1910,70 @@ const allSections = [
         },
         {
           "type": "category",
+          "label": "DIAL Analytics",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/analytics/index",
+              "label": "Overview"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/analytics/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/analytics/configuration/environment-variables",
+                  "label": "Environment variables"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/analytics/configuration/security-and-observability",
+                  "label": "Security and observability"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Analytics Enrichment Runner",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/analytics-enrichment-runner/index",
+              "label": "Overview"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/analytics-enrichment-runner/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/analytics-enrichment-runner/configuration/environment-variables",
+                  "label": "Environment variables"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/analytics-enrichment-runner/configuration/security-and-observability",
+                  "label": "Security and observability"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "category",
           "label": "DIAL Evaluations",
           "items": [
             {
@@ -2217,6 +2276,22 @@ const allSections = [
               "type": "doc",
               "id": "services/deep-research/api",
               "label": "API and request flow"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Log Parser",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/log-parser/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "services/log-parser/configuration",
+              "label": "Configuration"
             }
           ]
         }
