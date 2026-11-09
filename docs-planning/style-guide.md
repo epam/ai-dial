@@ -53,7 +53,7 @@ Every page is exactly **one** of four types. The type determines structure and v
 Takes a newcomer from zero to a working result on a guided rail.
 
 * **Voice:** second person ("you will…"), encouraging, low assumption.
-* **Structure:** Prerequisites → Goal (with screenshot of end state) → Numbered steps → Verification → What you learned → Next steps.
+* **Structure:** Prerequisites → Goal (with screenshot of end state) → Numbered steps → Verification → What you learned → Further reading (optional).
 * **Rules:** Every step must be runnable as written. No "adapt this to your environment." If a command fails on a clean machine, the tutorial is broken.
 * **Anti-pattern:** Explaining *why* mid-step. Defer to an Explanation page and link.
 
@@ -62,7 +62,7 @@ Takes a newcomer from zero to a working result on a guided rail.
 Helps a competent user accomplish a specific goal.
 
 * **Voice:** imperative, terse, assumes baseline familiarity.
-* **Structure:** Goal → Prerequisites → Steps → Result → Related tasks.
+* **Structure:** Goal → Prerequisites → Steps → Result → Further reading (optional).
 * **Rules:** One goal per page. Title starts with a verb: "Configure…", "Add a model to…", "Rotate an API key".
 * **Anti-pattern:** Turning into a tutorial by explaining basics.
 
@@ -71,7 +71,7 @@ Helps a competent user accomplish a specific goal.
 Exhaustive, neutral, authoritative description of an interface.
 
 * **Voice:** third person, declarative, no second person, no opinions.
-* **Structure:** Identifier → Description → Parameters (type, required, default, description) → Returns → Errors → Example.
+* **Structure:** Identifier → Description → Parameters (type, required, default, description) → Returns → Errors → Example → Further reading (optional).
 * **Rules:** Every setting documented, including defaults and precedence. No narrative. Alphabetical or structural ordering, not "most useful first."
 * **Anti-pattern:** Hidden behavior. If a setting has a side effect, document it.
 
@@ -212,6 +212,12 @@ Use sparingly. Do **not** use Docusaurus `:::` admonition syntax. Highlight with
 **Warning**
 > Variable names must remain the same when you create a new color scheme.
 ```
+
+### 7.5 Closing links
+
+Every page except `0.index.md` ends with **one** optional `## Further reading` block: 2–6 links to docs that are relevant to what the page covers, formatted `- [Title](./relative.md) — what the reader gets`. Omit the block when fewer than 2 docs are relevant. `0.index.md` pages have no closing link block, because the overview itself links to related docs. Do not write `## Next steps`, `## Where to go next`, `## Related tasks`, `## Related pages` or `## Related troubleshooting`.
+
+A link belongs in the block only if the page itself explains or uses what the target covers, and the target deepens, applies, or looks up what the reader just learned. Do not link the page itself, its own folder's `0.index.md`, or a bare next action unrelated to the page's subject. Order the links from the closest peer, to reference or configuration, to concept pages, to broader hubs; put external links last. Write each description in at most 14 words, in lower case unless it starts with a proper noun, with no trailing period. Describe what the target gives the reader, not an instruction to continue. When several pages share a title (for example "Models"), qualify the link text ("DIAL Admin: Models").
 
 * * *
 

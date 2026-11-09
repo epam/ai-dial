@@ -6,14 +6,14 @@
 - [Before upgrade](#before-upgrade)
   - [General notes](#general-notes)
   - [Release-specific notes](#release-specific-notes)
-    - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend-0210-rc0)
-    - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-040-rc0)
-    - [ai-dial-admin-evaluation-metrics](#ai-dial-admin-evaluation-metrics-030-rc0)
-    - [ai-dial-admin-frontend](#ai-dial-admin-frontend-0210-rc0)
-    - [ai-dial-chat](#ai-dial-chat-110-rc1)
-    - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend-0120-rc2)
-    - [ai-dial-adapter-bedrock](#ai-dial-adapter-bedrock-0440-rc0)
-    - [ai-dial-adapter-vertexai](#ai-dial-adapter-vertexai-0400-rc0)
+    - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend-0210)
+    - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-040)
+    - [ai-dial-admin-evaluation-metrics](#ai-dial-admin-evaluation-metrics-030)
+    - [ai-dial-admin-frontend](#ai-dial-admin-frontend-0210)
+    - [ai-dial-chat](#ai-dial-chat-110)
+    - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend-0120)
+    - [ai-dial-adapter-bedrock](#ai-dial-adapter-bedrock-0440)
+    - [ai-dial-adapter-vertexai](#ai-dial-adapter-vertexai-0400)
 
 ## Versions
 
@@ -51,7 +51,7 @@
 
 ### General notes
 
-- Please review the [Config changes](#config-changes) chapter carefully for each component that is used in your DIAL installation. Changes in components' configuration may be required.
+- Please review the [Release-specific notes](#release-specific-notes) chapter carefully for each component that is used in your DIAL installation. Changes in components' configuration may be required.
 - Please check if any image tag overrides (`image.tag`) are present and remove them if they are not required anymore.
 - Please check and add `image.repository` to change the image location for `redis`, `postgresql`, `keycloak` and `keycloakConfigCli` components to start using alternative Docker registries (e.g. Amazon ECR Public Gallery) if required.
 

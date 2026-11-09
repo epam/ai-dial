@@ -60,10 +60,15 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 
 #### 2.2 Architecture `[Category]`
 
-* Architecture highlights `[Explanation]` ← *currently: Platform > Architecture & Concepts > Architecture Highlights — absorbs "Platform Components" page*
-* DIAL Stack `[Reference]` ← *currently: Platform > Architecture & Concepts > DIAL Stack*
-* Application server `[Explanation]` ← *currently: Platform > Architecture & Concepts > Application Server*
-* Unified API overview `[Explanation]` ← *currently: Platform > Core > About > Unified API section*
+* Architecture highlights `[Explanation]` — system context, service responsibilities, and extension points
+* Request flow `[Explanation]` — model, application, MCP, and route paths; delegation and interception
+* Deployment profiles `[Explanation]` — capability choices, dependencies, and operating responsibilities
+* State and data lifecycle `[Explanation]` — stores, pending writes, copies, retention, and recovery
+* Reliability and performance `[Explanation]` — failure dependencies, failover boundaries, and workload sizing
+* Application hosting and lifecycle `[Explanation]` — hosting and execution responsibility by application type
+* AI API overview `[Explanation]` — Chat Completions/Unified API, Responses, Messages, and translation limits
+* Trade-offs and limitations `[Explanation]` — adoption constraints, cost, portability, and evaluation evidence
+* DIAL Stack `[Reference]` — implementation technologies and backing infrastructure
 
 #### 2.3 Capabilities `[Category]`
 
@@ -77,6 +82,8 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 * Authentication and access control `[Explanation]` ← *currently: TWO separate pages — merge into one canonical explanation*
 * Access control reference `[Reference]` **🆕** — *split out from the explanation page to keep the ACL permission matrices in a clean reference type per Style Guide §4.4 (no reference details smuggled into an explanation); holds the per-object/per-subject ACL tables, special-object ACLs, Core API ACLs, and authorization-rule notation*
 * Usage limits and cost control `[Explanation]` ← *currently: Platform > Architecture & Concepts > Usage Limits and Cost Control*
+
+* Data protection and isolation `[Explanation]` — identity propagation, control scope, runtime/network boundaries, and data copies
 
 #### 2.5 Foundations `[Category]`
 
@@ -121,18 +128,20 @@ HomeUnderstand DIALBuilding with DIALOperating DIALAdministering DIALChat User G
 
 ##### 3.3 Quick Apps **🆕**
 
+*Builder tasks only. The editor, control by control, lives in the Chat User Guide (Catalog > Agents > Build a Quick App). The service itself (capabilities, the manifest reference and examples, configuration, ChatHub, upstream links) lives in Services > DIAL Quick Apps.*
+
 * What are Quick Apps `[Explanation]` **🆕**
-* Authoring guide `[How-to]` **🆕** — *absorbs "How to Configure Quick App"*
-* Working with tools and agents `[How-to]` **🆕**
-* Tool Sets **🆕**
-  * What is a Tool Set `[Explanation]` **🆕**
-  * Define and register a Tool Set `[How-to]` **🆕**
-  * MCP server integration `[How-to]` **🆕** — *absorbs Architecture page MCP content*
-  * Sharing and permissions `[How-to]` **🆕**
-  * Tool Set reference `[Reference]` **🆕**
-  * Examples `[Reference]` **🆕**
-* Tutorial: Quick App with agent loop `[Tutorial]` **🆕** — *E2E with sample repo + data*
-* Examples `[Reference]` **🆕**
+* Tutorial: build an agent with a Toolset `[Tutorial]` **🆕** — *in DIAL Chat*
+* Create a Quick App through the API `[How-to]` **🆕**
+
+#### Toolsets
+
+##### 3.3a Toolsets **🆕**
+
+*Its own folder next to Apps: Toolsets serve any Quick App or compatible application, not only Quick Apps. Creating, sharing, and signing in to a Toolset in the UI is in the Chat User Guide (Catalog > Toolsets); registration in the DIAL Core configuration is in Services > DIAL Core > Toolsets.*
+
+* What is a Toolset `[Explanation]` **🆕**
+* Integrate an MCP server `[How-to]` **🆕** — *absorbs Architecture page MCP content*
 
 ##### 3.4 Code Apps **🆕**
 

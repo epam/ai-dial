@@ -56,12 +56,9 @@ building your own pipeline with raw frameworks.
 - [Tutorial: Build a RAG app](/building/custom-apps/tutorial-rag) — hands-on guided build
 - [RAG Eval toolkit](/building/evaluations/rag-eval) — measure retrieval and generation quality
 - [Tool Sets](/building/quick-apps/tool-sets/) — connect RAG to agent workflows
-
-## Next steps
-
-- [Build a RAG app](/building/custom-apps/tutorial-rag) — put this understanding into practice
-- [Enterprise RAG reference architecture](/use-cases/architectures/enterprise-rag) — production deployment pattern
 ```
+
+(Optional. 2–6 relevant links, no `Next steps` heading. Omit the block if fewer than 2 docs are relevant.)
 
 ## Anti-patterns to avoid
 

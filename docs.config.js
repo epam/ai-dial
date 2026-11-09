@@ -26,7 +26,7 @@ const DEFAULT_VARIANT = 'both';
 /**
  * Which NEW sections show in the sidebar: 'all', or a comma-separated list of
  * section keys (see V2_SECTIONS below), e.g. 'building-with-dial' or
- * 'home,building-with-dial'.
+ * 'overview,building-with-dial'.
  */
 const DEFAULT_SECTIONS = 'all';
 // ============================================================================
@@ -42,18 +42,19 @@ export const OLD_BASE = '/';
 export const NEW_BASE = SHOW_OLD ? '/v2' : '/';
 
 // ---- NEW top-level sections CATALOG (reference data — do not subset to hide;
-//      keys/labels must match the top-level category labels in sidebars-v2.js) ----
+//      keys/labels must match the top-level item labels in sidebars-v2.js —
+//      categories, plus the Overview doc) ----
 // `landing` is the in-instance route of each section's first page (no leading
 // slash, no instance base). Used to point the instance root at the first
 // visible section. Verify against the sitemap if a section's first page moves.
 export const V2_SECTIONS = [
-  { key: 'home', label: 'Home', landing: 'home/index' },
-  { key: 'understand-dial', label: 'Understand DIAL', landing: 'understand-dial/positioning/what-is-dial' },
+  { key: 'overview', label: 'Overview', landing: 'overview' },
+  { key: 'understand-dial', label: 'Understand DIAL', landing: 'understand-dial/index' },
   { key: 'building-with-dial', label: 'Building with DIAL', landing: 'building-with-dial/index' },
-  { key: 'operating-dial', label: 'Operating DIAL', landing: 'operating-dial/local-setup/index' },
+  { key: 'operating-dial', label: 'Operating DIAL', landing: 'operating-dial/index' },
   { key: 'administering-dial', label: 'Administering DIAL', landing: 'administering-dial-new/index' },
+  { key: 'services', label: 'Services', landing: 'services/index' },
   { key: 'chat-user-guide', label: 'Chat User Guide', landing: 'chat-user-guide/index' },
-  { key: 'reference', label: 'Reference', landing: 'reference' },
   { key: 'use-cases', label: 'Use Cases', landing: 'use-cases/index' },
   { key: 'demos', label: 'Demos', landing: 'demos/index' },
 ];

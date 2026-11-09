@@ -41,6 +41,7 @@
 | Python Code Interpreter | https://github.com/epam/ai-dial-code-interpreter | Uses Jupyter Kernel to execute arbitrary Python code |
 | DIAL-to-DIAL Adapter | https://github.com/epam/ai-dial-adapter-dial | Adapter for local development against a remote DIAL Core |
 | Log Parser | https://github.com/epam/ai-dial-log-parser | Tool to parse DIAL log files and repack to parquet dataset |
+| DIAL Scheduler | https://github.com/epam/ai-dial-scheduler | Python. Runs model and HTTP targets on recurring or one-time schedules with each owner's delegated credentials |
 | App Builder | https://github.com/epam/ai-dial-app-builder | Python. Downloads source from DIAL file storage and prepares container images |
 
 ## Infrastructure

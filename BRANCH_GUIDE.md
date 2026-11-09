@@ -39,14 +39,14 @@ The NEW instance has no page of its own at its root. An inline redirect plugin
 (`docusaurus.config.js` → `src/components/RootRedirect.js`, target computed as
 `NEW_ROOT_REDIRECT` in `docs.config.js`) sends the NEW root to the **first visible
 section's landing page** (catalog order, per each section's `landing` in `V2_SECTIONS`).
-So hiding the Home section just moves the landing to the next visible section.
+So hiding the Overview entry just moves the landing to the next visible section.
 
 ### `DOCS_V2_SECTIONS` — which NEW sections show in the sidebar
 
 Comma-separated **section keys** (catalog in `V2_SECTIONS` in `docs.config.js`):
 
 ```
-home, understand-dial, building-with-dial, operating-dial,
+overview, understand-dial, building-with-dial, operating-dial,
 administering-dial, chat-user-guide, reference, use-cases, demos
 ```
 
@@ -71,7 +71,7 @@ npm run start
 DOCS_VARIANT=new npm run build
 
 # NEW sidebar shows just two sections:
-DOCS_V2_SECTIONS="home,building-with-dial" npm run start
+DOCS_V2_SECTIONS="overview,building-with-dial" npm run start
 ```
 
 ---
@@ -113,7 +113,6 @@ Run via the npm scripts in `package.json` (all use `npx tsx`).
 
 | Script | npm script(s) | What it does |
 |---|---|---|
-| `build-changelog.ts` | `changelog:build` (also run by `start` / `build`) | Generates the on-site Changelog pages under `docs_v2/7.reference/changelog/` from `docs/releases/`. Idempotent, no network. |
 | `check-references.ts` | `check:references`, `check:references:strict` | Scans `docs_v2/` for pinned PyPI/npm versions in sample code, crawls referenced GitHub sample repos, and writes `outdated_references.json`. `--strict` exits 1 on any outdated reference. |
 | `references-shared.ts` | — (imported by the two reference scripts) | Shared types/helpers: resolves pinned versions against PyPI/npm and applies the freshness rule. |
 | `render-outdated-references.ts` | `references:render-md` | Renders `outdated_references.json` into a human-readable `outdated_references.md`. Rendering only, no network. |
@@ -123,7 +122,7 @@ Run via the npm scripts in `package.json` (all use `npx tsx`).
 
 Progress tracking existed to monitor the OLD → NEW migration. **All NEW docs are now
 complete per the original plan, so progress tracking is obsolete** and the machinery was
-removed. The build never depended on it (`build` / `start` only call `changelog:build`).
+removed. The build never depended on it.
 
 Removed scripts:
 

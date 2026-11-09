@@ -59,11 +59,13 @@ The TCP port DIAL Core listens on for HTTP requests.
 
 (same table structure)
 
-## Next steps
+## Further reading
 
-- [Configuration precedence](/operating/configuration/precedence) — how file, env, and CLI settings interact
-- [Dependency configuration](/operating/configuration/dependencies) — Redis and blob storage settings
+- [Config loading](./9.config-loading.md) — where Core reads config files and how it merges them
+- [Redis](./3.redis.md) — Redis connection, IAM authentication, and eviction
 ```
+
+(Optional. 2–6 relevant links, no `Next steps` heading. Omit the block if fewer than 2 docs are relevant.)
 
 ## Anti-patterns to avoid
 
