@@ -2294,6 +2294,27 @@ const allSections = [
               "label": "Configuration"
             }
           ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL Scheduler",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/scheduler/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "services/scheduler/configuration",
+              "label": "Configuration"
+            },
+            {
+              "type": "doc",
+              "id": "services/scheduler/api",
+              "label": "API"
+            }
+          ]
         }
       ]
     },
