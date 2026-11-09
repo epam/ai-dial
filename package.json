@@ -4,9 +4,8 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "quarto render && npm run changelog:build && docusaurus start",
-    "build": "quarto render && npm run changelog:build && docusaurus build",
-    "changelog:build": "npx tsx scripts/build-changelog.ts",
+    "start": "quarto render && docusaurus start",
+    "build": "quarto render && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

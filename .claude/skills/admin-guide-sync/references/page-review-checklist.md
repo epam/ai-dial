@@ -150,5 +150,5 @@ logic ship on the first Assets→Applications pass (2026-10-12).
 
 - [ ] Update `SESSION-HANDOFF.md`: findings written, screenshots to recapture, next page.
 - [ ] Save any new durable lesson to BOTH a skill reference (repo) AND memory — not memory alone.
-- [ ] Commit (exclude generator-owned `7.reference/changelog/` files unless asked).
+- [ ] Commit.
 - [ ] `npm run build` to confirm links — or confirm the user is running it.
