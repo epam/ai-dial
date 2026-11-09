@@ -166,6 +166,33 @@ function mdxSafe(body: string): string {
         .join("\n");
 }
 
+/**
+ * Drop whole-line HTML comments (authoring TODOs, commented-out images) outside fenced code.
+ * mdxSafe would escape their `<` and publish them as visible text, with any links inside live.
+ * A comment followed by other text on its closing line is left for mdxSafe.
+ */
+function stripHtmlComments(body: string): string {
+    const out: string[] = [];
+    let inFence = false;
+    let inComment = false;
+    for (const line of body.split(/\r?\n/)) {
+        if (inComment) {
+            if (line.includes("-->")) inComment = false;
+            continue;
+        }
+        if (/^\s*(```|~~~)/.test(line)) inFence = !inFence;
+        if (!inFence && /^\s*<!--/.test(line)) {
+            if (!line.includes("-->")) {
+                inComment = true;
+                continue;
+            }
+            if (/-->\s*$/.test(line)) continue;
+        }
+        out.push(line);
+    }
+    return out.join("\n");
+}
+
 /** Demote any intra-doc anchor link whose target heading does not exist (keeps build green). */
 function sanitizeAnchors(body: string): string {
     const slugs = headingSlugs(body);
@@ -242,7 +269,7 @@ function processFile(rf: ReleaseFile): { outName: string; content: string; asset
     const sourceRel = path.relative(REPO_ROOT, rf.srcPath);
     const raw = fs.readFileSync(rf.srcPath, "utf-8");
 
-    let body = stripLeadingH1(raw);
+    let body = stripHtmlComments(stripLeadingH1(raw));
     const { body: withAssets, assets } = rewriteAssets(body, path.dirname(rf.srcPath));
     body = mdxSafe(sanitizeAnchors(withAssets));
 

@@ -49,7 +49,7 @@
 
 | Setting                         | Default | Required | Description |
 |----------------------------------|---------|---------|-------------|
-| QWEN3_ASR_VLLM_DEPLOYMENTS       | ``      | No| Comma-separated list of [Qwen3-ASR deployments](#qwen3-asr) served via vLLM. Example: `qwen3-asr` |
+| QWEN3_ASR_VLLM_DEPLOYMENTS       | ``      | No| Comma-separated list of [Qwen3-ASR deployments](https://github.com/epam/ai-dial-adapter-openai/blob/0.39.0/README.md#qwen3-asr) served via vLLM. Example: `qwen3-asr` |
 
 ### ai-dial-chat
 
