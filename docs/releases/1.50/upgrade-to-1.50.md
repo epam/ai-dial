@@ -23,8 +23,8 @@
    - ai-dial-chat: `1.3.0-rc.1`
    - ai-dial-core: `0.50.0-rc.0`
    - ai-dial-analytics-realtime: `0.30.0-rc.0`
-   - ai-dial-analytics: `0.23.0-rc.0`
-   - ai-dial-analytics-enrichment-runner: `0.23.0-rc.0`
+   - ai-dial-analytics: `0.23.0-rc.1`
+   - ai-dial-analytics-enrichment-runner: `0.23.0-rc.1`
    - ai-dial-model-provider: `0.1.0-rc.0`
    - ai-dial-rag: `0.44.0-rc.0`
    - ai-dial-log-parser: `0.3.0`
@@ -125,17 +125,17 @@ This release includes **critical changes**. Please review the [full upgrade guid
 
 ---
 
-#### ai-dial-analytics `0.23.0-rc.0`
+#### ai-dial-analytics `0.23.0-rc.1`
 
-This release includes changes that need operator action. Please review the [upgrade guide](https://github.com/epam/ai-dial-analytics/blob/0.23.0-rc.0/docs/release-0.4-upgrade.md) before proceeding.
+This release includes changes that need operator action. Please review the [upgrade guide](https://github.com/epam/ai-dial-analytics/blob/0.23.0-rc.1/docs/release-0.23.0-upgrade.md) before proceeding.
 
-Upgrade together with Enrichment Runner 0.23.0-rc.0: the ADAS ↔ Enrichment Runner contract version rises from `3` to `4`, and neither build works with the other's previous release. See the [runner upgrade guide](https://github.com/epam/ai-dial-analytics-enrichment-runner/blob/0.23.0-rc.0/docs/release-0.4-upgrade.md).
+Upgrade together with Enrichment Runner 0.23: the ADAS ↔ Enrichment Runner contract version rises from `3` to `4`, and neither build works with the other's previous release. See the [runner upgrade guide](https://github.com/epam/ai-dial-analytics-enrichment-runner/blob/0.23.0-rc.1/docs/release-0.23.0-upgrade.md).
 
 ---
 
-#### ai-dial-analytics-enrichment-runner `0.23.0-rc.0`
+#### ai-dial-analytics-enrichment-runner `0.23.0-rc.1`
 
-This release includes changes that need operator action. Please review the [upgrade guide](https://github.com/epam/ai-dial-analytics-enrichment-runner/blob/0.23.0-rc.0/docs/release-0.4-upgrade.md) before proceeding.
+This release includes changes that need operator action. Please review the [upgrade guide](https://github.com/epam/ai-dial-analytics-enrichment-runner/blob/0.23.0-rc.1/docs/release-0.23.0-upgrade.md) before proceeding.
 
 Upgrade together with ADAS 0.23: the ADAS ↔ Enrichment Runner contract version rises from `3` to `4`, and neither build works with the other's previous release.
 
