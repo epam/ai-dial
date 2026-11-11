@@ -705,8 +705,8 @@ const allSections = [
                 },
                 {
                   "type": "doc",
-                  "id": "building-with-dial/integrations/agentic-tools/claude-cowork",
-                  "label": "Connect Claude Cowork to DIAL"
+                  "id": "building-with-dial/integrations/agentic-tools/claude-desktop-app",
+                  "label": "Connect Claude Desktop to DIAL"
                 },
                 {
                   "type": "doc",
@@ -968,7 +968,7 @@ const allSections = [
                     {
                       "type": "doc",
                       "id": "operating-dial/configuration/docker-compose/advanced/adapters-and-rag",
-                      "label": "Adapters & RAG"
+                      "label": "Adapters"
                     }
                   ]
                 },
