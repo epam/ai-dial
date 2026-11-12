@@ -18,7 +18,7 @@ services:
 
   chat:
     # TODO: update to stable when released
-    image: epam/ai-dial-chat:1.3.0-rc.0
+    image: epam/ai-dial-chat:1.3.0
     platform: linux/amd64
     environment:
       PORT: ${DIAL_CHAT_HOST_PORT}
@@ -49,7 +49,7 @@ services:
     restart: always
 
   core:
-    image: epam/ai-dial-core:0.50.0-rc.0
+    image: epam/ai-dial-core:0.50.0
     platform: linux/amd64
     environment:
       'JAVA_OPTS': '-Dgflog.config=/opt/settings/gflog.xml'
@@ -95,7 +95,7 @@ services:
       start_period: 30s
 
   admin-backend:
-    image: epam/ai-dial-admin-backend:0.23.0-rc.0
+    image: epam/ai-dial-admin-backend:0.23.0
     platform: linux/amd64
     user: root
     environment:
@@ -130,7 +130,7 @@ services:
       start_period: 600s
 
   admin-frontend:
-    image: epam/ai-dial-admin-frontend:0.23.0-rc.0
+    image: epam/ai-dial-admin-frontend:0.23.0
     platform: linux/amd64
     environment:
       DIAL_ADMIN_API_URL: "http://admin-backend:8080/"
