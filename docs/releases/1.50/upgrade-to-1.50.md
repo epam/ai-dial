@@ -6,6 +6,18 @@
 - [Before upgrade](#before-upgrade)
   - [General notes](#general-notes)
   - [Release-specific notes](#release-specific-notes)
+    - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend-0230)
+    - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-060)
+    - [ai-dial-admin-frontend](#ai-dial-admin-frontend-0230)
+    - [ai-dial-analytics](#ai-dial-analytics-0230)
+    - [ai-dial-analytics-enrichment-runner](#ai-dial-analytics-enrichment-runner-0230)
+    - [ai-dial-chat](#ai-dial-chat-130)
+    - [ai-dial-core](#ai-dial-core-0500)
+    - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend-0140)
+    - [ai-dial-quickapps-frontend](#ai-dial-quickapps-frontend-040)
+    - [ai-dial-admin-backend](#ai-dial-admin-backend-0230)
+    - [ai-dial-adapter-vertexai](#ai-dial-adapter-vertexai-0420-rc1)
+    - [ai-dial-model-provider](#ai-dial-model-provider-010-rc0)
 
 ## Versions
 
@@ -17,28 +29,28 @@
 2. Main components versions:
    - ai-dial-adapter-bedrock: `0.46.0-rc.0`
    - ai-dial-adapter-openai: `0.46.0-rc.0`
-   - ai-dial-adapter-vertexai: `0.42.0-rc.0`
+   - ai-dial-adapter-vertexai: `0.42.0-rc.1`
    - ai-dial-adapter-dial: `0.21.0-rc.0`
    - ai-dial-chat-themes: `0.22.0`
-   - ai-dial-chat: `1.3.0-rc.1`
-   - ai-dial-core: `0.50.0-rc.0`
+   - ai-dial-chat: `1.3.0`
+   - ai-dial-core: `0.50.0`
    - ai-dial-analytics-realtime: `0.30.0-rc.0`
-   - ai-dial-analytics: `0.23.0-rc.1`
-   - ai-dial-analytics-enrichment-runner: `0.23.0-rc.1`
+   - ai-dial-analytics: `0.23.0`
+   - ai-dial-analytics-enrichment-runner: `0.23.0`
    - ai-dial-model-provider: `0.1.0-rc.0`
-   - ai-dial-rag: `0.44.0-rc.0`
+   - ai-dial-rag: `0.44.0`
    - ai-dial-log-parser: `0.3.0`
    - ai-dial-code-interpreter: `0.2.0`
    - ai-dial-app-controller: `0.5.1`
    - ai-dial-app-builder-python: `0.1.0`
-   - ai-dial-quickapps-backend: `0.14.0-rc.0`
-   - ai-dial-quickapps-frontend: `0.4.0-rc.0`
-   - ai-dial-admin-backend: `0.23.0-rc.0`
-   - ai-dial-admin-frontend: `0.23.0-rc.0`
-   - ai-dial-admin-deployment-manager-backend: `0.23.0-rc.0`
-   - ai-dial-admin-evaluation-framework-backend: `0.6.0-rc.0`
-   - ai-dial-admin-evaluation-metrics: `0.4.0-rc.0`
-   - ai-dial-openapi-to-mcp: `0.2.1`
+   - ai-dial-quickapps-backend: `0.14.0`
+   - ai-dial-quickapps-frontend: `0.4.0`
+   - ai-dial-admin-backend: `0.23.0`
+   - ai-dial-admin-frontend: `0.23.0`
+   - ai-dial-admin-deployment-manager-backend: `0.23.0`
+   - ai-dial-admin-evaluation-framework-backend: `0.6.0`
+   - ai-dial-admin-evaluation-metrics: `0.4.0`
+   - ai-dial-openapi-to-mcp: `0.3.0-rc.0`
 
 ## Before upgrade
 
@@ -52,13 +64,13 @@
 
 ### Release-specific notes
 
-#### ai-dial-admin-deployment-manager-backend `0.23.0-rc.0`
+#### ai-dial-admin-deployment-manager-backend `0.23.0`
 
 This release includes **critical changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.23.0-rc.0/docs/upgrade-plans/0.23.0.md) before proceeding.
 
 ---
 
-#### ai-dial-admin-evaluation-framework-backend `0.6.0-rc.0`
+#### ai-dial-admin-evaluation-framework-backend `0.6.0`
 
 ### New environment variables
 
@@ -99,7 +111,7 @@ This release includes **critical changes**. Please review the [full upgrade guid
 
 ---
 
-#### ai-dial-admin-frontend `0.23.0-rc.0`
+#### ai-dial-admin-frontend `0.23.0`
 
 > [!IMPORTANT]
 > Admin access now comes from DIAL Core's `GET /v1/user/role-assignments` instead of the admin backend's `/security-info`. `DIAL_CORE_API_URL` is required for every access decision, the admin backend's `FULL_ADMIN` / `READ_ONLY_ADMIN` roles are no longer read (a caller who was only a read-only admin there loses access), and a Core with authentication on but no admin rules answers `NONE` for everyone — configure Core's admin rules before upgrading. With authentication off, or when Core answers `404` because org units are disabled, every caller is a full admin. `NIM_ENABLED` is removed and NIM containers, audit rows, and export entries are no longer recognized. Several `DISABLE_MENU_ITEMS` tokens stop working — see below.
@@ -123,25 +135,60 @@ This release includes **critical changes**. Please review the [full upgrade guid
 * Users must sign in again after the upgrade for their profile picture to appear
 * [Preview] Pipeline run controls expect the enrichment runner from epam/ai-dial-analytics-enrichment-runner#5; against an older runner, operator pauses still show and Resume still works
 
+> [!IMPORTANT]
+> Org-unit membership alone no longer grants access to Admin. Callers without Core full or read-only admin access need a unit role that grants `read` on a console namespace; membership-only callers now see 403 instead of an empty panel.
+
+This release also adds an optional configuration flag, disabled by default.
+
+| Variable | Required | Default | Description |
+|---|---|---|---|
+| `ENABLE_UNSAFE_TOOLSET_IMPORT` | No | `false` | Enables warnings and editable OAuth client secrets in Toolset JSON imports |
+
+With this flag enabled, an untouched OAuth row sends `REPLACE_WITH_REAL_SECRET`; set a real secret during import or later on the toolset page before OAuth sign-in. Override with the placeholder replaces an existing stored secret and turns dynamic client registration into static credentials. Clear the secret cell under Override to keep a secret already stored in Core; this cannot create a new toolset without a secret. ZIP imports and other asset types are unchanged.
+
+> [!IMPORTANT]
+> Admin access now comes from DIAL Core's `GET /v1/user/role-assignments` instead of the admin backend's `/security-info`. `DIAL_CORE_API_URL` is required for every access decision, the admin backend's `FULL_ADMIN` / `READ_ONLY_ADMIN` roles are no longer read (a caller who was only a read-only admin there loses access), and a Core with authentication on but no admin rules answers `NONE` for everyone — configure Core's admin rules before upgrading. A caller without Core admin access needs an org-unit role that grants `read` on a console section; membership alone shows the 403 page. With authentication off, or when Core answers `404` because org units are disabled, every caller is a full admin. `NIM_ENABLED` is removed and NIM containers, audit rows, and export entries are no longer recognized. Several `DISABLE_MENU_ITEMS` tokens stop working — see below.
+
+| Variable | Required | Default | Description |
+|---|---|---|---|
+| `DIAL_CORE_API_URL` | Yes | — | Now also the source of access decisions, via `GET /v1/user/role-assignments` |
+| `ORG_UNITS_GROUP_CLAIM` | No | `groups` | Token claim, or dotted path, that holds a user's groups for org units |
+| `PROJECT_CONTEXT_ALLOWED_EXTENSIONS` | No | `csv,pdf,xlsx` | Extensions allowed for project context files; use the chat app's value |
+| `PROJECT_CONTEXT_FILE_MAX_BYTES` | No | `1048576` | Maximum size of one project context file |
+| `PROJECT_CONTEXT_TOTAL_MAX_BYTES` | No | `10485760` | Maximum total size of a project's context files |
+| `POLICIES_ENABLED` [Preview] | No | `false` | Shows Policies and Policy Assignments in Governance; needs a DIAL Core with epam/ai-dial-core#2152 |
+| `ANALYTICS_CUSTOM_DASHBOARDS_ENABLED` [Preview] | No | `false` | Serves custom dashboards at `/dashboards/<id>`; needs `ANALYTICS_ENABLED`, `ANALYTICS_USAGE_ENABLED`, and an Analytics service with `/v1/dashboards` |
+| `ENABLE_UNSAFE_TOOLSET_IMPORT` | No | `false` | Enables warnings and editable OAuth client secrets in Toolset JSON imports |
+| `NIM_ENABLED` | — | — | Removed; the Model Servings tab depends on `HF_ENABLED` alone |
+
+* `DISABLE_MENU_ITEMS`: `catalog` is ignored (Core-direct items are always shown); `containers` replaces `mcpcontainers`, `interceptorcontainers`, `adaptercontainers`, and `applicationcontainers`; `approvals` replaces the six `*publications` tokens
+* The per-type container pages move to `/containers` and the per-type publication pages to `/publications`; old URLs redirect permanently
+* Theme config and images are cached for 30 minutes — a change to the config at `THEMES_CONFIG_URL` can take that long to appear
+* Shadows now read DIAL Chat's `shadow-sm-1`/`-2` and `shadow-md-1`/`-2` theme variables; a custom themes config with a single `shadow-sm` / `shadow-md` keeps it on the drop layer, and `shadow-xs-2` is no longer read — see `docs/THEME-CUSTOMIZATION.md`
+* Monaco is served by the app instead of the jsdelivr CDN, so editors no longer need outbound access to it
+* Users must sign in again after the upgrade for their profile picture to appear
+* With `ENABLE_UNSAFE_TOOLSET_IMPORT` on, an untouched OAuth row imports `REPLACE_WITH_REAL_SECRET`, and Override with the placeholder replaces a stored secret and turns dynamic client registration into static credentials — clear the secret cell to keep the secret Core already stores; ZIP imports and other asset types are unchanged
+* [Preview] Pipeline run controls expect the enrichment runner from epam/ai-dial-analytics-enrichment-runner#5; against an older runner, operator pauses still show and Resume still works
+
 ---
 
-#### ai-dial-analytics `0.23.0-rc.1`
+#### ai-dial-analytics `0.23.0`
 
-This release includes changes that need operator action. Please review the [upgrade guide](https://github.com/epam/ai-dial-analytics/blob/0.23.0-rc.1/docs/release-0.23.0-upgrade.md) before proceeding.
+This release includes changes that need operator action. Please review the [upgrade guide](https://github.com/epam/ai-dial-analytics/blob/0.23.0/docs/release-0.23-upgrade.md) before proceeding.
 
-Upgrade together with Enrichment Runner 0.23: the ADAS ↔ Enrichment Runner contract version rises from `3` to `4`, and neither build works with the other's previous release. See the [runner upgrade guide](https://github.com/epam/ai-dial-analytics-enrichment-runner/blob/0.23.0-rc.1/docs/release-0.23.0-upgrade.md).
+Upgrade together with Enrichment Runner 0.23.0: the ADAS ↔ Enrichment Runner contract version rises from `3` to `4`, and neither build works with the other's previous release. See the [runner upgrade guide](https://github.com/epam/ai-dial-analytics-enrichment-runner/blob/0.23.0/docs/release-0.23.0-upgrade.md).
 
 ---
 
-#### ai-dial-analytics-enrichment-runner `0.23.0-rc.1`
+#### ai-dial-analytics-enrichment-runner `0.23.0`
 
-This release includes changes that need operator action. Please review the [upgrade guide](https://github.com/epam/ai-dial-analytics-enrichment-runner/blob/0.23.0-rc.1/docs/release-0.23.0-upgrade.md) before proceeding.
+This release includes changes that need operator action. Please review the [upgrade guide](https://github.com/epam/ai-dial-analytics-enrichment-runner/blob/0.23.0/docs/release-0.23.0-upgrade.md) before proceeding.
 
 Upgrade together with ADAS 0.23: the ADAS ↔ Enrichment Runner contract version rises from `3` to `4`, and neither build works with the other's previous release.
 
 ---
 
-#### ai-dial-chat `1.3.0-rc.1`
+#### ai-dial-chat `1.3.0`
 
 ### New environment variables
 
@@ -235,7 +282,83 @@ The `hide-starter-icon` value is added to `ENABLED_UI_FEATURES` for label-only c
 
 ---
 
-#### ai-dial-quickapps-backend `0.14.0-rc.0`
+#### ai-dial-core `0.50.0`
+
+Deltas below are relative to **0.49.4**, the last published stable release.
+
+Static settings are read from the `AIDIAL_SETTINGS` file; any of them can also be set through an environment variable named `aidial.` + the setting key, for example `aidial.orgUnits.enabled=true`. Dynamic settings live in `aidial.config.json` and are reloaded without a restart.
+
+### New static settings
+
+| Setting (env var) | Default | Description |
+| --- | --- | --- |
+| `orgUnits.enabled` (`aidial.orgUnits.enabled`) | `false` | Preview. Turns on org units: shared-space folders recorded as units with their own roles and approvers, managed through `/v1/org-units/public`. Off, those routes answer 404 and nothing else changes. See Behavioral changes and [Org units](https://github.com/epam/ai-dial-core/blob/0.50.0-rc.0/docs/org-units.md). (#2137, #2138, #2163, #2164, #2165, #2209) |
+| `identityProviders.*.userEmailPath` (`aidial.identityProviders.<idp>.userEmailPath`) | `email` | Claim, in the JWT or the user info response, that holds the user's email address, e.g. `preferred_username` or `upn` for Microsoft Entra ID. Org-unit role assignments and rules on the `email` source match this value. (#2238) |
+
+### New dynamic settings
+
+| Setting | Default | Description |
+| --- | --- | --- |
+| `orgUnitRoles` | built-in `admin`, `editor`, `viewer`, `member` | Roles that can be assigned at an org unit, replacing or adding to the built-in ones. Optional: the built-in roles work without it. Used only when `orgUnits.enabled` is `true`. (#2162) |
+
+### Behavioral changes
+
+> [!NOTE]
+> The org-unit changes take effect only once `orgUnits.enabled` is `true`. The email change takes effect on upgrade.
+
+- **Roles decide access inside units.** Inside a unit, its roles decide who reads and writes; folder read rules grant nothing there. **Creating a unit removes the read rules on and under its folder.** Roles are not inherited by child units. (#2165)
+- **Unit approvers decide publications into their unit.** Requests into a unit go to holders of a role with write on `publications` there (by default `admin`) instead of the DIAL admins; DIAL admins can still decide them. Rules sent with a request into a unit are dropped. (#2164, #2165)
+- **Content stays in its unit.** A move cannot take content out of its unit or into another one. (#2138)
+- **Clients learn the caller's units** through `GET /v1/user/role-assignments`: each unit with the caller's roles and permissions there. (#2209)
+- **Email matching follows `userEmailPath`.** Rules and assignments on the `email` source match the resolved address instead of the raw `email` claim. With the default this is the same claim; an `email` claim holding an array no longer matches. (#2238)
+
+### Related changes in other components
+
+| Component | Variable | Default | Description |
+| --- | --- | --- | --- |
+| DIAL Admin | `DIAL_CORE_API_URL` | — | Now required: the panel decides full, unit or no access from `GET /v1/user/role-assignments`; without it every user gets the 403 page. |
+| DIAL Admin | `ORG_UNITS_GROUP_CLAIM` | `groups` | Claim the panel's Group holder writes into a role assignment's subject. |
+| DIAL Chat | `ORG_UNITS_ENABLED` | `false` | Marks units in the file manager and publish trees. Pending (epam/ai-dial-chat#9766). |
+
+Deltas below are relative to **0.49.4**, the last published stable release.
+
+Static settings are read from the `AIDIAL_SETTINGS` file; any of them can also be set through an environment variable named `aidial.` + the setting key, for example `aidial.orgUnits.enabled=true`. Dynamic settings live in `aidial.config.json` and are reloaded without a restart.
+
+### New static settings
+
+| Setting (env var) | Default | Description |
+| --- | --- | --- |
+| `orgUnits.enabled` (`aidial.orgUnits.enabled`) | `false` | Preview. Turns on org units: shared-space folders recorded as units with their own roles and approvers, managed through `/v1/org-units/public`. Off, those routes answer 404 and nothing else changes. See Behavioral changes and [Org units](https://github.com/epam/ai-dial-core/blob/0.50.0/docs/org-units.md). (#2137, #2138, #2163, #2164, #2165, #2209) |
+| `identityProviders.*.userEmailPath` (`aidial.identityProviders.<idp>.userEmailPath`) | `email` | Claim, in the JWT or the user info response, that holds the user's email address, e.g. `preferred_username` or `upn` for Microsoft Entra ID. Org-unit role assignments and rules on the `email` source match this value. (#2238) |
+
+### New dynamic settings
+
+| Setting | Default | Description |
+| --- | --- | --- |
+| `orgUnitRoles` | built-in `admin`, `editor`, `viewer`, `member` | Roles that can be assigned at an org unit, replacing or adding to the built-in ones. Optional: the built-in roles work without it. Used only when `orgUnits.enabled` is `true`. (#2162) |
+
+### Behavioral changes
+
+> [!NOTE]
+> The org-unit changes take effect only once `orgUnits.enabled` is `true`. The email change takes effect on upgrade.
+
+- **Roles decide access inside units.** Inside a unit, its roles decide who reads and writes; folder read rules grant nothing there. **Creating a unit removes the read rules on and under its folder.** Roles are not inherited by child units. (#2165)
+- **Unit approvers decide publications into their unit.** Requests into a unit go to holders of a role with write on `publications` there (by default `admin`) instead of the DIAL admins; DIAL admins can still decide them. Rules sent with a request into a unit are dropped. (#2164, #2165)
+- **Content stays in its unit.** A move cannot take content out of its unit or into another one. (#2138)
+- **Clients learn the caller's units** through `GET /v1/user/role-assignments`: each unit with the caller's roles and permissions there. (#2209)
+- **Email matching follows `userEmailPath`.** Rules and assignments on the `email` source match the resolved address instead of the raw `email` claim. With the default this is the same claim; an `email` claim holding an array no longer matches. (#2238)
+
+### Related changes in other components
+
+| Component | Variable | Default | Description |
+| --- | --- | --- | --- |
+| DIAL Admin | `DIAL_CORE_API_URL` | — | Now required: the panel decides full, unit or no access from `GET /v1/user/role-assignments`; without it every user gets the 403 page. |
+| DIAL Admin | `ORG_UNITS_GROUP_CLAIM` | `groups` | Claim the panel's Group holder writes into a role assignment's subject. |
+| DIAL Chat | `ORG_UNITS_ENABLED` | `false` | Marks units in the file manager and publish trees. Pending (epam/ai-dial-chat#9766). |
+
+---
+
+#### ai-dial-quickapps-backend `0.14.0`
 
 ### Behavioral changes
 
@@ -287,7 +410,7 @@ The `hide-starter-icon` value is added to `ENABLED_UI_FEATURES` for label-only c
 
 ---
 
-#### ai-dial-quickapps-frontend `0.4.0-rc.0`
+#### ai-dial-quickapps-frontend `0.4.0`
 
 ### Host integration changes
 
@@ -308,43 +431,29 @@ The `hide-starter-icon` value is added to `ENABLED_UI_FEATURES` for label-only c
 
 ---
 
-#### ai-dial-admin-backend `0.23.0-rc.0`
+#### ai-dial-admin-backend `0.23.0`
 
 ##### Breaking changes
 
 **Removed `nim` deployment type**
 
-The `nim` deployment type has been removed from ai-dial-admin-backend, matching its removal from Deployment Manager. Any configurations, scripts, or tooling that reference the `nim` deployment type will break.
+The `nim` deployment type has been removed from the backend, matching its removal from Deployment Manager. Any existing configurations or integrations referencing the `nim` deployment type will no longer work.
 
 | Previous configuration | Required action |
 |---|---|
-| Deployment configurations using the `nim` deployment type | Remove or migrate any references to the `nim` deployment type before upgrading |
+| Deployments or configurations using `nim` deployment type | Remove or migrate any references to the `nim` deployment type before upgrading |
 
-**Exporting config to DIAL Core below 0.50.0 silently skips `CUSTOM_HEADER` upstreams**
+**DIAL Core 0.50.0 required for full `CUSTOM_HEADER` upstream authType support**
 
-If the admin backend is upgraded to 0.23.0-rc.0 but paired with a DIAL Core version below 0.50.0, any upstreams using the new `CUSTOM_HEADER` authType will be silently dropped during config export. Operators running Core < 0.50.0 must be aware of this data-loss risk.
+The new `CUSTOM_HEADER` upstream `authType` feature only reaches `FULLY_SYNCED` state against DIAL Core 0.50.0. Exporting a config to a Core version below 0.50.0 silently skips `CUSTOM_HEADER` upstreams.
 
 | Previous configuration | Required action |
 |---|---|
-| Running DIAL Core < 0.50.0 with upstreams that use CUSTOM_HEADER authType | Upgrade DIAL Core to 0.50.0+ before using CUSTOM_HEADER upstreams, or avoid configuring CUSTOM_HEADER upstreams until Core is upgraded |
+| Running DIAL Core below 0.50.0 with upstreams using CUSTOM_HEADER authType | Upgrade DIAL Core to 0.50.0+ to use CUSTOM_HEADER upstreams; otherwise those upstreams will be skipped on config export |
 
 ---
 
-#### ai-dial-core `0.50.0-rc.0`
-
-##### Breaking changes
-
-**Application route-upstream secrets are now encrypted at rest**
-
-Route-upstream secrets for Application routes are now encrypted at rest. Existing unencrypted secrets stored in the data layer may require a migration or re-save to be encrypted.
-
-| Previous configuration | Required action |
-|---|---|
-| Route-upstream secrets stored unencrypted at rest | Verify whether existing route-upstream secrets need to be re-written/migrated to be stored in encrypted form after upgrade |
-
----
-
-#### ai-dial-adapter-vertexai `0.42.0-rc.0`
+#### ai-dial-adapter-vertexai `0.42.0-rc.1`
 
 ##### Deprecated environment variables
 
@@ -353,13 +462,12 @@ Route-upstream secrets for Application routes are now encrypted at rest. Existin
 | `DEFAULT_REGION` | DEFAULT_REGION is deprecated in favour of GCP_DEFAULT_REGION. Replaced by `GCP_DEFAULT_REGION`. |
 
 **Migration:** _DEFAULT_REGION is set_ → Migrate to GCP_DEFAULT_REGION before the variable is removed in a future release
-**Migration:** _DEFAULT_REGION is unset_ → No action needed; use GCP_DEFAULT_REGION for new deployments
 
 ##### New environment variables
 
 | Variable | Required | Default | Description |
 |---|---|---|---|
-| `GCP_DEFAULT_REGION` | No | unset | New preferred replacement for DEFAULT_REGION. Operators should migrate to this variable as DEFAULT_REGION is being deprecated. |
+| `GCP_DEFAULT_REGION` | No | unset | New preferred name for the default GCP region setting, replacing the deprecated DEFAULT_REGION. |
 
 ---
 
