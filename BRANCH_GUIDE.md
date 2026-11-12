@@ -30,16 +30,18 @@ every NEW section shows in the sidebar.
 
 ### `DOCS_VARIANT` — which doc sets
 
-- `both` (default) — OLD served at `/`, NEW served at `/v2`. The navbar OLD/NEW switcher
-  appears only in this mode.
+- `both` (default) — OLD served at `/`, NEW served at `/v2`. The navbar has no OLD/NEW
+  switcher; OLD pages stay reachable by URL.
 - `old` — only `docs/`, served at `/`.
 - `new` — only `docs_v2/`, served at `/` (the sole shown set owns the root).
 
-The NEW instance has no page of its own at its root. An inline redirect plugin
-(`docusaurus.config.js` → `src/components/RootRedirect.js`, target computed as
-`NEW_ROOT_REDIRECT` in `docs.config.js`) sends the NEW root to the **first visible
-section's landing page** (catalog order, per each section's `landing` in `V2_SECTIONS`).
-So hiding the Overview entry just moves the landing to the next visible section.
+Neither the site root `/` nor the NEW instance root `/v2` has a page of its own (the
+legacy home `docs/README.md` has `slug: /home`). An inline redirect plugin
+(`docusaurus.config.js` → `src/components/RootRedirect.js`, routes and target computed as
+`ROOT_REDIRECT` in `docs.config.js`) sends both to the **first visible section's landing
+page** (catalog order, per each section's `landing` in `V2_SECTIONS`), `/v2/overview` by
+default. So hiding the Overview entry just moves the landing to the next visible section.
+In `old` mode, `/` redirects to the legacy home `/home`.
 
 ### `DOCS_V2_SECTIONS` — which NEW sections show in the sidebar
 
