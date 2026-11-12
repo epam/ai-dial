@@ -27,17 +27,17 @@
    - dial-extension: `-`
    - dial-admin: `-`
 2. Main components versions:
-   - ai-dial-adapter-bedrock: `0.46.0-rc.0`
-   - ai-dial-adapter-openai: `0.46.0-rc.0`
-   - ai-dial-adapter-vertexai: `0.42.0-rc.1`
-   - ai-dial-adapter-dial: `0.21.0-rc.0`
+   - ai-dial-adapter-bedrock: `0.46.0`
+   - ai-dial-adapter-openai: `0.46.0`
+   - ai-dial-adapter-vertexai: `0.42.0`
+   - ai-dial-adapter-dial: `0.21.0`
    - ai-dial-chat-themes: `0.22.0`
    - ai-dial-chat: `1.3.0`
    - ai-dial-core: `0.50.0`
-   - ai-dial-analytics-realtime: `0.30.0-rc.0`
+   - ai-dial-analytics-realtime: `0.30.0`
    - ai-dial-analytics: `0.23.0`
    - ai-dial-analytics-enrichment-runner: `0.23.0`
-   - ai-dial-model-provider: `0.1.0-rc.0`
+   - ai-dial-model-provider: `0.1.0`
    - ai-dial-rag: `0.44.0`
    - ai-dial-log-parser: `0.3.0`
    - ai-dial-code-interpreter: `0.2.0`
@@ -50,7 +50,7 @@
    - ai-dial-admin-deployment-manager-backend: `0.23.0`
    - ai-dial-admin-evaluation-framework-backend: `0.6.0`
    - ai-dial-admin-evaluation-metrics: `0.4.0`
-   - ai-dial-openapi-to-mcp: `0.3.0-rc.0`
+   - ai-dial-openapi-to-mcp: `0.2.2`
 
 ## Before upgrade
 
@@ -66,7 +66,7 @@
 
 #### ai-dial-admin-deployment-manager-backend `0.23.0`
 
-This release includes **critical changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.23.0-rc.0/docs/upgrade-plans/0.23.0.md) before proceeding.
+This release includes **critical changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.23.0/docs/upgrade-plans/0.23.0.md) before proceeding.
 
 ---
 
@@ -292,7 +292,7 @@ Static settings are read from the `AIDIAL_SETTINGS` file; any of them can also b
 
 | Setting (env var) | Default | Description |
 | --- | --- | --- |
-| `orgUnits.enabled` (`aidial.orgUnits.enabled`) | `false` | Preview. Turns on org units: shared-space folders recorded as units with their own roles and approvers, managed through `/v1/org-units/public`. Off, those routes answer 404 and nothing else changes. See Behavioral changes and [Org units](https://github.com/epam/ai-dial-core/blob/0.50.0-rc.0/docs/org-units.md). (#2137, #2138, #2163, #2164, #2165, #2209) |
+| `orgUnits.enabled` (`aidial.orgUnits.enabled`) | `false` | Preview. Turns on org units: shared-space folders recorded as units with their own roles and approvers, managed through `/v1/org-units/public`. Off, those routes answer 404 and nothing else changes. See Behavioral changes and [Org units](https://github.com/epam/ai-dial-core/blob/0.50.0/docs/org-units.md). (#2137, #2138, #2163, #2164, #2165, #2209) |
 | `identityProviders.*.userEmailPath` (`aidial.identityProviders.<idp>.userEmailPath`) | `email` | Claim, in the JWT or the user info response, that holds the user's email address, e.g. `preferred_username` or `upn` for Microsoft Entra ID. Org-unit role assignments and rules on the `email` source match this value. (#2238) |
 
 ### New dynamic settings
@@ -453,7 +453,7 @@ The new `CUSTOM_HEADER` upstream `authType` feature only reaches `FULLY_SYNCED` 
 
 ---
 
-#### ai-dial-adapter-vertexai `0.42.0-rc.1`
+#### ai-dial-adapter-vertexai `0.42.0`
 
 ##### Deprecated environment variables
 
@@ -471,16 +471,16 @@ The new `CUSTOM_HEADER` upstream `authType` feature only reaches `FULLY_SYNCED` 
 
 ---
 
-#### ai-dial-model-provider `0.1.0-rc.0`
+#### ai-dial-model-provider `0.1.0`
 
 > [!IMPORTANT]
 > This is the **initial release** of Model Provider — a unified image that consolidates all four adapter images into a single deployable component. Starting from DIAL 1.50, deploy `ai-dial-model-provider` instead of the individual adapter images.
 
 **Consolidated adapters:**
-- `ai-dial-adapter-bedrock` `0.46.0-rc.0`
-- `ai-dial-adapter-openai` `0.46.0-rc.0`
-- `ai-dial-adapter-vertexai` `0.42.0-rc.0`
-- `ai-dial-adapter-dial` `0.21.0-rc.0`
+- `ai-dial-adapter-bedrock` `0.46.0`
+- `ai-dial-adapter-openai` `0.46.0`
+- `ai-dial-adapter-vertexai` `0.42.0`
+- `ai-dial-adapter-dial` `0.21.0`
 
 The environment variables for each adapter remain unchanged — no configuration migration is required. Apply any adapter-specific changes from the sections above to your Model Provider deployment.
 
