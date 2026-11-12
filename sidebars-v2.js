@@ -134,8 +134,8 @@ const allSections = [
             },
             {
               "type": "doc",
-              "id": "understand-dial/architecture/reliability-and-performance",
-              "label": "Reliability and performance"
+              "id": "understand-dial/architecture/scalability-and-performance",
+              "label": "Scalability and performance"
             },
             {
               "type": "doc",
@@ -394,33 +394,6 @@ const allSections = [
                   "type": "doc",
                   "id": "building-with-dial/adapters/supported-providers",
                   "label": "Supported providers"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Quality and testing",
-          "items": [
-            {
-              "type": "category",
-              "label": "Evaluations",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/evaluations/index",
-                  "label": "Overview"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/evaluations/rag-eval-toolkit",
-                  "label": "RAG Eval toolkit"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/evaluations/tutorial-eval-driven-dev",
-                  "label": "Tutorial: eval-driven development"
                 }
               ]
             }
