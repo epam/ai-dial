@@ -1,3 +1,7 @@
+---
+slug: /home
+---
+
 # DIAL Documentation
 
 ## Project Overview and Contribution Guide

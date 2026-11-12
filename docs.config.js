@@ -77,14 +77,20 @@ if (unknown.length) {
   );
 }
 
-// ---- Instance-root redirect ----
-// The NEW instance has no doc at its root (no page uses `slug: /`). Point the
-// root at the FIRST VISIBLE section's landing page (catalog order). This keeps
-// the landing meaningful — and always inside the sidebar — regardless of which
-// sections are hidden. Null when NEW isn't built.
+// ---- Root redirects ----
+// No page owns the site root '/' (the legacy home lives at OLD_HOME, set by the
+// `slug` in docs/README.md) or the NEW instance root ('/v2' when OLD is also
+// built). Both redirect to the FIRST VISIBLE NEW section's landing page (catalog
+// order), so the landing stays meaningful — and inside the sidebar — whichever
+// sections are hidden. With only OLD built, '/' redirects to the legacy home.
+// Null when there is nothing to redirect to.
+export const OLD_HOME = '/home';
 const joinUrl = (base, p) => (base === '/' ? `/${p}` : `${base}/${p}`);
 const firstVisible = V2_SECTIONS.find((s) => V2_SECTION_KEYS.includes(s.key));
-export const NEW_ROOT_REDIRECT =
-  SHOW_NEW && firstVisible
-    ? { from: NEW_BASE, to: joinUrl(NEW_BASE, firstVisible.landing) }
+const newLanding =
+  SHOW_NEW && firstVisible ? joinUrl(NEW_BASE, firstVisible.landing) : null;
+export const ROOT_REDIRECT = newLanding
+  ? { from: [...new Set(['/', NEW_BASE])], to: newLanding }
+  : SHOW_OLD
+    ? { from: ['/'], to: OLD_HOME }
     : null;
