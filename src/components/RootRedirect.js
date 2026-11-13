@@ -3,10 +3,11 @@ import Head from '@docusaurus/Head';
 import { Redirect } from '@docusaurus/router';
 import { usePluginData } from '@docusaurus/useGlobalData';
 
-// Redirects the site root and the NEW instance root to the first visible NEW
-// section's landing page. The target is provided by the inline `root-redirect`
-// plugin in docusaurus.config.js via setGlobalData. A meta-refresh handles the redirect
-// before hydration (and without JS); <Redirect> covers client navigation.
+// Redirects the earlier URLs of the home page ('/v2', '/v2/overview') to the NEW
+// Overview doc at the instance root. Routes and target come from the inline
+// `root-redirect` plugin in docusaurus.config.js (see docs.config.js
+// ROOT_REDIRECT) via setGlobalData. A meta-refresh handles the redirect before
+// hydration (and without JS); <Redirect> covers client navigation.
 export default function RootRedirect() {
   const { to } = usePluginData('root-redirect');
   return (

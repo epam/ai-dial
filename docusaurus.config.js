@@ -17,9 +17,9 @@ import {
   ROOT_REDIRECT,
 } from './docs.config.js';
 
-// Inline plugin: redirect the site root and the NEW instance root (no doc owns
-// either) to the first visible NEW section's landing page. See docs.config.js
-// ROOT_REDIRECT.
+// Inline plugin: redirect the earlier URLs of the home page ('/v2',
+// '/v2/overview', and '/' when OLD is also built) to the NEW Overview doc at the
+// NEW instance root. See docs.config.js ROOT_REDIRECT.
 function rootRedirectPlugin({ siteConfig }) {
   return {
     name: 'root-redirect',
