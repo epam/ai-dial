@@ -1,5 +1,22 @@
 # Instructions
 
+## Table of contents
+
+- [Versions](#versions)
+- [Before upgrade](#before-upgrade)
+  - [General notes](#general-notes)
+  - [Release-specific notes](#release-specific-notes)
+- [Config changes](#config-changes)
+  - [ai-dial-auth-helper](#ai-dial-auth-helper)
+  - [ai-dial-adapter-openai](#ai-dial-adapter-openai)
+  - [ai-dial-analytics-realtime](#ai-dial-analytics-realtime)
+  - [ai-dial-chat](#ai-dial-chat)
+  - [ai-dial-rag](#ai-dial-rag)
+  - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend)
+  - [ai-dial-admin-backend](#ai-dial-admin-backend)
+  - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend)
+  - [ai-dial-mind-map-frontend](#ai-dial-mind-map-frontend)
+
 ## Versions
 
 1. Helm chart versions:
@@ -96,7 +113,7 @@ Added the `LiveChatInteraction` (`live-chat-interaction`) feature to enable an i
 | `DIAL_RAG__HEADERS_TO_PROXY` | `yes` | List of headers to proxy from the request to the dial core. |
 
 
-### ai-dial-quickapps-backend:
+### ai-dial-quickapps-backend
 
 #### QuickApps Schema Configuration
 
@@ -142,7 +159,7 @@ Added the `LiveChatInteraction` (`live-chat-interaction`) feature to enable an i
 
 This release includes **many critical and high-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-backend/blob/0.15.0/docs/upgrade-plans/0.15.0.md) and the [infrastructure changelog](https://github.com/epam/ai-dial-admin-backend/blob/release-0.15/docs/INFRA-CHANGELOG.md) before proceeding.
 
-### ai-dial-admin-deployment-manager-backend: 
+### ai-dial-admin-deployment-manager-backend
 #### Upgrade Notice
 
 This release includes **many critical and high-priority changes**. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.15.0/docs/upgrade-plans/0.15.0.md) before proceeding.

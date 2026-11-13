@@ -6,6 +6,7 @@
 - [Before upgrade](#before-upgrade)
   - [General notes](#general-notes)
   - [Release-specific notes](#release-specific-notes)
+    - [dial `8.0.0` Helm chart](#dial-800-helm-chart)
     - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend-0210)
     - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-040)
     - [ai-dial-admin-evaluation-metrics](#ai-dial-admin-evaluation-metrics-030)
@@ -51,7 +52,7 @@
 
 ### General notes
 
-- Please review the [Release-specific notes](#release-specific-notes) chapter carefully for each component that is used in your DIAL installation. Changes in components' configuration may be required.
+- Please review the [Config changes](#config-changes) chapter carefully for each component that is used in your DIAL installation. Changes in components' configuration may be required.
 - Please check if any image tag overrides (`image.tag`) are present and remove them if they are not required anymore.
 - Please check and add `image.repository` to change the image location for `redis`, `postgresql`, `keycloak` and `keycloakConfigCli` components to start using alternative Docker registries (e.g. Amazon ECR Public Gallery) if required.
 

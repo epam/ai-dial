@@ -1,5 +1,22 @@
 # Instructions
 
+## Table of contents
+
+- [Versions](#versions)
+- [Before upgrade](#before-upgrade)
+  - [General notes](#general-notes)
+  - [Release-specific notes](#release-specific-notes)
+- [Config changes](#config-changes)
+  - [ai-dial-core](#ai-dial-core)
+  - [ai-dial-chat](#ai-dial-chat)
+  - [ai-dial-adapter-bedrock](#ai-dial-adapter-bedrock)
+  - [ai-dial-adapter-vertexai](#ai-dial-adapter-vertexai)
+  - [ai-dial-admin-backend](#ai-dial-admin-backend)
+  - [ai-dial-rag](#ai-dial-rag)
+  - [ai-dial-admin-mcp-manager-frontend](#ai-dial-admin-mcp-manager-frontend)
+  - [ai-dial-mind-map](#ai-dial-mind-map)
+  - [ai-dial-quick-apps-2.0](#ai-dial-quick-apps-20)
+
 ## Versions
 
 1. Helm chart versions:

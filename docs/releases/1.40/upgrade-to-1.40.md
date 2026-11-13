@@ -1,5 +1,19 @@
 # Instructions
 
+## Table of contents
+
+- [Versions](#versions)
+- [Before upgrade](#before-upgrade)
+  - [General notes](#general-notes)
+  - [Release-specific notes](#release-specific-notes)
+- [Config changes](#config-changes)
+  - [ai-dial-chat-themes](#ai-dial-chat-themes)
+  - [ai-dial-adapter-vertexai](#ai-dial-adapter-vertexai)
+  - [ai-dial-admin-frontend](#ai-dial-admin-frontend)
+  - [ai-dial-admin-backend](#ai-dial-admin-backend)
+  - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend)
+  - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend)
+
 ## Versions
 
 1. Helm chart versions:
@@ -61,7 +75,7 @@ Added new button colors. If you are using a custom theme, please add the new col
   
 
 ### ai-dial-admin-backend
-#### S2S Admin Backend and core configuration 
+#### S2S Admin Backend and core configuration
   Here is the full instraction for dial admin s2s configuration :
   - keycloack provider - https://github.com/epam/ai-dial-admin-backend/blob/development/docs/keycloack-s2s.md
   - azure provider - https://github.com/epam/ai-dial-admin-backend/blob/development/docs/azure-s2s-config.md

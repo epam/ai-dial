@@ -1,5 +1,18 @@
 # Instructions
 
+## Table of contents
+
+- [Versions](#versions)
+- [Before upgrade](#before-upgrade)
+  - [General notes](#general-notes)
+- [Config changes](#config-changes)
+  - [ai-dial-adapter-openai](#ai-dial-adapter-openai)
+  - [ai-dial-chat](#ai-dial-chat)
+  - [ai-dial-analytics-realtime](#ai-dial-analytics-realtime)
+  - [ai-dial-admin-backend](#ai-dial-admin-backend)
+  - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend)
+  - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend)
+
 ## Versions
 
 1. Helm chart versions:

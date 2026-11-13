@@ -1,5 +1,19 @@
 # Instructions
 
+## Table of contents
+
+- [Versions](#versions)
+- [Before upgrade](#before-upgrade)
+  - [General notes](#general-notes)
+  - [Release-specific notes](#release-specific-notes)
+- [Config changes](#config-changes)
+  - [ai-dial-adapter-openai](#ai-dial-adapter-openai)
+  - [ai-dial-chat](#ai-dial-chat)
+  - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend)
+  - [ai-dial-admin-frontend](#ai-dial-admin-frontend)
+  - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend)
+  - [ai-dial-admin-backend](#ai-dial-admin-backend)
+
 ## Versions
 
 1. Helm chart versions:
@@ -77,7 +91,7 @@
 |---------------------------------|-------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | `PY_INTERPRETER_CLIENT_TIMEOUT` | `DEFAULT_TOOL_TIMEOUT_SECONDS` or `tool_defaults.timeout_seconds` | When set, still controls the PyInterpreter client timeout (default `60.0`); the unified tool-timeout settings are preferred. |
 
-### ai-dial-admin-frontend: 
+### ai-dial-admin-frontend
 
 This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-frontend/blob/0.16.0/docs/upgrade-plans/0.16.0.md) before proceeding.
 
@@ -88,11 +102,11 @@ This release includes high-priority changes. Please review the [full upgrade gui
 >
 > See the upgrade guide for details.
 
-### ai-dial-admin-deployment-manager-backend: 
+### ai-dial-admin-deployment-manager-backend
 
 This release includes high-priority changes. Please review the [full upgrade guide](https://github.com/epam/ai-dial-admin-deployment-manager-backend/blob/0.16.0/docs/upgrade-plans/0.16.0.md) before proceeding.
 
-### ai-dial-admin-backend: 
+### ai-dial-admin-backend
 
 This release includes low-priority changes in observability.
 

@@ -1,5 +1,21 @@
 # Instructions
 
+## Table of contents
+
+- [Versions](#versions)
+- [Before upgrade](#before-upgrade)
+  - [General notes](#general-notes)
+  - [Release-specific notes](#release-specific-notes)
+- [Config changes](#config-changes)
+  - [ai-dial-core](#ai-dial-core)
+  - [ai-dial-chat](#ai-dial-chat)
+  - [ai-dial-chat-themes](#ai-dial-chat-themes)
+  - [ai-dial-adapter-bedrock](#ai-dial-adapter-bedrock)
+  - [ai-dial-admin-frontend](#ai-dial-admin-frontend)
+  - [ai-dial-admin-backend](#ai-dial-admin-backend)
+  - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend)
+  - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend)
+
 ## Versions
 
 1. Helm chart versions:
@@ -133,16 +149,16 @@ A new supported value has been added: `gcp`
 
 ### ai-dial-admin-deployment-manager-backend
 
-####  New Configuration Properties
+#### New Configuration Properties
 
-###### Build and Deployment Configuration
+##### Build and Deployment Configuration
 
 | Property | Environment Variable | Default Value | Required | Applied when | Description |
 |-----------|----------------------|---------------|----------|--------------|------------|
 | `app.image-name-format` | `IMAGE_NAME_FORMAT` | `app-%s` | No | - | Name format for images built using Deployment Manager. Must contain `%s` which will be replaced by the image definition ID. |
 | `app.resource-name-prefix` | `RESOURCE_NAME_PREFIX` | - | No | - | Prefix added to all resources produced by image builds and deployments. ⚠️ Do not change this value in existing setups — otherwise previously created images and Kubernetes resources may become inaccessible. |
 
-###### Deployment State Synchronization Configuration
+##### Deployment State Synchronization Configuration
 
 | Property                                              | Environment Variable                                   | Default Value             | Required | Applied when | Description                                                                                                                         |
 |-------------------------------------------------------|--------------------------------------------------------|---------------------------|----------|--------------|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -152,7 +168,7 @@ A new supported value has been added: `gcp`
 
 ---
 
-###### Hugging Face Configuration
+##### Hugging Face Configuration
 
 | Property | Environment Variable | Default Value | Required | Applied when | Description |
 |-----------|----------------------|---------------|----------|--------------|------------|
@@ -162,7 +178,7 @@ A new supported value has been added: `gcp`
 
 ---
 
-###### Validation Configuration
+##### Validation Configuration
 
 | Property | Environment Variable | Default Value | Required | Applied when | Description |
 |-----------|----------------------|---------------|----------|--------------|------------|
@@ -174,7 +190,7 @@ A new supported value has been added: `gcp`
 
 #### Modified Configuration
 
-###### Default Values Changed
+##### Default Values Changed
 
 - `K8S_NIM_ENABLED`: `true` → `false`
 - `K8S_KSERVE_ENABLED`: `true` → `false`
@@ -182,7 +198,7 @@ A new supported value has been added: `gcp`
 
 ---
 
-###### Renamed Environment Variables
+##### Renamed Environment Variables
 
 | Old Name | New Name |
 |----------|----------|
@@ -195,7 +211,7 @@ A new supported value has been added: `gcp`
 
 > Old variable names are no longer supported. Please update your configuration accordingly.
 
-###### Cilium configuration
+##### Cilium configuration
 Deployment manager supports usage of cilium policies: 
 | Setting | Effect |
 |--------|--------|

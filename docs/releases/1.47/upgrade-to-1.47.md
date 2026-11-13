@@ -1,5 +1,24 @@
 # Instructions
 
+## Table of contents
+
+- [Versions](#versions)
+- [Before upgrade](#before-upgrade)
+  - [General notes](#general-notes)
+  - [Release-specific notes](#release-specific-notes)
+    - [ai-dial-chat: the `0.4x` line ends with this release](#ai-dial-chat-the-04x-line-ends-with-this-release)
+    - [Migrating from `0.4x` to `1.0.0`](#migrating-from-04x-to-100)
+    - [ai-dial-chat](#ai-dial-chat-0490)
+    - [ai-dial-quickapps-frontend](#ai-dial-quickapps-frontend-010)
+    - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend-0200)
+    - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-030)
+    - [ai-dial-admin-frontend](#ai-dial-admin-frontend-0200)
+    - [ai-dial-analytics-realtime](#ai-dial-analytics-realtime-0270)
+    - [ai-dial-admin-backend](#ai-dial-admin-backend-0200)
+    - [ai-dial-core](#ai-dial-core-0470)
+    - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend-0110)
+    - [ai-dial-openapi-to-mcp](#ai-dial-openapi-to-mcp-021)
+
 ## Versions
 
 1. Helm chart versions:
@@ -222,7 +241,7 @@ This release includes **high-priority changes**. Please review the [full upgrade
 
 #### ai-dial-admin-evaluation-framework-backend `0.3.0`
 
-### New environment variables
+##### New environment variables
 
 | Variable | Default | Description |
 |---|---|---|
@@ -244,7 +263,7 @@ This release includes **high-priority changes**. Please review the [full upgrade
 | `TEST_SUITE_RUN_EXEC_MAX_TIMEOUT` | `1200000` | Upper bound, in milliseconds, a run may request for its per-request timeout. |
 | `VIRTUAL_THREADS_ENABLED` | `true` | Toggles Spring's virtual-thread executor; set to `false` to aid troubleshooting. |
 
-### Behavioral changes
+##### Behavioral changes
 > [!NOTE]
 > These take effect automatically on upgrade — no operator action required, but existing suites may select or time out differently than they did on `0.2.0`.
 
@@ -253,7 +272,7 @@ This release includes **high-priority changes**. Please review the [full upgrade
 - **Run selection** — the only rule is now `is_valid = TRUE AND testCaseFilter`. Suites carrying stale `test_suites.disabled_test_case_ids` values run every valid, filter-matching case; the column is retained but no longer read or written, with the drop deferred to a follow-up #151 (#152)
 - **Suite snapshots on imported runs** — the snapshot phase now runs for every run, so an imported run scores against frozen suite config instead of resynthesizing from the live suite (#122)
 
-### Database migrations
+##### Database migrations
 > [!NOTE]
 > Flyway applies these automatically on startup; the service account needs DDL privileges on both schemas. All column adds are backward compatible — nullable JSONB, or `NOT NULL DEFAULT` backfilled in a metadata-only statement with no table rewrite.
 
@@ -268,7 +287,7 @@ This release includes **high-priority changes**. Please review the [full upgrade
 > [!CAUTION]
 > `V1.13` and `V1.14` drop and re-create the unique constraint / index on `test_case_run_results` and `test_case_eval_summaries`. On a large analytics deployment this takes a long exclusive lock — plan a maintenance window, or replace them with a non-transactional `CREATE UNIQUE INDEX CONCURRENTLY` + swap.
 
-### API / contract changes
+##### API / contract changes
 > [!NOTE]
 > Full reference in Swagger UI (`/swagger-ui.html`).
 

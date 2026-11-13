@@ -1,5 +1,20 @@
 # Instructions
 
+## Table of contents
+
+- [Versions](#versions)
+- [Before upgrade](#before-upgrade)
+  - [General notes](#general-notes)
+  - [Release-specific notes](#release-specific-notes)
+    - [dial `7.1.0` Helm chart](#dial-710-helm-chart)
+    - [ai-dial-admin-deployment-manager-backend](#ai-dial-admin-deployment-manager-backend-0190)
+    - [ai-dial-admin-evaluation-framework-backend](#ai-dial-admin-evaluation-framework-backend-020)
+    - [ai-dial-admin-evaluation-metrics](#ai-dial-admin-evaluation-metrics-010)
+    - [ai-dial-admin-frontend](#ai-dial-admin-frontend-0190)
+    - [ai-dial-chat](#ai-dial-chat-0480)
+    - [ai-dial-quickapps-backend](#ai-dial-quickapps-backend-0100)
+    - [ai-dial-core](#ai-dial-core-0460)
+
 ## Versions
 
 1. Helm chart versions:
@@ -58,7 +73,7 @@ This release includes **high-priority changes**. Please review the [full upgrade
 
 #### ai-dial-admin-evaluation-framework-backend `0.2.0`
 
-### Database migrations
+##### Database migrations
 > [!NOTE]
 > Flyway applies these automatically on startup; the service account needs DDL privileges on both schemas. All migrations in this release are additive (new tables, columns, and a stored function).
 - **meta** — `V1.23__AddOverallScoreToTestSuites.sql` — adds the `overall_score` JSONB column to `test_suites` (#68)
@@ -72,7 +87,7 @@ This release includes **high-priority changes**. Please review the [full upgrade
 
 #### ai-dial-admin-evaluation-metrics `0.1.0`
 
-### New environment variables
+##### New environment variables
 
 |Variable|Default|Description|
 |---|---|---|
@@ -113,7 +128,7 @@ This release includes **high-priority changes**. Please review the [full upgrade
 
 #### ai-dial-chat `0.48.0`
 
-### New environment variables
+##### New environment variables
 
 | Variable | Required | Description | Available Values | Default values |
 |---|:---:|---|---|---|
@@ -123,7 +138,7 @@ This release includes **high-priority changes**. Please review the [full upgrade
 
 #### ai-dial-quickapps-backend `0.10.0`
 
-### New environment variables
+##### New environment variables
 
 | Variable                    | Default                                                          | Description                                                                                                                                                                                                                     |
 |-----------------------------|-----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -134,7 +149,7 @@ This release includes **high-priority changes**. Please review the [full upgrade
 | `LOG_PAYLOADS`              | `false`                                                        | Emit payload content (message bodies, tool-call arguments, tool/LLM response bodies) at DEBUG. When `false`, no payload content is logged at **any** level and `openai`/`httpx`/`httpcore` are capped at INFO. Local development only. |
 | `LOG_PAYLOADS_MAX_LENGTH`   | `2000`                                                         | Per-field character cap applied to each payload value when `LOG_PAYLOADS=true`; longer values are truncated. Inert when `LOG_PAYLOADS=false`.                                                                                   |
 
-### Deprecated environment variables
+##### Deprecated environment variables
 
 > [!CAUTION]
 > Still works, but will be removed in future versions.
@@ -145,21 +160,21 @@ This release includes **high-priority changes**. Please review the [full upgrade
 | `LOG_DATE_FORMAT`             | —                                                       | Still honored alongside `LOG_FORMAT`; going forward the timestamp format is fixed to `%Y-%m-%d %H:%M:%S` (the previous default).               |
 | `OTEL_PYTHON_LOG_CORRELATION` | — *(automatic)*                                         | Deprecated by aidial-sdk; warns at startup. Trace fields are stamped onto log records whenever tracing is enabled, so the switch is redundant. |
 
-### Removed environment variables
+##### Removed environment variables
 
 | Variable                   | Reason                                                                                                      |
 |----------------------------|------------------------------------------------------------------------------------------------------------|
 | `CHAT_MESSAGE_LOG_LEN`     | Fed a message-logging helper whose only call site was never invoked; the setting was inert (#442).         |
 | `LOG_MULTILINE_LOG_ENABLED`| Toggled a formatter never registered in the logging config; the setting was inert (#442).                  |
 
-### Behavioral changes
+##### Behavioral changes
 
 > [!NOTE]
 > - **Lazy on-demand attachment strategy → GA** — `orchestrator.attachment_strategy` (`lazy_on_demand`) and the `internal_attachments_get_content` tool are now active regardless of `ENABLE_PREVIEW_FEATURES` (#394).
 > - **Logging content policy** — logs now carry structure (roles, counts, sizes, names, ids, sanitized URLs, header **names**) and never payload content at any level, DEBUG included; set `LOG_PAYLOADS=true` for local debugging only (#436, #459).
 > - **Failed turns delivered via the DIAL error protocol** — clients render a real error state instead of a fake assistant reply, error text stays out of LLM history, and monitoring sees a failure rather than a success (#411, #412).
 
-### Behavioral changes
+##### Behavioral changes
 
 > [!NOTE]
 > The built-in file-parameter skill now prefers the new `data` prefix over `base64` for inline file content, so existing apps change behaviour on upgrade without any config change. Tools that need a bare base64 payload still work — the skill retries once with `file:base64::` when a `file:data::` call fails.
