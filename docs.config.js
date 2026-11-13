@@ -22,7 +22,7 @@
 
 // ===== EDIT HERE: in-file defaults (env vars override these) ================
 /** Which docs sets to build/serve: 'both' | 'old' | 'new'. */
-const DEFAULT_VARIANT = 'both';
+const DEFAULT_VARIANT = 'new';
 /**
  * Which NEW sections show in the sidebar: 'all', or a comma-separated list of
  * section keys (see V2_SECTIONS below), e.g. 'building-with-dial' or
@@ -44,19 +44,16 @@ export const NEW_BASE = SHOW_OLD ? '/v2' : '/';
 // ---- NEW top-level sections CATALOG (reference data — do not subset to hide;
 //      keys/labels must match the top-level item labels in sidebars-v2.js —
 //      categories, plus the Overview doc) ----
-// `landing` is the in-instance route of each section's first page (no leading
-// slash, no instance base). Used to point the instance root at the first
-// visible section. Verify against the sitemap if a section's first page moves.
 export const V2_SECTIONS = [
-  { key: 'overview', label: 'Overview', landing: 'overview' },
-  { key: 'understand-dial', label: 'Understand DIAL', landing: 'understand-dial/index' },
-  { key: 'building-with-dial', label: 'Building with DIAL', landing: 'building-with-dial/index' },
-  { key: 'operating-dial', label: 'Operating DIAL', landing: 'operating-dial/index' },
-  { key: 'administering-dial', label: 'Administering DIAL', landing: 'administering-dial-new/index' },
-  { key: 'services', label: 'Services', landing: 'services/index' },
-  { key: 'chat-user-guide', label: 'Chat User Guide', landing: 'chat-user-guide/index' },
-  { key: 'use-cases', label: 'Use Cases', landing: 'use-cases/index' },
-  { key: 'demos', label: 'Demos', landing: 'demos/index' },
+  { key: 'overview', label: 'Overview' },
+  { key: 'understand-dial', label: 'Understand DIAL' },
+  { key: 'building-with-dial', label: 'Building with DIAL' },
+  { key: 'operating-dial', label: 'Operating DIAL' },
+  { key: 'administering-dial', label: 'Administering DIAL' },
+  { key: 'services', label: 'Services' },
+  { key: 'chat-user-guide', label: 'Chat User Guide' },
+  { key: 'use-cases', label: 'Use Cases' },
+  { key: 'demos', label: 'Demos' },
 ];
 
 const ALL_KEYS = V2_SECTIONS.map((s) => s.key);
@@ -77,20 +74,15 @@ if (unknown.length) {
   );
 }
 
-// ---- Root redirects ----
-// No page owns the site root '/' (the legacy home lives at OLD_HOME, set by the
-// `slug` in docs/README.md) or the NEW instance root ('/v2' when OLD is also
-// built). Both redirect to the FIRST VISIBLE NEW section's landing page (catalog
-// order), so the landing stays meaningful — and inside the sidebar — whichever
-// sections are hidden. With only OLD built, '/' redirects to the legacy home.
-// Null when there is nothing to redirect to.
+// ---- Home page redirects ----
+// The NEW Overview doc (docs_v2/1.overview.md, `slug: /`) is the home page,
+// served at the NEW instance root NEW_BASE. Its earlier URLs redirect to it:
+// '/v2' and '/v2/overview' (published while NEW lived at '/v2'), plus the site
+// root '/' when OLD is also built (no OLD doc owns '/'; the legacy home lives at
+// OLD_HOME, set by the `slug` in docs/README.md). Hiding the Overview entry with
+// DOCS_V2_SECTIONS removes it from the menu only; the page still owns NEW_BASE.
+// With only OLD built, '/' redirects to the legacy home.
 export const OLD_HOME = '/home';
-const joinUrl = (base, p) => (base === '/' ? `/${p}` : `${base}/${p}`);
-const firstVisible = V2_SECTIONS.find((s) => V2_SECTION_KEYS.includes(s.key));
-const newLanding =
-  SHOW_NEW && firstVisible ? joinUrl(NEW_BASE, firstVisible.landing) : null;
-export const ROOT_REDIRECT = newLanding
-  ? { from: [...new Set(['/', NEW_BASE])], to: newLanding }
-  : SHOW_OLD
-    ? { from: ['/'], to: OLD_HOME }
-    : null;
+export const ROOT_REDIRECT = SHOW_NEW
+  ? { from: ['/', '/v2', '/v2/overview'].filter((p) => p !== NEW_BASE), to: NEW_BASE }
+  : { from: ['/'], to: OLD_HOME };
