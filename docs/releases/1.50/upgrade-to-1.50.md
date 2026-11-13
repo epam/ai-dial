@@ -32,8 +32,8 @@
    - ai-dial-adapter-vertexai: `0.42.0`
    - ai-dial-adapter-dial: `0.21.0`
    - ai-dial-chat-themes: `0.22.0`
-   - ai-dial-chat: `1.3.0`
-   - ai-dial-core: `0.50.0`
+   - ai-dial-chat: `1.3.1`
+   - ai-dial-core: `0.50.1`
    - ai-dial-analytics-realtime: `0.30.0`
    - ai-dial-analytics: `0.23.0`
    - ai-dial-analytics-enrichment-runner: `0.23.0`
@@ -188,7 +188,7 @@ Upgrade together with ADAS 0.23: the ADAS ↔ Enrichment Runner contract version
 
 ---
 
-#### ai-dial-chat `1.3.0`
+#### ai-dial-chat `1.3.1`
 
 ### New environment variables
 
@@ -282,7 +282,7 @@ The `hide-starter-icon` value is added to `ENABLED_UI_FEATURES` for label-only c
 
 ---
 
-#### ai-dial-core `0.50.0`
+#### ai-dial-core `0.50.1`
 
 Deltas below are relative to **0.49.4**, the last published stable release.
 
