@@ -1,7 +1,0 @@
-include:
-  - path: ../common.yml
-    env_file: ./.env
-
-services:
-  echo:
-    build: echo

@@ -1,108 +1,86 @@
 # Branch Guide — `feature/doc_improvements`
 
 A working map of this branch: how to control what the docs site shows, what the
-`docs/` and `docs_v2/` trees are for, what each script in `scripts/` does (and which
-ones were removed now that the migration is complete), and what lives in
-`docs-planning/`.
+`docs_v2/` tree is for, what each script in `scripts/` does (and which ones were
+removed now that the migration is complete), and what lives in `docs-planning/`.
 
 This is the **documentation/meta repository** for AI DIAL — the Docusaurus 3 site is
-rooted at the repo root (`docusaurus.config.js`, `sidebars.js`, `sidebars-v2.js`,
-`package.json`, `docs.config.js` are all top-level, **not** inside `docs/`).
+rooted at the repo root (`docusaurus.config.js`, `sidebars-v2.js`, `package.json`,
+`docs.config.js` are all top-level).
 
 ---
 
-## 1. Configuring what the branch shows (OLD/NEW docs + sections)
+## 1. Configuring what the site shows (sections)
 
-[`docs.config.js`](./docs.config.js) (repo root) is the **single source of truth** for
-build-time visibility. It is read by both `docusaurus.config.js` (which doc sets get
-built/served) and `sidebars-v2.js` (which NEW sections appear in the menu).
+[`docs.config.js`](./docs.config.js) (repo root) is read by both `docusaurus.config.js`
+(home page redirects) and `sidebars-v2.js` (which sections appear in the menu).
 
-There are two knobs. Each has a committed in-file default and a matching env var that
+There is one knob, with a committed in-file default and a matching env var that
 overrides it (**env always wins**):
 
 | Knob | In-file default | Env var | Values |
 |---|---|---|---|
-| Which doc sets | `DEFAULT_VARIANT = 'both'` | `DOCS_VARIANT` | `both` \| `old` \| `new` |
-| Which NEW sections | `DEFAULT_SECTIONS = 'all'` | `DOCS_V2_SECTIONS` | `all` \| comma-separated section keys |
+| Which sections | `DEFAULT_SECTIONS = 'all'` | `DOCS_V2_SECTIONS` | `all` \| comma-separated section keys |
 
-**Committed default on this branch: `both` + `all`** — OLD and NEW are both served, and
-every NEW section shows in the sidebar.
+### Home page
 
-### `DOCS_VARIANT` — which doc sets
+`docs_v2/1.overview.md` has `slug: /`, so the Overview page is the site home at `/`. An
+inline redirect plugin (`docusaurus.config.js` → `src/components/RootRedirect.js`,
+routes and target from `ROOT_REDIRECT` in `docs.config.js`) sends `/v2` and
+`/v2/overview`, the home URLs from before the docs moved to `/`, to `/`. Other
+`/v2/...` URLs are not redirected.
 
-- `both` (default) — OLD served at `/`, NEW served at `/v2`. The navbar has no OLD/NEW
-  switcher; OLD pages stay reachable by URL.
-- `old` — only `docs/`, served at `/`.
-- `new` — only `docs_v2/`, served at `/` (the sole shown set owns the root).
-
-Neither the site root `/` nor the NEW instance root `/v2` has a page of its own (the
-legacy home `docs/README.md` has `slug: /home`). An inline redirect plugin
-(`docusaurus.config.js` → `src/components/RootRedirect.js`, routes and target computed as
-`ROOT_REDIRECT` in `docs.config.js`) sends both to the **first visible section's landing
-page** (catalog order, per each section's `landing` in `V2_SECTIONS`), `/v2/overview` by
-default. So hiding the Overview entry just moves the landing to the next visible section.
-In `old` mode, `/` redirects to the legacy home `/home`.
-
-### `DOCS_V2_SECTIONS` — which NEW sections show in the sidebar
+### `DOCS_V2_SECTIONS` — which sections show in the sidebar
 
 Comma-separated **section keys** (catalog in `V2_SECTIONS` in `docs.config.js`):
 
 ```
 overview, understand-dial, building-with-dial, operating-dial,
-administering-dial, chat-user-guide, reference, use-cases, demos
+administering-dial, services, chat-user-guide, use-cases, demos
 ```
 
 Hiding a section removes it from the **menu only** — its pages still build and stay
-reachable, so cross-links don't break. A mistyped key prints a warning (it won't
-silently drop a real section).
+reachable, so cross-links don't break. Hiding `overview` removes its menu entry; the
+page still owns `/`. A mistyped key prints a warning (it won't silently drop a real
+section).
 
 > Do **not** trim the `V2_SECTIONS` catalog to hide sections — that's reference data.
 > Use `DEFAULT_SECTIONS` / `DOCS_V2_SECTIONS` instead.
 
 ### How to change it
 
-For a **committed** change affecting every build (including production), edit the two
-`DEFAULT_*` constants near the top of `docs.config.js`. For **one-off / local**
-experiments, set the env vars:
+For a **committed** change affecting every build (including production), edit
+`DEFAULT_SECTIONS` near the top of `docs.config.js`. For **one-off / local**
+experiments, set the env var:
 
 ```bash
-# Defaults (both sets, all sections) — what this branch ships:
+# Defaults (all sections):
 npm run start
 
-# NEW only, served at /:
-DOCS_VARIANT=new npm run build
-
-# NEW sidebar shows just two sections:
+# Sidebar shows just two sections:
 DOCS_V2_SECTIONS="overview,building-with-dial" npm run start
 ```
 
 ---
 
-## 2. Role of `docs/` (OLD) and `docs_v2/` (NEW)
+## 2. Role of `docs_v2/`
 
-OLD and NEW are **two separate Docusaurus instances** — physically and structurally
-distinct:
-
-| | OLD (legacy, being phased out) | NEW (restructured) |
-|---|---|---|
-| Content folder | `docs/` | `docs_v2/` |
-| Sidebar file | `sidebars.js` (`CustomSideBar`) | `sidebars-v2.js` (`v2Sidebar`) |
-| Served at | `/` | `/v2` (in `both` mode) |
-| Plugin | classic preset | second `@docusaurus/plugin-content-docs` instance (`id: v2`) |
-
-**All new documentation goes into `docs_v2/`. Never add content to `docs/`.** When
-migrating an OLD page, move/rewrite it into the right place under `docs_v2/` per the
-recommended site structure. Page ids in `sidebars-v2.js` are relative to `docs_v2/`
-(e.g. `building-with-dial/apps/index` — no `docs/NEW/` prefix).
+All documentation lives in `docs_v2/`, served at `/` by the
+`@docusaurus/plugin-content-docs` instance with `id: v2` (the id and folder name are
+historical; the classic preset's own docs instance is off). The legacy `docs/` site,
+its `sidebars.js`, and the Quarto notebook rendering it used were removed; legacy URLs
+return 404. Page ids in `sidebars-v2.js` are relative to `docs_v2/`
+(e.g. `building-with-dial/apps/index`).
 
 **Link conventions** (`onBrokenLinks`, `onBrokenAnchors`, `onBrokenMarkdownLinks`,
 `onBrokenMarkdownImages` are all `throw` — a broken link fails the build):
 
 - Internal doc-to-doc links use a **relative path ending in `.md`**, including the
   numeric file prefix (e.g. `](../apps/0.index.md)`, `](./3.prompts.md#variables)`).
-  Never use an absolute root path (`/v2/...` or `/platform/...`).
-- Keep the NEW tree **self-contained** — `docs_v2/` pages link to other `docs_v2/`
-  pages, not into OLD `docs/`. Cross-instance links can't be relative `.md` links.
+  Never use an absolute root path (e.g. `/building-with-dial/...` or `/v2/...`).
+- Never link to legacy `docs.dialx.ai` URLs (such as `/platform/...`) or to folders
+  removed from this repo (`docs/`, `dial-cookbook/`, `dial-docker-compose*/`); they
+  return 404. Link to the `docs_v2/` page instead.
 - Index docs use a `0.index.md` filename (the numeric prefix prevents folder-collapsing).
 
 ---
@@ -118,7 +96,7 @@ Run via the npm scripts in `package.json` (all use `npx tsx`).
 | `check-references.ts` | `check:references`, `check:references:strict` | Scans `docs_v2/` for pinned PyPI/npm versions in sample code, crawls referenced GitHub sample repos, and writes `outdated_references.json`. `--strict` exits 1 on any outdated reference. |
 | `references-shared.ts` | — (imported by the two reference scripts) | Shared types/helpers: resolves pinned versions against PyPI/npm and applies the freshness rule. |
 | `render-outdated-references.ts` | `references:render-md` | Renders `outdated_references.json` into a human-readable `outdated_references.md`. Rendering only, no network. |
-| `check-frontmatter.mts` | `lint:frontmatter`, `:strict`, `:fix` | Validates YAML frontmatter in every Markdown file under `docs/` and `docs_v2/` against the Style Guide. `--fix` inserts stub frontmatter. |
+| `check-frontmatter.mts` | `lint:frontmatter`, `:strict`, `:fix` | Validates YAML frontmatter in every Markdown file under `docs_v2/` against the Style Guide. `--fix` inserts stub frontmatter. |
 
 ### Removed: obsolete progress-tracking scripts
 
