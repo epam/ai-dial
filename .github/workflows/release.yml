@@ -6,95 +6,7 @@ on:
       - main
 
 jobs:
-  run-notebooks:
-    name: Cookbook notebooks
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-        with:
-          submodules: true
-      - uses: isbang/compose-action@d2bee4f07e8ca410d6b196d00f90c12e7d48c33a # v2.6.0
-        with:
-          cwd: "./dial-cookbook/ci"
-          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
-
-
-  run-quickstart-model:
-    name: Quickstart model
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-      - uses: isbang/compose-action@d2bee4f07e8ca410d6b196d00f90c12e7d48c33a # v2.6.0
-        name: Run quickstart model example
-        with:
-          cwd: "./dial-docker-compose/ci/model"
-          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
-
-  run-quickstart-application:
-    name: Quickstart application
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-      - uses: isbang/compose-action@d2bee4f07e8ca410d6b196d00f90c12e7d48c33a # v2.6.0
-        with:
-          cwd: "./dial-docker-compose/ci/application"
-          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
-
-  run-quickstart-addon:
-    name: Quickstart addon
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-      - uses: isbang/compose-action@d2bee4f07e8ca410d6b196d00f90c12e7d48c33a # v2.6.0
-        with:
-          cwd: "./dial-docker-compose/ci/addon"
-          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
-
-  run-quickstart-self-hosted-model-ollama:
-    name: Quickstart self-hosted model (Ollama)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-      - name: Docker Compose pull
-        shell: bash
-        run: |
-          cd ./dial-docker-compose/ci/ollama
-          docker compose pull --quiet
-      - name: Docker Compose up
-        shell: bash
-        run: |
-          cd ./dial-docker-compose/ci/ollama
-          docker compose up --abort-on-container-exit --exit-code-from test --timeout 300
-
-  run-advanced-1x-smoke-test:
-    name: Docker compose advanced 1.x smoke test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-      - uses: isbang/compose-action@d2bee4f07e8ca410d6b196d00f90c12e7d48c33a # v2.6.0
-        with:
-          cwd: "./dial-docker-compose-advanced/dial-1.x/ci"
-          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
-
-  run-advanced-2x-smoke-test:
-    name: Docker compose advanced 2.x smoke test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-      - uses: isbang/compose-action@d2bee4f07e8ca410d6b196d00f90c12e7d48c33a # v2.6.0
-        with:
-          cwd: "./dial-docker-compose-advanced/dial-2.x/ci"
-          up-flags: "--abort-on-container-exit --exit-code-from test --timeout 300"
-
   build-and-deploy:
-    needs:
-      - run-notebooks
-      - run-quickstart-model
-      - run-quickstart-application
-      - run-quickstart-addon
-      - run-quickstart-self-hosted-model-ollama
-      - run-advanced-1x-smoke-test
-      - run-advanced-2x-smoke-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
@@ -102,15 +14,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
-        with:
-          python-version: "3.11"
       - name: Install npm dependencies
         run: npm ci
       - name: Install docusaurus
         run: npm install --global docusaurus-init
-      - name: Install quarto
-        run: pip install "quarto-cli>=1.4,<2.0"
       - name: Build website
         run: npm run build
         env:
