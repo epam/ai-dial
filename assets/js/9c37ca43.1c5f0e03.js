@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdial=globalThis.webpackChunkdial||[]).push([[9858],{72559(a){a.exports=JSON.parse('{"to":"/understand-dial/architecture/ai-api-overview"}')}}]);

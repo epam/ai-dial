@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdial=globalThis.webpackChunkdial||[]).push([[8114],{74276(a){a.exports=JSON.parse('{"to":"/understand-dial/architecture/trade-offs-and-limitations"}')}}]);

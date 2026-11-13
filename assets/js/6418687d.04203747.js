@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkdial=globalThis.webpackChunkdial||[]).push([[19673],{26317(a){a.exports=JSON.parse('{"to":"/v2/understand-dial/architecture/architecture-highlights"}')}}]);
