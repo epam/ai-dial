@@ -9,6 +9,71 @@ import fauxRemarkEmbedder from '@remark-embedder/core';
 import { readFileSync } from 'fs';
 import oembedTransformer from './src/transformers/oembed.js';
 import jupyterTransformer from './src/transformers/jupyter.js';
+import {
+  SHOW_OLD,
+  SHOW_NEW,
+  OLD_BASE,
+  NEW_BASE,
+  ROOT_REDIRECT,
+} from './docs.config.js';
+
+// Inline plugin: redirect the site root and the NEW instance root (no doc owns
+// either) to the first visible NEW section's landing page. See docs.config.js
+// ROOT_REDIRECT.
+function rootRedirectPlugin({ siteConfig }) {
+  return {
+    name: 'root-redirect',
+    async contentLoaded({ actions }) {
+      if (!ROOT_REDIRECT) return;
+      const baseUrl = siteConfig.baseUrl.replace(/\/$/, '');
+      actions.setGlobalData({ to: `${baseUrl}${ROOT_REDIRECT.to}` });
+      for (const from of ROOT_REDIRECT.from) {
+        actions.addRoute({
+          path: `${baseUrl}${from}`,
+          component: '@site/src/components/RootRedirect.js',
+          exact: true,
+        });
+      }
+    },
+  };
+}
+
+// Preserve published URLs when v2 pages are removed or renamed.
+function v2DocRedirectsPlugin({ siteConfig }) {
+  return {
+    name: 'v2-doc-redirects',
+    async contentLoaded({ actions }) {
+      const docsBase = `${siteConfig.baseUrl.replace(/\/$/, '')}${NEW_BASE === '/' ? '' : NEW_BASE}`;
+      const tradeOffs = 'understand-dial/architecture/trade-offs-and-limitations';
+      const redirects = {
+        'home/architect-overview': 'understand-dial/architecture/architecture-highlights',
+        'understand-dial/architecture/unified-api-overview': 'understand-dial/architecture/ai-api-overview',
+        'understand-dial/positioning/comparisons': tradeOffs,
+        'understand-dial/positioning/comparisons/dial-vs-ai-gateways': tradeOffs,
+        'understand-dial/positioning/comparisons/dial-vs-app-builders': tradeOffs,
+        'understand-dial/positioning/comparisons/dial-vs-frameworks': tradeOffs,
+        'understand-dial/positioning/comparisons/dial-vs-ai-studios': tradeOffs,
+      };
+      for (const [from, to] of Object.entries(redirects)) {
+        const redirect = await actions.createData(
+          `${from.replace(/\//g, '-')}-redirect.json`,
+          JSON.stringify({ to: `${docsBase}/${to}` }),
+        );
+        actions.addRoute({
+          path: `${docsBase}/${from}`,
+          component: '@site/src/components/DocRedirect.js',
+          modules: { redirect },
+          exact: true,
+        });
+      }
+    },
+  };
+}
+
+// remark plugins shared by both docs instances
+const docsRemarkPlugins = [
+  [fauxRemarkEmbedder, { transformers: [oembedTransformer, jupyterTransformer] }],
+];
 
 const footerLink = (href, path) => {
   return `<a class="footer__link-item" target="_blank" rel="noopener noreferrer" href="${href}">${readFileSync(
@@ -39,11 +104,13 @@ const config = {
   onBrokenLinks: 'throw', //'throw', for exceptions
   onBrokenAnchors: 'throw',
   markdown: {
+    mermaid: true,
     hooks: {
       onBrokenMarkdownLinks: 'throw',
       onBrokenMarkdownImages: 'throw',
     },
   },
+  themes: ['@docusaurus/theme-mermaid'],
   onDuplicateRoutes: 'throw',
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -54,27 +121,44 @@ const config = {
   },
   plugins: [
     'docusaurus-plugin-image-zoom', // can also just be 'image-zoom'
+    ...(ROOT_REDIRECT ? [rootRedirectPlugin] : []),
+    ...(SHOW_NEW ? [v2DocRedirectsPlugin] : []),
+    // NEW docs instance — included only when SHOW_NEW; routeBasePath is '/v2'
+    // when OLD is also served, otherwise '/'.
+    ...(SHOW_NEW
+      ? [
+          [
+            '@docusaurus/plugin-content-docs',
+            /** @type {import('@docusaurus/plugin-content-docs').Options} */
+            ({
+              id: 'v2',
+              path: 'docs_v2',
+              routeBasePath: NEW_BASE,
+              sidebarPath: './sidebars-v2.js',
+              remarkPlugins: docsRemarkPlugins,
+            }),
+          ],
+        ]
+      : []),
   ],
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          routeBasePath: '/',
-          sidebarPath: './sidebars.js',
-          exclude: ['releases/**'],
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          //editUrl:
-          //  'https://github.com/epam/ai-dial/tree/main/',
-          remarkPlugins: [
-            [
-              fauxRemarkEmbedder,
-              { transformers: [oembedTransformer, jupyterTransformer] },
-            ],
-          ],
-        },
+        // OLD docs instance — disabled entirely when SHOW_OLD is false.
+        docs: SHOW_OLD
+          ? {
+              routeBasePath: OLD_BASE,
+              sidebarPath: './sidebars.js',
+              exclude: ['releases/**'],
+              // Please change this to your repo.
+              // Remove this to remove the "edit this page" links.
+              //editUrl:
+              //  'https://github.com/epam/ai-dial/tree/main/',
+              remarkPlugins: docsRemarkPlugins,
+            }
+          : false,
         blog: false,
         theme: {
           customCss: './src/css/custom.css',
@@ -127,14 +211,7 @@ const config = {
           src: 'img/logo-lt.svg',
           srcDark: 'img/logo-dk.svg',
         },
-        items: [
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'tutorialSidebar',
-          //   position: 'left',
-          //   label: 'Tutorial',
-          // },
-        ],
+        items: [],
       },
       footer: {
         links: [
