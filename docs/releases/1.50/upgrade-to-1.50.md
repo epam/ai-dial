@@ -284,41 +284,8 @@ The `hide-starter-icon` value is added to `ENABLED_UI_FEATURES` for label-only c
 
 #### ai-dial-core `0.50.1`
 
-Deltas below are relative to **0.49.4**, the last published stable release.
-
-Static settings are read from the `AIDIAL_SETTINGS` file; any of them can also be set through an environment variable named `aidial.` + the setting key, for example `aidial.orgUnits.enabled=true`. Dynamic settings live in `aidial.config.json` and are reloaded without a restart.
-
-### New static settings
-
-| Setting (env var) | Default | Description |
-| --- | --- | --- |
-| `orgUnits.enabled` (`aidial.orgUnits.enabled`) | `false` | Preview. Turns on org units: shared-space folders recorded as units with their own roles and approvers, managed through `/v1/org-units/public`. Off, those routes answer 404 and nothing else changes. See Behavioral changes and [Org units](https://github.com/epam/ai-dial-core/blob/0.50.0/docs/org-units.md). (#2137, #2138, #2163, #2164, #2165, #2209) |
-| `identityProviders.*.userEmailPath` (`aidial.identityProviders.<idp>.userEmailPath`) | `email` | Claim, in the JWT or the user info response, that holds the user's email address, e.g. `preferred_username` or `upn` for Microsoft Entra ID. Org-unit role assignments and rules on the `email` source match this value. (#2238) |
-
-### New dynamic settings
-
-| Setting | Default | Description |
-| --- | --- | --- |
-| `orgUnitRoles` | built-in `admin`, `editor`, `viewer`, `member` | Roles that can be assigned at an org unit, replacing or adding to the built-in ones. Optional: the built-in roles work without it. Used only when `orgUnits.enabled` is `true`. (#2162) |
-
-### Behavioral changes
-
-> [!NOTE]
-> The org-unit changes take effect only once `orgUnits.enabled` is `true`. The email change takes effect on upgrade.
-
-- **Roles decide access inside units.** Inside a unit, its roles decide who reads and writes; folder read rules grant nothing there. **Creating a unit removes the read rules on and under its folder.** Roles are not inherited by child units. (#2165)
-- **Unit approvers decide publications into their unit.** Requests into a unit go to holders of a role with write on `publications` there (by default `admin`) instead of the DIAL admins; DIAL admins can still decide them. Rules sent with a request into a unit are dropped. (#2164, #2165)
-- **Content stays in its unit.** A move cannot take content out of its unit or into another one. (#2138)
-- **Clients learn the caller's units** through `GET /v1/user/role-assignments`: each unit with the caller's roles and permissions there. (#2209)
-- **Email matching follows `userEmailPath`.** Rules and assignments on the `email` source match the resolved address instead of the raw `email` claim. With the default this is the same claim; an `email` claim holding an array no longer matches. (#2238)
-
-### Related changes in other components
-
-| Component | Variable | Default | Description |
-| --- | --- | --- | --- |
-| DIAL Admin | `DIAL_CORE_API_URL` | — | Now required: the panel decides full, unit or no access from `GET /v1/user/role-assignments`; without it every user gets the 403 page. |
-| DIAL Admin | `ORG_UNITS_GROUP_CLAIM` | `groups` | Claim the panel's Group holder writes into a role assignment's subject. |
-| DIAL Chat | `ORG_UNITS_ENABLED` | `false` | Marks units in the file manager and publish trees. Pending (epam/ai-dial-chat#9766). |
+> [!TIP]
+> To configure user spending limits (personal defaults, project grants, team budgets), see [Managing user spending limits via the API](spending_limits_user_guide.md).
 
 Deltas below are relative to **0.49.4**, the last published stable release.
 
