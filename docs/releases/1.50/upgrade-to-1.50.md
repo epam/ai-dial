@@ -50,7 +50,7 @@
    - ai-dial-admin-deployment-manager-backend: `0.23.0`
    - ai-dial-admin-evaluation-framework-backend: `0.6.0`
    - ai-dial-admin-evaluation-metrics: `0.4.0`
-   - ai-dial-openapi-to-mcp: `0.2.2`
+   - ai-dial-openapi-to-mcp: `0.2.1`
 
 ## Before upgrade
 
