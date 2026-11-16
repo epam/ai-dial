@@ -9,22 +9,15 @@ import fauxRemarkEmbedder from '@remark-embedder/core';
 import { readFileSync } from 'fs';
 import oembedTransformer from './src/transformers/oembed.js';
 import jupyterTransformer from './src/transformers/jupyter.js';
-import {
-  SHOW_OLD,
-  SHOW_NEW,
-  OLD_BASE,
-  NEW_BASE,
-  ROOT_REDIRECT,
-} from './docs.config.js';
+import { ROOT_REDIRECT } from './docs.config.js';
 
 // Inline plugin: redirect the earlier URLs of the home page ('/v2',
-// '/v2/overview', and '/' when OLD is also built) to the NEW Overview doc at the
-// NEW instance root. See docs.config.js ROOT_REDIRECT.
+// '/v2/overview') to the Overview doc at the site root. See docs.config.js
+// ROOT_REDIRECT.
 function rootRedirectPlugin({ siteConfig }) {
   return {
     name: 'root-redirect',
     async contentLoaded({ actions }) {
-      if (!ROOT_REDIRECT) return;
       const baseUrl = siteConfig.baseUrl.replace(/\/$/, '');
       actions.setGlobalData({ to: `${baseUrl}${ROOT_REDIRECT.to}` });
       for (const from of ROOT_REDIRECT.from) {
@@ -43,7 +36,7 @@ function v2DocRedirectsPlugin({ siteConfig }) {
   return {
     name: 'v2-doc-redirects',
     async contentLoaded({ actions }) {
-      const docsBase = `${siteConfig.baseUrl.replace(/\/$/, '')}${NEW_BASE === '/' ? '' : NEW_BASE}`;
+      const docsBase = siteConfig.baseUrl.replace(/\/$/, '');
       const tradeOffs = 'understand-dial/architecture/trade-offs-and-limitations';
       const redirects = {
         'home/architect-overview': 'understand-dial/architecture/architecture-highlights',
@@ -70,7 +63,7 @@ function v2DocRedirectsPlugin({ siteConfig }) {
   };
 }
 
-// remark plugins shared by both docs instances
+// remark plugins for the docs
 const docsRemarkPlugins = [
   [fauxRemarkEmbedder, { transformers: [oembedTransformer, jupyterTransformer] }],
 ];
@@ -121,44 +114,30 @@ const config = {
   },
   plugins: [
     'docusaurus-plugin-image-zoom', // can also just be 'image-zoom'
-    ...(ROOT_REDIRECT ? [rootRedirectPlugin] : []),
-    ...(SHOW_NEW ? [v2DocRedirectsPlugin] : []),
-    // NEW docs instance — included only when SHOW_NEW; routeBasePath is '/v2'
-    // when OLD is also served, otherwise '/'.
-    ...(SHOW_NEW
-      ? [
-          [
-            '@docusaurus/plugin-content-docs',
-            /** @type {import('@docusaurus/plugin-content-docs').Options} */
-            ({
-              id: 'v2',
-              path: 'docs_v2',
-              routeBasePath: NEW_BASE,
-              sidebarPath: './sidebars-v2.js',
-              remarkPlugins: docsRemarkPlugins,
-            }),
-          ],
-        ]
-      : []),
+    rootRedirectPlugin,
+    v2DocRedirectsPlugin,
+    // The docs (docs_v2/), served at the site root. The `v2` id and folder name
+    // are historical.
+    [
+      '@docusaurus/plugin-content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'v2',
+        path: 'docs_v2',
+        routeBasePath: '/',
+        sidebarPath: './sidebars-v2.js',
+        remarkPlugins: docsRemarkPlugins,
+      }),
+    ],
   ],
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        // OLD docs instance — disabled entirely when SHOW_OLD is false.
-        docs: SHOW_OLD
-          ? {
-              routeBasePath: OLD_BASE,
-              sidebarPath: './sidebars.js',
-              exclude: ['releases/**'],
-              // Please change this to your repo.
-              // Remove this to remove the "edit this page" links.
-              //editUrl:
-              //  'https://github.com/epam/ai-dial/tree/main/',
-              remarkPlugins: docsRemarkPlugins,
-            }
-          : false,
+        // The docs come from the `v2` docs plugin above; the preset's own docs
+        // instance is off.
+        docs: false,
         blog: false,
         theme: {
           customCss: './src/css/custom.css',
