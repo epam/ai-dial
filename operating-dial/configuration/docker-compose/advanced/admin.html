@@ -17,7 +17,7 @@
 
 
 <script src="https://app.termly.io/resource-blocker/ee6eaad1-eb8b-4d84-9528-1c504269dd62?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.c788aa21.css">
-<script src="/assets/js/runtime~main.d422991b.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.432bc6e7.js" defer="defer"></script>
 <script src="/assets/js/main.b98f049b.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -31,7 +31,7 @@
 <p>Core&#x27;s admin rules decide whether the user&#x27;s token is accepted; the frontend&#x27;s role settings don&#x27;t restrict access. See <a class="" href="/services/admin/configuration/frontend#authentication-and-administrator-access">Authentication and administrator access</a>. The browser and the frontend container must be able to reach the same Keycloak issuer URL; Core must validate that issuer.</p>
 <p>Optional Evaluation, Deployments (including MCP containers), and Analytics screens connect to separately deployed APIs. Their switches and URLs are listed in <a class="" href="/services/admin/configuration/frontend#optional-services">Optional services</a>. The advanced sample supplies Evaluation; Admin&#x27;s Analytics screens need a separately deployed <a class="" href="/services/analytics/index">DIAL Analytics</a>. For the evaluation services&#x27; Compose settings, see the <a class="" href="/services/evaluations/configuration/index#docker-compose-example">evaluation Docker Compose example</a>.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="admin-backend">Admin Backend<a href="#admin-backend" class="hash-link" aria-label="Direct link to Admin Backend" title="Direct link to Admin Backend" translate="no">​</a></h2>
-<p>The older <a href="https://github.com/epam/ai-dial/blob/main/dial-docker-compose-advanced/dial-2.x/docker-compose-base.yml" target="_blank" rel="noopener noreferrer" class=""><code>dial-docker-compose-advanced/dial-2.x/docker-compose-base.yml</code></a> also deploys Admin Backend. Use <a class="" href="/services/admin/configuration/backend">Admin Backend configuration</a> for its Compose fragment, database, OIDC settings, and shared configuration export volume.</p>
+<p>The older <code>dial-docker-compose-advanced/dial-2.x/docker-compose-base.yml</code> also deploys Admin Backend. Use <a class="" href="/services/admin/configuration/backend">Admin Backend configuration</a> for its Compose fragment, database, OIDC settings, and shared configuration export volume.</p>
 <p>In that setup, Admin Frontend sets <code>DIAL_ADMIN_API_URL</code> to the backend&#x27;s internal URL and retains <code>DIAL_CORE_API_URL</code> for direct Core operations. Its <code>network_mode: &quot;service:keycloak&quot;</code> means Keycloak publishes the frontend port on its behalf; the newer sample instead publishes the frontend&#x27;s port directly. Use the networking of the sample you deploy.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="further-reading">Further reading<a href="#further-reading" class="hash-link" aria-label="Direct link to Further reading" title="Direct link to Further reading" translate="no">​</a></h2>
 <ul>

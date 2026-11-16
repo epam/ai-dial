@@ -17,7 +17,7 @@
 
 
 <script src="https://app.termly.io/resource-blocker/ee6eaad1-eb8b-4d84-9528-1c504269dd62?autoBlock=on"></script><link rel="stylesheet" href="/assets/css/styles.c788aa21.css">
-<script src="/assets/js/runtime~main.d422991b.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.432bc6e7.js" defer="defer"></script>
 <script src="/assets/js/main.b98f049b.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -35,7 +35,7 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-youll-build">What you&#x27;ll build<a href="#what-youll-build" class="hash-link" aria-label="Direct link to What you&#x27;ll build" title="Direct link to What you&#x27;ll build" translate="no">​</a></h2>
 <p>A local DIAL stack connected to Ollama, which serves open-source models through an OpenAI-compatible API. You choose which model to download — a chat model, a vision model, an embedding model, or all three — and DIAL Core exposes each one as a deployment you can select in DIAL Chat.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="project-structure">Project structure<a href="#project-structure" class="hash-link" aria-label="Direct link to Project structure" title="Direct link to Project structure" translate="no">​</a></h2>
-<p>The <a href="https://github.com/epam/ai-dial/tree/main/dial-docker-compose/ollama" target="_blank" rel="noopener noreferrer" class=""><code>dial-docker-compose/ollama</code></a> directory looks like this:</p>
+<p>The <code>dial-docker-compose/ollama</code> directory looks like this:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">ollama/</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├── docker-compose.yml</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├── core/</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│   └── config.json</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">└── ollama_setup/</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    ├── app.py</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    ├── Dockerfile</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    └── requirements.txt</span><br></span></code></pre></div></div>
 <p>The <code>docker-compose.yml</code> adds three services to the shared <code>common.yml</code> base: the Ollama server, an <code>ollama-setup</code> job that pulls the models you request, and the OpenAI adapter that fronts the vision model.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-1-get-the-docker-compose-files">Step 1: Get the Docker Compose files<a href="#step-1-get-the-docker-compose-files" class="hash-link" aria-label="Direct link to Step 1: Get the Docker Compose files" title="Direct link to Step 1: Get the Docker Compose files" translate="no">​</a></h2>
