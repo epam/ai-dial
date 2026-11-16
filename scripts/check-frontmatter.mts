@@ -3,7 +3,7 @@
  * check-frontmatter.ts
  *
  * CI-ready linter that validates YAML frontmatter in every Markdown file
- * under docs/. Rules are derived from the DIAL Documentation Style Guide §7.1.
+ * under docs_v2/. Rules are derived from the DIAL Documentation Style Guide §7.1.
  *
  * Usage:
  *   npx tsx scripts/check-frontmatter.ts          # check all docs
@@ -25,8 +25,8 @@ import matter from "gray-matter";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const REPO_ROOT = join(__dirname, "..");
-/** Doc instance roots to lint: OLD (docs/) and NEW (docs_v2/). */
-const DOC_ROOTS = [join(REPO_ROOT, "docs"), join(REPO_ROOT, "docs_v2")];
+/** Docs root to lint. */
+const DOC_ROOTS = [join(REPO_ROOT, "docs_v2")];
 
 /** Required frontmatter fields and their allowed values (null = any string). */
 const REQUIRED_FIELDS: Record<string, string[] | null> = {

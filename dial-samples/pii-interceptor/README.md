@@ -3,7 +3,7 @@
 A worked example of a DIAL interceptor that redacts personally identifiable
 information before a request reaches the model, and restores it in the
 response. This is the finished project from
-[Tutorial: PII-redacting interceptor](../../docs_v2/3.building-with-dial/2.interceptors/1.tutorial-pii-interceptor.md).
+[Tutorial: PII-redacting interceptor](../../docs_v2/3.building-with-dial/3.interceptors/1.tutorial-pii-interceptor.md).
 
 ## Run it
 
@@ -34,18 +34,3 @@ actually received (PII redacted).
 | `mock-model/` | Stand-in model, so no provider API key is needed |
 
 No provider account or API key is required.
-
-## Tests
-
-This interceptor is exercised on every pull request by
-[`how_to_use_an_interceptor.ipynb`](../../dial-cookbook/examples/how_to_use_an_interceptor.ipynb)
-in the cookbook, which runs it against DIAL Core and asserts that the model
-receives redacted text while the caller gets the original values back. The
-`run-notebooks` CI job fails if redaction stops working.
-
-To run that check locally:
-
-```bash
-cd ../../dial-cookbook/ci
-docker compose up --build --abort-on-container-exit --exit-code-from test
-```
