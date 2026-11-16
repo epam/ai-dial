@@ -36,7 +36,7 @@
     "@docusaurus/types": "^3.9.2",
     "@types/node": "^25.6.0",
     "gray-matter": "^4.0.3",
-    "tsx": "^4.21.0"
+    "tsx": "^4.23.15"
   },
   "overrides": {
     "picomatch": "4.0.4",
