@@ -78,6 +78,7 @@ Adapters translate the Unified API into the API of each model provider.
 | [DIAL Vertex AI Adapter](https://github.com/epam/ai-dial-adapter-vertexai) | Language and embedding models from Google Vertex AI |
 | [DIAL Anthropic Adapter](https://github.com/epam/ai-dial-adapter-anthropic) | Python package that serves Claude models through the Unified API; used by the OpenAI, Bedrock, and Vertex AI adapters |
 | [DIAL-to-DIAL Adapter](https://github.com/epam/ai-dial-adapter-dial) | Forwards requests from one DIAL Core to another, for example to develop locally against a remote DIAL |
+| [DIAL Model Provider](https://github.com/epam/ai-dial-model-provider) | Serves the OpenAI, Vertex AI, Bedrock, and DIAL-to-DIAL adapters from one image and one process, each under its own path prefix. In active development |
 
 ### DIAL Chat
 
@@ -100,12 +101,21 @@ DIAL Admin is the web console for managing DIAL configuration, access, and deplo
 | [DIAL Evaluation Framework Backend](https://github.com/epam/ai-dial-admin-evaluation-framework-backend) | Manages evaluation test suites, runs, and results for models and applications |
 | [DIAL Evaluation Metrics](https://github.com/epam/ai-dial-admin-evaluation-metrics) | Calculates metrics that compare model output with ground-truth data for the Evaluation Framework |
 
+### DIAL Analytics
+
+DIAL Analytics turns DIAL usage logs into governed, queryable analytics data. Its web UI is part of DIAL Admin.
+
+| Repository | Description |
+|---|---|
+| [DIAL Analytics](https://github.com/epam/ai-dial-analytics) | Analytics Data Access Service (ADAS). Ingests DIAL usage logs from blob storage into ClickHouse and serves governed queries over them through a query DSL, SQL over REST, and Arrow Flight SQL |
+| [DIAL Analytics Enrichment Runner](https://github.com/epam/ai-dial-analytics-enrichment-runner) | Adds computed columns to DIAL Analytics data, such as the topic or sentiment of a message or a summary of a chat session, using an LLM or SQL |
+
 ### Deployment and operations
 
 | Repository | Description |
 |---|---|
 | [DIAL Helm](https://github.com/epam/ai-dial-helm) | Helm charts to deploy DIAL to Kubernetes, with examples for AWS, Azure, and GCP. Stable DIAL releases are published here |
-| [DIAL Analytics Realtime](https://github.com/epam/ai-dial-analytics-realtime) | Reads DIAL Core logs, analyzes conversations, and writes usage metrics to InfluxDB |
+| [Terraform Provider for DIAL](https://github.com/epam/terraform-provider-aidial) | Manages DIAL Core resources, such as roles, API keys, models, routes, toolsets, and applications, with Terraform |
 | [DIAL Log Parser](https://github.com/epam/ai-dial-log-parser) | Converts DIAL Core logs into Parquet datasets organized by deployment and date |
 | [DIAL Keycloak Helpers](https://github.com/epam/ai-dial-keycloak-helpers) | Keycloak extensions that add user attributes from external identity providers, such as job title from Microsoft Graph, to token claims |
 
@@ -125,7 +135,6 @@ Interceptors run custom logic on requests and responses, for example to mask per
 | Repository | Description |
 |---|---|
 | [DIAL Interceptors SDK](https://github.com/epam/ai-dial-interceptors-sdk) | Python framework for building interceptors for chat completion and embedding models |
-| [Google Model Armor Interceptor](https://github.com/epam/ai-dial-interceptor-google) | Detects, de-identifies, and re-identifies personal data with Google Cloud |
 
 ### Applications and MCP servers
 
@@ -141,8 +150,9 @@ Interceptors run custom logic on requests and responses, for example to mask per
 | [Mind Map Studio Frontend](https://github.com/epam/ai-dial-mind-map-frontend) | Web UI of Mind Map Studio |
 | [Code Interpreter](https://github.com/epam/ai-dial-code-interpreter) | Runs Python code in a Jupyter kernel |
 | [Bing Grounding](https://github.com/epam/ai-dial-bing-grounding) | Adds web search through Azure AI Agent with Grounding with Bing Search, for Azure-restricted environments |
-| [DIAL Memory](https://github.com/epam/ai-dial-memory-backend) | Long-term memory for agents, exposed as MCP tools and stored in the user's DIAL storage |
 | [OpenAPI to MCP](https://github.com/epam/ai-dial-openapi-to-mcp) | Turns an OpenAPI 3.x document into MCP tools |
+| [DIAL Scheduler](https://github.com/epam/ai-dial-scheduler) | Runs DIAL applications and HTTP targets (chat completion, responses, REST, and SSE) on cron and date triggers, and exposes schedules through a REST API and an MCP endpoint |
+| [Entity MCP App](https://github.com/epam/ai-dial-entity-mcp-app) | MCP server and MCP App UI that render DIAL skills and agents as cards in MCP Apps hosts such as DIAL, Claude, and ChatGPT |
 
 ### Code Apps runtime
 
@@ -161,11 +171,18 @@ Services that build and host the Python applications users create as Code Apps.
 | [DIAL React File Manager](https://github.com/epam/ai-dial-react-file-manager) | React file manager for DIAL applications, built on the DIAL UI Kit |
 | [DIAL React PDF Highlighter](https://github.com/epam/ai-dial-react-pdf-highlighter) | React PDF viewer with highlights, built on [PDF Highlighter Kit](https://github.com/epam/pdf-highlighter-kit) |
 
+### Samples and courses
+
+| Repository | Description |
+|---|---|
+| [DIAL Platform Samples](https://github.com/epam/ai-dial-samples) | Docker setups that run DIAL Chat, DIAL Admin, and DIAL Core locally with small open-source models, so you need no API keys and no cloud account |
+
 ### CI and engineering tooling
 
 | Repository | Description |
 |---|---|
 | [DIAL CI](https://github.com/epam/ai-dial-ci) | Reusable GitHub Actions workflows for DIAL repositories |
+| [DIAL Sec SCA](https://github.com/epam/ai-dial-sec-sca) | GitHub Actions that run the scheduled software composition analysis (SCA) scan of DIAL repositories with Trivy and OSV. Called by DIAL CI |
 | [DIAL ORT Config](https://github.com/epam/ai-dial-ort-config) | OSS Review Toolkit configuration for DIAL repositories |
 | [DIAL Perf](https://github.com/epam/ai-dial-perf) | Gatling performance tests for DIAL Admin |
 
@@ -176,6 +193,10 @@ These projects are archived or approaching end of life. They stay available for 
 | Repository | Description |
 |---|---|
 | [DIAL Chat 0.x](https://github.com/epam/ai-dial-chat/tree/development-0.x) | Previous version of DIAL Chat, including the legacy Overlay and Visualizer Connector libraries. Receives fixes until the end of 2026 |
+| [DIAL Analytics Realtime](https://github.com/epam/ai-dial-analytics-realtime) | Being replaced by [DIAL Analytics](https://github.com/epam/ai-dial-analytics) and [DIAL Analytics Enrichment Runner](https://github.com/epam/ai-dial-analytics-enrichment-runner). Reads DIAL Core logs, analyzes conversations, and writes usage metrics to InfluxDB |
+| [DIAL Memory](https://github.com/epam/ai-dial-memory-backend) | Archived. Long-term memory for agents, exposed as MCP tools and stored in the user's DIAL storage |
+| [Google Model Armor Interceptor](https://github.com/epam/ai-dial-interceptor-google) | Archived. Detects, de-identifies, and re-identifies personal data with Google Cloud |
+| [DIAL XL](https://github.com/epam/dial-xl) | Archived |
 | [DIAL Auth Helper](https://github.com/epam/ai-dial-auth-helper) | Archived. Replaced by [DIAL Keycloak Helpers](https://github.com/epam/ai-dial-keycloak-helpers) |
 | [DIAL Assistant](https://github.com/epam/ai-dial-assistant) | Archived. Assistant based on the ChatGPT plugin protocol |
 | [DIAL LangChain Integration](https://github.com/epam/ai-dial-integration-langchain-python) | Archived. Helpers for passing DIAL-specific fields through LangChain |

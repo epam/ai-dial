@@ -95,7 +95,8 @@ See `CONTRIBUTING.md`. Key points:
 - Each component has its own release cadence and owner.
 - Stable assemblies are published via the Helm chart.
 - Biweekly releases (Wednesdays). Semantic versioning.
-- Branch: `main`. PRs reviewed Thursdays.
+- **Branches:** `development` is where all work lands first. Create every branch from `development` and open every PR against it; a push to `development` deploys to the dev environment (`.github/workflows/deploy-development.yml`). `main` is production: a push to `main` builds the site and publishes it to GitHub Pages (`.github/workflows/release.yml`). `main` receives a PR from `development` from time to time, not individual feature PRs.
+- PRs reviewed Thursdays.
 
 ## Gotchas
 
