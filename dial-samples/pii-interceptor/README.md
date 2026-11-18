@@ -3,7 +3,7 @@
 A worked example of a DIAL interceptor that redacts personally identifiable
 information before a request reaches the model, and restores it in the
 response. This is the finished project from
-[Tutorial: PII-redacting interceptor](../../docs_v2/3.building-with-dial/3.interceptors/1.tutorial-pii-interceptor.md).
+[Tutorial: PII-redacting interceptor](../../docs_v2/4.building-with-dial/3.interceptors/1.tutorial-pii-interceptor.md).
 
 ## Run it
 

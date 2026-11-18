@@ -2,7 +2,7 @@
 
 A worked example of a DIAL adapter: it puts a provider with a non-OpenAI API
 behind the DIAL Unified API. This is the finished project from
-[Tutorial: custom adapter](../../docs_v2/3.building-with-dial/4.adapters/1.tutorial-custom-adapter.md).
+[Tutorial: custom adapter](../../docs_v2/4.building-with-dial/4.adapters/1.tutorial-custom-adapter.md).
 
 The provider runs twice, as `provider-eu` and `provider-us`, each with its own
 API key. DIAL Core picks one per request and passes it to the adapter in the
