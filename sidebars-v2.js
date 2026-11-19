@@ -2200,6 +2200,38 @@ const allSections = [
               "label": "API"
             }
           ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL MCP Gateway",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/mcp-gateway/index",
+              "label": "Overview"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/mcp-gateway/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/mcp-gateway/configuration/environment-variables",
+                  "label": "Environment variables"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "services/mcp-gateway/api",
+              "label": "Endpoints and sign-in flow"
+            }
+          ]
         }
       ]
     },
