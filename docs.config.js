@@ -32,12 +32,12 @@ const DEFAULT_SECTIONS = 'all';
 export const V2_SECTIONS = [
   { key: 'overview', label: 'Overview' },
   { key: 'understand-dial', label: 'Understand DIAL' },
+  { key: 'connecting-to-dial', label: 'Connecting to DIAL' },
   { key: 'building-with-dial', label: 'Building with DIAL' },
   { key: 'operating-dial', label: 'Operating DIAL' },
   { key: 'administering-dial', label: 'Administering DIAL' },
   { key: 'services', label: 'Services' },
   { key: 'chat-user-guide', label: 'Chat User Guide' },
-  { key: 'use-cases', label: 'Use Cases' },
   { key: 'demos', label: 'Demos' },
 ];
 
