@@ -204,6 +204,116 @@ const allSections = [
     },
     {
       "type": "category",
+      "label": "Connecting to DIAL",
+      "items": [
+        {
+          "type": "doc",
+          "id": "connecting-to-dial/index",
+          "label": "Overview"
+        },
+        {
+          "type": "category",
+          "label": "Agentic tools",
+          "items": [
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/agentic-tools/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/agentic-tools/claude-code",
+              "label": "Connect Claude Code to DIAL"
+            },
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/agentic-tools/codex",
+              "label": "Connect Codex to DIAL"
+            },
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/agentic-tools/github-copilot",
+              "label": "Connect GitHub Copilot to DIAL"
+            },
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/agentic-tools/opencode",
+              "label": "Connect OpenCode to DIAL"
+            },
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/agentic-tools/open-claw",
+              "label": "Connect Open Claw to DIAL"
+            },
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/agentic-tools/claude-desktop-app",
+              "label": "Connect Claude Desktop to DIAL"
+            },
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/agentic-tools/claude-m365-plugin",
+              "label": "Connect the Claude M365 plugin to DIAL"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Chatbot integrations",
+          "items": [
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/chatbot-integrations/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/chatbot-integrations/ms-teams",
+              "label": "Integration with MS Teams"
+            },
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/chatbot-integrations/ms-copilot",
+              "label": "Integration with MS Copilot"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Productivity add-ins",
+          "items": [
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/productivity-add-ins/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/productivity-add-ins/ms-excel",
+              "label": "Integration with MS Excel"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Workflow automation",
+          "items": [
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/workflow-automation/index",
+              "label": "Overview"
+            },
+            {
+              "type": "doc",
+              "id": "connecting-to-dial/workflow-automation/n8n",
+              "label": "Integration with n8n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
       "label": "Building with DIAL",
       "items": [
         {
@@ -496,11 +606,6 @@ const allSections = [
                 },
                 {
                   "type": "doc",
-                  "id": "building-with-dial/developer-tools/chat-customization/catalog",
-                  "label": "Catalog"
-                },
-                {
-                  "type": "doc",
                   "id": "building-with-dial/developer-tools/chat-customization/create-custom-theme",
                   "label": "Create a custom theme"
                 },
@@ -582,116 +687,6 @@ const allSections = [
         },
         {
           "type": "category",
-          "label": "Integrations",
-          "items": [
-            {
-              "type": "doc",
-              "id": "building-with-dial/integrations/index",
-              "label": "Overview"
-            },
-            {
-              "type": "category",
-              "label": "Chatbot integrations",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/chatbot-integrations/index",
-                  "label": "Overview"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/chatbot-integrations/ms-teams",
-                  "label": "Integration with MS Teams"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/chatbot-integrations/ms-copilot",
-                  "label": "Integration with MS Copilot"
-                }
-              ]
-            },
-            {
-              "type": "category",
-              "label": "Productivity add-ins",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/productivity-add-ins/index",
-                  "label": "Overview"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/productivity-add-ins/ms-excel",
-                  "label": "Integration with MS Excel"
-                }
-              ]
-            },
-            {
-              "type": "category",
-              "label": "Workflow automation",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/workflow-automation/index",
-                  "label": "Overview"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/workflow-automation/n8n",
-                  "label": "Integration with n8n"
-                }
-              ]
-            },
-            {
-              "type": "category",
-              "label": "Agentic tools",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/agentic-tools/index",
-                  "label": "Overview"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/agentic-tools/codex",
-                  "label": "Connect Codex to DIAL"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/agentic-tools/github-copilot",
-                  "label": "Connect GitHub Copilot to DIAL"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/agentic-tools/open-claw",
-                  "label": "Connect Open Claw to DIAL"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/agentic-tools/opencode",
-                  "label": "Connect OpenCode to DIAL"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/agentic-tools/claude-code",
-                  "label": "Connect Claude Code to DIAL"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/agentic-tools/claude-desktop-app",
-                  "label": "Connect Claude Desktop to DIAL"
-                },
-                {
-                  "type": "doc",
-                  "id": "building-with-dial/integrations/agentic-tools/claude-m365-plugin",
-                  "label": "Connect the Claude M365 plugin to DIAL"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "category",
           "label": "Working with DIAL resources",
           "items": [
             {
@@ -733,21 +728,21 @@ const allSections = [
         },
         {
           "type": "category",
-          "label": "Advanced topics",
+          "label": "Prompt caching",
           "items": [
             {
               "type": "doc",
-              "id": "building-with-dial/advanced-topics/index",
+              "id": "building-with-dial/prompt-caching/index",
               "label": "Overview"
             },
             {
               "type": "doc",
-              "id": "building-with-dial/advanced-topics/prompt-caching",
+              "id": "building-with-dial/prompt-caching/how-prompt-caching-works",
               "label": "How prompt caching works"
             },
             {
               "type": "doc",
-              "id": "building-with-dial/advanced-topics/tutorial-prompt-caching",
+              "id": "building-with-dial/prompt-caching/tutorial-prompt-caching",
               "label": "Tutorial: enable prompt caching"
             }
           ]
@@ -873,89 +868,6 @@ const allSections = [
               "type": "doc",
               "id": "operating-dial/model-deployment/databricks-model-deployment",
               "label": "Databricks models"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Configuration Reference",
-          "items": [
-            {
-              "type": "doc",
-              "id": "operating-dial/configuration/index",
-              "label": "Overview"
-            },
-            {
-              "type": "doc",
-              "id": "operating-dial/configuration/auth-helper-configuration",
-              "label": "Auth Helper"
-            },
-            {
-              "type": "doc",
-              "id": "operating-dial/configuration/realm-config-json",
-              "label": "Keycloak (realm-config.json)"
-            },
-            {
-              "type": "doc",
-              "id": "operating-dial/configuration/enable-publications",
-              "label": "Enable Publications"
-            },
-            {
-              "type": "category",
-              "label": "Docker Compose",
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "operating-dial/configuration/docker-compose/index",
-                  "label": "Overview"
-                },
-                {
-                  "type": "doc",
-                  "id": "operating-dial/configuration/docker-compose/quick-start",
-                  "label": "Quick Start"
-                },
-                {
-                  "type": "category",
-                  "label": "Advanced Setup",
-                  "items": [
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/docker-compose/advanced/index",
-                      "label": "Overview"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/docker-compose/advanced/core-services",
-                      "label": "Core, Redis & Themes"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/docker-compose/advanced/auth",
-                      "label": "Authentication"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/docker-compose/advanced/admin",
-                      "label": "Admin Panel"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "operating-dial/configuration/docker-compose/advanced/adapters-and-rag",
-                      "label": "Adapters"
-                    }
-                  ]
-                },
-                {
-                  "type": "doc",
-                  "id": "operating-dial/configuration/docker-compose/env-reference",
-                  "label": ".env Reference"
-                }
-              ]
-            },
-            {
-              "type": "doc",
-              "id": "operating-dial/configuration/coverage-status",
-              "label": "Coverage Status"
             }
           ]
         },
@@ -1408,8 +1320,8 @@ const allSections = [
                     },
                     {
                       "type": "doc",
-                      "id": "services/core/configuration/settings/redis",
-                      "label": "Redis"
+                      "id": "services/core/configuration/settings/valkey",
+                      "label": "Valkey"
                     },
                     {
                       "type": "doc",
@@ -2288,6 +2200,38 @@ const allSections = [
               "label": "API"
             }
           ]
+        },
+        {
+          "type": "category",
+          "label": "DIAL MCP Gateway",
+          "items": [
+            {
+              "type": "doc",
+              "id": "services/mcp-gateway/index",
+              "label": "Overview"
+            },
+            {
+              "type": "category",
+              "label": "Configuration",
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "services/mcp-gateway/configuration/index",
+                  "label": "Overview"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/mcp-gateway/configuration/environment-variables",
+                  "label": "Environment variables"
+                }
+              ]
+            },
+            {
+              "type": "doc",
+              "id": "services/mcp-gateway/api",
+              "label": "Endpoints and sign-in flow"
+            }
+          ]
         }
       ]
     },
@@ -2360,61 +2304,6 @@ const allSections = [
           "type": "doc",
           "id": "chat-user-guide/usage-and-settings",
           "label": "Usage and settings"
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Use Cases",
-      "link": {
-        "type": "doc",
-        "id": "use-cases/index"
-      },
-      "items": [
-        {
-          "type": "doc",
-          "id": "use-cases/org-wide-ai-assistant",
-          "label": "Org-wide AI assistant"
-        },
-        {
-          "type": "doc",
-          "id": "use-cases/chat-with-your-knowledge-base",
-          "label": "Chat with your knowledge base"
-        },
-        {
-          "type": "doc",
-          "id": "use-cases/no-code-ai-tools",
-          "label": "No-code AI tools for business teams"
-        },
-        {
-          "type": "doc",
-          "id": "use-cases/one-api-every-provider",
-          "label": "One API for every model provider"
-        },
-        {
-          "type": "doc",
-          "id": "use-cases/cost-and-usage-governance",
-          "label": "Centralized cost and usage governance"
-        },
-        {
-          "type": "doc",
-          "id": "use-cases/custom-production-agents",
-          "label": "Custom production AI agents"
-        },
-        {
-          "type": "doc",
-          "id": "use-cases/embed-ai-in-existing-tools",
-          "label": "Embed AI in existing tools"
-        },
-        {
-          "type": "doc",
-          "id": "use-cases/measure-and-improve-quality",
-          "label": "Measure and improve AI quality"
-        },
-        {
-          "type": "doc",
-          "id": "use-cases/compliance-and-pii-safe-ai",
-          "label": "Compliance and PII-safe AI"
         }
       ]
     },

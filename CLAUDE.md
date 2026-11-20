@@ -22,7 +22,7 @@ This repo contains:
 The docs site (https://docs.dialx.ai/) is undergoing a major restructuring. The current site has significant gaps: no in-depth tutorials, duplicate page titles pointing to different content, a mislabeled "Tutorials" section that contains no actual tutorials, canonical content redirected to GitHub READMEs, and the primary value surface (DIAL Apps, Toolsets) is largely undocumented.
 
 Key structural changes in progress:
-- Replacing the incoherent Platform/Tutorials split with journey-based sections: Understand DIAL, Building with DIAL, Operating DIAL, Administering DIAL
+- Replacing the incoherent Platform/Tutorials split with journey-based sections: Understand DIAL, Connecting to DIAL, Building with DIAL, Operating DIAL, Administering DIAL
 - Eliminating 7 duplicate-title pairs (Access Control ×2, About ×2, Deployment ×2, etc.)
 - Flattening sidebar from 7 levels to max 4
 - Creating the first real tutorials (Getting started with the API, Custom App, Quick App)
@@ -50,7 +50,7 @@ Content lives in `docs_v2/` as Markdown files. Sidebar: `sidebars-v2.js`. Site c
 `docs.config.js` (repo root) is read by both `docusaurus.config.js` and `sidebars-v2.js`.
 
 - **Home page:** `docs_v2/1.overview.md` has `slug: /`, so the Overview page is served at `/`. An inline redirect plugin (`docusaurus.config.js` → `src/components/RootRedirect.js`, routes and target from `ROOT_REDIRECT` in `docs.config.js`) sends `/v2` and `/v2/overview`, the home URLs from before the docs moved to `/`, to `/`. Other `/v2/...` URLs are not redirected.
-- **`DOCS_V2_SECTIONS`** = `all` (default) | comma-separated section keys — which top-level sections show in the sidebar. Keys: `overview, understand-dial, building-with-dial, operating-dial, administering-dial, services, chat-user-guide, use-cases, demos`. Hiding a section removes it from the menu only; its pages still build and stay reachable (so cross-links don't break). Hiding `overview` removes its menu entry; the page still owns `/`.
+- **`DOCS_V2_SECTIONS`** = `all` (default) | comma-separated section keys — which top-level sections show in the sidebar. Keys: `overview, understand-dial, connecting-to-dial, building-with-dial, operating-dial, administering-dial, services, chat-user-guide, demos`. Hiding a section removes it from the menu only; its pages still build and stay reachable (so cross-links don't break). Hiding `overview` removes its menu entry; the page still owns `/`.
 
 ```bash
 DOCS_V2_SECTIONS="overview,building-with-dial" npm run start # sidebar shows two sections
@@ -67,7 +67,7 @@ DOCS_V2_SECTIONS="overview,building-with-dial" npm run start # sidebar shows two
 
 **Invariant: a file's/folder's numeric `N.` prefix MUST equal its position in `sidebars-v2.js`.** Docusaurus strips the leading `N.` from every path segment (file *and* directory) when computing a route id, so the prefix is purely organizational — but the file tree must still read in menu order. Keep them aligned:
 
-- **Every content file and folder under `docs_v2/` carries a numeric prefix that matches its order in the menu**, at every level: the entry page (`1.overview.md`) and the top-level sections (`2.understand-dial/`, … `10.demos/` — in `V2_SECTIONS` catalog order; top-level prefix `8.` is intentionally unused since the Reference section was removed, and `9.use-cases/` / `10.demos/` keep their numbers), sub-folders, and files. Numbering is **per parent directory**: files and sub-folders that share a parent draw from one sequence in their first menu appearance order.
+- **Every content file and folder under `docs_v2/` carries a numeric prefix that matches its order in the menu**, at every level: the entry page (`1.overview.md`) and the top-level sections (`2.understand-dial/`, `3.connecting-to-dial/`, … `9.demos/` — in `V2_SECTIONS` catalog order), sub-folders, and files. Numbering is **per parent directory**: files and sub-folders that share a parent draw from one sequence in their first menu appearance order.
 - **`0.index.md`** is the section/category landing (route `…/index`). It is always `0.`.
 - When you **add** a page: give it the prefix of its menu slot and **bump the prefixes of every sibling that comes after it** (files *and* sub-folders in that directory). When you **reorder** the menu, renumber the affected files to match. When you **remove** a page, prefer closing the numeric gap.
 - **Renaming a file's prefix does NOT change its route id** (the prefix is stripped), so `sidebars-v2.js` needs no edit for a pure renumber. But it **does** change any relative `.md`/image link that spells out the old prefixed name — fix those (see Links above) and let the build verify.
@@ -95,7 +95,8 @@ See `CONTRIBUTING.md`. Key points:
 - Each component has its own release cadence and owner.
 - Stable assemblies are published via the Helm chart.
 - Biweekly releases (Wednesdays). Semantic versioning.
-- Branch: `main`. PRs reviewed Thursdays.
+- **Branches:** `development` is where all work lands first. Create every branch from `development` and open every PR against it; a push to `development` deploys to the dev environment (`.github/workflows/deploy-development.yml`). `main` is production: a push to `main` builds the site and publishes it to GitHub Pages (`.github/workflows/release.yml`). `main` receives a PR from `development` from time to time, not individual feature PRs.
+- PRs reviewed Thursdays.
 
 ## Gotchas
 
