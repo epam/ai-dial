@@ -1,0 +1,37 @@
+services:
+  pii-interceptor:
+    build: .
+    environment:
+      DIAL_URL: "http://core:8080"
+      LOG_LEVEL: "DEBUG"
+    depends_on:
+      - core
+
+  mock-model:
+    build: mock-model
+
+  core:
+    image: epam/ai-dial-core:0.47.1
+    environment:
+      aidial.config.files: '["/opt/config/config.json"]'
+      aidial.storage.overrides: '{ "jclouds.filesystem.basedir": "data" }'
+      aidial.redis.singleServerConfig.address: "redis://redis:6379"
+      aidial.identityProviders.test.rolePath: 'roles'
+      aidial.identityProviders.test.disableJwtVerification: 'true'
+      aidial.encryption.secret: 'salt'
+      aidial.encryption.key: 'password'
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config.json:/opt/config/config.json
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7.2.4-alpine3.19
+    command: >
+      redis-server
+      --maxmemory 256mb
+      --maxmemory-policy volatile-lfu
+      --save ""
+      --appendonly no
