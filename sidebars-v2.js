@@ -1140,13 +1140,13 @@ const allSections = [
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/deployments/model-servings",
-              "label": "Model Servings"
+              "id": "administering-dial-new/deployments/container-management",
+              "label": "Containers"
             },
             {
               "type": "doc",
-              "id": "administering-dial-new/deployments/container-management",
-              "label": "Containers"
+              "id": "administering-dial-new/deployments/model-servings",
+              "label": "Model Servings"
             },
             {
               "type": "doc",
