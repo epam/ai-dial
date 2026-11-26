@@ -1,0 +1,14 @@
+{
+  "name": "docs-services-release-sync",
+  "owner": {
+    "name": "khshanovskyi"
+  },
+  "description": "A one-plugin marketplace for the DIAL docs plugin that syncs the service pages of epam/ai-dial with the services' releases.",
+  "plugins": [
+    {
+      "name": "docs-services-release-sync",
+      "source": "./",
+      "description": "Review the releases each given DIAL service shipped since its docs were last verified, document what matters, and open a pull request against development."
+    }
+  ]
+}

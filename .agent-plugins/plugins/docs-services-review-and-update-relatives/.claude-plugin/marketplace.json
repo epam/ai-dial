@@ -1,0 +1,14 @@
+{
+  "name": "docs-services-review-and-update-relatives",
+  "owner": {
+    "name": "khshanovskyi"
+  },
+  "description": "A one-plugin marketplace for the DIAL docs plugin that carries service-page and release changes into the guide sections of epam/ai-dial.",
+  "plugins": [
+    {
+      "name": "docs-services-review-and-update-relatives",
+      "source": "./",
+      "description": "Review the service-page and release changes since the last run, update the four DIAL guide sections that depend on them, and open a pull request against development."
+    }
+  ]
+}
