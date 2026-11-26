@@ -1,0 +1,9 @@
+{
+  "name": "docs-services-release-sync",
+  "version": "0.1.0",
+  "description": "Syncs the DIAL service docs in docs_v2/7.services/ of epam/ai-dial with the releases each service shipped since its pages were last verified, and opens a pull request against development.",
+  "author": {
+    "name": "khshanovskyi"
+  },
+  "keywords": ["dial", "documentation", "docusaurus", "release-notes", "docs-maintenance"]
+}
