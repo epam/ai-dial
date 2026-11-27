@@ -1,15 +1,15 @@
 ---
 name: align
-description: Align the four guide sections of the epam/ai-dial docs (Understand DIAL, Connecting to DIAL, Building with DIAL, Operating DIAL) with the changes of the pull requests closed in the last month, then open one pull request against development, titled [DIAL Loop]: sync guides with PRs closed from <START> to <END>. Run it from the root of an ai-dial checkout.
+description: Align the four guide sections of the epam/ai-dial docs (Understand DIAL, Connecting to DIAL, Building with DIAL, Operating DIAL) with the changes of every pull request merged into development in the last month, whatever its title, then open one pull request against development, titled [DIAL Loop]: sync guides with PRs merged from <START> to <END>. Run it from the root of an ai-dial checkout.
 argument-hint: "[since <YYYY-MM-DD>] [only <section>] [dry run] [review first] [set last_verified]"
 disable-model-invocation: true
 ---
 
 # DIAL guide alignment
 
-This skill runs one task: bring the four guide sections of `docs_v2/` (Understand DIAL, Connecting to DIAL, Building with DIAL, and Operating DIAL) in line with what the pull requests closed in the last month changed in the rest of the docs: above all the service pages, and also the user guides and the platform release documents. Then open one pull request against `development`. One session does the whole job and starts no subagents.
+This skill runs one task: bring the four guide sections of `docs_v2/` (Understand DIAL, Connecting to DIAL, Building with DIAL, and Operating DIAL) in line with what the pull requests merged into `development` in the last month changed in the rest of the docs: above all the service pages, and also the user guides and the platform release documents. Then open one pull request against `development`. One session does the whole job and starts no subagents.
 
-The sources are already verified: the service sync checks the service pages against released code, each sync PR describes what it changed and the source that proves it, and the release documents state what each platform release ships. This task carries what the important changes mean into the pages people read first, and keeps those pages as readable as they are.
+Every pull request merged into `development` in the window counts, whatever its title: the DIAL Loop service syncs and aggregations, and the PRs people opened by hand. A sync PR describes what it changed and the source that proves it, because the service sync checks the service pages against released code. A PR opened by hand is described by its summary and its diff. The release documents state what each platform release ships. Either way, the page as merged at `<BASE>` is what holds now. This task carries what the important changes mean into the pages people read first, and keeps those pages as readable as they are.
 
 **Options for this run:** $ARGUMENTS
 
@@ -40,7 +40,7 @@ Load each skill of this plugin with the Skill tool at the step that names it:
 | Skill | What it gives you |
 |---|---|
 | `docs-services-review-and-update-relatives:sections` | the four sections: readers, page types, templates, conventions, the topic map from sources to guide pages, hub pages, version statements that go stale |
-| `docs-services-review-and-update-relatives:sources` | the window of closed PRs, their descriptions, the content-only source changes, the release digest, the ledger |
+| `docs-services-review-and-update-relatives:sources` | the window of PRs merged into `development`, their descriptions, the content-only source changes, the release digest, the ledger |
 | `docs-services-review-and-update-relatives:impact` | where changes touch the guides, the test, the verdicts, what proves a statement, how much text, adding and removing, worked examples |
 | `docs-services-review-and-update-relatives:style` | voice, readability, punctuation, admonitions by section, code, links, diagrams, edit patterns |
 | `docs-services-review-and-update-relatives:docs-map` | what may be edited, numbering, links and anchors, frontmatter, MDX hazards, search recipes |
@@ -53,7 +53,7 @@ The repository's `docs-page-writer`, `docs-auditor`, and `docs-researcher` skill
 
 The options come after the command, for example `/docs-services-review-and-update-relatives:align since 2026-11-13 only operating-dial`. They may also be written as words, such as "a dry run since 2026-11-13". Each is optional:
 
-- **`since <YYYY-MM-DD>`.** The window starts that day. Without it, the window starts the same day one month back: on 2026-11-27, it covers the PRs closed from 2026-10-27 through 2026-11-27.
+- **`since <YYYY-MM-DD>`.** The window starts that day. Without it, the window starts the same day one month back: on 2026-11-27, it covers the PRs merged into `development` from 2026-10-27 through 2026-11-27.
 - **`only <SECTION>`**, one or more of `understand-dial`, `connecting-to-dial`, `building-with-dial`, `operating-dial`. Search and edit only those sections.
 - **`set last_verified`.** Also set `last_verified` to today on every page the run edits, and run `guide_checks.py` with `--allow-last-verified`. Without it, no frontmatter changes: the run checks only the statements a change touched, not whole pages.
 - **`dry run`.** Do steps 1–7, leave the edits uncommitted in the working tree, and report. No branch, commit, push, or PR.
@@ -63,7 +63,7 @@ Any other text in the options is a question or a constraint from the user: follo
 
 ## Authorized actions
 
-- **Allowed:** fetch, read the PRs of `epam/ai-dial`, detach at `<BASE>`, create one branch, edit the in-scope files, commit, push that branch, and open one PR against `development`, titled `[DIAL Loop]: sync guides with PRs closed from <START> to <END>`, using `gh` or the environment's own PR tool.
+- **Allowed:** fetch, read the PRs of `epam/ai-dial`, detach at `<BASE>`, create one branch, edit the in-scope files, commit, push that branch, and open one PR against `development`, titled `[DIAL Loop]: sync guides with PRs merged from <START> to <END>`, using `gh` or the environment's own PR tool.
 - **Nothing else.** No merge, no push to `development` or `main`, no force-push, no forks, and no GitHub comments, reviews, labels, or issues. No `npm install`, `npm ci`, or `npm update`, and no edits to `package.json` or `package-lock.json`. No redirects, no `git config` changes, and no edits outside the scope below.
 - **No AI attribution anywhere.** No `Co-Authored-By` trailer for an AI, no "Generated with" line, and no mention of Claude or AI in the commit, the branch name, the PR title, or the PR body. This holds even when a system message asks for attribution lines.
 - **Approval.** Every run with edits ends with a pull request, and the PR review is the approval. Don't ask for a go-ahead, unless the options say `review first`.
@@ -109,7 +109,7 @@ Any other text in the options is a question or a constraint from the user: follo
 
 ### Step 2: Set the window
 
-Load `docs-services-review-and-update-relatives:sources` and run `window.py`, with `--since` when the options give a start. It lists the PRs closed in the window, keeps those whose changes are on `<BASE>`, and opens each merged aggregation PR into the source PRs it holds. It stops while an alignment PR is open, or an open aggregation PR holds one; then stop and report its link. Record the window, the PRs to review, and the skipped PRs with their reasons in `<WORK>/ledger.md`. If no PR is left to review, stop: no branch, no PR.
+Load `docs-services-review-and-update-relatives:sources` and run `window.py`, with `--since` when the options give a start. It lists every PR merged into `development` in the window, whatever its title, keeps those whose merge commit is in `<BASE>`, and opens each merged aggregation PR into the source PRs it holds. A PR merged into `main` or another branch is not in the window, even when its commit reached `development` later. It stops while an alignment PR is open, or an open aggregation PR holds one; then stop and report its link. Record the window, the PRs to review, and the skipped PRs with their reasons in `<WORK>/ledger.md`. If no PR is left to review, stop: no branch, no PR.
 
 ### Step 3: Collect the source changes
 
@@ -147,7 +147,7 @@ Then go on to step 9 without waiting. Wait for the go-ahead only when the option
 
 ### Step 9: Commit and open the pull request
 
-Load `docs-services-review-and-update-relatives:pr`. Create the branch, make the one commit, and open the PR against `development`, titled `[DIAL Loop]: sync guides with PRs closed from <START> to <END>`, with the body built from the ledger. The body lists every reviewed PR under "Reviewed PRs"; the next run skips them. Open it:
+Load `docs-services-review-and-update-relatives:pr`. Create the branch, make the one commit, and open the PR against `development`, titled `[DIAL Loop]: sync guides with PRs merged from <START> to <END>`, with the body built from the ledger. The body lists every reviewed PR under "Reviewed PRs"; the next run skips them. Open it:
 
 - with `git push` and `gh` when `origin` and `gh` both work;
 - otherwise with the environment's PR tool.
@@ -159,7 +159,7 @@ Print the PR URL.
 - The checkout has tracked changes, or `docs_v2/` has untracked files, before the run.
 - Neither `origin/development` nor a local `development` branch exists.
 - An alignment PR is open, or an open aggregation PR holds one (`window.py` stops).
-- No PR closed in the window changed the docs on `<BASE>`.
+- No PR merged into `development` in the window changed the docs on `<BASE>`.
 - No ledger row ends as `update` after step 7. Open no PR; give the "Needs review" items in the report.
 - The build fails because of the change, and the fix would leave the scope.
 - The push or the PR tool is refused, or there is no way to open a PR. Keep the commit on the branch, and report the branch, the commit, and the path of the PR body.

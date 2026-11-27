@@ -229,7 +229,7 @@ def main():
     all_rels = sorted({n.split('/')[2] for n in git('ls-tree', '-r', '--name-only', end, '--', 'docs/releases').stdout.split()
                        if n.count('/') >= 3}, key=vkey)
     corpus = Corpus(read_tree(end))
-    out, md = [], [f'# Release documents changed by the PRs closed {w["start"]} through {w["end"]}', '']
+    out, md = [], [f'# Release documents changed by the PRs merged into development {w["start"]} through {w["end"]}', '']
     if not rels:
         md.append('No reviewed PR changed a release document.')
     for n in rels:

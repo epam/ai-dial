@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Find the pull requests an alignment run reviews: the PRs of epam/ai-dial closed in the last month
-whose changes are on the base.
+"""Find the pull requests an alignment run reviews: the PRs of epam/ai-dial merged into development
+in the last month, whatever their title.
 
 Usage (from the root of the epam/ai-dial checkout, after `git fetch origin`):
   python3 -I window.py --out <WORK>/window.json [--base BASE] [--remote REMOTE]
@@ -8,31 +8,34 @@ Usage (from the root of the epam/ai-dial checkout, after `git fetch origin`):
 
 BASE defaults to origin/development, else the local development branch. The window runs from the
 same day one month back (or --since) through today, both days included, by the UTC date a PR was
-closed. On 2026-11-27 it runs from 2026-10-27 through 2026-11-27.
+merged. On 2026-11-27 it runs from 2026-10-27 through 2026-11-27. Only PRs whose base branch is
+development count, and titles don't matter: DIAL Loop PRs and PRs people opened by hand are listed
+alike. A PR merged into main or another branch is not listed, even when its commit was
+cherry-picked onto development.
 
 The PR list comes from `gh`. Without a working gh, it comes from the public GitHub REST API (read
 only, no token), or from --from-json: a JSON object {"closed": [...], "open": [...]} that the
 environment's PR tool returned, with gh's field names (number, title, url, state, closedAt,
 mergedAt, baseRefName, headRefName, mergeCommit {oid}, body) and, for an aggregation PR, commits
-[{oid, messageHeadline}].
+[{oid, messageHeadline}]. "closed" may hold every closed PR: the script keeps those merged into
+development, and reads the others only as the source PRs of an aggregation PR.
 
-Each closed PR in the window gets one role:
-  review  merged, and its change is on BASE: its merge commit is in BASE, or BASE has a commit
-          whose subject ends with "(#N)", such as a cherry-pick. The change is that landing
-          commit's diff: from its first parent, or for a rebase merge, from before the PR's commits.
-          A merged aggregation PR ("[DIAL Loop]: Aggregation of PRs for docs sync", or a
-          docs/loop-aggregate-* branch) is reviewed the same way, and its source PRs, read from its
-          "Merge #N: <TITLE>" commits, are listed with the files each one brought in.
-  held    closed without merge, and a merged aggregation PR in the window holds it: reviewed
-          through that aggregation PR.
-  skip    with the reason: closed without merge; held by an aggregation PR that is still open or
-          was closed; merged into another branch and not on BASE; a promotion between development
-          and main; no change under docs_v2/, docs/releases/, or sidebars-v2.js; an alignment PR
-          (the output of this task); reviewed already by an alignment PR that landed; a bulk
-          import; or landed before a bulk import.
-A PR that adds 50 or more pages under docs_v2/ is a bulk import, such as #672, which created the
-tree on 2026-11-13. Pages written together carry no change from one to the other, so it and every
-PR that landed before it are skipped.
+Each PR merged into development in the window gets one role:
+  review  its merge commit is in BASE. The change is that commit's diff: from its first parent, or
+          for a rebase merge, from before the PR's commits. A merged aggregation PR ("[DIAL Loop]:
+          Aggregation of PRs for docs sync", or a docs/loop-aggregate-* branch) is reviewed the
+          same way, and its source PRs, read from its "Merge #N: <TITLE>" commits, are listed with
+          the files each one brought in.
+  skip    with the reason: its merge commit is not in BASE; a promotion from main; no change under
+          docs_v2/, docs/releases/, or sidebars-v2.js; an alignment PR (the output of this task);
+          reviewed already by an alignment PR that landed; a bulk import; or landed before a bulk
+          import.
+The source PRs of an aggregation PR, which the aggregation closed without merge, are added as rows
+too: held when the aggregation PR is reviewed (the run reviews them through it), and skip with the
+aggregation's reason when it is skipped. The PRs that an open aggregation PR holds are listed under
+open_aggregations: they aren't merged yet, and the run after the aggregation merges reviews them.
+A PR that adds 50 or more pages under docs_v2/ is a bulk import. Pages written together carry no
+change from one to the other, so it and every PR that landed before it are skipped.
 
 An alignment PR has a title that starts with "[DIAL Loop]: sync guides", or a docs/align-guides-*
 branch. Its body lists the PRs it reviewed under "## Reviewed PRs"; a later run skips those.
@@ -55,6 +58,7 @@ import urllib.request
 from datetime import date, timedelta
 
 REPO = 'epam/ai-dial'
+BRANCH = 'development'
 PATHS = ['docs_v2', 'docs/releases', 'sidebars-v2.js']
 BULK_PAGES = 50
 AGG_TITLE = '[DIAL Loop]: Aggregation of PRs for docs sync'
@@ -118,9 +122,9 @@ class GH:
             raise RuntimeError(r.stderr.strip()[:200])
         return json.loads(r.stdout or 'null')
 
-    def closed(self, since):
-        return self._json('pr', 'list', '--repo', REPO, '--state', 'closed', '--limit', '500',
-                          '--search', f'closed:>={since}', '--json', FIELDS)
+    def merged(self, since):
+        return self._json('pr', 'list', '--repo', REPO, '--state', 'merged', '--base', BRANCH, '--limit', '500',
+                          '--search', f'merged:>={since}', '--json', FIELDS)
 
     def open(self):
         return self._json('pr', 'list', '--repo', REPO, '--state', 'open', '--limit', '300',
@@ -154,11 +158,12 @@ class REST:
                 'mergeCommit': {'oid': p.get('merge_commit_sha')} if merged else None,
                 'body': p.get('body') or ''}
 
-    def closed(self, since):
+    def merged(self, since):
         out, page = [], 1
         while True:
-            rows = self._get('pulls', state='closed', sort='updated', direction='desc', per_page=100, page=page)
-            out += [self._shape(p) for p in rows if (p.get('closed_at') or '')[:10] >= since]
+            rows = self._get('pulls', state='closed', base=BRANCH, sort='updated', direction='desc',
+                             per_page=100, page=page)
+            out += [self._shape(p) for p in rows if (p.get('merged_at') or '')[:10] >= since]
             if len(rows) < 100 or (rows[-1].get('updated_at') or '')[:10] < since:
                 return out
             page += 1
@@ -182,8 +187,9 @@ class FromJSON:
         self._closed, self._open = d.get('closed', []), d.get('open', [])
         self._by = {p['number']: p for p in self._closed + self._open}
 
-    def closed(self, since):
-        return [p for p in self._closed if (p.get('closedAt') or '')[:10] >= since]
+    def merged(self, since):
+        return [p for p in self._closed if p.get('state') == 'MERGED' and p.get('baseRefName') == BRANCH
+                and (p.get('mergedAt') or '')[:10] >= since]
 
     def open(self):
         return self._open
@@ -230,14 +236,14 @@ def main():
     base = commit_of(base_ref)
     remote = a.remote or ('origin' if git('remote', 'get-url', 'origin').returncode == 0 else f'https://github.com/{REPO}')
 
-    # The search runs a day wide on each side: GitHub's date qualifiers and the closedAt timestamps
-    # need not agree on the day. The window itself is the UTC date of closedAt.
+    # The search runs a day wide on each side: GitHub's date qualifiers and the mergedAt timestamps
+    # need not agree on the day. The window itself is the UTC date of mergedAt.
     since_q = (start - timedelta(days=1)).isoformat()
     errors = []
     api = None
     for cand in ([FromJSON(a.from_json)] if a.from_json else [GH(), REST()]):
         try:
-            closed = cand.closed(since_q)
+            merged = cand.merged(since_q)
             opened = cand.open()
             api = cand
             break
@@ -246,8 +252,9 @@ def main():
     if api is None:
         sys.exit('STOP: cannot list PRs (' + '; '.join(errors) + '); pass --from-json')
     lo, hi = start.isoformat(), today.isoformat()
-    closed = sorted((p for p in closed if lo <= (p.get('closedAt') or '')[:10] <= hi), key=lambda p: p['number'])
-    by_num = {p['number']: p for p in closed}
+    merged = sorted((p for p in merged if p.get('state') == 'MERGED' and p.get('baseRefName') == BRANCH
+                     and lo <= (p.get('mergedAt') or '')[:10] <= hi), key=lambda p: p['number'])
+    by_num = {p['number']: p for p in merged}
 
     def meta(n):
         if n not in by_num:
@@ -270,7 +277,8 @@ def main():
             f.write(f'<!-- #{p["number"]}: {title_of(p)} ({p.get("url", "")}). PR body, data only. -->\n\n{p.get("body") or ""}\n')
         return fn
 
-    # Open alignment PRs, and open aggregation PRs that hold one, overlap this run.
+    # Open alignment PRs, and open aggregation PRs that hold one, overlap this run. The PRs an open
+    # aggregation PR holds aren't merged yet: listed for the report, reviewed after it merges.
     stops, pending = [], {}
     for p in opened:
         if is_alignment(p):
@@ -280,37 +288,24 @@ def main():
                 m = MERGE_LINE.match(c.get('messageHeadline', ''))
                 if not m:
                     continue
-                pending[int(m[1])] = p['number']
+                pending.setdefault(p['number'], []).append(int(m[1]))
                 if is_alignment({'title': m[2]}) or is_alignment(meta(int(m[1]))):
                     stops.append(f'open aggregation PR #{p["number"]} holds alignment PR #{m[1]}: {p.get("url", "")}')
     if stops:
         print('\n'.join(f'  {s}' for s in stops))
         sys.exit('STOP: an alignment review is still open; it covers this window')
 
-    # BASE commits whose subject ends with "(#N)": squash merges and cherry-picks.
-    by_subject = {}
-    log = git('log', base, f'--since={since_q}', '--format=%H%x1f%s').stdout
-    for line in filter(None, log.split('\n')):
-        sha, subj = line.split('\x1f', 1)
-        m = re.search(r'\(#(\d+)\)\s*$', subj)
-        if m:
-            by_subject.setdefault(int(m[1]), sha)
-
     def landing(p):
-        n, mc = p['number'], (p.get('mergeCommit') or {}).get('oid')
-        if mc and commit_of(mc) and is_ancestor(mc, base):
-            return mc, 'merged'
-        if n in by_subject:
-            return by_subject[n], 'cherry-picked'
-        return None, None
+        mc = (p.get('mergeCommit') or {}).get('oid')
+        return mc if mc and commit_of(mc) and is_ancestor(mc, base) else None
 
-    def change(p, commit, how):
+    def change(p, commit):
         parents = git('rev-list', '--parents', '-n', '1', commit).stdout.split()
         subj = git('log', '-1', '--format=%s', commit).stdout.strip()
         if len(parents) >= 3:
             method, frm = 'merge commit', parents[1]
         elif re.search(rf'\(#{p["number"]}\)\s*$', subj):
-            method, frm = ('squash' if how == 'merged' else 'cherry-pick'), parents[1]
+            method, frm = 'squash', parents[1]
         else:
             k = len(headlines(p['number']))
             method, frm = f'rebase ({k} commits)', (commit_of(f'{commit}~{k}') if k else None)
@@ -326,29 +321,28 @@ def main():
 
     def row(p, role, reason='', **kw):
         r = {'number': p['number'], 'title': title_of(p), 'url': p.get('url', ''), 'state': p.get('state'),
-             'closed': (p.get('closedAt') or '')[:10], 'base_branch': p.get('baseRefName'),
+             'merged': (p.get('mergedAt') or '')[:10] or None, 'closed': (p.get('closedAt') or '')[:10],
+             'base_branch': p.get('baseRefName'),
              'branch': p.get('headRefName'), 'role': role, 'reason': reason}
         r.update(kw)
         return r
 
-    rows, landed_guides, held = [], [], {}
-    for p in closed:
+    rows, landed_guides = [], []
+    for p in merged:
         n = p['number']
         if (p.get('headRefName') or '') in ('development', 'main'):
             rows.append(row(p, 'skip', f'promotes {p["headRefName"]} into {p.get("baseRefName")}'))
             continue
-        if p.get('state') != 'MERGED':
-            rows.append(row(p, 'skip', 'closed without merge'))  # may become `held` below
-            continue
-        commit, how = landing(p)
+        commit = landing(p)
         if not commit:
-            rows.append(row(p, 'skip', f'merged into {p.get("baseRefName")}; not on {base_ref}'))
+            mc = (p.get('mergeCommit') or {}).get('oid') or 'unknown'
+            rows.append(row(p, 'skip', f'merged into {BRANCH}, but its merge commit {mc[:10]} is not in {base_ref}'))
             continue
         if is_alignment(p):
             landed_guides.append(p)
             rows.append(row(p, 'skip', 'alignment PR: the output of this task'))
             continue
-        ch = change(p, commit, how)
+        ch = change(p, commit)
         if not ch:
             rows.append(row(p, 'skip', f'landed as {commit[:10]}, but its diff could not be computed'))
             continue
@@ -373,23 +367,12 @@ def main():
                 if s.get('body') is not None and 'error' not in s:
                     src['body_file'] = save_body(s)
                 sources.append(src)
-                held[s['number']] = n
                 if src['alignment']:
                     landed_guides.append(s)
             r['sources'] = sources
             if not sources:
                 r['reason'] = 'no "Merge #N:" commits found; read the body for its source PRs'
         rows.append(r)
-
-    for r in rows:
-        if r['role'] == 'skip' and r['reason'] == 'closed without merge':
-            n = r['number']
-            if n in held:
-                r.update(role='held', reason=f'held by #{held[n]}, reviewed through it', held_by=held[n])
-            elif n in pending:
-                r['reason'] = f'held by #{pending[n]}, which is still open; the run after it merges reviews it'
-            elif is_alignment(by_num[n]):
-                r['reason'] = 'alignment PR, closed without merge'
 
     # Skip what a landed alignment PR reviewed already.
     reviewed = {}
@@ -417,6 +400,19 @@ def main():
             elif is_ancestor(r['landing']['commit'], newest['landing']['commit']):
                 r.update(role='skip', reason=f'landed before the bulk import #{newest["number"]}')
 
+    # The source PRs of each aggregation PR: reviewed through it, or skipped with it.
+    listed = {r['number'] for r in rows}
+    for r in [x for x in rows if x.get('kind') == 'aggregation']:
+        for s in r.get('sources', []):
+            if s['number'] in listed:
+                continue
+            listed.add(s['number'])
+            p = by_num.get(s['number']) or {'number': s['number'], 'title': s['title'], 'url': s['url']}
+            if r['role'] == 'review':
+                rows.append(row(p, 'held', f'held by #{r["number"]}, reviewed through it', held_by=r['number']))
+            else:
+                rows.append(row(p, 'skip', f'held by #{r["number"]}, skipped with it: {r["reason"]}', held_by=r['number']))
+
     def info(sha):
         d, s = git('log', '-1', '--format=%cs%x1f%s', sha).stdout.strip().split('\x1f', 1)
         return {'commit': sha, 'date': d, 'subject': s}
@@ -427,13 +423,14 @@ def main():
     out = {'base_ref': base_ref, 'base': info(base), 'today': hi, 'start': lo, 'end': hi, 'mode': mode,
            'list_source': api.name, 'remote': remote,
            'units': [r['number'] for r in units],
+           'open_aggregations': {str(k): v for k, v in sorted(pending.items())},
            'reviewed_before': {str(k): v for k, v in sorted(reviewed.items())},
            'prs': rows}
     with open(a.out, 'w', encoding='utf-8') as f:
         json.dump(out, f, indent=1)
 
     print(f'base: {base_ref} at {base[:10]} ({out["base"]["date"]}); list from {api.name}')
-    print(f'window: PRs closed {lo} through {hi} ({mode}); {len(closed)} closed, {len(units)} to review')
+    print(f'window: PRs merged into {BRANCH} {lo} through {hi} ({mode}); {len(merged)} merged, {len(units)} to review')
     for r in units:
         areas = {}
         for f in r['files']:
@@ -449,8 +446,10 @@ def main():
     for role in ('held', 'skip'):
         for r in (x for x in rows if x['role'] == role):
             print(f'  {role:<6} #{r["number"]:<5} {r["reason"]}: {r["title"][:60]}')
+    for k, v in sorted(pending.items()):
+        print(f'  open aggregation #{k} holds ' + ', '.join(f'#{x}' for x in v) + ': reviewed after it merges')
     if not units:
-        print('nothing to review: no PR closed in the window changed the docs on the base')
+        print(f'nothing to review: no PR merged into {BRANCH} in the window changed the docs on the base')
 
 
 if __name__ == '__main__':

@@ -35,10 +35,10 @@ If the branch already exists on the remote, append `-2`, then `-3`. Check with `
 ```bash
 git add -- docs_v2/2.understand-dial docs_v2/3.connecting-to-dial docs_v2/4.building-with-dial docs_v2/5.operating-dial
 git status --porcelain            # nothing else is staged
-git commit -m '[DIAL Loop]: sync guides with PRs closed from <START> to <END>'
+git commit -m '[DIAL Loop]: sync guides with PRs merged from <START> to <END>'
 ```
 
-`<START>` and `<END>` are `window.json` → `start` and `end`, such as `[DIAL Loop]: sync guides with PRs closed from 2026-10-27 to 2026-11-27`. The PR title is the same text. With `review first` and fixes after the review, amend nothing: make one more commit, `docs(guides): fix <WHAT> in the guide alignment`.
+`<START>` and `<END>` are `window.json` → `start` and `end`, such as `[DIAL Loop]: sync guides with PRs merged from 2026-10-27 to 2026-11-27`. The PR title is the same text. With `review first` and fixes after the review, amend nothing: make one more commit, `docs(guides): fix <WHAT> in the guide alignment`.
 
 ## 4. Open the PR
 
@@ -49,7 +49,7 @@ Write the body (section 5) to `<WORK>/pr-body.md`. Then use the first route that
    ```bash
    git push -u origin <BRANCH>
    gh pr create --repo epam/ai-dial --base development --head <BRANCH> \
-     --title '[DIAL Loop]: sync guides with PRs closed from <START> to <END>' --body-file <WORK>/pr-body.md
+     --title '[DIAL Loop]: sync guides with PRs merged from <START> to <END>' --body-file <WORK>/pr-body.md
    ```
 
    If `origin` is a fork of `epam/ai-dial`, use `--head <OWNER>:<BRANCH>`.
@@ -71,11 +71,11 @@ Build it from the ledger. Cite PRs in this repository as `#123`; they link corre
 ````markdown
 ## Summary
 
-Aligns the guide sections with the changes of the PRs closed from <START> to <END> that are on `development`.
+Aligns the guide sections with the changes of the PRs merged into `development` from <START> to <END>.
 
 | | |
 |---|---|
-| Window | PRs closed <START> through <END> (<MODE>); <N> reviewed, <N> skipped |
+| Window | PRs merged into `development` <START> through <END> (<MODE>); <N> reviewed, <N> skipped |
 | Sources reviewed | <N> service pages, <N> user-guide pages, release <N> (notes and upgrade notes) |
 | Guide pages changed | <N>: Understand DIAL <N>, Connecting to DIAL <N>, Building with DIAL <N>, Operating DIAL <N> |
 
@@ -90,7 +90,7 @@ Aligns the guide sections with the changes of the PRs closed from <START> to <EN
 
 | Page | Change | Source |
 |---|---|---|
-| `docs_v2/5.operating-dial/7.production-readiness/6.cost-control.md` | Step 1 links the spending limits settings next to role limits | #666, release 1.50 notes; `7.services/1.core/1.configuration/14.global-settings.md#spending-limits` |
+| `docs_v2/5.operating-dial/7.production-readiness/6.cost-control.md` | Step 1 links the spending limits settings next to role limits | #694 via #712; `7.services/1.core/1.configuration/14.global-settings.md#spending-limits` |
 
 ## Reviewed, not changed
 

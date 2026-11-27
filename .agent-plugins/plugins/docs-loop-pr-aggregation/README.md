@@ -4,7 +4,7 @@ A Claude Code plugin that collects the open pull requests of `epam/ai-dial` whos
 
 While an aggregation PR is open, the next run adds the new DIAL Loop PRs to it instead of opening a second one.
 
-The source PRs come from the other two plugins: `docs-services-release-sync` (`[DIAL Loop]: sync DIAL <SERVICE> docs with <VERSION>`) and `docs-services-review-and-update-relatives` (`[DIAL Loop]: sync guides with PRs closed from <START> to <END>`). Both recognize an open aggregation PR: a sync skips a service whose folder it already changes, and an alignment run stops while it holds an alignment PR. After the aggregation PR merges, the next alignment run reviews it, with the descriptions of the source PRs it holds.
+The source PRs come from the other two plugins: `docs-services-release-sync` (`[DIAL Loop]: sync DIAL <SERVICE> docs with <VERSION>`) and `docs-services-review-and-update-relatives` (`[DIAL Loop]: sync guides with PRs merged from <START> to <END>`). Both recognize an open aggregation PR: a sync skips a service whose folder it already changes, and an alignment run stops while it holds an alignment PR. After the aggregation PR merges, the next alignment run reviews it, with the descriptions of the source PRs it holds.
 
 ## Skills
 

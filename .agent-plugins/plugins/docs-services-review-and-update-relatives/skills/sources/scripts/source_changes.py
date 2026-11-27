@@ -382,7 +382,7 @@ def main():
     kinds = {}
     for e in entries:
         kinds[e['kind']] = kinds.get(e['kind'], 0) + 1
-    md = [f'# Source changes in the PRs closed {w["start"]} through {w["end"]}', '',
+    md = [f'# Source changes in the PRs merged into development {w["start"]} through {w["end"]}', '',
           'PRs: ' + (', '.join(f'#{u["number"]}' for u in units) or 'none') + '. Counts: '
           + ', '.join(f'{k} {v}' for k, v in sorted(kinds.items())) +
           f'; target pages changed by these PRs: {len(targets)}', '']

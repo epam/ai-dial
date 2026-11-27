@@ -2,7 +2,7 @@
 
 This prompt runs one task: collect every open pull request in `epam/ai-dial` whose title starts with `[DIAL Loop]` into one aggregation pull request against `development`, titled `[DIAL Loop]: Aggregation of PRs for docs sync`, resolve their conflicts, and close each source PR with a comment that links the aggregation PR. One session does the whole job and starts no subagents.
 
-The source PRs come from the DIAL Loop runs: the service docs syncs (`[DIAL Loop]: sync DIAL <SERVICE> docs with <VERSION>`) and the guide alignments (`[DIAL Loop]: sync guides with PRs closed from <START> to <END>`), plus any PR a person titled with the prefix. While an aggregation PR is open, a new run adds the new source PRs to it instead of opening a second one.
+The source PRs come from the DIAL Loop runs: the service docs syncs (`[DIAL Loop]: sync DIAL <SERVICE> docs with <VERSION>`) and the guide alignments (`[DIAL Loop]: sync guides with PRs merged from <START> to <END>`), plus any PR a person titled with the prefix. While an aggregation PR is open, a new run adds the new source PRs to it instead of opening a second one.
 
 The `docs-loop-pr-aggregation` plugin provides the skills this prompt names, and `/docs-loop-pr-aggregation:aggregate` runs the same task as a command. With this prompt loaded, follow it, and do not invoke that command.
 

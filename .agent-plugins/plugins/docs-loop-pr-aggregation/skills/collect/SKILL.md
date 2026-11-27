@@ -18,7 +18,7 @@ python3 -I "${CLAUDE_SKILL_DIR}/scripts/loop_prs.py" --base <BASE> --remote <REM
 - It fetches each head with `git fetch <REMOTE> +refs/pull/<N>/head:refs/loop/pr-<N>`, which also works for PRs from forks.
 - It computes the files from git, not from the API, which lists at most 100 files per PR.
 
-A PR counts when its title starts with `[DIAL Loop]`: the service syncs (`[DIAL Loop]: sync DIAL <SERVICE> docs with <VERSION>`), the guide alignments (`[DIAL Loop]: sync guides with PRs closed from <START> to <END>`), and any PR a person titled that way. The aggregation PR is the one titled `[DIAL Loop]: Aggregation of PRs for docs sync`; it also counts on its `docs/loop-aggregate-` branch after someone renames it.
+A PR counts when its title starts with `[DIAL Loop]`: the service syncs (`[DIAL Loop]: sync DIAL <SERVICE> docs with <VERSION>`), the guide alignments (`[DIAL Loop]: sync guides with PRs merged from <START> to <END>`), and any PR a person titled that way. The aggregation PR is the one titled `[DIAL Loop]: Aggregation of PRs for docs sync`; it also counts on its `docs/loop-aggregate-` branch after someone renames it.
 
 ## 2. The roles
 
