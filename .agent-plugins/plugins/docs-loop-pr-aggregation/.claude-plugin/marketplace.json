@@ -1,0 +1,14 @@
+{
+  "name": "docs-loop-pr-aggregation",
+  "owner": {
+    "name": "khshanovskyi"
+  },
+  "description": "A one-plugin marketplace for the DIAL docs plugin that collects the open [DIAL Loop] pull requests of epam/ai-dial into one aggregation pull request.",
+  "plugins": [
+    {
+      "name": "docs-loop-pr-aggregation",
+      "source": "./",
+      "description": "Merge every open [DIAL Loop] pull request into one aggregation pull request against development, resolve the conflicts, and close the source pull requests with a link to it."
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 ---
 name: impact
-description: Use when deciding whether a change in the epam/ai-dial service pages, user guides, or release documents requires an edit in Understand DIAL, Connecting to DIAL, Building with DIAL, or Operating DIAL - finding the guide pages it touches, the significance test for guide readers, the verdicts, which source proves a guide statement, how much text an edit deserves, and worked examples from this repository.
+description: Use when deciding whether a change in the epam/ai-dial service pages, user guides, or release documents requires an edit in Understand DIAL, Connecting to DIAL, Building with DIAL, or Operating DIAL - finding the guide pages it touches, the significance test for guide readers, the verdicts, which source proves a guide statement, how much text an edit deserves, the rules for adding and removing text, and worked examples from this repository.
 user-invocable: false
 ---
 
 # Guide impact triage
 
-A guide is not a second reference. It explains a mechanism, walks a reader through a task, or helps an architect decide, and it links the reference for detail. Most source changes leave every guide true. The job is to find the guide statements that a change made false, the steps it broke, and the few new capabilities a guide's reader must know about, and to change exactly those.
+A guide is not a second reference. It explains a mechanism, walks a reader through a task, or helps an architect decide, and it links the reference for detail. Most source changes leave every guide true. The job is to find the guide statements that a PR in the window made false, the steps it broke, and the few new capabilities a guide's reader must know about, and to change exactly those.
 
 ## 1. Find the candidates
 
@@ -39,7 +39,7 @@ An edit is warranted when one of these is true:
 1. **False.** A sentence, list item, table cell, example value, version, link description, or diagram on the guide now contradicts a source page at `<BASE>` or a release document.
 2. **Broken.** A step in a tutorial or how-to no longer works: a removed or renamed setting, endpoint, file, folder, value, or screen; a changed default the step relies on; a new required setting without which the step fails.
 3. **Incomplete where it claims to be complete.** The page lists all members of a set (services, adapters, providers, identity providers, limit mechanisms, API surfaces) or calls itself the hub for a topic, and the set gained or lost a member.
-4. **Missing for this reader.** A released capability changes how this page's reader decides or acts on the page's own topic, and a source page documents it. Example: budgets that can replace role cost limits, on the page that tells operators how to cap spend.
+4. **Missing for this reader.** A released capability changes how this page's reader decides or acts on the page's own topic, the page already covers that topic, and a source page documents it. Example: budgets that can replace role cost limits, on the page that tells operators how to cap spend.
 
 If none is true, the verdict is `skip`, however interesting the change is.
 
@@ -69,7 +69,7 @@ A guide edit is the smallest change that makes the page true for its reader. Kee
 | Change | Edit |
 |---|---|
 | a false statement | rewrite only the false part of that sentence or cell; keep the sentence's shape |
-| a removed thing (setting, endpoint, page, feature) | delete the sentence, bullet, row, or link; repair the list or paragraph around it |
+| a removed thing (setting, endpoint, page, feature) | delete only the sentence, bullet, row, or link that names it, and repair the list or paragraph around it; a whole paragraph or section is a `flag` (section 6) |
 | a renamed thing | replace the name everywhere on the page; fix the link and its anchor |
 | a broken step | fix the command, value, path, or screen name, keeping the step's numbering and its `**Verify:**` line; if the sources don't say what replaces it, `flag` |
 | a fixed limitation ("In 0.2.1, … fails unless …") | delete the caveat once a source says the fix shipped |
@@ -81,11 +81,34 @@ A guide edit is the smallest change that makes the page true for its reader. Kee
 
 Never copy a settings table, a defaults list, or a sequence of reference facts into a guide; link it. Never add "new in", "since", or a release number to describe a change; state current behavior. A minimum version stays when a reader acts on it.
 
-## 6. Which page
+## 6. Adding and removing
+
+People wrote and reviewed these pages. A run changes them only where a PR in the window requires it, and adds and removes less than it could. A PR's description says what changed; it doesn't decide what a guide says.
+
+**Add a fact** only when all four hold:
+
+1. It passes the test (section 2): a complete list gained a member, a step needs a new required setting, or a released capability changes how this page's reader decides or acts.
+2. A PR in the window introduced it, and a source page at `<BASE>` documents it. The ledger names the page and its heading.
+3. The page already covers the topic: the fact extends what one of its sections says, and the page's scope stays the same.
+4. It takes the smallest form in section 5: a clause, one or two sentences, a list item, or a table row in a shape the page already uses, with a link to the source page for the detail.
+
+Otherwise the verdict is `skip (reference detail no guide states)`, or `flag (new topic for this page; needs a decision)` when the reader needs it but the page doesn't cover the topic. Never add a section, a page, a diagram, an example, or a Further reading block in this task.
+
+**Remove or rewrite existing text** only when both hold:
+
+1. A PR in the window made it false: it removed, renamed, or changed the setting, endpoint, component, screen, value, or step that the text describes, and the page at `<BASE>` confirms it.
+2. The edit takes out or rewrites only the false part: a word, a value, a clause, a list item, a row, or a link. The rest of the sentence, the paragraph, and the section stays.
+
+- When something replaces the removed thing, put the new name or value in place instead of deleting the sentence: Redis to Valkey, an old setting to its successor.
+- Removing a whole paragraph, section, step, example, or diagram node is `flag (removes <WHAT>; needs a decision)`, never `update`.
+- Never remove text because no source mentions it any more, because it repeats a service page, because it reads as dated, or because a PR's description calls it outdated while the page at `<BASE>` doesn't prove it.
+- Never revert or redo what a person changed on a target page in the window. `changes.md` lists those pages at the end; treat their changes as deliberate.
+
+## 7. Which page
 
 Edit the page whose claim is false or whose reader needs the fact, and only that page. When several guide pages say the same thing, fix each false statement, but add a new fact to one page and link it from the others only if they already point there. Concept pages in Understand DIAL get the what and the why, the how-tos in Operating DIAL get the setting and the step, the tutorials get only what their steps need.
 
-## 7. Out of scope pages and service gaps
+## 8. Out of scope pages and service gaps
 
 Record these under "Needs review", with the path, the line, and why: a stale statement on `1.overview.md`, `6.administering-dial-new/`, `7.services/`, `8.chat-user-guide/`, or `9.demos/`; a service page that lags a release; a repository path that is gone.
 
@@ -102,7 +125,6 @@ These were checked against this repository on 2026-11-25.
 | `5.operating-dial/2.cloud-deployment/8.admin-installation.md` names chart `dial-admin` 0.20.0 and images `0.22.0` and `0.22.1`; release 1.50 ships chart 0.21.0 and Admin 0.23.0 | `already consistent` with `7.services/12.helm/1.configuration/4.dial-admin.md`, which still describes chart 0.20.0. `flag (the Helm pages are not synced to 1.50; run the service sync for epam/ai-dial-helm, then this page follows)`. |
 | Tutorials pin old images: `epam/ai-dial-adapter-dial:0.14.0` in the DIAL-to-DIAL adapter tutorial, `ai-dial-core:0.25.1` and `ai-dial-chat:0.26.0` in five Custom App pages (`4.building-with-dial/1.apps/4.custom-apps/1.`–`4.`, `6.`); release 1.50 ships 0.21.0, 0.50.1, and 1.3.1 | `flag (pinned images behind release 1.50; a tutorial's pins change only with a test run)`, as one "Needs review" line per page. The pins are still released versions, so nothing is false. |
 | `#687` replaces Core's Redis page with `3.valkey.md`: Core speaks the Redis protocol, settings keep the `redis` prefix, Redis stays supported | `skip (still true)` for "managed Redis-compatible service", "Azure Cache for Redis", and `aidial.redis.*` in the guides. A sentence saying the chart bundles Redis would be `update`: the chart bundles Valkey. |
-| `9eeb5d43` renames the Admin page `3.deployments/2.container-management.md` to `1.container-management.md` | `already consistent`: the same commit fixed the link in `4.building-with-dial/3.interceptors/3.configuration-and-assignment.md`. `check_links.py` and the build catch any link left behind. |
 | `#683`: the Admin guide's "Max retry attempts" now counts every attempt, including the first | `already consistent`: the guides speak of retries in general ("caps retries per deployment") and state no count. |
 | Release 1.50: all adapters ship as DIAL Model Provider | `already consistent`: the Services landing marks the standalone adapters "Will be deprecated; use DIAL Model Provider", the model deployment guides configure Model Provider, and architecture highlights says the adapters run in one service. |
 | Release 1.50: DIAL Loop (Preview), and a five-product line-up in the release notes | `flag (release notes only)` for DIAL Loop: no source page documents it. The line-up is positioning: never rewrite `1.what-is-dial.md` from release notes. |

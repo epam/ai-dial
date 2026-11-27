@@ -1,8 +1,8 @@
 # docs-services-review-and-update-relatives
 
-A Claude Code plugin that keeps the four guide sections of the DIAL docs in `epam/ai-dial` (Understand DIAL, Connecting to DIAL, Building with DIAL, and Operating DIAL) in line with what changed in the rest of `docs_v2/`, above all the service pages, and in the platform release documents under `docs/releases/`. One command reviews the changes since the last run, edits only what became false, broken, or incomplete for a guide's reader, checks the result, and opens a pull request against `development`.
+A Claude Code plugin that keeps the four guide sections of the DIAL docs in `epam/ai-dial` (Understand DIAL, Connecting to DIAL, Building with DIAL, and Operating DIAL) in line with what the pull requests merged into `development` in the last month changed in the rest of `docs_v2/`, above all the service pages, and in the platform release documents under `docs/releases/`. One command reviews those changes, edits only what became false, broken, or incomplete for a guide's reader, checks the result, and opens a pull request against `development`, titled `[DIAL Loop]: sync guides with PRs merged from <START> to <END>`.
 
-Run the service syncs for a release first with the companion plugin, `docs-services-release-sync`, so the service pages are current; this plugin then carries their changes into the guides.
+Run the service syncs for a release first with the companion plugin, `docs-services-release-sync`, so the service pages are current; this plugin then carries their changes into the guides once their PRs are merged, on their own or through an aggregation PR of the `docs-loop-pr-aggregation` plugin.
 
 ## Skills
 
@@ -10,14 +10,14 @@ Run the service syncs for a release first with the companion plugin, `docs-servi
 |---|---|---|
 | `/docs-services-review-and-update-relatives:align` | you | the task: principles, scope, authorized actions, the nine-step workflow |
 | `docs-services-review-and-update-relatives:sections` | Claude, or you | the four sections, the topic map from sources to guide pages, hub pages, stale-prone versions |
-| `docs-services-review-and-update-relatives:sources` | Claude | the window, the content-only source changes, the release digest, the ledger |
-| `docs-services-review-and-update-relatives:impact` | Claude | where changes touch the guides, the test, verdicts, proof, proportion, worked examples |
+| `docs-services-review-and-update-relatives:sources` | Claude | the window of PRs merged into `development`, their descriptions, the content-only source changes, the release digest, the ledger |
+| `docs-services-review-and-update-relatives:impact` | Claude | where changes touch the guides, the test, verdicts, proof, proportion, adding and removing, worked examples |
 | `docs-services-review-and-update-relatives:style` | Claude, or you | voice, readability, admonitions by section, edit patterns |
 | `docs-services-review-and-update-relatives:docs-map` | Claude, or you | what may be edited, links, frontmatter, MDX, search recipes |
 | `docs-services-review-and-update-relatives:checks` | Claude | verification and how to classify failures |
-| `docs-services-review-and-update-relatives:pr` | Claude | the open-PR check, branch, the commit that records the window, the PR body |
+| `docs-services-review-and-update-relatives:pr` | Claude | branch, commit, the `[DIAL Loop]: sync guides` title, the PR body and its list of reviewed PRs |
 
-`align` has `disable-model-invocation: true`: it commits and pushes, so only you start it. The workflow skills have `user-invocable: false`; Claude loads them during a run. The scripts in `skills/*/scripts/` use only the Python 3 standard library and `git`, and read only the checkout; no GitHub API is needed for the research.
+`align` has `disable-model-invocation: true`: it commits and pushes, so only you start it. The workflow skills have `user-invocable: false`; Claude loads them during a run. The scripts in `skills/*/scripts/` use only the Python 3 standard library and `git`. `window.py` reads the list of PRs from GitHub, with `gh` or the public API; the other scripts read only the checkout.
 
 ## Install
 
@@ -47,7 +47,7 @@ From the root of the `ai-dial` checkout:
 /docs-services-review-and-update-relatives:align
 /docs-services-review-and-update-relatives:align since 2026-11-19
 /docs-services-review-and-update-relatives:align dry run only operating-dial
-/docs-services-review-and-update-relatives:align review first since #687
+/docs-services-review-and-update-relatives:align review first since 2026-11-13
 ```
 
 The short form `/align` works too, as long as no other installed plugin or skill uses that name.
@@ -68,7 +68,7 @@ claude --plugin-dir ./.agent-plugins/plugins/docs-services-review-and-update-rel
 
 | Option | Effect |
 |---|---|
-| `since <YYYY-MM-DD>`, `since #<PR>`, `since <COMMIT>` | start the window after that point |
+| `since <YYYY-MM-DD>` | start the window on that day instead of one month back |
 | `only <SECTION>` | search and edit only `understand-dial`, `connecting-to-dial`, `building-with-dial`, or `operating-dial` |
 | `dry run` | stop after the checks, with the edits uncommitted; no branch, commit, or PR |
 | `review first` | stop for a go-ahead before the commit |
@@ -76,10 +76,17 @@ claude --plugin-dir ./.agent-plugins/plugins/docs-services-review-and-update-rel
 
 ## How the window works
 
-Each run ends with one commit, `docs(guides): align with docs and release changes through <SHA10>`, and the PR carries the same title. The next run finds that text on `development` and starts after `<SHA10>`, so no change is reviewed twice or missed. Without a previous run, the window covers the last month. A commit that adds 50 or more pages at once, such as the creation of `docs_v2/` in `#672`, is skipped as a bulk import.
+A run reviews every pull request of `epam/ai-dial` merged into `development` in the last month, whatever its title: on 2026-11-27, those merged from 2026-10-27 through 2026-11-27. That covers the DIAL Loop PRs and the PRs people opened by hand alike:
 
-A run with nothing to change opens no PR and records no end, so the next run reviews the same window again. Pass `since` to move past it.
+- a merged PR, by its merge commit;
+- a merged aggregation PR, `[DIAL Loop]: Aggregation of PRs for docs sync`, as one change; the run reads the descriptions of the source PRs it holds, which the aggregation closed without merging.
+
+It skips promotions of `main` into `development`, PRs with no docs change, its own alignment PRs, and bulk imports. PRs closed without merge, PRs merged into `main` or another branch (even when their commits reached `development` later, through a cherry-pick or a merge of `main`), PRs that an open aggregation PR still holds, and commits pushed to `development` without a PR are not in the window.
+
+The PR descriptions say what changed and which source proves it; the diffs show the exact text. The run edits a guide only for the important changes, adds a fact only where the page already covers its topic, and removes only what a PR made false. Everything else goes in the PR as reviewed, not changed, or as "Needs review".
+
+Each alignment PR lists the PRs it reviewed under "Reviewed PRs". Once it lands, the next run skips them, so two overlapping windows never review a PR twice. While an alignment PR is open, or an open aggregation PR holds one, a run stops. A run with nothing to change opens no PR, so the next run within the month reviews the same PRs again.
 
 ## What the first run will meet
 
-On 2026-11-25 the default window ran from `#672` to `#692`, with `#687` (renumbering, Redis into Valkey), `#688` (DIAL MCP Gateway), `#683` and `9eeb5d43` (Admin guide), `#666` (release 1.50), and `#692` (Chat Themes sync). The worked examples in `docs-services-review-and-update-relatives:impact` come from that window. Known "Needs review" items include the removed `dial-docker-compose/` folder that four local-setup tutorials still clone, and the Helm pages that still describe the 1.49 charts.
+On 2026-11-27 the window held seven PRs merged into `development`. Five are to review: `#683` (Admin guide), `#687` (Connecting to DIAL section, renumbering, Redis into Valkey), `#688` (DIAL MCP Gateway), `#692` (Chat Themes sync), and the aggregation `#712`, which holds 19 service syncs (`#693`–`#711`). `#681` and `#685` are skipped: they change no docs page. The release 1.50 PR (`#666`), `#677`, `#680`, and the bulk import `#672` were merged into `main`, so they are not in the window. The worked examples in `docs-services-review-and-update-relatives:impact` come from the PRs of November 2026, including `#680` and release 1.50, which were merged into `main`. Known "Needs review" items include the removed `dial-docker-compose/` folder that four local-setup tutorials still clone, and the Helm pages that still describe the 1.49 charts.

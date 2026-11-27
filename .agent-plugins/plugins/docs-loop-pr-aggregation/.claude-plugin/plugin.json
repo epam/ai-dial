@@ -1,0 +1,9 @@
+{
+  "name": "docs-loop-pr-aggregation",
+  "version": "0.1.0",
+  "description": "Collects the open pull requests of epam/ai-dial whose title starts with [DIAL Loop] into one aggregation pull request against development, titled [DIAL Loop]: Aggregation of PRs for docs sync, resolves their conflicts from the evidence, and closes the source pull requests with a link to it.",
+  "author": {
+    "name": "khshanovskyi"
+  },
+  "keywords": ["dial", "documentation", "pull-requests", "merge-conflicts", "docs-maintenance"]
+}

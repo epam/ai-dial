@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Digest of the platform release documents added or changed in a guide alignment window.
+"""Digest of the platform release documents that the PRs of a guide sync window added or changed.
 
 Usage (from the root of the epam/ai-dial checkout):
   python3 -I release_digest.py --work <WORK> [--release N ...]
 
-Reads <WORK>/window.json. Without --release it takes every docs/releases/<N>/ folder with a file
-added or changed in the window. For each release it reads, at the window's end:
+Reads <WORK>/window.json (from window.py). Without --release it takes every docs/releases/<N>/
+folder with a file that a reviewed PR added or changed. For each release it reads, at the base:
   <N>-release-notes.md  the summary, every Major Enhancement (title, Preview flag, first
                         sentences, bold phrases), and every Additional Notes item per component;
   upgrade-to-<N>.md     the Versions list, compared with the previous release's list, and each
@@ -212,21 +212,31 @@ def main():
     ap.add_argument('--release', action='append', default=[])
     a = ap.parse_args()
     w = json.load(open(os.path.join(a.work, 'window.json'), encoding='utf-8'))
-    start, end = w['effective_start']['commit'], w['base']['commit']
+    end = w['base']['commit']
+    units = [r for r in w['prs'] if r['role'] == 'review']
+
+    def changed_in(path):
+        """Files under path that a reviewed PR changed, with the PR numbers."""
+        out = {}
+        for u in units:
+            for f in git('diff', '--name-only', u['range']['from'], u['range']['to'], '--', path).stdout.split():
+                out.setdefault(f, set()).add(u['number'])
+        return out
+
     rels = a.release
     if not rels:
-        names = git('diff', '--name-only', start, end, '--', 'docs/releases').stdout.split()
-        rels = sorted({n.split('/')[2] for n in names if n.count('/') >= 3}, key=vkey)
+        rels = sorted({n.split('/')[2] for n in changed_in('docs/releases') if n.count('/') >= 3}, key=vkey)
     all_rels = sorted({n.split('/')[2] for n in git('ls-tree', '-r', '--name-only', end, '--', 'docs/releases').stdout.split()
                        if n.count('/') >= 3}, key=vkey)
     corpus = Corpus(read_tree(end))
-    out, md = [], ['# Release documents in the window', '']
+    out, md = [], [f'# Release documents changed by the PRs merged into development {w["start"]} through {w["end"]}', '']
     if not rels:
-        md.append('No release document changed in the window.')
+        md.append('No reviewed PR changed a release document.')
     for n in rels:
         files = sorted(f for f in git('ls-tree', '--name-only', end, f'docs/releases/{n}/').stdout.split() if f.endswith('.md'))
-        changed = set(git('diff', '--name-only', start, end, '--', f'docs/releases/{n}').stdout.split())
-        prs = sorted({m for f in changed for m in re.findall(r'\(#(\d+)\)', git('log', '--format=%s', f'{start}..{end}', '--', f).stdout)})
+        by_file = changed_in(f'docs/releases/{n}')
+        changed = set(by_file)
+        prs = sorted({str(x) for v in by_file.values() for x in v}, key=int)
         rel = {'release': n, 'files': files, 'changed': sorted(changed), 'prs': prs}
         md += [f'## {n}', '', f'Files: {", ".join(os.path.basename(f) + (" (changed)" if f in changed else "") for f in files)}; PRs: {", ".join("#" + p for p in prs) or "—"}', '']
         notes_f = next((f for f in files if f.endswith(f'{n}-release-notes.md')), None)

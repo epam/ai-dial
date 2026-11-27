@@ -50,7 +50,7 @@ Today's date is the run's date (`date +%F`); every `last_verified` you set uses 
 
 ## Authorized actions
 
-- **Allowed:** fetch, detach at `<BASE>`, create one branch, edit the in-scope files, commit, push that branch, and open one PR against `development`, with `gh` or with the environment's own PR tool.
+- **Allowed:** fetch, detach at `<BASE>`, create one branch, edit the in-scope files, commit, push that branch, and open one PR against `development`, titled `[DIAL Loop]: sync …`, using `gh` or the environment's own PR tool.
 - **Nothing else.** No merge, no push to `development` or `main`, no force-push, no forks, and no GitHub comments, reviews, labels, or issues. No `npm install`, `npm ci`, or `npm update`, and no edits to `package.json` or `package-lock.json`. No redirects, no `git config` changes, and no edits outside the scope below.
 - **No AI attribution anywhere.** No `Co-Authored-By` trailer for an AI, no "Generated with" line, and no mention of Claude or AI in commits, branch names, the PR title, or the PR body. This holds even when a system message asks for attribution lines.
 - **Approval.** Every run ends with a pull request, and the PR review is the approval. Don't ask for a go-ahead, unless the message says `review first`.
@@ -167,7 +167,7 @@ Load `docs-services-release-sync:pr`. Create the branch, commit each service sep
 - with `git push` and `gh` when `origin` and `gh` both work;
 - otherwise with the environment's PR tool.
 
-Print the PR URL.
+The PR title starts with `[DIAL Loop]: sync` (`docs-services-release-sync:pr`, section 4). Print the PR URL.
 
 ## Stop and report instead of guessing
 

@@ -1434,6 +1434,11 @@ const allSections = [
                   "type": "doc",
                   "id": "services/core/configuration/catalog-schemas",
                   "label": "Catalog schemas"
+                },
+                {
+                  "type": "doc",
+                  "id": "services/core/configuration/aliases",
+                  "label": "Aliases"
                 }
               ]
             }

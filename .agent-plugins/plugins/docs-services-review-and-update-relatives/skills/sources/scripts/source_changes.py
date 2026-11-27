@@ -1,21 +1,22 @@
 #!/usr/bin/env python3
-"""Ledger of the source changes in a guide alignment window.
+"""Ledger of the source changes that the PRs of a guide sync window made.
 
 Usage (from the root of the epam/ai-dial checkout):
   python3 -I source_changes.py --work <WORK>
 
-Reads <WORK>/window.json (from window.py) and compares the window's effective start with its
-end, with rename detection, over docs_v2/, docs/releases/, and sidebars-v2.js. It keeps only
-content changes: a hunk that differs in nothing but link targets, whitespace, or frontmatter is
-dropped, so a renumbering or a link repair leaves no noise.
+Reads <WORK>/window.json (from window.py) and, for each PR to review, compares the two ends of
+its change on the base, with rename detection, over docs_v2/, docs/releases/, and sidebars-v2.js.
+It keeps only content changes: a hunk that differs in nothing but link targets, whitespace, or
+frontmatter is dropped, so a renumbering or a link repair leaves no noise. A page that several PRs
+changed has one entry per PR.
 
 Writes:
   <WORK>/changes.json     one entry per changed source page, with the facts below
   <WORK>/changes.md       the same, to read
   <WORK>/diffs/NNN.diff   the content-only diff of entry NNN
 
-Facts per page: status (added, removed, moved, changed), the commits and PR numbers that touched
-it, the sections whose text changed (anchors), headings removed, added, or renamed, backticked
+Facts per page: status (added, removed, moved, changed), the PR, and for an aggregation PR the
+source PRs that brought the page in, the sections whose text changed (anchors), headings removed, added, or renamed, backticked
 identifiers removed or added (a removed one is "gone" when no source page has it any more),
 table rows changed, removed, or added (keyed by their first cell), and version numbers that
 disappeared or appeared. Pages in the four target sections are listed apart, as context; they
@@ -208,14 +209,33 @@ def landing_rows(text):
     return rows
 
 
-def commits_for(start, end, *paths):
-    out = git('log', '--first-parent', '--format=%h%x1f%s', f'{start}..{end}', '--', *[p for p in paths if p]).stdout
-    res = []
-    for l in filter(None, out.split('\n')):
-        sha, subj = l.split('\x1f', 1)
-        m = re.search(r'\(#(\d+)\)\s*$', subj)
-        res.append({'sha': sha, 'pr': int(m[1]) if m else None, 'subject': subj[:100]})
+def commits_for(unit, *paths):
+    """The PR, and for an aggregation PR the source PRs whose merge brought one of the paths in."""
+    paths = {p for p in paths if p}
+    res = [{'sha': unit['landing']['commit'][:10], 'pr': src['number'], 'subject': src['title'][:100]}
+           for src in unit.get('sources', []) if src.get('files') and paths & set(src['files'])]
+    res.append({'sha': unit['landing']['commit'][:10], 'pr': unit['number'], 'subject': unit['title'][:100]})
     return res
+
+
+def name_status(start, end):
+    raw = git('diff', '-M30%', '--name-status', '-z', start, end, '--', 'docs_v2', 'docs/releases', 'sidebars-v2.js').stdout.split('\0')
+    items, i = [], 0
+    while i < len(raw) and raw[i]:
+        st = raw[i]
+        if st[0] in 'RC':
+            items.append((st[0], raw[i + 1], raw[i + 2]))
+            i += 3
+        elif st[0] == 'D':
+            items.append(('D', raw[i + 1], None))
+            i += 2
+        elif st[0] == 'A':
+            items.append(('A', None, raw[i + 1]))
+            i += 2
+        else:
+            items.append((st[0], raw[i + 1], raw[i + 1]))
+            i += 2
+    return items
 
 
 def analyse(start, end, status, old, new, corpus_ids):
@@ -292,91 +312,80 @@ def main():
     ap.add_argument('--work', required=True)
     a = ap.parse_args()
     w = json.load(open(os.path.join(a.work, 'window.json'), encoding='utf-8'))
-    start, end = w['effective_start']['commit'], w['base']['commit']
+    base = w['base']['commit']
+    units = [r for r in w['prs'] if r['role'] == 'review']
     os.makedirs(os.path.join(a.work, 'diffs'), exist_ok=True)
 
-    raw = git('diff', '-M30%', '--name-status', '-z', start, end, '--', 'docs_v2', 'docs/releases', 'sidebars-v2.js').stdout.split('\0')
-    items, i = [], 0
-    while i < len(raw) and raw[i]:
-        st = raw[i]
-        if st[0] in 'RC':
-            items.append((st[0], raw[i + 1], raw[i + 2]))
-            i += 3
-        else:
-            items.append((st[0], raw[i + 1] if st[0] == 'D' else None, raw[i + 1]))
-            if st[0] == 'D':
-                items[-1] = ('D', raw[i + 1], None)
-            elif st[0] == 'A':
-                items[-1] = ('A', None, raw[i + 1])
-            else:
-                items[-1] = (st[0], raw[i + 1], raw[i + 1])
-            i += 2
-
-    tree = read_tree(end, ['docs_v2', 'docs/releases'])
+    tree = read_tree(base, ['docs_v2', 'docs/releases'])
     corpus_ids = set()
     for path, text in tree.items():
         if section_name(path) not in TARGET_NAMES:
             corpus_ids |= ids_in(text.split('\n'))
     landing = landing_rows(tree.get(next((p for p in tree if re.match(r'docs_v2/\d+\.services/0\.index\.md$', p)), ''), ''))
-    renamed_into = {os.path.dirname(n) for s, o, n in items if s == 'R' and n}
-
-    entries, targets, other = [], [], {'images_added': 0, 'images_removed': 0, 'menu_changed': False, 'non_md': []}
+    entries, targets, other = [], [], {'images_added': 0, 'images_removed': 0, 'menu_changed': [], 'non_md': []}
     nid = 0
-    for st, old, new in items:
-        path = new or old
-        if path == 'sidebars-v2.js':
-            other['menu_changed'] = True
-            continue
-        if not path.endswith('.md'):
-            if re.search(r'\.(png|jpe?g|gif|svg|webp)$', path, re.I):
-                other['images_added' if st == 'A' else 'images_removed' if st == 'D' else 'images_added'] += 1 if st in 'AD' else 0
-            else:
-                other['non_md'].append(f'{st} {path}')
-            continue
-        is_target = section_name(path) in TARGET_NAMES
-        e, hunks = analyse(start, end, st, old, new, corpus_ids)
-        e['commits'] = commits_for(start, end, old, new)
-        if is_target:
-            targets.append({k: e.get(k) for k in ('status', 'kind', 'old', 'new', 'title', 'commits', 'headings_removed', 'headings_renamed', 'sections_changed')})
-            continue
-        if e['kind'] == 'added':
-            m = re.match(r'docs_v2/\d+\.services/(\d+\.[\w-]+)/0\.index\.md$', path)
-            if m and os.path.dirname(path) not in renamed_into:
-                name, desc = landing.get(m[1], (e['title'], ''))
-                e['new_service'] = {'folder': m[1], 'name': name, 'landing_description': desc}
-        nid += 1
-        e['id'] = nid
-        if hunks:
-            fn = os.path.join(a.work, 'diffs', f'{nid:03d}.diff')
-            with open(fn, 'w', encoding='utf-8') as f:
-                f.write(f'# {e["status"]} {old or ""} -> {new or ""}\n')
-                f.write('# commits: ' + '; '.join(f'{c["sha"]} {c["subject"]}' for c in e['commits']) + '\n')
-                for h in hunks:
-                    f.write(f'@@ old L{h["old_line"]} new L{h["new_line"]} section #{h["section"]}\n')
-                    f.writelines(f'-{l}\n' for l in h['old'])
-                    f.writelines(f'+{l}\n' for l in h['new'])
-            e['diff_file'] = fn
-        entries.append(e)
+    for unit in units:
+        start, end = unit['range']['from'], unit['range']['to']
+        items = name_status(start, end)
+        renamed_into = {os.path.dirname(n) for s, o, n in items if s == 'R' and n}
+        for st, old, new in items:
+            path = new or old
+            if path == 'sidebars-v2.js':
+                other['menu_changed'].append(unit['number'])
+                continue
+            if not path.endswith('.md'):
+                if re.search(r'\.(png|jpe?g|gif|svg|webp)$', path, re.I):
+                    other['images_added' if st == 'A' else 'images_removed' if st == 'D' else 'images_added'] += 1 if st in 'AD' else 0
+                else:
+                    other['non_md'].append(f'{st} {path} (#{unit["number"]})')
+                continue
+            is_target = section_name(path) in TARGET_NAMES
+            e, hunks = analyse(start, end, st, old, new, corpus_ids)
+            e['unit'] = unit['number']
+            e['commits'] = commits_for(unit, old, new)
+            if is_target:
+                targets.append({k: e.get(k) for k in ('status', 'kind', 'old', 'new', 'title', 'commits', 'headings_removed', 'headings_renamed', 'sections_changed')})
+                continue
+            if e['kind'] == 'added':
+                m = re.match(r'docs_v2/\d+\.services/(\d+\.[\w-]+)/0\.index\.md$', path)
+                if m and os.path.dirname(path) not in renamed_into:
+                    name, desc = landing.get(m[1], (e['title'], ''))
+                    e['new_service'] = {'folder': m[1], 'name': name, 'landing_description': desc}
+            nid += 1
+            e['id'] = nid
+            if hunks:
+                fn = os.path.join(a.work, 'diffs', f'{nid:03d}.diff')
+                with open(fn, 'w', encoding='utf-8') as f:
+                    f.write(f'# {e["status"]} {old or ""} -> {new or ""}\n')
+                    f.write('# PRs: ' + '; '.join(f'#{c["pr"]} {c["subject"]}' for c in e['commits']) + f' (landed as {e["commits"][-1]["sha"]})\n')
+                    for h in hunks:
+                        f.write(f'@@ old L{h["old_line"]} new L{h["new_line"]} section #{h["section"]}\n')
+                        f.writelines(f'-{l}\n' for l in h['old'])
+                        f.writelines(f'+{l}\n' for l in h['new'])
+                e['diff_file'] = fn
+            entries.append(e)
 
     # A removed page and an added page with the same title in the same area were rewritten in a
     # new place: rename detection misses them when most of the text changed.
-    added = {(e['area'], e['title']): e for e in entries if e['kind'] == 'added' and e['title']}
+    added = {(e['unit'], e['area'], e['title']): e for e in entries if e['kind'] == 'added' and e['title']}
     for e in entries:
-        if e['kind'] == 'removed' and (e['area'], e['title']) in added:
-            twin = added[(e['area'], e['title'])]
+        if e['kind'] == 'removed' and (e['unit'], e['area'], e['title']) in added:
+            twin = added[(e['unit'], e['area'], e['title'])]
             twin['kind'], twin['old'] = 'rewritten', e['old']
             e['kind'], e['rewritten_as'] = 'rewritten-away', twin['new']
-    entries.sort(key=lambda e: (area_order(e['area']), e.get('new') or e.get('old')))
-    out = {'window': {'start': start, 'end': end, 'base_ref': w['base_ref']}, 'entries': entries,
+    entries.sort(key=lambda e: (area_order(e['area']), e.get('new') or e.get('old'), e['unit']))
+    out = {'window': {'start': w['start'], 'end': w['end'], 'base_ref': w['base_ref'], 'base': base,
+                      'prs': [u['number'] for u in units]}, 'entries': entries,
            'target_changes': targets, 'other': other}
     json.dump(out, open(os.path.join(a.work, 'changes.json'), 'w', encoding='utf-8'), indent=1)
 
     kinds = {}
     for e in entries:
         kinds[e['kind']] = kinds.get(e['kind'], 0) + 1
-    md = [f'# Source changes {start[:10]}..{end[:10]}', '',
-          'Counts: ' + ', '.join(f'{k} {v}' for k, v in sorted(kinds.items())) +
-          f'; target pages changed in the window: {len(targets)}', '']
+    md = [f'# Source changes in the PRs merged into development {w["start"]} through {w["end"]}', '',
+          'PRs: ' + (', '.join(f'#{u["number"]}' for u in units) or 'none') + '. Counts: '
+          + ', '.join(f'{k} {v}' for k, v in sorted(kinds.items())) +
+          f'; target pages changed by these PRs: {len(targets)}', '']
     QUIET = ('links-only', 'frontmatter-only', 'moved', 'rewritten-away')
     quiet = [e for e in entries if e['kind'] in QUIET]
     cur = None
@@ -390,7 +399,7 @@ def main():
         md.append(f'### [{e["id"]}] {e["kind"]}: {e.get("new") or e.get("old")}')
         if e['status'] == 'R':
             md.append(f'- moved from `{e["old"]}`')
-        md.append(f'- title: {e["title"]}; commits: {prs}')
+        md.append(f'- title: {e["title"]}; PRs: {prs}')
         if e.get('new_service'):
             ns = e['new_service']
             md.append(f'- **new service** {ns["name"]} (`{ns["folder"]}`): {ns["landing_description"]}')
@@ -425,7 +434,7 @@ def main():
            f'{len(quiet)} pages changed only links, whitespace, or frontmatter, or moved without a content change:', '']
     md += [f'- {e["kind"]}: `{e.get("new") or e.get("old")}`' + (f' (from `{e["old"]}`)' if e['status'] == 'R' else '')
            + (f' (now `{e["rewritten_as"]}`)' if e.get('rewritten_as') else '') for e in quiet]
-    md += ['', '## Target pages changed in the window (context, not sources)', '']
+    md += ['', '## Target pages these PRs changed (context, not sources)', '']
     for t in targets:
         prs = ', '.join(sorted({f'#{c["pr"]}' if c['pr'] else c['sha'] for c in t['commits']}))
         extra = ''
@@ -433,10 +442,10 @@ def main():
             extra = '; headings removed: ' + ', '.join('#' + h['anchor'] for h in t['headings_removed'])
         md.append(f'- {t["kind"]}: `{t.get("new") or t.get("old")}` ({prs}){extra}')
     md += ['', '## Other', '', f'- images added or removed: {other["images_added"]} / {other["images_removed"]}',
-           f'- sidebars-v2.js changed: {other["menu_changed"]}'] + [f'- {x}' for x in other['non_md']]
+           '- sidebars-v2.js changed by: ' + (', '.join(f'#{n}' for n in other['menu_changed']) or 'none')] + [f'- {x}' for x in other['non_md']]
     open(os.path.join(a.work, 'changes.md'), 'w', encoding='utf-8').write('\n'.join(md) + '\n')
     print(f'{len(entries)} source pages: ' + ', '.join(f'{k} {v}' for k, v in sorted(kinds.items())))
-    print(f'{len(targets)} target pages changed in the window (context)')
+    print(f'{len(targets)} target pages changed by these PRs (context)')
     print(f'wrote {os.path.join(a.work, "changes.md")} and {os.path.join(a.work, "changes.json")}')
 
 
