@@ -1,0 +1,15 @@
+{
+  "name": "docs-chat-guide-update-plan",
+  "version": "0.1.0",
+  "description": "Plans the DIAL Chat User Guide updates that the stable releases of DIAL Chat and DIAL Quick Apps call for, as a work order in one draft pull request.",
+  "author": {
+    "name": "khshanovskyi"
+  },
+  "keywords": [
+    "dial",
+    "documentation",
+    "user-guide",
+    "release-notes",
+    "docs-maintenance"
+  ]
+}
