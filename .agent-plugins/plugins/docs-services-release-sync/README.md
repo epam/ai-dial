@@ -71,7 +71,7 @@ claude --plugin-dir ./.agent-plugins/plugins/docs-services-release-sync \
   -p "https://github.com/epam/ai-dial-chat-themes"
 ```
 
-Every run ends with a pull request against `development`, and the PR review is the approval. Two words change that:
+Every run ends with a pull request against `development`, titled `[DIAL Loop]: sync DIAL <SERVICE> docs with <VERSION>`, and the PR review is the approval. The `[DIAL Loop]` prefix is how the `docs-loop-pr-aggregation` plugin finds the PR to collect it with the others. Two words change that:
 
 - **`review first`** stops for a go-ahead before the first commit.
 - **`dry run`** stops after the checks, with no branch, commit, or PR.
