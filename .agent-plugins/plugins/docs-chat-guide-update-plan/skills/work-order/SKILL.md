@@ -1,19 +1,19 @@
 ---
 name: work-order
-description: Use when turning the release researchers' findings into the DIAL Chat User Guide work order, the body of the plan pull request. Covers merging findings across repositories, checking each against the page at the base, the six item types (retake, add, or remove a screenshot; replace, add, or remove text), the exact item format plan_checks.py parses, UI paths, screenshot capture rules for writers, the Changes in the releases summary with links, Reviewed no guide impact, Needs review, Verification, ordering, and size.
+description: Use when turning the release researchers' findings into the DIAL Chat User Guide work order, the file the plan pull request adds as .research/chat-user-guide-<DATE>.md, and when writing that PR's short body. Covers merging findings across repositories, checking each against the page at the base, the six item types (retake, add, or remove a screenshot; replace, add, or remove text), the exact item format plan_checks.py parses, UI paths, screenshot capture rules for writers, the work order file (Summary, Manual updates, Changes in the releases with links, Reviewed no guide impact, Needs review), ordering, and the PR body (Summary with the link to the work order and the not-ready line, Verification).
 user-invocable: false
 ---
 
 # The work order
 
-The work order is the pull request's body. Writers follow it to update `docs_v2/8.chat-user-guide/`. They take each screenshot, edit each line, tick the item's box, and push to the PR's branch. It has to be exact enough that a writer who hasn't read the releases can do every item without research, and short enough to scan.
+The work order is a Markdown file that the plan pull request adds as `.research/chat-user-guide-<DATE>.md`. Writers follow it to update `docs_v2/8.chat-user-guide/`. They take each screenshot, edit each line, tick the item's box in the file, and push to the PR's branch. It has to be exact enough that a writer who hasn't read the releases can do every item without research, and short enough to scan.
 
 It has two parts the writers asked for:
 
 - **Manual updates**: what to change, where, and how, item by item.
 - **Changes in the releases**: what changed for users and why it matters to the guide, with the links that show it.
 
-Write it to `<WORK>/pr-body.md`, then check it with `plan_checks.py` (`docs-chat-guide-update-plan:checks`).
+Write it to `<WORK>/work-order.md` at step 6, then check it with `plan_checks.py` (`docs-chat-guide-update-plan:checks`). Step 9 copies it into the branch unchanged (`docs-chat-guide-update-plan:pr`, section 4). The PR body is separate and short (section 7): it links the file and holds Verification.
 
 ## 1. From findings to items
 
@@ -75,11 +75,13 @@ The Summary carries these once, so items don't repeat them:
 - Crop to the screen, dialog, or menu the item names, with a margin on every side. Match the size and framing of the image you replace.
 - Save as PNG under the file name the item gives. A retake overwrites the old file.
 
-## 6. The body
+## 6. The work order file
 
-Omit nothing: a section with nothing in it says "None." `plan_checks.py` requires these six headings, in this order.
+Omit nothing: a section with nothing in it says "None." `plan_checks.py` requires these five headings, in this order, under one H1.
 
 ````markdown
+# DIAL Chat User Guide update proposal: releases from <START> to <DATE>
+
 ## Summary
 
 <One or two sentences: the releases reviewed, how many items, and the pages they touch.>
@@ -91,11 +93,11 @@ Omit nothing: a section with nothing in it says "None." `plan_checks.py` require
 
 Release candidates (`-rc.N`) and backports to older lines were not reviewed. The latest DIAL platform release, <N>, pins <VERSIONS>; the plan covers newer stable releases too.
 
-**How to use this PR.** Check out `<BRANCH>`. For each item, make the change, tick its box, and push to this branch. When every box is ticked, mark the PR ready for review. The commit on this branch sets `last_verified: <DATE>` on every page of the guide, so merging it records that the guide matches the releases through <DATE>.
+**How to use this file.** Work on the branch of the pull request that adds this file. For each item, make the change, tick its box here (`- [ ]` becomes `- [x]`), and push to that branch. When every box is ticked, mark the PR ready for review. The same pull request sets `last_verified: <DATE>` on every page of the guide, so merging it records that the guide matches the releases through <DATE>.
 
 <The screenshot rules of section 5.>
 
-<Open PRs that change the guide, from `docs-chat-guide-update-plan:pr` section 1, if any: their merge can move the lines below.>
+<Open PRs that change the guide, from `docs-chat-guide-update-plan:pr` section 1, if any: their merge can move the lines below. Or that open PRs couldn't be checked.>
 
 ## Manual updates
 
@@ -126,21 +128,48 @@ Release candidates (`-rc.N`) and backports to older lines were not reviewed. The
 ## Needs review
 
 - **<What>** (<page or "no page">): <why it needs a decision, and the source>
-
-## Verification
-
-- `python3 -I plan_checks.py --body <WORK>/pr-body.md --title '<TITLE>'`: <result>
-- `python3 -I plan_checks.py … --base <BASE> --date <DATE>`: <result>
-- `npm run lint:frontmatter`: <result, or "not run: no node_modules">
 ````
 
 - **Order:** items by page in menu order (the inventory's order), and within a page by line.
 - **Changes in the releases** lists every user-visible change, including the ones the guide already matches. Each links the PR and the release. A change behind a toggle names the toggle and its default. One bullet per change; a long run of fixes becomes one bullet with their PRs.
 - **Reviewed, no guide impact** gives the reason for each group. Cite PRs as `epam/<REPO>#<N>`, because a bare `#<N>` links to `epam/ai-dial`.
-- **Size:** GitHub allows 65,536 characters. When the body grows past about 60,000, shorten "Reviewed, no guide impact" to counts with links to the releases. Never shorten Manual updates.
+- **No Verification here.** The file is final at step 7 and goes into the branch unchanged; the check results go into the PR body.
 - **Wording:** plain instructions for writers, in the guide's terms. No praise or hedging, and no mention of how the plan was made.
 
-## 7. Examples
+## 7. The PR body
+
+Write it to `<WORK>/pr-body.md` at step 9, after the branch check (`docs-chat-guide-update-plan:pr`, section 5). It is a pointer to the work order, not a copy: the items live only in the file, so the two never disagree. `plan_checks.py` requires these two headings, in this order.
+
+````markdown
+## Summary
+
+<Only when the work order has manual updates and the PR route can't open a draft:>
+**Not ready to merge.** Writers still have <N> items to do in the work order. When every box is ticked, delete this line.
+
+<One or two sentences: the releases reviewed per repository (baseline → target), how many items on how many pages, and how many entries under "Needs review".>
+
+**Work order:** [`<RESEARCH>`](https://github.com/epam/ai-dial/blob/<BRANCH>/<RESEARCH>). Make each change on this branch, tick its box in that file, and push. When every box is ticked, mark the PR ready for review.
+
+| Page | Items |
+|---|---|
+| `3.catalog/2.agents.md` | 7 |
+
+This PR sets `last_verified: <DATE>` on all <N> pages of the guide and adds the work order. <When `<BASE>` wasn't fetched: the local `development` it started from, and its commit.>
+
+## Verification
+
+- `python3 -I plan_checks.py --work-order <WORK>/work-order.md --title '<TITLE>'` (step 7): <result>
+- `python3 -I plan_checks.py --work-order <RESEARCH> … --base <BASE> --date <DATE>`: <result>
+- `python3 -I plan_checks.py --work-order <RESEARCH> --body <WORK>/pr-body.md …`: <result>
+- `npm run lint:frontmatter`: <result, or "not run: no node_modules">
+````
+
+- With no manual updates, the Summary says the PR records that the guide matches the releases through `<DATE>`, the table says "None.", and the work order link stays.
+- The link to the work order is the one link in the body to `epam/ai-dial` at a branch; the tag rule of section 4 applies to the work order, not here.
+- **Paths in Verification:** write the run's folder as the literal `<WORK>`, never the absolute path `mktemp -d` printed. That path is local to the run, and it can name the tool the session runs in, which the attribution check rejects.
+- **Wording:** the same as the work order's. No item text: a reviewer opens the file.
+
+## 8. Examples
 
 From the review of releases through 2026-11-27, at `docs_v2/8.chat-user-guide/3.catalog/2.agents.md`:
 

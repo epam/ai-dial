@@ -3,12 +3,12 @@
   "owner": {
     "name": "khshanovskyi"
   },
-  "description": "A one-plugin marketplace for the DIAL docs plugin that plans the DIAL Chat User Guide updates that the stable releases of DIAL Chat and DIAL Quick Apps call for, as a work order in one draft pull request.",
+  "description": "A one-plugin marketplace for the DIAL docs plugin that plans the DIAL Chat User Guide updates that the stable releases of DIAL Chat and DIAL Quick Apps call for, as a work order file in .research/ added by one pull request.",
   "plugins": [
     {
       "name": "docs-chat-guide-update-plan",
       "source": "./",
-      "description": "Plans the DIAL Chat User Guide updates that the stable releases of DIAL Chat and DIAL Quick Apps call for, as a work order in one draft pull request."
+      "description": "Plans the DIAL Chat User Guide updates that the stable releases of DIAL Chat and DIAL Quick Apps call for, as a work order file in .research/ added by one pull request."
     }
   ]
 }
